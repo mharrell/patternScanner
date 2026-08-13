@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets — never commit API keys
+.env
+*.env
+
+# Cached/downloaded market data (large)
+data/cache/
+
+# IDE
+.idea/
+.vscode/
