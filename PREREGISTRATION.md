@@ -360,3 +360,138 @@ changes the conclusion. Project consequence per DESIGN_BRIEF §1: the third
 completed campaign is again a rigorous null; Phase 5 remains not
 triggered. Next candidate in the ledger priority order: E-03 (MACD-cross
 breakout rejection).
+
+---
+
+# Pre-registration #4 — momentum horizon follow-up (N=20 primary)
+
+**Frozen:** 2026-08-14 · **Status:** FROZEN — no parameter may be changed
+after this date. Any change is a new hypothesis requiring a fresh
+pre-registration and a fresh test window (DESIGN_BRIEF.md §4, §6).
+
+**Origin — a measurement-derived follow-up, not a direct corpus claim.** The
+pre-declared exploratory N-grids of campaigns #1/#2 (pre-reg #1 §3, #2 §3)
+showed the *same entry sets* earning more at longer holds on OOS 2016–2025:
+H3 rank-1 −0.19% / −0.03% / +0.28% / **+1.63%** at N=1/3/5/10; Shape A
++0.40% (N=10) → **+0.95%** (N=20); Shape C +0.62% → **+1.39%**; Shape B flat
+at ≈ 0. At N=10, H3's +1.63% exceeded its era-matched baselines (random
++0.64%, SPY +0.58%) by ~1pp. Exploratory results never drive a verdict —
+this pre-registration promotes the horizon-momentum reading to a primary
+claim, with fresh frozen parameters, measured on the same frozen
+detections. It supersedes the "next = E-03" note in pre-reg #3 §8 (E-03's
+crossing reading was already measured there as a sensitivity with no
+signal; the reorder decision is Mr. Mike's 2026-08-14 campaign choice).
+
+## 1. Translation — claim as motivated → as measured
+
+| As motivated | As measured |
+|---|---|
+| "Winners keep winning; holding longer earns more" | Forward return of the same frozen entry set at N=20 primary: `(c_{t+20} − o_{t+1}) / o_{t+1} − 0.15%` cost |
+| "The N-grid rise is real, not era drift" | Family 1 (absolute): N=20 excess vs era-matched baselines — random entries and same-ticker buy-and-hold (both pay cost; SPY raw, reported not gating) |
+| "Longer holds compound the same trades" | Family 2 (continuation): paired N=20 vs N=5 on **identical entries**, paired bootstrap over entries |
+| Entry sets | Shape A, Shape C, H3 rank-1 cohort (pre-reg #2 / #1 frozen detections) |
+
+Shape B is **excluded from primary hypotheses by pre-registration** (not by
+result): its exploratory record is flat at both measured horizons (−0.01% at
+N=10 and N=20). It is measured as an exploratory row only, no verdict —
+including it as a primary slot would be post-hoc hypothesis selection.
+
+## 2. Hypotheses (two families, each Holm-corrected across its 3 slots at α=0.05, OOS only)
+
+Family 1 — absolute at N=20 vs baselines (p_input = max(p_random, p_same)):
+
+- **M-A20** — Shape A detections at N=20 beat era-matched baselines.
+- **M-C20** — Shape C detections at N=20 beat era-matched baselines.
+- **M-H20** — H3 rank-1 detections at N=20 beat era-matched baselines.
+
+Family 2 — continuation (paired, identical entries):
+
+- **M-Acont** — Shape A entries: mean(r20) − mean(r5) > 0.
+- **M-Ccont** — Shape C entries: same.
+- **M-Hcont** — H3 rank-1 entries: same.
+
+## 3. Measurement (identical protocol to #1–3 where shared)
+
+- Entry open t+1, exit close t+N; era by signal date; OOS 2016–2025 verdicts,
+  IS record only; 0.15% round-trip on every strategy trade; baselines as in
+  pre-reg #1 §3 (random / same-ticker pay cost, SPY raw); bootstrap B=1000,
+  seed 20260813, two-sided p; Holm per family on OOS only.
+- Family 2 paired diffs: per entry `d = r20 − r5` on entries valid at both
+  horizons; bootstrap resamples the entry set; p = 2·min(Pr(d̄ ≤ 0), Pr(d̄ ≥ 0)).
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+| Outcome | Rule |
+|---|---|
+| **Edge** | Holm-corrected mean excess vs same-ticker B&H excludes 0 (positive) AND vs random-entries excludes 0 (Family 1); paired mean diff CI excludes 0 (positive) at Holm gate (Family 2) |
+| **No edge** | OOS point estimate ≤ 0, or CI includes 0 with ≥ 100 detections |
+| **Inconclusive** | < 100 detections in OOS — reported, never spun |
+
+## 5. Data & bias handling (§7 checklist)
+
+- **No new data:** frozen inputs only — `detections_v1.csv` (sha
+  9b44f66160130c3a…), `pillar_detections_v1.csv` (d5f80746f14f53fd…),
+  universe snapshot and bars exactly as cached. No fetch, no edits.
+- **Overlapping-window dependence:** at N=20 consecutive detections on the
+  same ticker share exit bars; the bootstrap resamples entries and preserves
+  the dependence structure, but effective independence < nominal. Documented,
+  not adjusted — same engine as #1–3 (Phase-3 engine c7421fbf… frozen, never
+  modified).
+- **Detection clustering:** momentum runs cluster detections on one ticker;
+  addressed by the dedupe-20 sensitivity (no verdicts).
+- **Look-ahead:** unchanged (signal ≤ t, entry open t+1). Survivorship: same
+  documented caveat — a null is strengthened, a positive requires historical
+  constituents.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+- N=40 absolute and continuation (same entries).
+- Dedupe-20 (one detection per ticker per 20-bar window) at N=20.
+- Per-decade OOS breakdown (2016–2019 / 2020–2025).
+- Shape B at N=20 (absolute only, no verdict).
+- Full per-entry metric tables (hit rate, Sharpe, maxDD) at N=20.
+
+## 7. Freeze
+
+- Frozen 2026-08-14, before any measurement. Registered against:
+  PREREGISTRATION #4 · shapes A/C + H3 rank-1 · N=20 primary · two verdict
+  families · baselines and verdict rules identical to #1–3.
+- Amendments require a new pre-registration and a fresh window. Exploratory
+  results may be reported but never drive a verdict or a claim.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+Measured 2026-08-14 with the frozen parameters above. **Family 1 (absolute
+at N=20 vs era-matched baselines): NO EDGE × 3** — A n=5,646 +0.95%
+(p_input 0.61), C n=364 +1.39% (p_input 0.88), H3 n=2,494 +3.19% (p_input
+0.47, Holm gate 0.0167). The H3 row is the project's most interesting
+near-miss: **significantly above random entries (+2.00pp, p=0.004) and SPY
+(+2.00pp, p=0.004) but indistinguishable from same-ticker buy-and-hold
+(+0.66pp, p=0.47)** — the selection adds nothing over owning the ticker.
+
+**Family 2 (continuation, paired N=20 vs N=5 on identical entries): EDGE ×
+3 — the project's first EDGE verdicts**, recorded exactly per the frozen
+rule: A diff +1.03pp (CI +0.66..+1.61, p<0.001), C +1.15pp (CI +0.10..+2.17,
+p=0.038), H3 +2.91pp (CI +1.78..+4.31, p<0.001) — after these signals the
+entry names kept moving up from bar 5 to bar 20, significantly, on all
+three entry sets (the paired diff is exactly the 15-bar close-to-close
+return after bar 5; cost cancels in the difference).
+
+How the two families read together: F1's same-ticker row explains F2 — the
+continuation gain is the era's small-cap 2–4-week drift available to any
+holder of the entry names, not edge from the patterns' selection, which F1
+shows is null (selection vs same-ticker: all three CIs include 0). Per
+DESIGN_BRIEF §1 the pattern-vs-chance trigger test is Family 1 and it is
+null → **Phase 5 remains not triggered**. The F2 EDGE verdicts stand as
+recorded; the interpretation is not the verdict. Verdicts written to
+CLAIMS_LEDGER §D.6; full report in `data/cache/momentum_measure_report.md`
+(+ `momentum_measure_results.json`).
+
+Exploratory sensitivities (N=40, dedupe-20, per-decade, Shape B) are
+reported there with no verdicts — all consistent with the primary result
+(N=40 continuation H3 +7.11pp; dedupe-20 H3 +2.91%; H3 per-decade +1.30% →
++4.47%; Shape B flat −0.01%, the pre-registered exclusion validated).
+Input fingerprints: detections 9b44f66160130c3a…, pillar detections
+d5f80746f14f53fd…, engine c7421fbf… imported unchanged; outputs
+deterministic (results d4b91fd5…, report 838bf373…, verified byte-identical
+across two runs and independently recomputed row-by-row from bars).

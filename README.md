@@ -4,21 +4,27 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Three pre-registered campaigns are measured, all **rigorous nulls**.
-**Shapes A/B/C** (pre-reg #2): all **NO EDGE** out-of-sample (2016–2025,
-N=10, Holm-corrected; Shape B significantly *below* its baselines).
-**Pillars H1–H3** (pre-reg #1): **H3 NO EDGE** at the frozen N=1 — the
-day-paired rank-1-vs-rank-2–10 claim test is precisely null (+0.00pp,
-p=0.99); **H1/H2 INCONCLUSIVE by count floor** — the AND-combined screens
-fired 7/6 times in 26 years (0 in OOS), untestable as daily-bar filters.
-**Two-filter veto** (pre-reg #3, E-01/E-04): **NO EDGE in both verdict
-families, all three shapes** — the veto (MACD ≥ 0 and no high-volume red
-candle) is a trade-count reducer, not an edge enhancer; on A/C it cuts the
-better trades. Per the brief §1, Phase 5 (paper trading) is not triggered.
-Verdicts: [CLAIMS_LEDGER §B.5 / §D.5 / §E.5](CLAIMS_LEDGER.md); reports:
+Four pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
+significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
+**H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
+test is precisely null (+0.00pp, p=0.99); **H1/H2 INCONCLUSIVE by count
+floor** — the AND-combined screens fired 7/6 times in 26 years (0 in OOS),
+untestable as daily-bar filters. **Two-filter veto** (pre-reg #3,
+E-01/E-04): **NO EDGE in both verdict families, all three shapes** — the
+veto (MACD ≥ 0 and no high-volume red candle) is a trade-count reducer,
+not an edge enhancer; on A/C it cuts the better trades. **Momentum horizon**
+(pre-reg #4, N=20): Family 1 (absolute) **NO EDGE × 3** — selection adds
+nothing over same-ticker buy-and-hold; Family 2 (paired continuation,
+N=20 vs N=5) **EDGE × 3** — after these signals the entry names kept
+drifting up 5→20 bars (the project's first EDGE verdicts; the pattern-vs-
+chance trigger test is Family 1, still null). Per the brief §1, Phase 5
+(paper trading) is **not triggered**. Verdicts:
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6](CLAIMS_LEDGER.md); reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
-`data/cache/veto_measure_report.md`. Next candidate from the ledger:
-E-03 (MACD-cross breakout rejection).
+`data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`.
+Next candidates from the ledger: momentum follow-ups (per-decade drift,
+N=40 as primary) or E-03 (MACD-cross breakout rejection).
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -30,7 +36,8 @@ E-03 (MACD-cross breakout rejection).
   measurement. Pre-registration #2: shape detectors A/B/C (parameters,
   horizon N=10, OHLC handling), frozen 2026-08-13 before any measurement.
   Pre-registration #3: the two-filter veto (E-01/E-04), frozen 2026-08-14.
-  Verdicts return to the ledger.
+  Pre-registration #4: the momentum horizon follow-up (N=20 primary),
+  frozen 2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

@@ -20,6 +20,8 @@ data/cache/*
 !data/cache/pillar_measure_results.json
 !data/cache/veto_measure_report.md
 !data/cache/veto_measure_results.json
+!data/cache/momentum_measure_report.md
+!data/cache/momentum_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

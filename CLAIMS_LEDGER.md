@@ -159,6 +159,61 @@ would need a new pre-registration and a fresh window.
 
 ---
 
+## D.6 Momentum horizon follow-up — pre-registration #4 campaign
+
+**Measurement-derived, not a direct corpus claim** — promoted from the
+pre-declared exploratory N-grids of pre-regs #1/#2 (same entries, forward
+returns rising with horizon: H3 −0.19%/−0.03%/+0.28%/+1.63% at N=1/3/5/10;
+A +0.40%→+0.95%, C +0.62%→+1.39% at N=10→20). Frozen 2026-08-14 before any
+measurement: N=20 primary, two verdict families, each Holm-corrected across
+A/C/H3 at α=0.05, OOS 2016–2025, same engine and baselines as #1–3. Full
+report: `data/cache/momentum_measure_report.md` (+
+`momentum_measure_results.json`).
+
+**Family 1 — absolute at N=20 (pattern vs era-matched baselines): all NO
+EDGE.** A n=5,646 +0.95% (p_input 0.61); C n=364 +1.39% (p_input 0.88);
+H3 n=2,494 +3.19% (p_input 0.47, Holm gate 0.0167). The H3 row is the
+project's most interesting near-miss: **significantly above random entries
+(+2.00pp, p=0.004) and SPY (+2.00pp, p=0.004), but indistinguishable from
+same-ticker buy-and-hold (+0.66pp, p=0.47, CI −0.86..+2.44pp)** — the
+selection adds nothing over simply owning the ticker.
+
+**Family 2 — continuation (paired N=20 vs N=5 on identical entries): EDGE ×
+3 — the project's first EDGE verdicts, recorded exactly per the frozen
+rule** (Holm-rejected + paired-diff CI excluding 0, positive):
+
+| entry set | n pairs | mean r5 | mean r20 | diff | 95% CI | p | verdict |
+|---|---|---|---|---|---|---|---|
+| A | 5,646 | −0.08% | +0.95% | **+1.03pp** | +0.66..+1.61pp | <0.001 | EDGE |
+| C | 364 | +0.24% | +1.39% | **+1.15pp** | +0.10..+2.17pp | 0.038 | EDGE |
+| H3 | 2,494 | +0.28% | +3.19% | **+2.91pp** | +1.78..+4.31pp | <0.001 | EDGE |
+
+The paired diff is exactly the 15-bar close-to-close return after bar 5
+(cost cancels in the difference), so F2 states: *after these signals, the
+entry names kept moving up from bar 5 to bar 20 — significantly, on all
+three entry sets.* Sensitivities agree: N=40 continuation strengthens
+(A +1.59pp, C +2.65pp, H3 +7.11pp, all p<0.001); dedupe-20 holds
+(H3 +2.91%); per-decade H3 rises (+1.30% 2016–19 → +4.47% 2020–25);
+Shape B flat (−0.01%) — the pre-registered exclusion was validated.
+
+**How the two families read together.** F2's EDGE is real as a statement
+about the entry names' forward drift, but F1's same-ticker row explains it:
+H3's N=20 mean is statistically indistinguishable from buying-and-holding
+the same tickers over the same calendar span. The continuation gain is the
+era's small-cap 2–4-week drift — available to **any** holder of the entry
+names — not edge from the pattern's *selection*, which F1 shows is null
+(selection vs same-ticker: all three CIs include 0). Per DESIGN_BRIEF §1,
+the pattern-vs-chance trigger test is Family 1, and it is null on all
+three → **Phase 5 remains not triggered**; the F2 EDGE is a holding-period
+property of the era's drift, not a harvestable pattern edge (a system built
+on it would be buying drift, not signal). The F2 verdicts stand as
+recorded — this paragraph is the interpretation, not the verdict.
+
+Sensitivities (no verdicts): N=40 absolute A +1.49% / C +2.86% /
+H3 +7.38%; IS record (observation only) A +1.29% / C +0.31% / H3 +5.36%.
+
+---
+
 ## E. The two-filter veto (his highest-specificity claim)
 
 | # | Time | Claim as stated | Status |
@@ -265,12 +320,20 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    improve any pattern; on A/C it cuts the better trades; on B it changes
    nothing. Answer to its own question: it reduces trade count, not edge.
    Third completed campaign.
-4. **E-03 (MACD-cross breakout rejection)** — regime-qualified; pre-register
+4. **Momentum horizon follow-up (pre-reg #4, N=20 primary)** — ✅ **measured
+   2026-08-14**: Family 1 (absolute at N=20) **NO EDGE × 3** — selection
+   adds nothing over same-ticker buy-and-hold; Family 2 (paired
+   continuation N=20 vs N=5) **EDGE × 3** — the entry names kept drifting
+   up 5→20 bars (first EDGE verdicts in the project, interpretation in
+   §D.6). Fourth completed campaign.
+5. **E-03 (MACD-cross breakout rejection)** — regime-qualified; pre-register
    the conditioning (regime variable) explicitly to avoid post-hoc fitting.
-5. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
+   Note: the zero-crossing reading was already measured as a pre-reg #3
+   sensitivity with no signal (§E.5); the verdict layer remains unrun.
+6. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
    (Shape B: pullback + new-high) was already measured and **rejected**
    2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
-6. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
+7. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
    untested.
@@ -289,6 +352,9 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
 - [x] Measure the two-filter veto (pre-reg #3) and write the verdicts back —
   done 2026-08-14: NO EDGE in both families for A/B/C (§E.5,
   `data/cache/veto_measure_report.md`). Third completed campaign.
+- [x] Measure the momentum horizon follow-up (pre-reg #4) and write the
+  verdicts back — done 2026-08-14: F1 NO EDGE × 3, F2 EDGE × 3 (§D.6,
+  `data/cache/momentum_measure_report.md`). Fourth completed campaign.
 - [ ] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — then **compare the two courses for drift** (same strategy 10 years
   apart? parameters changed? claims escalated?). The user flagged this as a
