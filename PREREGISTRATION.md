@@ -495,3 +495,140 @@ Input fingerprints: detections 9b44f66160130c3a…, pillar detections
 d5f80746f14f53fd…, engine c7421fbf… imported unchanged; outputs
 deterministic (results d4b91fd5…, report 838bf373…, verified byte-identical
 across two runs and independently recomputed row-by-row from bars).
+
+---
+
+# Pre-registration #5 — per-decade drift decomposition (sub-era claim)
+
+**Frozen:** 2026-08-14 · **Status:** FROZEN — no parameter may be changed
+after this date. Any change is a new hypothesis requiring a fresh
+pre-registration and a fresh test window (DESIGN_BRIEF.md §4, §6).
+
+**Origin — follow-up of pre-reg #4, measurement-derived.** Pre-reg #4's F2
+EDGE (continuation, all three entry sets) and H3's F1 near-miss (+2.00pp vs
+random at N=20) raise the question that decides their interpretation: is the
+drift **uniform across the OOS era, or concentrated in 2020–2025**? Raw N=20
+means from the pre-reg #4 sensitivity rows suggest later-era strengthening
+(H3 +1.30% → +4.47%; C +0.66% → +2.11%; A +0.87% → +1.06%). If the *excess
+over era-matched baselines* is late-era only, the effect is fragile beta
+going forward (2020–21 small-cap mania era) — a red flag against Phase 5.
+If it holds in both sub-eras, the drift is more robust. Exploratory
+per-decade rows earn no verdicts — this pre-registration promotes the
+sub-era claims to primary hypotheses with fresh frozen parameters, measured
+on the same frozen detections and bars.
+
+## 1. Translation — claim as motivated → as measured
+
+| As motivated | As measured |
+|---|---|
+| "The drift strengthened in the recent half of the OOS era" | Family 1: mean N=20 excess vs **within-sub-era** era-matched baselines in 2020–2025 **minus** in 2016–2019 > 0, two-sample bootstrap |
+| "The late-era drift clears the absolute bar on its own" | Family 2: within 2020–2025 alone, N=20 excess vs within-sub-era baselines > 0 |
+| "Era-matched" at sub-era granularity | Baseline windows drawn only from bars whose **start date** falls in the same sub-era (same window formula as #1–4; exit may cross the sub-era boundary, era by signal date as always) |
+| Entry sets | Shape A, Shape C, H3 rank-1 — the pre-reg #4 sets, same frozen detections |
+
+Sub-eras: 2016-01-01 → 2020-01-01 ("early") and 2020-01-01 → 2026-01-01
+("late") — the pre-reg #4 per-decade sensitivity boundaries, fixed here.
+
+## 2. Hypotheses (two families, each Holm-corrected across A/C/H3 at α=0.05, OOS only)
+
+Family 1 — sub-era excess difference (claim: late > early):
+
+- **S-A**: Shape A: excess_late − excess_early > 0.
+- **S-C**: Shape C: same.
+- **S-H**: H3 rank-1: same.
+
+Family 2 — late-era absolute (claim: clears the bar within its own era):
+
+- **L-A / L-C / L-H**: N=20 excess vs within-sub-era baselines in 2020–2025
+  only > 0.
+
+p_input = max(p_random, p_same) in both families, as in #1–4.
+
+## 3. Measurement (identical protocol to #1–4 where shared)
+
+- Entry open t+1, exit close t+N=20; −0.15% cost; era by signal date;
+  bootstrap B=1000, seed 20260813, two-sided p; Holm per family, OOS only.
+- Family 1 two-sample bootstrap: per draw, resample entries within each
+  sub-era and baseline windows within that sub-era; excess_late_b −
+  excess_early_b; p = 2·min(Pr(d ≤ 0), Pr(d ≥ 0)); CI from the draw
+  distribution. Point estimate = excess_late − excess_early (each the
+  simple mean minus the baseline pool mean).
+- Family 2: identical verdict-block structure to #1–4, restricted to late
+  sub-era entries and late sub-era baseline pools.
+- Count floor: ≥100 OOS detections per sub-era per slot (early C n=182,
+  early H3 n=1,006, early A n=3,243 — all clear; counts from pre-reg #4
+  sensitivities, fixed inputs, not re-measured).
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+| Outcome | Rule |
+|---|---|
+| **Edge** | Holm-rejected AND CI excludes 0 in the claim's direction (Family 1: later-excess CI-lo > 0; Family 2: excess CI-lo > 0) |
+| **No edge** | OOS point estimate ≤ 0, or CI includes 0, with ≥ 100 detections |
+| **Inconclusive** | < 100 detections in OOS — reported, never spun |
+
+## 5. Data & bias handling (§7 checklist)
+
+- **No new data:** same frozen inputs as #4 — detections_v1.csv
+  (9b44f661…), pillar_detections_v1.csv (d5f80746…), universe and bars as
+  cached. No fetch, no edits.
+- **Overlapping windows and clustering:** as documented in #4 §5 — the
+  bootstrap preserves dependence; effective independence < nominal;
+  documented, not adjusted. Dedupe-20 is a sensitivity, no verdict.
+- **Sub-era pool sizes:** late-era pools are smaller than full-OOS pools
+  (≈ 60% of bars); the two-sample test resamples within-era, so era
+  balance is by construction.
+- **Look-ahead / survivorship:** unchanged from #1–4.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+- Sub-era continuation diffs (d̄_late − d̄_early, paired N=20 vs N=5).
+- Early-era (2016–2019) absolute at N=20 vs within-sub-era baselines.
+- N=40 within sub-eras (absolute means).
+- Per-year N=20 means (2016…2025) per entry set — where the drift lives.
+- Dedupe-20 per sub-era.
+
+## 7. Freeze
+
+- Frozen 2026-08-14, before any measurement. Registered against:
+  PREREGISTRATION #5 · shapes A/C + H3 · N=20 · two sub-era verdict
+  families · identical engine and baselines to #1–4 (engine c7421fbf…,
+  never modified).
+- Amendments require a new pre-registration and a fresh window. Exploratory
+  results may be reported but never drive a verdict or a claim.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+Measured 2026-08-14 with the frozen parameters above. **Both verdict
+families: NO EDGE × 3.**
+
+**Family 1 (sub-era excess difference, late minus early, N=20):** A +0.47pp
+(p=0.51), C +1.79pp (p=0.30), H3 +3.48pp vs random (**p=0.008**, CI
++0.80..+6.22pp) but +2.40pp vs same-ticker (p=0.138) — p_input 0.138 fails
+Holm gate 0.0167.
+
+**Family 2 (late-era absolute, within-sub-era baselines):** A n=2,403
++1.06% (p_input 0.97), C n=182 +2.11% (p_input 0.44), H3 n=1,488 +4.47% —
+significantly above late-era random (+3.38pp, p=0.002, CI +1.34..+5.85pp)
+and SPY (p<0.001), indistinguishable from same-ticker buy-and-hold
+(+1.47pp, p=0.238) — p_input 0.238 fails Holm gate 0.0167.
+
+Answer to the campaign's question: the late-era strengthening is real vs
+random entries (F1 p=0.008; F2 p=0.002; continuation H3 late−early
++2.81pp, p=0.020; early-era H3 excess ≈ 0) — the drift is genuinely
+late-era-dominated — but it never clears the same-ticker control in either
+family. Per the pre-registered rule and consistent with pre-reg #4: the
+drift is late-era beta, not selection edge; **Phase 5 remains not
+triggered**, now with a dedicated decomposition behind it. The late-era
+concentration is not a single mania episode (H3 per-year N=20: +9.1% 2020,
++6.2% 2021, +0.1% 2022, +6.1% 2023, +4.6% 2024, +0.4% 2025). Verdicts
+written to CLAIMS_LEDGER §D.7; full report in
+`data/cache/decade_measure_report.md` (+ `decade_measure_results.json`).
+
+Sensitivities (early-era absolute, N=40 by sub-era, per-year means,
+dedupe-20 by sub-era) are reported there with no verdicts — all consistent
+with the primary result. Input fingerprints: detections 9b44f661…, pillar
+detections d5f80746…, engine c7421fbf… imported unchanged; outputs
+deterministic (results 5b7f7317…, report ade0fd3c…, verified
+byte-identical across two runs and independently recomputed row-by-row
+from bars).

@@ -18,13 +18,19 @@ not an edge enhancer; on A/C it cuts the better trades. **Momentum horizon**
 nothing over same-ticker buy-and-hold; Family 2 (paired continuation,
 N=20 vs N=5) **EDGE × 3** — after these signals the entry names kept
 drifting up 5→20 bars (the project's first EDGE verdicts; the pattern-vs-
-chance trigger test is Family 1, still null). Per the brief §1, Phase 5
-(paper trading) is **not triggered**. Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6](CLAIMS_LEDGER.md); reports:
+chance trigger test is Family 1, still null). **Per-decade drift**
+(pre-reg #5): both families **NO EDGE × 3** — the late-era strengthening
+is real vs random entries (p=0.008/0.002) but never clears the same-ticker
+control; the drift is late-era beta, not selection edge. Per the brief §1,
+Phase 5 (paper trading) is **not triggered** after five campaigns.
+Verdicts:
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7](CLAIMS_LEDGER.md);
+reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
-`data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`.
-Next candidates from the ledger: momentum follow-ups (per-decade drift,
-N=40 as primary) or E-03 (MACD-cross breakout rejection).
+`data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
+`data/cache/decade_measure_report.md`. Next candidates from the ledger:
+E-03 (MACD-cross breakout rejection), or a year-concentration follow-up
+(pre-reg #6) on the per-year drift detail.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -37,7 +43,8 @@ N=40 as primary) or E-03 (MACD-cross breakout rejection).
   horizon N=10, OHLC handling), frozen 2026-08-13 before any measurement.
   Pre-registration #3: the two-filter veto (E-01/E-04), frozen 2026-08-14.
   Pre-registration #4: the momentum horizon follow-up (N=20 primary),
-  frozen 2026-08-14. Verdicts return to the ledger.
+  frozen 2026-08-14. Pre-registration #5: the per-decade drift
+  decomposition, frozen 2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

@@ -214,6 +214,50 @@ H3 +7.38%; IS record (observation only) A +1.29% / C +0.31% / H3 +5.36%.
 
 ---
 
+## D.7 Per-decade drift decomposition — pre-registration #5 campaign
+
+Follow-up of §D.6, frozen 2026-08-14 before any measurement: is the N=20
+drift uniform across the OOS era or concentrated in 2020–2025? Same engine
+(c7421fbf…), same baselines at sub-era granularity (windows drawn only
+from bars whose start date falls in the sub-era), N=20, two verdict
+families, each Holm-corrected across A/C/H3 at α=0.05. Full report:
+`data/cache/decade_measure_report.md` (+ `decade_measure_results.json`).
+
+**Family 1 — sub-era excess difference (late 2020–25 minus early 2016–19,
+two-sample bootstrap): NO EDGE × 3.** A +0.47pp (p=0.51), C +1.79pp
+(p=0.30), H3 +3.48pp vs random (**p=0.008**, CI +0.80..+6.22pp) but +2.40pp
+vs same-ticker (p=0.138) — p_input 0.138 fails Holm gate 0.0167.
+
+**Family 2 — late-era absolute at N=20 (within-sub-era baselines): NO EDGE
+× 3.** A n=2,403 +1.06% (p_input 0.97); C n=182 +2.11% (p_input 0.44);
+H3 n=1,488 +4.47% — **significantly above late-era random (+3.38pp,
+p=0.002, CI +1.34..+5.85pp) and SPY (p<0.001), but indistinguishable from
+same-ticker buy-and-hold (+1.47pp, p=0.238)** — p_input 0.238 fails Holm
+gate 0.0167.
+
+**Answer to the campaign's question.** The late-era strengthening is
+**real vs random entries** (F1 p=0.008, F2 p=0.002, continuation H3
+late−early +2.81pp p=0.020; early-era H3 excess is ~0, p=0.94) — so the
+drift is genuinely late-era-dominated. But it **never clears the same-
+ticker control in either family**: within 2020–2025, H3's +4.47% is
+statistically the same as buying-and-holding those tickers (p=0.238).
+Per the pre-registered rule and consistent with §D.6: the drift is
+**late-era beta, not selection edge** — the raw means that motivated this
+campaign (+1.30% → +4.47%) are real and concentrated in the late era, and
+the same-ticker control absorbs them. Phase 5 remains not triggered, now
+with a dedicated decomposition behind it.
+
+Nuance for the record: the late-era concentration is **not** a single
+2020–21 mania episode — per-year N=20 means for H3: +9.1% (2020), +6.2%
+(2021), +0.1% (2022), +6.1% (2023), +4.6% (2024), +0.4% (2025) — broad
+late-era small-cap drift with two strong years and two flat ones. N=40
+late-era H3: +9.82%.
+
+Sensitivities (no verdicts): early-era absolute (H3 ~0 excess), N=40 by
+sub-era, per-year means, dedupe-20 by sub-era — all in the report.
+
+---
+
 ## E. The two-filter veto (his highest-specificity claim)
 
 | # | Time | Claim as stated | Status |
@@ -326,14 +370,19 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    continuation N=20 vs N=5) **EDGE × 3** — the entry names kept drifting
    up 5→20 bars (first EDGE verdicts in the project, interpretation in
    §D.6). Fourth completed campaign.
-5. **E-03 (MACD-cross breakout rejection)** — regime-qualified; pre-register
+5. **Per-decade drift decomposition (pre-reg #5)** — ✅ **measured
+   2026-08-14**: both families **NO EDGE × 3** (§D.7) — the late-era
+   strengthening is real vs random (F1 p=0.008, F2 p=0.002) but never
+   clears the same-ticker control; the drift is late-era beta, not
+   selection edge. Fifth completed campaign.
+6. **E-03 (MACD-cross breakout rejection)** — regime-qualified; pre-register
    the conditioning (regime variable) explicitly to avoid post-hoc fitting.
    Note: the zero-crossing reading was already measured as a pre-reg #3
    sensitivity with no signal (§E.5); the verdict layer remains unrun.
-6. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
+7. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
    (Shape B: pullback + new-high) was already measured and **rejected**
    2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
-7. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
+8. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
    untested.
@@ -355,6 +404,9 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
 - [x] Measure the momentum horizon follow-up (pre-reg #4) and write the
   verdicts back — done 2026-08-14: F1 NO EDGE × 3, F2 EDGE × 3 (§D.6,
   `data/cache/momentum_measure_report.md`). Fourth completed campaign.
+- [x] Measure the per-decade drift decomposition (pre-reg #5) and write the
+  verdicts back — done 2026-08-14: both families NO EDGE × 3 (§D.7,
+  `data/cache/decade_measure_report.md`). Fifth completed campaign.
 - [ ] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — then **compare the two courses for drift** (same strategy 10 years
   apart? parameters changed? claims escalated?). The user flagged this as a
