@@ -513,14 +513,14 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | I-D-04 | xTPcI7HHu5w [28:27–29:36] | "I perform best on stocks where the relative volume is 500 percent or higher... what we're looking for are stocks that have news that came out this morning". | `candidate` / `partial` — the RV ≥ 500% leg (day volume vs own average) is testable-daily; the news leg is out of scope (§3). |
 | I-D-05 | H82nRY9TYU4 [19:43–20:08] | Daily routine: "every day starts the same way it starts by looking at our scanners which are the gap scanners these tell us the stocks that are opening up the most out of the entire US market". | `candidate` — testable-daily: gap-% ranking as a selection filter (cross-ref F-02 on pre-market moves). |
 | I-D-06 | pJuG5YtVF84 [07:07–07:37]; 7UZushUSpLQ [01:03–01:27] | "Stocks that have limited Supply will move a lot faster than stocks that have really big Supply that's why we look at the lower float stocks" (GE's ~10B float: "that's not going to move very quickly"). | `candidate` (structural) — float vs daily move size. **Directly relevant:** static float is already approved as a filter input (§9 decision 7). |
-| I-D-07 | txWaMpSzHhM [25:49–26:36] | **"Pattern trading you have to remember does not work on all stocks... it only works on the stocks that have high relative volume"** (volume relative to the stock's own average). | `candidate` — **the top new conditioning claim for this project:** does Shape A/B/C show edge within high-RV days? Reuses the frozen detectors and the measure engine; first candidate for pre-reg #8. |
+| I-D-07 | txWaMpSzHhM [25:49–26:36] | **"Pattern trading you have to remember does not work on all stocks... it only works on the stocks that have high relative volume"** (volume relative to the stock's own average). | `tested` (pre-reg #8, 2026-08-14) — **NO EDGE:** F1-A/B NO EDGE (excess vs same-ticker −0.22/−0.37pp), F1-C INCONCLUSIVE (count floor), F2-B NO EDGE (contrast +0.30pp, p=0.302 — the claimed direction, not significant), F2-C INCONCLUSIVE, F2-A INCONCLUSIVE by construction. Verdicts: §I.5. |
 | I-D-08 | jfe1Zl-5EQI [19:58–20:11] | V5/V8 scanner: "a scanner looking simply for RSI extremes... looking for RSI below 20 and then... the green above 80". | `candidate` (testable-daily) — RSI-extreme screening; see I-B-06 for the 90/10-vs-20/80 tension. |
 
 ### I-E. Filters / vetoes
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| I-E-01 | txWaMpSzHhM [16:33–17:02], [20:57–21:10], [35:26–35:41], [37:00–37:20] | "If we trade the stocks that are dominated and much higher in high-frequency trading we're gonna lose money hands down every time"; "Apple or Priceline or coca-cola or IBM... very hard to day trade"; patterns are "meaningless" there; "we don't trade penny stocks we don't trade the OTC markets". | `candidate` (structural) — the mirror image of I-D-07: patterns fail on low-RV / high-float / mega-cap names. Testable together with I-D-07 as one conditioning campaign. |
+| I-E-01 | txWaMpSzHhM [16:33–17:02], [20:57–21:10], [35:26–35:41], [37:00–37:20] | "If we trade the stocks that are dominated and much higher in high-frequency trading we're gonna lose money hands down every time"; "Apple or Priceline or coca-cola or IBM... very hard to day trade"; patterns are "meaningless" there; "we don't trade penny stocks we don't trade the OTC markets". | `tested` via I-D-07's F2 contrast (pre-reg #8, 2026-08-14) — **NO EDGE:** the low-RV side never significantly outperforms the high-RV side (B contrast +0.30pp, p=0.302 — the claimed direction, not significant). Daily bars cannot measure HFT dominance directly; the contrast is the proxy the data supports. Verdicts: §I.5. |
 | I-E-02 | txWaMpSzHhM [24:19–24:40] | "I personally have high a day scanners but I don't find it to be a successful strategy just to buy a stock because it's hitting high a day I'm usually chasing when I do that and it doesn't work". | `candidate` (needs intraday) — chasing new highs fails. **Consistent with what we measured:** Shape B (buying the new-K-day high after a pullback) → NO EDGE, below baselines (§B.5-B) — the daily adaptation of "buying new highs" also fails. |
 | I-E-03 | pJuG5YtVF84 [20:19–22:23] | "When we see double tops we know that these are typically um not the best pattern to buy because look at all this empty space here in the middle"; "a lot of people do like to short double tops with a stop right over this level". | `candidate` (structural) — after a big single-day pop, a second test of the high is followed by pullback more often than breakout; testable-daily with a pre-registered double-top definition. |
 | I-E-04 | pJuG5YtVF84 [08:02–08:57] | "A day trader doesn't want to trade stocks that have huge spreads just because the risk is so much higher as soon as you get in you're down 30 cents" (30¢ spread needs 60¢ of favorable move to clear cost). | `partial` — no quote data; the embedded arithmetic (cost = spread + fees) is what COST 0.15% approximates for liquid names; motivates a spread-aware cost model if data is ever added. |
@@ -596,6 +596,70 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 ---
 
+## I.5 RV-conditioning verdicts — pre-registration #8 campaign
+
+Measured 2026-08-14 per [PREREGISTRATION.md](PREREGISTRATION.md) #8 (frozen
+2026-08-14: N=10 primary — the frozen shape horizon — 0.15% round-trip cost,
+**two** verdict families, Holm-corrected within each family at α=0.05, OOS
+2016–2025 only, baselines bootstrapped 1,000× at fixed seed, era-matched).
+Full report: `data/cache/rv_measure_report.md` (+ `rv_measure_results.json`).
+No new legs: a conditioning layer on the frozen veto-pass detections
+(`veto_detections_v1.csv`) — the identical input set to #3/#6/#7.
+
+Claim as measured: "pattern trading... only works on the stocks that have
+high relative volume" (Class 1 [25:49–26:36]) — RV_t = v_t / mean(v, prior
+20 bars), the frozen detector's exact formula; primary threshold RV ≥ 2.0
+(the frozen V = 2.0 multiplier). F1 (absolute): does the high-RV subset
+beat era-matched random entries AND same-ticker? F2 (contrast): does the
+high-RV subset beat the low-RV subset of the same shape? Shape A's
+detector requires RV ≥ 2.0 by construction (V=2.0), so F2-A has no low-RV
+cell — INCONCLUSIVE BY CONSTRUCTION, pre-declared in the pre-reg and
+asserted empirically (min RV over A = 2.000000).
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| I.5-F1-A | High-RV Shape A detections beat chance + same-ticker (absolute) | `tested, no edge` — **NO EDGE** | n=3,941 high-RV; mean +0.21%; excess vs random −0.27pp (p=0.112), vs same-ticker −0.22pp (p=0.204); p_input 0.204, CI-low −0.0063 |
+| I.5-F1-B | High-RV Shape B detections beat chance + same-ticker (absolute) | `tested, no edge` — **NO EDGE** | n=1,026; mean +0.24%; excess vs random −0.24pp (p=0.548), vs same −0.37pp (p=0.350); p_input 0.548, CI-low −0.0121 |
+| I.5-F1-C | High-RV Shape C detections beat chance + same-ticker (absolute) | `tested, inconclusive` — **INCONCLUSIVE** | n=46 high-RV OOS — below the 100-detection floor (low cell: 234) |
+| I.5-F2-A | High-RV beats low-RV Shape A (contrast) | `tested, inconclusive` — **INCONCLUSIVE BY CONSTRUCTION** | Shape A's detector requires RV ≥ 2.0; every A detection is high-RV (min asserted 2.000000); the low cell is empty |
+| I.5-F2-B | High-RV beats low-RV Shape B (contrast) | `tested, no edge` — **NO EDGE** | high n=1,026 (+0.24%) vs low n=5,914 (−0.05%); excess **+0.30pp** (CI −0.27..+0.90pp, p=0.302) — the claimed direction, not significant |
+| I.5-F2-C | High-RV beats low-RV Shape C (contrast) | `tested, inconclusive` — **INCONCLUSIVE** | high n=46 vs low n=234 — high cell below the floor |
+
+Interpretation: **the claim's absolute leg — the only Phase-5-trigger
+leg — is null.** On the two shapes with enough high-RV detections, the
+high-RV subset does not beat random entries or same-ticker buy-and-hold
+after costs; the excesses are negative on every baseline pair. The
+differential leg shows a consistent but weak directional whisper in the
+claim's favor: Shape B's high-minus-low contrast is positive at every
+threshold (RV 2.0: +0.30pp; 1.0: +0.36pp; 3.0: +0.11pp; 5.0: +0.65pp),
+but never approaches significance (best p = 0.058 at RV ≥ 1.0, a
+sensitivity with no verdict) — the conditioning direction he describes
+exists at the sign level in the data, on a base that never clears
+chance. Shape C is starved at the primary threshold (46 of 767
+detections have RV ≥ 2.0) — untestable, not refuted. The HFT-veto leg
+(I-E-01) is not directly measurable on daily bars; the F2 contrast is
+the proxy the data supports, and it does not clear. Near-miss
+sensitivity, recorded without a verdict: at RV ≥ 1.0 — his literal
+"above average for that stock" — B's subset is *below* random (−0.36pp,
+p=0.048) and same-ticker (−0.40pp, p=0.040).
+
+The pre-registered expectation was met: "F2 is the plausible family;
+F1 expected NO EDGE against same-ticker" — F1 NO EDGE × 2 (+1
+INCONCLUSIVE), F2 NO EDGE × 1 (+2 INCONCLUSIVE). Consistent with the
+#4 lesson: selection layers (veto, RV) on these shapes have not once
+cleared same-ticker buy-and-hold after costs in eight campaigns.
+
+Project-level consequence: the first conditioning claim from the
+warrior corpus is measured and null. Phase 5's trigger test remains the
+positive-edge bar: unchanged, untouched, untriggered. Verification:
+deterministic (results 961a65d9…, report e61a34a3…, byte-identical
+across two runs); data layer independently recomputed with a separate
+implementation (linear position scans, explicit prior-20 sums) —
+distributions exact to 1e-9, min-A 2.000000 asserted, 0 undefined RV,
+cell arithmetic consistent with the engine's standard drops.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -642,12 +706,12 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
    untested.
-10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — NEW from the
-    warrior corpus scan (2026-08-14): "pattern trading only works on stocks
-    with high relative volume" — direct conditioning test on the frozen
-    Shape A/B/C detections (RV ≥ 2× own average vs below). Reuses detectors
-    + measure engine, no new legs (a re-slice of existing detections like
-    pre-reg #3/#7). Top candidate for pre-reg #8.
+10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — ✅ MEASURED
+    (pre-reg #8, 2026-08-14): F1-A/B **NO EDGE**, F2-B NO EDGE (contrast
+    +0.30pp, p=0.302 — the claimed direction, never significant), F1-C/F2-C
+    INCONCLUSIVE (count floor), F2-A INCONCLUSIVE by construction (every A
+    detection is high-RV — the detector's V=2.0). The absolute leg is null;
+    the differential leg whispers but never clears. Verdicts: §I.5.
 11. **I-X-01 (RSI 70/30 daily-bar reversal bias)** — testable-daily on the
     existing universe; large sample; classic claim with a specific teaching
     ("overbought ⇒ pullback due, oversold ⇒ bounce due").

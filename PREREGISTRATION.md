@@ -1006,3 +1006,134 @@ and CI bounds cross-checked against two independent exact methods
 (scipy exact binomial + a lgamma-free product/recurrence computation).
 Verdicts written to CLAIMS_LEDGER §E.7; full report in
 `data/cache/e02_measure_report.md` (+ `e02_measure_results.json`).
+
+---
+
+# Pre-registration #8 — High relative volume (ledger rows I-D-07 / I-E-01)
+
+**Frozen 2026-08-14, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claim as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "Pattern trading you have to remember does not work on all stocks… it only works on the stocks that have high relative volume… volume is relative… we just look for what's above average for that stock" | Class 1, txWaMpSzHhM [25:49–26:36] | **RV_t** = v_t / mean(v, prior 20 bars), computed exactly as the frozen detector's `_vol_ratio_ok`: mean of the *prior* 20 bars only (`rolling(20).mean().shift(1)`), guard mean > 0. "Above average for that stock" = RV ≥ 1.0. Primary high-RV threshold **RV ≥ 2.0** — the V = 2.0 multiplier reused from the shape campaign (pre-reg #3 convention: frozen, not tuned). |
+| "If we trade the stocks that are dominated and much higher in high-frequency trading, we're gonna lose money hands down every time" | Class 1, txWaMpSzHhM [16:33–17:02] | The veto leg, mirrored: low-RV detections (the thin/liquid-flows set) must not beat their high-RV counterparts. Measured as the F2 contrast below — no separate HFT data exists on daily bars (out of scope, §3). |
+| "Relative volume is 500 percent or higher" | xTPcI7HHu5w [28:27–29:36] (I-D-04) | Kept as a **sensitivity** at RV ≥ 5.0, **no verdict** — the source context is a P&L-concentration statement about his own trading, not a pattern-edge claim. |
+| The claim's scope | — | The RV filter is a **conditioning layer on the frozen detections** — no new detection legs, no new data. Input set identical to pre-regs #3/#6/#7: `veto_detections_v1.csv`, `camp=warmup==False`, `sel=veto_pass`. |
+
+## 2. Hypotheses — two verdict families
+
+Measured on OOS detections (signal date ≥ 2016-01-01) at N = 10, after
+COST = 0.0015. Family 1 tests the claim's absolute leg, Family 2 its
+differential leg. Holm–Bonferroni at α = 0.05 applied **within each family**
+across the shapes with a testable contrast.
+
+**F1 — absolute:** per shape, mean OOS forward return of the RV ≥ 2.0 subset
+vs the three calibrated baselines (era-matched random entries, same-ticker,
+SPY reported). Same convention as #6/#7: p_input = max(p_random, p_same),
+est = max(est_random, est_same), ci_low = min(ci_random, ci_same). Holm
+across A/B/C. **EDGE** requires Holm rejection *and* excess CI-low > 0
+(vs both random and same-ticker — the brief §1 bar). The claim is supported
+in absolute form only if a shape's high-RV subset clears the same-ticker bar.
+
+**F2 — contrast (the claim's differential leg):** per shape, two-sample
+bootstrap excess of the RV ≥ 2.0 subset minus the RV < 2.0 subset of the
+same shape's detections (OOS, era-matched by construction). Holm across the
+shapes with a testable contrast. **EDGE** (claim supported) requires Holm
+rejection and CI-low > 0; **FADE** (claim contradicted) requires Holm
+rejection and CI-upper < 0; **NO EDGE** otherwise.
+
+**Structural pre-declaration — Shape A:** the frozen Shape A detector
+requires v_t ≥ 2.0 × mean(v, prior 20) at the signal bar (`PARAMS["A"]["V"] =
+2.0`). Every A detection therefore has RV ≥ 2.0 by construction; the RV < 2.0
+contrast cell is empty at the primary threshold. **F2-A is INCONCLUSIVE by
+construction** — pre-declared now, asserted empirically in measurement (min
+RV over A detections must be ≥ 2.0; a violated assertion is a red flag, not
+a verdict). F1-A at the primary threshold *is* the unconditional veto-pass
+set, already measured NO EDGE vs same-ticker ×2 (#3, #7) — re-reported for
+completeness, contributes nothing new.
+
+**Count floor:** any cell with < 100 OOS detections → INCONCLUSIVE (the
+established protocol, e.g. #6's C-in-bear-days handling). Reported as counts
+per cell, never hidden.
+
+## 3. Measurement
+
+Identical to pre-regs #1–#7 where shared: N = 10 (the frozen shape horizon),
+COST = 0.0015 round-trip deducted from every trade, B = 1,000 bootstrap
+resamples, seed 20260813, era split by signal date (IS 2000–2015 / OOS
+2016–2025), warm-up guard bar index < 60 excluded (counted, from #3), engine
+`measure.py` (frozen, sha c7421fbf…). RV computed in the measurement tool
+from the same parquet bars the detector reads, using the detector's exact
+formula (prior-20 mean, mean > 0 guard). Two independent assertions: (a) min
+RV over A detections ≥ 2.0 − 1e-9 (construction check); (b) no detection
+with < 20 prior bars (RV undefined; expected 0, warm-up covers it).
+
+## 4. Verdicts — pre-registered decision rules (applied on OOS only)
+
+| Verdict | Rule |
+|---|---|
+| **EDGE (F1)** | Holm-rejected AND excess CI-low > 0 (vs both random and same-ticker) — claim's absolute leg supported |
+| **EDGE (F2)** | Holm-rejected AND contrast CI-low > 0 — claim's differential leg supported |
+| **FADE (F2)** | Holm-rejected AND contrast CI-upper < 0 — claim contradicted: the low-RV subset outperforms |
+| **NO EDGE** | otherwise |
+| **INCONCLUSIVE** | < 100 OOS detections in a cell (or F2-A by construction, §2) |
+
+Phase 5 (paper trading) trigger per brief §1: a *positive absolute* edge
+after costs — only an **F1 EDGE** can trigger the trigger-check conversation.
+
+## 5. Data & bias handling
+
+No new data. No look-ahead: RV uses bars ≤ t only (prior-20 mean, entry
+open t+1). Survivorship: the frozen current-constituent universe (documented
+bias, brief §5 — strengthens nulls). The "500 percent" claim carries no
+verdict (§1). HFT vetoes are not modeled on daily bars — the F2 contrast is
+the proxy the data supports. Detections with RV undefined (< 20 prior bars)
+are excluded and counted (expected 0).
+
+## 6. Sensitivities — pre-declared, NO verdicts
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | RV thresholds **1.0 / 3.0 / 5.0** | F1 + F2 tables at each threshold (counts per cell included) |
+| S2 | Full (non-vetoed) detection set at RV ≥ 2.0 | F1 table, no F2 (the input set differs from §2's) |
+| S3 | Per-year high-RV F1 mean returns (OOS) | table |
+| S4 | In-sample record at RV ≥ 2.0 | F1 table (selection era — descriptive only) |
+| S5 | Shape-level RV distributions | median RV; share of detections ≥ 2.0 / ≥ 3.0 / ≥ 5.0 |
+
+## 7. Freeze
+
+Frozen 2026-08-14. Registered against: ledger rows I-D-07 / I-E-01
+(CLAIMS_LEDGER §I); inputs `data/cache/veto_detections_v1.csv` (from #3,
+frozen); engine `measure.py` c7421fbf (frozen). Measurement tool:
+`tools/measure_rv.py`; outputs `data/cache/rv_measure_results.json` +
+`data/cache/rv_measure_report.md`.
+
+**Pre-registered expectations (recorded, not hypotheses):** F2 is the
+plausible family — RV as hotness/liquidity proxy, B/C high-RV subsets may
+beat their low-RV counterparts. F1 expected **NO EDGE** against same-ticker:
+the #4 lesson (selection adds nothing over same-ticker B&H) plus every
+absolute family to date has been NO EDGE vs same-ticker.
+
+## 8. Campaign outcome
+
+Measured 2026-08-14, parameters unchanged. Verdicts (OOS 2016–2025, N=10,
+cost, Holm-corrected within family):
+
+| Family | Verdicts | Evidence |
+|---|---|---|
+| F1 (absolute) | **NO EDGE × 2, INCONCLUSIVE × 1** | A: n=3,941, excess vs same-ticker −0.22pp (p_input 0.204). B: n=1,026, −0.37pp (p_input 0.548). C: n=46 < 100 floor. High-RV detections beat neither chance nor same-ticker |
+| F2 (contrast) | **NO EDGE × 1, INCONCLUSIVE × 1, INCONCLUSIVE-by-construction × 1** | B: high +0.24% vs low −0.05%, excess +0.30pp (CI −0.27..+0.90pp, p=0.302) — the claimed direction, not significant. C: high cell n=46 < floor. A: every detection RV ≥ 2.0 (min asserted 2.000000) — low cell empty, as pre-declared |
+
+Pre-registered expectations met: F1 NO EDGE vs same-ticker (the #4 lesson
+holds), F2 the plausible family (sign positive on B at every threshold,
+never significant). Sensitivities recorded, no verdicts: at RV ≥ 1.0 — the
+claim's literal "above average" — B's subset is *below* random (−0.36pp,
+p=0.048) and same-ticker (−0.40pp, p=0.040), a near-miss in the opposite
+direction. Full report: `data/cache/rv_measure_report.md` (+
+`rv_measure_results.json`). Verification: byte-identical across two runs;
+independent recompute (separate implementation) exact to 1e-9. Verdicts
+written back to CLAIMS_LEDGER §I.5. Phase 5 not triggered (no F1 EDGE).

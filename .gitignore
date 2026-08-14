@@ -28,6 +28,8 @@ data/cache/*
 !data/cache/e03_measure_results.json
 !data/cache/e02_measure_report.md
 !data/cache/e02_measure_results.json
+!data/cache/rv_measure_report.md
+!data/cache/rv_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

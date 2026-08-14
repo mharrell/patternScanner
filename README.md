@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Seven pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Eight pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -36,21 +36,30 @@ literal 80% is falsified on all three shapes: veto-pass win rates are
 his own softened "60% is enough to be profitable" floor fails at α=0.05
 (C p=0.009); **NO EDGE × 3** vs chance, and on A/B the pass set wins
 *significantly below* random entries (p=0.004/<0.001). The round-number
-claim failed honestly, as pre-registered. Per the brief §1, Phase 5
-(paper trading) is **not triggered** after seven campaigns.
+claim failed honestly, as pre-registered. **High relative volume**
+(pre-reg #8, I-D-07/I-E-01 — the first warrior-corpus claim measured,
+2026-08-14): **NO EDGE × 3, INCONCLUSIVE × 3** — F1-A/B NO EDGE (high-RV
+subsets beat neither chance nor same-ticker; excess vs same-ticker
+−0.22/−0.37pp, p_input 0.204/0.548), F1-C INCONCLUSIVE (46 high-RV OOS
+< 100 floor); F2-B NO EDGE (high +0.24% vs low −0.05%, contrast +0.30pp,
+p=0.302 — the claimed direction, never significant), F2-C INCONCLUSIVE,
+F2-A INCONCLUSIVE by construction (every A detection is high-RV — the
+detector's V=2.0). "Pattern trading only works on high-relative-volume
+stocks" is null in absolute terms; the differential whisper exists but
+never clears. Per the brief §1, Phase 5 (paper trading) is **not
+triggered** after eight campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
 `data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
-`data/cache/e02_measure_report.md`.
+`data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`.
 Next candidates: the warrior-trading corpus scan (2026-08-14) found 53 new
-claims (ledger §I) — the top new candidates are the high-relative-volume
-conditioning claim ("pattern trading only works on stocks with high
-relative volume" — directly testable on the frozen shapes), RSI 70/30 and
-RSI-divergence rules, big-move mean reversion, and downside-speed
-asymmetry. The remaining untested ledger items need intraday data.
+claims (ledger §I) — with the RV conditioning claim measured, the top
+remaining candidates are RSI 70/30 and RSI-divergence rules, big-move
+mean reversion, and downside-speed asymmetry. The remaining untested
+ledger items need intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -69,8 +78,10 @@ asymmetry. The remaining untested ledger items need intraday data.
   L=20 bars, regime SPY < SMA200, three verdict families), frozen
   2026-08-14. Pre-registration #7: the E-02 "80% chance of this working"
   claim (win rate ≥ 0.80 on the veto-pass setup; exact binomial claim
-  test + win-rate-edge family), frozen 2026-08-14. Verdicts return to
-  the ledger.
+  test + win-rate-edge family), frozen 2026-08-14. Pre-registration #8:
+  the high-relative-volume conditioning claim (I-D-07/I-E-01 — RV ≥ 2.0
+  subsets vs below on the frozen detections; absolute + contrast
+  families), frozen 2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —
