@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Six pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Seven pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -29,18 +29,25 @@ p=0.012); avoidance bar (F3): −0.53pp vs random (p=0.014) and −0.57pp vs
 same-ticker (p=0.008); NO EDGE × 6, INCONCLUSIVE × 1. The effect lives
 entirely in bear days, exactly as claimed, and peaks in 2022 — the year he
 says he learned it. It is a **fade signal**: it identifies B-breakouts
-worth *avoiding*, it does not make any pattern profitable. Per the brief
-§1, Phase 5 (paper trading) is **not triggered** after six campaigns.
+worth *avoiding*, it does not make any pattern profitable. **E-02**
+(pre-reg #7, "80% chance of this working"): **REJECTED × 3** — the
+literal 80% is falsified on all three shapes: veto-pass win rates are
+**0.4869 / 0.4899 / 0.5286** (one-sided p ≤ 2e-24, CI upper ≤ 0.58); even
+his own softened "60% is enough to be profitable" floor fails at α=0.05
+(C p=0.009); **NO EDGE × 3** vs chance, and on A/B the pass set wins
+*significantly below* random entries (p=0.004/<0.001). The round-number
+claim failed honestly, as pre-registered. Per the brief §1, Phase 5
+(paper trading) is **not triggered** after seven campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
-`data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`.
-Next candidates from the ledger: E-02's "80% chance of this working"
-(win-rate ≥ 0.80 on the veto-pass setup, expected to fail like most 80%
-claims), or the corpus scan of `transcripts/warrior-trading/` for new
-testable claims.
+`data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
+`data/cache/e02_measure_report.md`.
+Next candidates: the corpus scan of `transcripts/warrior-trading/` for
+new testable claims (the remaining untested ledger items need intraday
+data), or a follow-up question from the ledger.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -57,7 +64,10 @@ testable claims.
   decomposition, frozen 2026-08-14. Pre-registration #6: the E-03
   MACD-cross breakout-rejection claim (bearish signal-line cross within
   L=20 bars, regime SPY < SMA200, three verdict families), frozen
-  2026-08-14. Verdicts return to the ledger.
+  2026-08-14. Pre-registration #7: the E-02 "80% chance of this working"
+  claim (win rate ≥ 0.80 on the veto-pass setup; exact binomial claim
+  test + win-rate-edge family), frozen 2026-08-14. Verdicts return to
+  the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

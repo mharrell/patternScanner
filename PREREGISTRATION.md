@@ -827,3 +827,182 @@ bear-market-specific). Input fingerprints: detections 9b44f661…, e03 file
 imported unchanged; outputs deterministic (results 1d3feec5…, report
 17ac9d73…, verified byte-identical across two runs and independently
 recomputed row-by-row from bars).
+
+---
+
+# Pre-registration #7 — "80% chance of this working" (ledger row E-02)
+
+Source: transcripts/ultimate-guide/oxob0x0Xz7s.md [04:29–05:54]. The ledger
+row cites [02:01–04:57]; the setup language ("the MACD is positive... the
+entry is right here as that first candle makes a new high versus the high
+of the last one") is at [04:29–04:57], and the exact "80% chance of this
+working" is at [05:54]. FROZEN 2026-08-14 before any measurement.
+
+## 1. Translation table — as stated → as measured
+
+As stated: "we've got high volume and the volume is on green candles, the
+MACD is positive... we had light volume selling, the MACD was positive and
+the entry is right here as that first candle makes a new high versus the
+high of the last one — that's the setup I'm going to teach you... where we
+feel we've got an **80% chance of this working**." Qualified immediately
+after: "there's no such thing as a strategy that works 100% of the time
+but if you have a strategy that over the course of 100 trades is giving
+you profit 60% of the time, 70% of the time, that can be enough to be a
+very profitable trader."
+
+| As stated | As measured |
+|---|---|
+| "The setup": MACD positive, volume on green candles (no high-volume selling on red), first candle makes a new high vs the prior high | The **veto-pass subset** of the frozen shape detections (pre-reg #3: MACD line ≥ 0 AND no high-volume red candle within the lookback) — the exact frozen operationalization of "both filters pass" already measured in campaign #3. The new-high entry maps most directly to Shape B; per-shape decomposition covers all three. |
+| "80% chance of this working" | **Win rate** (proportion of forward returns > 0 after cost, N=10) ≥ 0.80 on the pass set, OOS 2016–2025 only |
+| "Profit 60% of the time, 70% of the time... can be enough" | Reference thresholds 0.70 / 0.60 run through the same test — the claim's own softening, reported **without verdicts** (and note: "enough to be profitable" also depends on the untested reward:risk, see §5) |
+| No stated sample or measurement window | All OOS pass detections per shape at the frozen horizon: n_A=3,941, n_B=6,940, n_C=280 — all above the count floor |
+| No regime qualifier | The claim is unconditional — tested unconditionally; per-year split reported as a sensitivity |
+
+## 2. Hypotheses (two verdict families, each Holm-corrected across A/B/C at α=0.05, OOS only)
+
+**Family 1 — the claim test (the literal 80%):** per shape, exact one-sided
+binomial test of H0: p ≥ 0.80 (the claim holds) vs H1: p < 0.80 on the
+pass-set win rate. This is the falsification test of the number itself.
+
+**Family 2 — the win-rate edge test (complementary):** win-rate excess of
+the pass set vs era-matched random entries AND same-ticker windows —
+"does this setup win more often than chance?" p_input = max(p_random,
+p_same); EDGE requires Holm rejection AND the excess CI-low > 0.
+
+The pass set is the same frozen subset measured in #3 on mean returns;
+here the outcome variable is the win rate. Complementary, not redundant:
+a distribution can win often but lose big, or win rarely but win big.
+
+## 3. Measurement (identical protocol to #1–6 where shared)
+
+- **Frozen inputs only:** `data/cache/veto_detections_v1.csv` (pre-reg #3
+  output; input detections sha 9b44f66160130c3a…, veto code sha
+  162bab437e0dc95f…), bars and universe as cached, SPY from the same cache.
+  No fetch, no edits. The `veto_pass` flag IS the setup — no new legs.
+- **Win definition:** forward return = c_{t+N} / o_{t+1} − 1 − COST
+  (COST 0.0015), entry open of t+1, exit close of t+N, N=10 primary; win
+  = ret > 0. Era by signal date; verdicts on OOS 2016–2025 only.
+- **Win rate** = mean of the (ret > 0) indicator on the pass subset, per
+  shape, warm-up rows excluded (counted), exits beyond series end counted.
+- **F1 test:** exact binomial p = Σ_{k≤n_wins} C(n,k)·0.8^k·0.2^(n−k),
+  computed in logspace via math.lgamma — deterministic, no RNG. One-sided
+  95% upper bound (Clopper–Pearson, inverted exact test) reported.
+- **F2 test:** bootstrap_excess(win indicators, sample_base) — identical
+  machinery to #3's F2, B=1,000, seed 20260813; the mean of a baseline
+  draw IS its win rate, so the difference is a win-rate excess.
+  Baselines from build_pools(N, universe): random pool = all-universe OOS
+  windows; same-ticker pool = per-ticker windows count-weighted by the
+  **pass set's own ticker distribution per shape** (the #6-corrected
+  protocol); SPY raw as reference. Baselines pay COST; SPY raw.
+- **Count floor:** n ≥ 100 pass OOS per shape (F1/F2).
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+| Family | Outcome | Rule |
+|---|---|---|
+| F1 (claim test) | `rejected` (claim falsified) | Holm-rejected at α=0.05 across shapes AND one-sided 95% CI upper < 0.80 |
+| F1 | `supported` | CI includes 0.80 (cannot reject the claim), n ≥ 100 |
+| F1 | `inconclusive` | n < 100 |
+| F2 (win-rate edge) | EDGE | Holm-rejected AND excess CI-low > 0 — the pass set wins significantly more often than chance |
+| F2 | NO EDGE | CI includes 0, or estimate ≤ 0, or Holm gate not cleared, n ≥ 100 |
+| F2 | INCONCLUSIVE | n < 100 |
+
+Vocabulary note: F1's verdict concerns the claimed *number* (supported /
+rejected); F2 uses the EDGE vocabulary of #1–6. Expected outcome stated
+up front: with n in the thousands and plausible win rates near 0.5,
+rejection of the 0.80 claim is near-certain; the campaign's information is
+in the size of the gap, the F2 result, and the 0.60/0.70 references.
+
+## 5. Data & bias handling (§7 checklist)
+
+- **No new data** (frozen pre-reg #3 output; the pass flag was created
+  before this campaign existed). **Look-ahead:** all legs use data ≤ t;
+  entry remains open of t+1. **Multiple testing:** two families, Holm
+  within each, α=0.05, OOS only, all thresholds fixed here before
+  measurement — no post-hoc fitting.
+- **Overlapping windows / clustering:** as #4 §5 — bootstrap preserves
+  dependence; effective independence < nominal; documented, not adjusted.
+- **Scope note (carried from #3):** the source uses MACD on 1-min charts
+  and intraday entries; the daily-bar veto-pass setup is the documented
+  adaptation. This is a verdict on the *mechanism* (does the pass-set win
+  rate approach 0.80?), not on his intraday practice.
+- **"Enough to be profitable" (0.60/0.70) is NOT tested as a verdict:** it
+  depends on the reward:risk and stop discipline, which are untested here.
+  Reported as reference thresholds only.
+- **Survivorship / era-matching:** unchanged from #1–6.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+- Win rate excluding cost (COST removed from the win definition).
+- N = 5, 20 (same pass subsets, re-measured returns).
+- Reference thresholds 0.70 / 0.60 (one-sided tests — his own language).
+- Pass-vs-kill and pass-vs-full win rates (E-01/E-04's conditioning
+  question in win-rate terms).
+- Win rate on the raw (unfiltered) detection set per shape.
+- Per-year pass-set win rates (OOS); IS record (2000–2015, observation).
+
+## 7. Freeze
+
+- Frozen 2026-08-14, before any measurement. Registered against:
+  PREREGISTRATION #7 · shapes A/B/C · veto-pass subset (pre-reg #3) ·
+  win = ret > 0 after cost, N=10 · F1 exact one-sided binomial vs 0.80
+  (Holm across shapes) · F2 win-rate excess vs random and same-ticker
+  (p_input = max) · engine c7421fbf…, never modified.
+- Amendments require a new pre-registration and a fresh window. Exploratory
+  results may be reported but never drive a verdict or a claim.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+Measured 2026-08-14 with the frozen parameters above. **REJECTED × 3
+(F1 — the literal 80% is falsified on every shape), NO EDGE × 3 (F2 —
+the pass set does not win more often than chance)**. The "red flag"
+expectation was met honestly: an 80% claim, falsified at astronomical
+significance.
+
+**Family 1 (the claim test): REJECTED × 3** — A: n=3,941, win rate
+**0.4869** (one-sided p < 1e-308, log10 −415.3; CI upper 0.5002); B:
+n=6,940, **0.4899** (p < 1e-308, log10 −717.2; CI upper 0.4999); C:
+n=280, **0.5286** (p = 2.0e-24; CI upper 0.5790). The pass set wins
+roughly half the time — the claimed 0.80 is off by ~30 percentage points,
+and the one-sided 95% upper bound is ≤ 0.58 on every shape.
+
+**Family 2 (win-rate edge vs chance): NO EDGE × 3** — and worse: A and B's
+pass sets win **significantly LESS often** than era-matched random entries
+(A: −3.04pp, p=0.004; B: −2.76pp, p<0.001; same-ticker −3.57pp/−3.09pp,
+both p≤0.004) — the CI upper bounds are negative, a *negative* win-rate
+excess vs chance. C: +1.36pp (p=0.786), null. The p_input gate was
+cleared nowhere, so no EDGE.
+
+**Sensitivities (no verdicts), all reported in the full report:**
+no-cost win rates 0.5001/0.5000/0.5357 — even ignoring cost, ~50%, not
+80%. His own softening thresholds are falsified too: 0.70 (p = 1.3e-9 to
+1.2e-291) and 0.60 (p = 9.2e-77, 8.9e-47, **0.009** — C's 60% "enough to
+be profitable" floor fails at α=0.05 as well). Pass-vs-kill win-rate
+excesses are null (kill vs pass: A −2.64pp p=0.066, B −1.91pp p=0.532,
+C −4.13pp p=0.588) — the veto does not raise the win rate, consistent
+with #3's mean-return verdict; on A the killed set wins *more* often
+(near-significant). Per-year pass win rates: A's worst year is 2022
+(0.307); nothing reaches 0.60 in any year of any shape. IS record:
+0.52/0.50/0.51 — the 80% is not visible in-sample either.
+
+Answer to the campaign's question: **the 80% number is false on daily
+bars** — the veto-pass setup wins 48.7–52.9% of the time after cost,
+statistically indistinguishable from (and on A/B *below*) chance. The
+claim's own hedge — "60% of the time can be enough to be a very
+profitable trader" — is also unreached; even the 60% floor is falsified
+at α=0.05 on all three shapes (C at p=0.009).
+
+**Interpretation (recorded, not the verdict):** the "80% chance" is the
+kind of round-number success-rate claim that trading education generates
+without a measurement window — and the first honest measurement of the
+identical setup (same frozen pass subsets, #3) shows it is a coin flip
+at best. Consistent with #3's mean-return verdict (B significantly
+*below* random), the win-rate lens adds: on A and B the pass set also
+wins *less often* than chance — the veto-pass setup is not an edge in
+either return or frequency terms. Verification: outputs deterministic
+(results 92669c58…, report 07e8a624…, byte-identical across two runs);
+data layer independently recomputed row-by-row from bars; F1 p-values
+and CI bounds cross-checked against two independent exact methods
+(scipy exact binomial + a lgamma-free product/recurrence computation).
+Verdicts written to CLAIMS_LEDGER §E.7; full report in
+`data/cache/e02_measure_report.md` (+ `e02_measure_results.json`).

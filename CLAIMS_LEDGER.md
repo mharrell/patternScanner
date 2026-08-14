@@ -263,7 +263,7 @@ sub-era, per-year means, dedupe-20 by sub-era — all in the report.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | E-01 | [02:01–04:57] | Before entry, two filters: **MACD** (blue line crossed negative = no) and **volume** (high-volume selling on red candles = no). "If just one of them says no, I don't take the trade." | `tested, rejected` — **H-VA/VB/VC** in [PREREGISTRATION.md](PREREGISTRATION.md) #3, measured 2026-08-14 → **NO EDGE in both verdict families, all three shapes** (§E.5). Does conditioning on (MACD non-negative AND no high-volume red bar) improve forward returns vs the raw pattern? No — on A and C the veto cuts trades whose mean forward return was *higher* than the kept trades'. |
-| E-02 | [02:01–04:57] | "**80% chance of this working**" (of the setup when both filters pass). | `red flag` — a magic number with no stated measurement window or sample. Pre-register as the *specific* hypothesis H: win rate ≥ 0.80 on the defined setup; expect it to fail honestly like most 80% claims. |
+| E-02 | [04:29–05:54] (ultimate-guide/oxob0x0Xz7s.md) | "**80% chance of this working**" (of the setup when both filters pass). | `tested, rejected` — the literal 80% is falsified on all three shapes (win rates 48.7–52.9%, one-sided p ≤ 2e-24, CI upper ≤ 0.58); even his own softened 60% "enough to be profitable" floor fails at α=0.05 (C p=0.009); on A/B the pass set wins *below* chance (§E.7). The pre-registered expectation — fail honestly like most 80% claims — was met. |
 | E-03 | [1:21:54–1:23:04] | "When the MACD actually crosses... more times than not, any attempt to break out will reject and the price will end up selling off." (Learned in the 2022 bear market; "very consistent especially during the bear market.") | `tested, partial support` — **FADE EDGE on Shape B** (bear days: −1.62pp, p=0.012; vs chance: p_input 0.014), NO EDGE × 6, INCONCLUSIVE × 1 — the project's first verdicts in a claim's favor, and they land on the shape that matches the described scenario, in the regime he emphasizes (§E.6). The unconditional form is null; the effect is a **fade signal** — it says *don't take* the trade, it does not make any pattern profitable. Phase 5 not triggered. |
 | E-04 | [3:02:18–3:04:30] | Final quiz restates the veto: high-volume red candle = no; MACD negative = no; "if it's not a hard yes, then it's a no" (beginner rule). | `tested, rejected` — same campaign as E-01 ([PREREGISTRATION.md](PREREGISTRATION.md) #3), measured 2026-08-14. The kill-rate decomposition answers the "hard yes" question: the veto is a **trade-count reducer, not an edge enhancer** (A −30%, B −3%, C −15% of OOS trades; the killed sets had *higher* mean forward returns on A and C — §E.5). |
 
@@ -360,6 +360,54 @@ independently recomputed row-by-row from bars (0 real mismatches).
 
 ---
 
+## E.7 E-02 verdicts — pre-registration #7 campaign
+
+Measured 2026-08-14 per [PREREGISTRATION.md](PREREGISTRATION.md) #7 (frozen
+2026-08-14: N=10 primary — the frozen shape horizon — 0.15% round-trip cost,
+**two** verdict families, each Holm-corrected across A/B/C at α=0.05, OOS
+2016–2025 only, baselines bootstrapped 1,000× at fixed seed, era-matched).
+Full report: `data/cache/e02_measure_report.md` (+ `e02_measure_results.json`).
+No new legs: the setup IS the frozen veto-pass subset of pre-reg #3
+(`veto_detections_v1.csv` — both filters pass). Win = forward return > 0
+after cost, entry open t+1, exit close t+10.
+
+Claim as measured: "we've got an 80% chance of this working" — win rate
+≥ 0.80 on the veto-pass setup — falsification test via exact one-sided
+binomial (H0: p ≥ 0.80), Holm across shapes; plus the complementary
+win-rate-edge family vs chance.
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| E.7-F1 | Win rate ≥ 0.80 on the pass set (the literal claim) | `tested, rejected` — **REJECTED × 3** | A: n=3,941, win rate **0.4869** (p < 1e-308; one-sided CI upper 0.5002). B: n=6,940, **0.4899** (p < 1e-308; CI upper 0.4999). C: n=280, **0.5286** (p = 2.0e-24; CI upper 0.5790). The claimed 0.80 is off by ~30pp; the upper bound never reaches 0.58 |
+| E.7-F2 | Pass-set win rate vs era-matched chance (win-rate edge) | `tested, rejected` — **NO EDGE × 3** | A: **−3.04pp vs random (p=0.004)** and −3.57pp vs same-ticker (p=0.004) — wins *below* chance, CI upper negative. B: **−2.76pp (p<0.001)**, −3.09pp (p<0.001) — below chance. C: +1.36pp (p=0.786) — null. p_input cleared no gate |
+
+Interpretation: **the 80% number is false on daily bars.** The pass set
+wins 48.7–52.9% of the time — a coin flip at best — and on A and B it
+wins *significantly less often* than chance. His own hedge ("60% of the
+time can be enough to be a very profitable trader") is also unreached:
+even the 0.60 floor is falsified at α=0.05 on all three shapes (A
+p=8.9e-47, B p=9.2e-77, C p=0.009). The veto does not raise the win rate
+(pass-vs-kill excesses null; on A the killed set wins more often,
+−2.64pp, p=0.066) — consistent with §E.5's mean-return verdict. No-cost
+win rates (~0.50) and the IS record (0.52/0.50/0.51) show the 80% is not
+visible under any reading. The pre-registered expectation — "expect it
+to fail honestly like most 80% claims" — was met at astronomical
+significance.
+
+Project-level consequence: this is the second independent lens on the
+same frozen setup (first was §E.5 mean returns, now win rates) — and
+both say the veto-pass setup is not an edge; on frequency it is
+significantly *below* chance for A and B. Phase 5's trigger test remains
+the positive-edge bar: unchanged, untouched, untriggered. Verification:
+deterministic (results 92669c58…, report 07e8a624…, byte-identical
+across two runs); data layer independently recomputed row-by-row from
+bars; F1 p-values and CI bounds cross-checked against scipy's exact
+binomial AND a lgamma-free independent computation (agreed to 1e-13
+relative where scipy didn't underflow; below 1e-308 the log10 values
+were verified exactly).
+
+---
+
 ## F. Market-structure / timing claims
 
 | # | Time | Claim as stated | Status |
@@ -439,10 +487,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    avoidance bar p_input 0.014), NO EDGE × 6, INCONCLUSIVE × 1 — the first
    verdicts in a claim's favor, and they land on the shape/regime the claim
    describes (§E.6). Sixth completed campaign.
-7. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
+7. **E-02 ("80% chance of this working")** — ✅ **measured 2026-08-14**:
+   **REJECTED × 3** (F1 claim test: pass-set win rates 48.7–52.9%, one-sided
+   p ≤ 2e-24, CI upper ≤ 0.58; even the 0.60 softening fails, C p=0.009),
+   **NO EDGE × 3** (F2 vs chance — A/B win *below* random, p=0.004/<0.001)
+   (§E.7). Seventh completed campaign.
+8. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
    (Shape B: pullback + new-high) was already measured and **rejected**
    2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
-8. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
+9. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
    untested.
@@ -471,6 +524,10 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   write the verdicts back — done 2026-08-14: FADE EDGE × 2 on Shape B,
   NO EDGE × 6, INCONCLUSIVE × 1 (§E.6,
   `data/cache/e03_measure_report.md`). Sixth completed campaign.
+- [x] Measure the E-02 "80% chance of this working" claim (pre-reg #7) and
+  write the verdicts back — done 2026-08-14: REJECTED × 3 (F1 claim test),
+  NO EDGE × 3 (F2 vs chance) (§E.7,
+  `data/cache/e02_measure_report.md`). Seventh completed campaign.
 - [ ] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — then **compare the two courses for drift** (same strategy 10 years
   apart? parameters changed? claims escalated?). The user flagged this as a
