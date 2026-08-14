@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "pre_reg": "#3",
+    "primary_n": 10,
+    "cost": 0.0015,
+    "bootstrap": 1000,
+    "seed": 20260813,
+    "alpha": 0.05,
+    "era_oos_start": "2016-01-01",
+    "universe": "universe_sp600_2026-08-13.csv",
+    "detections": "detections_v1.csv",
+    "detections_sha256": "9b44f66160130c3a",
+    "veto_file": "veto_detections_v1.csv",
+    "veto_file_sha256": "eebdc6b11a19e243",
+    "veto_code_sha256": "162bab437e0dc95f",
+    "measure_code_sha256": "214c907131d07a54",
+    "measure_engine_sha256": "c7421fbf (frozen Phase-3 engine, imported)",
+    "warmup_excluded": 344,
+    "note": "verdict machinery runs on OOS only; IS is record only. Two pre-registered verdict families (conditioning effect and absolute bar), each Holm-corrected across A/B/C."
+  },
+  "families": {
+    "conditioning": {
+      "A": {
+        "n_full": 5641,
+        "n_pass": 3941,
+        "mean_full": 0.0039972114406229674,
+        "mean_pass": 0.0021475316065339063,
+        "mean": 0.0021475316065339063,
+        "excess": [
+          -0.0018734410942035829,
+          -0.0017578690633774327,
+          -0.005749208454546875,
+          0.0016256895856160561,
+          0.354
+        ],
+        "p_holm_input": 0.354,
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.016666666666666666,
+        "holm_rejected": false
+      },
+      "B": {
+        "n_full": 7198,
+        "n_pass": 6940,
+        "mean_full": -0.00012725625791203463,
+        "mean_pass": -0.0001052904709309485,
+        "mean": -0.0001052904709309485,
+        "excess": [
+          3.301093011420244e-05,
+          4.362333343884919e-05,
+          -0.0026383315517666045,
+          0.0024346031550642336,
+          0.988
+        ],
+        "p_holm_input": 0.988,
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "C": {
+        "n_full": 331,
+        "n_pass": 280,
+        "mean_full": 0.0062376669406097665,
+        "mean_pass": 0.00457393561141645,
+        "mean": 0.00457393561141645,
+        "excess": [
+          -0.0016569349062143658,
+          -0.0016598170223289187,
+          -0.015216247067269545,
+          0.010606115918069233,
+          0.798
+        ],
+        "p_holm_input": 0.798,
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.025,
+        "holm_rejected": false
+      }
+    },
+    "absolute": {
+      "A": {
+        "n_pass": 3941,
+        "mean": 0.0021475316065339063,
+        "ci": [
+          -0.12886979223856082,
+          0.14962029433975926
+        ],
+        "excess": {
+          "random_entries": [
+            -0.0027030848414264542,
+            -0.002721857532190411,
+            -0.006421060639784636,
+            0.0010104982663312072,
+            0.148
+          ],
+          "same_ticker": [
+            -0.002792009246676507,
+            -0.002784013533105996,
+            -0.006282488242043891,
+            0.0005680677904324301,
+            0.108
+          ],
+          "spy": [
+            -0.0037052472795298524,
+            -0.00364925898947986,
+            -0.005989197503465607,
+            -0.0016059974358937426,
+            0.0
+          ]
+        },
+        "p_holm_input": 0.148,
+        "metrics": {
+          "hit": [
+            0.4864942907891398,
+            0.4719550875412332,
+            0.5019094138543516
+          ],
+          "sharpe": [
+            0.15684885642250943,
+            0.002147882579376715,
+            0.3076755369107542
+          ],
+          "max_dd": [
+            -0.9999995989066184,
+            -0.9999999993698984,
+            -0.999934701653267
+          ]
+        },
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.025,
+        "holm_rejected": false
+      },
+      "B": {
+        "n_pass": 6940,
+        "mean": -0.0001052904709309485,
+        "ci": [
+          -0.15794585579478165,
+          0.16192908129638994
+        ],
+        "excess": {
+          "random_entries": [
+            -0.005035189483960822,
+            -0.004944767739031268,
+            -0.007985101328372492,
+            -0.0023124699641228793,
+            0.0
+          ],
+          "same_ticker": [
+            -0.005015016754831812,
+            -0.004986284542915773,
+            -0.007707544786636506,
+            -0.0022580777310578963,
+            0.002
+          ],
+          "spy": [
+            -0.005958817896599378,
+            -0.005967937767749881,
+            -0.007938247630107802,
+            -0.004055586759041091,
+            0.0
+          ]
+        },
+        "p_holm_input": 0.002,
+        "metrics": {
+          "hit": [
+            0.4897036023054755,
+            0.4785266570605187,
+            0.500864553314121
+          ],
+          "sharpe": [
+            -0.008589220263043474,
+            -0.12682183334000813,
+            0.11321211118577278
+          ],
+          "max_dd": [
+            -0.9999999999970376,
+            -1.0,
+            -0.9999999993710555
+          ]
+        },
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.016666666666666666,
+        "holm_rejected": true
+      },
+      "C": {
+        "n_pass": 280,
+        "mean": 0.00457393561141645,
+        "ci": [
+          -0.1624397000878818,
+          0.17089652817416495
+        ],
+        "excess": {
+          "random_entries": [
+            -0.0006796296136773632,
+            -0.0009915180196642887,
+            -0.01439428366549653,
+            0.01324027486261875,
+            0.888
+          ],
+          "same_ticker": [
+            -0.00022595873577066375,
+            -0.0001249869843394395,
+            -0.015504411536784734,
+            0.013597507449873076,
+            0.978
+          ],
+          "spy": [
+            -0.0011899083773783516,
+            -0.0011420067392170267,
+            -0.01153676845347795,
+            0.008820989873733606,
+            0.818
+          ]
+        },
+        "p_holm_input": 0.978,
+        "metrics": {
+          "hit": [
+            0.527575,
+            0.475,
+            0.5857142857142857
+          ],
+          "sharpe": [
+            0.2904725797160837,
+            -0.3181280907602549,
+            0.8863005806700895
+          ],
+          "max_dd": [
+            -0.6507848944932793,
+            -0.960271737181188,
+            -0.5525138507025206
+          ]
+        },
+        "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)",
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    }
+  },
+  "kill_rates": {
+    "A": {
+      "n_total": 14464,
+      "n_oos": 5651,
+      "n_pass_oos": 3941,
+      "n_killed_oos": 1700,
+      "killed_dropped": 3,
+      "macd_alone_oos": 1106,
+      "vol_alone_oos": 456,
+      "both_oos": 141,
+      "mean_killed": 0.008285204514825903,
+      "n_killed_total": 4151
+    },
+    "B": {
+      "n_total": 15857,
+      "n_oos": 7212,
+      "n_pass_oos": 6940,
+      "n_killed_oos": 258,
+      "killed_dropped": 0,
+      "macd_alone_oos": 136,
+      "vol_alone_oos": 122,
+      "both_oos": 0,
+      "mean_killed": -0.000718118899961392,
+      "n_killed_total": 457
+    },
+    "C": {
+      "n_total": 905,
+      "n_oos": 331,
+      "n_pass_oos": 280,
+      "n_killed_oos": 51,
+      "killed_dropped": 0,
+      "macd_alone_oos": 44,
+      "vol_alone_oos": 6,
+      "both_oos": 1,
+      "mean_killed": 0.015371878159710325,
+      "n_killed_total": 138
+    }
+  },
+  "sensitivities": {
+    "n_horizons": [
+      5,
+      20
+    ],
+    "h3_veto_n_oos": 1543
+  }
+}

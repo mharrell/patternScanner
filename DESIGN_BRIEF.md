@@ -1,7 +1,7 @@
-# Daytrading Pattern Detector — Design Brief v0.1
+# Daytrading Pattern Detector — Design Brief v1.0
 
 **Date:** 2026-08-13
-**Status:** DRAFT — pending Mr. Mike's sign-off on Section 9
+**Status:** FINAL — all Section 9 decisions settled (last: row 7, 2026-08-13)
 **Repo:** patternScanner (public)
 
 ## 1. Purpose
@@ -116,11 +116,11 @@ For every detection at bar t (per shape, per ticker):
 | Phase | Work | Exit criterion |
 |---|---|---|
 | 0 | Repo + this brief | Brief sign-off |
-| 1 | Data pipeline + universe | Clean 2000–2025 daily bars, documented gaps |
-| 2 | 3 detectors + pre-registered params | Detections reproducible from raw data |
-| 3 | Measurement + baselines | Full per-shape report |
-| 4 | Verdicts | Per shape: edge / no edge / inconclusive |
-| 5 | Paper trading (only if a shape clears) | Plumbing verified; backtest-live gap measured (L-007) |
+| 1 | Data pipeline + universe | Clean 2000–2025 daily bars, documented gaps — **done 2026-08-13** (see data/README.md) |
+| 2 | 3 detectors + pre-registered params | Detections reproducible from raw data — **done 2026-08-13** (see data/cache/detections_report.md, PREREGISTRATION #2) |
+| 3 | Measurement + baselines | Full per-shape report — **done 2026-08-13** (see data/cache/measure_report.md; all three shapes: NO EDGE, OOS). Pillars (pre-reg #1) measured same day (data/cache/pillar_measure_report.md): H3 NO EDGE; H1/H2 INCONCLUSIVE by count floor. Two-filter veto (pre-reg #3) measured 2026-08-14 (data/cache/veto_measure_report.md): NO EDGE in both verdict families, all three shapes |
+| 4 | Verdicts | Per shape: edge / no edge / inconclusive — **done 2026-08-13**: A/B/C all NO EDGE on OOS; verdicts written back to CLAIMS_LEDGER §B.5. Pillar verdicts H1–H3 written back to §D.5 (H3 rejected, H1/H2 inconclusive). Veto verdicts (E-01/E-04) written back to §E.5 2026-08-14: both families NO EDGE — the veto reduces trade count, not edge |
+| 5 | Paper trading (only if a shape clears) | Plumbing verified; backtest-live gap measured (L-007) — **not triggered 2026-08-13: no shape cleared** |
 | 6 | Micro-live (only if it survives paper) | Separate decision — out of scope here |
 
 ## 9. Open Decisions (need Mr. Mike's sign-off)
@@ -129,10 +129,11 @@ For every detection at bar t (per shape, per ticker):
 |---|---|---|---|
 | 1 | Repo name / visibility | — | **Settled: patternScanner, public** |
 | 2 | Survivorship handling | (a) historical constituents, (b) current + documented | (b) for v1 |
-| 3 | Exit horizon N | 5 / 10 / 20 bars | 10 |
-| 4 | Round-trip cost | 0.05% / 0.15% / 0.30% | 0.15% |
-| 5 | History window | 1995+ / 2000+ / 2005+ | 2000–2025 |
-| 6 | Shapes A/B/C definitions | as written / revise | as written |
+| 3 | Exit horizon N | 5 / 10 / 20 bars | **Settled: 10** (pre-reg #2, 2026-08-13) |
+| 4 | Round-trip cost | 0.05% / 0.15% / 0.30% | **Settled: 0.15%** (pre-reg #1 protocol) |
+| 5 | History window | 1995+ / 2000+ / 2005+ | **Settled: 2000–2025** (Phase 1 dataset) |
+| 6 | Shapes A/B/C definitions | as written / revise | **Settled: as written** (operationalized in detectors.py, pre-reg #2) |
+| 7 | Float as filter input (§3 exception) | (a) allow static `floatShares` in the selection filter, (b) drop the float leg | **Settled: (a)** — 2026-08-13. Static `floatShares` retrieved once at universe snapshot (frozen 2026-08-13, 603/603 coverage) is allowed as a screening-filter input for pre-registration #1 H1/H2. Not a per-day feature; not part of shape detection; all other §3 exclusions (news, sentiment, LLM, intraday) stand |
 
 ## 10. Lessons Imported from BreakoutBot
 

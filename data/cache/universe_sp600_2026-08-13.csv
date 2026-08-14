@@ -1,0 +1,604 @@
+ticker,company,sector,industry,float_shares,float_source
+AAMI,Acadian Asset Management Inc.,Financials,Asset Management & Custody Banks,29123554.0,floatShares
+AAP,"Advance Auto Parts, Inc.",Consumer Discretionary,Automotive Retail,59478111.0,floatShares
+AAT,American Assets Trust,Real Estate,Diversified REITs,47520106.0,floatShares
+ABCB,Ameris Bancorp,Financials,Regional Banks,58925646.0,floatShares
+ABG,Asbury Automotive Group,Consumer Discretionary,Automotive Retail,14573187.0,floatShares
+ABM,"ABM Industries, Inc.",Industrials,Environmental & Facilities Services,56811779.0,floatShares
+ABR,Arbor Realty Trust,Financials,Mortgage REITs,177412968.0,floatShares
+ACA,"Arcosa, Inc.",Industrials,Construction & Engineering,47709229.0,floatShares
+ACAD,Acadia Pharmaceuticals,Health Care,Pharmaceuticals,124447660.0,floatShares
+ACHC,Acadia Healthcare,Health Care,Health Care Facilities,84945622.0,floatShares
+ACIW,ACI Worldwide,Information Technology,Application Software,98955318.0,floatShares
+ACLS,"Axcelis Technologies, Inc.",Information Technology,Semiconductor Materials & Equipment,30447604.0,floatShares
+ACMR,"ACM Research, Inc.",Information Technology,Semiconductor Materials & Equipment,59818212.0,floatShares
+ACT,"Enact Holdings, Inc.",Financials,Commercial & Residential Mortgage Finance,25320368.0,floatShares
+ADAM,"Adamas Trust, Inc.",Real Estate,Mortgage REITs,83247557.0,floatShares
+ADEA,"Adeia, Inc.",Information Technology,IT Consulting & Other Services,107355520.0,floatShares
+ADIG,ADI Global Distribution,Information Technology,Electronic Equipment & Instruments,75751181.0,sharesOutstanding
+ADMA,"ADMA Biologics, Inc.",Health Care,Biotechnology,214324221.0,floatShares
+ADNT,Adient,Consumer Discretionary,Automotive Parts & Equipment,75200347.0,floatShares
+ADT,ADT Inc.,Consumer Discretionary,Specialized Consumer Services,513803046.0,floatShares
+ADUS,Addus HomeCare Corp.,Health Care,Health Care Services,17506688.0,floatShares
+AEO,American Eagle Outfitters,Consumer Discretionary,Apparel Retail,150730537.0,floatShares
+AESI,"Atlas Energy Solutions, Inc.",Energy,Oil & Gas Equipment & Services,85452359.0,floatShares
+AGNT,"eXp World Holdings, Inc.",Real Estate,Real Estate Services,99406762.0,floatShares
+AGO,Assured Guaranty Ltd.,Financials,Property & Casualty Insurance,40562940.0,floatShares
+AGX,"Argan, Inc.",Industrials,Construction & Engineering,13221271.0,floatShares
+AGYS,"Agilysys, Inc.",Information Technology,Application Software,26716660.0,floatShares
+AHCO,AdaptHealth Corp.,Health Care,Health Care Equipment,85131054.0,floatShares
+AIN,Albany International Corp.,Industrials,Industrial Machinery & Supplies & Components,27853584.0,floatShares
+AIR,AAR Corp.,Industrials,Aerospace & Defense,37963439.0,floatShares
+AKR,Acadia Realty Trust,Real Estate,Retail REITs,132814475.0,floatShares
+ALG,Alamo Group,Industrials,Construction Machinery & Heavy Transportation Equipment,11896753.0,floatShares
+ALGT,Allegiant Travel Company,Industrials,Passenger Airlines,24030140.0,floatShares
+ALHC,"Alignment Healthcare, Inc.",Health Care,Health Care Services,185310116.0,floatShares
+ALKS,Alkermes plc,Health Care,Pharmaceuticals,152273689.0,floatShares
+ALRM,"Alarm.Com, Inc.",Financials,Application Software,45623476.0,floatShares
+AMN,"Amn Healthcare Services, Inc.",Health Care,Health Care Services,38117283.0,floatShares
+AMPH,"Amphstar Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,30068796.0,floatShares
+AMR,"Alpha Metallurgical Resources, Inc.",Materials,Steel,9938723.0,floatShares
+AMRX,Amneal Pharmaceuticals,Health Care,Pharmaceuticals,176925265.0,floatShares
+AMSF,"Amerisafe, Inc.",Financials,Property & Casualty Insurance,17507367.0,floatShares
+AMTM,Amentum,Industrials,Diversified Support Services,151307904.0,floatShares
+ANDE,"The Andersons, Inc.",Consumer Staples,Food Distributors,31651440.0,floatShares
+ANIP,"ANI Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,19291682.0,floatShares
+AORT,Artivion,Health Care,Health Care Equipment,45646062.0,floatShares
+AOSL,"Alpha and Omega Semiconductor, Ltd.",Information Technology,Semiconductors,24429120.0,floatShares
+APAM,"Artisan Partners Asset Management, Inc.",Financials,Asset Management & Custody Banks,67896729.0,floatShares
+APLE,"Apple Hospitality REIT, Inc.",Real Estate,Hotel & Resort REITs,216785298.0,floatShares
+APOG,"Apogee Enterprises, Inc.",Industrials,Building Products,19977635.0,floatShares
+ARCB,ArcBest Corp.,Industrials,Cargo Ground Transportation,21841743.0,floatShares
+ARLO,Arlo Technologies,Information Technology,Communications Equipment,99039752.0,floatShares
+AROC,"Archrock, Inc.",Energy,Oil & Gas Equipment & Services,168980422.0,floatShares
+ARR,Armour Residential REIT,Real Estate,Mortgage REITs,140061077.0,floatShares
+ASO,Academy Sports + Outdoors,Consumer Discretionary,Specialty Stores,59804935.0,floatShares
+ASTE,"Astec Industries, Inc.",Industrials,Construction Machinery & Heavy Transportation Equipment,22265990.0,floatShares
+ASTH,"Astrana Health, Inc.",Health Care,Health Care Facilities,38001458.0,floatShares
+ATEN,"A10 Networks, Inc.",Information Technology,Systems Software,70546925.0,floatShares
+ATMU,Atmus Filtration Technologies Inc.,Industrials,Industrial Machinery & Supplies & Components,79571142.0,floatShares
+AUB,"Atlantic Union Bankshares, Corp.",Financials,Regional Banks,140646966.0,floatShares
+AVA,Avista Corporation,Utilities,Multi-Utilities,80937897.0,floatShares
+AWI,"Armstrong World Industries, Inc.",Industrials,Building Products,40081219.0,floatShares
+AWR,American States Water Company,Utilities,Water Utilities,38599154.0,floatShares
+AX,"Axos Financial, Inc.",Financials,Regional Banks,54067139.0,floatShares
+AZTA,"Azenta, Inc.",Health Care,Life Sciences Tools & Services,37512689.0,floatShares
+AZZ,"AZZ, Inc.",Industrials,Heavy Electrical Equipment,29207955.0,floatShares
+BANC,"Banc Of California, Inc.",Financials,Regional Banks,140598380.0,floatShares
+BANF,Bancfirst Corp,Financials,Regional Banks,23189854.0,floatShares
+BANR,Banner Corporation,Financials,Regional Banks,32741061.0,floatShares
+BBT,Beacon Financial Corp.,Financials,Regional Banks,77582652.0,floatShares
+BCC,Boise Cascade,Industrials,Building Products,33791227.0,floatShares
+BCPC,Balchem Corporation,Materials,Specialty Chemicals,31261819.0,floatShares
+BFAM,Bright Horizons Family Solutions Inc.,Consumer Discretionary,Specialized Consumer Services,43727031.0,floatShares
+BFH,"Bread Financial Holdings, Inc.",Financials,Consumer Finance,36423771.0,floatShares
+BFS,"Saul Centers, Inc.",Real Estate,Retail REITs,13682893.0,floatShares
+BGC,"BGC Group, Inc.",Financials,Investment Banking & Brokerage,359210203.0,floatShares
+BHE,"Benchmark Electronics, Inc.",Information Technology,Electronic Manufacturing Services,34597002.0,floatShares
+BJRI,"BJ's Restaurants, Inc.",Consumer Discretionary,Restaurants,20283897.0,floatShares
+BKE,"The Buckle, Inc.",Consumer Discretionary,Apparel Retail,30400914.0,floatShares
+BKU,"BankUnited, Inc.",Financials,Regional Banks,66784507.0,floatShares
+BL,"BlackLine Systems, Inc.",Information Technology,Application Software,44099061.0,floatShares
+BLFS,"BioLife Solutions, Inc.",Health Care,Health Care Supplies,42553234.0,floatShares
+BLKB,Blackbaud,Information Technology,Application Software,33172653.0,floatShares
+BMI,"Badger Meter, Inc.",Information Technology,Electronic Equipment & Instruments,27279812.0,floatShares
+BNL,"Broadstone Net Lease, Inc.",Real Estate,Industrial REITs,185627665.0,floatShares
+BOH,Bank of Hawaii,Financials,Regional Banks,38646002.0,floatShares
+BOOT,"Boot Barn Holdings, Inc.",Consumer Discretionary,Apparel Retail,28576779.0,floatShares
+BOX,"Box, Inc.",Information Technology,Application Software,142758954.0,floatShares
+BRC,Brady Corporation,Industrials,Commercial Printing,41815428.0,floatShares
+BTU,"Peabody Energy, Inc.",Energy,Coal & Consumable Fuels,112925722.0,floatShares
+BXMT,"Blackstone Mortgage Trust, Inc.",Financials,Mortgage REITs,156710595.0,floatShares
+CACC,Credit Acceptance,Financials,Specialized Finance,5668420.0,floatShares
+CAG,Conagra Brands,Consumer Staples,Packaged Foods & Meats,471698225.0,floatShares
+CAKE,"The Cheesecake Factory, Inc.",Consumer Discretionary,Restaurants,45630501.0,floatShares
+CALM,"Cal-Maine Foods, Inc.",Consumer Staples,Packaged Foods & Meats,41673627.0,floatShares
+CALX,Calix,Information Technology,Application Software,56328214.0,floatShares
+CALY,Callaway Golf Company,Consumer Discretionary,Leisure Products,154127769.0,floatShares
+CARG,CarGurus,Communication Services,Interactive Media & Services,71830634.0,floatShares
+CASH,"Pathward Financial, Inc.",Financials,Regional Banks,20262130.0,floatShares
+CATY,Cathay General Bancorp,Financials,Regional Banks,62642276.0,floatShares
+CBRL,Cracker Barrel,Consumer Discretionary,Restaurants,18183136.0,floatShares
+CBU,"Community Bank System, Inc.",Financials,Regional Banks,51181595.0,floatShares
+CC,Chemours,Materials,Diversified Chemicals,146093889.0,floatShares
+CCOI,"Cogent Communications Holdings, Inc.",Communication Services,Alternative Carriers,41574567.0,floatShares
+CCS,"Century Communities, Inc.",Consumer Discretionary,Homebuilding,24139248.0,floatShares
+CE,Celanese,Materials,Specialty Chemicals,100262229.0,floatShares
+CENT,Central Garden & Pet Company,Consumer Staples,Household Products,56348986.0,floatShares
+CENTA,Central Garden & Pet Company (Class A),Consumer Staples,Household Products,56348986.0,floatShares
+CENX,Century Aluminum Company,Materials,Aluminum,67144182.0,floatShares
+CERT,"Certara, Inc.",Health Care,Health Care Technology,102083528.0,floatShares
+CFFN,Capitol Federal Savings Bank,Financials,Regional Banks,105249200.0,floatShares
+CHCO,City Holding Company,Financials,Regional Banks,13545574.0,floatShares
+CHEF,"Chefs' Warehouse, Inc.",Consumer Staples,Food Distributors,36397449.0,floatShares
+CLSK,"CleanSpark, Inc.",Information Technology,Internet Services & Infrastructure,246025620.0,floatShares
+CNK,"Cinemark Holdings, Inc.",Communication Services,Movies & Entertainment,99756870.0,floatShares
+CNMD,CONMED Corporation,Health Care,Health Care Equipment,29208757.0,floatShares
+CNR,"Core Natural Resources, Inc.",Energy,Coal & Consumable Fuels,47848359.0,floatShares
+CNS,"Cohen & Steers, Inc.",Financials,Asset Management & Custody Banks,27550629.0,floatShares
+CNXC,Concentrix,Industrials,Data Processing & Outsourced Services,44776486.0,floatShares
+CNXN,"PC Connection, Inc.",Information Technology,Technology Distributors,10711806.0,floatShares
+COCO,The Vita Coco Company,Consumer Staples,Soft Drinks & Non-alcoholic Beverages,48401237.0,floatShares
+COHU,"Cohu, Inc.",Information Technology,Semiconductor Materials & Equipment,45748335.0,floatShares
+COLL,"Collegium Pharmaceutical, Inc.",Health Care,Pharmaceuticals,30567767.0,floatShares
+CON,"Concentra Group Holdings Parent, Inc.",Health Care,Health Care Services,113457630.0,floatShares
+CORT,Corcept Therapeutics Incorporated,Health Care,Pharmaceuticals,89734641.0,floatShares
+COTY,Coty,Consumer Staples,Personal Care Products,352204185.0,floatShares
+CPB,The Campbell's Company,Consumer Staples,Packaged Foods & Meats,188230763.0,floatShares
+CPF,Central Pacific Financial Corp.,Financials,Regional Banks,22445581.0,floatShares
+CPK,Chesapeake Utilities Corp.,Utilities,Gas Utilities,23502106.0,floatShares
+CRC,California Resources Corporation,Energy,Oil & Gas Exploration & Production,75887717.0,floatShares
+CRGY,Crescent Energy Company,Energy,Oil & Gas Exploration & Production,294763049.0,floatShares
+CRI,"Carter's, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",33431041.0,floatShares
+CRK,"Comstock Resources, Inc.",Energy,Oil & Gas Exploration & Production,61774827.0,floatShares
+CRSR,Corsair Gaming,Information Technology,"Technology Hardware, Storage & Peripherals",47280903.0,floatShares
+CRVL,CorVel Corporation,Health Care,Health Care Services,30165465.0,floatShares
+CSR,Centerspace Trust,Real Estate,Multi-Family Residential REITs,15247746.0,floatShares
+CSW,"CSW Industrials, Inc.",Industrials,Industrial Conglomerates,15972831.0,floatShares
+CTS,CTS Corporation,Information Technology,Electronic Manufacturing Services,27465063.0,floatShares
+CUBI,"Customers Bancorp, Inc.",Financials,Regional Banks,31530420.0,floatShares
+CURB,Curbline Properties Corp.,Real Estate,Retail REITs,103186808.0,floatShares
+CVBF,CVB Financial Corp.,Financials,Regional Banks,166317576.0,floatShares
+CVCO,"Cavco Industries, Inc.",Consumer Discretionary,Homebuilding,7496782.0,floatShares
+CVI,"CVR Energy, Inc.",Energy,Oil & Gas Refining & Marketing,28751751.0,floatShares
+CVSA,Covista Inc.,Consumer Discretionary,Education Services,32841675.0,floatShares
+CWEN,"Clearway Energy, Inc. (Class C)",Utilities,Renewable Electricity,117296150.0,floatShares
+CWEN-A,"Clearway Energy, Inc. (Class A)",Utilities,Renewable Electricity,117296150,floatShares(base:CWEN)
+CWK,Cushman & Wakefield plc,Real Estate,Real Estate Services,223644610.0,floatShares
+CWST,"Casella Waste Systems, Inc.",Industrials,Environmental & Facilities Services,60873613.0,floatShares
+CWT,California Water Service Group,Utilities,Water Utilities,59988257.0,floatShares
+CXM,"Sprinklr, Inc.",Information Technology,Application Software,108583769.0,floatShares
+CXW,CoreCivic,Industrials,Diversified Support Services,95014886.0,floatShares
+CZR,Caesars Entertainment,Consumer Discretionary,Casinos & Gaming,191101932.0,floatShares
+DAN,Dana Incorporated,Consumer Discretionary,Automotive Parts & Equipment,103570523.0,floatShares
+DAVE,"Dave, Inc.",Financials,Consumer Finance,9338944.0,floatShares
+DBD,Diebold Nixdorf,Information Technology,Electronic Equipment & Instruments,29315594.0,floatShares
+DCH,Dauch Corporation,Consumer Discretionary,Automotive Parts & Equipment,228820360.0,floatShares
+DCOM,"Dime Community Bancshares, Inc.",Financials,Regional Banks,42110820.0,floatShares
+DEA,"Easterly Government Properties, Inc.",Real Estate,Office REITs,44040407.0,floatShares
+DEI,Douglas Emmett,Real Estate,Office REITs,157503145.0,floatShares
+DFH,"Dream Finders Homes, Inc.",Consumer Discretionary,Homebuilding,26546714.0,floatShares
+DFIN,"Donnelley Financial Solutions, Inc.",Financials,Financial Exchanges & Data,21984741.0,floatShares
+DGII,Digi International Inc.,Information Technology,Communications Equipment,36530761.0,floatShares
+DIOD,Diodes Incorporated,Information Technology,Semiconductors,44622260.0,floatShares
+DLX,Deluxe Corporation,Industrials,Commercial Printing,43809265.0,floatShares
+DMC,Del Monte Corporation,Consumer Staples,Packaged Foods & Meats,41463684.0,floatShares
+DNOW,NOW Inc,Industrials,Trading Companies & Distributors,173814787.0,floatShares
+DORM,"Dorman Products, Inc.",Consumer Discretionary,Automotive Parts & Equipment,25954889.0,floatShares
+DRH,DiamondRock Hospitality Company,Real Estate,Hotel & Resort REITs,199781079.0,floatShares
+DV,DoubleVerify Holdings Inc.,Communication Services,Advertising,121677074.0,floatShares
+DXC,DXC Technology,Information Technology,IT Consulting & Other Services,137150831.0,floatShares
+DXPE,"DXP Enterprises, Inc.",Industrials,Trading Companies & Distributors,12753699.0,floatShares
+EAT,"Brinker International, Inc.",Consumer Discretionary,Restaurants,41792730.0,floatShares
+EBC,"Eastern Bankshares, Inc.",Financials,Regional Banks,196634738.0,floatShares
+ECG,"Everus Construction Group, Inc.",Industrials,Construction & Engineering,50078815.0,floatShares
+ECPG,"Encore Capital Group, Inc.",Financials,Consumer Finance,20024823.0,floatShares
+EFC,"Ellington Financial, Inc.",Financials,Specialized Finance,124582547.0,floatShares
+EFOR,Everforth Inc.,Information Technology,IT Consulting & Other Services,36706070.0,floatShares
+EGBN,Eagle Bancorp Inc,Financials,Regional Banks,24991980.0,floatShares
+EIG,"Employers Holdings, Inc.",Financials,Property & Casualty Insurance,17442166.0,floatShares
+EMN,Eastman Chemical Company,Materials,Specialty Chemicals,111482177.0,floatShares
+ENOV,Enovis,Health Care,Health Care Equipment,55422114.0,floatShares
+ENPH,Enphase Energy,Information Technology,Semiconductor Materials & Equipment,125747526.0,floatShares
+ENR,Energizer,Consumer Staples,Household Products,58491874.0,floatShares
+ENVA,"Enova International, Inc.",Financials,Consumer Finance,23514520.0,floatShares
+EPAC,Enerpac Tool Group,Industrials,Industrial Machinery & Supplies & Components,49589709.0,floatShares
+EPAM,EPAM Systems,Information Technology,IT Consulting & Other Services,48607317.0,floatShares
+EPC,Edgewell Personal Care,Consumer Staples,Household Products,40884094.0,floatShares
+EPRT,"Essential Properties Realty Trust, Inc.",Real Estate,Diversified REITs,210386053.0,floatShares
+ESE,ESCO Technologies Inc.,Industrials,Industrial Machinery & Supplies & Components,25400556.0,floatShares
+ESI,Element Solutions,Materials,Specialty Chemicals,226966407.0,floatShares
+ETSY,Etsy,Consumer Discretionary,Broadline Retail,76214646.0,floatShares
+EVTC,"EVERTEC, Inc.",Financials,Transaction & Payment Processing Services,58121298.0,floatShares
+EXTR,"Extreme Networks, Inc.",Information Technology,Communications Equipment,126303273.0,floatShares
+EYE,National Vision Holdings,Consumer Discretionary,Specialty Stores,76683925.0,floatShares
+EZPW,"EZCORP, Inc.",Financials,Consumer Finance,53697210.0,floatShares
+FA,First Advantage Corporation,Industrials,Human Resource & Employment Services,76727526.0,floatShares
+FBK,FB Financial Corp.,Financials,Regional Banks,48570254.0,floatShares
+FBNC,First Bancorp (Southern Pines NC),Financials,Regional Banks,40546737.0,floatShares
+FBP,First BanCorp (Puerto Rico),Financials,Regional Banks,145664555.0,floatShares
+FBRT,"Franklin BSP Realty Trust, Inc.",Real Estate,Mortgage REITs,81406930.0,floatShares
+FCF,"First Commonwealth Financial, Corp.",Financials,Regional Banks,97023834.0,floatShares
+FCPT,"Four Corners Property Trust, Inc.",Real Estate,Other Specialized REITs,70423989.0,floatShares
+FELE,Franklin Electric,Industrials,Industrial Machinery & Supplies & Components,37288833.0,floatShares
+FFBC,First Financial Bancorp,Financials,Regional Banks,103253748.0,floatShares
+FG,"F&G Annuities & Life, Inc.",Financials,Life & Health Insurance,33004838.0,floatShares
+FHB,"First Hawaiian, Inc.",Financials,Regional Banks,119253105.0,floatShares
+FIBK,"First Interstate BancSystem, Inc.",Financials,Regional Banks,78576742.0,floatShares
+FIVN,"Five9, Inc.",Information Technology,Application Software,64961649.0,floatShares
+FIZZ,National Beverage Corp.,Consumer Staples,Soft Drinks & Non-alcoholic Beverages,23428301.0,floatShares
+FLO,Flowers Foods,Consumer Staples,Packaged Foods & Meats,191884710.0,floatShares
+FMC,FMC Corporation,Materials,Fertilizers & Agricultural Chemicals,111500725.0,floatShares
+FORM,"FormFactor, Inc.",Information Technology,Semiconductor Materials & Equipment,75995841.0,floatShares
+FOXF,Fox Factory,Consumer Discretionary,Automotive Parts & Equipment,41415247.0,floatShares
+FRPT,Freshpet,Consumer Staples,Packaged Foods & Meats,44472942.0,floatShares
+FSS,Federal Signal Corporation,Industrials,Construction Machinery & Heavy Transportation Equipment,57923606.0,floatShares
+FTDR,"Frontdoor, Inc.",Consumer Discretionary,Specialized Consumer Services,67122758.0,floatShares
+FTRE,Fortrea,Health Care,Biotechnology,93073419.0,floatShares
+FUL,H.B. Fuller Company,Materials,Specialty Chemicals,53011797.0,floatShares
+FULT,Fulton Financial Corporation,Financials,Regional Banks,187371189.0,floatShares
+FUN,Six Flags,Consumer Discretionary,Leisure Facilities,83381655.0,floatShares
+GBX,"The Greenbrier Companies, Inc.",Industrials,Construction Machinery & Heavy Transportation Equipment,29582981.0,floatShares
+GEO,"GEO Group, Inc.",Industrials,Environmental & Facilities Services,112937180.0,floatShares
+GFF,Griffon Corporation,Industrials,Building Products,41894895.0,floatShares
+GIII,"G-III Apparel Group, Ltd.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",33369368.0,floatShares
+GKOS,Glaukos Corp.,Health Care,Health Care Equipment,56390764.0,floatShares
+GNL,"Global Net Lease, Inc.",Real Estate,Diversified REITs,202222383.0,floatShares
+GNW,"Genworth Financial, Inc.",Financials,Multi-line Insurance,364233286.0,floatShares
+GO,Grocery Outlet,Consumer Staples,Food Retail,89078877.0,floatShares
+GOLF,Acushnet Company,Consumer Discretionary,Leisure Products,26448724.0,floatShares
+GPI,"Group 1 Automotive, Inc.",Consumer Discretionary,Automotive Retail,10521557.0,floatShares
+GPOR,Gulfport Energy Corporation,Energy,Oil & Gas Exploration & Production,14497587.0,floatShares
+GRBK,"Green Brick Partners, Inc.",Consumer Discretionary,Homebuilding,29654585.0,floatShares
+GSHD,"Goosehead Insurance, Inc.",Financials,Insurance Brokers,20612753.0,floatShares
+GT,Goodyear Tire and Rubber Company,Consumer Discretionary,Tires & Rubber,250719494.0,floatShares
+GTES,Gates Corporation,Industrials,Industrial Machinery & Supplies & Components,246146477.0,floatShares
+GTM,ZoomInfo,Communication Services,Interactive Media & Services,199980957.0,floatShares
+GTY,Getty Realty Corp.,Real Estate,Retail REITs,57658723.0,floatShares
+GVA,"Granite Construction, Inc.",Industrials,Construction & Engineering,42320719.0,floatShares
+HAFC,Hanmi Financial Corporation,Financials,Regional Banks,28407351.0,floatShares
+HASI,"Hannon Armstrong Sustainable Infrastructure Capital, Inc.",Financials,Specialized Finance,124060641.0,floatShares
+HAYW,"Hayward Holdings, Inc.",Industrials,Electrical Components & Equipment,203314498.0,floatShares
+HCC,"Warrior Met Coal, Inc.",Materials,Steel,50572255.0,floatShares
+HCI,"HCI Group, Inc.",Financials,Property & Casualty Insurance,10274753.0,floatShares
+HCSG,"Healthcare Services Group, Inc.",Industrials,Environmental & Facilities Services,66149775.0,floatShares
+HE,"Hawaiian Electric Industries, Inc.",Utilities,Electric Utilities,171121634.0,floatShares
+HFWA,Heritage Financial Corporation,Financials,Regional Banks,40149210.0,floatShares
+HIW,Highwoods Properties,Real Estate,Office REITs,104028685.0,floatShares
+HLIT,Harmonic Inc.,Information Technology,Communications Equipment,102537812.0,floatShares
+HLX,"Helix Energy Solutions Group, Inc.",Energy,Oil & Gas Equipment & Services,135540267.0,floatShares
+HMN,Horace Mann Educators Corporation,Financials,Multi-line Insurance,39650532.0,floatShares
+HNI,HNI Corporation,Industrials,Office Services & Supplies,70690524.0,floatShares
+HOPE,"Hope Bancorp, Inc.",Financials,Regional Banks,124637709.0,floatShares
+HP,"Helmerich & Payne, Inc.",Energy,Oil & Gas Drilling,94988969.0,floatShares
+HRMY,"Harmony Biosciences Holdings, Inc.",Health Care,Biotechnology,50955679.0,floatShares
+HSTM,"HealthStream, Inc.",Health Care,Health Care Technology,22759504.0,floatShares
+HTH,Hilltop Holdings Inc.,Financials,Regional Banks,37542081.0,floatShares
+HTLD,"Heartland Express, Inc.",Industrials,Cargo Ground Transportation,53861390.0,floatShares
+HTO,H2O America,Utilities,Water Utilities,31103791.0,floatShares
+HUBG,"Hub Group, Inc.",Industrials,Air Freight & Logistics,58308649.0,floatShares
+HWKN,"Hawkins, Inc.",Materials,Commodity Chemicals,9557469.0,floatShares
+HZO,"MarineMax, Inc.",Consumer Discretionary,Specialty Stores,21172355.0,floatShares
+IART,Integra Lifesciences Holdings,Health Care,Health Care Equipment,57338558.0,floatShares
+IBP,"Installed Building Products, Inc.",Consumer Discretionary,Homebuilding,22433753.0,floatShares
+ICHR,"Ichor Holdings, Ltd.",Information Technology,Semiconductor Materials & Equipment,35717102.0,floatShares
+ICUI,ICU Medical,Health Care,Health Care Supplies,24037515.0,floatShares
+IIPR,"Innovative Industrial Properties, Inc.",Real Estate,Industrial REITs,26733731.0,floatShares
+INDB,Independent Bank Corp.,Financials,Regional Banks,46401348.0,floatShares
+INDV,Indivior,Health Care,Pharmaceuticals,106722103.0,floatShares
+INSP,"Inspire Medical Systems, Inc.",Health Care,Health Care Equipment,24975962.0,floatShares
+INSW,"International Seaways, Inc.",Energy,Oil & Gas Storage & Transportation,40584470.0,floatShares
+INVA,"Innoviva, Inc.",Health Care,Pharmaceuticals,64908234.0,floatShares
+INVX,"Innovex International, Inc.",Energy,Oil & Gas Equipment & Services,45672991.0,floatShares
+IOSP,"Innospec, Inc.",Materials,Specialty Chemicals,23735708.0,floatShares
+IPAR,"Inter Parfums, Inc.",Consumer Staples,Household Products,17834197.0,floatShares
+IRDM,Iridium Communications,Communication Services,Alternative Carriers,91913215.0,floatShares
+ITGR,Integer Holdings Corporation,Health Care,Health Care Equipment,32995741.0,floatShares
+ITRI,"Itron, Inc.",Information Technology,Electronic Equipment & Instruments,41698563.0,floatShares
+IVT,InvenTrust Properties,Real Estate,Retail REITs,75637519.0,floatShares
+JBGS,JBG Smith,Real Estate,Office REITs,53131648.0,floatShares
+JBLU,JetBlue,Industrials,Passenger Airlines,332630873.0,floatShares
+JBSS,"John B. Sanfilippo & Son, Inc.",Consumer Staples,Packaged Foods & Meats,8865023.0,floatShares
+JBTM,JBT Marel Corporation,Industrials,Industrial Machinery & Supplies & Components,50319979.0,floatShares
+JJSF,J&J Snack Foods Corp.,Consumer Staples,Packaged Foods & Meats,14379794.0,floatShares
+JOE,St. Joe Company,Real Estate,Real Estate Development,54451699.0,floatShares
+JXN,"Jackson Financial, Inc.",Financials,Life & Health Insurance,59510538.0,floatShares
+KAI,Kadant Inc.,Industrials,Industrial Machinery & Supplies & Components,11486704.0,floatShares
+KALU,Kaiser Aluminum Corporation,Materials,Aluminum,15791212.0,floatShares
+KFY,Korn/Ferry International,Industrials,Human Resource & Employment Services,49854609.0,floatShares
+KGS,"Kodiak Gas Services, Inc.",Energy,Oil & Gas Equipment & Services,99770469.0,floatShares
+KLIC,"Kulicke and Soffa Industries, Inc.",Information Technology,Semiconductor Materials & Equipment,49288270.0,floatShares
+KMPR,Kemper Corporation,Financials,Multi-line Insurance,56812527.0,floatShares
+KMT,Kennametal,Industrials,Industrial Machinery & Supplies & Components,74527325.0,floatShares
+KMX,"CarMax, Inc.",Consumer Discretionary,Automotive Retail,128438057.0,floatShares
+KN,Knowles Corporation,Information Technology,Electronic Components,82549080.0,floatShares
+KNTK,"Kinetik Holdings, Inc.",Energy,Oil & Gas Storage & Transportation,62294488.0,floatShares
+KOP,"Koppers Holdings, Inc.",Materials,Commodity Chemicals,16331463.0,floatShares
+KRMN,Karman Holdings,Industrials,Aerospace & Defense,101841552.0,floatShares
+KSS,Kohl's Corp.,Consumer Discretionary,Broadline Retail,108524927.0,floatShares
+KTB,Kontoor Brands,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",53682578.0,floatShares
+KWR,Quaker Chemical Corporation,Materials,Specialty Chemicals,13176282.0,floatShares
+LAUR,"Laureate Education, Inc.",Consumer Discretionary,Education Services,116501521.0,floatShares
+LAZ,Lazard,Financials,Diversified Capital Markets,94781401.0,floatShares
+LBRT,"Liberty Energy, Inc.",Energy,Oil & Gas Equipment & Services,158581258.0,floatShares
+LCII,LCI Industries,Consumer Discretionary,Automotive Parts & Equipment,22926724.0,floatShares
+LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,130568152.0,floatShares
+LEU,Centrus Energy Corp.,Energy,Coal & Consumable Fuels,19042409.0,floatShares
+LFST,Lifestance Health,Health Care,Health Care Services,230780691.0,floatShares
+LGIH,LGI Homes,Consumer Discretionary,Homebuilding,18827148.0,floatShares
+LIF,Life360,Information Technology,Application Software,77814046.0,floatShares
+LGND,"Ligand Pharmaceuticals, Inc.",Health Care,Biotechnology,19248030.0,floatShares
+LKFN,Lakeland Financial,Financials,Regional Banks,23668144.0,floatShares
+LKQ,LKQ Corporation,Consumer Discretionary,Distributors,245988868.0,floatShares
+LMAT,LeMaitre Vascular,Health Care,Health Care Equipment,20949612.0,floatShares
+LNC,Lincoln Financial,Financials,Multi-line Insurance,168824004.0,floatShares
+LNN,Lindsay Corporation,Materials,Agricultural & Farm Machinery,9828736.0,floatShares
+LPG,Dorian LPG Ltd.,Energy,Oil & Gas Storage & Transportation,35801403.0,floatShares
+LQDA,Liquidia Corporation,Health Care,Pharmaceuticals,62269545.0,floatShares
+LQDT,"Liquidity Services, Inc.",Industrials,Diversified Support Services,23369314.0,floatShares
+LRN,"Stride, Inc.",Consumer Discretionary,Education Services,39420106.0,floatShares
+LTC,"LTC Properties, Inc.",Real Estate,Health Care REITs,37770642.0,floatShares
+LTH,"Life Time Group Holdings, Inc.",Consumer Discretionary,Leisure Facilities,189585117.0,floatShares
+LUMN,Lumen Technologies,Communication Services,Alternative Carriers,932983626.0,floatShares
+LW,Lamb Weston,Consumer Staples,Packaged Foods & Meats,133228723.0,floatShares
+LXP,Lexington Realty Trust,Real Estate,Diversified REITs,55486450.0,floatShares
+LYFT,"Lyft, Inc.",Industrials,Passenger Ground Transportation,335201176.0,floatShares
+LZ,"LegalZoom.com, Inc.",Industrials,Research & Consulting Services,114870735.0,floatShares
+LZB,"La-Z-Boy, Inc.",Consumer Discretionary,Home Furnishings,38379682.0,floatShares
+MAC,Macerich,Real Estate,Retail REITs,279218081.0,floatShares
+MAN,ManpowerGroup,Industrials,Human Resource & Employment Services,40282660.0,floatShares
+MARA,"MARA Holdings, Inc.",Information Technology,Internet Services & Infrastructure,370600094.0,floatShares
+MATW,Matthews International Corporation,Consumer Discretionary,Specialized Consumer Services,26973800.0,floatShares
+MATX,"Matson, Inc.",Industrials,Marine Transportation,28810188.0,floatShares
+MBC,"MasterBrand, Inc.",Industrials,Building Products,174839029.0,floatShares
+MBGL,"Mobility Global, Inc.",Industrials,Data Processing & Outsourced Services,294741718.0,floatShares
+MBIN,Merchants Bancorp,Financials,Regional Banks,24263572.0,floatShares
+MC,Moelis & Company,Financials,Investment Banking & Brokerage,72534085.0,floatShares
+MCRI,"Monarch Casino & Resort, Inc.",Consumer Discretionary,Casinos & Gaming,11872236.0,floatShares
+MCY,Mercury General,Financials,Property & Casualty Insurance,26148417.0,floatShares
+MD,Pediatrix Medical Group,Health Care,Health Care Services,77386286.0,floatShares
+MDU,"MDU Resources Group, Inc.",Utilities,Multi-Utilities,207465565.0,floatShares
+MFP,"Midera Food Processing, Inc.",Industrials,Industrial Machinery & Supplies & Components,41833893.0,floatShares
+MGEE,"MGE Energy, Inc.",Utilities,Electric Utilities,37018130.0,floatShares
+MGY,"Magnolia Oil & Gas, Corp.",Energy,Oil & Gas Exploration & Production,234124969.0,floatShares
+MHK,Mohawk Industries,Consumer Discretionary,Home Furnishings,51817649.0,floatShares
+MHO,"M/I Homes, Inc.",Consumer Discretionary,Homebuilding,24335929.0,floatShares
+MIR,"Mirion Technologies, Inc.",Information Technology,Electronic Equipment & Instruments,221699325.0,floatShares
+MKTX,MarketAxess,Financials,Financial Exchanges & Data,28977123.0,floatShares
+MLKN,"MillerKnoll, Inc.",Industrials,Office Services & Supplies,66345903.0,floatShares
+MMI,"Marcus & Millichap, Inc.",Real Estate,Real Estate Services,22660850.0,floatShares
+MMSI,"Merit Medical Systems, Inc.",Health Care,Health Care Supplies,57123765.0,floatShares
+MPT,Medical Properties Trust,Real Estate,Health Care REITs,484661846.0,floatShares
+MRCY,Mercury Systems,Industrials,Electrical Components & Equipment,55047682.0,floatShares
+MRP,"Millrose Properties, Inc.",Real Estate,Single-Family Residential REITs,151492166.0,floatShares
+MRTN,"Marten Transport, Ltd.",Industrials,Cargo Ground Transportation,57270145.0,floatShares
+MSEX,Middlesex Water Company,Utilities,Water Utilities,17901749.0,floatShares
+MSGS,Madison Square Garden Sports Corp.,Communication Services,Movies & Entertainment,16958487.0,floatShares
+MTCH,Match Group,Communication Services,Interactive Media & Services,223488543.0,floatShares
+MTH,Meritage Homes Corporation,Consumer Discretionary,Homebuilding,62075065.0,floatShares
+MTRN,Materion Corp.,Materials,Diversified Metals & Mining,20425801.0,floatShares
+MTUS,Metallus Inc,Materials,Steel,35804721.0,floatShares
+MTX,Minerals Technologies,Materials,Specialty Chemicals,30371088.0,floatShares
+MWA,Mueller Water Products,Industrials,Industrial Machinery & Supplies & Components,152822060.0,floatShares
+MXL,"MaxLinear, Inc.",Information Technology,Semiconductors,81656521.0,floatShares
+MYRG,"MYR Group, Inc.",Industrials,Construction & Engineering,15018566.0,floatShares
+NABL,"N-able, Inc.",Information Technology,Systems Software,72179113.0,floatShares
+NATL,NCR Atleos,Financials,Transaction & Payment Processing Services,72699804.0,floatShares
+NAVI,Navient,Financials,Consumer Finance,61849497.0,floatShares
+NBHC,National Bank Holdings Corporation,Financials,Regional Banks,42281837.0,floatShares
+NBTB,"NBT Bancorp, Inc.",Financials,Regional Banks,50432955.0,floatShares
+NE,Noble Corporation,Energy,Oil & Gas Drilling,156181175.0,floatShares
+NEO,"NeoGenomics Laboratories, Inc.",Health Care,Health Care Services,115719114.0,floatShares
+NEOG,Neogen,Health Care,Health Care Supplies,215849289.0,floatShares
+NGVT,"Ingevity, Corp.",Materials,Specialty Chemicals,33544257.0,floatShares
+NHC,"National Healthcare, Corp.",Health Care,Health Care Facilities,12621831.0,floatShares
+NHI,"National Health Investors, Inc.",Real Estate,Health Care REITs,46969710.0,floatShares
+NIC,Nicolet Bankshares,Financials,Regional Banks,19784102.0,floatShares
+NMIH,"NMI Holdings, Inc.",Financials,Commercial & Residential Mortgage Finance,72707831.0,floatShares
+NOG,"Northern Oil and Gas, Inc.",Energy,Oil & Gas Exploration & Production,102056942.0,floatShares
+NPK,"National Presto Industries, Inc.",Industrials,Aerospace & Defense,4814793.0,floatShares
+NPO,"EnPro Industries, Inc.",Industrials,Industrial Machinery & Supplies & Components,20700710.0,floatShares
+NSIT,"Insight Enterprises, Inc.",Industrials,Technology Distributors,28632445.0,floatShares
+NSP,Insperity,Industrials,Human Resource & Employment Services,35463162.0,floatShares
+NSSC,Napco Security Technologies,Information Technology,Electronic Equipment & Instruments,33488662.0,floatShares
+NTCT,"NETSCOUT Systems, Inc.",Information Technology,Communications Equipment,64804754.0,floatShares
+NTST,NETSTREIT Corp.,Real Estate,Retail REITs,97125744.0,floatShares
+NWBI,"Northwest Bancshares, Inc.",Financials,Regional Banks,143588523.0,floatShares
+NWL,Newell Brands,Consumer Discretionary,Housewares & Specialties,382965021.0,floatShares
+NWN,NW Natural,Utilities,Gas Utilities,41409518.0,floatShares
+NX,Quanex Building Products Corporation,Industrials,Building Products,39385478.0,floatShares
+NXRT,"NexPoint Residential Trust, Inc.",Real Estate,Multi-Family Residential REITs,21527506.0,floatShares
+OFG,OFG Bancorp,Financials,Regional Banks,41249432.0,floatShares
+OGN,Organon & Co.,Health Care,Pharmaceuticals,253502138.0,floatShares
+OI,"O-I Glass, Inc.",Materials,"Metal, Glass & Plastic Containers",147499528.0,floatShares
+OII,"Oceaneering International, Inc.",Energy,Oil & Gas Equipment & Services,96183458.0,floatShares
+OMCL,Omnicell,Health Care,Health Care Technology,41363121.0,floatShares
+OPLN,"OPENLANE, Inc.",Industrials,Diversified Support Services,103761394.0,floatShares
+OSIS,"OSI Systems, Inc.",Information Technology,Electronic Equipment & Instruments,15437710.0,floatShares
+OSW,OneSpaWorld Holdings Limited,Consumer Discretionary,Leisure Facilities,98398941.0,floatShares
+OTTR,Otter Tail Corporation,Utilities,Electric Utilities,40566467.0,floatShares
+OUT,Outfront Media,Real Estate,Other Specialized REITs,170065630.0,floatShares
+PAHC,Phibro Animal Health,Health Care,Pharmaceuticals,20561849.0,floatShares
+PARR,"Par Pacific Holdings, Inc.",Energy,Oil & Gas Refining & Marketing,47758972.0,floatShares
+PAYC,Paycom,Industrials,Human Resource & Employment Services,36188160.0,floatShares
+PAYO,Payoneer Global Inc.,Financials,Transaction & Payment Processing Services,271206044.0,floatShares
+PATK,"Patrick Industries, Inc.",Consumer Discretionary,Automotive Parts & Equipment,30492116.0,floatShares
+PBH,Prestige Consumer Healthcare,Health Care,Pharmaceuticals,46317596.0,floatShares
+PBI,"Pitney Bowes, Inc.",Industrials,Office Services & Supplies,132368825.0,floatShares
+PCRX,"Pacira BioSciences, Inc.",Health Care,Pharmaceuticals,35892041.0,floatShares
+PDFS,"PDF Solutions, Inc.",Information Technology,Semiconductor Materials & Equipment,34003888.0,floatShares
+PEB,Pebblebrook Hotel Trust,Real Estate,Hotel & Resort REITs,101309062.0,floatShares
+PECO,Phillips Edison & Company,Real Estate,Retail REITs,123028191.0,floatShares
+PENG,"Penguin Solutions, Inc.",Information Technology,Semiconductors,49089993.0,floatShares
+PENN,Penn Entertainment,Consumer Discretionary,Casinos & Gaming,123654687.0,floatShares
+PFBC,Preferred Bank,Financials,Regional Banks,10483963.0,floatShares
+PFS,"Provident Financial Services, Inc.",Financials,Regional Banks,125140502.0,floatShares
+PGNY,"Progyny, Inc.",Health Care,Health Care Services,68189407.0,floatShares
+PHIN,"PHINIA, Inc.",Consumer Discretionary,Automotive Retail,35212866.0,floatShares
+PI,"Impinj, Inc.",Information Technology,Electronic Equipment & Instruments,29297404.0,floatShares
+PIPR,Piper Sandler Companies,Financials,Investment Banking & Brokerage,67847013.0,floatShares
+PJT,"PJT Partners, Inc.",Financials,Investment Banking & Brokerage,23524490.0,floatShares
+PLAB,"Photronics, Inc.",Information Technology,Semiconductor Materials & Equipment,56603381.0,floatShares
+PLMR,"Palomar Holdings, Inc.",Financials,Property & Casualty Insurance,24742043.0,floatShares
+PLUS,"ePlus, Inc.",Information Technology,Technology Distributors,24975466.0,floatShares
+PLXS,Plexus Corp.,Information Technology,Electronic Manufacturing Services,26014314.0,floatShares
+PMT,PennyMac Mortgage Investment Trust,Real Estate,Mortgage REITs,71121374.0,floatShares
+POOL,Pool Corporation,Consumer Discretionary,Distributors,34376166.0,floatShares
+POWI,Power Integrations,Information Technology,Semiconductors,53944552.0,floatShares
+POWL,"Powell Industries, Inc.",Industrials,Electrical Components & Equipment,28690280.0,floatShares
+PPLI,People Inc.,Communication Services,Interactive Media & Services,49148424.0,floatShares
+PRDO,Perdoceo Education Corp.,Consumer Discretionary,Education Services,57099685.0,floatShares
+PRG,"PROG Holdings, Inc.",Financials,Consumer Finance,37318655.0,floatShares
+PRGO,Perrigo,Health Care,Pharmaceuticals,136934716.0,floatShares
+PRGS,Progress Software Corporation,Information Technology,Systems Software,39957269.0,floatShares
+PRIM,Primoris Services Corporation,Industrials,Construction & Engineering,52695388.0,floatShares
+PRK,Park National Corp.,Financials,Regional Banks,16149179.0,floatShares
+PRKS,United Parks & Resorts,Consumer Discretionary,Leisure Facilities,16691496.0,floatShares
+PRLB,Protolabs,Industrials,Industrial Machinery & Supplies & Components,23258543.0,floatShares
+PRSU,"Pursuit Attractions & Hospitality, Inc.",Consumer Discretionary,"Hotels, Resorts & Cruise Lines",12687647.0,floatShares
+PRVA,"Privia Health Group, Inc.",Health Care,Health Care Services,113841835.0,floatShares
+PSMT,PriceSmart,Consumer Staples,Consumer Staples Merchandise Retail,27318070.0,floatShares
+PTCT,"PTC Therapeutics, Inc.",Health Care,Pharmaceuticals,70620358.0,floatShares
+PTEN,"Patterson-UTI Energy, Inc.",Energy,Oil & Gas Drilling,369966211.0,floatShares
+PTGX,"Protagonist Therapeutics, Inc.",Health Care,Biotechnology,51465087.0,floatShares
+PTON,"Peloton Interactive, Inc.",Consumer Discretionary,Leisure Products,413228522.0,floatShares
+PZZA,Papa John's Pizza,Consumer Discretionary,Restaurants,31903748.0,floatShares
+QDEL,QuidelOrtho,Health Care,Health Care Supplies,61962699.0,floatShares
+QNST,"QuinStreet, Inc.",Communication Services,Interactive Media & Services,51951530.0,floatShares
+QRVO,Qorvo,Information Technology,Semiconductors,79808818.0,floatShares
+QTWO,"Q2 Holdings, Inc.",Information Technology,Application Software,60299484.0,floatShares
+RAMP,"LiveRamp Holdings, Inc.",Information Technology,Application Software,56873098.0,floatShares
+RAL,Ralliant Corp,Information Technology,Electronic Equipment & Instruments,108031117.0,floatShares
+RCUS,"Arcus Biosciences, Inc.",Health Care,Biotechnology,86374049.0,floatShares
+RDN,"Radian Group, Inc.",Financials,Property & Casualty Insurance,127985649.0,floatShares
+RDNT,"RadNet, Inc.",Health Care,Health Care Services,65727949.0,floatShares
+RELY,Remitly,Financials,Transaction & Payment Processing Services,170494571.0,floatShares
+RES,"RPC, Inc.",Energy,Oil & Gas Equipment & Services,85482067.0,floatShares
+REYN,Reynolds Consumer Products,Consumer Staples,Household Products,53880283.0,floatShares
+REX,REX American Resources Corporation,Energy,Oil & Gas Refining & Marketing,30460143.0,floatShares
+REZI,"Resideo Technologies, Inc.",Industrials,Trading Companies & Distributors,131254768.0,floatShares
+RHI,Robert Half,Industrials,Human Resource & Employment Services,89172095.0,floatShares
+RHP,Ryman Hospitality Properties,Real Estate,Hotel & Resort REITs,60178605.0,floatShares
+RITM,Rithm Capital,Financials,Mortgage REITs,553900686.0,floatShares
+RNG,"RingCentral, Inc.",Information Technology,Application Software,72145984.0,floatShares
+RNST,Renasant Corp.,Financials,Regional Banks,89007840.0,floatShares
+ROAD,"Construction Partners, Inc.",Industrials,Construction & Engineering,47058301.0,floatShares
+ROCK,"Gibraltar Industries, Inc.",Industrials,Building Products,29238631.0,floatShares
+ROG,Rogers Corporation,Information Technology,Electronic Components,16207831.0,floatShares
+RRR,"Red Rock Resorts, Inc.",Consumer Discretionary,Casinos & Gaming,46462844.0,floatShares
+RSI,"Rush Street Interactive, Inc.",Consumer Discretionary,Casinos & Gaming,101854093.0,floatShares
+RUN,Sunrun,Industrials,Building Products,219418826.0,floatShares
+RUSHA,Rush Enterprises,Industrials,Construction Machinery & Heavy Transportation Equipment,68079513.0,floatShares
+RXO,"RXO, Inc.",Industrials,Cargo Ground Transportation,124256994.0,floatShares
+SAFE,"Safehold, Inc.",Real Estate,Other Specialized REITs,54201364.0,floatShares
+SABR,Sabre,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",260387854.0,floatShares
+SAFT,"Safety Insurance Group, Inc.",Financials,Property & Casualty Insurance,14110145.0,floatShares
+SAH,"Sonic Automotive, Inc.",Consumer Discretionary,Automotive Retail,11983907.0,floatShares
+SBCF,Seacoast Banking Corporation of Florida,Financials,Regional Banks,87074914.0,floatShares
+SBH,"Sally Beauty Holdings, Inc.",Consumer Discretionary,Specialty Stores,86321626.0,floatShares
+SBSI,"Southside Bancshares, Inc.",Financials,Regional Banks,28112204.0,floatShares
+SCHL,Scholastic Corporation,Consumer Discretionary,Publishing,14237094.0,floatShares
+SCL,Stepan Company,Materials,Specialty Chemicals,21328351.0,floatShares
+SCSC,"ScanSource, Inc.",Information Technology,Technology Distributors,19742638.0,floatShares
+SDGR,"Schrödinger, Inc.",Health Care,Health Care Services,55864843.0,floatShares
+SEDG,SolarEdge,Information Technology,Semiconductor Materials & Equipment,58962585.0,floatShares
+SEI,"Solaris Energy Infrastructure, Inc.",Energy,Oil & Gas Equipment & Services,59503812.0,floatShares
+SEZL,Sezzle,Financials,Transaction & Payment Processing Services,16948971.0,floatShares
+SFBS,"ServisFirst Bancshares, Inc.",Financials,Regional Banks,50613623.0,floatShares
+SFNC,Simmons First National Corporation,Financials,Regional Banks,141233326.0,floatShares
+SHAK,"Shake Shack, Inc.",Consumer Discretionary,Restaurants,37080538.0,floatShares
+SHEN,Shenandoah Telecommunications Co,Communication Services,Wireless Telecommunication Services,42795805.0,floatShares
+SHO,"Sunstone Hotel Investors, Inc.",Real Estate,Hotel & Resort REITs,179179300.0,floatShares
+SHOO,"Steven Madden, Ltd.",Consumer Discretionary,Footwear,70645168.0,floatShares
+SIG,Signet Jewelers,Consumer Discretionary,Specialty Stores,34418673.0,floatShares
+SKT,"Tanger Factory Outlet Centers, Inc.",Real Estate,Retail REITs,109856480.0,floatShares
+SKY,"Champion Homes, Inc.",Consumer Discretionary,Homebuilding,52079617.0,floatShares
+SKYW,"SkyWest, Inc.",Industrials,Passenger Airlines,37730260.0,floatShares
+SLG,SL Green Realty,Real Estate,Office REITs,69853757.0,floatShares
+SLVM,Sylvamo Corp.,Materials,Paper Products,28689401.0,floatShares
+SM,SM Energy Company,Energy,Oil & Gas Exploration & Production,219299072.0,floatShares
+SMP,"Standard Motor Products, Inc.",Consumer Discretionary,Automotive Parts & Equipment,20636399.0,floatShares
+SMPL,Simply Good Foods Company,Consumer Staples,Packaged Foods & Meats,78692732.0,floatShares
+SNDR,Schneider National,Industrials,Cargo Ground Transportation,67175304.0,floatShares
+SNEX,StoneX Group Inc.,Financials,Investment Banking & Brokerage,108192005.0,floatShares
+SONO,"Sonos, Inc.",Consumer Discretionary,Consumer Electronics,96885135.0,floatShares
+SPHR,Sphere Entertainment,Communication Services,Movies & Entertainment,24186378.0,floatShares
+SPNT,SiriusPoint Ltd.,Financials,Reinsurance,100715069.0,floatShares
+SPSC,"SPS Commerce, Inc.",Information Technology,Application Software,34618847.0,floatShares
+SRPT,Sarepta Therapeutics,Health Care,Biotechnology,91518420.0,floatShares
+STAA,STAAR Surgical Company,Health Care,Health Care Equipment,24327654.0,floatShares
+STBA,"S&T Bancorp, Inc.",Financials,Regional Banks,34424410.0,floatShares
+STC,Stewart Information Services Corporation,Financials,Property & Casualty Insurance,29662694.0,floatShares
+STEP,StepStone Group,Financials,Asset Management & Custody Banks,74890311.0,floatShares
+STRA,"Strategic Education, Inc.",Consumer Discretionary,Education Services,20392265.0,floatShares
+SUPN,"Supernus Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,50435647.0,floatShares
+SXI,Standex International Corporation,Industrials,Industrial Machinery & Supplies & Components,11746251.0,floatShares
+SXT,Sensient Technologies,Materials,Specialty Chemicals,41036509.0,floatShares
+TALO,"Talos Energy, Inc.",Energy,Oil & Gas Exploration & Production,120155029.0,floatShares
+TBBK,"The Bancorp, Inc.",Financials,Regional Banks,37504694.0,floatShares
+TDC,Teradata,Information Technology,IT Consulting & Other Services,83546550.0,floatShares
+TDS,"Telephone and Data Systems, Inc.",Communication Services,Integrated Telecommunication Services,86308221.0,floatShares
+TDW,"Tidewater, Inc.",Energy,Oil & Gas Equipment & Services,43376985.0,floatShares
+TFIN,"Triumph Bancorp, Inc.",Financials,Regional Banks,21001864.0,floatShares
+TFX,Teleflex,Health Care,Health Care Equipment,41904606.0,floatShares
+TGTX,"TG Therapeutics, Inc.",Health Care,Biotechnology,132358489.0,floatShares
+THRM,Gentherm Incorporated,Consumer Discretionary,Automotive Parts & Equipment,29592144.0,floatShares
+TILE,"Interface, Inc.",Industrials,Office Services & Supplies,55121409.0,floatShares
+TMDX,"TransMedics Group, Inc.",Health Care,Health Care Equipment,33107135.0,floatShares
+TMP,Tompkins Financial Corporation,Financials,Regional Banks,12988482.0,floatShares
+TNC,Tennant Company,Industrials,Industrial Machinery & Supplies & Components,16543621.0,floatShares
+TNDM,Tandem Diabetes Care,Health Care,Health Care Equipment,61063665.0,floatShares
+TPC,Tutor Perini Corporation,Industrials,Construction & Engineering,43697553.0,floatShares
+TR,"Tootsie Roll Industries, Inc.",Consumer Staples,Packaged Foods & Meats,20862298.0,floatShares
+TRIP,TripAdvisor,Communication Services,Interactive Media & Services,115100302.0,floatShares
+TRMK,Trustmark Corp.,Financials,Regional Banks,56277358.0,floatShares
+TRN,"Trinity Industries, Inc.",Industrials,Construction Machinery & Heavy Transportation Equipment,77790880.0,floatShares
+TRNO,Terreno Realty Corporation,Real Estate,Industrial REITs,105059366.0,floatShares
+TRST,TrustCo Bank Corp NY,Financials,Regional Banks,15410956.0,floatShares
+TRUP,Trupanion,Financials,Life & Health Insurance,31990592.0,floatShares
+UA,Under Armour (Class C),Consumer Discretionary,"Apparel, Accessories & Luxury Goods",302223947.0,floatShares
+UAA,Under Armour (Class A),Consumer Discretionary,"Apparel, Accessories & Luxury Goods",302223947.0,floatShares
+UCB,"United Community Banks, Inc.",Financials,Regional Banks,118862125.0,floatShares
+UCTT,"Ultra Clean Holdings, Inc.",Information Technology,Semiconductor Materials & Equipment,44050474.0,floatShares
+UE,Urban Edge Properties,Real Estate,Retail REITs,124831790.0,floatShares
+UFCS,"United Fire Group, Inc.",Financials,Property & Casualty Insurance,21928025.0,floatShares
+UFPT,"UFP Technologies, Inc.",Health Care,Health Care Equipment,7328989.0,floatShares
+UNF,UniFirst Corporation,Industrials,Diversified Support Services,12713535.0,floatShares
+UNFI,United Natural Foods Inc,Consumer Staples,Food Retail,58558320.0,floatShares
+UNIT,Uniti Group,Communication Services,Alternative Carriers,175004822.0,floatShares
+UPBD,"Upbound Group, Inc.",Consumer Discretionary,Computer & Electronics Retail,54389847.0,floatShares
+UPWK,"Upwork, Inc.",Industrials,Human Resource & Employment Services,114486809.0,floatShares
+URBN,"Urban Outfitters, Inc.",Consumer Discretionary,Apparel Retail,59001716.0,floatShares
+USLM,"United States Lime & Minerals, Inc.",Materials,Construction Materials,10541785.0,floatShares
+USPH,"U.S. Physical Therapy, Inc.",Health Care,Health Care Facilities,14321015.0,floatShares
+UTI,Universal Technical Institute,Consumer Discretionary,Education Services,53002714.0,floatShares
+UTL,Unitil Corporation,Utilities,Electric Utilities,17645988.0,floatShares
+UVV,Universal Corporation,Consumer Staples,Tobacco,24093019.0,floatShares
+VAC,Marriott Vacations Worldwide,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",28238214.0,floatShares
+VCEL,Vericel,Health Care,Biotechnology,49751834.0,floatShares
+VCTR,"Victory Capital Holdings, Inc.",Financials,Asset Management & Custody Banks,46967479.0,floatShares
+VCYT,"Veracyte, Inc.",Health Care,Health Care Services,77788483.0,floatShares
+VECO,Veeco Instruments Inc.,Information Technology,Semiconductor Materials & Equipment,58960149.0,floatShares
+VGNT,Versigent PLC,Consumer Discretionary,Other Specialty Retail,69693401.0,floatShares
+VIR,"Vir Biotechnology, Inc.",Health Care,Biotechnology,124224819.0,floatShares
+VIRT,"Virtu Financial, Inc.",Financials,Financial Exchanges & Data,82135525.0,floatShares
+VRRM,Verra Mobility Corporation,Industrials,Data Processing & Outsourced Services,147503871.0,floatShares
+VRTS,"Virtus Investment Partners, Inc.",Financials,Asset Management & Custody Banks,6143803.0,floatShares
+VSAT,"Viasat, Inc.",Information Technology,Communications Equipment,129281073.0,floatShares
+VSEC,VSE Corporation,Industrials,Aerospace & Defense,26014264.0,floatShares
+VSH,Vishay Intertechnology,Information Technology,Electronic Components,138683909.0,floatShares
+VSNT,"Versant Media Group, Inc.",Communication Services,Cable & Satellite,130665395.0,floatShares
+VSTS,Vestis,Industrials,Diversified Support Services,85444151.0,floatShares
+VSXY,Victoria's Secret,Consumer Discretionary,Apparel Retail,69439992.0,floatShares
+VTOL,Bristow Group Inc.,Energy,Oil & Gas Equipment & Services,25165169.0,floatShares
+VVX,"V2X, Inc.",Industrials,Aerospace & Defense,30473957.0,floatShares
+VYX,NCR Voyix,Information Technology,IT Consulting & Other Services,114810643.0,floatShares
+WABC,Westamerica Bank,Financials,Regional Banks,21566404.0,floatShares
+WAFD,"WaFd, Inc.",Financials,Regional Banks,72797995.0,floatShares
+WAY,Waystar Holding Corp,Health Care,Health Care Technology,119934799.0,floatShares
+WD,"Walker & Dunlop, Inc.",Financials,Commercial & Residential Mortgage Finance,32335882.0,floatShares
+WDFC,WD-40 Company,Consumer Staples,Household Products,13149587.0,floatShares
+WEN,The Wendy's Company,Consumer Discretionary,Restaurants,155056600.0,floatShares
+WERN,Werner Enterprises,Industrials,Cargo Ground Transportation,58349376.0,floatShares
+WGO,"Winnebago Industries, Inc.",Consumer Discretionary,Automobile Manufacturers,26791843.0,floatShares
+WHD,"Cactus, Inc.",Energy,Oil & Gas Equipment & Services,58629556.0,floatShares
+WINA,Winmark,Consumer Discretionary,Other Specialty Retail,2751566.0,floatShares
+WKC,World Kinect Corporation,Energy,Oil & Gas Refining & Marketing,48788415.0,floatShares
+WLY,John Wiley & Sons,Communication Services,Publishing,37952502.0,floatShares
+WOR,Worthington Enterprises,Industrials,Building Products,29986521.0,floatShares
+WRBY,Warby Parker,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",93322845.0,floatShares
+WRLD,World Acceptance Corporation,Financials,Consumer Finance,2162549.0,floatShares
+WS,Worthington Steel,Materials,Steel,44855257.0,floatShares
+WSBC,WesBanco,Financials,Regional Banks,91365704.0,floatShares
+WSC,WillScot Holdings Corp.,Industrials,Office Services & Supplies,172591635.0,floatShares
+WSFS,WSFS Financial Corporation,Financials,Regional Banks,50129591.0,floatShares
+WT,"WisdomTree Investments, Inc.",Financials,Asset Management & Custody Banks,131927718.0,floatShares
+WU,Western Union,Financials,Transaction & Payment Processing Services,303888642.0,floatShares
+WWW,"Wolverine World Wide, Inc.",Consumer Discretionary,Footwear,74094768.0,floatShares
+XHR,"Xenia Hotels & Resorts, Inc.",Real Estate,Hotel & Resort REITs,90350183.0,floatShares
+XNCR,Xencor Inc,Health Care,Biotechnology,53399866.0,floatShares
+XPEL,"XPEL, Inc.",Consumer Discretionary,Automotive Parts & Equipment,22887581.0,floatShares
+YELP,"Yelp, Inc.",Communication Services,Interactive Media & Services,52023076.0,floatShares
+YOU,"Clear Secure, Inc.",Information Technology,Application Software,90384716.0,floatShares
+ZD,Ziff Davis,Communication Services,Advertising,28030478.0,floatShares
+ZWS,Zurn Elkay Water Solutions Corp.,Industrials,Industrial Machinery & Supplies & Components,145189137.0,floatShares

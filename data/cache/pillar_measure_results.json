@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "pre_reg": "#1",
+    "primary_n": 1,
+    "cost": 0.0015,
+    "bootstrap": 1000,
+    "seed": 20260813,
+    "alpha": 0.05,
+    "era_oos_start": "2016-01-01",
+    "universe": "universe_sp600_2026-08-13.csv",
+    "detections": [
+      "pillar_detections_v1.csv",
+      "pillar_detections_v1_high.csv",
+      "pillar_detections_v1_r210.csv"
+    ],
+    "detections_sha256": {
+      "pillar_detections_v1.csv": "d5f80746f14f53fd",
+      "pillar_detections_v1_high.csv": "e7d0388056df08ea",
+      "pillar_detections_v1_r210.csv": "25615cd68f2b14f9"
+    },
+    "cohorts": "pillar_h3cohorts_v1.csv",
+    "cohorts_sha256": "67ac8bcffe7c82be",
+    "measure_code_sha256": "26b71cdc6e0e17dd",
+    "measure_engine_sha256": "c7421fbf (frozen Phase-3 engine, imported)",
+    "note": "verdict machinery runs on OOS only; IS is record only. H1/H2 had zero OOS detections and enter the Holm family at p=1.0 (non-rejections). Random-entries and same-ticker baselines pay COST; SPY is raw."
+  },
+  "hypotheses": {
+    "H1": {
+      "n_total": 7,
+      "n_oos": 0,
+      "mean": NaN,
+      "median": NaN,
+      "ci": [
+        NaN,
+        NaN
+      ],
+      "metrics": null,
+      "excess": {},
+      "p_vs_random": 1.0,
+      "p_vs_same_ticker": 1.0,
+      "p_holm_input": 1.0,
+      "holm_gate": 0.025,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE (<100 OOS detections)"
+    },
+    "H2": {
+      "n_total": 6,
+      "n_oos": 0,
+      "mean": NaN,
+      "median": NaN,
+      "ci": [
+        NaN,
+        NaN
+      ],
+      "metrics": null,
+      "excess": {},
+      "p_vs_random": 1.0,
+      "p_vs_same_ticker": 1.0,
+      "p_holm_input": 1.0,
+      "holm_gate": 0.05,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE (<100 OOS detections)"
+    },
+    "H3": {
+      "n_total": 6537,
+      "n_oos": 2513,
+      "mean": -0.0019068053299214354,
+      "median": -0.0023616351229594477,
+      "ci": [
+        -0.12606200433798498,
+        0.1293159064463067
+      ],
+      "metrics": {
+        "hit": [
+          0.4391734978113808,
+          0.4202049343414246,
+          0.4580183048149622
+        ],
+        "sharpe": [
+          -0.4654095892296259,
+          -1.1277787711102716,
+          0.12611050681305497
+        ],
+        "max_dd": [
+          -0.999986481068026,
+          -0.9999999828537495,
+          -0.9984116754431608
+        ]
+      },
+      "excess": {
+        "random_entries": [
+          -0.0005544834497755393,
+          -0.0005895350537390275,
+          -0.003375582161962206,
+          0.002258203359496035,
+          0.716
+        ],
+        "same_ticker": [
+          -0.0007084508235718418,
+          -0.0006858091271025647,
+          -0.0036717226343416873,
+          0.002277461255980936,
+          0.636
+        ],
+        "spy": [
+          -0.0021355327237666463,
+          -0.002114830722508106,
+          -0.004731008372278753,
+          0.0005900598297125603,
+          0.11
+        ]
+      },
+      "p_vs_random": 0.716,
+      "p_vs_same_ticker": 0.636,
+      "p_holm_input": 0.716,
+      "holm_gate": 0.016666666666666666,
+      "holm_rejected": false,
+      "verdict": "NO EDGE (mean <= 0 or CI includes 0, or Holm gate not cleared)"
+    }
+  },
+  "h3_cohort_test": {
+    "n_days": 2513,
+    "dropped": 0,
+    "rank1_day_mean": -0.0019068053299214347,
+    "r210_day_mean": -0.0019392148758948797,
+    "paired_diff_mean": 3.240954597344527e-05,
+    "ci": [
+      -0.002529048849172137,
+      0.0024843484281609407
+    ],
+    "p_two_sided": 0.986,
+    "hit_rate_r1": 0.4397134898527656,
+    "hit_rate_r210": 0.4552327894946279
+  },
+  "sensitivities": {
+    "cap20": {
+      "n_kept": 4927,
+      "dropped": {
+        "H1": 0,
+        "H2": 0,
+        "H3": 0
+      },
+      "n_oos": 2045
+    }
+  }
+}

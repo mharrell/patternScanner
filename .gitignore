@@ -9,7 +9,22 @@ venv/
 *.env
 
 # Cached/downloaded market data (large)
-data/cache/
+data/cache/*
+# ...but the frozen universe snapshot and QA report are records of evidence
+!data/cache/universe_sp600_2026-08-13.csv
+!data/cache/qa_report.md
+!data/cache/detections_report.md
+!data/cache/measure_report.md
+!data/cache/measure_results.json
+!data/cache/pillar_measure_report.md
+!data/cache/pillar_measure_results.json
+!data/cache/veto_measure_report.md
+!data/cache/veto_measure_results.json
+
+# Downloaded transcript content — copyrighted, keep local
+*.vtt
+transcripts/*/*
+!transcripts/*/_INDEX.md
 
 # IDE
 .idea/

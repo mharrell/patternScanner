@@ -1,0 +1,11 @@
+# Phase-1 data pipeline (frozen 2026-08-13; see PREREGISTRATION.md and data/README.md)
+# NOTE: this box has a broken pip console-script installer (locked .exe files in
+# C:\Python312\Scripts, WinError 2 on .deleteme rename). Install pure-library
+# packages with `pip install --no-deps <pkg>` after manually satisfying deps.
+yfinance==1.6.0
+pandas==3.0.1
+numpy==2.3.5
+pyarrow==25.0.1
+curl_cffi==0.16.0   # TLS impersonation for Yahoo; required to avoid rate-limit blocks
+beautifulsoup4==4.15.0
+requests==2.32.5
