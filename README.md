@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Four pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Six pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -21,16 +21,26 @@ drifting up 5→20 bars (the project's first EDGE verdicts; the pattern-vs-
 chance trigger test is Family 1, still null). **Per-decade drift**
 (pre-reg #5): both families **NO EDGE × 3** — the late-era strengthening
 is real vs random entries (p=0.008/0.002) but never clears the same-ticker
-control; the drift is late-era beta, not selection edge. Per the brief §1,
-Phase 5 (paper trading) is **not triggered** after five campaigns.
+control; the drift is late-era beta, not selection edge. **E-03**
+(pre-reg #6, MACD-cross breakout rejection): **FADE EDGE × 2 on Shape B**
+— the project's first verdicts in a claim's favor. Bear-day conditioning
+(F2): crossed-B breakouts −0.95% vs not-crossed +0.70% (excess −1.62pp,
+p=0.012); avoidance bar (F3): −0.53pp vs random (p=0.014) and −0.57pp vs
+same-ticker (p=0.008); NO EDGE × 6, INCONCLUSIVE × 1. The effect lives
+entirely in bear days, exactly as claimed, and peaks in 2022 — the year he
+says he learned it. It is a **fade signal**: it identifies B-breakouts
+worth *avoiding*, it does not make any pattern profitable. Per the brief
+§1, Phase 5 (paper trading) is **not triggered** after six campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
-`data/cache/decade_measure_report.md`. Next candidates from the ledger:
-E-03 (MACD-cross breakout rejection), or a year-concentration follow-up
-(pre-reg #6) on the per-year drift detail.
+`data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`.
+Next candidates from the ledger: E-02's "80% chance of this working"
+(win-rate ≥ 0.80 on the veto-pass setup, expected to fail like most 80%
+claims), or the corpus scan of `transcripts/warrior-trading/` for new
+testable claims.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -44,7 +54,10 @@ E-03 (MACD-cross breakout rejection), or a year-concentration follow-up
   Pre-registration #3: the two-filter veto (E-01/E-04), frozen 2026-08-14.
   Pre-registration #4: the momentum horizon follow-up (N=20 primary),
   frozen 2026-08-14. Pre-registration #5: the per-decade drift
-  decomposition, frozen 2026-08-14. Verdicts return to the ledger.
+  decomposition, frozen 2026-08-14. Pre-registration #6: the E-03
+  MACD-cross breakout-rejection claim (bearish signal-line cross within
+  L=20 bars, regime SPY < SMA200, three verdict families), frozen
+  2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

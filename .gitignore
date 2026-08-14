@@ -24,6 +24,8 @@ data/cache/*
 !data/cache/momentum_measure_results.json
 !data/cache/decade_measure_report.md
 !data/cache/decade_measure_results.json
+!data/cache/e03_measure_report.md
+!data/cache/e03_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

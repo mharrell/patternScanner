@@ -632,3 +632,198 @@ detections d5f80746…, engine c7421fbf… imported unchanged; outputs
 deterministic (results 5b7f7317…, report ade0fd3c…, verified
 byte-identical across two runs and independently recomputed row-by-row
 from bars).
+
+---
+
+# Pre-registration #6 — E-03: MACD-cross breakout rejection
+
+**Frozen:** 2026-08-14 · **Status:** FROZEN — no parameter may be changed
+after this date. Any change is a new hypothesis requiring a fresh
+pre-registration and a fresh test window (DESIGN_BRIEF.md §4, §6).
+
+Source claim: Ross Cameron, "The Ultimate Day Trading Guide",
+[1:21:54–1:23:04]; ledger row **E-03**. As stated: "when the MACD actually
+crosses... more times than not, any attempt to break out will reject and the
+price will end up selling off" — learned in the 2022 bear market, "very
+consistent especially during the bear market." Context (same segment): a
+stock with a strong move whose moving averages converge into a tight range;
+the cross "signifies the end of the front side of this move"; breakout
+attempts after it fail. At [1:34:29–1:34:43] he lists **"MACD crossover"**
+as an exit indicator ("the reversal is in a way already begun"). The ledger
+annotation fixes the open design problem in advance: **pre-register the
+crossing definition and the regime variable explicitly, so neither can be
+added post-hoc.**
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "The MACD actually crosses" | **Bearish signal-line crossover**: hist = MACD line − signal line; cross at bar j = hist<sub>j</sub> < 0 AND hist<sub>j−1</sub> ≥ 0. MACD(12,26,9), `ewm(adjust=False)`, adjusted closes — identical MACD machinery to pre-reg #3 | "MACD crossover" is conventionally the signal-line cross (his listed exit indicator, [1:34:33]); the *zero-line* cross reading was already measured as a pre-reg #3 sensitivity with no signal (§E.5) — the signal-line reading is what E-03 adds |
+| "When... crosses" (event, not state) | Cross within **L = 20 bars before** the signal bar: crossed(t) = ∃ k ∈ [1, 20]: cross at t−k | The described sequence is cross → sideways compression → breakout attempt fails; the cross strictly precedes the signal. L=5 is a pre-declared sensitivity |
+| "Any attempt to break out" | The frozen shape detections A/B/C from pre-reg #2 (consolidation breakout / pullback-to-new-high / double-bottom break) — one hypothesis per shape | The shapes ARE the project's breakout-attempt analogs; no new detector parameters |
+| "Will reject and the price will end up selling off" | Crossed subset mean forward return **below** the not-crossed subset (F1/F2) and **below** the calibrated baselines (F3) | The claim is negative — verdicts are defined in the claim's direction (fade), see §4 |
+| "Very consistent especially during the bear market" | **Regime variable (pre-registered): bear = SPY close < SPY 200-day simple moving average at signal date t.** SPY from the frozen Phase-1 cache; SMA over the prior 200 closes including t | The market proxy is SPY (the baseline benchmark throughout this project). Where the SMA is undefined (SPY history < 200 bars, all pre-2000-11 — IS only), the detection is excluded from the F2 regime family and counted |
+| MACD warm-up | Detections at bar index < 60 from series start are excluded from the campaign (counted), as in pre-reg #3 | EMA seed weight is non-negligible early in a series |
+
+## 2. Hypotheses (three verdict families, each Holm-corrected across A/B/C at α=0.05, OOS only)
+
+Base: detections_v1.csv (pre-reg #2, frozen manifest e93ddf7a…), N=10
+primary, costs and walk-forward split identical to #1–#5.
+
+- **Family 1 — cross conditioning, all OOS** (the claim without regime):
+  for each shape S, mean(S-crossed) − mean(S-not-crossed) < 0 — the claim
+  predicts crossed breakouts underperform their same-shape control.
+- **Family 2 — cross conditioning, bear-market OOS days only** (the
+  emphasized regime): same comparison restricted to detections whose signal
+  date t has SPY < its 200-day SMA. Within-regime control by construction —
+  the cross must add something beyond the regime itself.
+- **Family 3 — avoidance bar** (the "reject and sell off" reading vs
+  chance): the crossed subset's N=10 excess vs era-matched random-entries
+  AND same-ticker buy-and-hold is significantly **below** 0 — the cross
+  identifies breakouts worth avoiding (trades that underperform both chance
+  and just holding the ticker). p_input = max(p_random, p_same), as in
+  #1–#5.
+
+A verdict in one family does not borrow from another. Bullish crosses and
+the zero-line cross are pre-declared sensitivities (§6), never verdict
+slots.
+
+## 3. Measurement (identical protocol to #1–5 where shared)
+
+- Forward return `(c_{t+N} − o_{t+1}) / o_{t+1}` − 0.15% COST, N = 10
+  primary. N = 5/20 pre-declared exploratory.
+- Conditioning tests (F1/F2): two-sample bootstrap (B = 1,000, seed
+  20260813), mean(crossed) − mean(not-crossed), 95% percentile CI,
+  two-sided p — the veto campaign's `two_sample_excess` machinery.
+- Absolute test (F3): `bootstrap_excess` vs the three era-matched baselines
+  (random −COST, same-ticker −COST, SPY raw) — identical to #1–5.
+- Crossed/not-crossed is a **partition** of each shape's OOS detections
+  (no overlap — unlike the veto's subset-vs-full comparison); counts are
+  asserted in the measurement.
+- Warm-up guard: detections at bar index < 60 excluded (counted).
+- Metrics with bootstrap CIs (hit rate, Sharpe, maxDD) on the crossed
+  subset, per shape. The hit rate answers "more times than not" directly;
+  it is reported, not a verdict.
+- IS record only, no verdicts — as always.
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+The claim is negative, so the Edge vocabulary is applied in the claim's
+direction:
+
+| Outcome | Rule |
+|---|---|
+| **Fade edge (claim supported)** | Holm-rejected AND the excess CI **upper** bound < 0 (F1/F2: conditioning excess; F3: excess vs random AND same-ticker, p_input = max(p_random, p_same)) — the crossed breakouts underperform their control/baselines, significantly, at the Holm gate |
+| **No edge** | CI includes 0, or point estimate ≥ 0, with ≥ 100 crossed OOS detections |
+| **Inconclusive** | < 100 crossed OOS detections (F2: < 100 crossed on bear days) — reported, never spun |
+
+Note the sign flip vs campaigns #1–5: there the excess CI-low > 0 was
+required; here the claim predicts the crossed set *loses*, so the CI-high
+< 0 is required.
+
+## 5. Data & bias handling (§7 checklist)
+
+- **No new data:** frozen inputs only — detections_v1.csv (sha
+  9b44f66160130c3a…), bars and universe snapshot as cached, SPY bars from
+  the same frozen cache (SPY is also the baseline benchmark). No fetch, no
+  edits.
+- **Look-ahead:** the cross window, MACD, and SMA all use data ≤ t only;
+  entry remains open of t+1.
+- **Multiple testing:** three pre-registered families, Holm within each at
+  α=0.05 on OOS only. The crossing reading, window, and regime variable are
+  fixed here, before measurement — no post-hoc fitting.
+- **Overlapping windows and clustering:** as documented in #4 §5 — bootstrap
+  preserves dependence; effective independence < nominal; documented, not
+  adjusted.
+- **Scope note (carried from pre-reg #3):** the source uses MACD on 1-min
+  charts; the daily-bar MACD is a documented adaptation of the *rule* as
+  stated (time-frame-agnostic). These are verdicts on the mechanism, not on
+  his intraday practice.
+- **Survivorship / era-matching:** unchanged from #1–5.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+- L = 5 (tight window: cross within the last week before the signal).
+- k ∈ [0, 20] (cross on or before the signal bar — the cross-day reading).
+- Zero-line cross reading (line<sub>t</sub> < 0 AND line<sub>t−1</sub> ≥ 0
+  within the window) — already measured with no signal in pre-reg #3;
+  recomputed here on the same frozen data for the record.
+- Bullish signal-line cross (hist crosses **up** within the window) — the
+  opposite-direction cross, exploratory.
+- Non-bear regime conditioning (F1 within non-bear OOS days).
+- Crossed subset vs baselines within bear days only (F3's regime form).
+- N = 5, 20 (same detections/legs); per-year OOS means of the crossed
+  subset.
+
+## 7. Freeze
+
+- Frozen 2026-08-14, before any measurement. Registered against:
+  PREREGISTRATION #6 · shapes A/B/C with the bearish signal-line MACD cross
+  (L=20) · regime SPY < SMA200 · N = 10 primary · three verdict families ·
+  identical engine and baselines to #1–5 (engine c7421fbf…, never
+  modified).
+- Amendments require a new pre-registration and a fresh window. Exploratory
+  results may be reported but never drive a verdict or a claim.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+Measured 2026-08-14 with the frozen parameters above. **FADE EDGE × 2 (both
+Shape B), NO EDGE × 6, INCONCLUSIVE × 1** — the project's first verdicts in
+a claim's favor, and they land exactly where the claim pointed.
+
+**Family 1 (cross conditioning, all OOS): NO EDGE × 3** — A: crossed n=3,477
+mean +0.21% vs not-crossed +0.70% (excess −0.48pp, p=0.254); B: n=2,930,
+−0.04% vs +0.00% (p=0.810); C: n=204, +1.04% vs −0.04% (**+1.07pp — the
+wrong direction**, p=0.230). Unconditioned, the cross does nothing.
+
+**Family 2 (bear-market days only — the claim's emphasized regime):
+FADE EDGE (B), NO EDGE (A), INCONCLUSIVE (C)** — **B: crossed n=230, mean
+−0.95% vs not-crossed +0.70% — excess −1.62pp (95% CI −2.78..−0.46pp,
+p=0.012, Holm-rejected at gate 0.0167)**. In bear markets, pullback-to-
+new-high breakouts within 20 bars after a bearish MACD cross LOSE ~1% on
+average while their not-crossed counterparts gain +0.70%. A: n=170, −0.18%
+vs +0.42% (p=0.456); C: n=13 — INCONCLUSIVE by count floor, reported
+never spun.
+
+**Family 3 (avoidance bar): FADE EDGE (B), NO EDGE × 2** — **B: crossed
+n=2,930, mean −0.04%, excess vs random −0.53pp (CI −1.00..−0.10pp,
+p=0.014) and vs same-ticker −0.57pp (CI −1.02..−0.14pp, p=0.008) — p_input
+0.014 vs Holm gate 0.0167, a narrow pass, noted honestly**; vs SPY −0.63pp
+(p<0.001). The crossed-B breakouts significantly underperform chance and
+just holding the ticker over all OOS. A: p=0.184; C: p=0.470.
+
+Answer to the campaign's question: **the MACD-cross breakout-rejection
+claim is supported in its emphasized regime for its most faithful shape** —
+Shape B's structure (strong move → compression → cross → new-high attempt)
+is the described scenario, and B is the only shape whose crossed breakouts
+underperform — in bear days (F2, p=0.012) and vs chance over all OOS (F3,
+p_input 0.014). The unconditional form (F1) is null for all three shapes;
+A and C show nothing; the effect concentrates exactly in the year he names
+(per-year crossed-subset means: 2022 −2.01%, the strongest negative year).
+
+**Interpretation (recorded, not the verdict):** this is a **fade signal** —
+the cross identifies B-breakouts worth *avoiding*; it does not make any
+pattern profitable. The trigger test for Phase 5 remains the positive-edge
+bar, untouched and untriggered. The zero-line reading (pre-reg #3
+sensitivity) fired **0 of 31,226 detections** on the signal bar — the at-t
+reading is structurally impossible on these detectors (breakout days are
+up-days; the MACD line crosses down only after down-days), which is why
+the windowed signal-line reading is the operative one. Note on
+implementation: F3's same-ticker baseline uses the shape's own ticker
+distribution per the #1–5 protocol (an earlier pass used the combined
+crossed-set distribution inherited from the veto template; corrected
+before any verdict was written back; verdicts unchanged, B's F3 margin
+widened from p=0.016 to 0.014). Verdicts written to CLAIMS_LEDGER §E.6;
+full report in `data/cache/e03_measure_report.md`
+(+ `e03_measure_results.json`).
+
+Sensitivities (L=5, k∈[0,20], zero-line at-t and within-window, bullish
+cross, non-bear F1, bear-only F3, N=5/20, per-year) are reported in the
+report with no verdicts — consistent with the primary result (bear-days
+F3 regime form: B n=230 −0.95% vs random −1.45pp p=0.074, a near-miss on
+a sensitivity; non-bear F1 for B flips to +0.18pp p=0.342 — the effect is
+bear-market-specific). Input fingerprints: detections 9b44f661…, e03 file
+5ac5a3a1…, e03 code 305e22a2…, measure code 12d6bb45…, engine c7421fbf…
+imported unchanged; outputs deterministic (results 1d3feec5…, report
+17ac9d73…, verified byte-identical across two runs and independently
+recomputed row-by-row from bars).

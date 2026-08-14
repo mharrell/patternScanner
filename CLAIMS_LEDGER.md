@@ -264,7 +264,7 @@ sub-era, per-year means, dedupe-20 by sub-era — all in the report.
 |---|---|---|---|
 | E-01 | [02:01–04:57] | Before entry, two filters: **MACD** (blue line crossed negative = no) and **volume** (high-volume selling on red candles = no). "If just one of them says no, I don't take the trade." | `tested, rejected` — **H-VA/VB/VC** in [PREREGISTRATION.md](PREREGISTRATION.md) #3, measured 2026-08-14 → **NO EDGE in both verdict families, all three shapes** (§E.5). Does conditioning on (MACD non-negative AND no high-volume red bar) improve forward returns vs the raw pattern? No — on A and C the veto cuts trades whose mean forward return was *higher* than the kept trades'. |
 | E-02 | [02:01–04:57] | "**80% chance of this working**" (of the setup when both filters pass). | `red flag` — a magic number with no stated measurement window or sample. Pre-register as the *specific* hypothesis H: win rate ≥ 0.80 on the defined setup; expect it to fail honestly like most 80% claims. |
-| E-03 | [1:21:54–1:23:04] | "When the MACD actually crosses... more times than not, any attempt to break out will reject and the price will end up selling off." (Learned in the 2022 bear market; "very consistent especially during the bear market.") | `candidate` — testable on daily bars: breakout forward returns conditioned on MACD-cross-just-occurred. Note the *regime* qualifier ("especially during the bear market") — pre-register the conditioning variable, don't let it be added post-hoc. |
+| E-03 | [1:21:54–1:23:04] | "When the MACD actually crosses... more times than not, any attempt to break out will reject and the price will end up selling off." (Learned in the 2022 bear market; "very consistent especially during the bear market.") | `tested, partial support` — **FADE EDGE on Shape B** (bear days: −1.62pp, p=0.012; vs chance: p_input 0.014), NO EDGE × 6, INCONCLUSIVE × 1 — the project's first verdicts in a claim's favor, and they land on the shape that matches the described scenario, in the regime he emphasizes (§E.6). The unconditional form is null; the effect is a **fade signal** — it says *don't take* the trade, it does not make any pattern profitable. Phase 5 not triggered. |
 | E-04 | [3:02:18–3:04:30] | Final quiz restates the veto: high-volume red candle = no; MACD negative = no; "if it's not a hard yes, then it's a no" (beginner rule). | `tested, rejected` — same campaign as E-01 ([PREREGISTRATION.md](PREREGISTRATION.md) #3), measured 2026-08-14. The kill-rate decomposition answers the "hard yes" question: the veto is a **trade-count reducer, not an edge enhancer** (A −30%, B −3%, C −15% of OOS trades; the killed sets had *higher* mean forward returns on A and C — §E.5). |
 
 ---
@@ -298,6 +298,65 @@ changes nothing and the pattern remains a fade signal. As an edge-adding
 mechanism the two-filter veto is rejected on daily bars at the frozen
 horizon; as a trade-count reducer it is real (A −30%, B −3%, C −15% of OOS
 trades).
+
+---
+
+## E.6 E-03 verdicts — pre-registration #6 campaign
+
+Measured 2026-08-14 per [PREREGISTRATION.md](PREREGISTRATION.md) #6 (frozen
+2026-08-14: N=10 primary — the frozen shape horizon — 0.15% round-trip cost,
+**three** verdict families, each Holm-corrected across A/B/C at α=0.05, OOS
+2016–2025 only, baselines bootstrapped 1,000× at fixed seed, era-matched).
+Full report: `data/cache/e03_measure_report.md` (+ `e03_measure_results.json`).
+Leg: `tools/e03.py` — **bearish signal-line MACD(12,26,9) crossover within
+L=20 bars before the signal bar** (hist = line − 9-EMA signal; hist<sub>j</sub> < 0
+AND hist<sub>j−1</sub> ≥ 0, k ∈ [1,20], cross strictly precedes the signal);
+regime (pre-registered, the claim's own qualifier): **bear = SPY close < SPY
+200-day SMA at t**.
+
+Claim as measured: after a bearish MACD signal-line cross, breakout attempts
+reject — crossed breakouts underperform their controls. Because the claim
+is negative, the FADE EDGE rule required Holm rejection **and** the excess
+CI **upper** bound < 0 (sign convention flipped vs #1–5).
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| E.6-F1 | Cross conditioning, all OOS (crossed vs not-crossed) | `tested, rejected` — **NO EDGE × 3** | A: crossed n=3,477, +0.21% vs +0.70% (excess −0.48pp, p=0.254). B: n=2,930, −0.04% vs +0.00% (p=0.810). C: n=204, +1.04% vs −0.04% (**+1.07pp — wrong direction**, p=0.230). Unconditioned, the cross does nothing |
+| E.6-F2 | Cross conditioning, **bear days only** (the claim's emphasized regime) | `tested, partial support` — **FADE EDGE (B)**, NO EDGE (A), INCONCLUSIVE (C) | **B: crossed n=230, −0.95% vs not-crossed +0.70% — excess −1.62pp (95% CI −2.78..−0.46pp, p=0.012, Holm-rejected at gate 0.0167)**. A: n=170, −0.18% vs +0.42% (p=0.456). C: n=13 — below the count floor, reported never spun |
+| E.6-F3 | Avoidance bar: crossed subset vs era-matched random + same-ticker baselines | `tested, partial support` — **FADE EDGE (B)**, NO EDGE × 2 | **B: n=2,930, mean −0.04%; excess vs random −0.53pp (CI −1.00..−0.10pp, p=0.014) and vs same-ticker −0.57pp (CI −1.02..−0.14pp, p=0.008) — p_input 0.014 vs Holm gate 0.0167, a narrow pass, noted honestly**; vs SPY −0.63pp (p<0.001). A: p=0.184. C: p=0.470 |
+
+Interpretation: **the claim is supported in its emphasized regime for its
+most faithful shape** — B (pullback + new high) is the shape whose structure
+(strong move → compression → cross → new-high attempt) matches the described
+scenario, and B is the only shape whose crossed breakouts underperform, in
+bear days (F2, p=0.012) and vs chance over all OOS (F3, p_input 0.014). The
+internal consistency is striking: F1-B is null (−0.05pp) while F2-B is
+−1.62pp — the effect lives *entirely* in bear days, exactly as claimed
+("very consistent especially during the bear market"), and the per-year
+crossed-subset means put 2022 (the year he says he learned it) at −2.01%,
+the strongest negative year. A and C show nothing; C is unmeasurable in
+bear days (n=13).
+
+The honest caveats: F3's pass margin is narrow (p_input 0.014 vs gate
+0.0167 — 0.0027) and the bear-days F3 sensitivity is a near-miss (B
+−1.45pp vs random, p=0.074). The zero-line reading (pre-reg #3) fired
+**0 of 31,226 detections** on the signal bar — structurally impossible on
+these detectors (breakout days are up-days), which is why the windowed
+signal-line reading is operative. Implementation note: F3's same-ticker
+baseline uses the shape's own ticker distribution per the #1–5 protocol
+(an earlier pass used the combined crossed-set distribution inherited from
+the measure_veto template; corrected before any verdict was written back;
+verdicts unchanged, B's F3 margin widened from p=0.016 to 0.014). The
+measure_veto record stands under its own implementation choice — all its
+verdicts were far from the gates.
+
+Project-level consequence: this is a **fade signal**, the first verdict in
+a claim's favor. It does not make any pattern profitable — it identifies
+B-breakouts worth *avoiding* (crossed-B bear-day breakouts lose ~1% while
+their not-crossed counterparts gain +0.70%). The Phase 5 trigger test is
+the positive-edge bar: unchanged, untouched, and untriggered. Verification:
+deterministic (outputs byte-identical across two runs), data layer
+independently recomputed row-by-row from bars (0 real mismatches).
 
 ---
 
@@ -375,10 +434,11 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    strengthening is real vs random (F1 p=0.008, F2 p=0.002) but never
    clears the same-ticker control; the drift is late-era beta, not
    selection edge. Fifth completed campaign.
-6. **E-03 (MACD-cross breakout rejection)** — regime-qualified; pre-register
-   the conditioning (regime variable) explicitly to avoid post-hoc fitting.
-   Note: the zero-crossing reading was already measured as a pre-reg #3
-   sensitivity with no signal (§E.5); the verdict layer remains unrun.
+6. **E-03 (MACD-cross breakout rejection)** — ✅ **measured 2026-08-14**:
+   **FADE EDGE × 2 on Shape B** (bear-day conditioning −1.62pp, p=0.012;
+   avoidance bar p_input 0.014), NO EDGE × 6, INCONCLUSIVE × 1 — the first
+   verdicts in a claim's favor, and they land on the shape/regime the claim
+   describes (§E.6). Sixth completed campaign.
 7. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
    (Shape B: pullback + new-high) was already measured and **rejected**
    2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
@@ -407,6 +467,10 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
 - [x] Measure the per-decade drift decomposition (pre-reg #5) and write the
   verdicts back — done 2026-08-14: both families NO EDGE × 3 (§D.7,
   `data/cache/decade_measure_report.md`). Fifth completed campaign.
+- [x] Measure the E-03 MACD-cross breakout-rejection claim (pre-reg #6) and
+  write the verdicts back — done 2026-08-14: FADE EDGE × 2 on Shape B,
+  NO EDGE × 6, INCONCLUSIVE × 1 (§E.6,
+  `data/cache/e03_measure_report.md`). Sixth completed campaign.
 - [ ] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — then **compare the two courses for drift** (same strategy 10 years
   apart? parameters changed? claims escalated?). The user flagged this as a

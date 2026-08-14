@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "pre_reg": "#6",
+    "primary_n": 10,
+    "cost": 0.0015,
+    "bootstrap": 1000,
+    "seed": 20260813,
+    "alpha": 0.05,
+    "era_oos_start": "2016-01-01",
+    "universe": "universe_sp600_2026-08-13.csv",
+    "detections": "detections_v1.csv",
+    "detections_sha256": "9b44f66160130c3a",
+    "e03_file": "e03_detections_v1.csv",
+    "e03_file_sha256": "5ac5a3a1c64a3015",
+    "e03_code_sha256": "305e22a28497d54c",
+    "measure_code_sha256": "12d6bb45164efe51",
+    "measure_engine_sha256": "c7421fbf (frozen Phase-3 engine, imported)",
+    "warmup_excluded": 344,
+    "regime_undefined": 491,
+    "cross_definition": "bearish signal-line crossover within L=20 bars before the signal bar; regime = SPY close < SPY 200-day SMA at t",
+    "note": "verdict machinery runs on OOS only; IS is record only. Three pre-registered verdict families (cross conditioning all-OOS, cross conditioning bear-days-only, avoidance bar), each Holm-corrected across A/B/C. Negative claim: FADE EDGE requires CI upper bound < 0 (sign convention flipped vs #1-5)."
+  },
+  "families": {
+    "cross_all_oos": {
+      "A": {
+        "n_crossed": 3477,
+        "n_not_crossed": 2164,
+        "mean_crossed": 0.0021222020371802334,
+        "mean_not_crossed": 0.007009876734417045,
+        "mean": 0.0021222020371802334,
+        "excess": [
+          -0.0047936175845098156,
+          -0.004267855847786916,
+          -0.015701192398493796,
+          0.0017638471832215497,
+          0.254
+        ],
+        "p_holm_input": 0.254,
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.025,
+        "holm_rejected": false
+      },
+      "B": {
+        "n_crossed": 2930,
+        "n_not_crossed": 4268,
+        "mean_crossed": -0.00035617073769692725,
+        "mean_not_crossed": 2.989449789155903e-05,
+        "mean": -0.00035617073769692725,
+        "excess": [
+          -0.00045353770515681765,
+          -0.000465765574329164,
+          -0.003954320889615023,
+          0.0032064718660191477,
+          0.81
+        ],
+        "p_holm_input": 0.81,
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "C": {
+        "n_crossed": 204,
+        "n_not_crossed": 127,
+        "mean_crossed": 0.010389827953236968,
+        "mean_not_crossed": -0.00043194602455519143,
+        "mean": 0.010389827953236968,
+        "excess": [
+          0.010714800559777622,
+          0.010489377152703639,
+          -0.006769673826909595,
+          0.030077750689414845,
+          0.23
+        ],
+        "p_holm_input": 0.23,
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.016666666666666666,
+        "holm_rejected": false
+      }
+    },
+    "cross_bear_days": {
+      "A": {
+        "n_crossed_bear": 170,
+        "n_not_crossed_bear": 155,
+        "mean_crossed_bear": -0.0017800585522563734,
+        "mean_not_crossed_bear": 0.004209750076494897,
+        "excess": [
+          -0.005960415378975271,
+          -0.005944106093622856,
+          -0.021126315078725845,
+          0.008750700363411803,
+          0.456
+        ],
+        "p_holm_input": 0.456,
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.025,
+        "holm_rejected": false
+      },
+      "B": {
+        "n_crossed_bear": 230,
+        "n_not_crossed_bear": 726,
+        "mean_crossed_bear": -0.009472669259247845,
+        "mean_not_crossed_bear": 0.00701408101854154,
+        "excess": [
+          -0.01624945336785897,
+          -0.016238846725132962,
+          -0.027752303477543358,
+          -0.0046347348436637835,
+          0.012
+        ],
+        "p_holm_input": 0.012,
+        "verdict": "FADE EDGE (Holm-rejected; conditioning excess (crossed - not-crossed) upper bound < 0)",
+        "holm_gate": 0.016666666666666666,
+        "holm_rejected": true
+      },
+      "C": {
+        "n_crossed_bear": 13,
+        "n_not_crossed_bear": 20,
+        "mean_crossed_bear": 0.022599647169003263,
+        "mean_not_crossed_bear": 0.01771111656572928,
+        "excess": [
+          0.00470238969000361,
+          0.003963314308711668,
+          -0.06002478591051089,
+          0.07345634985587972,
+          0.898
+        ],
+        "p_holm_input": 0.898,
+        "verdict": "INCONCLUSIVE (<100 crossed OOS detections)",
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "avoidance_bar": {
+      "A": {
+        "n_crossed": 3477,
+        "mean": 0.0021222020371802334,
+        "ci": [
+          -0.12783301667520583,
+          0.1480934973951193
+        ],
+        "excess": {
+          "random_entries": [
+            -0.002758295941925129,
+            -0.0027732784237994215,
+            -0.006478957388552613,
+            0.0009787443227972593,
+            0.142
+          ],
+          "same_ticker": [
+            -0.0023208525172001672,
+            -0.002272795339032927,
+            -0.005748988486815494,
+            0.0014894137364075497,
+            0.184
+          ],
+          "spy": [
+            -0.003733786611632558,
+            -0.0037544825508573545,
+            -0.006213260778270805,
+            -0.0011915547619648383,
+            0.002
+          ]
+        },
+        "p_holm_input": 0.184,
+        "metrics": {
+          "hit": [
+            0.49693471383376475,
+            0.4805723324705206,
+            0.5136612021857924
+          ],
+          "sharpe": [
+            0.16057326181503723,
+            -0.0147929939647236,
+            0.31305093605524287
+          ],
+          "max_dd": [
+            -0.9999991784942016,
+            -0.9999999992744256,
+            -0.9998581841844877
+          ]
+        },
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.025,
+        "holm_rejected": false
+      },
+      "B": {
+        "n_crossed": 2930,
+        "mean": -0.00035617073769692725,
+        "ci": [
+          -0.14843774484499855,
+          0.15871112025286094
+        ],
+        "excess": {
+          "random_entries": [
+            -0.005266337783154073,
+            -0.005284620492500204,
+            -0.009952031251185097,
+            -0.0009910421333070038,
+            0.014
+          ],
+          "same_ticker": [
+            -0.0057389744968801976,
+            -0.005735167037121012,
+            -0.010193233216746228,
+            -0.0014471644699018949,
+            0.008
+          ],
+          "spy": [
+            -0.006272723233952663,
+            -0.006298173993045846,
+            -0.009204252675347437,
+            -0.003129461460771193,
+            0.0
+          ]
+        },
+        "p_holm_input": 0.014,
+        "metrics": {
+          "hit": [
+            0.4863873720136519,
+            0.4686006825938567,
+            0.504778156996587
+          ],
+          "sharpe": [
+            -0.023358086568235,
+            -0.2014822304887351,
+            0.16404329403359347
+          ],
+          "max_dd": [
+            -0.9999933712658947,
+            -0.9999999954837584,
+            -0.9995668640270757
+          ]
+        },
+        "verdict": "FADE EDGE (Holm-rejected; excess vs random AND same-ticker upper bound < 0)",
+        "holm_gate": 0.016666666666666666,
+        "holm_rejected": true
+      },
+      "C": {
+        "n_crossed": 204,
+        "mean": 0.010389827953236968,
+        "ci": [
+          -0.11730673480131631,
+          0.2120834205769051
+        ],
+        "excess": {
+          "random_entries": [
+            0.0059017458697494096,
+            0.0057522394355067384,
+            -0.01091748920905089,
+            0.021993472579363627,
+            0.464
+          ],
+          "same_ticker": [
+            0.0061543798858162205,
+            0.006395610430933671,
+            -0.011428828604423836,
+            0.023494722547022333,
+            0.47
+          ],
+          "spy": [
+            0.004381723822067524,
+            0.004247262779700169,
+            -0.007705488201462802,
+            0.016436844589917933,
+            0.482
+          ]
+        },
+        "p_holm_input": 0.47,
+        "metrics": {
+          "hit": [
+            0.5396323529411764,
+            0.47058823529411764,
+            0.6078431372549019
+          ],
+          "sharpe": [
+            0.6146043502542037,
+            -0.07996343855998045,
+            1.3027642530493477
+          ],
+          "max_dd": [
+            -0.6301955666821253,
+            -0.9333278557008559,
+            -0.4758944425547643
+          ]
+        },
+        "verdict": "NO EDGE (CI includes 0 or estimate >= 0, or Holm gate not cleared)",
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    }
+  },
+  "sensitivities": {
+    "per_year_crossed": {
+      "2016": {
+        "n": 808,
+        "mean": 0.012828947095975665
+      },
+      "2017": {
+        "n": 882,
+        "mean": -0.004737874311323758
+      },
+      "2018": {
+        "n": 743,
+        "mean": -0.004499018043565334
+      },
+      "2019": {
+        "n": 791,
+        "mean": 0.0022460114395033742
+      },
+      "2020": {
+        "n": 455,
+        "mean": 0.011145029711059573
+      },
+      "2021": {
+        "n": 635,
+        "mean": -0.0010305856706275078
+      },
+      "2022": {
+        "n": 340,
+        "mean": -0.020140324652287073
+      },
+      "2023": {
+        "n": 661,
+        "mean": 0.003739914185017062
+      },
+      "2024": {
+        "n": 697,
+        "mean": 0.003447352558181356
+      },
+      "2025": {
+        "n": 599,
+        "mean": 0.002321015235042383
+      }
+    },
+    "n_horizons": [
+      5,
+      20
+    ]
+  }
+}
