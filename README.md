@@ -45,9 +45,12 @@ reports:
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
 `data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
 `data/cache/e02_measure_report.md`.
-Next candidates: the corpus scan of `transcripts/warrior-trading/` for
-new testable claims (the remaining untested ledger items need intraday
-data), or a follow-up question from the ledger.
+Next candidates: the warrior-trading corpus scan (2026-08-14) found 53 new
+claims (ledger §I) — the top new candidates are the high-relative-volume
+conditioning claim ("pattern trading only works on stocks with high
+relative volume" — directly testable on the frozen shapes), RSI 70/30 and
+RSI-divergence rules, big-move mean reversion, and downside-speed
+asymmetry. The remaining untested ledger items need intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.

@@ -25,8 +25,8 @@ against calibrated baselines, and survives multiple-testing correction.
 |---|---|
 | Primary | "The Ultimate Day Trading Guide (Full Training Chapters 1 - 10)" — Ross Cameron (Warrior Trading), official channel, 2025-01-01, 3:06:12 |
 | Transcript | `transcripts/ultimate-guide/oxob0x0Xz7s.md` (auto-captions; expect transcription errors — check timestamps against video) |
-| Secondary | `transcripts/warrior-trading/` — the fan-curated "Class 1-12" playlist (2015-era classroom footage). **Not yet claim-scanned.** |
-| Standing question | Are the two courses the same strategy? (See §8.) |
+| Secondary | `transcripts/warrior-trading/` — the fan-curated "Class 1-12" playlist (2015-era classroom footage). **Claim-scanned 2026-08-14** — 53 new rows in §I (incl. third-party channels); 2 videos are not trading content (skipped); the Day Trading Station video is equipment content (nothing claim-worthy). |
+| Standing question | Are the two courses the same strategy? (See §8.) Partial qualitative evidence in §I-Notes: the *rules* repeat a decade apart (first-new-high entry, first/second-pullback, 2:1–3:1 R:R, morning-is-best, 60%-is-enough); one flagged tension (breakout-chasing stance). |
 
 The course teaches **intraday momentum trading on 1-min/5-min charts**.
 patternScanner operates on **US equity daily bars**. So the closest-to-testable
@@ -453,6 +453,149 @@ not adjudicated.
 
 ---
 
+## I. Warrior-trading corpus — 2015 "Class 1-12" playlist claims
+
+Claim-extraction pass over the fan-curated playlist, 2026-08-14 (sections
+A–H above are the 2025 ultimate-guide course). 13 unique videos; 8 are Ross
+Cameron trading content (Class 1/3/4, Level 2/Time & Sales, the $583→$335K
+and $1M Challenge retrospectives, Day Trading Station, Biggest Struggle);
+5 are other channels (EatSleepProfit, Trading 212, Cameron Bennion,
+NeoScribe, Chris Williamson). 2 videos are not trading content (graphene;
+David Sinclair) and were skipped; the Day Trading Station video is
+equipment/platform content (nothing claim-worthy). Quotes are verbatim
+auto-captions (transcription errors expected — check timestamps against
+the video); timestamps cite `video-id [mm:ss]`; each quote was re-verified
+against the transcript during consolidation. Channel tag in parentheses
+marks non-Ross claims. Statuses follow the same rubric as A–H.
+
+### I-A. Performance red flags (self-reported, 2015–2019)
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-A-01 | xTPcI7HHu5w [00:25–00:35] | "I started with only 583 dollars in my account I finished the year with three hundred and thirty five thousand dollars in verified gains" (2017). | `red flag` — the same trajectory claimed in the ultimate-guide (A-01); "verified" is doing the same unverifiable work as A-02. |
+| I-A-02 | xTPcI7HHu5w [04:24–04:37], [15:25–15:50] | $583 → $100K in 44 days (Jan 4 – Mar 8 2017); window stats: $101,280.47 profit, 75% accuracy, avg win $1,300 vs avg loss $1,100. | `red flag` — self-reported; see I-A-04 for the accuracy-window pattern. |
+| I-A-03 | xTPcI7HHu5w [09:31–10:40] vs H82nRY9TYU4 [09:53–10:18] | First week: "I took 14 trades and I made money on all 14 of them accuracy was 100% I had a total profit of 1313 dollars" — but the later recap says day 1 +$124, week +$618, account "doubled". | `red flag` — **internal contradiction**: two different first-week figures for the same week ($1,313 vs $618). Same pattern as the E-02 lesson: round numbers vary with the window quoted. |
+| I-A-04 | xTPcI7HHu5w [23:07–24:00]; H82nRY9TYU4 [26:28–26:40], [05:30–05:47]; dqrTrFpZdcI [18:07–18:22] | Accuracy across windows: 100% (n=14), 87% (n=47, "fourteen thousand dollars of profit"), 75% (44 days), 68% ("over 1,800 trades... average winning trade about a thousand dollars average losing trade also about a thousand dollars"), 70% ("my average winners... about nine hundred and thirty five dollars and my average losers have been nine hundred and eighty nine dollars"), 67% ("2873 trades"). | `red flag` — window-dependent self-reporting (100→87→75→68–70→67%); the stable core is ~68–70% long-run with ~1:1 avg win/loss, which matches A-03's arithmetic (break-even at 50%, profit via win rate). An accuracy number is only meaningful with its window and trade log — the E-02 lesson. |
+| I-A-05 | xTPcI7HHu5w [30:17–30:35]; dqrTrFpZdcI [14:06–14:47]; H82nRY9TYU4 [11:59–12:20] | Drawdowns: 2017 max $22K; "at the beginning of 2016 and up through 2017 my biggest drawdown was about $10,000... reaching the all-time high of losing 46,000 dollars off of my highs" (2019); challenge max $22–24K. | `red flag` — self-reported, unverifiable without statements; consistent shape (drawdowns grow with account size). |
+| I-A-06 | H82nRY9TYU4 [00:11–00:42], [00:57–01:37], [31:30–31:45] | $1M cumulative profit in 553 trading days ("averaging about 1,800 dollars per day"); arithmetic model: "getting 20 cents of profit out of the market... nine thousand shares is eighteen hundred dollars a day"; "it is mathematically impossible to take $583 and turn it into a million bucks that's a 170,000 percent return I just did". | `red flag` — the arithmetic is checkable ($583→$1M ≈ 1,715× ≈ +171,400%, internally consistent); the trade log behind it is not. |
+| I-A-07 | xTPcI7HHu5w [17:34–18:00], [19:52–20:16]; H82nRY9TYU4 [11:06–11:15], [02:44–03:00] | Monthly P&L: Jan +$16K, Feb +$60K, Mar +$28K, Apr −$4,229; October "base hits" month: zero red days, +$35K; "I was consistently making forty fifty thousand dollars a month"; final challenge day +$14,157 on a $48K account ("a nice 30% gain on the account"). | `red flag` — self-reported narrative; the zero-red-days month is the kind of record a diligence pass could check against posted statements (not our measurement). |
+| I-A-08 | dqrTrFpZdcI [00:26–00:38], [13:20–13:26], [22:50–23:05] | "I'm down seven thousand dollars I'm only up eighty five hundred on the month before today so you know I just gave back like ninety percent of my profit on the month"; "when I look at my detailed P&L I've got over 1.5 million dollars in profits there"; "over the last two years of trading since January 1st 2017 I've spent a hundred and forty three thousand dollars on commissions". | `red flag` — self-reported; the $143K-commission figure is *plausible* at his claimed trade count (~2,900 trades over 2.5 years ≈ $50 round-trip ≈ $145K) — internally consistent, still unverifiable. The 90% give-back day is the day he broke his own 3-red-trades rule (I-G-01). |
+
+### I-B. Entry / setup rules (2015 classroom + retrospectives)
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-B-01 | txWaMpSzHhM [20:29–20:43] | "I trade the first and the second pullback okay... I never trade almost never trade the third" (after a breakout). | `candidate` — same rule as B-03 in the ultimate-guide (cross-course consistency, §I-Notes). Needs intraday data for the pullback-count form. |
+| I-B-02 | jfe1Zl-5EQI [24:02–24:22]; pJuG5YtVF84 [02:00–02:26]; txWaMpSzHhM [28:34–29:43] | Reversal entry = "the first one minute or the first five minute candle to make a new high" after a decline (long); mirror for shorts: "shorting the first one minute candle to make a new high... your stop is 3780 and your short at 3766 so you're risking 14 cents" (ATVI). | `candidate` — the most repeated entry rule in the corpus (3 videos + ultimate-guide B-01). Needs intraday; the daily adaptation (Shape B: pullback + new high) was measured → **NO EDGE** (§B.5-B). The intraday rule itself remains untested. |
+| I-B-03 | txWaMpSzHhM [13:56–14:11], [20:08–20:26], [26:40–27:25] | Breakout entries: "as soon as we break 3750 buyers come in and anyone that is short covers and you get that spike up"; "I wait for us to break the top of that resistance area that's gonna be the apex point that's the breakout"; "it either works instantly or it doesn't". | `candidate` (structural) — the buy is the break of resistance, not the consolidation. **Cross-course tension:** ultimate-guide B-02 says *don't* buy the breakout ("better to wait for the stock to pull back"). Shape A (break-above-consolidation) measured → NO EDGE (§B.5-A). |
+| I-B-04 | txWaMpSzHhM [19:13–19:50] | Flag/stair-step: "three big candles going up it can be anywhere from 3 to 10... then you have a series of candles consolidating" then another move up. | `candidate` — a trend+consolidation continuation definition, distinct from Shapes A/B/C as defined; pre-register the operational definition if pursued. |
+| I-B-05 | txWaMpSzHhM [39:03–39:28]; 7UZushUSpLQ [00:10–00:17]; xTPcI7HHu5w [24:53–24:56]; H82nRY9TYU4 [26:42–26:44] | Morning concentration: "9:30 to 12:00 that's when I'm the most aggressive that's when we have the most volume and momentum"; "the first 5 10 minutes of the day is when we have the most volume. That's when we make the most money"; "9:30 to 11:30 that's where all my profits are"; "I only trade for one hour a day 9:30 to 10:30". | `out of scope` for daily bars (intraday timing — same family as F-01). **Internal inconsistency:** four different windows across videos (9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30); the "morning is best" core is consistent, the exact window is not. |
+| I-B-06 | jfe1Zl-5EQI [17:45–18:16], [23:16–23:55], [19:58–20:11]; txWaMpSzHhM [23:42–24:05] | Reversal checklist: "an RSI above 90 or below 10 are going to peak my interest a candle outside the bounzer bands is going to peak my interest and also five to ten consecutive candles ending with a pin bar or a doji"; volume "half a million in shares or higher I prefer a million", peaking at the sell-off bottom; the V5/V8 scanner screens "RSI below 20 and then... the green above 80". Class 1 caveat: RSI "is more condition to find stocks at extremes it's not by any means a buy or sell indicator". | `candidate` / `partial` — the RSI-extreme component is testable on daily bars (see I-X-01); the 90/10-vs-20/80 discrepancy (trade threshold vs scanner threshold) is an internal tension; **Class 1 says RSI is not a signal while Class 4 treats RSI extremes as entry conditions** — within-corpus inconsistency. |
+| I-B-07 | 7UZushUSpLQ [01:38–01:41], [05:03–05:27] | Continuation plays are riskier: on VLTC he sized down because "it was not um a fresh breakout. It was a continuation play. And we know that continuation plays can be very risky". | `candidate` (structural) — day-1 fresh-breakout entries vs day-2+ continuation entries of the same move; testable on daily bars (cross-ref pre-reg #4 F2: our signal sets' continuation 5→20 bars showed EDGE — different population, same question family). |
+| I-B-08 | txWaMpSzHhM [32:41–33:27] | Reversal selectivity: "my favorite reversal trades are on stocks that are selling off because there's bad news out... a quick sell off because of bad news lots of people are gonna notice it and start watching it for a bottom bounce" — vs market-driven selloffs that "pop up 10 cents and then they sell off another 50 cents". | `partial` — the news/catalyst leg is out of scope (§3: no news in the loop); the market-vs-idiosyncratic regime leg is testable with daily data (cross-ref I-F-03). |
+
+### I-C. Exit rules
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-C-01 | txWaMpSzHhM [29:44–29:49]; 7UZushUSpLQ [03:48–03:55]; jfe1Zl-5EQI [24:42–25:00] | "I set my stop at the lows... what is the low of the last five minute candle and have we broken that low because if we broke the low of the last five-minute candle in an uptrend then the trend may be starting to change"; "a stop either at the low of day or simply down twenty thirty cents". | `candidate` (needs intraday) — stop at last-candle low / low of day / fixed 20–30¢. Daily adaptation: exit on break of prior-day (or N-bar) low — a candidate exit rule for the shapes if ever tested as a system comparison (cross-ref C-01/C-03/C-04, still untested). |
+| I-C-02 | jfe1Zl-5EQI [25:55–26:06], [05:01–05:20] | "If I get into the profit zone I can start adjusting my stop first to break even and then to the low of the last 5-minute candle"; "I just sold half at 2183 forty cents profit just my stop to definitely break even". | `candidate` (needs intraday) — trail-to-breakeven + scale-out-half; same family as ultimate-guide C-04 (cap losers, let winners run). |
+| I-C-03 | jfe1Zl-5EQI [05:30–05:45] | Target ladder on reversal longs: "the nine moving average here coming down at 22 dollars and 20 cents that's the first target the 9 second target will be the twenty third target would be the volume weighted average price". | `candidate` (needs intraday) — 9MA → 20MA → VWAP targets; the daily adaptation (9/20-day MA targets) is testable, cross-ref F-03 (MA support/resistance). |
+| I-C-04 | jfe1Zl-5EQI [25:34–25:51] | "If I get in I hold for a few minutes and the price stays flat I get out" (flat after entry = bear flag). | `candidate` (needs intraday) — no-move-within-N-bars exit. |
+
+### I-D. Stock selection / scanner claims
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-D-01 | xTPcI7HHu5w [25:38–26:18]; H82nRY9TYU4 [20:16–20:26] | Price sweet spot: "stocks between $2 and $5 I made a quarter million dollars two hundred and forty thousand dollars profit... stocks over $5 40,000 bucks... above 20 I ignore it" (2017 P&L); 2019 filter: "I only trade stocks between $2 and $10 so this was off the list this was too cheap too expensive". | `candidate` — testable-daily: forward returns by price tier (cross-ref A-04's ">$10 was unprofitable" anecdote). **Internal inconsistency:** $2–5 (2017) vs $2–10 (2019); the claim needs its year. |
+| I-D-02 | xTPcI7HHu5w [26:40–26:52] | "Obviously making the most money on stocks that have a larger price range that move more than $1 per share". | `candidate` — testable-daily: daily high-low range ≥ $1 as a selection filter. |
+| I-D-03 | xTPcI7HHu5w [27:28–28:24] | Volume band: "I do best on stocks where the total volume is between two million and at most 25 million shares of volume traded on the day that I traded that stock" (sub-250K band: −$7,600). | `candidate` — testable-daily: forward returns by day-volume band. |
+| I-D-04 | xTPcI7HHu5w [28:27–29:36] | "I perform best on stocks where the relative volume is 500 percent or higher... what we're looking for are stocks that have news that came out this morning". | `candidate` / `partial` — the RV ≥ 500% leg (day volume vs own average) is testable-daily; the news leg is out of scope (§3). |
+| I-D-05 | H82nRY9TYU4 [19:43–20:08] | Daily routine: "every day starts the same way it starts by looking at our scanners which are the gap scanners these tell us the stocks that are opening up the most out of the entire US market". | `candidate` — testable-daily: gap-% ranking as a selection filter (cross-ref F-02 on pre-market moves). |
+| I-D-06 | pJuG5YtVF84 [07:07–07:37]; 7UZushUSpLQ [01:03–01:27] | "Stocks that have limited Supply will move a lot faster than stocks that have really big Supply that's why we look at the lower float stocks" (GE's ~10B float: "that's not going to move very quickly"). | `candidate` (structural) — float vs daily move size. **Directly relevant:** static float is already approved as a filter input (§9 decision 7). |
+| I-D-07 | txWaMpSzHhM [25:49–26:36] | **"Pattern trading you have to remember does not work on all stocks... it only works on the stocks that have high relative volume"** (volume relative to the stock's own average). | `candidate` — **the top new conditioning claim for this project:** does Shape A/B/C show edge within high-RV days? Reuses the frozen detectors and the measure engine; first candidate for pre-reg #8. |
+| I-D-08 | jfe1Zl-5EQI [19:58–20:11] | V5/V8 scanner: "a scanner looking simply for RSI extremes... looking for RSI below 20 and then... the green above 80". | `candidate` (testable-daily) — RSI-extreme screening; see I-B-06 for the 90/10-vs-20/80 tension. |
+
+### I-E. Filters / vetoes
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-E-01 | txWaMpSzHhM [16:33–17:02], [20:57–21:10], [35:26–35:41], [37:00–37:20] | "If we trade the stocks that are dominated and much higher in high-frequency trading we're gonna lose money hands down every time"; "Apple or Priceline or coca-cola or IBM... very hard to day trade"; patterns are "meaningless" there; "we don't trade penny stocks we don't trade the OTC markets". | `candidate` (structural) — the mirror image of I-D-07: patterns fail on low-RV / high-float / mega-cap names. Testable together with I-D-07 as one conditioning campaign. |
+| I-E-02 | txWaMpSzHhM [24:19–24:40] | "I personally have high a day scanners but I don't find it to be a successful strategy just to buy a stock because it's hitting high a day I'm usually chasing when I do that and it doesn't work". | `candidate` (needs intraday) — chasing new highs fails. **Consistent with what we measured:** Shape B (buying the new-K-day high after a pullback) → NO EDGE, below baselines (§B.5-B) — the daily adaptation of "buying new highs" also fails. |
+| I-E-03 | pJuG5YtVF84 [20:19–22:23] | "When we see double tops we know that these are typically um not the best pattern to buy because look at all this empty space here in the middle"; "a lot of people do like to short double tops with a stop right over this level". | `candidate` (structural) — after a big single-day pop, a second test of the high is followed by pullback more often than breakout; testable-daily with a pre-registered double-top definition. |
+| I-E-04 | pJuG5YtVF84 [08:02–08:57] | "A day trader doesn't want to trade stocks that have huge spreads just because the risk is so much higher as soon as you get in you're down 30 cents" (30¢ spread needs 60¢ of favorable move to clear cost). | `partial` — no quote data; the embedded arithmetic (cost = spread + fees) is what COST 0.15% approximates for liquid names; motivates a spread-aware cost model if data is ever added. |
+| I-E-05 | txWaMpSzHhM [02:51–03:20], [14:16–14:39]; pJuG5YtVF84 [03:37–03:41] | "A good set up means we might be risking $100 but we have the potential to make 300... we would call that a three-to-one profit loss ratio"; "risking $100 to make 10... negative risk reward ratio" — don't take; "using this strategy I can be wrong forty percent of the time and still make money"; "looking at setups that offer two to1 profit loss ratios that's really important with trading". | `candidate` (structural) — R:R-filtered setups vs sub-1:1 setups. Cross-course consistency: 2:1–3:1 R:R matches ultimate-guide B-01/B-04; the "wrong 40% still profitable" arithmetic matches A-05/G-01 (break-even win rate = 1/(R+1); at 2:1 that's 33%, so a 60% win rate is comfortably profitable). |
+
+### I-F. Market-structure / timing claims
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-F-01 | jfe1Zl-5EQI [16:01–16:09] | "We know that almost all of the big moves will eventually be corrected" (rationale for reversal trading). | `candidate` — testable-daily: large multi-day moves (≥3 ATR) retrace ≥ half within 5–10 sessions. Same mean-reversion family as what we already measured: crossed-B breakouts in bear days *fade* (§E.6). |
+| I-F-02 | jfe1Zl-5EQI [28:28–28:47] | "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window". | `candidate` — testable-daily: per-bar downside moves are larger/faster than upside moves (speed asymmetry). |
+| I-F-03 | txWaMpSzHhM [31:55–32:38] | "Stocks will trend with the overall market unless they have a reason not to" — catalyst names buck the market ("running when the markets tanking"). | `candidate` — testable-daily: daily-return correlation with the index; catalyst proxies (gap, volume spike) reduce correlation / raise idiosyncratic move size. |
+| I-F-04 | txWaMpSzHhM [48:08–48:30] | "If you can see that we're trading at the top or a bottom of a macro channel you can expect a little bit of choppiness" (SPY); mid-channel → "nice clean moves". | `partial` — channel definition is subjective; testable only with a pre-registered operational definition of channel extremes. |
+| I-F-05 | lMZv0K71HOg [04:12–04:25] (EatSleepProfit) | "The momentum side inside the intraday really doesn't carry over until multiple days sometimes it does sometimes it doesn't". | `candidate` — testable-daily adaptation: top-decile one-day gainers' next-day / multi-day forward returns. Cross-ref pre-reg #4 F2 (our signal sets continued drifting up 5→20 bars — EDGE × 3; different population, and that family's F1 absolute momentum at N=20 was NO EDGE — the carryover question is genuinely unresolved). |
+| I-F-06 | xTPcI7HHu5w [29:40–29:55]; dqrTrFpZdcI [16:49–16:58] | "Most of my profits come when the market is just sort of sideways because most days the market is kind of sideways"; "red days for me are usually clustered together because the market becomes really slow". | `partial` — as stated they concern his P&L; the market-regime version (operationally define sideways days on SPY, then forward behavior) is testable. |
+| I-F-07 | jfe1Zl-5EQI [07:48–08:26] | Declined to short ABY because "we've bounced off a really really solid support level I'm thinking that this is a better chance of trending up". | `partial` — "solid support" needs an operational definition; related to F-03's MA/level claims. |
+
+### I-G. Risk / process rules
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-G-01 | dqrTrFpZdcI [25:02–25:17]; H82nRY9TYU4 [43:17–43:26], [43:30–43:40] | "I set the rule that three red trades walk away"; "if I have minus two thousand dollars in a loss I walk away"; "statistically when I have a day where I'm down more than two thousand dollars nine out of ten times I will not finish that day in the green"; early 2017: account auto-disabled at −$1,000/day. | `out of scope` (process) — but the embedded "down >$2K ⇒ 9/10 red finish" is a statistical claim about his own daily P&L, testable only with the trade log (cross-ref G-04's first-trade-predicts-day claim — same family). Note: on the dqrTrFpZdcI day he broke his own 3-red rule and gave back ~90% of the month (I-A-08). |
+| I-G-02 | jfe1Zl-5EQI [08:38–09:21], [09:29–10:12] | "All of my risk on any trade is capped at about $500 with the profit potential to make 500 to a thousand"; build a $300–400 morning cushion, then "cap the day's give-back at a $100 daily profit floor". | `out of scope` (process) — testable only against a trade log. |
+| I-G-03 | xTPcI7HHu5w [33:37–33:51] | "What's not uncommon for me is that my big red days follow big green days" (worst red day −$15K, Nov 27 2017, two days after a +$73K two-day stretch). | `partial` — serial-dependence claim about his P&L (cross-ref G-04); the market-level analog (index red days after green runs) is testable but is not the claim as stated. |
+| I-G-04 | xTPcI7HHu5w [13:06–13:29], [32:00–32:44] | 2017: hotkey buys at "95 percent of my buying power" (6× margin); scalability: "for me to take $583 and turn it into a million bucks I had to use an average position size of about eight thousand shares"; $10M would need 80K shares — impossible in the small-cap names traded. | `out of scope` (process) — the 8,000-share average is checkable only against statements; the scalability arithmetic is sound (position size scales with account; float bounds it). |
+
+### I-X. Third-party channel claims (not Ross Cameron)
+
+| # | Time | Claim as stated | Status |
+|---|---|---|---|
+| I-X-01 | rgVdgR1y1Dg [03:16–03:24] (Trading 212) | RSI rule: "anything above seventy percent... the market is said to be overbought anything below thirty percent... the market is said to be over salt" (overbought ⇒ pullback due, oversold ⇒ bounce due). | `candidate` — testable-daily: RSI(14) > 70 → below-average forward returns; < 30 → above-average. **Corpus tension:** Class 1 says RSI is "not by any means a buy or sell indicator" (I-B-06). |
+| I-X-02 | rgVdgR1y1Dg [05:33–05:39] (Trading 212) | "These divergence signals are a lot less common so arguably a bit more reliable". | `candidate` — testable-daily: divergence frequency vs 70/30 crossing frequency, and directional hit rates of each. |
+| I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `candidate` — testable-daily: price lower-low + RSI higher-low → above-average forward returns. |
+| I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `candidate` — testable-daily: price higher-high + RSI lower-high → below-average forward returns. |
+| I-X-05 | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | Stop placement for bullish divergence: "we have two obvious levels to place our stop loss beyond because by definition... the market shouldn't take out that prior extreme low". | `candidate` — testable-daily: post-signal breach of the prior extreme low. |
+| I-X-06 | lMZv0K71HOg [02:37–02:50] (EatSleepProfit) | "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically". | `candidate` — testable-daily: sub-$5 cohorts' multi-year forward returns / delisting rates (cross-ref A-04, I-D-01 price-tier family). |
+| I-X-07 | lMZv0K71HOg [06:56–07:04] (EatSleepProfit) | Per-trade target: "I usually like to aim for 88 to 10%" (caption garble for "8 to 10%"). | `out of scope` (process). |
+| I-X-08 | kZNF5Hynk4E [06:35–07:23], [08:33–08:52] (Cameron Bennion) | Robinhood fills ~$0.05/share above the ask on a $1 stock (≈$50 per 1,000-share order); PFOF "profit of about three to four cents" per share. | `out of scope` — broker execution claims; no order data. Kept as the corpus's only execution-quality content. |
+| I-X-09 | lMZv0K71HOg (whole video) (EatSleepProfit) | PDT-rule mechanics (90-day restriction, cash-account workarounds). | `out of scope` — regulatory process content. |
+
+### I-Notes: cross-course and internal consistency (2026-08-14 scan)
+
+1. **Same core rules, repeated a decade apart:** first-new-high-candle entry
+   (3 videos + B-01); first/second-pullback-only (I-B-01 + B-03); 2:1–3:1
+   R:R requirement (I-E-05 + B-01/B-04); "wrong 40% still profitable" /
+   "60% is enough" (I-E-05 + A-05/G-01); morning-is-best timing (I-B-05 +
+   F-01). Partial answer to the standing question (are the two courses the
+   same strategy?): the *rules* are consistent; the *numbers* are
+   window-dependent.
+2. **Cross-course tension:** B-02 (2025: "better to wait for the stock to
+   pull back" — don't buy breakouts) vs I-B-03 (2015: "the apex point that's
+   the breakout" — the breakout is the buy). Flagged, not adjudicated.
+3. **The two 80% claims:** E-02 (ultimate-guide: "we've got an 80% chance of
+   this working" — the veto-pass win-rate claim, **REJECTED × 3**, §E.7)
+   and Class 1 [22:25–23:02] ("I would have a... an 80% chance of being
+   right an 80% success rate... I would run that formula live for 60 days
+   and... it would drop to 40%... I was writing a formula to match a
+   certain set of back test results") — the teacher's own testimony that
+   indicator backtests overfit and decay. Same number, opposite lessons:
+   one is a claim we falsified; the other is his argument for why
+   pre-registration (our §6) exists.
+4. **Internal inconsistencies within the 2015–2019 corpus:** first-week P&L
+   ($1,313 vs $618); trading window (9:30–12:00 vs 9:30–11:30 vs
+   9:30–10:30); price filter ($2–5 in 2017 vs $2–10 in 2019); accuracy
+   (100 → 87 → 75 → 68–70 → 67% across windows). Pattern: round-number
+   self-reports drift with the window quoted — the E-02 lesson generalizes.
+5. **Measured-findings cross-references:** I-E-02 (chasing new highs fails)
+   is *consistent* with §B.5-B (Shape B, the new-high-buy adaptation, NO
+   EDGE); I-F-01 (big moves get corrected) is the same mean-reversion
+   family as §E.6's bear-day fade; I-D-06 (low float) is testable with data
+   already approved (§9 decision 7); I-F-05 (momentum carryover) is the
+   open question family from pre-reg #4.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -499,6 +642,28 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
    untested.
+10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — NEW from the
+    warrior corpus scan (2026-08-14): "pattern trading only works on stocks
+    with high relative volume" — direct conditioning test on the frozen
+    Shape A/B/C detections (RV ≥ 2× own average vs below). Reuses detectors
+    + measure engine, no new legs (a re-slice of existing detections like
+    pre-reg #3/#7). Top candidate for pre-reg #8.
+11. **I-X-01 (RSI 70/30 daily-bar reversal bias)** — testable-daily on the
+    existing universe; large sample; classic claim with a specific teaching
+    ("overbought ⇒ pullback due, oversold ⇒ bounce due").
+12. **I-X-02/03/04 (RSI divergence frequency + reliability)** — testable-daily;
+    needs a pre-registered divergence definition (swing scanning on daily
+    bars) before measurement.
+13. **I-F-01 (big moves get corrected)** — testable-daily mean reversion of
+    ≥3-ATR moves; same family as §E.6's fade finding.
+14. **I-F-02 (bulls take the stairs, bears take the window)** — daily-bar
+    downside-speed asymmetry.
+15. **I-D-01 (price-tier edge: $2–5 vs >$20)** — testable-daily; ties to
+    A-04; the 2017/2019 band inconsistency must be handled in the pre-reg.
+16. **I-X-06 (penny/small-cap long-term fall)** — testable-daily multi-year
+    horizon; needs delisting-aware data work.
+17. **I-F-03 (stocks trend with the market unless catalyst)** — correlation
+    decomposition; cheap but lower value.
 
 ## Open work
 
@@ -528,12 +693,17 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   write the verdicts back — done 2026-08-14: REJECTED × 3 (F1 claim test),
   NO EDGE × 3 (F2 vs chance) (§E.7,
   `data/cache/e02_measure_report.md`). Seventh completed campaign.
-- [ ] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
-  claims — then **compare the two courses for drift** (same strategy 10 years
-  apart? parameters changed? claims escalated?). The user flagged this as a
-  future task; both corpora are already ingested.
-- [ ] Fill `topics`/`claims` frontmatter in transcript files as the ledger
-  grows.
+- [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
+  claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
+  re-verified against the transcripts, priority list updated (items 10–17).
+  **Compare the two courses for drift** (same strategy 10 years apart?
+  parameters changed? claims escalated?) — still open; §I-Notes has partial
+  qualitative evidence (rules consistent, one flagged tension). The formal
+  n-gram/parameter comparison remains a future task; both corpora are
+  ingested.
+- [x] Fill `topics`/`claims` frontmatter in transcript files as the ledger
+  grows — done 2026-08-14 for all 13 transcript files (§I rows mapped back
+  per video; non-trading videos get topics only).
 - [ ] Record the *expected* failures: when a claim is measured and rejected,
   log the verdict here (status → `tested, rejected` + link to the pre-reg
   doc). **First exercised 2026-08-13 (§B.5).** The ledger is the audit trail;

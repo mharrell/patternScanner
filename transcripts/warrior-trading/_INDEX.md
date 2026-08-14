@@ -26,6 +26,11 @@ baselines before it counts for anything.
   into the loose fan playlist. Kept per request, marked in the table.
 - Transcript files are **copyrighted content, kept local**: `raw/`, `*.md`,
   and `_meta.json` are gitignored. Only this index is tracked.
+- **Claim-scanned 2026-08-14**: 53 ledger rows extracted from this corpus into
+  [CLAIMS_LEDGER.md §I](../../CLAIMS_LEDGER.md) (video-id `[mm:ss]` citations,
+  quotes re-verified against the transcripts). The 2 non-trading videos were
+  skipped; `XzrpLOH0nwU` (Day Trading Station) is equipment content — nothing
+  claim-worthy. `topics`/`claims` frontmatter is filled in all 13 transcripts.
 
 ## The corpus
 
@@ -53,13 +58,13 @@ baselines before it counts for anything.
    (#8) are exactly the kind of claim DESIGN_BRIEF §6 says to measure against
    buy-and-hold after costs — not to take on faith.
 2. **File structure.** Each `*.md` has YAML frontmatter with `topics` and
-   `claims` arrays, left empty. As you review, fill them in so they become
-   searchable.
+   `claims` arrays, filled by the 2026-08-14 claim scan (§I ledger rows mapped
+   back per video). Add to them as the corpus is re-read.
 3. **Extracting testable claims.** When a video states a concrete, computable
    rule (setup → signal → entry/exit), that's a candidate to pre-register as a
-   hypothesis. Next step is a `CLAIMS_LEDGER.md` — one row per claim with
-   episode reference, the rule as stated, and later the verdict from the
-   measurement protocol.
+   hypothesis. Done: [CLAIMS_LEDGER.md §I](../../CLAIMS_LEDGER.md) — one row
+   per claim with episode reference, the rule as stated, and a status; verdicts
+   return there after measurement.
 4. **Process/technique only.** Nothing here feeds the detector at runtime.
    These inform candidate definitions and how he thinks about risk — the v1
    detector stays rule-based per DESIGN_BRIEF §3.
