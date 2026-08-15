@@ -1758,3 +1758,175 @@ exact: at τ=2 exactly one flip, LEU 2019-04-10, move == 2×ATR bit-exact,
 rel=0.00e+00); all-era and OOS event counts, F1 means/wins/CIs, F2
 rates, and every pre-declared sensitivity count exact; warm-up counts
 exact; 0 bad signals.
+
+
+
+---
+
+# Pre-registration #12 — "the Bulls take the stairs and the Bears take the window" (ledger row I-F-02)
+
+**Frozen 2026-08-15, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window so the sell offs can be very quick" — the reversal-strategy rationale; corroborated by "oftentimes these stocks will give up hours worth of progress in a matter of minutes" | jfe1Zl-5EQI [28:28–28:47], [17:34–17:37] | On daily bars, each bar is one time unit, so **speed = price distance per bar**. Two assertions, both measured: **(A1) directional asymmetry (unconditional)** — down-bars' mean per-bar move size exceeds up-bars' ("stairs" small/slow vs "window" large/fast); **(A2) reversal speed (contextual)** — the retracement of a big up-move covers its distance faster than the move did ("hours up, minutes down"). |
+| "Speed" on daily bars | — | Per-bar close-to-close move size, |r_t| where r_t = close_t/close_{t−1} − 1 (percent). Leg by sign of r_t: **UP bars** (r_t > 0), **DOWN bars** (r_t < 0); zero-move bars (r_t = 0 exactly) excluded and counted. (The trader's own red/green candle vocabulary, close-vs-open sign, is a sensitivity — S2.) |
+| A1 — "the Bulls take the stairs" | same | **F1-UP**: up-bars' mean |r| is *below* the era-matched typical-bar size (the calibrated null = the unconditional mean |r| over all OOS bars). |
+| A1 — "the Bears take the window" | same | **F1-DOWN**: down-bars' mean |r| is *above* typical-bar size. |
+| A1 — the asymmetry itself | same | **F2**: the direct contrast DOWN − UP (mean |r|). |
+| A2 — "hours up, minutes down" | same | **F4**: on the frozen pre-reg #11 UP events (L=10, τ=3 ATR, excursion-first — the "move up that may have taken [10] bars"), for events that retrace ≥ half within N=10 bars, the retracement's per-bar rate vs the move's per-bar rate — paired contrast. Claim: retracement faster. |
+| Timing | — | No entry/exit is measured: this campaign measures bar geometry only (sizes, durations, rates). All quantities use bars ≤ t. |
+| Trading context | jfe1Zl-5EQI (whole video) | Stated in a 2015 intraday-trading classroom as the rationale for shorting top reversals (doji at top, stop at high-a-day). Measured on **US equity daily bars** (the frozen S&P 600 universe) — intraday→daily translation, declared: daily "speed" conflates per-bar magnitude with true speed; overnight gaps register as fast. The reversal *strategy* (doji/pin-bar entry, stop placement, 2:1 R:R) is process content, not measured. |
+| Cross-campaign context (recorded, not gated) | — | A2's population is exactly pre-reg #11's (I-F-01) UP events, whose F2 already showed big moves retrace half *less* often than typical bars (FADE × 2). F4 measures the speed of the retracement *conditional on it happening* — a separate, pre-registered view. A1's daily translation is the well-documented negative-skew regularity of equity daily returns; the pre-registered posture is that confirmation may be trivial at the per-bar level and the context level (F4) is the sharper test. |
+
+## 2. Hypotheses — verdict families
+
+Measured on OOS bars (bar date ≥ 2016-01-01) at the frozen parameters.
+Holm–Bonferroni at α = 0.05 within each family. All CIs bootstrapped
+B = 1,000, seed 20260813.
+
+**F1 — absolute, per leg vs the typical-bar baseline (A1's two halves):**
+for each leg, the mean per-bar |r| minus the era-matched unconditional
+mean |r| over all OOS bars (the calibrated null — "typical bar size").
+Joint one-sample bootstrap on the OOS bar population: resample bars with
+replacement; recompute the all-bars, up, and down means jointly; form
+both excesses. CI = 2.5/97.5 percentiles of the resample excesses;
+p = 2×min(null-side mass) clamped to [1/B, 1]. Convention: est = excess,
+ci_low/ci_upper = CI bounds, p_input = the p. Holm across the **two
+legs**:
+- **F1-UP** (claim: up-bars are *smaller* than typical — "stairs"):
+  **EDGE** iff Holm-rejected AND CI-upper < 0; **FADE** iff Holm-rejected
+  AND CI-low > 0; NO EDGE otherwise.
+- **F1-DOWN** (claim: down-bars are *larger* than typical — "window"):
+  **EDGE** iff Holm-rejected AND CI-low > 0; **FADE** iff Holm-rejected
+  AND CI-upper < 0; NO EDGE otherwise.
+
+Structural note, pre-declared: the all-bars mean is the weighted average
+of the legs (plus zeros), so the two sample excesses are mechanically
+opposite-signed; the legs are reported because the claim asserts both
+halves, and Holm across them is conservative. The interpretable single
+number is F2.
+
+**F2 — the asymmetry contrast (A1's single number):** DOWN − UP mean
+|r|, two-sample bootstrap (independent resamples of the down and up bar
+populations). Single test at α = 0.05. **EDGE** iff CI-low > 0 (down-bars
+larger than up-bars, as claimed); **FADE** iff CI-upper < 0; NO EDGE
+otherwise.
+
+**F4 — retracement speed on big up-moves (A2, "hours up, minutes
+down"):** per pre-reg #11 UP event (frozen detection: L=10, τ=3, ATR-14
+simple, excursion-first, warm-up 60) with OOS signal date, let j = the
+first bar in [t+1, t+N] whose close ≤ the move's midpoint
+(close_t + close_{t−L})/2 (first *crossing* bar — finer than pre-reg #11
+F2's t+N-close check; both pre-registered). Events with no crossing
+within N are excluded from F4 and counted (their non-retracement is
+pre-reg #11 F2's result). move-rate = (close_t − close_{t−L}) / L;
+retrace-rate = (close_t − mid) / j — both as percent of close_{t−L} per
+bar. Contrast per event: retrace-rate − move-rate; paired one-sample
+bootstrap over events. **EDGE** iff CI-low > 0 (the retracement outpaces
+the move — "given back in a matter of minutes", as claimed); **FADE**
+iff CI-upper < 0; NO EDGE otherwise. Count floor: < 100 events →
+INCONCLUSIVE.
+
+Equivalence, pre-registered for the interpretation: retrace-rate >
+move-rate ⇔ j < L/2 = 5 bars — the claim is that the midpoint is reached
+in fewer bars than the move's half-duration.
+
+**Frequency** (measurement, not a verdict family): OOS counts of UP /
+DOWN / ZERO bars; the down-bar share.
+
+**Phase 5, pre-registered:** no family in this campaign measures forward
+returns — the claim is about bar geometry (speed/size), not
+profitability. The Phase-5 trigger (a positive absolute *return* edge,
+brief §1) **cannot fire from this campaign by construction**; Phase 5 is
+not implicated.
+
+## 3. Measurement
+
+The tool reads the frozen parquet bars directly (as every measurement
+tool does) and computes bar geometry; **the Phase-3 engine's
+`measure_returns` is not invoked — no forward returns are measured in
+this campaign** (the claim contains no return prediction; the engine's
+COST/N conventions therefore do not apply). Quantities: r_t =
+close_t/close_{t−1} − 1 for every bar with a prior close (bar index ≥ 1;
+index-0 bars excluded and counted); leg by sign; size = |r_t|. OOS
+population = bars with date ≥ 2016-01-01. F4 inherits the frozen pre-reg
+#11 detection and midpoint rule. Structural checks: (a) every F1/F2 bar
+has a finite prior close (any NaN/zero prior closes counted);
+(b) zero-move bars counted, never dropped silently; (c) F4 events'
+signal bar ≥ 60 and ≤ n_bars − 1 (inherited from the frozen detector);
+(d) crossing index j ∈ [1, N].
+
+## 4. Verdicts — pre-registered decision rules (applied on OOS only)
+
+| Verdict | Rule |
+|---|---|
+| **EDGE (F1-UP)** | Holm-rejected AND CI-upper < 0 — up-bars' mean size below typical (stairs, as claimed) |
+| **FADE (F1-UP)** | Holm-rejected AND CI-low > 0 — up-bars *larger* than typical (claim contradicted) |
+| **EDGE (F1-DOWN)** | Holm-rejected AND CI-low > 0 — down-bars' mean size above typical (window, as claimed) |
+| **FADE (F1-DOWN)** | Holm-rejected AND CI-upper < 0 — down-bars *smaller* than typical (claim contradicted) |
+| **EDGE (F2)** | CI-low > 0 — down-bars larger than up-bars (the asymmetry, as claimed) |
+| **FADE (F2)** | CI-upper < 0 — up-bars larger than down-bars (claim contradicted) |
+| **EDGE (F4)** | CI-low > 0 — big up-moves' retracements outpace the moves (given-back-fast, as claimed) |
+| **FADE (F4)** | CI-upper < 0 — retracements slower than the moves (claim contradicted) |
+| **NO EDGE** | otherwise |
+| **INCONCLUSIVE** | < 100 events in a family's population (F4 only; F1/F2 populations are ~1.5M bars each) |
+
+Phase 5: see §2 — not implicated by construction.
+
+## 5. Data & bias handling
+
+No new data; same frozen universe and bars as every prior campaign. No
+look-ahead: r_t uses closes ≤ t; F4's move and crossing use bars ≤ the
+crossing bar. Survivorship: current-constituent universe (documented
+bias, brief §5). **Intraday→daily translation, pre-declared and
+central:** the claim is about minutes vs hours; daily bars cannot see
+intraday duration — daily "speed" is per-bar magnitude, and overnight
+gaps register as fast moves. The measurement is the honest daily
+adaptation of the claim's *size* structure; it is not a test of intraday
+speed. No adjustment is made. A1's null is calibrated (the unconditional
+OOS bar-size distribution — no assumed "typical"). Zero bars excluded
+and counted. F4's conditioning on retracing events is pre-declared (the
+complementary non-retracement result is pre-reg #11 F2).
+
+## 6. Sensitivities — pre-declared, NO verdicts
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | **Median** |r| per leg + DOWN − UP contrast (skew-robust — bar sizes are highly skewed) | F1/F2 tables |
+| S2 | **Candle-sign version**: red bar = close_t < open_t (the trader's vocabulary), body size |close_t − open_t|; same F1/F2 structure | F1/F2 tables |
+| S3 | **Per-ticker** F1/F2 contrasts (within-ticker up/down means) + ticker-cluster CI on F2 | tables |
+| S4 | **IS-era** (2000–2015) F1/F2 (descriptive — selection era) | F1/F2 tables |
+| S5 | Per-year F1/F2 (OOS) | table |
+| S6 | **Swing-scale** A1: k=2 fractal swings on Close (strict — ties never form a swing, as pre-reg #10); completed swings; paired contrast down-swing rate (size/duration) − preceding up-swing rate; k=3/5 variants | tables |
+| S7 | F4 variants: N = 5 / 20; event population τ = 2 / 5 | F4 tables |
+| S8 | **Tail concentration**: the share of the largest-|r| decile of OOS bars that are down-bars, vs the overall down-bar share | table |
+
+## 7. Freeze
+
+Frozen 2026-08-15. Registered against: ledger row I-F-02 (CLAIMS_LEDGER
+§I-F); inputs: the frozen S&P 600 universe + bars (Phase-1 dataset, see
+data/README.md); no engine call (no forward returns — §3). Measurement
+tool: `tools/measure_speed.py`; outputs
+`data/cache/speed_measure_results.json` + `data/cache/speed_measure_report.md`.
+
+**Pre-registered expectations (recorded, not hypotheses):** A1's daily
+translation is the negative-skew regularity of equity daily returns — a
+documented property of the market; honest expectation is that **F1/F2
+confirm** (down-bars average larger than up-bars), possibly trivially,
+with the interesting quantities being the size of the asymmetry and
+whether it concentrates in the tails (S8). A2 is the sharper test: pre-reg
+#11 F2 showed big up-moves retrace half *less* often than typical bars —
+the population is momentum-driven; among the ~20% that DO retrace within
+10 bars, the retracement being faster than the move is plausible but not
+certain — expectation: **small positive or null**. Confirmation is a
+measurement, not a tradeable edge; and no Phase-5 implication by
+construction (§2).
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged.)*
