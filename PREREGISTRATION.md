@@ -1514,3 +1514,167 @@ counts exact at periods 10 and 14; min_t1=10 ≥ period; RSI bounds [0, 100]
 clean; 0 bad signals).
 
 
+
+---
+
+# Pre-registration #11 — "almost all of the big moves will eventually be corrected" (ledger row I-F-01)
+
+**Frozen 2026-08-14, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "We know that almost all of the big moves will eventually be corrected" — the rationale for the reversal trading strategy; "what goes up must come down and what goes down must come back up" | jfe1Zl-5EQI [16:01–16:09], [15:05–15:09] | **Big-move event** at bar t: the absolute close-to-close move over the prior **L = 10 bars**, |close_t − close_{t−L}|, is **≥ 3 × ATR_t** (a "move" of three average true ranges). Direction by sign of the net move: **UP leg** iff close_t > close_{t−L} (big up-move); **DOWN leg** iff close_t < close_{t−L} (big down-move). Claims: an UP move ⇒ **below-baseline** forward returns (corrected); a DOWN move ⇒ **above-baseline** forward returns (recovered — his "what goes down must come back up"). |
+| ATR formula | — (no ATR teaching found in the corpus — full transcript scan) | **ATR_t = simple mean of the 14 true ranges ending at t** (Cutler-style, consistent with the project's simple-average RSI): TR_t = max(high_t − low_t, |high_t − close_{t−1}|, |low_t − close_{t−1}|); ATR_t = mean(TR_{t−13..t}). The definition is pre-registered here because the corpus teaches none; textbook default. Wilder's smoothing kept as a sensitivity (S4). |
+| "Big move" magnitude | — (ledger operationalization: "large multi-day moves (≥3 ATR)") | Threshold **τ = 3** (primary); τ = 2 / 5 sensitivities (S2). Move window **L = 10** (primary — a two-week move; his examples are multi-day runs); L = 5 sensitivity (S3). |
+| Event-level resolution | — | **First bar of each leg excursion** — a leg excursion is a maximal run of consecutive bars all satisfying that leg's condition; the event is the run's first bar (the move "has happened" at close t; entry open t+1, no look-ahead). One event per qualifying run, mirroring the pre-reg #9 S4 crossing rule and the pre-reg #10 divergence conventions. The state-level view — every qualifying bar is an event — is a pre-declared sensitivity (S5) with its overlap caveat; it is NOT the primary (the RSI-70/30 lesson: state-level significance is overlap-inflated). |
+| "Corrected" — reading 1 | — | **Below/above-baseline forward returns** (F1): the calibrated absolute test — UP events' mean OOS N-bar return vs era-matched random entries AND same-ticker buy-and-hold (SPY reported); DOWN events' likewise. |
+| "Corrected" — reading 2 (the ledger's literal operationalization: "retrace ≥ half within 5–10 sessions") | — | **Retracement claim test** (F2): per event, retrace-frac = (close_t − close_{t+N})/(close_t − close_{t−L}) for UP, (close_{t+N} − close_t)/(close_{t−L} − close_t) for DOWN. "Corrected half" ⇔ close_{t+N} on the far side of the move's **midpoint** (close_t + close_{t−L})/2 (UP: ≤ midpoint; DOWN: ≥ midpoint). F2 contrasts the share of events corrected-half within **N = 10** sessions against the same share on era-matched **random bars** (each random bar's own trailing L-bar move) — the calibrated null ("what share of *typical* bars retrace half their trailing move within N"); the claim predicts big-move bars do so more often. N = 5 reported in S1 (the claim's "5–10 sessions" range). |
+| Timing | — | Signal at close t (uses only bars ≤ t: the move window closes at t, ATR_t ends at t); entry open t+1; exit close t+N. No look-ahead, per the bias checklist. |
+| Trading context | jfe1Zl-5EQI (whole video) | The regularity is stated in a 2015 intraday-trading classroom as the rationale for shorting tops / buying bottoms. Measured here on **US equity daily bars** (the frozen S&P 600 universe) — intraday→daily translation, declared. Only the *regularity* is measured; the reversal *strategy* (resistance calculation, pin-bar entry, 6:1 R:R) is process content, not a claim. I-F-02 (downside speed asymmetry) is a separate claim, not measured here. |
+| Cross-campaign context (recorded, not gated) | — | Pre-reg #4 F2 measured **continuation** EDGE × 3 (our breakout signals kept drifting up 5→20 bars) on a different population; §E.6 measured **fades** of crossed-B breakouts in bear days. This claim predicts mean reversion on a third population (large multi-day moves). The three findings adjudicate each other's scope; noted in the interpretation, not a hypothesis gate. |
+
+## 2. Hypotheses — verdict families
+
+Measured on OOS events (signal date ≥ 2016-01-01) at N = 10, after
+COST = 0.0015. Event-level by construction (first bar of each leg
+excursion; runs collapse to single events). Family 1 tests each leg's
+absolute directional claim; Family 2 tests the literal retracement claim.
+Holm–Bonferroni at α = 0.05 within each family.
+
+**F1 — absolute (per leg, directional):** mean OOS forward return of the
+leg's events vs the calibrated baselines (era-matched random entries,
+same-ticker, SPY reported). Convention as pre-reg #9/10 §2: p_input =
+max(p_random, p_same), est = max, ci_low = min, ci_upper = min. Holm
+across the **two legs** (UP, DOWN):
+- **UP leg** (claims correction): **EDGE** iff Holm-rejected AND excess
+  CI-upper < 0 (significantly *below* both baselines); **FADE** iff
+  Holm-rejected AND CI-low > 0; NO EDGE otherwise.
+- **DOWN leg** (claims bounce): **EDGE** iff Holm-rejected AND excess
+  CI-low > 0 (significantly *above* both baselines); **FADE** iff
+  Holm-rejected AND CI-upper < 0; NO EDGE otherwise.
+
+**F2 — retracement claim test (per leg):** two-sample bootstrap contrast
+of the leg's corrected-half-within-10 rate **minus** the era-matched
+random-bar rate (same N, same universe, random bars' own trailing L-bar
+moves). Holm across the **two legs**:
+- **F2-UP**: EDGE iff Holm-rejected AND CI-low > 0 (big up-moves retrace
+  half more often than typical bars — "corrected", as claimed); FADE iff
+  CI-upper < 0.
+- **F2-DOWN**: EDGE iff Holm-rejected AND CI-low > 0 (big down-moves
+  recover half more often than typical bars — "come back up", as
+  claimed); FADE iff CI-upper < 0.
+
+**Count floor:** any leg with < 100 OOS events → INCONCLUSIVE for that
+leg (F1 and F2 both). Expected far above the floor (3-ATR moves are
+common across ~600 tickers × 10 years; runs collapse to single events,
+but counts are reported per leg, never hidden).
+
+**Frequency:** OOS event counts per leg (and the OOS excursion counts) —
+reported, not a verdict family (the claim carries no frequency content).
+
+## 3. Measurement
+
+Identical to pre-regs #9/#10 where shared: N = 10, COST = 0.0015
+round-trip, B = 1,000 bootstrap resamples, seed 20260813, era split by
+signal date (IS 2000–2015 / OOS 2016–2025), warm-up guard signal-bar
+index < 60 excluded and counted (frozen #3 convention — bounds the
+10-bar move window and the 14-bar ATR lookback with margin), engine
+`measure.py` (frozen, sha c7421fbf…). ATR, moves, and excursions computed
+in the measurement tool from the frozen parquet bars (the engine's
+`load_bars` exposes only Open/Close; the tool reads full OHLCV directly —
+signal inputs ≤ signal bar only, same frozen Close column). Forward
+returns via the engine's `measure_returns` on a detection frame with
+`shape` = leg label (placeholder mapping UP→"A", DOWN→"B" — the engine's
+ABC-only dropped dict; rows relabeled after, as in pre-regs #9/#10).
+F2's retracement indicators computed in the tool from the raw bars
+(events and random bars alike). Structural checks: (a) ATR ≥ 0 everywhere
+(TR ≥ 0 by construction; a zero-ATR bar can occur on a zero-range day —
+the threshold is compared in price units, never a divisor);
+(b) no event with signal bar < 60 — warm-up covers it; (c) no event
+with t − L < 0 — impossible under (b); (d) no event with signal bar
+> n_bars − 1 (n_bad_signal) — expected 0 (series-end drops are the
+engine's standard drops, counted).
+
+## 4. Verdicts — pre-registered decision rules (applied on OOS only)
+
+| Verdict | Rule |
+|---|---|
+| **EDGE (F1-UP)** | Holm-rejected AND CI-upper < 0 — big up-moves ⇒ below-baseline forward returns (correction, as claimed) |
+| **EDGE (F1-DOWN)** | Holm-rejected AND CI-low > 0 — big down-moves ⇒ above-baseline forward returns (recovery, as claimed) |
+| **FADE (F1-UP)** | Holm-rejected AND CI-low > 0 — big up-moves beat the baselines (claim contradicted) |
+| **FADE (F1-DOWN)** | Holm-rejected AND CI-upper < 0 — big down-moves lose to the baselines (claim contradicted) |
+| **EDGE (F2-·)** | Holm-rejected AND CI-low > 0 — the leg's big moves retrace half within N more often than typical bars |
+| **FADE (F2-·)** | Holm-rejected AND CI-upper < 0 — the leg's big moves retrace half within N *less* often than typical bars |
+| **NO EDGE** | otherwise |
+| **INCONCLUSIVE** | < 100 OOS events in a leg |
+
+Phase 5 (paper trading) trigger per brief §1: a *positive absolute* edge
+after costs — **only an F1-DOWN EDGE can trigger the trigger-check
+conversation** (F1-UP EDGE is a negative-return finding; F2 is a
+differential finding).
+
+## 5. Data & bias handling
+
+No new data; same frozen universe and bars as every prior campaign. No
+look-ahead: the signal at close t uses only bars ≤ t (the move window
+closes at t; ATR_t ends at t); entry open t+1. **Overlap caveat,
+pre-declared:** excursion-first events are separated by ≥ 1 bar but N=10
+forward windows can overlap when runs are close; bootstrap CIs are
+computed under iid resampling, so effective sample size is below the row
+count. (Runs are typically long — the 10-bar window stays ≥ 3 ATR for
+several bars in a strong trend — so overlap is light, but it is declared
+and the state-level view (S5) shows the inflated version by contrast.)
+Survivorship: frozen current-constituent universe (documented bias,
+brief §5 — strengthens nulls). Intraday→daily translation declared (§1).
+F2's null is calibrated (the era-matched random-bar rate), not an assumed
+"0.5" — a high absolute retracement rate with no contrast is NO EDGE.
+The retracement midpoint uses the move window's closes (close_t,
+close_{t−L}); the extreme-based variant (window high/low) is S8.
+
+## 6. Sensitivities — pre-declared, NO verdicts
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | Horizons **N = 1 / 5 / 20** | F1 tables (baselines rebuilt per horizon — era- AND horizon-matched pools); the retracement metric reported at **N = 5** (the claim's "5–10 sessions" range) |
+| S2 | Threshold **τ = 2** and **τ = 5** ATR | F1 + F2 tables, L=10 |
+| S3 | Move window **L = 5** bars | F1 + F2 tables, τ = 3 |
+| S4 | ATR: period **7**, and **Wilder's smoothing** (RMA of TR, the other textbook variant) | F1 tables, L=10, τ = 3 |
+| S5 | **State-level view**: every qualifying bar is an event (overlap-inflated by construction — the pre-reg #9 S4 lesson; reported for contrast, not as evidence) | F1 tables |
+| S6 | Per-year F1 leg mean returns (OOS) | table |
+| S7 | IS record at L=10, τ=3 | F1 table (descriptive — selection era) |
+| S8 | Retracement vs the **move window's extreme** (UP: midpoint of close_{t−L} and the window's max high; DOWN: midpoint of close_{t−L} and the window's min low) instead of the close-to-close midpoint | F2 tables |
+
+## 7. Freeze
+
+Frozen 2026-08-14. Registered against: ledger row I-F-01 (CLAIMS_LEDGER
+§I-F); inputs: the frozen S&P 600 universe + bars (Phase-1 dataset, see
+data/README.md); engine `measure.py` c7421fbf (frozen). Measurement tool:
+`tools/measure_bigmove.py`; outputs `data/cache/bigmove_measure_results.json`
++ `data/cache/bigmove_measure_report.md`.
+
+**Pre-registered expectations (recorded, not hypotheses):** this is the
+project's first pure mean-reversion claim measured at the event level on
+daily bars, on a momentum-selected population (3-ATR moves are big
+winners/losers by construction). The campaign history points both ways:
+pre-reg #4 F2 measured *continuation* EDGE × 3 on our breakout signals
+(a different population), while §E.6 and the RSI-70/30 campaign found
+reversal tendencies in bear days and oversold states. Honest expectation:
+**null-to-weak F1 effects post-cost** — a 10-bar mean-reversion edge of
+the size seen in prior campaigns (0.1–0.5pp) is real but small against
+the 0.15% cost; if either leg clears, the **DOWN/bounce leg is the more
+likely** (the bounce direction has been the stronger one in every
+campaign: RSI-70/30 OS +0.14pp vs OB −0.30pp; E-03's fades). F1-UP
+(correction) expected NO EDGE or FADE — continuation after strong up-moves
+is the market's other well-known regularity, and our own pre-reg #4 F2
+found it in our signal populations. F2 is the claim's literal reading:
+expect a modest positive contrast if F1 shows mean reversion at all.
+F1-DOWN EDGE (the Phase-5 trigger) judged unlikely, consistent with the
+pre-registered posture of every campaign so far.
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged.)*
