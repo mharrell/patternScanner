@@ -530,7 +530,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| I-F-01 | jfe1Zl-5EQI [16:01–16:09] | "We know that almost all of the big moves will eventually be corrected" (rationale for reversal trading). | `candidate` — testable-daily: large multi-day moves (≥3 ATR) retrace ≥ half within 5–10 sessions. Same mean-reversion family as what we already measured: crossed-B breakouts in bear days *fade* (§E.6). |
+| I-F-01 | jfe1Zl-5EQI [16:01–16:09] | "We know that almost all of the big moves will eventually be corrected" (rationale for reversal trading). | `tested` (pre-reg #11, 2026-08-14/15) — **split verdict** (§I.8): F1-UP **EDGE** (relative correction — big up-moves below both baselines: n=35,908, −0.48pp vs same-ticker, Holm-rejected; mean +0.03% after cost), F1-DOWN **NO EDGE** (p=0.950); **F2 FADE × 2** — big moves retrace ≥ half within 10 sessions *less* often than typical bars (−12.77pp / −15.53pp), the ledger's literal reading falsified. "Corrected" holds in the relative sense; "retrace half" does not; the DOWN leg's bounce exists only for weak moves (τ=2 +0.24pp → τ=5 −1.36pp). |
 | I-F-02 | jfe1Zl-5EQI [28:28–28:47] | "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window". | `candidate` — testable-daily: per-bar downside moves are larger/faster than upside moves (speed asymmetry). |
 | I-F-03 | txWaMpSzHhM [31:55–32:38] | "Stocks will trend with the overall market unless they have a reason not to" — catalyst names buck the market ("running when the markets tanking"). | `candidate` — testable-daily: daily-return correlation with the index; catalyst proxies (gap, volume spike) reduce correlation / raise idiosyncratic move size. |
 | I-F-04 | txWaMpSzHhM [48:08–48:30] | "If you can see that we're trading at the top or a bottom of a macro channel you can expect a little bit of choppiness" (SPY); mid-channel → "nice clean moves". | `partial` — channel definition is subjective; testable only with a pre-registered operational definition of channel extremes. |
@@ -589,8 +589,10 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
    self-reports drift with the window quoted — the E-02 lesson generalizes.
 5. **Measured-findings cross-references:** I-E-02 (chasing new highs fails)
    is *consistent* with §B.5-B (Shape B, the new-high-buy adaptation, NO
-   EDGE); I-F-01 (big moves get corrected) is the same mean-reversion
-   family as §E.6's bear-day fade; I-D-06 (low float) is testable with data
+   EDGE); I-F-01 (big moves get corrected; **measured**, §I.8) is the same
+   mean-reversion family as §E.6's bear-day fade — the family verdict is
+   split: relative correction confirmed on the UP leg, literal
+   retracement falsified on both legs; I-D-06 (low float) is testable with data
    already approved (§9 decision 7); I-F-05 (momentum carryover) is the
    open question family from pre-reg #4.
 
@@ -839,6 +841,87 @@ signals.
 
 ---
 
+## I.8 Big-move correction verdicts — pre-registration #11 campaign
+
+Measured 2026-08-14, verified 2026-08-15 per [PREREGISTRATION.md](PREREGISTRATION.md) #11 (frozen 2026-08-14: **excursion-first event-level** definition — a big-move event at bar t iff |close_t − close_{t−L}| ≥ 3 × ATR_t, L=10 (τ=2/5, L=5 sensitivities); ATR_t = the simple mean of the 14 true ranges ending at t (no ATR teaching in the corpus — the definition is pre-registered; Wilder kept as a sensitivity); one event per maximal leg run; N=10 primary, 0.15% round-trip cost, **two** verdict families, Holm-corrected within each family across the two legs at α=0.05, OOS 2016–2025 only, baselines bootstrapped 1,000× at fixed seed, era-matched). Full report: `data/cache/bigmove_measure_report.md` (+ `bigmove_measure_results.json`). No new data: the frozen S&P 600 universe and bars. Cross-market caveat pre-declared: taught in a 2015 intraday classroom; measured on US equity daily bars.
+
+Claim as measured: "almost all of the big moves will eventually be corrected" (jfe1Zl-5EQI [16:01–16:09]; "what goes up must come down and what goes down must come back up" [15:05–15:09]) — the rationale for the reversal strategy. F1 (absolute, directional per leg): UP — do big up-moves give **below-baseline** 10-bar returns (corrected)? DOWN — do big down-moves give **above-baseline** (recovered)? F2 (the ledger's literal reading, "retrace ≥ half within 5–10 sessions"): do big moves cross their own midpoint (close_t + close_{t−L})/2 within N=10 more often than era-matched typical bars?
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| I.8-F1-UP | Big up-moves ⇒ below-baseline 10-bar returns (corrected) | `tested, edge` — **EDGE** | n=35,908; mean +0.03%; win 49.00%; excess vs random −0.46pp (CI −0.59..−0.33, p<0.001), vs same-ticker −0.48pp (CI −0.61..−0.36, p<0.001); p_input <0.001 (Holm gate 0.025); CI-upper −0.36pp < 0 |
+| I.8-F1-DOWN | Big down-moves ⇒ above-baseline 10-bar returns (recovered) | `tested, no edge` — **NO EDGE** | n=29,039; mean +0.48%; win 52.82%; excess vs random −0.01pp (CI −0.16..+0.15, p=0.950), vs same +0.01pp (CI −0.14..+0.17, p=0.866); p_input 0.950 |
+| I.8-F2-UP | Big up-moves retrace ≥ half within 10 sessions more often than typical bars | `tested, fade` — **FADE** | 19.56% vs 32.34% (n_random 716,712); contrast **−12.77pp** (CI −13.08..−12.44, p<0.001), Holm gate 0.025 |
+| I.8-F2-DOWN | Big down-moves recover ≥ half within 10 sessions more often than typical bars | `tested, fade` — **FADE** | 22.49% vs 38.01% (n_random 635,474); contrast **−15.53pp** (CI −15.89..−15.18, p<0.001), Holm gate 0.050 |
+| I.8-FREQ | Frequency (measurement, no verdict) | `tested, measurement` — **REPORTED** | OOS events UP 35,997 / DOWN 29,110; all-era (warm-up excluded) UP 73,503 / DOWN 57,173; state-level OOS bars UP 111,016 / DOWN 87,803; warm-up UP 761 / DOWN 618 |
+
+Interpretation: **the project's second event-level absolute EDGE — and it
+lands on the correction leg, as a negative-return finding.** After ≥3-ATR
+up-moves, 10-bar returns are +0.03% after cost — essentially flat —
+versus +0.48% on the same tickers' buy-and-hold: the pop is followed by
+underperformance, Holm-rejected below both baselines. The DOWN leg —
+"what goes down must come back up" — is null at the 3-ATR threshold
+(p=0.950) and *contradicted* at τ=5 (mean −0.90%; −1.36pp vs same-ticker,
+p<0.001): extreme down-moves underperform their own baselines. And the
+ledger's literal reading fails in both directions, decisively: big moves
+cross their own midpoint within 10 sessions 12.8–15.5pp **less** often
+than typical bars (at N=5, the claim's own "5–10 sessions" range,
+−15.2pp/−18.1pp). The relative regularity ("corrected" = below-baseline
+drift) is real; the literal regularity ("retrace half") is false. The
+magnitude gradient on the DOWN leg (τ=2 +0.24pp, p<0.001 → τ=3 ≈ 0 →
+τ=5 −1.36pp, p<0.001) shows "recovery" exists only for weak moves. The
+state-level view (S5, overlap-inflated) has *both* legs below baselines
+(UP −0.40pp / DOWN −0.23pp) — underperformance-after-extremes, coherent
+with pre-reg #4's continuation EDGE × 3 on our breakout signals:
+momentum populations drift relative to their tickers; they do not snap
+back to the midpoint. The pre-registered expectation ("DOWN/bounce leg
+the more likely; F1-UP expected NO EDGE or FADE") was **not met —
+inverted on both legs**.
+
+Three caveats bound the finding:
+
+1. **Overlap (pre-declared).** Excursion-first events are separated by
+   ≥ 1 bar, but N=10 windows can overlap for near runs; bootstrap CIs use
+   iid resampling, so effective sample size is below the row count.
+2. **Survivorship.** Current-constituent universe — strengthens these
+   nulls; and this is a negative-return finding, so the brief §5
+   positive-result gate does not apply.
+3. **Intraday→daily translation.** Taught in a 2015 intraday classroom;
+   measured on US equity daily bars.
+
+Sensitivities (exploratory, no verdicts): S1 — the UP correction accrues
+over the horizon (N=1 −0.06pp, N=5 −0.25pp, N=20 −0.71pp); S2 — τ=2 UP
+−0.29pp / DOWN **+0.24pp** (p<0.001, the only positive DOWN excess), τ=5
+UP −0.46pp (p=0.030) / DOWN −1.36pp (p<0.001); S3 L=5 UP −0.34pp / DOWN
+−0.38pp; S4 ATR-7 UP −0.53pp, Wilder UP −0.45pp (DOWN n.s. in both);
+S5 state-level UP −0.40pp / DOWN −0.23pp; S6 per-year — UP's OOS means
+negative in 6/10 years (2022 −1.15%, 2018 −0.36%) and positive in 4
+(2023 +0.98%, 2016 +0.87%); DOWN's positive in 8/10 (2021 +1.99%, 2024
++1.64%), with 2020's crash the single big negative (−2.26%); S7 IS
+record — UP +0.31% (win 50.83%), DOWN +0.77% (win 52.71%); S8
+extreme-midpoint F2 — UP −18.31pp / DOWN −21.24pp.
+
+**Phase-5 trigger (pre-reg #11 §4: only an F1-DOWN EDGE is the sole
+pre-registered trigger): did not fire — F1-DOWN is NO EDGE (p=0.950), so
+no trigger-check conversation was held.** (F1-UP EDGE is a negative-return
+finding and F2 is differential; neither can trigger by design.) Phase 5
+remains **not triggered** after eleven campaigns.
+
+Verification: deterministic (results 660F227C…, report CE1145F7…,
+byte-identical across two runs); the data layer was independently
+recomputed with a separate implementation — all 61 checks exact: per-bar
+TR loop bit-exact vs the tool's tr_series (max diff 0.0 on 10 sampled
+tickers); ATR-14 loop within 1 ulp (max 3.109e-15); the frozen
+rolling-mean ATR bit-pattern is unreproducible by any per-bar summation
+order (probed five orderings across 2.8M bars, worst 1.7e-13), so
+detection was re-checked against the tool's own ATR values with every
+differing event proven boundary-exact (at τ=2 exactly one flip — LEU
+2019-04-10: move == 2×ATR bit-exact, rel=0.00e+00); all-era and OOS event
+counts, F1 means/wins/CIs, F2 rates, and every pre-declared sensitivity
+count exact; warm-up counts exact; 0 bad signals.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -909,8 +992,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     trigger-check held: **NOT TRIGGERED** — the brief §5 survivorship gate
     (historical-constituent re-check) is the explicit path forward.
     Verdicts: §I.7.
-13. **I-F-01 (big moves get corrected)** — testable-daily mean reversion of
-    ≥3-ATR moves; same family as §E.6's fade finding.
+13. **I-F-01 (big moves get corrected)** — ✅ MEASURED (pre-reg #11,
+    2026-08-14/15): **F1-UP EDGE** (relative correction — big up-moves
+    below both baselines: −0.48pp vs same-ticker, p<0.001, Holm-rejected;
+    mean +0.03% after cost), **F1-DOWN NO EDGE** (p=0.950); **F2 FADE × 2**
+    — big moves retrace ≥ half within 10 sessions *less* often than
+    typical bars (−12.77pp / −15.53pp, both Holm-rejected) — the ledger's
+    literal reading falsified; the DOWN bounce exists only at τ=2
+    (+0.24pp) and reverses at τ=5 (−1.36pp). Phase-5 trigger did not fire
+    (only an F1-DOWN EDGE can trigger; it is null). Verdicts: §I.8.
 14. **I-F-02 (bulls take the stairs, bears take the window)** — daily-bar
     downside-speed asymmetry.
 15. **I-D-01 (price-tier edge: $2–5 vs >$20)** — testable-daily; ties to
@@ -964,6 +1054,13 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   trigger-check was held and did not trigger — the brief §5
   historical-constituent re-check is the explicit path forward. Tenth
   completed campaign.
+- [x] Measure the big-move correction claim (pre-reg #11, I-F-01) and write
+  the verdicts back — done 2026-08-15: **F1-UP EDGE** (relative
+  correction — big up-moves below both baselines), F1-DOWN NO EDGE
+  (p=0.950), **F2 FADE × 2** (literal retracement falsified), frequency
+  reported (§I.8, `data/cache/bigmove_measure_report.md`); the Phase-5
+  trigger did not fire (only an F1-DOWN EDGE can trigger; it is null).
+  Eleventh completed campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

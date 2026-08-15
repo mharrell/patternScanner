@@ -3,8 +3,8 @@
 Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
-**Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Ten pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Status:** Phase 4 — verdicts written back to the ledger 2026-08-15.
+Eleven pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -74,25 +74,42 @@ EDGE fired the pre-registered trigger) and did not trigger** — the brief
 §5 survivorship gate (current-constituent universe) requires a
 historical-constituent re-check before any positive result is trusted;
 size is +0.34pp per 10-bar trade on ~2.8 events per ticker per year; and
-the claim is half-confirmed (bearish leg null/faded). Phase 5 remains
-**not triggered** after ten campaigns.
+the claim is half-confirmed (bearish leg null/faded). **Big-move
+correction** (pre-reg #11, I-F-01 — 2015 intraday classroom tapes,
+measured 2026-08-14/15): **split verdict — the project's second
+event-level absolute EDGE, on the UP (correction) leg, as a
+negative-return finding.** F1-UP (≥3-ATR up-moves ⇒ below-baseline
+10-bar returns): n=35,908 OOS, mean +0.03% after cost, excess vs random
+−0.46pp and vs same-ticker −0.48pp (CI −0.61..−0.36, p<0.001),
+Holm-rejected — "corrected" holds in the relative sense. F1-DOWN ("what
+goes down must come back up"): **NO EDGE** (n=29,039, p=0.950); at τ=5
+extreme down-moves *underperform* their baselines (−1.36pp, p<0.001).
+F2 (the ledger's literal reading, "retrace ≥ half within 5–10
+sessions"): **FADE × 2** — big moves cross their own midpoint within 10
+sessions 19.6% vs 32.3% (UP) and 22.5% vs 38.0% (DOWN) on typical bars
+(−12.77pp / −15.53pp, both Holm-rejected) — the literal retracement
+claim is falsified; the DOWN bounce exists only for weak moves (τ=2
++0.24pp, p<0.001, vanishing at τ=3). The Phase-5 trigger did not fire
+(only an F1-DOWN EDGE can trigger; it is null). Phase 5 remains
+**not triggered** after eleven campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
 `data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
 `data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`,
 `data/cache/rsi_measure_report.md`,
-`data/cache/divergence_measure_report.md`.
+`data/cache/divergence_measure_report.md`,
+`data/cache/bigmove_measure_report.md`.
 Next candidates: with the divergence claims measured (F1-BULL EDGE within
 the current-constituent universe; NOT TRIGGERED pending the brief §5
-re-check), the top remaining candidates are the historical-constituent
-re-check of the bullish-divergence edge — the brief's pre-registered path
-for any positive result (a new data artifact, then a fresh
-pre-registration) — big-move mean reversion (I-F-01), and downside-speed
-asymmetry (I-F-02). The remaining untested ledger items need intraday
-data.
+re-check) and the big-move claim measured (relative correction confirmed,
+literal retracement falsified — §I.8), the top remaining candidates are
+the historical-constituent re-check of the bullish-divergence edge — the
+brief's pre-registered path for any positive result (a new data artifact,
+then a fresh pre-registration) — and downside-speed asymmetry (I-F-02).
+The remaining untested ledger items need intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -123,7 +140,12 @@ data.
   strict k=2 fractal swings on Low/High, confirmation-bar timing at t2+k
   (no look-ahead), divergence vs 70/30 crossings per leg on mean return
   and hit rate; frequency ratio as a measurement, not a verdict family),
-  frozen 2026-08-14. Verdicts return to the ledger.
+  frozen 2026-08-14. Pre-registration #11: the big-move correction claim
+  (I-F-01 — a big-move event at bar t iff |close_t − close_{t−L}| ≥ 3×ATR_t,
+  L=10, excursion-first event-level definition; ATR_t = the simple mean of
+  the 14 true ranges ending at t, pre-registered because the corpus teaches
+  no ATR formula; F1 absolute per leg + F2 literal retracement-contrast
+  families), frozen 2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

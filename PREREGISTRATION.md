@@ -1678,3 +1678,83 @@ pre-registered posture of every campaign so far.
 ## 8. Campaign outcome
 
 *(Recorded after measurement — parameters unchanged.)*
+
+Measured 2026-08-14; verification completed 2026-08-15. **Split verdict —
+the project's second event-level absolute EDGE, on the UP (correction)
+leg, which the pre-registered expectation rated NO EDGE or FADE — and NO
+EDGE on the DOWN (recovery) leg; the ledger's literal retracement reading
+is decisively falsified on both legs:**
+
+- **F1-UP EDGE**: n=35,908 OOS; mean +0.03%; win 49.00%; excess vs random
+  −0.46pp (CI −0.59..−0.33, p<0.001) and vs same-ticker −0.48pp (CI
+  −0.61..−0.36, p<0.001); p_input <0.001 (Holm gate 0.025); CI-upper
+  −0.36pp < 0 — after ≥3-ATR up-moves, 10-bar returns sit at ~0 after
+  cost, *below* both baselines: "corrected" confirmed in the relative
+  sense (I-F-01's up leg).
+- **F1-DOWN NO EDGE**: n=29,039 OOS; mean +0.48%; win 52.82%; excess vs
+  random −0.01pp (CI −0.16..+0.15, p=0.950) and vs same-ticker +0.01pp
+  (CI −0.14..+0.17, p=0.866); p_input 0.950 — "what goes down must come
+  back up" is null at the 3-ATR threshold.
+- **F2-UP FADE**: n_events=73,414 vs n_random=716,712; corrected-half
+  within 10 sessions 19.56% vs 32.34% on typical bars; contrast **−12.77pp**
+  (CI −13.08..−12.44, p<0.001), Holm-rejected — big up-moves retrace half
+  *less* often than typical bars, the literal claim contradicted.
+- **F2-DOWN FADE**: n_events=57,102 vs n_random=635,474; 22.49% vs 38.01%;
+  contrast **−15.53pp** (CI −15.89..−15.18, p<0.001), Holm-rejected — big
+  down-moves recover half *less* often than typical bars, the literal
+  claim contradicted.
+- **Frequency** (measurement, not a verdict family): OOS events UP 35,997
+  / DOWN 29,110; all-era (warm-up excluded) UP 73,503 / DOWN 57,173;
+  warm-up UP 761 / DOWN 618; state-level OOS qualifying bars UP 111,016 /
+  DOWN 87,803.
+
+The pre-registered expectation ("null-to-weak F1 effects post-cost; if
+either leg clears, the DOWN/bounce leg is the more likely; F1-UP expected
+NO EDGE or FADE") was **not met — inverted on both legs**: the UP leg
+cleared and the DOWN leg was the null. The claim is half right, in the
+relative sense: after big up-moves, forward returns are below the
+ticker's own baseline — the F1-UP "EDGE" is a negative-return finding
+(+0.03% after cost vs +0.48% buy-and-hold; it confirms underperformance,
+not a tradeable positive edge). The literal reading the ledger carried
+("retrace ≥ half within 5–10 sessions") fails in both directions and at
+the claim's own horizon: big moves cross their midpoint within 10
+sessions 12.8–15.5pp *less* often than typical bars (F2@N=5: −15.2pp /
+−18.1pp). The DOWN leg's magnitude gradient tells the same story: τ=2
+shows a small above-baseline bounce (+0.24pp, p<0.001) that vanishes at
+τ=3 and reverses at τ=5 (mean −0.90%; −1.36pp vs same-ticker, p<0.001) —
+"recovery" exists only for weak moves; extreme down-moves underperform
+their own baselines. Robustness (exploratory, no verdicts): the UP
+correction accrues over the horizon (N=1 −0.06pp → N=20 −0.71pp), holds
+under both ATR variants (period-7 −0.53pp, Wilder −0.45pp), and the
+state-level view (S5, overlap-inflated) shows *both* legs below baselines
+(UP −0.40pp / DOWN −0.23pp) — underperformance-after-extremes, coherent
+with pre-reg #4's continuation EDGE × 3 on our breakout signals:
+momentum populations drift relative to their tickers; they do not snap
+back to the midpoint. IS record: UP +0.31% (win 50.83%), DOWN +0.77%
+(win 52.71%).
+
+Caveats, as pre-declared: excursion-first events keep overlap light but
+N=10 windows can overlap for near runs (iid bootstrap CIs — effective
+sample below row count); current-constituent universe (survivorship
+strengthens these nulls, and this is a negative-return finding — the
+brief §5 positive-result gate does not apply); intraday→daily
+translation (taught in a 2015 intraday classroom, measured on US equity
+daily bars).
+
+**Phase-5 trigger (pre-reg §4): only an F1-DOWN EDGE can trigger the
+trigger-check conversation — did not fire (F1-DOWN NO EDGE, p=0.950), so
+no trigger-check conversation was held.** Phase 5 remains **not
+triggered** after eleven campaigns. Verdicts written back to
+CLAIMS_LEDGER §I.8; report `data/cache/bigmove_measure_report.md`
+(+ `bigmove_measure_results.json`). Verification: deterministic (results
+660F227C…, report CE1145F7…, byte-identical across two runs); independent
+implementation, all 61 checks exact — per-bar TR loop bit-exact vs the
+tool's tr_series (max diff 0.0 on 10 sampled tickers); ATR-14 loop within
+1 ulp (max 3.109e-15; the frozen rolling-mean bit-pattern is
+unreproducible by any per-bar summation order — probed five orderings
+across 2.8M bars, worst 1.7e-13 — so detection was re-checked against
+the tool's own ATR values, and every differing event proven boundary-
+exact: at τ=2 exactly one flip, LEU 2019-04-10, move == 2×ATR bit-exact,
+rel=0.00e+00); all-era and OOS event counts, F1 means/wins/CIs, F2
+rates, and every pre-declared sensitivity count exact; warm-up counts
+exact; 0 bad signals.
