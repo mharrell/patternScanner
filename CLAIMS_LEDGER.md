@@ -490,7 +490,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | I-B-03 | txWaMpSzHhM [13:56–14:11], [20:08–20:26], [26:40–27:25] | Breakout entries: "as soon as we break 3750 buyers come in and anyone that is short covers and you get that spike up"; "I wait for us to break the top of that resistance area that's gonna be the apex point that's the breakout"; "it either works instantly or it doesn't". | `candidate` (structural) — the buy is the break of resistance, not the consolidation. **Cross-course tension:** ultimate-guide B-02 says *don't* buy the breakout ("better to wait for the stock to pull back"). Shape A (break-above-consolidation) measured → NO EDGE (§B.5-A). |
 | I-B-04 | txWaMpSzHhM [19:13–19:50] | Flag/stair-step: "three big candles going up it can be anywhere from 3 to 10... then you have a series of candles consolidating" then another move up. | `candidate` — a trend+consolidation continuation definition, distinct from Shapes A/B/C as defined; pre-register the operational definition if pursued. |
 | I-B-05 | txWaMpSzHhM [39:03–39:28]; 7UZushUSpLQ [00:10–00:17]; xTPcI7HHu5w [24:53–24:56]; H82nRY9TYU4 [26:42–26:44] | Morning concentration: "9:30 to 12:00 that's when I'm the most aggressive that's when we have the most volume and momentum"; "the first 5 10 minutes of the day is when we have the most volume. That's when we make the most money"; "9:30 to 11:30 that's where all my profits are"; "I only trade for one hour a day 9:30 to 10:30". | `out of scope` for daily bars (intraday timing — same family as F-01). **Internal inconsistency:** four different windows across videos (9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30); the "morning is best" core is consistent, the exact window is not. |
-| I-B-06 | jfe1Zl-5EQI [17:45–18:16], [23:16–23:55], [19:58–20:11]; txWaMpSzHhM [23:42–24:05] | Reversal checklist: "an RSI above 90 or below 10 are going to peak my interest a candle outside the bounzer bands is going to peak my interest and also five to ten consecutive candles ending with a pin bar or a doji"; volume "half a million in shares or higher I prefer a million", peaking at the sell-off bottom; the V5/V8 scanner screens "RSI below 20 and then... the green above 80". Class 1 caveat: RSI "is more condition to find stocks at extremes it's not by any means a buy or sell indicator". | `candidate` / `partial` — the RSI-extreme component is testable on daily bars (see I-X-01); the 90/10-vs-20/80 discrepancy (trade threshold vs scanner threshold) is an internal tension; **Class 1 says RSI is not a signal while Class 4 treats RSI extremes as entry conditions** — within-corpus inconsistency. |
+| I-B-06 | jfe1Zl-5EQI [17:45–18:16], [23:16–23:55], [19:58–20:11]; txWaMpSzHhM [23:42–24:05] | Reversal checklist: "an RSI above 90 or below 10 are going to peak my interest a candle outside the bounzer bands is going to peak my interest and also five to ten consecutive candles ending with a pin bar or a doji"; volume "half a million in shares or higher I prefer a million", peaking at the sell-off bottom; the V5/V8 scanner screens "RSI below 20 and then... the green above 80". Class 1 caveat: RSI "is more condition to find stocks at extremes it's not by any means a buy or sell indicator". | `candidate` / `partial` — the RSI-extreme component measured via I-X-01 (§I.6): extremes carry directional information at the state level (EDGE × 3) but not at the event level — consistent with **both** Class 1's "not a buy or sell indicator" and Class 4's entry-condition reading; the 90/10-vs-20/80 discrepancy (trade threshold vs scanner threshold) is an internal tension; **Class 1 says RSI is not a signal while Class 4 treats RSI extremes as entry conditions** — within-corpus inconsistency. |
 | I-B-07 | 7UZushUSpLQ [01:38–01:41], [05:03–05:27] | Continuation plays are riskier: on VLTC he sized down because "it was not um a fresh breakout. It was a continuation play. And we know that continuation plays can be very risky". | `candidate` (structural) — day-1 fresh-breakout entries vs day-2+ continuation entries of the same move; testable on daily bars (cross-ref pre-reg #4 F2: our signal sets' continuation 5→20 bars showed EDGE — different population, same question family). |
 | I-B-08 | txWaMpSzHhM [32:41–33:27] | Reversal selectivity: "my favorite reversal trades are on stocks that are selling off because there's bad news out... a quick sell off because of bad news lots of people are gonna notice it and start watching it for a bottom bounce" — vs market-driven selloffs that "pop up 10 cents and then they sell off another 50 cents". | `partial` — the news/catalyst leg is out of scope (§3: no news in the loop); the market-vs-idiosyncratic regime leg is testable with daily data (cross-ref I-F-03). |
 
@@ -551,7 +551,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| I-X-01 | rgVdgR1y1Dg [03:16–03:24] (Trading 212) | RSI rule: "anything above seventy percent... the market is said to be overbought anything below thirty percent... the market is said to be over salt" (overbought ⇒ pullback due, oversold ⇒ bounce due). | `candidate` — testable-daily: RSI(14) > 70 → below-average forward returns; < 30 → above-average. **Corpus tension:** Class 1 says RSI is "not by any means a buy or sell indicator" (I-B-06). |
+| I-X-01 | rgVdgR1y1Dg [03:16–03:24] (Trading 212) | RSI rule: "anything above seventy percent... the market is said to be overbought anything below thirty percent... the market is said to be over salt" (overbought ⇒ pullback due, oversold ⇒ bounce due). | `tested` (pre-reg #9, 2026-08-14) — **EDGE × 3 at the state level** (§I.6): F1-OB (RSI>70 below both baselines), F1-OS (RSI<30 above both), F2 (OS−OB contrast positive). The state-level significance is overlap-inflated: the pre-declared event-level view is null (OS p=0.166), so the Phase-5 trigger-check did not trigger. **Corpus tension (I-B-06):** both teachings compatible with the data — extremes carry directional information, but too weak to trade standalone. |
 | I-X-02 | rgVdgR1y1Dg [05:33–05:39] (Trading 212) | "These divergence signals are a lot less common so arguably a bit more reliable". | `candidate` — testable-daily: divergence frequency vs 70/30 crossing frequency, and directional hit rates of each. |
 | I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `candidate` — testable-daily: price lower-low + RSI higher-low → above-average forward returns. |
 | I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `candidate` — testable-daily: price higher-high + RSI lower-high → below-average forward returns. |
@@ -660,6 +660,85 @@ cell arithmetic consistent with the engine's standard drops.
 
 ---
 
+## I.6 RSI 70/30 verdicts — pre-registration #9 campaign
+
+Measured 2026-08-14 per [PREREGISTRATION.md](PREREGISTRATION.md) #9 (frozen
+2026-08-14: N=10 primary — the frozen shape horizon — 0.15% round-trip cost,
+**two** verdict families, Holm-corrected within F1 at α=0.05 across the two
+legs, F2 a single test at α=0.05, OOS 2016–2025 only, baselines bootstrapped
+1,000× at fixed seed, era-matched). Full report:
+`data/cache/rsi_measure_report.md` (+ `rsi_measure_results.json`). No new
+data: the frozen S&P 600 universe and bars. Cross-market caveat
+pre-declared: the video demos GBP/USD; measured on US equities.
+
+Claim as measured: "anything above seventy percent... overbought... anything
+below thirty percent... oversold... due a bounce back" (Trading 212,
+rgVdgR1y1Dg [03:16–03:27]) — simple-average (Cutler) RSI **as taught in the
+video** (not Wilder), period 14, thresholds 70/30; legs are state-based
+(every qualifying bar is a detection, matching the claim's reading "when
+RSI is above 70, pullback is due"). F1 (absolute, directional per leg):
+OB — does RSI > 70 give below-baseline forward returns (pullback)? OS —
+does RSI < 30 give above-baseline (bounce)? F2 (contrast): does OS beat OB
+(reversal symmetry)?
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| I.6-F1-OB | RSI > 70 ⇒ below-baseline 10-bar returns (pullback) | `tested, edge` — **EDGE** | n=201,419; mean +0.23%; excess vs random −0.26pp (CI −0.31..−0.20, p<0.001), vs same-ticker −0.30pp (CI −0.36..−0.25, p<0.001); p_input <0.001 (Holm gate 0.025); CI-upper −0.25pp < 0 |
+| I.6-F1-OS | RSI < 30 ⇒ above-baseline 10-bar returns (bounce) | `tested, edge` — **EDGE** | n=150,236; mean +0.61%; excess vs random +0.12pp (CI +0.05..+0.19, p<0.001), vs same-ticker +0.14pp (CI +0.07..+0.23, p<0.001); p_input <0.001 (Holm gate 0.050); CI-low +0.05pp > 0 |
+| I.6-F2 | OS beats OB (reversal symmetry) | `tested, edge` — **EDGE** | OB +0.23% vs OS +0.61%; contrast **+0.38pp** (CI +0.31..+0.45, p<0.001), single test at α=0.05 |
+
+Interpretation: **the first campaign to confirm a claim's directional
+structure at the state level.** Overbought detections reliably underperform
+their own baselines (−0.30pp vs same-ticker) and oversold detections
+reliably outperform (+0.14pp) — both Holm-rejected at p<0.001 with
+150–200k detections — and the reversal symmetry is clean (+0.38pp). The
+pre-registered expectation ("F1 legs expected NO EDGE") was **not met**:
+the null was falsified in the claim's favor at the state level. The size is
+small: +0.14pp per 10-bar trade after cost, on the OS leg.
+
+Three caveats bound the finding before it can mean anything tradeable:
+
+1. **Overlap (pre-reg §5; sensitivity S4).** State-based legs fire on
+   consecutive bars; the iid bootstrap inflates significance. The
+   pre-declared event-level view (first bar of each excursion, until
+   re-entry): OB excess vs same-ticker −0.14pp (p=0.026), OS +0.10pp
+   (p=0.166) — the OS bounce loses significance entirely at the event
+   level; OB keeps only marginal significance, in the claim's direction.
+2. **Parameter robustness (S2/S3).** The OS edge clears at 70/30 (p<0.001)
+   and 90/10 (p=0.010) but **not** at 80/20 (p=0.138) or his preferred
+   period 10 (p=0.286). It clears precisely at the textbook
+   14/70/30 combination — the parameterization most likely to have been
+   tuned on historical data.
+3. **Size.** +0.14pp per 10-bar trade after cost; ~6.5 OS events per ticker
+   per year (38,643 OOS crossings across 598 tickers in 10 years); the
+   event-level effect is not distinguishable from noise.
+
+Corpus tension (I-B-06) resolved toward compatibility: Class 1's "RSI is
+not by any means a buy or sell indicator" vs Trading 212's reversal reading
+— the state level says extremes carry directional information; the event
+level says it is too weak and fragile to trade standalone. Both teachings
+are consistent with the measured data.
+
+**Phase-5 trigger-check conversation (pre-reg #9 §4: F1-OS EDGE is the sole
+pre-registered trigger).** Held on this evidence. Trigger-check verdict:
+**NOT TRIGGERED.** The state-level EDGE is overlap-inflated (the
+pre-declared event-level correction is p=0.166), the parameter neighborhood
+is fragile (80/20 and period 10 fail), and the absolute size is a fraction
+of a percent per trade. The directional tendency is real — overbought
+drifts below, oversold drifts above, the ticker's own baseline — and too
+small to clear the brief §1 bar. Phase 5 remains **not triggered** after
+nine campaigns. Revisiting this requires a fresh pre-registration under the
+frozen trigger rules.
+
+Verification: deterministic (results 93537c3f…, report 46c84b42…,
+byte-identical across two runs); the data layer was independently recomputed
+with a separate implementation (explicit per-bar loop RSI with window sums):
+RSI exact to 2.8e-14, detection counts and forward-return means exact
+(201,419 / 150,236; +0.00233325 / +0.00614773), warm-up count exact (7,409),
+RSI bounds [0, 100] clean over all 598 tickers with bars.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -712,9 +791,13 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     INCONCLUSIVE (count floor), F2-A INCONCLUSIVE by construction (every A
     detection is high-RV — the detector's V=2.0). The absolute leg is null;
     the differential leg whispers but never clears. Verdicts: §I.5.
-11. **I-X-01 (RSI 70/30 daily-bar reversal bias)** — testable-daily on the
-    existing universe; large sample; classic claim with a specific teaching
-    ("overbought ⇒ pullback due, oversold ⇒ bounce due").
+11. **I-X-01 (RSI 70/30 daily-bar reversal bias)** — ✅ MEASURED (pre-reg #9,
+    2026-08-14): **EDGE × 3 at the state level** — F1-OB (overbought below
+    both baselines: −0.30pp vs same-ticker, p<0.001), F1-OS (oversold above
+    both: +0.14pp vs same-ticker, p<0.001), F2 contrast OS−OB +0.38pp
+    (p<0.001) — the first campaign to confirm a claim's direction; the
+    pre-declared event-level view is null (OS p=0.166) and the Phase-5
+    trigger-check did not trigger. Verdicts: §I.6.
 12. **I-X-02/03/04 (RSI divergence frequency + reliability)** — testable-daily;
     needs a pre-registered divergence definition (swing scanning on daily
     bars) before measurement.

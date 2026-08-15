@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Eight pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Nine pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -46,20 +46,33 @@ p=0.302 — the claimed direction, never significant), F2-C INCONCLUSIVE,
 F2-A INCONCLUSIVE by construction (every A detection is high-RV — the
 detector's V=2.0). "Pattern trading only works on high-relative-volume
 stocks" is null in absolute terms; the differential whisper exists but
-never clears. Per the brief §1, Phase 5 (paper trading) is **not
-triggered** after eight campaigns.
+never clears. **RSI 70/30** (pre-reg #9, I-X-01 — Trading 212, measured
+2026-08-14): **EDGE × 3 at the state level** — the first campaign to
+confirm a claim's directional structure. F1-OB (RSI>70 ⇒ pullback):
+n=201,419, excess vs random −0.26pp and vs same-ticker −0.30pp, p<0.001,
+Holm-rejected; F1-OS (RSI<30 ⇒ bounce): n=150,236, excess +0.12pp/+0.14pp,
+p<0.001, Holm-rejected; F2 (OS−OB): +0.38pp (CI +0.31..+0.45, p<0.001).
+The size is small (+0.14pp per 10-bar trade after cost) and the
+pre-declared event-level correction is null (OS p=0.166), the parameter
+neighborhood is fragile (80/20 and period 10 fail), so the **Phase-5
+trigger-check conversation was held and did not trigger** — the edge is a
+real directional tendency, not a tradeable one. Phase 5 remains **not
+triggered** after nine campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
 `data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
-`data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`.
-Next candidates: the warrior-trading corpus scan (2026-08-14) found 53 new
-claims (ledger §I) — with the RV conditioning claim measured, the top
-remaining candidates are RSI 70/30 and RSI-divergence rules, big-move
-mean reversion, and downside-speed asymmetry. The remaining untested
-ledger items need intraday data.
+`data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`,
+`data/cache/rsi_measure_report.md`.
+Next candidates: with the RSI 70/30 claim measured (state-level EDGE,
+event-level null — the divergence claims are the natural follow-up), the
+top remaining candidates are the RSI-divergence rules (I-X-02/03/04:
+frequency + reliability of bullish/bearish divergence vs the 70/30
+crossing baseline), big-move mean reversion (I-F-01), and downside-speed
+asymmetry (I-F-02). The remaining untested ledger items need intraday
+data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -81,7 +94,11 @@ ledger items need intraday data.
   test + win-rate-edge family), frozen 2026-08-14. Pre-registration #8:
   the high-relative-volume conditioning claim (I-D-07/I-E-01 — RV ≥ 2.0
   subsets vs below on the frozen detections; absolute + contrast
-  families), frozen 2026-08-14. Verdicts return to the ledger.
+  families), frozen 2026-08-14. Pre-registration #9: the RSI 70/30
+  reversal-bias claim (I-X-01 — simple-average RSI as taught in the
+  video, period 14, thresholds 70/30, state-based OB/OS legs; directional
+  F1 families + F2 reversal-symmetry contrast), frozen 2026-08-14.
+  Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

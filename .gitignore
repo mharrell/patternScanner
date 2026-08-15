@@ -30,6 +30,8 @@ data/cache/*
 !data/cache/e02_measure_results.json
 !data/cache/rv_measure_report.md
 !data/cache/rv_measure_results.json
+!data/cache/rsi_measure_report.md
+!data/cache/rsi_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

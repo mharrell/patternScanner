@@ -1137,3 +1137,159 @@ direction. Full report: `data/cache/rv_measure_report.md` (+
 `rv_measure_results.json`). Verification: byte-identical across two runs;
 independent recompute (separate implementation) exact to 1e-9. Verdicts
 written back to CLAIMS_LEDGER §I.5. Phase 5 not triggered (no F1 EDGE).
+
+---
+
+# Pre-registration #9 — RSI 70/30 reversal bias (ledger row I-X-01)
+
+**Frozen 2026-08-14, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claim as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "Anything above seventy percent… the market is said to be overbought… anything below thirty percent… the market is said to be oversold… it's a suggestion that maybe the strength has gone a little bit too far… maybe the market has gone down too far and is due a bounce back" | rgVdgR1y1Dg [03:16–03:27] (Trading 212) | **RSI_t** computed at close t from the **simple-average formula the video itself teaches**: RS_t = mean(gains, the 14 daily changes ending at t) / mean(\|losses\|, the 14 daily changes ending at t) — *simple* averages, not Wilder smoothing ("the average of X number of days up divided by the average of X number of days down"); RSI_t = 100 − 100/(1 + RS_t); conventions: avg_loss = 0 → RSI = 100 (covers the all-gain and flat cases, TA-Lib rule); avg_gain = 0 and avg_loss > 0 → RSI = 0. Leg **OB**: RSI_t > 70 (pullback due). Leg **OS**: RSI_t < 30 (bounce due). |
+| "It defaults to the textbook version 14-day RSI" | rgVdgR1y1Dg [02:50–02:55] | Primary period **14** (the textbook default the video says to keep). |
+| "Me I like a ten-day RSI because it's two weeks" | rgVdgR1y1Dg [02:54–02:56] | Period 10 kept as a **sensitivity** (his stated preference), no verdict. |
+| "Let's stick with the textbook 70 and 30%" | rgVdgR1y1Dg [03:00–03:02] | Primary thresholds 70/30. |
+| Corpus tension (I-B-06): Class 1 — RSI "is more condition to find stocks at extremes it's not by any means a buy or sell indicator" | txWaMpSzHhM [23:42–24:05] | Recorded, not adjudicated: we measure the Trading 212 form (the specific, testable one). A null result is consistent with BOTH (Class 1's caveat AND Trading 212's claim falsified); a positive result adjudicates between them. |
+| Demo context | rgVdgR1y1Dg (whole video) | The claim is demonstrated on **GBP/USD forex daily candles**; measured here on **US equity daily bars** (the frozen S&P 600 universe) — a cross-market translation, declared. |
+
+## 2. Hypotheses — two verdict families
+
+Measured on OOS detections (signal date ≥ 2016-01-01) at N = 10, after
+COST = 0.0015. Signal = every bar with RSI_t in the leg's range (state-based
+primary — each day in the leg is a detection, matching the claim's reading
+"when RSI is above 70, pullback is due"). Family 1 tests each leg's
+absolute directional claim; Family 2 tests the reversal symmetry between
+the legs. Holm–Bonferroni at α = 0.05 within each family.
+
+**F1 — absolute (per leg, directional):** per leg, mean OOS forward return
+of the leg's detections vs the calibrated baselines (era-matched random
+entries, same-ticker, SPY reported). Convention as #6/#7/#8: p_input =
+max(p_random, p_same), est = max, ci_low = min. Holm across the **two legs**
+(OB, OS). The claim is directional, so the verdict rules are direction-
+specific:
+- **OB leg** (claims pullback): **EDGE** iff Holm-rejected AND excess
+  CI-upper < 0 (significantly *below* both baselines); **FADE** iff
+  Holm-rejected AND CI-low > 0 (significantly above — the overbought
+  side keeps going up); NO EDGE otherwise.
+- **OS leg** (claims bounce): **EDGE** iff Holm-rejected AND excess CI-low
+  > 0; **FADE** iff Holm-rejected AND CI-upper < 0; NO EDGE otherwise.
+
+**F2 — contrast (the reversal symmetry):** two-sample bootstrap excess of
+the OS leg's mean OOS forward return minus the OB leg's (era-matched by
+construction). Reversal holds iff the difference is positive. Single test
+at α = 0.05 (one Holm slot). **EDGE** iff CI-low > 0; **FADE** iff CI-upper
+< 0; NO EDGE otherwise.
+
+**Count floor:** any leg with < 100 OOS detections → INCONCLUSIVE.
+Expected far above the floor (RSI extremes are common on daily bars);
+reported as counts per leg, never hidden.
+
+## 3. Measurement
+
+Identical to pre-regs #1–#8 where shared: N = 10 (the frozen shape
+horizon), COST = 0.0015 round-trip, B = 1,000 bootstrap resamples, seed
+20260813, era split by signal date (IS 2000–2015 / OOS 2016–2025),
+warm-up guard bar index < 60 excluded (frozen #3 convention — also bounds
+the simple-average RSI's exact 14-bar lookback with margin), engine
+`measure.py` (frozen, sha c7421fbf…). RSI computed in the measurement
+tool from the frozen parquet closes (bar index t; deltas t−13..t; signal
+uses bars ≤ t only). Forward returns via the engine's `measure_returns`
+on a detection frame with `shape` = leg label. Two structural checks:
+(a) RSI values within [0, 100] everywhere; (b) no detections with
+< 14 prior closes (the lookback) — expected 0, warm-up covers it.
+
+## 4. Verdicts — pre-registered decision rules (applied on OOS only)
+
+| Verdict | Rule |
+|---|---|
+| **EDGE (F1-OB)** | Holm-rejected AND excess CI-upper < 0 — overbought ⇒ below-baseline forward returns (pullback, as claimed) |
+| **EDGE (F1-OS)** | Holm-rejected AND excess CI-low > 0 — oversold ⇒ above-baseline forward returns (bounce, as claimed) |
+| **FADE (F1-OB)** | Holm-rejected AND CI-low > 0 — overbought detections beat the baselines (claim contradicted) |
+| **FADE (F1-OS)** | Holm-rejected AND CI-upper < 0 — oversold detections lose to the baselines (claim contradicted) |
+| **EDGE (F2)** | CI-low > 0 — OS beats OB (reversal symmetry holds) |
+| **FADE (F2)** | CI-upper < 0 — OB beats OS (reversal contradicted) |
+| **NO EDGE** | otherwise |
+| **INCONCLUSIVE** | < 100 OOS detections in a leg |
+
+Phase 5 (paper trading) trigger per brief §1: a *positive absolute* edge
+after costs — **only an F1-OS EDGE can trigger the trigger-check
+conversation** (F1-OB EDGE is a negative-return finding; F2 is a
+differential finding).
+
+## 5. Data & bias handling
+
+No new data; same frozen universe and bars as every prior campaign.
+No look-ahead: RSI uses closes ≤ t; entry open t+1. **Overlap caveat,
+pre-declared:** state-based legs fire on consecutive bars, so forward
+windows overlap and rows are not independent; the bootstrap CIs are
+computed under iid resampling, so the effective sample size is smaller
+than the row count — the crossing-based sensitivity (S4, first bar of
+each excursion only) shows the event-level view. Cross-market caveat
+declared (§1). The all-gain/all-loss conventions (RSI = 100/0) are part
+of the frozen formula. Survivorship: frozen current-constituent
+universe (documented bias, brief §5 — strengthens nulls).
+
+## 6. Sensitivities — pre-declared, NO verdicts
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | Horizons **N = 1 / 5 / 20** | F1 + F2 tables (entry next open, exit close t+N, cost) |
+| S2 | Thresholds **80/20** (I-D-08's V5/V8 scanner), **90/10** (I-B-06's reversal checklist), **60/40** (weak reference) | F1 + F2 tables, period 14 |
+| S3 | Period **10** (his stated preference) at 70/30 | F1 + F2 tables |
+| S4 | **Crossing-based** events (first bar of each excursion above 70 / below 30, until re-entry) at 70/30 | F1 + F2 tables |
+| S5 | Per-year F1 leg mean returns (OOS) | table |
+| S6 | IS record at 70/30 | F1 table (descriptive — selection era) |
+| S7 | RSI distribution: share of OOS bars in each leg; min/max RSI | table |
+
+## 7. Freeze
+
+Frozen 2026-08-14. Registered against: ledger row I-X-01 (CLAIMS_LEDGER
+§I); inputs: the frozen S&P 600 universe + bars (Phase-1 dataset, see
+data/README.md); engine `measure.py` c7421fbf (frozen). Measurement tool:
+`tools/measure_rsi.py`; outputs `data/cache/rsi_measure_results.json` +
+`data/cache/rsi_measure_report.md`.
+
+**Pre-registered expectations (recorded, not hypotheses):** the reversal
+family has shown up only in E-03's regime-specific bear-day fade — expect
+weak or null effects on the broad daily-bar 70/30 state claim post-cost;
+F2 (the differential) is the cleaner test; F1 legs expected NO EDGE.
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged.)*
+
+Measured 2026-08-14. **EDGE × 3 at the state level** — the first campaign
+to confirm a claim's directional structure:
+
+- **F1-OB EDGE**: n=201,419 OOS; mean +0.23%; excess vs random −0.26pp
+  (CI −0.31..−0.20, p<0.001) and vs same-ticker −0.30pp (CI −0.36..−0.25,
+  p<0.001); Holm-rejected (gate 0.025), CI-upper −0.25pp < 0 — overbought
+  ⇒ pullback, as claimed.
+- **F1-OS EDGE**: n=150,236 OOS; mean +0.61%; excess vs random +0.12pp
+  (CI +0.05..+0.19, p<0.001) and vs same-ticker +0.14pp (CI +0.07..+0.23,
+  p<0.001); Holm-rejected (gate 0.050), CI-low +0.05pp > 0 — oversold ⇒
+  bounce, as claimed.
+- **F2 EDGE**: OS − OB = +0.38pp (CI +0.31..+0.45, p<0.001) — reversal
+  symmetry holds.
+
+Bounding caveats (full detail in the report): (S4, pre-declared) the
+event-level view is null — OS excess vs same-ticker +0.10pp, p=0.166; OB
+−0.14pp, p=0.026; (S2/S3) the OS edge clears at 70/30 and 90/10 but not
+80/20 (p=0.138) or period 10 (p=0.286); size is +0.14pp per 10-bar trade
+after cost. The pre-registered expectation ("F1 legs expected NO EDGE")
+was not met — falsified in the claim's favor at the state level.
+
+**Phase-5 trigger-check conversation held (F1-OS EDGE is the sole
+pre-registered trigger): NOT TRIGGERED** — the state-level significance is
+overlap-inflated (event-level correction p=0.166), the parameter
+neighborhood is fragile, and the absolute size is a fraction of a percent
+per trade. Phase 5 remains not triggered. Verdicts written back to
+CLAIMS_LEDGER §I.6; report `data/cache/rsi_measure_report.md`
+(+ `rsi_measure_results.json`). Verification: byte-identical across runs
+(results 93537c3f…, report 46c84b42…); independent implementation exact
+(RSI to 2.8e-14; counts and means exact).
