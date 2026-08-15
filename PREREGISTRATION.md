@@ -1293,3 +1293,160 @@ CLAIMS_LEDGER §I.6; report `data/cache/rsi_measure_report.md`
 (+ `rsi_measure_results.json`). Verification: byte-identical across runs
 (results 93537c3f…, report 46c84b42…); independent implementation exact
 (RSI to 2.8e-14; counts and means exact).
+
+# Pre-registration #10 — RSI divergence: frequency + reliability (ledger rows I-X-02/03/04)
+
+**Frozen 2026-08-14, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| Bullish divergence: "the market slips lower rallies but slips lower again… we've got lower lows but look at what the RSI is doing… hits a low again but we've got higher lows so this is a suggestion… that maybe this weakness is running out of steam… known as bullish divergence" | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | **Bullish divergence event** on a pair of **consecutive swing lows** (t1 < t2) iff (a) **price**: low_t2 < low_t1 (lower low); (b) **RSI**: RSI_t2 > RSI_t1 (higher low). Swing lows are strict **k=2 fractals** (low_t < the lows of the 2 bars on each side; ties never form a swing), pairs must have **disjoint fractal windows** (t2 − t1 ≥ 5). Claim: weakness running out of steam ⇒ above-baseline forward returns (bounce). |
+| Bearish divergence: "the market has pushed to a high pushes a little bit higher… we've got our lower high so that's a suggestion that maybe the strength is running out of steam" | rgVdgR1y1Dg [06:39–07:03] | **Bearish divergence event** on a pair of **consecutive swing highs** (strict k=2 fractal on highs, disjoint windows) iff (a) **price**: high_t2 > high_t1 (higher high); (b) **RSI**: RSI_t2 < RSI_t1 (lower high). Claim: strength running out of steam ⇒ below-baseline forward returns (pullback). |
+| "These divergence signals are a lot less common so arguably a bit more reliable" — with context [04:44–04:58]: "you do get quite a few overbought oversold signals and they're maybe not as reliable as another way of using the RSI… divergence" | rgVdgR1y1Dg [05:33–05:39], [04:44–04:58] | The comparison baseline is **the 70/30 overbought/oversold signals themselves**. Two measurements. **(i) Frequency:** OOS count of divergence events (bull + bear) vs count of **70/30 crossing events** (first bar of each excursion above 70 / below 30 — the pre-reg #9 S4 rule) over the same OOS bars and same period; reported as counts, ratio, and bootstrap CI on the ratio (CI-upper < 1 ⇒ "less common" confirmed). **(ii) Reliability:** per leg, the **two-sample contrast** of divergence events vs crossing events — on **mean forward return** and on **directional hit rate** (share of events with positive forward return after cost). Verdict family F2. |
+| "Daily chart again ten day RSI" (the demo charts for both divergence setups) | rgVdgR1y1Dg [06:25] | Primary RSI period **10** — the period the setups are demonstrated on (also the video's stated preference, [02:54–02:56]). Period 14 kept as a sensitivity (textbook default; cross-campaign comparability with pre-reg #9's primary). |
+| RSI formula | rgVdgR1y1Dg [03:16–03:27] | Same frozen **simple-average (Cutler) RSI** as pre-reg #9: RS_t = mean(gains, the `period` daily changes ending at t) / mean(\|losses\|, same window); RSI = 100 − 100/(1+RS); conventions: avg_loss = 0 → 100 (all-gain and flat); avg_gain = 0 and avg_loss > 0 → 0. No formula change. |
+| "The market pushes out to fresh highs for the up move but the RSI doesn't follow it" (gloss on the bearish example) | rgVdgR1y1Dg [07:05–07:11] | Recorded, not gated: the consecutive-swing-high definition with high_t2 > high_t1 is the operative reading; the gloss describes the example's market structure, not an additional rule. |
+| Swing confirmation timing | — | A k=2 fractal is only *knowable* at close t+2 (the two bars after the pivot). Per the bias checklist's strict rule ("signal at close t uses only data ≤ t"), the **signal bar is the confirmation bar t2+2**: entry open t2+3, exit close t2+2+N. The chartist's-eye variant — signal at the pivot bar t2, entry open t2+1 — is a pre-declared sensitivity (S8) with its selection-tilt caveat; it is not the primary. |
+| Demo context | rgVdgR1y1Dg (whole video) | Setups demonstrated on GBP/USD and USD/JPY daily candles; measured here on US equity daily bars (the frozen S&P 600 universe) — cross-market translation, declared. |
+| Not measured here | — | I-X-05 (stop placement at the prior extreme low) remains `candidate` — a risk-rule claim, not a direction claim; no verdict in this campaign. |
+
+## 2. Hypotheses — verdict families
+
+Measured on OOS events (signal date ≥ 2016-01-01; signal bar = t2+2) at
+N = 10, after COST = 0.0015. Event-level by construction (one event per
+qualifying swing pair; event bars separated by ≥ 5 bars). Family 1 tests
+each leg's absolute directional claim (I-X-03/04); Family 2 tests the
+reliability contrast vs the 70/30 crossing baseline (I-X-02).
+Holm–Bonferroni at α = 0.05 within each family.
+
+**F1 — absolute (per leg, directional):** mean OOS forward return of the
+leg's events vs the calibrated baselines (era-matched random entries,
+same-ticker, SPY reported). Convention as pre-reg #9 §2: p_input =
+max(p_random, p_same), est = max, ci_low = min, ci_upper = min. Holm
+across the **two legs** (BULL, BEAR):
+- **BULL leg** (claims bounce): **EDGE** iff Holm-rejected AND excess
+  CI-low > 0 (significantly *above* both baselines); **FADE** iff
+  Holm-rejected AND CI-upper < 0; NO EDGE otherwise.
+- **BEAR leg** (claims pullback): **EDGE** iff Holm-rejected AND excess
+  CI-upper < 0 (significantly *below* both baselines); **FADE** iff
+  Holm-rejected AND CI-low > 0; NO EDGE otherwise.
+
+**F2 — reliability contrast (I-X-02), per leg, per metric:** two-sample
+bootstrap contrast of the divergence leg's events **minus** the 70/30
+crossing events at the same period (oversold crossings vs the BULL leg;
+overbought crossings vs the BEAR leg — the claim's own comparison
+baseline). Metrics: **(a) mean forward return**, **(b) directional hit
+rate** (share of events with ret > 0 after cost). Holm across the
+**four tests** (2 legs × 2 metrics):
+- **F2-BULL-mean**: EDGE iff CI-low > 0 (divergence bounces more than
+  oversold crossings); FADE iff CI-upper < 0.
+- **F2-BEAR-mean**: EDGE iff CI-upper < 0 (divergence pulls back more
+  than overbought crossings); FADE iff CI-low > 0.
+- **F2-BULL-hit**: EDGE iff hit-rate contrast CI-low > 0; FADE iff
+  CI-upper < 0.
+- **F2-BEAR-hit**: EDGE iff hit-rate contrast CI-upper < 0; FADE iff
+  CI-low > 0.
+
+**Count floor:** any leg with < 100 OOS events → INCONCLUSIVE for that
+leg (F1 and F2 both). Expected far above the floor (swings are dense on
+daily bars; pre-reg #9 measured ~350k OOS state detections); reported as
+event counts per leg, never hidden.
+
+**Frequency claim (I-X-02 first half):** reported as OOS counts (divergence
+events vs 70/30 crossing events), the ratio, and a bootstrap CI on the
+ratio — a measurement, not a verdict family (it is a rate claim, not a
+return claim). Reported at both period 10 (primary) and period 14 (S3).
+
+## 3. Measurement
+
+Identical to pre-reg #9 where shared: N = 10, COST = 0.0015 round-trip,
+B = 1,000 bootstrap resamples, seed 20260813, era split by signal date
+(IS 2000–2015 / OOS 2016–2025), warm-up guard signal-bar index < 60
+excluded (frozen #3 convention — also bounds the RSI's 10-bar lookback
+and the fractal's 2-bar confirmation with margin), engine `measure.py`
+(frozen, sha c7421fbf…). RSI, swings, and events computed in the
+measurement tool from the frozen parquet bars (signal inputs ≤ signal
+bar only). Forward returns via the engine's `measure_returns` on a
+detection frame with `shape` = leg label (placeholder mapping BULL→"A",
+BEAR→"B", and "C" for the crossing frame — the engine's ABC-only dropped
+dict; rows relabeled after, as in pre-reg #9). Structural checks:
+(a) RSI values within [0, 100] everywhere; (b) no event with t1 < period
+(the first swing's RSI undefined) — expected 0; (c) no event with
+t2 > n_bars − 3 (fractal needs its two confirmation bars) — expected 0;
+(d) no signal bar < 60 — warm-up covers it.
+
+## 4. Verdicts — pre-registered decision rules (applied on OOS only)
+
+| Verdict | Rule |
+|---|---|
+| **EDGE (F1-BULL)** | Holm-rejected AND CI-low > 0 — bullish divergence ⇒ above-baseline forward returns (bounce, as claimed) |
+| **EDGE (F1-BEAR)** | Holm-rejected AND CI-upper < 0 — bearish divergence ⇒ below-baseline forward returns (pullback, as claimed) |
+| **FADE (F1-BULL)** | Holm-rejected AND CI-upper < 0 — bullish divergence loses to the baselines (claim contradicted) |
+| **FADE (F1-BEAR)** | Holm-rejected AND CI-low > 0 — bearish divergence beats the baselines (claim contradicted) |
+| **EDGE (F2-·)** | per §2 — divergence more reliable than the 70/30 crossing baseline on that metric/leg |
+| **FADE (F2-·)** | per §2 — divergence less reliable than the 70/30 crossing baseline on that metric/leg |
+| **NO EDGE** | otherwise |
+| **INCONCLUSIVE** | < 100 OOS events in a leg |
+
+Phase 5 (paper trading) trigger per brief §1: a *positive absolute* edge
+after costs — **only an F1-BULL EDGE can trigger the trigger-check
+conversation** (F1-BEAR EDGE is a negative-return finding; F2 is a
+differential finding).
+
+## 5. Data & bias handling
+
+No new data; same frozen universe and bars as every prior campaign. No
+look-ahead: the signal bar t2+2 uses only bars ≤ t2+2 (RSI_t2, lows/highs
+through t2+2); entry open t2+3. **Overlap caveat, pre-declared:** event
+bars are ≥ 5 bars apart but N=10 forward windows can overlap; bootstrap
+CIs are computed under iid resampling, so effective sample size is below
+the row count. **F2 timing asymmetry, pre-declared:** divergence events
+enter at open t2+3 (fractal confirmation), crossing events at open
+cross+1 — each at its own earliest honest entry; the 2-bar difference is
+reported alongside the contrast (S8 shows the effect of the alternate
+timing). Cross-market caveat declared (§1). Survivorship: frozen
+current-constituent universe (documented bias, brief §5 — strengthens
+nulls). The all-gain/all-loss RSI conventions (100/0) are part of the
+frozen formula.
+
+## 6. Sensitivities — pre-declared, NO verdicts
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | Horizons **N = 1 / 5 / 20** | F1 + F2 tables (baselines rebuilt per horizon — era- AND horizon-matched pools) |
+| S2 | Swing scale **k = 3** (7-bar fractal) and **k = 5** (11-bar fractal) | F1 + F2 tables, period 10 |
+| S3 | Period **14** (textbook default; cross-campaign comparability with pre-reg #9) | F1 + F2 tables, crossings recomputed at 14; frequency counts at 14 |
+| S4 | Minimum swing separation **t2 − t1 ≥ 10** bars | F1 + F2 tables, period 10, k=2 |
+| S5 | Per-year F1 leg mean returns (OOS) | table |
+| S6 | IS record at period 10, k=2 | F1 table (descriptive — selection era) |
+| S7 | **Extreme-gated** divergence (first swing's RSI beyond 70/30: RSI_t1 > 70 for bearish, RSI_t1 < 30 for bullish) — the video's bearish example notes the RSI "blips briefly into overbought" at the first high | F1 tables |
+| S8 | **Chartist's-eye timing**: signal at the pivot bar t2, entry open t2+1 (pre-declared caveat: the swing's future-side fractal condition is then a *selection* input — it excludes pivots followed by continuation, tilting toward the claim) | F1 tables |
+
+## 7. Freeze
+
+Frozen 2026-08-14. Registered against: ledger rows I-X-02/03/04
+(CLAIMS_LEDGER §I); inputs: the frozen S&P 600 universe + bars (Phase-1
+dataset, see data/README.md); engine `measure.py` c7421fbf (frozen).
+Measurement tool: `tools/measure_divergence.py`; outputs
+`data/cache/divergence_measure_results.json` +
+`data/cache/divergence_measure_report.md`.
+
+**Pre-registered expectations (recorded, not hypotheses):** divergence
+events are sparse and event-level by construction, and the 70/30 campaign
+found the event-level view null — expect weak or null F1 effects post-cost
+(and F1-BULL EDGE — the Phase-5 trigger — very unlikely). The frequency
+ratio should trivially confirm "less common" (one event per swing pair vs
+one per excursion). F2 (the reliability contrast) is the claim's own
+comparison — expect small or null: the crossing baseline already carries
+the measured reversal tendency (pre-reg #9 S4: OS +0.10pp, OB −0.14pp vs
+same-ticker).
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged.)*
+
+
