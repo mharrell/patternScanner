@@ -1449,4 +1449,68 @@ same-ticker).
 
 *(Recorded after measurement — parameters unchanged.)*
 
+Measured 2026-08-14. **A split verdict — the first event-level absolute
+EDGE in the project's history, on the bullish leg; NO EDGE on the bearish
+leg:**
+
+- **F1-BULL EDGE**: n=16,985 OOS; mean +0.80%; win 54.12%; excess vs random
+  +0.31pp (CI +0.11..+0.50, p=0.002) and vs same-ticker +0.34pp (CI
+  +0.15..+0.53, p=0.002); Holm-rejected (gate 0.025), CI-low +0.11pp > 0 —
+  bullish divergence ⇒ bounce, as claimed (I-X-03).
+- **F1-BEAR NO EDGE**: n=20,800 OOS; mean +0.46%; win 50.83%; excess vs
+  same-ticker −0.04pp (CI −0.20..+0.11, p=0.662) — bearish divergence does
+  not predict pullbacks (I-X-04 not confirmed).
+- **F2-BULL EDGE × 2** (reliability vs oversold crossings, I-X-02):
+  mean contrast +0.18pp (CI +0.03..+0.34, p=0.012); hit-rate contrast
+  +1.50pp (CI +0.63..+2.29, p<0.001) — "more reliable" confirmed on the
+  bullish side.
+- **F2-BEAR-mean FADE**: contrast +0.21pp (CI +0.07..+0.34, p<0.001) —
+  bearish divergence's mean is *above* the overbought-crossing mean, i.e.
+  *less* pullback than the crossing baseline; "more reliable" fails on the
+  bearish side, in the opposite direction. F2-BEAR-hit NO EDGE (+0.54pp,
+  CI −0.21..+1.30, p=0.176).
+- **Frequency** (I-X-02 first half; a measurement, not a verdict family):
+  n_div=37,929 vs n_cross=124,298 → ratio **0.3051** (ticker-cluster CI
+  0.3022..0.3081) — "a lot less common" trivially confirmed (~2.8 BULL
+  events per ticker per year; period-14 ratio 0.4287).
+
+The pre-registered expectation ("weak or null F1 effects post-cost, F1-BULL
+EDGE — the Phase-5 trigger — very unlikely") was **not met** — falsified in
+the claim's favor on the bullish leg. The S8 selection-tilt caveat was
+confirmed empirically: the chartist's-eye variant (signal at the pivot,
+entry +1) shows BULL +2.06pp / BEAR −1.66pp vs the primary's honest
+confirmation-bar timing — the pre-declared tilt is real and large, and the
+conservative primary is the small number. Robustness across structural
+sensitivities (exploratory, no verdicts): BULL excess vs same-ticker holds
+at k=3 (+0.39pp), k=5 (+0.50pp), period 14 (+0.23pp), min-sep 10 (+0.30pp),
+extreme-gated (+0.45pp); S1 shows the edge accrues over the horizon (N=1
+≈ 0, N=5 +0.09pp, N=20 +0.53pp) while BEAR turns negative at N=20
+(−0.26pp); S5: BULL positive in 9/10 OOS years (only 2018: −0.16%). IS
+record: BULL +0.71% (win 53.3%), BEAR +0.41% (win 52.8%).
+
+**Phase-5 trigger-check conversation held (pre-reg §4: F1-BULL EDGE is the
+sole pre-registered trigger): NOT TRIGGERED.** For: the first event-level
+absolute EDGE in the project's history — no overlap inflation (the killer
+of the RSI-70/30 state edge), robust across every structural sensitivity,
+positive in 9/10 OOS years, conservative timing. Against: (1) **the brief
+§5 survivorship gate** — the universe is current constituents, and the
+brief pre-registers that "any positive result must be re-checked against
+(a) [historical constituents] before being trusted"; this is exactly the
+case that gate exists for, and the re-check has not been done; (2) size —
++0.34pp per 10-bar trade after cost on ~2.8 events per ticker per year;
+(3) the claim is only half-confirmed (F1-BEAR NO EDGE; F2-BEAR-mean FADE —
+bearish divergence *less* reliable than overbought crossings);
+(4) cross-market translation (taught on GBP/USD daily, measured on US
+equities). The explicit path forward, pre-registered in the brief: a
+**fresh pre-registration against historical constituents** (§5 option (a),
+a new data artifact) before this family can be trusted. Phase 5 remains
+**not triggered** after ten campaigns. Verdicts written back to
+CLAIMS_LEDGER §I.7; report `data/cache/divergence_measure_report.md`
+(+ `divergence_measure_results.json`). Verification: byte-identical across
+two runs (results 674b2d95…, report 826f0bbf…); independent implementation
+exact on all 22 checks (per-bar RSI loop vs the tool's rsi_series: max diff
+0.0 on 40 tickers; per-leg counts and means exact to 1e-12; frequency
+counts exact at periods 10 and 14; min_t1=10 ≥ period; RSI bounds [0, 100]
+clean; 0 bad signals).
+
 

@@ -552,9 +552,9 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | I-X-01 | rgVdgR1y1Dg [03:16–03:24] (Trading 212) | RSI rule: "anything above seventy percent... the market is said to be overbought anything below thirty percent... the market is said to be over salt" (overbought ⇒ pullback due, oversold ⇒ bounce due). | `tested` (pre-reg #9, 2026-08-14) — **EDGE × 3 at the state level** (§I.6): F1-OB (RSI>70 below both baselines), F1-OS (RSI<30 above both), F2 (OS−OB contrast positive). The state-level significance is overlap-inflated: the pre-declared event-level view is null (OS p=0.166), so the Phase-5 trigger-check did not trigger. **Corpus tension (I-B-06):** both teachings compatible with the data — extremes carry directional information, but too weak to trade standalone. |
-| I-X-02 | rgVdgR1y1Dg [05:33–05:39] (Trading 212) | "These divergence signals are a lot less common so arguably a bit more reliable". | `candidate` — testable-daily: divergence frequency vs 70/30 crossing frequency, and directional hit rates of each. |
-| I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `candidate` — testable-daily: price lower-low + RSI higher-low → above-average forward returns. |
-| I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `candidate` — testable-daily: price higher-high + RSI lower-high → below-average forward returns. |
+| I-X-02 | rgVdgR1y1Dg [05:33–05:39] (Trading 212) | "These divergence signals are a lot less common so arguably a bit more reliable". | `tested` (pre-reg #10, 2026-08-14) — **frequency CONFIRMED, reliability split** (§I.7): 37,929 divergences vs 124,298 crossings → ratio 0.3051 (CI 0.3022..0.3081), "a lot less common" trivially true; reliability: bullish divergence **EDGE × 2** vs oversold crossings (mean +0.18pp, hit +1.50pp), bearish divergence **FADE** on the mean (+0.21pp — *less* reliable than overbought crossings, the opposite direction) and NO EDGE on hit rate. |
+| I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BULL EDGE** (§I.7): n=16,985 OOS; mean +0.80%; +0.34pp vs same-ticker (CI +0.15..+0.53, p=0.002, Holm-rejected) — the first event-level absolute EDGE in the project, the claim's bounce leg confirmed; robust across k=3/5, period 14, min-sep 10, extreme-gated; 9/10 OOS years positive. |
+| I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BEAR NO EDGE** (§I.7): n=20,800 OOS; mean +0.46%; −0.04pp vs same-ticker (p=0.662) — the pullback leg is not confirmed; at N=20 it turns negative (−0.26pp). |
 | I-X-05 | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | Stop placement for bullish divergence: "we have two obvious levels to place our stop loss beyond because by definition... the market shouldn't take out that prior extreme low". | `candidate` — testable-daily: post-signal breach of the prior extreme low. |
 | I-X-06 | lMZv0K71HOg [02:37–02:50] (EatSleepProfit) | "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically". | `candidate` — testable-daily: sub-$5 cohorts' multi-year forward returns / delisting rates (cross-ref A-04, I-D-01 price-tier family). |
 | I-X-07 | lMZv0K71HOg [06:56–07:04] (EatSleepProfit) | Per-trade target: "I usually like to aim for 88 to 10%" (caption garble for "8 to 10%"). | `out of scope` (process). |
@@ -739,6 +739,106 @@ RSI bounds [0, 100] clean over all 598 tickers with bars.
 
 ---
 
+## I.7 RSI divergence verdicts — pre-registration #10 campaign
+
+Measured 2026-08-14 per [PREREGISTRATION.md](PREREGISTRATION.md) #10 (frozen
+2026-08-14: simple-average RSI period 10 primary (14 sensitivity); strict
+k=2 fractal swings on Low/High — ties never form a swing (k=3/5
+sensitivities); consecutive swing pairs only, disjoint fractal windows
+(min separation 5); **confirmation-bar timing** — a k-fractal at t2 is
+knowable only at close t2+k, so the signal bar is t2+k, entry open t2+k+1,
+exit close t2+k+N; the chartist's-eye variant (signal at the pivot) is
+sensitivity S8 with its pre-declared selection-tilt caveat; N=10 primary,
+0.15% round-trip cost, two verdict families, Holm at α=0.05, OOS 2016–2025
+only, baselines bootstrapped 1,000× at fixed seed, era-matched). Full
+report: `data/cache/divergence_measure_report.md`
+(+ `divergence_measure_results.json`). No new data: the frozen S&P 600
+universe and bars. Cross-market caveat pre-declared: the video demos
+GBP/USD; measured on US equities.
+
+Claim as measured: bullish divergence (price lower low + RSI higher low) ⇒
+bounce (I-X-03); bearish divergence (price higher high + RSI lower high) ⇒
+pullback (I-X-04); "a lot less common so arguably a bit more reliable" vs
+the 70/30 signals (I-X-02). F1 (absolute, directional per leg): BULL — do
+bullish divergences beat era-matched random entries AND same-ticker
+buy-and-hold? BEAR — do bearish divergences underperform both? F2
+(reliability contrast): divergence vs 70/30 crossings at the same period,
+per leg, on mean return AND hit rate (ret > 0 after cost).
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10, after cost) |
+|---|---|---|---|
+| I.7-F1-BULL | Bullish divergence ⇒ above-baseline 10-bar returns (bounce) | `tested, edge` — **EDGE** | n=16,985; mean +0.80%; win 54.12%; excess vs random +0.31pp (CI +0.11..+0.50, p=0.002), vs same-ticker +0.34pp (CI +0.15..+0.53, p=0.002); p_input 0.002 (Holm gate 0.025); CI-low +0.11pp > 0 |
+| I.7-F1-BEAR | Bearish divergence ⇒ below-baseline 10-bar returns (pullback) | `tested, no edge` — **NO EDGE** | n=20,800; mean +0.46%; win 50.83%; excess vs same-ticker −0.04pp (CI −0.20..+0.11, p=0.662); p_input 0.662 |
+| I.7-F2-BULL-mean | Bullish divergence beats oversold crossings on the mean | `tested, edge` — **EDGE** | div +0.80% vs cross +0.62%; contrast **+0.18pp** (CI +0.03..+0.34, p=0.012), Holm gate 0.025 |
+| I.7-F2-BULL-hit | Bullish divergence beats oversold crossings on hit rate | `tested, edge` — **EDGE** | hit 54.12% vs 52.63%; contrast **+1.50pp** (CI +0.63..+2.29, p<0.001), Holm gate 0.0125 |
+| I.7-F2-BEAR-mean | Bearish divergence beats overbought crossings on the mean | `tested, fade` — **FADE** | div +0.46% vs cross +0.25%; contrast **+0.21pp** (CI +0.07..+0.34, p<0.001) — divergence's mean is *above* the crossing mean: less pullback, the opposite of "more reliable" |
+| I.7-F2-BEAR-hit | Bearish divergence beats overbought crossings on hit rate | `tested, no edge` — **NO EDGE** | hit 50.83% vs 50.29%; contrast +0.54pp (CI −0.21..+1.30, p=0.176) |
+| I.7-FREQ | "A lot less common" — the frequency half (measurement, no verdict) | `tested, measurement` — **CONFIRMED** | 37,929 divergences vs 124,298 crossings → ratio **0.3051** (ticker-cluster CI 0.3022..0.3081); ~2.8 BULL events per ticker per year; at period 14, 0.4287 |
+
+Interpretation: **the first event-level absolute EDGE in the project's
+history — and it lands on the bullish leg of the claim, exactly as taught.**
+Bullish divergence (price lower low, RSI higher low) predicts a bounce:
++0.80% per 10-bar trade after cost, +0.34pp above the ticker's own
+buy-and-hold, Holm-rejected with 16,985 events, robust across every
+structural sensitivity (k=3 +0.39pp, k=5 +0.50pp, period 14 +0.23pp,
+min-sep 10 +0.30pp, extreme-gated +0.45pp) and positive in 9/10 OOS years
+(only 2018: −0.16%). The reliability contrast finds bullish divergence
+genuinely more reliable than its own baseline — the oversold crossings,
+which already carry the RSI-70/30 reversal tendency. The bearish leg fails
+both tests: no absolute pullback tendency (NO EDGE; turns negative at
+N=20, −0.26pp) and *less* reliable than overbought crossings on the mean
+(FADE). The I-X-02 "more reliable" claim is half right: the bullish
+divergence is more reliable; the bearish divergence is less.
+
+Five caveats bound the finding before it can mean anything tradeable:
+
+1. **Survivorship (brief §5 gate).** The universe is *current*
+   constituents; the brief pre-registers that any positive result must be
+   re-checked against historical constituents before being trusted. This
+   is the first positive F1 result that gate exists for — the re-check is
+   the explicit path forward (see the trigger-check below).
+2. **Size.** +0.34pp per 10-bar trade after cost on ~2.8 BULL events per
+   ticker per year — real but fractional, and execution friction is
+   unvalidated.
+3. **Half-confirmed claim.** F1-BEAR NO EDGE + F2-BEAR-mean FADE — the
+   bearish teaching (I-X-04) is not confirmed and the reliability claim
+   (I-X-02) fails on that side.
+4. **Selection tilt (S8, pre-declared).** The chartist's-eye variant
+   (signal at the pivot, entry +1) shows BULL +2.06pp / BEAR −1.66pp —
+   far larger than the primary's honest confirmation-bar timing. The
+   conservative number is the real one.
+5. **Cross-market translation.** Taught on GBP/USD daily; measured on US
+   equities (pre-declared).
+
+Sensitivities (exploratory, no verdicts): S1 horizons — the BULL edge
+accrues over the horizon (N=1 ≈ 0, N=5 +0.09pp, N=20 +0.53pp) while BEAR
+goes negative at N=20; S5 per-year — BULL positive 9/10 OOS years; S6 IS
+record — BULL +0.71% (win 53.3%), BEAR +0.41% (win 52.8%); period-14
+frequency ratio 0.4287.
+
+**Phase-5 trigger-check conversation (pre-reg #10 §4: F1-BULL EDGE is the
+sole pre-registered trigger).** Held on this evidence. Trigger-check
+verdict: **NOT TRIGGERED.** The brief §5 survivorship gate is unmet — a
+positive result on current constituents must be re-checked against
+historical constituents before being trusted, and that is the explicit
+next step (a new data artifact, requiring a fresh pre-registration). The
+size is a fraction of a percent per trade on ~2.8 events per ticker per
+year, and the claim is only half-confirmed (bearish leg NO EDGE / FADE).
+The bullish-divergence bounce is real, event-level, and robust within the
+current-constituent universe — and unvalidated outside it. Phase 5 remains
+**not triggered** after ten campaigns.
+
+Verification: deterministic (results 674b2d95…, report 826f0bbf…,
+byte-identical across two runs); the data layer was independently recomputed
+with a separate implementation (explicit per-bar loop RSI with window sums,
+explicit swing/event/crossing loops, engine-identical forward returns): all
+22 checks exact — RSI vs the tool's rsi_series max diff 0.0 on 40 tickers;
+per-leg OOS counts and means exact to 1e-12; frequency counts exact at
+periods 10 and 14; min_t1=10 ≥ period; RSI bounds [0, 100] clean; 0 bad
+signals.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -798,9 +898,17 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     (p<0.001) — the first campaign to confirm a claim's direction; the
     pre-declared event-level view is null (OS p=0.166) and the Phase-5
     trigger-check did not trigger. Verdicts: §I.6.
-12. **I-X-02/03/04 (RSI divergence frequency + reliability)** — testable-daily;
-    needs a pre-registered divergence definition (swing scanning on daily
-    bars) before measurement.
+12. **I-X-02/03/04 (RSI divergence frequency + reliability)** — ✅ MEASURED
+    (pre-reg #10, 2026-08-14): **F1-BULL EDGE** — the project's first
+    event-level absolute EDGE (n=16,985 OOS; +0.80% mean; +0.34pp vs
+    same-ticker, Holm-rejected; robust across all structural
+    sensitivities) — and **F1-BEAR NO EDGE** (p=0.662); F2: BULL EDGE × 2
+    (mean +0.18pp, hit +1.50pp vs oversold crossings), BEAR-mean FADE
+    (+0.21pp — less reliable, the opposite direction), BEAR-hit NO EDGE;
+    frequency ratio 0.3051 confirms "a lot less common". Phase-5
+    trigger-check held: **NOT TRIGGERED** — the brief §5 survivorship gate
+    (historical-constituent re-check) is the explicit path forward.
+    Verdicts: §I.7.
 13. **I-F-01 (big moves get corrected)** — testable-daily mean reversion of
     ≥3-ATR moves; same family as §E.6's fade finding.
 14. **I-F-02 (bulls take the stairs, bears take the window)** — daily-bar
@@ -840,6 +948,22 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   write the verdicts back — done 2026-08-14: REJECTED × 3 (F1 claim test),
   NO EDGE × 3 (F2 vs chance) (§E.7,
   `data/cache/e02_measure_report.md`). Seventh completed campaign.
+- [x] Measure the high-relative-volume conditioning claim (pre-reg #8) and
+  write the verdicts back — done 2026-08-14: F1 NO EDGE × 2, INCONCLUSIVE
+  × 3, F2-B NO EDGE (§I.5, `data/cache/rv_measure_report.md`). Eighth
+  completed campaign.
+- [x] Measure the RSI 70/30 reversal-bias claim (pre-reg #9) and write the
+  verdicts back — done 2026-08-14: EDGE × 3 at the state level (§I.6,
+  `data/cache/rsi_measure_report.md`); the Phase-5 trigger-check was held
+  and did not trigger. Ninth completed campaign.
+- [x] Measure the RSI divergence frequency + reliability claims (pre-reg
+  #10) and write the verdicts back — done 2026-08-14: **F1-BULL EDGE**
+  (the project's first event-level absolute EDGE), F1-BEAR NO EDGE,
+  F2 BULL EDGE × 2 / BEAR-mean FADE / BEAR-hit NO EDGE, frequency ratio
+  0.3051 (§I.7, `data/cache/divergence_measure_report.md`); the Phase-5
+  trigger-check was held and did not trigger — the brief §5
+  historical-constituent re-check is the explicit path forward. Tenth
+  completed campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

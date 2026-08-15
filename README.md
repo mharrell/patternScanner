@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-14.
-Nine pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Ten pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -56,21 +56,41 @@ The size is small (+0.14pp per 10-bar trade after cost) and the
 pre-declared event-level correction is null (OS p=0.166), the parameter
 neighborhood is fragile (80/20 and period 10 fail), so the **Phase-5
 trigger-check conversation was held and did not trigger** — the edge is a
-real directional tendency, not a tradeable one. Phase 5 remains **not
-triggered** after nine campaigns.
+real directional tendency, not a tradeable one. **RSI divergence**
+(pre-reg #10, I-X-02/03/04 — Trading 212, measured 2026-08-14): **split
+verdict — the project's first event-level absolute EDGE, on the bullish
+leg.** F1-BULL (price lower low + RSI higher low ⇒ bounce): n=16,985 OOS,
+mean +0.80%, win 54.12%, excess vs random +0.31pp and vs same-ticker
++0.34pp (CI +0.15..+0.53, p=0.002), Holm-rejected; robust across every
+structural sensitivity (k=3/5, period 14, min-sep 10, extreme-gated:
++0.23..+0.50pp) and positive in 9/10 OOS years. F1-BEAR (price higher
+high + RSI lower high ⇒ pullback): **NO EDGE** (n=20,800, p=0.662). F2
+(reliability vs the 70/30 crossings): BULL **EDGE × 2** (mean +0.18pp,
+hit +1.50pp), BEAR-mean **FADE** (+0.21pp — *less* reliable, the opposite
+direction), BEAR-hit NO EDGE. Frequency: 37,929 divergences vs 124,298
+crossings, ratio 0.3051 (CI 0.3022..0.3081) — "a lot less common"
+confirmed. The **Phase-5 trigger-check conversation was held (F1-BULL
+EDGE fired the pre-registered trigger) and did not trigger** — the brief
+§5 survivorship gate (current-constituent universe) requires a
+historical-constituent re-check before any positive result is trusted;
+size is +0.34pp per 10-bar trade on ~2.8 events per ticker per year; and
+the claim is half-confirmed (bearish leg null/faded). Phase 5 remains
+**not triggered** after ten campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
 `data/cache/decade_measure_report.md`, `data/cache/e03_measure_report.md`,
 `data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`,
-`data/cache/rsi_measure_report.md`.
-Next candidates: with the RSI 70/30 claim measured (state-level EDGE,
-event-level null — the divergence claims are the natural follow-up), the
-top remaining candidates are the RSI-divergence rules (I-X-02/03/04:
-frequency + reliability of bullish/bearish divergence vs the 70/30
-crossing baseline), big-move mean reversion (I-F-01), and downside-speed
+`data/cache/rsi_measure_report.md`,
+`data/cache/divergence_measure_report.md`.
+Next candidates: with the divergence claims measured (F1-BULL EDGE within
+the current-constituent universe; NOT TRIGGERED pending the brief §5
+re-check), the top remaining candidates are the historical-constituent
+re-check of the bullish-divergence edge — the brief's pre-registered path
+for any positive result (a new data artifact, then a fresh
+pre-registration) — big-move mean reversion (I-F-01), and downside-speed
 asymmetry (I-F-02). The remaining untested ledger items need intraday
 data.
 
@@ -98,7 +118,12 @@ data.
   reversal-bias claim (I-X-01 — simple-average RSI as taught in the
   video, period 14, thresholds 70/30, state-based OB/OS legs; directional
   F1 families + F2 reversal-symmetry contrast), frozen 2026-08-14.
-  Verdicts return to the ledger.
+  Pre-registration #10: the RSI divergence frequency + reliability claims
+  (I-X-02/03/04 — simple-average RSI period 10 as taught in the video,
+  strict k=2 fractal swings on Low/High, confirmation-bar timing at t2+k
+  (no look-ahead), divergence vs 70/30 crossings per leg on mean return
+  and hit rate; frequency ratio as a measurement, not a verdict family),
+  frozen 2026-08-14. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

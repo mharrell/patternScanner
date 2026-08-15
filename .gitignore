@@ -32,6 +32,8 @@ data/cache/*
 !data/cache/rv_measure_results.json
 !data/cache/rsi_measure_report.md
 !data/cache/rsi_measure_results.json
+!data/cache/divergence_measure_report.md
+!data/cache/divergence_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt
