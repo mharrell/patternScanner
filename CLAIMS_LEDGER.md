@@ -531,7 +531,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | I-F-01 | jfe1Zl-5EQI [16:01–16:09] | "We know that almost all of the big moves will eventually be corrected" (rationale for reversal trading). | `tested` (pre-reg #11, 2026-08-14/15) — **split verdict** (§I.8): F1-UP **EDGE** (relative correction — big up-moves below both baselines: n=35,908, −0.48pp vs same-ticker, Holm-rejected; mean +0.03% after cost), F1-DOWN **NO EDGE** (p=0.950); **F2 FADE × 2** — big moves retrace ≥ half within 10 sessions *less* often than typical bars (−12.77pp / −15.53pp), the ledger's literal reading falsified. "Corrected" holds in the relative sense; "retrace half" does not; the DOWN leg's bounce exists only for weak moves (τ=2 +0.24pp → τ=5 −1.36pp). |
-| I-F-02 | jfe1Zl-5EQI [28:28–28:47] | "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window". | `candidate` — testable-daily: per-bar downside moves are larger/faster than upside moves (speed asymmetry). |
+| I-F-02 | jfe1Zl-5EQI [28:28–28:47] | "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window". | `tested` (pre-reg #12, 2026-08-15) — **split verdict** (§I.9): A1 **FADE × 3** (per-bar asymmetry INVERTED — up-bars ~6bp larger than down-bars: F1-UP FADE, F1-DOWN FADE knife-edge, F2 FADE), A2 **EDGE** (F4: big up-moves' retracements outpace the moves — n=35,997, +0.40pp/bar, p<0.001); the swing-scale version (S6) confirms the claim across bars (down-swings faster), the per-bar version does not. |
 | I-F-03 | txWaMpSzHhM [31:55–32:38] | "Stocks will trend with the overall market unless they have a reason not to" — catalyst names buck the market ("running when the markets tanking"). | `candidate` — testable-daily: daily-return correlation with the index; catalyst proxies (gap, volume spike) reduce correlation / raise idiosyncratic move size. |
 | I-F-04 | txWaMpSzHhM [48:08–48:30] | "If you can see that we're trading at the top or a bottom of a macro channel you can expect a little bit of choppiness" (SPY); mid-channel → "nice clean moves". | `partial` — channel definition is subjective; testable only with a pre-registered operational definition of channel extremes. |
 | I-F-05 | lMZv0K71HOg [04:12–04:25] (EatSleepProfit) | "The momentum side inside the intraday really doesn't carry over until multiple days sometimes it does sometimes it doesn't". | `candidate` — testable-daily adaptation: top-decile one-day gainers' next-day / multi-day forward returns. Cross-ref pre-reg #4 F2 (our signal sets continued drifting up 5→20 bars — EDGE × 3; different population, and that family's F1 absolute momentum at N=20 was NO EDGE — the carryover question is genuinely unresolved). |
@@ -592,7 +592,11 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
    EDGE); I-F-01 (big moves get corrected; **measured**, §I.8) is the same
    mean-reversion family as §E.6's bear-day fade — the family verdict is
    split: relative correction confirmed on the UP leg, literal
-   retracement falsified on both legs; I-D-06 (low float) is testable with data
+   retracement falsified on both legs; I-F-02 (downside-speed asymmetry;
+   **measured**, §I.9) is inverted at daily per-bar resolution (up-bars
+   larger — FADE × 3) but confirmed at swing scale (S6) and on the
+   reversal-speed half (F4 EDGE) — the "window" is a multi-bar property
+   in this data, not a per-bar one; I-D-06 (low float) is testable with data
    already approved (§9 decision 7); I-F-05 (momentum carryover) is the
    open question family from pre-reg #4.
 
@@ -922,6 +926,103 @@ count exact; warm-up counts exact; 0 bad signals.
 
 ---
 
+## I.9 Speed-asymmetry verdicts — pre-registration #12 campaign
+
+Measured 2026-08-15, verified 2026-08-15 per [PREREGISTRATION.md](PREREGISTRATION.md) #12 (frozen 2026-08-15: **bar-geometry measurement, no forward returns** — speed = per-bar move size |close_t/close_{t−1} − 1|; A1 per-bar directional asymmetry via F1 (absolute, per leg vs the era-matched unconditional mean |r|, joint one-sample bootstrap, Holm across the two legs) + F2 (the DOWN−UP contrast, two-sample bootstrap); A2 reversal speed via F4 on the frozen pre-reg #11 UP events (L=10, τ=3, excursion-first; first crossing bar j ∈ [1,N] of the midpoint (close_t + close_{t−L})/2; paired contrast retrace-rate − move-rate; equivalence retrace-rate > move-rate ⇔ j < L/2 = 5); N=10, B=1,000, seed 20260813, α=0.05, OOS 2016–2025 only). Full report: `data/cache/speed_measure_report.md` (+ `speed_measure_results.json`). No new data: the frozen S&P 600 universe and bars. The Phase-3 engine's `measure_returns` was NOT invoked — the claim contains no return prediction; Phase 5 is not implicated by construction.
+
+Claim as measured: "the Bulls take the stairs and the Bears take the window" (jfe1Zl-5EQI [28:28–28:47], corroborated [17:34–17:37]) — A1: down-bars' mean per-bar size exceeds up-bars' (the asymmetry, unconditional); A2: the retracement of a big up-move covers its distance faster than the move did ("hours up, minutes down").
+
+| # | Hypothesis (as measured) | Verdict | OOS evidence (2016–2025, N=10) |
+|---|---|---|---|
+| I.9-F1-UP | Up-bars smaller than typical bars ("stairs") | `tested, fade` — **FADE** | n=1,371,291 bars (UP 689,944 / DOWN 660,952 / ZERO 20,395); mean up +0.0189 vs typical +0.0184; excess **+0.0006** (CI +0.0005..+0.0006, p<0.001), Holm gate 0.025 — up-bars *larger* than typical, claim contradicted |
+| I.9-F1-DOWN | Down-bars larger than typical bars ("window") | `tested, fade` — **FADE (knife-edge)** | mean down +0.0183; excess **−0.00004** (CI −0.00009..−0.00000008, p=0.050 exactly at the gate) — CI-upper −8e-8 ≈ 0; boundary artifact, treat as NO EDGE substantively |
+| I.9-F2 | Down-bars larger than up-bars (the asymmetry itself) | `tested, fade` — **FADE** | DOWN − UP **−0.0006** (CI −0.0007..−0.0005, p<0.001), Holm gate 0.050 — up-bars ~6bp larger, claim contradicted in sign |
+| I.9-F4 | Big up-moves' retracements outpace the moves (A2) | `tested, edge` — **EDGE** | n=35,997 (retraced 11,113 = 30.9%, non 24,795, tail-dropped 89); mean j 5.40; **+0.0040** per bar (CI +0.0037..+0.0044, p<0.001) — given-back-fast, as claimed |
+| I.9-FREQ | Frequency (measurement, no verdict) | `tested, measurement` — **REPORTED** | OOS UP 689,944 / DOWN 660,952 / ZERO 20,395 / all 1,371,291; down share 0.4820; index-0 excluded 599; bad prior 0 |
+
+Interpretation: **A1 — the claim's per-bar half — is falsified in the
+OPPOSITE direction of the claim.** Up-bars average ~6bp larger than
+down-bars (F2, Holm-rejected), and the top-|r| decile is not
+down-concentrated (down share 0.4795 vs 0.4820 overall, −0.25pp, S8) —
+the "window" (a small number of very large fast down-bars) does not
+exist at daily per-bar resolution. The pre-registered expectation
+(negative-skew regularity ⇒ F1/F2 confirm, "possibly trivially") was
+inverted; the stability of the inversion is the point — negative across
+mean/median (S1 −0.0002)/candle-sign (S2 −0.0001)/per-ticker (S3:
+146/599 tickers positive, mean −0.0008, cluster CI −0.0010..−0.0007,
+all p<0.001)/IS (S4 −0.0014)/per-year (S5: 9/10 years negative, 2018
++0.06pp the only exception). The one structure-level corroboration of
+the claim is S6: multi-bar down-swings cover distance faster per bar
+than the preceding up-swings (rate contrast +0.0131/+0.0140/+0.0354 at
+k=2/3/5, all p<0.001) — declines are faster *across* bars even though
+no single daily down-bar is larger. That is the honest daily
+reconciliation of the claim: the "window" is a multi-bar property in
+this data, not a per-bar one. **A2 — the reversal-speed half — is
+confirmed:** among the 30.9% of big up-moves that retrace ≥ half within
+10 bars, the retracement outpaces the move (+0.40pp per bar,
+Holm-rejected), concentrated in the claim's own short horizon (N=5
++0.0113, p<0.001; N=20 null, p=0.950) and robust across event
+populations (τ=2 +0.0052, τ=5 +0.0034, both p<0.001). The mean j 5.40 >
+5 with a positive contrast is the pre-registered convexity in 1/j — the
+retraced set's bimodal j distribution (mass at j≈1–2 from overnight
+gaps, mass at 6–9) — not a contradiction.
+
+Caveats bound the finding:
+
+1. **Intraday→daily translation (central, pre-declared).** The claim is
+   about minutes vs hours; daily bars measure per-bar magnitude, and
+   overnight gaps register as fast (they carry much of F4's j≈1–2 mass).
+   This is the honest daily adaptation of the claim's size structure,
+   not a test of intraday speed — the "window" may still hold intraday.
+2. **Survivorship.** Current-constituent universe; the brief §5
+   positive-result gate does not apply — no forward returns are
+   measured.
+3. **State-level per-bar statistics.** F1/F2 pool 1.37M serially
+   dependent bars; iid bootstrap CIs — effective sample below row count.
+4. **F1-DOWN's FADE is a knife-edge boundary artifact** (CI-upper −8e-8,
+   p=0.050 exactly at the gate) — treat as NO EDGE substantively; only
+   F1-UP FADE and F2 FADE carry the substantive A1 rejection.
+5. **F4 is conditional.** It measures speed given a retracement (30.9%
+   of events); the 69.1% that do not retrace are pre-reg #11 F2's FADE
+   (big moves retrace half *less* often than typical bars).
+
+Sensitivities (exploratory, no verdicts): S1 median contrast −0.0002
+(p<0.001; the DOWN-leg median excess is +0.0001 — the median view
+differs from the mean because zero bars sit below both leg medians);
+S2 candle-sign F2 −0.0001 (red−green, p<0.001); S3 per-ticker cluster
+CI −0.0010..−0.0007 (p<0.001); S4 IS F2 −0.0014 (p<0.001), IS F1-DOWN
+not significant (p=0.078); S5 nine of ten OOS years negative (2020
+−0.17pp, 2021 −0.15pp largest; 2018 +0.06pp the exception); S6
+swing-scale contrast positive at k=2/3/5 (the claim confirmed across
+bars); S7 F4 variants — N=5 EDGE (+0.0113), N=20 null (p=0.950), τ=2
++0.0052 (n=64,694), τ=5 +0.0034 (n=5,416); S8 tail decile not
+down-concentrated (−0.25pp).
+
+**Phase-5 trigger (pre-reg #12 §2: no family measures forward returns —
+the claim is about bar geometry, not profitability): the trigger cannot
+fire from this campaign by construction, so no trigger-check
+conversation was held.** Phase 5 remains **not triggered** after twelve
+campaigns.
+
+Verification: deterministic (results 1B1DFC00…, report 528E205F…,
+byte-identical across two runs); the data layer was independently
+recomputed with a separate implementation — all 75 checks exact:
+population counts and per-leg means bit-exact (n_all 1,371,291; mean_all
+0.018366437482; down share 0.4819925165); leg-excess identity holds to
+1e-9 including the zero-bar term (2.732e-04 = n_zero·mean_all/n_all);
+the F4 population re-detected with an independent per-bar TR/ATR loop
+(35,997 events; n_retraced 11,113, mean_j 5.4031314677, crossing share
+0.309485351 all exact; 148 warm-up OOS events — post-2016-listed
+tickers — proven excluded via the warmup flag); S2 candle counts/means;
+S3 per-ticker contrasts exact (146/599 positive; mean −0.000842796413);
+S5 per-year; S6 swing pair counts exact with analytic-vs-bootstrap means
+within Monte Carlo error; S8 tail decile; verdict/Holm-gate consistency;
+and every pre-declared sensitivity parity-checked with a fresh seed
+(est/CI/p within tolerance); fingerprints exact (measure code
+3fbdab9922c5…, universe 5e6f45a3c791…).
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -1001,8 +1102,13 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     literal reading falsified; the DOWN bounce exists only at τ=2
     (+0.24pp) and reverses at τ=5 (−1.36pp). Phase-5 trigger did not fire
     (only an F1-DOWN EDGE can trigger; it is null). Verdicts: §I.8.
-14. **I-F-02 (bulls take the stairs, bears take the window)** — daily-bar
-    downside-speed asymmetry.
+14. **I-F-02 (bulls take the stairs, bears take the window)** — ✅
+    MEASURED (pre-reg #12, 2026-08-15): **A1 FADE × 3** (per-bar
+    asymmetry inverted — up-bars ~6bp larger: F1-UP FADE, F1-DOWN FADE
+    knife-edge, F2 FADE), **A2 EDGE** (F4: retracements of big up-moves
+    outpace the moves — n=35,997, +0.40pp/bar, p<0.001); swing-scale S6
+    confirms the claim across bars, per-bar F1/F2 falsify it; Phase 5
+    not implicated by construction (no forward returns). Verdicts: §I.9.
 15. **I-D-01 (price-tier edge: $2–5 vs >$20)** — testable-daily; ties to
     A-04; the 2017/2019 band inconsistency must be handled in the pre-reg.
 16. **I-X-06 (penny/small-cap long-term fall)** — testable-daily multi-year
@@ -1061,6 +1167,13 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   reported (§I.8, `data/cache/bigmove_measure_report.md`); the Phase-5
   trigger did not fire (only an F1-DOWN EDGE can trigger; it is null).
   Eleventh completed campaign.
+- [x] Measure the speed-asymmetry claim (pre-reg #12, I-F-02) and write
+  the verdicts back — done 2026-08-15: **A1 FADE × 3** (per-bar asymmetry
+  inverted — up-bars ~6bp larger than down-bars: F1-UP FADE, F1-DOWN FADE
+  knife-edge, F2 FADE), **A2 EDGE** (retracements of big up-moves outpace
+  the moves), frequency reported (§I.9, `data/cache/speed_measure_report.md`);
+  Phase 5 not implicated by construction (no forward returns measured).
+  Twelfth completed campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

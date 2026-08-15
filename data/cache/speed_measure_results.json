@@ -1,0 +1,520 @@
+{
+  "pre_reg": "#12",
+  "claim": "'The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window so the sell offs can be very quick' (Warrior Trading, jfe1Zl-5EQI [28:28-28:47], corroborated [17:34-17:37]). Measured: per-bar speed asymmetry on US equity daily bars \u2014 A1: down-bars' mean |close-to-close % move| vs up-bars' (F1 legs vs the typical-bar baseline, F2 contrast); A2: retracements of the frozen pre-reg #11 big up-moves (L=10, tau=3) vs the moves themselves (F4). Intraday->daily translation pre-declared: daily speed is per-bar magnitude.",
+  "params": {
+    "n": 10,
+    "b": 1000,
+    "seed": 20260813,
+    "alpha": 0.05,
+    "era_oos_start": "2016-01-01",
+    "count_floor": 100,
+    "f4_move_L": 10,
+    "f4_tau": 3.0,
+    "f4_atr_period": 14,
+    "f4_warmup": 60,
+    "f4_n_sensitivities": [
+      5,
+      20
+    ],
+    "f4_tau_sensitivities": [
+      2.0,
+      5.0
+    ],
+    "swing_k_sensitivities": [
+      2,
+      3,
+      5
+    ],
+    "engine_sha256": "c7421fbf (frozen Phase-3 engine \u2014 NOT invoked: no forward returns)"
+  },
+  "families": {
+    "f1_typical_size": {
+      "UP": {
+        "n_up": 689944,
+        "n_down": 660952,
+        "n_zero": 20395,
+        "n_all": 1371291,
+        "mean_all": 0.0183664374823396,
+        "mean_up": 0.018948818721192903,
+        "mean_down": 0.01832524394785134,
+        "excess": [
+          0.0005836141074918701,
+          0.0005835096451085597,
+          0.0005428663471268514,
+          0.0006286205962329263,
+          0.0
+        ],
+        "p": 0.0,
+        "est": 0.0005836141074918701,
+        "ci_low": 0.0005428663471268514,
+        "ci_upper": 0.0006286205962329263,
+        "holm_gate": 0.025,
+        "holm_rejected": true,
+        "verdict": "FADE (Holm-rejected; excess CI-low +0.0005 > 0 \u2014 up-bars larger than typical, claim contradicted)"
+      },
+      "DOWN": {
+        "n_up": 689944,
+        "n_down": 660952,
+        "n_zero": 20395,
+        "n_all": 1371291,
+        "mean_all": 0.0183664374823396,
+        "mean_up": 0.018948818721192903,
+        "mean_down": 0.01832524394785134,
+        "excess": [
+          -4.219212135072004e-05,
+          -4.22050523602429e-05,
+          -8.858828298947642e-05,
+          -8.051827096907324e-08,
+          0.05
+        ],
+        "p": 0.05,
+        "est": -4.219212135072004e-05,
+        "ci_low": -8.858828298947642e-05,
+        "ci_upper": -8.051827096907324e-08,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "FADE (Holm-rejected; excess CI-upper -0.0000 < 0 \u2014 down-bars smaller than typical, claim contradicted)"
+      }
+    },
+    "f2_asymmetry": {
+      "n_down": 660952,
+      "n_up": 689944,
+      "mean_down": 0.01832524394785134,
+      "mean_up": 0.018948818721192903,
+      "est": -0.0006247181643600544,
+      "ci_low": -0.000712438080392833,
+      "ci_upper": -0.0005483449776060969,
+      "p": 0.0,
+      "holm_gate": 0.05,
+      "holm_rejected": true,
+      "verdict": "FADE (contrast CI-upper -0.0005 < 0 \u2014 up-bars larger than down-bars, claim contradicted)"
+    },
+    "f4_retrace_speed": {
+      "n_events_total": 35997,
+      "n_retraced": 11113,
+      "n_non_retraced": 24795,
+      "n_tail_dropped": 89,
+      "mean_j": 5.4031314676505,
+      "share_crossed_within_N": 0.30948535145371503,
+      "mean_diff": 0.004032704687203259,
+      "est": 0.004029026518108017,
+      "ci_low": 0.003693032172064188,
+      "ci_upper": 0.0043668995327567385,
+      "p": 0.0,
+      "holm_gate": 0.05,
+      "holm_rejected": true,
+      "verdict": "EDGE (contrast CI-low +0.0037 > 0 \u2014 big up-moves' retracements outpace the moves, given-back-fast as claimed)"
+    }
+  },
+  "frequency": {
+    "n_all": 1371291,
+    "n_up": 689944,
+    "n_down": 660952,
+    "n_zero": 20395,
+    "down_share": 0.4819925165409822,
+    "n_index0": 599,
+    "n_bad_prior": 0
+  },
+  "sensitivities": {
+    "median": {
+      "f1": {
+        "UP": {
+          "n_up": 689944,
+          "n_down": 660952,
+          "n_zero": 20395,
+          "n_all": 1371291,
+          "mean_all": 0.012241065521826466,
+          "mean_up": 0.012604189278487277,
+          "mean_down": 0.012360837203616637,
+          "excess": [
+            0.00036268726345111346,
+            0.00036261247593116774,
+            0.00033627468118999917,
+            0.0003899711912830422,
+            0.0
+          ],
+          "p": 0.0,
+          "est": 0.00036268726345111346,
+          "ci_low": 0.00033627468118999917,
+          "ci_upper": 0.0003899711912830422,
+          "holm_gate": 0.025,
+          "holm_rejected": true,
+          "verdict": "FADE (Holm-rejected; excess CI-low +0.0003 > 0 \u2014 up-bars larger than typical, claim contradicted)"
+        },
+        "DOWN": {
+          "n_up": 689944,
+          "n_down": 660952,
+          "n_zero": 20395,
+          "n_all": 1371291,
+          "mean_all": 0.012241065521826466,
+          "mean_up": 0.012604189278487277,
+          "mean_down": 0.012360837203616637,
+          "excess": [
+            0.00011855008781744914,
+            0.00011875827815877038,
+            9.074921517972512e-05,
+            0.00014562209555993576,
+            0.0
+          ],
+          "p": 0.0,
+          "est": 0.00011855008781744914,
+          "ci_low": 9.074921517972512e-05,
+          "ci_upper": 0.00014562209555993576,
+          "holm_gate": 0.05,
+          "holm_rejected": true,
+          "verdict": "EDGE (Holm-rejected; excess CI-low +0.0001 > 0 \u2014 down-bars larger than typical, window as claimed)"
+        }
+      },
+      "f2": {
+        "est": -0.00024402525036089527,
+        "ci_low": -0.0002992354313415296,
+        "ci_upper": -0.0001919743025139656,
+        "p": 0.0
+      }
+    },
+    "candle_sign": {
+      "counts": {
+        "n_bad_prior": 0,
+        "n_zero_doji": 21410
+      },
+      "f1": {
+        "UP": {
+          "n_up": 677110,
+          "n_down": 672771,
+          "n_zero": 21410,
+          "n_all": 1371291,
+          "mean_all": 0.016333635471989533,
+          "mean_up": 0.016660475523338464,
+          "mean_down": 0.016524482681941236,
+          "excess": [
+            0.0003269956655763024,
+            0.0003269658665113334,
+            0.00029335610658399596,
+            0.00035832085540027456,
+            0.0
+          ],
+          "p": 0.0,
+          "est": 0.0003269956655763024,
+          "ci_low": 0.00029335610658399596,
+          "ci_upper": 0.00035832085540027456,
+          "holm_gate": 0.025,
+          "holm_rejected": true,
+          "verdict": "FADE (Holm-rejected; excess CI-low +0.0003 > 0 \u2014 up-bars larger than typical, claim contradicted)"
+        },
+        "DOWN": {
+          "n_up": 677110,
+          "n_down": 672771,
+          "n_zero": 21410,
+          "n_all": 1371291,
+          "mean_all": 0.016333635471989533,
+          "mean_up": 0.016660475523338464,
+          "mean_down": 0.016524482681941236,
+          "excess": [
+            0.0001905258552230065,
+            0.0001901925398968933,
+            0.00015856640671727115,
+            0.00022522200350343582,
+            0.0
+          ],
+          "p": 0.0,
+          "est": 0.0001905258552230065,
+          "ci_low": 0.00015856640671727115,
+          "ci_upper": 0.00022522200350343582,
+          "holm_gate": 0.05,
+          "holm_rejected": true,
+          "verdict": "EDGE (Holm-rejected; excess CI-low +0.0002 > 0 \u2014 down-bars larger than typical, window as claimed)"
+        }
+      },
+      "f2": {
+        "n_down": 672771,
+        "n_up": 677110,
+        "mean_down": 0.016524482681941236,
+        "mean_up": 0.016660475523338464,
+        "est": -0.0001368764338709435,
+        "ci_low": -0.00020047001963091512,
+        "ci_upper": -7.345078959654632e-05,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "FADE (contrast CI-upper -0.0001 < 0 \u2014 up-bars larger than down-bars, claim contradicted)"
+      }
+    },
+    "per_ticker": {
+      "n_tickers": 599,
+      "n_positive": 146,
+      "share_positive": 0.24373956594323873,
+      "mean_contrast": -0.0008427964134976529,
+      "cluster_ci_low": -0.001005789288857403,
+      "cluster_ci_upper": -0.0006970823799615717,
+      "cluster_p": 0.0
+    },
+    "is_era": {
+      "f1": {
+        "UP": {
+          "n_up": 693958,
+          "n_down": 676848,
+          "n_zero": 55677,
+          "n_all": 1426483,
+          "mean_all": 0.019248943557426606,
+          "mean_up": 0.02070490279834942,
+          "mean_down": 0.01933958261898035,
+          "excess": [
+            0.001458708247325709,
+            0.001454882792377054,
+            0.001370425091947074,
+            0.0015713514983022633,
+            0.0
+          ],
+          "p": 0.0,
+          "est": 0.001458708247325709,
+          "ci_low": 0.001370425091947074,
+          "ci_upper": 0.0015713514983022633,
+          "holm_gate": 0.025,
+          "holm_rejected": true,
+          "verdict": "FADE (Holm-rejected; excess CI-low +0.0014 > 0 \u2014 up-bars larger than typical, claim contradicted)"
+        },
+        "DOWN": {
+          "n_up": 693958,
+          "n_down": 676848,
+          "n_zero": 55677,
+          "n_all": 1426483,
+          "mean_all": 0.019248943557426606,
+          "mean_up": 0.02070490279834942,
+          "mean_down": 0.01933958261898035,
+          "excess": [
+            8.804065751762893e-05,
+            9.090397173974578e-05,
+            -1.8853977695271023e-05,
+            0.00017424319166165191,
+            0.078
+          ],
+          "p": 0.078,
+          "est": 8.804065751762893e-05,
+          "ci_low": -1.8853977695271023e-05,
+          "ci_upper": 0.00017424319166165191,
+          "holm_gate": 0.05,
+          "holm_rejected": false,
+          "verdict": "NO EDGE (p 0.078; est +0.0001; CI-low -0.0000..CI-upper +0.0002)"
+        }
+      },
+      "f2": {
+        "n_down": 676848,
+        "n_up": 693958,
+        "mean_down": 0.01933958261898035,
+        "mean_up": 0.02070490279834942,
+        "est": -0.0013659342054638387,
+        "ci_low": -0.0015652459878121214,
+        "ci_upper": -0.001200873335391575,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "FADE (contrast CI-upper -0.0012 < 0 \u2014 up-bars larger than down-bars, claim contradicted)"
+      }
+    },
+    "per_year": {
+      "2016": {
+        "n_up": 61571,
+        "n_down": 54975,
+        "n_zero": 2645,
+        "mean_up": 0.01702711885804177,
+        "mean_down": 0.016458329128525698,
+        "contrast": -0.0005687897295160727
+      },
+      "2017": {
+        "n_up": 61817,
+        "n_down": 57294,
+        "n_zero": 4271,
+        "mean_up": 0.014058392546662614,
+        "mean_down": 0.013650019310474118,
+        "contrast": -0.0004083732361884959
+      },
+      "2018": {
+        "n_up": 63600,
+        "n_down": 61893,
+        "n_zero": 3360,
+        "mean_up": 0.015843881443095675,
+        "mean_down": 0.016480817984927242,
+        "contrast": 0.0006369365418315669
+      },
+      "2019": {
+        "n_up": 70011,
+        "n_down": 60904,
+        "n_zero": 1996,
+        "mean_up": 0.015580960970499526,
+        "mean_down": 0.015433601197467712,
+        "contrast": -0.0001473597730318136
+      },
+      "2020": {
+        "n_up": 68754,
+        "n_down": 66162,
+        "n_zero": 1390,
+        "mean_up": 0.03015970071031937,
+        "mean_down": 0.028466597049463124,
+        "contrast": -0.001693103660856246
+      },
+      "2021": {
+        "n_up": 72225,
+        "n_down": 68204,
+        "n_zero": 1412,
+        "mean_up": 0.01962240116188269,
+        "mean_down": 0.018153083316044996,
+        "contrast": -0.0014693178458376928
+      },
+      "2022": {
+        "n_up": 70020,
+        "n_down": 73450,
+        "n_zero": 1190,
+        "mean_up": 0.02164896747944343,
+        "mean_down": 0.021397258055610435,
+        "contrast": -0.00025170942383299574
+      },
+      "2023": {
+        "n_up": 73644,
+        "n_down": 70758,
+        "n_zero": 1404,
+        "mean_up": 0.018139923133415194,
+        "mean_down": 0.016974637736576696,
+        "contrast": -0.001165285396838498
+      },
+      "2024": {
+        "n_up": 74675,
+        "n_down": 72945,
+        "n_zero": 1381,
+        "mean_up": 0.017655596293619843,
+        "mean_down": 0.016788009809851928,
+        "contrast": -0.0008675864837679147
+      },
+      "2025": {
+        "n_up": 73627,
+        "n_down": 74367,
+        "n_zero": 1346,
+        "mean_up": 0.01896957687118128,
+        "mean_down": 0.018104659157025547,
+        "contrast": -0.0008649177141557308
+      }
+    },
+    "swings": {
+      "k=2": {
+        "k": 2,
+        "n_up_swings": 161741,
+        "n_down_swings": 161796,
+        "n_pairs": 161320,
+        "mean_contrast": 0.013081966600732955,
+        "ci_low": 0.007156200701973284,
+        "ci_upper": 0.019485356999809075,
+        "p": 0.0
+      },
+      "k=3": {
+        "k": 3,
+        "n_up_swings": 110865,
+        "n_down_swings": 110966,
+        "n_pairs": 110487,
+        "mean_contrast": 0.013977400506362531,
+        "ci_low": 0.0062758486612738175,
+        "ci_upper": 0.02160458938100936,
+        "p": 0.0
+      },
+      "k=5": {
+        "k": 5,
+        "n_up_swings": 67624,
+        "n_down_swings": 67810,
+        "n_pairs": 67319,
+        "mean_contrast": 0.035350631672428565,
+        "ci_low": 0.02618215820836082,
+        "ci_upper": 0.04498485163388362,
+        "p": 0.0
+      }
+    },
+    "f4_variants": {
+      "N=5": {
+        "n_events_total": 35997,
+        "n_retraced": 5966,
+        "n_non_retraced": 30020,
+        "n_tail_dropped": 11,
+        "mean_j": 3.309922896413007,
+        "share_crossed_within_N": 0.16578669482576558,
+        "mean_diff": 0.011311634370224468,
+        "est": 0.011318867545859361,
+        "ci_low": 0.010829287890457402,
+        "ci_upper": 0.011835365028886697,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true
+      },
+      "N=20": {
+        "n_events_total": 35997,
+        "n_retraced": 16375,
+        "n_non_retraced": 19249,
+        "n_tail_dropped": 373,
+        "mean_j": 8.48806106870229,
+        "share_crossed_within_N": 0.4596620256007186,
+        "mean_diff": 9.720031833898405e-06,
+        "est": 9.448693431433095e-06,
+        "ci_low": -0.00022652638514926782,
+        "ci_upper": 0.00025428679175013914,
+        "p": 0.95,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "tau=2": {
+        "n_events_total": 64694,
+        "n_retraced": 26358,
+        "n_non_retraced": 38157,
+        "n_tail_dropped": 179,
+        "mean_j": 4.742886410198042,
+        "share_crossed_within_N": 0.40855614973262033,
+        "mean_diff": 0.005247865777513688,
+        "est": 0.005250058635775245,
+        "ci_low": 0.00508886855516309,
+        "ci_upper": 0.005419298014897104,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true
+      },
+      "tau=5": {
+        "n_events_total": 5416,
+        "n_retraced": 896,
+        "n_non_retraced": 4510,
+        "n_tail_dropped": 10,
+        "mean_j": 5.977678571428571,
+        "share_crossed_within_N": 0.1657417684054754,
+        "mean_diff": 0.003445941452413896,
+        "est": 0.003410877915472403,
+        "ci_low": 0.0012896875751207569,
+        "ci_upper": 0.005394673275161917,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true
+      }
+    },
+    "tail_decile": {
+      "threshold": 0.039690066345762665,
+      "n_top": 137131,
+      "n_top_down": 65750,
+      "share_down_top": 0.47946853738396134,
+      "share_down_all": 0.4819925165409822,
+      "diff_pp": -0.25239791570208503
+    }
+  },
+  "assertions": {
+    "n_bad_prior": 0,
+    "n_index0": 599,
+    "n_zero_bars": 20395,
+    "f4_min_signal": 60,
+    "f4_n_events": 35997,
+    "f4_stats": {
+      "min_signal": 14,
+      "max_signal": 6538,
+      "n_bad_signal": 0
+    },
+    "partitions_ok": true
+  },
+  "fingerprints": {
+    "universe_sha256": "5e6f45a3c791c21a374b07bb981b620e12fa7e9c1a55777e7203fbdc935018ec",
+    "measure_code_sha256": "3fbdab9922c51b2a60a094332c7e290ed3f3566991faf9e0dd0ec9445172b8cd",
+    "engine_sha256": "c7421fbffeaf16ed43278faafa7325e2972634d516bc013c41e15e7f733b1b93",
+    "divergence_code_sha256": "85f2ae0d4a1e07906d88fb9c4b2fda02e68f943635b618af660502ddc5597c72",
+    "bigmove_code_sha256": "6917f3dc24378c96834cf2c4425409043302dd1ce0ed39fa0d0448b72d0a1f63",
+    "veto_code_sha256": "214c907131d07a54d06e5408920aaeb1043097a9cf66a5a3f769ddfc1eb3a817"
+  }
+}

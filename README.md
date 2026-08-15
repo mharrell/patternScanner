@@ -4,7 +4,7 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-15.
-Eleven pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+Twelve pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -90,10 +90,26 @@ sessions 19.6% vs 32.3% (UP) and 22.5% vs 38.0% (DOWN) on typical bars
 (−12.77pp / −15.53pp, both Holm-rejected) — the literal retracement
 claim is falsified; the DOWN bounce exists only for weak moves (τ=2
 +0.24pp, p<0.001, vanishing at τ=3). The Phase-5 trigger did not fire
-(only an F1-DOWN EDGE can trigger; it is null). Phase 5 remains
-**not triggered** after eleven campaigns.
+(only an F1-DOWN EDGE can trigger; it is null). **Speed asymmetry**
+(pre-reg #12, I-F-02 — the bulls-take-the-stairs claim, measured
+2026-08-15): **split verdict — A1 falsified in the opposite direction,
+A2 confirmed.** F1-UP FADE (up-bars larger than typical: +0.06pp
+excess, Holm-rejected), F1-DOWN FADE (knife-edge: −0.00004, p=0.050
+exactly at the gate — treat as NO EDGE), F2 FADE (DOWN−UP −0.06pp,
+Holm-rejected) — at daily per-bar resolution up-bars average ~6bp
+larger than down-bars, the "window" absent (top-|r| decile not
+down-concentrated, −0.25pp), stable across mean/median/candle-sign/
+per-ticker (75.6% of tickers negative)/IS/per-year (9/10 years). F4
+EDGE (A2): of the 35,997 frozen pre-reg #11 UP events, the 30.9% that
+retrace ≥ half within 10 bars do so faster than the move (+0.40pp/bar,
+Holm-rejected), concentrated in N≤5, robust to τ=2/5; swing-scale S6
+corroborates the claim across bars (down-swings faster, k=2/3/5 all
+p<0.001) — the "window" is a multi-bar property, not a per-bar one. No
+forward returns measured; the Phase-5 trigger cannot fire from this
+campaign by construction. Phase 5 remains **not triggered** after
+twelve campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
@@ -101,15 +117,16 @@ reports:
 `data/cache/e02_measure_report.md`, `data/cache/rv_measure_report.md`,
 `data/cache/rsi_measure_report.md`,
 `data/cache/divergence_measure_report.md`,
-`data/cache/bigmove_measure_report.md`.
+`data/cache/bigmove_measure_report.md`,
+`data/cache/speed_measure_report.md`.
 Next candidates: with the divergence claims measured (F1-BULL EDGE within
 the current-constituent universe; NOT TRIGGERED pending the brief §5
 re-check) and the big-move claim measured (relative correction confirmed,
 literal retracement falsified — §I.8), the top remaining candidates are
 the historical-constituent re-check of the bullish-divergence edge — the
 brief's pre-registered path for any positive result (a new data artifact,
-then a fresh pre-registration) — and downside-speed asymmetry (I-F-02).
-The remaining untested ledger items need intraday data.
+then a fresh pre-registration). The remaining untested ledger items need
+intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -145,7 +162,13 @@ The remaining untested ledger items need intraday data.
   L=10, excursion-first event-level definition; ATR_t = the simple mean of
   the 14 true ranges ending at t, pre-registered because the corpus teaches
   no ATR formula; F1 absolute per leg + F2 literal retracement-contrast
-  families), frozen 2026-08-14. Verdicts return to the ledger.
+  families), frozen 2026-08-14. Pre-registration #12: the
+  bulls-take-the-stairs speed-asymmetry claim (I-F-02 — A1 per-bar
+  move-size asymmetry via F1 absolute-per-leg + F2 DOWN−UP contrast on
+  |close-to-close| bars; A2 reversal-speed via F4 on the frozen pre-reg
+  #11 UP events with a midpoint first-crossing rule, N=10; no forward
+  returns measured — the claim is about bar geometry, so Phase 5 is not
+  implicated), frozen 2026-08-15. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

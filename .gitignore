@@ -36,6 +36,8 @@ data/cache/*
 !data/cache/divergence_measure_results.json
 !data/cache/bigmove_measure_report.md
 !data/cache/bigmove_measure_results.json
+!data/cache/speed_measure_report.md
+!data/cache/speed_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

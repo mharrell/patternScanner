@@ -1930,3 +1930,103 @@ construction (§2).
 ## 8. Campaign outcome
 
 *(Recorded after measurement — parameters unchanged.)*
+
+Measured 2026-08-15; verification completed 2026-08-15. **Split verdict —
+A1 (per-bar asymmetry) is falsified in the OPPOSITE direction of the
+claim: up-bars are ~6bp LARGER than down-bars (FADE × 3, F1-UP / F1-DOWN
+/ F2) — the "window" is not visible at daily per-bar resolution. A2
+(reversal speed) is CONFIRMED: when big up-moves retrace, the
+retracement outpaces the move (F4 EDGE):**
+
+- **F1-UP FADE**: n=1,371,291 OOS bars (UP 689,944 / DOWN 660,952 / ZERO
+  20,395); mean up +0.0189 vs typical +0.0184; excess **+0.0006** (CI
+  +0.0005..+0.0006, p<0.001), Holm-rejected (gate 0.025) — up-bars are
+  *larger* than typical, the "stairs" half contradicted.
+- **F1-DOWN FADE (knife-edge)**: mean down +0.0183; excess **−0.00004**
+  (CI −0.00009..−0.00000008, p=0.050 exactly at the Holm gate 0.05) — the
+  CI-upper sits at −8e-8 ≈ 0; a boundary artifact of the FADE rule, to be
+  treated as NO EDGE substantively (see caveat 4).
+- **F2 FADE**: DOWN − UP contrast **−0.0006** (CI −0.0007..−0.0005,
+  p<0.001), Holm-rejected — up-bars ~6bp larger than down-bars, the
+  asymmetry claim contradicted in sign. The two F1 legs are mechanically
+  opposite-signed (the all-bars mean is the legs' weighted average — the
+  pre-declared structural note); the interpretable single number is F2's
+  −6bp.
+- **F4 EDGE**: n=35,997 UP events (the frozen pre-reg #11 population —
+  exactly I-F-01's 35,908 measured + 89 tail-dropped); retraced 11,113
+  (30.9%), non-retraced 24,795; mean j 5.40 bars; mean contrast
+  **+0.0040** per bar (CI +0.0037..+0.0044, p<0.001) — retracements of
+  big up-moves outpace the moves themselves: "given back in a matter of
+  minutes", confirmed on its daily adaptation.
+- **Frequency** (measurement, not a verdict family): OOS bars UP 689,944
+  / DOWN 660,952 / ZERO 20,395 / all 1,371,291; down-bar share 0.4820;
+  index-0 excluded 599; bad prior 0.
+
+The pre-registered expectation (A1's daily translation "is the
+negative-skew regularity of equity daily returns — honest expectation is
+that F1/F2 confirm, possibly trivially") was **not met — inverted in
+sign**: up-bars average 6bp LARGER than down-bars. The claim's "window" —
+a small number of very large fast down-bars — is falsified at the
+per-bar level: the top-|r| decile is NOT down-concentrated (down share
+0.4795 vs 0.4820 overall, −0.25pp, S8), and the asymmetry is stable
+negative across mean/median (S1 −0.0002)/candle-sign (S2 −0.0001)/
+per-ticker (S3: 146/599 tickers positive, mean −0.0008, cluster CI
+−0.0010..−0.0007)/IS (S4 −0.0014)/per-year (S5: 9/10 OOS years negative,
+2018 +0.06pp the only exception). The one structure-level corroboration
+is S6: multi-bar down-swings cover distance FASTER per bar than the
+preceding up-swings (rate contrast +0.0131/+0.0140/+0.0354 at k=2/3/5,
+all p<0.001) — declines are faster *across bars*, without any single
+daily down-bar being larger. That is the honest daily reconciliation:
+the "window" is a multi-bar property in this data, not a per-bar one.
+
+A2 is confirmed and robust: F4 EDGE at the primary parameters, with the
+effect concentrated in the claim's own short horizon (N=5 +0.0113/bar,
+p<0.001; N=20 null, p=0.950) and across event-population definitions
+(τ=2 +0.0052, n=64,694; τ=5 +0.0034, n=5,416 — both p<0.001). The
+equivalence reading is subtle: mean j 5.40 > 5 yet the contrast is
+positive, because the per-event contrast is convex in 1/j — the retraced
+set's bimodal j distribution (mass at j≈1–2, largely overnight gaps,
+and at 6–9) yields mean j > 5 with a positive weighted contrast; this
+is distribution shape, not a contradiction of the pre-registered
+equivalence. Conditioning is pre-declared: only 30.9% of big up-moves
+retrace ≥ half within 10 bars — the complementary non-retracement is
+pre-reg #11 F2's FADE (big moves retrace half *less* often than typical
+bars); F4 measures speed given the retracement.
+
+Caveats, as pre-declared: (1) the intraday→daily translation is central
+— the claim is about minutes vs hours; daily bars measure per-bar
+magnitude, and overnight gaps register as fast (they carry much of F4's
+j≈1–2 mass); this is the honest daily adaptation of the claim's *size*
+structure, not a test of intraday speed — the "window" may still hold
+intraday; (2) current-constituent universe (survivorship; the brief §5
+positive-result gate does not apply — no forward returns are measured);
+(3) F1/F2 are per-bar state-level statistics — iid bootstrap CIs on
+serially dependent bars, effective sample below row count; (4) F1-DOWN's
+FADE is a knife-edge boundary artifact (CI-upper −8e-8, p=0.050 exactly
+at the gate) — treat as NO EDGE substantively; only F1-UP FADE and F2
+FADE carry the substantive A1 rejection; (5) F4's effect is conditional
+on retracing (30.9% of events) — it says nothing about the 69.1% that
+do not retrace.
+
+**Phase-5 trigger (pre-reg §2): no family in this campaign measures
+forward returns — the claim is about bar geometry, not profitability;
+the Phase-5 trigger cannot fire from this campaign by construction, so
+no trigger-check conversation was held.** Phase 5 remains **not
+triggered** after twelve campaigns. Verdicts written back to
+CLAIMS_LEDGER §I.9; report `data/cache/speed_measure_report.md`
+(+ `speed_measure_results.json`). Verification: deterministic (results
+1B1DFC00…, report 528E205F…, byte-identical across two runs);
+independent implementation, all 75 checks exact — population counts and
+per-leg means bit-exact (n_all 1,371,291; mean_all 0.018366437482; down
+share 0.4819925165); leg-excess identity holds to 1e-9 including the
+zero-bar term (2.732e-04 = n_zero·mean_all/n_all); the F4 population
+re-detected with an independent per-bar TR/ATR loop (35,997 events;
+n_retraced 11,113, mean_j 5.4031314677, crossing share 0.309485351 all
+exact; 148 warm-up OOS events — post-2016-listed tickers — proven
+excluded via the warmup flag); S2 candle counts/means; S3 per-ticker
+contrasts exact (146/599 positive, mean −0.000842796413); S5 per-year;
+S6 swing pair counts exact with analytic-vs-bootstrap means within
+Monte Carlo error; S8 tail decile; verdict/Holm-gate consistency; and
+every pre-declared sensitivity parity-checked with a fresh seed
+(est/CI/p within tolerance); fingerprints exact (measure code
+3fbdab9922c5…, universe 5e6f45a3c791…).
