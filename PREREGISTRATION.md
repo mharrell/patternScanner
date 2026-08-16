@@ -2236,3 +2236,85 @@ The artifact definition (§1), measurement rebinding and label patch list
 (§2), era handling (§3), verdict rules (§4), and gate decision rules (§5)
 above are frozen as of 2026-08-15, before any measurement. Implementation
 must not change any of them.
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged; gate outcome per §5.)*
+
+Measured 2026-08-15, verified 2026-08-16. **The §5 gate FAILS: the
+F1-BULL EDGE does not survive the survivorship-corrected universe.** The
+claim's direction persists qualitatively but is no longer distinguishable
+from chance on the re-check window:
+
+- **F1-BULL NO EDGE** (the gate test): n=9,384 OOS (2022–2025, 4 years);
+  mean +0.59%; win 50.98%; excess vs random +0.43pp (CI −0.10..+0.81,
+  p=0.064), vs same-ticker +0.49pp (CI −0.15..+0.87, p=0.072); p_input
+  0.072, est +0.49pp, CI-low −0.15pp < 0 — the Holm gate 0.025 is not
+  reached.
+- **F1-BEAR NO EDGE**: n=9,656; mean −0.12%; win 47.06%; excess vs random
+  −0.30pp (CI −0.81..+0.05, p=0.106), vs same-ticker −0.38pp (CI
+  −1.03..−0.05, p=0.024); p_input 0.106 — the per-ticker underperformance
+  is raw-significant but not Holm-significant (gate 0.050).
+- **F2-BEAR-hit EDGE** (re-recorded; F2 carries no gate rule): contrast
+  −1.35pp (CI −2.41..−0.31, p=0.012, Holm gate 0.0125) — bearish
+  divergence hits positive *less* often than overbought crossings:
+  "more reliable" in the claimed direction on the bearish side, on the
+  re-check window. F2-BULL-mean NO EDGE (+0.14pp, p=0.492),
+  F2-BULL-hit NO EDGE (+0.83pp, p=0.140), F2-BEAR-mean NO EDGE (−0.10pp,
+  p=0.410).
+- **Frequency** (measurement, not a verdict): n_div=19,207 vs
+  n_cross=63,763 → ratio **0.3012** (ticker-cluster CI 0.2972..0.3052) —
+  "a lot less common" holds on the historical union; period-14 ratio
+  0.4286 (consistent with pre-reg #10's 0.4287).
+
+**Gate decision (per §5): FAILS.** F1-BULL NO EDGE → **I-X-03's EDGE is
+corrected to the survivorship-resilient record: the claim's direction
+survives qualitatively (est +0.49pp vs same-ticker; all four OOS years
+positive — 2022 +0.48pp, 2023 +0.27pp, 2024 +0.86pp, 2025 +0.82pp) but
+is not statistically distinguishable from chance on the 4-year /
+904-name window. The family is closed with the re-check as definitive;
+Phase 5 stays untriggered.** No trigger-check conversation is held —
+per §5, it is reserved for a surviving EDGE.
+
+Why it moved: the re-check window halves the pre-reg #10 sample
+(n=16,985 → 9,384) and era-matches the baselines to 2022–2025 only,
+roughly doubling the confidence interval; the pre-registered §5 direction
+(survivorship inflates returns) is consistent with the outcome — the
+current-constituent excess (+0.34pp, CI-low +0.11pp) does not clear zero
+on the corrected universe, though its point estimate does not collapse
+either. The 2016–2021 OOS blind spot (§3) is a documented residual
+limitation: the corrected record rests on 2022–2025.
+
+Exploratory sensitivities (no verdicts): S2 k=3 BULL +0.63pp vs same
+(p=0.046) and S4 min-sep 10 BULL +1.12pp (p=0.016) echo the direction;
+S8 chartist's-eye BULL +2.22pp (p=0.034) shows the pre-declared selection
+tilt present as pre-registered (the primary's confirmation-bar timing is
+the honest number); S1 N=20 BULL +0.75pp (p=0.082), BEAR −0.70pp
+(p=0.000); S3 period 14 BULL NO EDGE (p=0.208), BEAR vs same −0.55pp
+(p<0.001); S7 extreme-gated BULL +0.54pp (p=0.092).
+
+**Data limitation (pre-registered §6, materialized):** of the 904-name
+union, **199 former-member tickers are purged from Yahoo's data
+entirely** — the chart API 404s ("No data found, symbol may be delisted")
+at every window and the search API finds nothing for representative
+purged names (Foot Locker FL, Civitas CIVI, American Woodmark AMWD;
+CSWI was re-tickered to CSW). Verified NOT throttling: a 45-minute
+per-minute probe never recovered a single name. **None of the 199 are
+current S&P 600 members.** Measurement ran on the 706 names with bars;
+the 199 are flagged and NOT substituted, per §6. The 706-name universe
+includes 229 sibling former members (AAON, ADC, ANF, …) that still
+serve, so the survivorship correction is partial — the gate's direction
+(missing delisted names understate the correction) is documented here.
+
+Determinism: two runs byte-identical (results 45d6ebe9d882…, report
+125ad2af14d5…). Independent verification (from-scratch implementation,
+imports nothing from the frozen stack): BULL n=9,384 exact; mean_ret
+0.005930043180491732 exact to 1e-8; excess vs same-ticker 0.00493
+(driver 0.00490) and vs random 0.00393 (driver 0.00431), both within
+6e-4 of the driver's bootstrap means; the driver's CI-low −0.0015 lies
+within the verifier's own CI ±1.5e-3 — **PASSED**. Input fingerprints:
+universe 62f681d58cdb…, measure code 85f2ae0d4a1e… (Phase-3 engine
+c7421fbf… imported unchanged — no frozen file was modified). Report:
+`data/cache/divergence_hist_measure_report.md`
+(+ `divergence_hist_measure_results.json`). Verdicts written back to
+CLAIMS_LEDGER §I.7 (superseded-by note) and §I.10 (re-check table).

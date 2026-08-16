@@ -3,8 +3,8 @@
 Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
-**Status:** Phase 4 — verdicts written back to the ledger 2026-08-15.
-Twelve pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Status:** Phase 4 — verdicts written back to the ledger 2026-08-16.
+Thirteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -74,7 +74,20 @@ EDGE fired the pre-registered trigger) and did not trigger** — the brief
 §5 survivorship gate (current-constituent universe) requires a
 historical-constituent re-check before any positive result is trusted;
 size is +0.34pp per 10-bar trade on ~2.8 events per ticker per year; and
-the claim is half-confirmed (bearish leg null/faded). **Big-move
+the claim is half-confirmed (bearish leg null/faded). **The re-check was
+run (pre-reg #13, the brief §5 gate, measured 2026-08-15, verified
+2026-08-16): the gate FAILS.** On the historical-constituent union (904
+names — 5 annual S&P 600 snapshots 2021–2025 incl. ~330 delisted, OOS
+2022–2025, n=9,384) F1-BULL is **NO EDGE** (mean +0.59%, +0.49pp vs
+same-ticker, CI −0.15..+0.87, p=0.072, p_input 0.072) — the direction
+persists (all four OOS years positive) but no longer clears chance; the
+EDGE is corrected to the survivorship-resilient record and the family is
+closed. F1-BEAR NO EDGE holds. F2-BEAR-hit **EDGE** (hit rate −1.35pp vs
+overbought crossings, p=0.012 — "more reliable" on the bearish side on
+the corrected window); frequency ratio 0.3012 (CI 0.2972..0.3052) holds.
+Data limitation per the pre-registered §6: 199 of 904 names are purged
+from Yahoo entirely (0 of them current members), measured on 706,
+flagged not substituted. **Big-move
 correction** (pre-reg #11, I-F-01 — 2015 intraday classroom tapes,
 measured 2026-08-14/15): **split verdict — the project's second
 event-level absolute EDGE, on the UP (correction) leg, as a
@@ -106,10 +119,15 @@ Holm-rejected), concentrated in N≤5, robust to τ=2/5; swing-scale S6
 corroborates the claim across bars (down-swings faster, k=2/3/5 all
 p<0.001) — the "window" is a multi-bar property, not a per-bar one. No
 forward returns measured; the Phase-5 trigger cannot fire from this
-campaign by construction. Phase 5 remains **not triggered** after
-twelve campaigns.
+campaign by construction. The **RSI-divergence historical-constituent
+re-check** (pre-reg #13, the brief §5 survivorship gate, measured
+2026-08-15): **the gate FAILS** — F1-BULL NO EDGE on the 904-name
+historical union (2022–2025, n=9,384, p_input 0.072), the EDGE corrected
+to the survivorship-resilient record, the family closed with the re-check
+as definitive; F2-BEAR-hit EDGE (re-recorded); frequency 0.3012 holds.
+Phase 5 remains **not triggered** after thirteen campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
@@ -118,15 +136,17 @@ reports:
 `data/cache/rsi_measure_report.md`,
 `data/cache/divergence_measure_report.md`,
 `data/cache/bigmove_measure_report.md`,
-`data/cache/speed_measure_report.md`.
-Next candidates: with the divergence claims measured (F1-BULL EDGE within
-the current-constituent universe; NOT TRIGGERED pending the brief §5
-re-check) and the big-move claim measured (relative correction confirmed,
-literal retracement falsified — §I.8), the top remaining candidates are
-the historical-constituent re-check of the bullish-divergence edge — the
-brief's pre-registered path for any positive result (a new data artifact,
-then a fresh pre-registration). The remaining untested ledger items need
-intraday data.
+`data/cache/speed_measure_report.md`,
+`data/cache/divergence_hist_measure_report.md`.
+Next candidates: the divergence family is closed — the §5 survivorship
+re-check (pre-reg #13) did not confirm the F1-BULL EDGE on historical
+constituents (gate FAILS, §I.10), and the big-move claim is measured
+(relative correction confirmed, literal retracement falsified — §I.8).
+The top remaining testable candidates are the I-X-05 stop-placement
+claim (post-signal breach of the prior extreme low — testable on the
+existing divergence detections) and the I-X-06/I-D-01 price-tier family
+(sub-$5 cohorts' forward returns — needs a small-cap universe beyond the
+S&P 600). The remaining untested ledger items need intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -168,7 +188,15 @@ intraday data.
   |close-to-close| bars; A2 reversal-speed via F4 on the frozen pre-reg
   #11 UP events with a midpoint first-crossing rule, N=10; no forward
   returns measured — the claim is about bar geometry, so Phase 5 is not
-  implicated), frozen 2026-08-15. Verdicts return to the ledger.
+  implicated), frozen 2026-08-15. Pre-registration #13: the brief §5
+  historical-constituent re-check of the pre-reg #10 F1-BULL EDGE (a new
+  data artifact — the union of 5 annual snapshots of the Wikipedia *List
+  of S&P 600 companies* revision history, 904 names incl. ~330
+  delisted/removed; the frozen pre-reg #10 measurement code byte-identical,
+  runtime-rebound to the historical universe with OOS 2022–2025; the §5
+  gate: F1-BULL EDGE survives ⇒ PASSED, NO EDGE/FADE ⇒ FAILS and the
+  family is closed), frozen 2026-08-15, **measured: gate FAILS, family
+  closed (§I.10)**. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —
