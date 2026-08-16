@@ -2030,3 +2030,175 @@ Monte Carlo error; S8 tail decile; verdict/Holm-gate consistency; and
 every pre-declared sensitivity parity-checked with a fresh seed
 (est/CI/p within tolerance); fingerprints exact (measure code
 3fbdab9922c5…, universe 5e6f45a3c791…).
+
+# Pre-registration #13 — historical-constituent re-check of the RSI-divergence bullish EDGE (brief §5 survivorship gate; pre-reg #10 §8)
+
+**Frozen 2026-08-15, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 0. Why this campaign exists (pre-registered context)
+
+Pre-reg #10 measured the I-X-02/03/04 RSI-divergence claims on the
+current-constituent S&P 600 universe and found **F1-BULL EDGE** (n=16,985
+OOS, mean +0.80%, +0.34pp vs same-ticker, Holm-rejected — the project's
+first event-level absolute EDGE). The brief §5 survivorship gate is
+explicit: current-constituent backtests see only survivors, and **"any
+positive result must be re-checked against (a) [historical constituent
+lists] before being trusted"**. Pre-reg #10 §8 recorded the path: "a fresh
+pre-registration against historical constituents (§5 option (a), a new data
+artifact) before this family can be trusted." This campaign is that
+re-check.
+
+## 1. The new data artifact — historical constituents (frozen definition)
+
+Source (brief §5 option (a), first branch — "archived Wikipedia
+snapshots"): the Wikipedia article *List of S&P 600 companies*, served
+from **the page's own revision history** — the canonical archive (every
+revision is immutable and exact-dated, gap-free from page creation).
+
+Feasibility probed 2026-08-15, pre-registered (this is why the artifact is
+defined as it is): the dedicated list page has Wayback Machine captures
+only from 2022; the S&P 600 main article never carried a constituent table
+(probed 2007–2021 snapshots: annual-returns tables only); S&P's own
+factsheet/constituent download endpoints have zero Wayback captures;
+iShares IJS holdings archives exist only from 2025-11; Morningstar never
+captured IJS holdings pages. The list page's revision history (page
+created 2018-08-27) is the only gap-free free source of historical S&P 600
+membership.
+
+Snapshot schedule (frozen): **8 snapshots** — the page's creation revision
+(2018-08-27, the earliest membership record) plus, for each year
+2019–2025, the most recent revision dated before Y-07-01T00:00:00Z (the
+membership as of June 30 of that year). Each snapshot's rendered table is
+parsed with the same normalization as `tools/build_universe.py`
+(`yahoo_ticker`: strip footnote markers, "." → "-", drop placeholder
+cells) and recorded with its revision id and timestamp. **The re-check
+universe = the union of the eight snapshots' ticker sets** (~800–1,100
+names, including delisted and removed members).
+
+Artifact files (new, tracked): `tools/build_hist_universe.py` (builder),
+`data/cache/universe_sp600_hist_2026-08-15.csv` (union universe),
+`data/cache/hist_universe_provenance.json` (per-snapshot revision id,
+timestamp, ticker count, parse QA). Bars: fetched with the frozen Phase-1
+fetcher (`tools/fetch_daily_bars.py --universe <hist csv>`, 2000-01-01 →
+2026-01-01, auto_adjust) into the existing `data/cache/bars/` (resumable,
+keyed by ticker); delisted tickers fetch like any other name; **fetch
+failures are flagged and NOT substituted** (the Phase-1 convention for the
+4 no-data names).
+
+## 2. Measurement (identical to pre-reg #10; one pre-registered era change)
+
+The measurement is the **frozen pre-reg #10 code, byte-identical**
+(`tools/measure_divergence.py`, sha 85f2ae0d4a1e…; Phase-3 engine
+c7421fbf… imported unchanged; measure.py never modified — only
+process-local rebinding at runtime). The driver
+`tools/measure_divergence_hist.py`:
+
+1. rebinds four module-level inputs before invoking the frozen `main()`:
+   - `UNIVERSE_CSV` → the historical-union CSV;
+   - `ERA_OOS` → **"2019-01-01"** on **both** `measure.ERA_OOS` (tags the
+     engine's `is_oos` rows) and `measure_divergence.ERA_OOS` (the
+     frequency function) — the era boundary is the only parameter change,
+     forced by the artifact's coverage (§3);
+   - `RESULTS` / `REPORT` → `divergence_hist_measure_results.json` /
+     `divergence_hist_measure_report.md`.
+2. then patches **only** the pre-registered presentation labels (no
+   numeric content), each listed verbatim in the tool's docstring:
+   JSON `"pre_reg": "#10"` → `"#13"`; JSON `"claim"` → the re-check
+   descriptor; the report's header line; the "Pre-registration #10
+   (frozen 2026-08-14): …" block; the era-split line ("IS 2000-2015 /
+   OOS 2016-2025" → "IS 2000-2018 (descriptive only) / OOS 2019-2025");
+   the S6 section header; and the reproducibility line (`python -X utf8
+   tools/measure_divergence_hist.py`).
+
+All frozen parameters carry over unchanged: simple-average RSI period 10
+(14 as S3), strict k=2 fractal swings on Low/High, consecutive pairs with
+disjoint windows (t2−t1 ≥ 5), signal bar t2+k (confirmation-bar timing, no
+look-ahead), N=10, COST 0.0015, bootstrap B=1000 seed 20260813, Holm at
+α=0.05 within each family, count floor 100 OOS events per leg, warm-up
+guard signal-bar index < 60, 70/30 crossings (pre-reg #9 S4 rule) as the
+F2 baseline, and all verdict rules, frequency, and sensitivities S1–S8
+identical.
+
+## 3. Era handling (pre-registered, forced by the artifact)
+
+Membership data covers 2018-08-27 → 2025-12-31. The re-check measures with
+**OOS = signal date ≥ 2019-01-01 through 2025-12-31** — the subset of the
+original OOS era (2016–2025) whose years are fully covered by membership
+data. Consequences, pre-registered:
+
+- **All verdicts (F1, F2, frequency) are computed on the 2019–2025 OOS
+  window.** The 2016–2018 OOS years are NOT measured: tickers removed
+  before the first snapshot are absent from the union, so those years
+  would re-introduce the very survivorship bias this gate exists to
+  remove. The 2016–2018 blind spot is a documented residual limitation.
+- **IS (2000–2018) statistics are reported descriptively only (S6), NOT
+  as verdicts**: the union universe has no IS-era membership data, so its
+  IS rows are biased by construction. Nothing in the IS block can carry a
+  verdict in this campaign.
+- The count floor (100 OOS events per leg) applies to the 2019–2025
+  window.
+
+## 4. Verdicts (identical rules to pre-reg #10, applied on the re-check window)
+
+**F1 (absolute, directional per leg)** — OOS mean forward return of the
+leg vs era-matched baselines (random entries −COST, same-ticker −COST,
+SPY raw); p_input = max(p_rand, p_same), est = max, ci_low = min, ci_upper
+= min; Holm across BULL/BEAR:
+
+- **F1-BULL**: EDGE iff Holm-rejected AND excess CI-low > 0 (bounce, as
+  claimed); FADE iff Holm-rejected AND CI-upper < 0; NO EDGE otherwise.
+- **F1-BEAR**: EDGE iff Holm-rejected AND excess CI-upper < 0 (pullback,
+  as claimed); FADE iff Holm-rejected AND CI-low > 0; NO EDGE otherwise.
+
+**F2 (reliability contrast, I-X-02)** — divergence minus 70/30 crossings
+at the same period, per leg on (a) mean forward return and (b) hit rate
+(ret > 0 after cost); two-sample bootstrap; Holm across the four tests.
+BULL-mean / BULL-hit: EDGE iff CI-low > 0; FADE iff CI-upper < 0.
+BEAR-mean / BEAR-hit: EDGE iff CI-upper < 0; FADE iff CI-low > 0.
+
+**Frequency** (measurement, not a verdict family): OOS counts + ratio +
+ticker-cluster CI, at periods 10 and 14.
+
+## 5. Pre-declared expectations and gate decision rules
+
+Direction: survivorship inflates returns, so the EDGE may shrink or vanish
+on the historical union. Both outcomes are informative.
+
+- **F1-BULL EDGE** on the re-check window (Holm-rejected, CI-low > 0,
+  floor met) → the §5 gate is **PASSED**: the positive result survives
+  re-check against historical constituents; the Phase-5 trigger-check
+  conversation is then held with the surviving evidence (the last
+  pre-registered gate for I-X-03).
+- **F1-BULL NO EDGE or FADE** → the gate **FAILS**: I-X-03's EDGE is
+  corrected to the survivorship-resilient record; the family is closed
+  with the re-check as definitive; Phase 5 stays untriggered.
+- **F1-BULL INCONCLUSIVE** (count floor on the restricted window) → the
+  gate is **UNMET** with a documented data limitation; Phase 5 stays
+  untriggered.
+- F1-BEAR and F2 are re-recorded on the re-check window (the bearish leg
+  was NO EDGE / F2-BEAR-mean FADE on the current universe; the re-check
+  records whether that holds).
+
+## 6. Data & bias handling (§7 checklist)
+
+- **Look-ahead:** unchanged frozen rules (signal at close t2+k, entry
+  open t2+k+1).
+- **Survivorship:** this campaign IS the §5 gate; the residual 2016–2018
+  OOS blind spot and IS-out-of-scope are documented in §3.
+- **Costs:** identical COST 0.0015 on every measured trade.
+- **Multiple testing:** identical Holm families; nothing new tested.
+- **Non-stationarity:** per-year S5 on the re-check window; the era
+  boundary change is pre-registered here, not tuned.
+- **Data quality:** revision snapshots are exact-dated and immutable;
+  delisted names flagged on fetch failure (not substituted); artifact QA
+  shipped with the provenance record; determinism check (two runs,
+  byte-compare) and an independent verification pass before write-back.
+
+## 7. Freeze
+
+The artifact definition (§1), measurement rebinding and label patch list
+(§2), era handling (§3), verdict rules (§4), and gate decision rules (§5)
+above are frozen as of 2026-08-15, before any measurement. Implementation
+must not change any of them.
