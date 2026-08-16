@@ -1,0 +1,905 @@
+ticker,company,sector,industry,first_seen,n_snapshots
+AAN,The Aaron's Company,Consumer Discretionary,Homefurnishing Retail,2021-06,3
+AAOI,Applied Optoelectronics,Information Technology,Communications Equipment,2021-06,1
+AAON,"AAON, Inc.",Industrials,Building Products,2021-06,3
+AAP,"Advance Auto Parts, Inc.",Consumer Discretionary,Automotive Retail,2024-06,2
+AAT,American Assets Trust,Real Estate,Diversified REITs,2021-06,5
+AAWW,Atlas Air Worldwide Holdings,Industrials,Air Freight & Logistics,2021-06,2
+ABCB,Ameris Bancorp,Financials,Regional Banks,2021-06,5
+ABG,Asbury Automotive Group,Consumer Discretionary,Automotive Retail,2021-06,5
+ABM,"ABM Industries, Inc.",Industrials,Environmental & Facilities Services,2021-06,5
+ABR,Arbor Realty Trust,Financials,Mortgage REITs,2023-06,3
+ABTX,"Allegiance Bancshares, Inc.",Financials,Regional Banks,2021-06,2
+ACA,"Arcosa, Inc.",Industrials,Industrial Machinery,2021-06,5
+ACAD,Acadia Pharmaceuticals,Health Care,Pharmaceuticals,2025-06,1
+ACIW,ACI Worldwide,Information Technology,Application Software,2024-06,2
+ACLS,"Axcelis Technologies, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+ACT,"Enact Holdings, Inc.",Financials,Commercial & Residential Mortgage Finance,2025-06,1
+ADC,Agree Realty Corp.,Real Estate,Retail REITs,2021-06,2
+ADEA,"Adeia, Inc.",Information Technology,IT Consulting & Other Services,2023-06,3
+ADMA,"ADMA Biologics, Inc.",Health Care,Biotechnology,2025-06,1
+ADNT,Adient,Consumer Discretionary,Automotive Parts & Equipment,2025-06,1
+ADTN,"Adtran, Inc.",Information Technology,Communications Equipment,2021-06,4
+ADUS,Addus HomeCare Corp.,Health Care,Health Care Services,2021-06,5
+AEIS,Advanced Energy,Information Technology,Semiconductor Equipment,2021-06,5
+AEL,American Equity Investment Life Holding Co.,Financials,Life & Health Insurance,2021-06,3
+AEO,American Eagle Outfitters,Consumer Discretionary,Apparel Retail,2023-06,3
+AESI,"Atlas Energy Solutions, Inc.",Energy,Oil & Gas Equipment & Services,2025-06,1
+AGO,Assured Guaranty Ltd.,Financials,Property & Casualty Insurance,2021-06,5
+AGTI,"Agiliti, Inc.",Health Care,Health Care Services,2023-06,1
+AGYS,"Agilysys, Inc.",Information Technology,Application Software,2021-06,5
+AHCO,AdaptHealth Corp.,Health Care,Health Care Equipment,2023-06,3
+AHH,"Armada Hoffler Properties, Inc.",Real Estate,Diversified REITs,2021-06,5
+AIN,Albany International Corp.,Industrials,Industrial Machinery,2021-06,5
+AIR,AAR Corp.,Industrials,Aerospace & Defense,2021-06,5
+AIT,Applied Industrial Technologies,Industrials,Trading Companies & Distributors,2021-06,3
+AJRD,Aerojet Rocketdyne Holdings,Industrials,Aerospace & Defense,2021-06,3
+AKR,Acadia Realty Trust,Real Estate,Retail REITs,2021-06,5
+AL,Air Lease Corporation,Industrials,Passenger Airlines,2024-06,2
+ALEX,Alexander & Baldwin,Real Estate,Diversified REITs,2021-06,5
+ALG,Alamo Group,Industrials,Construction Machinery & Heavy Trucks,2021-06,5
+ALGT,Allegiant Travel Company,Industrials,Airlines,2021-06,5
+ALK,Alaska Air Group,Industrials,Passenger Airlines,2024-06,1
+ALKS,Alkermes plc,Health Care,Pharmaceuticals,2024-06,2
+ALRM,"Alarm.Com, Inc.",Financials,Application Software,2021-06,5
+AMBC,Ambac Financial Group,Financials,Property & Casualty Insurance,2021-06,4
+AMCX,AMC Networks,Consumer Discretionary,Broadcasting,2021-06,4
+AMEH,"Apollo Medical Holdings, Inc.",Health Care,Health Care Facilities,2021-06,3
+AMN,"Amn Healthcare Services, Inc.",Health Care,Health Care Services,2021-06,5
+AMPH,"Amphstar Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,2021-06,5
+AMR,"Alpha Metallurgical Resources, Inc.",Materials,Steel,2024-06,2
+AMSF,"Amerisafe, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+AMTM,Amentum,Industrials,Diversified Support Services,2025-06,1
+AMWD,American Woodmark Corp.,Industrials,Building Products,2021-06,5
+ANDE,"The Andersons, Inc.",Consumer Staples,Food Distributors,2021-06,5
+ANF,Abercrombie & Fitch Company,Consumer Discretionary,Apparel Retail,2021-06,4
+ANGI,Angi Inc.,Communication Services,Advertising,2025-06,1
+ANGO,"Angiodynamics, Inc.",Health Care,Health Care Equipment,2021-06,3
+ANIK,Anika Therapeutics,Health Care,Health Care Supplies,2021-06,3
+ANIP,"ANI Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,2021-06,5
+AORT,Artivion,Health Care,Health Care Equipment,2022-06,4
+AOSL,"Alpha and Omega Semiconductor, Ltd.",Information Technology,Semiconductors,2022-06,4
+APAM,"Artisan Partners Asset Management, Inc.",Financials,Asset Management & Custody Banks,2023-06,3
+APEI,American Public Education,Consumer Discretionary,Education Services,2021-06,2
+APLE,"Apple Hospitality REIT, Inc.",Real Estate,Hotel & Resort REITs,2024-06,2
+APOG,"Apogee Enterprises, Inc.",Industrials,Building Products,2021-06,5
+APPS,Digital Turbine,Information Technology,Application Software,2023-06,1
+ARCB,Arcbest Corp.,Industrials,Trucking,2021-06,5
+ARCH,"Arch Resources, Inc.",Materials,Diversified Metals & Mining,2024-06,1
+ARI,Apollo Commercial Real Estate Finance,Real Estate,Mortgage REITs,2021-06,5
+ARLO,Arlo Technologies,Information Technology,Communications Equipment,2021-06,5
+ARNC,Arconic Corp.,Materials,Aluminum,2021-06,3
+AROC,"Archrock, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,5
+ARR,Armour Residential REIT,Real Estate,Mortgage REITs,2021-06,5
+ARWR,Arrowhead Pharmaceuticals,Health Care,Biotechnology,2025-06,1
+ASIX,"Advansix, Inc.",Materials,Commodity Chemicals,2021-06,5
+ASO,Academy Sports + Outdoors,Consumer Discretionary,Specialty Stores,2022-06,4
+ASTE,"Astec Industries, Inc.",Industrials,Construction Machinery & Heavy Trucks,2021-06,5
+ASTH,"Astrana Health, Inc.",Health Care,Health Care Facilities,2024-06,2
+ATEN,"A10 Networks, Inc.",Information Technology,Systems Software,2022-06,4
+ATGE,Adtalem Global Education,Consumer Discretionary,Education Services,2022-06,4
+ATI,Allegheny Technologies,Materials,Steel,2021-06,4
+ATNI,"ATN International, Inc.",Communication Services,Integrated Telecommunication Services,2021-06,4
+AUB,"Atlantic Union Bankshares, Corp.",Financials,Regional Banks,2023-06,3
+AVA,Avista Corporation,Utilities,Multi-Utilities,2021-06,5
+AVAV,"AeroVironment, Inc.",Industrials,Aerospace & Defense,2021-06,5
+AVD,American Vanguard Corporation,Materials,Fertilizers & Agricultural Chemicals,2021-06,3
+AVID,"Avid Technology, Inc.",Information Technology,"Technology Hardware, Storage & Peripherals",2023-06,1
+AVNS,"Avanos Medical, Inc.",Health Care,Health Care Supplies,2021-06,5
+AVTA,"Avantax, Inc.",Financials,Asset Management & Custody Banks,2023-06,1
+AWI,"Armstrong World Industries, Inc.",Industrials,Building Products,2024-06,2
+AWR,American States Water Company,Utilities,Water Utilities,2021-06,5
+AX,"Axos Financial, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+AXL,"American Axle & Manufacturing, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+AZTA,"Azenta, Inc.",Health Care,Life Sciences Tools & Services,2025-06,1
+AZZ,"AZZ, Inc.",Industrials,Heavy Electrical Equipment,2021-06,5
+B,"Barnes Group, Inc.",Industrials,Industrial Machinery,2021-06,4
+BANC,"Banc Of California, Inc.",Financials,Regional Banks,2021-06,5
+BANF,Bancfirst Corp,Financials,Diversified Banks,2021-06,5
+BANR,Banner Corporation,Financials,Regional Banks,2021-06,5
+BBBY,Bed Bath & Beyond,Consumer Discretionary,Homefurnishing Retail,2021-06,2
+BCC,Boise Cascade Company,Industrials,Building Products,2021-06,5
+BCEI,"Bonanza Creek Energy, Inc",Energy,Oil & Gas Exploration & Production,2021-06,1
+BCOR,"Blucora, Inc.",Financials,Asset Management & Custody Banks,2021-06,2
+BCPC,Balchem Corporation,Materials,Specialty Chemicals,2021-06,5
+BDN,Brandywine Realty Trust,Real Estate,Office REITs,2021-06,5
+BELFB,"Bel Fuse, Inc.",Information Technology,Electronic Components,2021-06,1
+BFH,"Bread Financial Holdings, Inc.",Financials,Consumer Finance,2023-06,3
+BFS,"Saul Centers, Inc.",Real Estate,Retail REITs,2021-06,5
+BGC,"BGC Group, Inc.",Financials,Investment Banking & Brokerage,2024-06,2
+BGS,"B&G Foods, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,5
+BHE,"Benchmark Electronics, Inc.",Information Technology,Electronic Manufacturing Services,2021-06,5
+BHLB,"Berkshire Hills Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+BIG,Big Lots,Consumer Discretionary,General Merchandise Stores,2021-06,2
+BJRI,"BJ's Restaurants, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+BKE,"The Buckle, Inc.",Consumer Discretionary,Apparel Retail,2021-06,5
+BKU,"BankUnited, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+BL,"BankUnited, Inc.",Information Technology,Application Software,2024-06,2
+BLFS,"BioLife Solutions, Inc.",Health Care,Health Care Supplies,2022-06,4
+BLMN,"Bloomin' Brands, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+BMI,"Badger Meter, Inc.",Information Technology,Electronic Equipment & Instruments,2021-06,5
+BNED,"Barnes & Noble Education, Inc.",Consumer Discretionary,Specialty Stores,2021-06,1
+BOH,Bank of Hawaii,Financials,Regional Banks,2023-06,3
+BOOM,"DMC Global, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,2
+BOOT,"Boot Barn Holdings, Inc.",Consumer Discretionary,Apparel Retail,2021-06,5
+BOX,"Box, Inc.",Information Technology,Application Software,2024-06,2
+BPFH,"Boston Private Financial Holdings, Inc.",Financials,Regional Banks,2021-06,1
+BRC,Brady Corporation,Industrials,Commercial Printing,2021-06,5
+BRKL,"Brookline Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+BSIG,"BrightSphere Investment Group, Inc.",Financials,Asset Management & Custody Banks,2021-06,5
+BTU,"Peabody Energy, Inc.",Energy,Coal & Consumable Fuels,2024-06,2
+BWA,BorgWarner,Consumer Discretionary,Automotive Parts & Equipment,2025-06,1
+BXMT,"Blackstone Mortgage Trust, Inc.",Financials,Mortgage REITs,2024-06,2
+CABO,Cable One,Communication Services,Cable & Satellite,2024-06,2
+CADE,Cadence Bancorporation,Financials,Diversified Banks,2021-06,1
+CAKE,"The Cheesecake Factory, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+CAL,"Caleres, Inc.",Consumer Discretionary,Apparel Retail,2021-06,5
+CALM,"Cal-Maine Foods, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,5
+CALX,Calix,Information Technology,Application Software,2024-06,2
+CAMP,CalAmp Corp.,Information Technology,Communications Equipment,2021-06,2
+CARA,Cara Therapeutics,Health Care,Biotechnology,2021-06,2
+CARG,CarGurus,Consumer Discretionary,Automotive Retail,2023-06,3
+CARS,Cars.com,Communication Services,Interactive Media & Services,2022-06,4
+CASH,"Meta Financial Group, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+CATO,The Cato Corporation,Consumer Discretionary,Apparel Retail,2021-06,2
+CATY,Cathay General Bancorp,Financials,Regional Banks,2024-06,2
+CBB,"Cincinnati Bell, Inc.",Communication Services,Integrated Telecommunication Services,2021-06,1
+CBRL,Cracker Barrel,Consumer Discretionary,Restaurants,2023-06,3
+CBU,"Community Bank System, Inc.",Financials,Regional Banks,2021-06,5
+CC,Chemours,Materials,Diversified Chemicals,2025-06,1
+CCOI,"Cogent Communications Holdings, Inc.",Communication Services,Alternative Carriers,2021-06,5
+CCRN,"Cross Country Healthcare, Inc.",Health Care,Health Care Services,2021-06,4
+CCS,"Century Communities, Inc.",Consumer Discretionary,Homebuilding,2021-06,5
+CCSI,"Consensus Cloud Solutions, Inc.",Information Technology,Internet Services & Infrastructure,2022-06,2
+CDMO,"Avid Bioservices, Inc.",Health Care,Biotechnology,2022-06,2
+CE,Celanese,Materials,Specialty Chemicals,2025-06,1
+CEIX,"CONSOL Energy, Inc.",Energy,Coal & Consumable Fuels,2021-06,4
+CELH,"Celsius Holdings, Inc.",Consumer Staples,Soft Drinks,2021-06,2
+CENT,Central Garden & Pet Company,Consumer Staples,Household Products,2021-06,5
+CENTA,Central Garden & Pet Company (Class A),Consumer Staples,Household Products,2021-06,5
+CENX,Century Aluminum Company,Materials,Aluminum,2021-06,5
+CERT,"Certara, Inc.",Health Care,Health Care Technology,2023-06,3
+CEVA,"CEVA, Inc.",Information Technology,Semiconductors,2021-06,5
+CFFN,Capitol Federal Savings Bank,Financials,Thrifts & Mortgage Finance,2021-06,5
+CHCO,City Holding Company,Financials,Regional Banks,2021-06,5
+CHCT,Community Healthcare Trust Inc,Health Care,Health Care REITs,2021-06,4
+CHEF,"Chefs' Warehouse, Inc.",Consumer Staples,Food Distributors,2021-06,5
+CHRS,"Coherus BioSciences, Inc.",Health Care,Biotechnology,2021-06,3
+CHS,"Chico's FAS, Inc.",Consumer Discretionary,Apparel Retail,2021-06,3
+CHUY,"Chuy's Holdings, Inc.",Consumer Discretionary,Restaurants,2021-06,4
+CIR,"CIRCOR International, Inc.",Industrials,Industrial Machinery,2021-06,3
+CIVI,Civitas Resources,Energy,Oil & Gas Exploration & Production,2022-06,2
+CLB,Core Laboratories,Energy,Oil & Gas Equipment & Services,2021-06,5
+CLDT,Chatham Lodging Trust,Real Estate,Hotel & Resort REITs,2021-06,4
+CLFD,"Clearfield, Inc.",Information Technology,Communications Equipment,2023-06,1
+CLI,Mack-Cali Realty Corporation,Real Estate,Office REITs,2021-06,1
+CLSK,"CleanSpark, Inc.",Information Technology,Internet Services & Infrastructure,2025-06,1
+CLW,Clearwater Paper Corporation,Materials,Paper Products,2021-06,4
+CMO,Capstead Mortgage Corporation,Real Estate,Mortgage REITs,2021-06,1
+CMP,"Compass Minerals International, Inc.",Materials,Diversified Metals & Mining,2022-06,3
+CMTL,Comtech Telecommunications Corp.,Information Technology,Communications Equipment,2021-06,2
+CNK,"Cinemark Holdings, Inc.",Communication Services,Movies & Entertainment,2022-06,4
+CNMD,CONMED Corporation,Health Care,Health Care Equipment,2021-06,5
+CNR,"Core Natural Resources, Inc.",Energy,Coal & Consumable Fuels,2025-06,1
+CNS,"Cohen & Steers, Inc.",Financials,Asset Management & Custody Banks,2024-06,2
+CNSL,"Consolidated Communications Holdings, Inc.",Communication Services,Integrated Telecommunication Services,2021-06,4
+CNXN,"PC Connection, Inc.",Information Technology,Technology Distributors,2021-06,5
+COHU,"Cohu, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+COKE,Coca-Cola Bottling Co. Consolidated,Consumer Staples,Soft Drinks,2021-06,2
+COLB,"Columbia Banking System, Inc.",Financials,Regional Banks,2021-06,2
+COLL,"Collegium Pharmaceutical, Inc.",Health Care,Pharmaceuticals,2021-06,5
+CON,"Concentra Group Holdings Parent, Inc.",Health Care,Health Care Services,2025-06,1
+CONN,"Conn's, Inc.",Consumer Discretionary,Computer & Electronics Retail,2021-06,2
+COOP,"Mr. Cooper Group, Inc.",Financials,Other Diversified Financial Services,2021-06,5
+CORE,"Core-Mark Holding Company, Inc.",Consumer Discretionary,Distributors,2021-06,1
+CORT,Corcept Therapeutics Incorporated,Health Care,Pharmaceuticals,2021-06,5
+CPE,Callon Petroleum,Energy,Oil & Gas Exploration & Production,2021-06,3
+CPF,Central Pacific Financial Corp.,Financials,Regional Banks,2021-06,5
+CPK,Chesapeake Utilities Corp.,Utilities,Gas Utilities,2021-06,5
+CPRX,"Catalyst Pharmaceuticals Partners, Inc.",Health Care,Biotechnology,2023-06,3
+CPS,"Cooper-Standard Holdings, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,1
+CPSI,"Computer Programs and Systems, Inc.",Health Care,Health Care Technology,2021-06,3
+CRC,California Resources Corporation,Energy,Oil & Gas Exploration & Production,2023-06,3
+CRGY,Crescent Energy Company,Energy,Oil & Gas Exploration & Production,2025-06,1
+CRI,"Carter's, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2025-06,1
+CRK,"Comstock Resources, Inc.",Energy,Oil & Gas Exploration & Production,2023-06,3
+CRMT,"Americas Carmart, Inc.",Consumer Discretionary,Automotive Retail,2021-06,3
+CRNC,Cerence,Information Technology,Application Software,2022-06,3
+CRS,Carpenter Technology,Materials,Steel,2021-06,4
+CRSR,Corsair Gaming,Information Technology,"Technology Hardware, Storage & Peripherals",2022-06,4
+CRVL,CorVel Corporation,Health Care,Health Care Services,2021-06,5
+CRY,"CryoLife, Inc.",Health Care,Health Care Equipment,2021-06,1
+CSGS,"CSG Systems International, Inc.",Information Technology,Data Processing & Outsourced Services,2021-06,5
+CSII,Cardiovascular Systems Inc,Health Care,Health Care Equipment,2021-06,2
+CSR,Centerspace Trust,Real Estate,Residential REITs,2021-06,5
+CSWI,"CSW Industrials, Inc.",Industrials,Industrial Conglomerates,2025-06,1
+CTKB,"Cytek Biosciences, Inc.",Health Care,Health Care Equipment,2023-06,3
+CTRE,"CareTrust REIT, Inc.",Real Estate,Health Care REITs,2021-06,5
+CTS,CTS Corporation,Information Technology,Electronic Manufacturing Services,2021-06,5
+CUBI,"Customers Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+CURB,Curbline Properties Corp.,Real Estate,Retail REITs,2025-06,1
+CUTR,"Cutera, Inc.",Health Care,Health Care Equipment,2021-06,2
+CVBF,CVB Financial Corp.,Financials,Regional Banks,2021-06,5
+CVCO,"Cavco Industries, Inc.",Consumer Discretionary,Homebuilding,2021-06,5
+CVET,"Covetrus, Inc.",Health Care,Health Care Services,2021-06,2
+CVGW,"Calavo Growers, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,4
+CVI,"CVR Energy, Inc.",Energy,Oil & Gas Refining & Marketing,2023-06,3
+CWEN,"Clearway Energy, Inc. (Class C)",Utilities,Renewable Electricity,2024-06,2
+CWEN-A,"Clearway Energy, Inc. (Class A)",Utilities,Renewable Electricity,2024-06,2
+CWK,Cushman & Wakefield plc,Real Estate,Real Estate Services,2023-06,3
+CWT,California Water Service Group,Utilities,Water Utilities,2021-06,5
+CXM,"Sprinklr, Inc.",Information Technology,Application Software,2024-06,2
+CXW,CoreCivic,Industrials,Diversified Support Services,2021-06,5
+CYH,"Community Health Systems, Inc.",Health Care,Health Care Facilities,2021-06,3
+CYTK,"Cytokinetics, Incorporated",Health Care,Biotechnology,2021-06,3
+DAKT,"Daktronics, Inc.",Information Technology,Electronic Equipment & Instruments,2021-06,1
+DAN,Dana Incorporated,Consumer Discretionary,Auto Parts & Equipment,2023-06,3
+DBD,"Diebold Nixdorf, Incorporated",Information Technology,"Technology Hardware, Storage & Peripherals",2021-06,2
+DBI,"Designer Brands, Inc.",Consumer Discretionary,Apparel Retail,2021-06,4
+DCOM,"Dime Community Bancshares, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+DDD,3D Systems Corporation,Information Technology,"Technology Hardware, Storage & Peripherals",2021-06,4
+DEA,"Easterly Government Properties, Inc.",Real Estate,Office REITs,2021-06,5
+DEI,Douglas Emmett,Real Estate,Office REITs,2023-06,3
+DFH,"Dream Finders Homes, Inc.",Consumer Discretionary,Homebuilding,2025-06,1
+DFIN,"Donnelley Financial Solutions, Inc.",Financials,Financial Exchanges & Data,2021-06,5
+DGII,Digi International Inc.,Information Technology,Communications Equipment,2021-06,5
+DHC,Diversified Healthcare Trust,Real Estate,Health Care REITs,2021-06,2
+DIN,"Dine Brands Global, Inc.",Consumer Discretionary,Restaurants,2021-06,4
+DIOD,Diodes Incorporated,Information Technology,Semiconductors,2021-06,5
+DISH,Dish Network,Communication Services,Cable & Satellite,2023-06,1
+DLX,Deluxe Corporation,Industrials,Commercial Printing,2021-06,5
+DNOW,NOW Inc,Industrials,Trading Companies & Distributors,2021-06,5
+DOCN,"DigitalOcean Holdings, Inc.",Information Technology,Internet Services & Infrastructure,2024-06,2
+DORM,"Dorman Products, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+DOUG,"Douglas Elliman, Inc.",Real Estate,Real Estate Services,2022-06,1
+DRH,DiamondRock Hospitality Company,Real Estate,Hotel & Resort REITs,2021-06,5
+DRQ,Dril-Quip Inc.,Energy,Oil & Gas Equipment & Services,2021-06,5
+DSPG,"DSP Group, Inc.",Information Technology,Semiconductors,2021-06,1
+DV,"DoubleVerify Holdings, Inc.",Information Technology,Application Software,2023-06,3
+DVAX,Dynavax Technologies Corp.,Health Care,Biotechnology,2022-06,4
+DXC,DXC Technology,Information Technology,IT Consulting & Other Services,2024-06,2
+DXPE,"DXP Enterprises, Inc.",Industrials,Trading Companies & Distributors,2021-06,5
+DY,"Dycom Industries, Inc.",Industrials,Construction & Engineering,2023-06,3
+EAT,"Brinker International, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+EBIX,"Ebix, Inc.",Information Technology,Application Software,2021-06,3
+EBS,Emergent BioSolutions,Health Care,Biotechnology,2022-06,2
+ECG,"Everus Construction Group, Inc.",Industrials,Construction & Engineering,2025-06,1
+ECHO,"Echo Global Logistics, Inc.",Industrials,Air Freight & Logistics,2021-06,1
+ECOL,"US Ecology, Inc.",Industrials,Environmental & Facilities Services,2021-06,1
+ECPG,"Encore Capital Group, Inc.",Financials,Consumer Finance,2021-06,5
+EFC,"Ellington Financial, Inc.",Financials,Specialized Finance,2021-06,5
+EGBN,Eagle Bancorp Inc,Financials,Regional Banks,2021-06,5
+EGHT,"8x8, Inc.",Information Technology,Application Software,2021-06,3
+EGRX,"Eagle Pharmaceuticals, Inc.",Health Care,Biotechnology,2021-06,2
+EHAB,"Enhabit, Inc.",Health Care,Health Care Facilities,2023-06,2
+EHTH,"eHealth, Inc.",Financials,Insurance Brokers,2021-06,2
+EIG,"Employers Holdings, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+ELF,"e.l.f. Beauty, Inc.",Consumer Staples,Personal Products,2021-06,3
+ELME,Elme Communities,Real Estate,Diversified REITs,2024-06,2
+EMBC,Embecta Corp.,Health Care,Health Care Equipment,2022-06,4
+ENDP,Endo International plc,Health Care,Pharmaceuticals,2021-06,1
+ENOV,Enovis,Health Care,Health Care Equipment,2025-06,1
+ENR,Energizer,Consumer Staples,Household Products,2024-06,2
+ENSG,"Ensign Group, Inc.",Health Care,Health Care Facilities,2021-06,4
+ENTA,"Enanta Pharmaceuticals, Inc.",Health Care,Biotechnology,2021-06,3
+ENV,"Envestnet, Inc.",Information Technology,Application Software,2024-06,1
+ENVA,"Enova International, Inc.",Financials,Consumer Finance,2021-06,5
+EPAC,Enerpac Tool Group,Industrials,Industrial Machinery,2021-06,5
+EPAY,"Bottomline Technologies (de), Inc.",Information Technology,Application Software,2021-06,1
+EPC,Edgewell Personal Care,Consumer Staples,Household Products,2021-06,5
+EPRT,"Essential Properties Realty Trust, Inc.",Real Estate,Diversified REITs,2021-06,5
+ESE,ESCO Technologies Inc.,Industrials,Industrial Machinery,2021-06,5
+ESI,Element Solutions,Materials,Specialty Chemicals,2025-06,1
+ETD,Ethan Allen Interiors Inc.,Consumer Discretionary,Home Furnishings,2022-06,4
+ETH,Ethan Allen Interiors Inc.,Consumer Discretionary,Home Furnishings,2021-06,1
+ETSY,Etsy,Consumer Discretionary,Broadline Retail,2025-06,1
+EVTC,"EVERTEC, Inc.",Information Technology,Data Processing & Outsourced Services,2021-06,5
+EXLS,"ExlService Holdings, Inc.",Information Technology,Data Processing & Outsourced Services,2021-06,2
+EXPI,"eXp World Holdings, Inc.",Real Estate,Real Estate Services,2023-06,3
+EXPO,"Exponent, Inc.",Industrials,Research & Consulting Services,2021-06,2
+EXTR,"Extreme Networks, Inc.",Information Technology,Communications Equipment,2021-06,5
+EYE,National Vision Holdings,Consumer Discretionary,Specialty Stores,2022-06,4
+EZPW,"EZCORP, Inc.",Financials,Consumer Finance,2021-06,5
+FARO,"FARO Technologies, Inc.",Information Technology,Electronic Equipment & Instruments,2021-06,2
+FBC,"Flagstar Bancorp, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,2
+FBK,FB Financial Corp.,Financials,Regional Banks,2021-06,5
+FBNC,First Bancorp (Southern Pines NC),Financials,Regional Banks,2021-06,5
+FBP,First BanCorp (Puerto Rico),Financials,Regional Banks,2021-06,5
+FBRT,"Franklin BSP Realty Trust, Inc.",Real Estate,Mortgage REITs,2022-06,4
+FCF,First Commonwealth Financial Corp.,Financials,Regional Banks,2021-06,5
+FCPT,"Four Corners Property Trust, Inc.",Real Estate,Specialized REITs,2021-06,5
+FDP,"Fresh Del Monte Produce, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,5
+FELE,"Franklin Electric Co., Inc.",Industrials,Industrial Machinery,2021-06,5
+FF,FutureFuel Corp.,Materials,Specialty Chemicals,2021-06,3
+FFBC,First Financial Bancorp.,Financials,Regional Banks,2021-06,5
+FHB,"First Hawaiian, Inc.",Financials,Regional Banks,2021-06,5
+FIX,"Comfort Systems USA, Inc.",Industrials,Construction & Engineering,2021-06,3
+FIZZ,National Beverage Corp.,Consumer Staples,Soft Drinks,2021-06,5
+FL,Foot Locker,Consumer Discretionary,Apparel Retail,2024-06,2
+FLGT,"Fulgent Genetics, Inc.",Health Care,Health Care Services,2021-06,4
+FLOW,"SPX FLOW, Inc.",Industrials,Industrial Machinery,2021-06,1
+FMBI,"First Midwest Bancorp, Inc.",Financials,Regional Banks,2021-06,1
+FMC,FMC Corporation,Materials,Fertilizers & Agricultural Chemicals,2025-06,1
+FN,Fabrinet,Information Technology,Electronic Manufacturing Services,2021-06,4
+FOE,Ferro Corp.,Materials,Specialty Chemicals,2021-06,1
+FORM,"FormFactor, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+FORR,"Forrester Research, Inc.",Industrials,Research & Consulting Services,2021-06,3
+FOSL,"Fossil Group, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,2
+FOXF,Fox Factory,Consumer Discretionary,Automotive Parts & Equipment,2024-06,2
+FRGI,"Fiesta Restaurant Group, Inc.",Consumer Discretionary,Restaurants,2021-06,1
+FRPT,Freshpet,Consumer Staples,Packaged Foods & Meats,2025-06,1
+FSP,Franklin Street Properties Corp.,Real Estate,Office REITs,2021-06,2
+FSS,Federal Signal Corporation,Industrials,Construction Machinery & Heavy Trucks,2021-06,5
+FTDR,"Frontdoor, Inc.",Consumer Discretionary,Specialized Consumer Services,2023-06,3
+FTRE,"Fortrea Holdings, Inc.",Health Care,Biotechnology,2024-06,2
+FUL,H.B. Fuller Company,Materials,Specialty Chemicals,2021-06,5
+FULT,Fulton Financial Corporation,Financials,Regional Banks,2023-06,3
+FUN,Six Flags,Consumer Discretionary,Leisure Facilities,2025-06,1
+FWRD,Forward Air Corp.,Industrials,Air Freight & Logistics,2021-06,5
+GBX,"The Greenbrier Companies, Inc.",Industrials,Construction Machinery & Heavy Trucks,2021-06,5
+GCI,"Gannett Co., Inc.",Consumer Discretionary,Publishing,2021-06,2
+GCO,"Genesco, Inc.",Consumer Discretionary,Apparel Retail,2021-06,2
+GCP,"GCP Applied Technologies, Inc.",Materials,Diversified Chemicals,2021-06,2
+GDEN,Golden Entertainment,Consumer Discretionary,Casinos & Gaming,2022-06,4
+GDOT,Green Dot Corporation,Financials,Consumer Finance,2021-06,4
+GDYN,"Grid Dynamics Holdings, Inc.",Information Technology,IT Consulting & Other Services,2025-06,1
+GEO,"GEO Group, Inc.",Real Estate,Specialized REITs,2021-06,5
+GES,"Guess, Inc.",Consumer Discretionary,Apparel Retail,2021-06,5
+GFF,Griffon Corporation,Industrials,Building Products,2021-06,5
+GHL,"Greenhill & Co., Inc.",Financials,Investment Banking & Brokerage,2021-06,1
+GIII,"G-III Apparel Group, Ltd.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,5
+GKOS,Glaukos Corp.,Health Care,Health Care Equipment,2021-06,5
+GLT,Glatfelter Corp.,Materials,Paper Products,2021-06,2
+GME,GameStop Corp.,Consumer Discretionary,Computer & Electronics Retail,2021-06,1
+GMS,"GMS, Inc.",Industrials,Building Products,2021-06,5
+GNL,"Global Net Lease, Inc.",Real Estate,Diversified REITs,2021-06,5
+GNW,"Genworth Financial, Inc.",Financials,Multi-line Insurance,2021-06,5
+GO,Grocery Outlet,Consumer Staples,Food Retail,2025-06,1
+GOGO,"Gogo, Inc.",Communication Services,Wireless Telecommunication Services,2022-06,4
+GOLF,Acushnet Company,Consumer Discretionary,Leisure Products,2025-06,1
+GPI,"Group 1 Automotive, Inc.",Consumer Discretionary,Automotive Retail,2021-06,5
+GPMT,"Granite Point Mortgage Trust, Inc.",Financials,Mortgage REITs,2021-06,2
+GPRE,"Green Plains, Inc.",Energy,Oil & Gas Refining & Marketing,2021-06,4
+GRBK,"Green Brick Partners, Inc.",Consumer Discretionary,Homebuilding,2023-06,3
+GSHD,"Goosehead Insurance, Inc.",Financials,Insurance Brokers,2024-06,2
+GTES,Gates Corporation,Industrials,Industrial Machinery & Supplies & Components,2025-06,1
+GTLS,"Chart Industries, Inc.",Industrials,Industrial Machinery,2021-06,1
+GTY,Getty Realty Corp.,Real Estate,Retail REITs,2021-06,5
+GVA,"Granite Construction, Inc.",Industrials,Construction & Engineering,2021-06,5
+GWB,"Great Western Bancorp, Inc.",Financials,Regional Banks,2021-06,1
+HA,"Hawaiian Holdings, Inc.",Industrials,Airlines,2021-06,3
+HAFC,Hanmi Financial Corporation,Financials,Regional Banks,2021-06,5
+HAIN,Hain Celestial Group,Consumer Staples,Packaged Foods & Meats,2023-06,2
+HASI,"Hannon Armstrong Sustainable Infrastructure Capital, Inc.",Financials,Specialized Finance,2024-06,2
+HAYN,"Haynes International, Inc.",Materials,Steel,2021-06,4
+HAYW,"Hayward Holdings, Inc.",Industrials,Electrical Components & Equipment,2024-06,2
+HBI,Hanesbrands,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2023-06,3
+HCC,"Warrior Met Coal, Inc.",Materials,Diversified Metals & Mining,2021-06,5
+HCI,"HCI Group, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+HCSG,"Healthcare Services Group, Inc.",Real Estate,Health Care REITs,2022-06,4
+HELE,Helen of Troy Limited,Consumer Discretionary,Household Appliances,2025-06,1
+HFWA,Heritage Financial Corporation,Health Care,Regional Banks,2021-06,5
+HI,"Hillenbrand, Inc.",Industrials,Industrial Machinery,2021-06,5
+HIBB,"Hibbett Sports, Inc.",Consumer Discretionary,Specialty Stores,2021-06,4
+HIW,Highwoods Properties],Real Estate,Office REITs,2024-06,2
+HLIT,Harmonic Inc.,Information Technology,Communications Equipment,2021-06,5
+HLX,"Helix Energy Solutions Group, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,5
+HMN,Horace Mann Educators Corporation,Financials,Multi-line Insurance,2021-06,5
+HMST,"HomeStreet, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,2
+HNGR,"Hanger, Inc.",Health Care,Health Care Facilities,2021-06,2
+HNI,HNI Corporation,Industrials,Office Services & Supplies,2021-06,5
+HOPE,"Hope Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+HOUS,Anywhere Real Estate,Real Estate,Real Estate Services,2023-06,2
+HP,"Helmerich & Payne, Inc.",Energy,Oil & Gas Drilling,2021-06,5
+HPP,Hudson Pacific Properties,Financials,Office REITs,2023-06,2
+HRMY,"Harmony Biosciences Holdings, Inc.",Health Care,Biotechnology,2022-06,4
+HSC,Harsco Corp.,Industrials,Industrial Machinery,2021-06,3
+HSII,"Heidrick & Struggles International, Inc.",Industrials,Human Resource & Employment Services,2021-06,5
+HSKA,Heska Corporation,Health Care,Health Care Equipment,2021-06,2
+HSTM,"HealthStream, Inc.",Health Care,Health Care Technology,2021-06,5
+HT,Hersha Hospitality Trust,Real Estate,Hotel & Resort REITs,2021-06,2
+HTH,Hilltop Holdings Inc.,Financials,Regional Banks,2021-06,5
+HTLD,"Heartland Express, Inc.",Industrials,Trucking,2021-06,5
+HTZ,Hertz,Industrials,Passenger Ground Transportation,2025-06,1
+HUBG,"Hub Group, Inc.",Industrials,Air Freight & Logistics,2021-06,5
+HVT,"Haverty Furniture Companies, Inc.",Consumer Discretionary,Homefurnishing Retail,2021-06,4
+HWKN,"Hawkins, Inc.",Materials,Commodity Chemicals,2021-06,5
+HZO,"MarineMax, Inc.",Consumer Discretionary,Specialty Stores,2021-06,5
+IAC,IAC Inc.,Communication Services,Publishing,2024-06,2
+IART,Integra Lifesciences Holdings,Health Care,Health Care Equipment,2025-06,1
+IBP,"Installed Building Products, Inc.",Consumer Discretionary,Homebuilding,2021-06,5
+IBTX,"Independent Bank Group, Inc.",Financials,Regional Banks,2021-06,4
+ICHR,"Ichor Holdings, Ltd.",Information Technology,Semiconductor Equipment,2021-06,5
+ICUI,ICU Medical,Health Care,Health Care Supplies,2024-06,2
+IDCC,"InterDigital, Inc.",Information Technology,Communications Equipment,2021-06,5
+IIIN,"Insteel Industries, Inc.",Industrials,Building Products,2021-06,5
+IIPR,"Innovative Industrial Properties, Inc.",Real Estate,Industrial REITs,2021-06,5
+ILPT,Industrial Logistics Properties Trust,Real Estate,Industrial REITs,2021-06,2
+INDB,Independent Bank Corp.,Financials,Regional Banks,2021-06,5
+INGN,"Inogen, Inc.",Health Care,Health Care Equipment,2021-06,2
+INN,"Summit Hotel Properties, Inc.",Real Estate,Hotel & Resort REITs,2021-06,5
+INSP,"Inspire Medical Systems, Inc.",Health Care,Health Care Equipment,2025-06,1
+INSW,"International Seaways, Inc.",Energy,Oil & Gas Storage & Transportation,2025-06,1
+INT,World Fuel Services Corp,Energy,Oil & Gas Refining & Marketing,2022-06,2
+INVA,"Innoviva, Inc.",Health Care,Pharmaceuticals,2021-06,5
+IOSP,"Innospec, Inc.",Materials,Specialty Chemicals,2021-06,5
+IPAR,"Inter Parfums, Inc.",Consumer Staples,Personal Products,2021-06,5
+IRBT,iRobot Corporation,Consumer Discretionary,Household Appliances,2021-06,3
+IRT,"Independence Realty Trust, Inc.",Real Estate,Residential REITs,2021-06,1
+IRWD,"Ironwood Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,2022-06,3
+ISBC,"Investors Bancorp, Inc.",Financials,Regional Banks,2021-06,1
+ITGR,Integer Holdings Corporation,Health Care,Health Care Equipment,2021-06,5
+ITOS,"iTeos Therapeutics, Inc.",Health Care,Biotechnology,2022-06,2
+ITRI,"Itron, Inc.",Information Technology,Electronic Equipment & Instruments,2021-06,5
+IVC,Invacare Corporation,Health Care,Health Care Equipment,2021-06,1
+IVR,"Invesco Mortgage Capital, Inc.",Real Estate,Mortgage REITs,2021-06,3
+JACK,Jack in the Box,Consumer Discretionary,Restaurants,2022-06,4
+JBGS,JBG Smith,Real Estate,Office REITs,2023-06,3
+JBLU,JetBlue,Industrials,Passenger Airlines,2024-06,2
+JBSS,"John B. Sanfilippo & Son, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,5
+JBT,John Bean Technologies Corporation,Industrials,Industrial Machinery,2021-06,5
+JJSF,J&J Snack Foods Corp.,Consumer Staples,Packaged Foods & Meats,2021-06,5
+JOE,St. Joe Company,Real Estate,Real Estate Development,2021-06,5
+JRVR,"James River Group Holdings, Ltd.",Financials,Property & Casualty Insurance,2021-06,3
+JXN,"Jackson Financial, Inc.",Financials,Life & Health Insurance,2024-06,2
+JYNT,The Joint Corp.,Health Care,Health Care Facilities,2021-06,2
+KAI,Kadant Inc.,Industrials,Industrial Machinery & Supplies & Components,2025-06,1
+KALU,Kaiser Aluminum Corporation,Materials,Aluminum,2021-06,5
+KAMN,Kaman Corporation,Industrials,Trading Companies & Distributors,2021-06,3
+KAR,KAR Auction Services,Industrials,Diversified Support Services,2022-06,4
+KELYA,"Kelly Services, Inc.",Industrials,Human Resource & Employment Services,2021-06,4
+KFY,Korn/Ferry International,Industrials,Human Resource & Employment Services,2021-06,5
+KLG,WK Kellogg Co,Consumer Staples,Packaged Foods & Meats,2024-06,2
+KLIC,"Kulicke and Soffa Industries, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+KMT,Kennametal,Industrials,Industrial Machinery,2023-06,3
+KN,Knowles Corporation,Information Technology,Electronic Components,2021-06,5
+KOP,"Koppers Holdings, Inc.",Materials,Commodity Chemicals,2021-06,5
+KRA,Kraton Corporation,Materials,Specialty Chemicals,2021-06,1
+KREF,"KKR Real Estate Finance Trust, Inc.",Financials,Mortgage REITs,2021-06,5
+KRG,Kite Realty Group Trust,Real Estate,Retail REITs,2021-06,1
+KRYS,"Krystal Biotech, Inc.",Health Care,Biotechnology,2025-06,1
+KSS,Kohl's Corp.,Consumer Discretionary,Broadline Retail,2024-06,2
+KTB,Kontoor Brands,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,5
+KTOS,Kratos Defense & Security Solutions,Industrials,Aerospace & Defense,2025-06,1
+KW,"Kennedy-Wilson Holdings, Inc.",Real Estate,Real Estate Services,2023-06,3
+KWR,Quaker Chemical Corporation,Materials,Specialty Chemicals,2021-06,5
+LBRT,"Liberty Energy, Inc.",Energy,Oil & Gas Equipment & Services,2024-06,2
+LCII,LCI Industries,Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+LDL,"Lydall, Inc.",Industrials,Industrial Machinery,2021-06,1
+LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,2025-06,1
+LESL,"Leslie's, Inc.",Consumer Discretionary,Home Improvement Retail,2023-06,2
+LGIH,LGI Homes,Consumer Discretionary,Homebuilding,2021-06,5
+LGND,"Ligand Pharmaceuticals, Inc.",Health Care,Biotechnology,2022-06,4
+LKFN,Lakeland Financial,Financials,Diversified Banks,2022-06,4
+LL,LL Flooring,Consumer Discretionary,Home Improvement Retail,2021-06,2
+LMAT,LeMaitre Vascular,Health Care,Health Care Equipment,2021-06,5
+LMNX,Luminex Corporation,Health Care,Life Sciences Tools & Services,2021-06,1
+LNC,Lincoln Financial,Financials,Multi-line Insurance,2024-06,2
+LNN,Lindsay Corporation,Materials,Agricultural & Farm Machinery,2021-06,5
+LNTH,"Lantheus Holdings, Inc.",Health Care,Health Care Supplies,2021-06,2
+LOCO,"El Pollo Loco Holdings, Inc.",Consumer Discretionary,Restaurants,2021-06,3
+LPG,Dorian LPG Ltd.,Energy,Oil & Gas Storage & Transportation,2021-06,5
+LPI,"Laredo Petroleum, Inc.",Energy,Oil & Gas Exploration & Production,2021-06,3
+LPSN,"LivePerson, Inc.",Financials,Application Software,2021-06,2
+LQDT,"Liquidity Services, Inc.",Consumer Discretionary,Specialized Consumer Services,2021-06,5
+LRN,"Stride, Inc.",Consumer Discretionary,Education Services,2023-06,3
+LTC,"LTC Properties, Inc.",Real Estate,Health Care REITs,2021-06,5
+LTHM,Livent Corp.,Materials,Diversified Chemicals,2021-06,3
+LUMN,Lumen Technologies,Communication Services,Alternative Carriers,2023-06,3
+LXP,Lexington Realty Trust,Real Estate,Diversified REITs,2021-06,5
+LYLT,Loyalty Ventures,Communication Services,Advertising,2022-06,1
+LZB,"La-Z-Boy, Inc.",Consumer Discretionary,Home Furnishings,2021-06,5
+M,"Macy's, Inc.",Consumer Discretionary,Department Stores,2021-06,1
+MAC,Macerich,Real Estate,Retail REITs,2023-06,3
+MANT,ManTech International Corporation,Industrials,Diversified Support Services,2021-06,2
+MARA,"Marathon Digital Holdings, Inc.",Information Technology,IT Consulting & Other Services,2024-06,2
+MATV,"Mativ Holdings, Inc.",Materials,Specialty Chemicals,2024-06,1
+MATW,Matthews International Corporation,Industrials,Diversified Support Services,2021-06,5
+MATX,"Matson, Inc.",Industrials,Marine,2021-06,5
+MBC,"MasterBrand, Inc.",Industrials,Building Products,2023-06,3
+MC,Moelis & Company,Financials,Investment Banking & Brokerage,2023-06,3
+MCRI,"Monarch Casino & Resort, Inc.",Consumer Discretionary,Casinos & Gaming,2021-06,5
+MCS,The Marcus Corporation,Consumer Discretionary,Movies & Entertainment,2021-06,4
+MCW,"Mister Car Wash, Inc.",Consumer Discretionary,Specialized Consumer Services,2023-06,3
+MCY,Mercury General,Financials,Property & Casualty Insurance,2023-06,3
+MD,Mednax,Health Care,Health Care Services,2021-06,5
+MDC,"M.D.C. Holdings, Inc.",Consumer Discretionary,Homebuilding,2021-06,3
+MDP,Meredith Corporation,Consumer Discretionary,Publishing,2021-06,1
+MDRX,"Allscripts Healthcare Solutions, Inc.",Health Care,Health Care Technology,2021-06,3
+MDU,"MDU Resources Group, Inc.",Utilities,Multi-Utilities,2025-06,1
+MED,"Medifast, Inc.",Consumer Staples,Personal Products,2021-06,4
+MEI,"Methode Electronics, Inc.",Information Technology,Electronic Manufacturing Services,2021-06,4
+MERC,"Mercer International, Inc.",Materials,Forest Products,2021-06,4
+MGEE,"MGE Energy, Inc.",Utilities,Electric Utilities,2024-06,2
+MGLN,"Magellan Health, Inc.",Health Care,Managed Health Care,2021-06,1
+MGPI,"MGP Ingredients, Inc.",Consumer Staples,Distillers & Vintners,2021-06,5
+MGY,"Magnolia Oil & Gas, Corp.",Energy,Oil & Gas Exploration & Production,2024-06,2
+MHO,"M/I Homes, Inc.",Consumer Discretionary,Homebuilding,2021-06,5
+MLAB,Mesa Laboratories Inc,Health Care,Health Care Equipment,2021-06,5
+MLI,"Mueller Industries, Inc.",Industrials,Industrial Machinery,2021-06,4
+MLKN,"MillerKnoll, Inc.",Industrials,Office Services & Supplies,2023-06,3
+MMI,"Marcus & Millichap, Inc.",Real Estate,Real Estate Services,2021-06,5
+MMSI,"Merit Medical Systems, Inc.",Health Care,Health Care Supplies,2021-06,5
+MNRO,"Monro, Inc.",Consumer Discretionary,Automotive Retail,2021-06,5
+MODG,Topgolf Callaway Brands,Consumer Discretionary,Leisure Products,2024-06,2
+MODV,"Modivcare, Inc.",Health Care,Health Care Facilities,2021-06,3
+MOG-A,Moog Inc.,Industrials,Aerospace & Defense,2021-06,5
+MOV,"Movado Group, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,4
+MP,MP Materials,Materials,Diversified Metals & Mining,2025-06,1
+MPAA,"Motorcar Parts of America, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,2
+MPW,Medical Properties Trust,Real Estate,Health Care REITs,2024-06,2
+MRCY,Mercury Systems,Industrials,Electrical Components & Equipment,2024-06,2
+MRP,"Millrose Properties, Inc.",Real Estate,Single-Family Residential REITs,2025-06,1
+MRTN,Marten Transport Ltd,Industrials,Trucking,2021-06,5
+MSEX,Middlesex Water Company,Utilities,Water Utilities,2022-06,4
+MSGS,Madison Square Garden Sports Corp.,Communication Services,Movies & Entertainment,2024-06,2
+MSTR,"MicroStrategy, Inc.",Information Technology,Application Software,2021-06,1
+MTDR,Matador Resources,Energy,Oil & Gas Exploration & Production,2021-06,1
+MTH,Meritage Homes Corporation,Consumer Discretionary,Homebuilding,2021-06,5
+MTOR,"Meritor, Inc.",Industrials,Industrial Machinery,2021-06,2
+MTRN,Materion Corp.,Materials,Diversified Metals & Mining,2021-06,5
+MTRX,Matrix Service Company,Industrials,Construction & Engineering,2021-06,1
+MTUS,Metallus Inc,Materials,Steel,2024-06,2
+MTX,Minerals Technologies,Materials,Specialty Chemicals,2023-06,3
+MWA,Mueller Water Products,Industrials,Industrial Machinery & Supplies & Components,2025-06,1
+MXL,"MaxLinear, Inc.",Information Technology,Semiconductors,2021-06,5
+MYE,"Myers Industries, Inc.",Materials,Metal & Glass Containers,2021-06,4
+MYGN,"Myriad Genetics, Inc.",Health Care,Biotechnology,2021-06,5
+MYRG,"MYR Group, Inc.",Industrials,Construction & Engineering,2021-06,5
+NABL,"N-able, Inc.",Information Technology,Systems Software,2023-06,3
+NARI,Inari Medical,Health Care,Health Care Equipment,2024-06,1
+NATL,NCR Atleos,Financials,Transaction & Payment Processing Services,2024-06,2
+NAVI,Navient,Financials,Consumer Finance,2023-06,3
+NBHC,National Bank Holdings Corporation,Financials,Regional Banks,2021-06,5
+NBR,"Nabors Industries, Ltd.",Energy,Oil & Gas Drilling,2021-06,4
+NBTB,"NBT Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+NEO,"NeoGenomics Laboratories, Inc.",Health Care,Health Care Services,2021-06,5
+NEOG,Neogen,Health Care,Health Care Supplies,2025-06,1
+NEX,"NexTier Oilfield Solutions, Inc.",Energy,Oil & Gas Equipment & Services,2023-06,1
+NFBK,"Northfield Bancorp, Inc. (Staten Island, NY)",Financials,Thrifts & Mortgage Finance,2021-06,4
+NGVT,"Ingevity, Corp.",Materials,Specialty Chemicals,2023-06,3
+NHC,"National Healthcare, Corp.",Health Care,Health Care Facilities,2024-06,2
+NKTR,Nektar Therapeutics,Health Care,Biotechnology,2022-06,1
+NMIH,"NMI Holdings, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+NOG,"Northern Oil and Gas, Inc.",Energy,Oil & Gas Exploration & Production,2023-06,3
+NP,"Neenah, Inc.",Materials,Paper Products,2021-06,2
+NPK,"National Presto Industries, Inc.",Industrials,Aerospace & Defense,2021-06,5
+NPO,"EnPro Industries, Inc.",Industrials,Industrial Machinery,2021-06,5
+NSIT,"Insight Enterprises, Inc.",Industrials,Technology Distributors,2021-06,5
+NTCT,"NETSCOUT Systems, Inc.",Information Technology,Communications Equipment,2022-06,4
+NTGR,"Netgear, Inc.",Information Technology,Communications Equipment,2021-06,3
+NTUS,"Natus Medical, Inc.",Health Care,Health Care Equipment,2021-06,2
+NUS,Nu Skin Enterprises,Consumer Staples,Personal Products,2023-06,2
+NUVA,"NuVasive, Inc.",Health Care,Health Care Equipment,2023-06,1
+NVEE,NV5 Global,Industrials,Construction & Engineering,2022-06,4
+NVRI,Enviri Corporation,Industrials,Industrial Machinery,2024-06,2
+NWBI,"Northwest Bancshares, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+NWL,Newell Brands,Consumer Discretionary,Housewares & Specialties,2024-06,2
+NWN,NW Natural,Utilities,Gas Utilities,2021-06,5
+NX,Quanex Building Products Corporation,Industrials,Building Products,2021-06,5
+NXGN,"NextGen Healthcare, Inc.",Health Care,Health Care Technology,2021-06,3
+NXRT,"NexPoint Residential Trust, Inc.",Real Estate,Residential REITs,2021-06,5
+NYMT,"New York Mortgage Trust, Inc.",Real Estate,Mortgage REITs,2021-06,5
+ODP,The ODP Corporation,Consumer Discretionary,Specialty Stores,2021-06,4
+OFG,OFG Bancorp,Financials,Regional Banks,2021-06,5
+OFIX,"Orthofix Medical, Inc.",Health Care,Health Care Equipment,2021-06,3
+OGN,Organon & Co.,Health Care,Pharmaceuticals,2024-06,2
+OI,"O-I Glass, Inc.",Materials,Metal & Glass Containers,2021-06,5
+OII,"Oceaneering International, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,5
+OIS,"Oil States International, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,3
+OMCL,"Omnicell, Inc.",Health Care,Health Care Technology,2021-06,4
+OMI,"Owens & Minor, Inc.",Health Care,Health Care Distributors,2021-06,5
+ONB,Old National Bancorp,Financials,Regional Banks,2021-06,1
+ONL,"Orion Office REIT, Inc.",Real Estate,Office REITs,2022-06,2
+ONTO,"Onto Innovation, Inc.",Information Technology,Semiconductor Equipment,2021-06,3
+OPI,Office Properties Income Trust,Real Estate,Office REITs,2021-06,3
+OPRX,OptimizeRx Corp.,Health Care,Health Care Technology,2022-06,1
+ORGO,Organogenesis Holdings Inc.,Health Care,Biotechnology,2021-06,2
+OSIS,"OSI Systems, Inc.",Information Technology,Electronic Equipment & Instruments,2021-06,5
+OSPN,"OneSpan, Inc.",Information Technology,Systems Software,2021-06,3
+OSUR,"OraSure Technologies, Inc.",Health Care,Health Care Supplies,2021-06,4
+OTTR,Otter Tail Corporation,Utilities,Electric Utilities,2023-06,3
+OUT,Outfront Media,Real Estate,Specialized REITs,2023-06,3
+OXM,"Oxford Industries, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,5
+PACW,PacWest Bancorp,Financials,Regional Banks,2023-06,1
+PAHC,Phibro Animal Health Corp.,Health Care,Pharmaceuticals,2021-06,5
+PARR,"Par Pacific Holdings, Inc.",Energy,Oil & Gas Refining & Marketing,2021-06,5
+PATK,"Patrick Industries, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+PAYO,Payoneer Global Inc.,Information Technology,Data Processing & Outsourced Services,2023-06,3
+PBF,"PBF Energy, Inc.",Energy,Oil & Gas Refining & Marketing,2021-06,2
+PBH,Prestige Consumer Healthcare,Health Care,Pharmaceuticals,2021-06,5
+PBI,"Pitney Bowes, Inc.",Industrials,Office Services & Supplies,2021-06,5
+PCRX,"Pacira BioSciences, Inc.",Health Care,Pharmaceuticals,2021-06,5
+PDCE,"PDC Energy, Inc.",Energy,Oil & Gas Exploration & Production,2021-06,1
+PDCO,Patterson Companies,Health Care,Health Care Distributors,2024-06,1
+PDFS,"PDF Solutions, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+PEB,Pebblebrook Hotel Trust,Real Estate,Hotel & Resort REITs,2023-06,3
+PECO,Phillips Edison & Company,Real Estate,Retail REITs,2023-06,3
+PENN,Penn Entertainment,Consumer Discretionary,Casinos & Gaming,2025-06,1
+PETS,"PetMed Express, Inc.",Consumer Discretionary,Internet & Direct Marketing Retail,2021-06,2
+PFBC,Preferred Bank,Financials,Regional Banks,2021-06,5
+PFS,"Provident Financial Services, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+PGNY,Progyny,Health Care,Health Care Services,2025-06,1
+PGTI,"PGT Innovations, Inc.",Industrials,Building Products,2021-06,3
+PHIN,"PHINIA, Inc.",Consumer Discretionary,Automotive Retail,2024-06,2
+PI,"Impinj, Inc.",Information Technology,Electronic Equipment & Instruments,2025-06,1
+PINC,"Premier, Inc.",Health Care,Health Care Services,2024-06,2
+PIPR,Piper Sandler Companies,Financials,Investment Banking & Brokerage,2021-06,5
+PJT,"PJT Partners, Inc.",Financials,Investment Banking & Brokerage,2024-06,2
+PKE,Park Electrochemical Corp.,Industrials,Electrical Components & Equipment,2021-06,2
+PLAB,"Photronics, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+PLAY,"Dave & Buster's Entertainment, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+PLCE,"The Children's Place, Inc.",Consumer Discretionary,Apparel Retail,2021-06,2
+PLMR,"Palomar Holdings, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+PLUS,"ePlus, Inc.",Information Technology,Technology Distributors,2021-06,5
+PLXS,Plexus Corp.,Information Technology,Electronic Manufacturing Services,2021-06,5
+PMT,PennyMac Mortgage Investment Trust,Real Estate,Mortgage REITs,2021-06,5
+PNTG,"Pennant Group, Inc.",Health Care,Health Care Services,2021-06,2
+POLY,"Plantronics, Inc.",Information Technology,Communications Equipment,2021-06,2
+POWI,"Power Integrations, Inc.",Information Technology,Semiconductors,2021-06,1
+POWL,"Powell Industries, Inc.",Industrials,Electrical Components & Equipment,2021-06,5
+PPBI,"Pacific Premier Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+PRA,ProAssurance Corporation,Financials,Property & Casualty Insurance,2021-06,5
+PRAA,"PRA Group, Inc.",Financials,Consumer Finance,2021-06,5
+PRDO,Perdoceo Education Corp.,Consumer Discretionary,Education Services,2021-06,5
+PRFT,"Perficient, Inc.",Information Technology,IT Consulting & Other Services,2021-06,4
+PRG,"PROG Holdings, Inc.",Financials,Consumer Finance,2022-06,4
+PRGS,Progress Software Corporation,Information Technology,Systems Software,2021-06,5
+PRK,Park National Corp.,Financials,Diversified Banks,2021-06,5
+PRLB,Protolabs,Industrials,Industrial Machinery,2021-06,5
+PRVA,"Privia Health Group, Inc.",Health Care,Health Care Services,2023-06,3
+PSMT,PriceSmart,Consumer Staples,Hypermarkets & Super Centers,2021-06,5
+PTEN,"Patterson-UTI Energy, Inc.",Energy,Oil & Gas Drilling,2021-06,5
+PTGX,"Protagonist Therapeutics, Inc.",Health Care,Biotechnology,2025-06,1
+PUMP,ProPetro Holding Corp.,Energy,Oil & Gas Equipment & Services,2021-06,5
+PVAC,Penn Virginia Corporation,Energy,Oil & Gas Exploration & Production,2021-06,1
+PZZA,Papa John's Pizza,Consumer Discretionary,Restaurants,2024-06,2
+QDEL,QuidelOrtho,Health Care,Health Care Supplies,2025-06,1
+QNST,"QuinStreet, Inc.",Communication Services,Interactive Media & Services,2021-06,5
+QRVO,Qorvo,Information Technology,Semiconductors,2025-06,1
+QURE,uniQure N.V.,Health Care,Biotechnology,2022-06,2
+RAMP,"LiveRamp Holdings, Inc.",Information Technology,Application Software,2022-06,4
+RAVN,"Raven Industries, Inc.",Industrials,Industrial Conglomerates,2021-06,1
+RC,Ready Capital Corp,Financials,Mortgage REITs,2021-06,5
+RCII,"Rent-A-Center, Inc.",Consumer Discretionary,Computer & Electronics Retail,2021-06,3
+RCUS,"Arcus Biosciences, Inc.",Health Care,Biotechnology,2022-06,4
+RDN,"Radian Group, Inc.",Financials,Property & Casualty Insurance,2023-06,3
+RDNT,"RadNet, Inc.",Health Care,Health Care Services,2021-06,5
+REGI,"Renewable Energy Group, Inc.",Energy,Oil & Gas Refining & Marketing,2021-06,1
+RES,"RPC, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,5
+REX,REX American Resources Corporation,Energy,Oil & Gas Refining & Marketing,2021-06,5
+REZI,"Resideo Technologies, Inc.",Industrials,Trading Companies & Distributors,2021-06,5
+RGNX,REGENXBIO Inc.,Health Care,Biotechnology,2021-06,4
+RGP,"Resources Connection, Inc.",Industrials,Research & Consulting Services,2021-06,4
+RGR,"Sturm, Ruger & Company, Inc.",Consumer Discretionary,Leisure Products,2021-06,5
+RGS,Regis Corporation,Consumer Discretionary,Specialized Consumer Services,2021-06,1
+RHI,Robert Half,Industrials,Human Resource & Employment Services,2025-06,1
+RHP,Ryman Hospitality Properties,Real Estate,Hotel & Resort REITs,2025-06,1
+RILY,B. Riley Financial,Financials,Asset Management & Custody Banks,2021-06,4
+RLGY,Realogy Holdings Corp.,Real Estate,Real Estate Services,2021-06,2
+RMAX,"RE/MAX Holdings, Inc.",Real Estate,Real Estate Services,2021-06,3
+RMBS,"Rambus, Inc.",Information Technology,Semiconductors,2021-06,3
+RNST,Renasant Corp.,Financials,Regional Banks,2021-06,5
+ROCC,Ranger Oil Corporation,Energy,Oil & Gas Exploration & Production,2022-06,1
+ROCK,"Gibraltar Industries, Inc.",Industrials,Building Products,2021-06,5
+ROG,Rogers Corporation,Information Technology,Electronic Components,2021-06,5
+ROIC,Retail Opportunity Investments Corp.,Real Estate,Retail REITs,2021-06,4
+RPAI,"Retail Properties of America, Inc.",Real Estate,Retail REITs,2021-06,1
+RPT,Ramco-Gershenson Properties Trust,Real Estate,Retail REITs,2021-06,3
+RRC,Range Resources,Energy,Oil & Gas Exploration & Production,2021-06,1
+RRGB,"Red Robin Gourmet Burgers, Inc.",Consumer Discretionary,Restaurants,2021-06,1
+RUN,Sunrun,Industrials,Building Products,2024-06,2
+RUSHA,Rush Enterprises,Industrials,Construction Machinery & Heavy Transportation Equipment,2024-06,2
+RUTH,Ruth's Hospitality Group,Consumer Discretionary,Restaurants,2021-06,2
+RWT,"Redwood Trust, Inc.",Real Estate,Mortgage REITs,2021-06,5
+RXO,"RXO, Inc.",Industrials,Trucking,2023-06,3
+RYAM,"Rayonier Advanced Materials, Inc.",Materials,Specialty Chemicals,2021-06,2
+SABR,Sabre,Information Technology,Data Processing & Outsourced Services,2023-06,3
+SAFE,"Safehold, Inc.",Real Estate,Specialized REITs,2021-06,5
+SAFT,"Safety Insurance Group, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+SAH,"Sonic Automotive, Inc.",Consumer Discretionary,Automotive Retail,2021-06,5
+SAIA,"Saia, Inc.",Industrials,Trucking,2021-06,1
+SANM,Sanmina Corporation,Information Technology,Electronic Manufacturing Services,2021-06,5
+SATS,EchoStar Corporation,Communication Services,Wireless Telecommunication Services,2024-06,1
+SBCF,Seacoast Banking Corporation of Florida,Financials,Regional Banks,2021-06,5
+SBH,"Sally Beauty Holdings, Inc.",Consumer Discretionary,Specialty Stores,2021-06,5
+SBSI,"Southside Bancshares, Inc.",Financials,Regional Banks,2021-06,5
+SCHL,Scholastic Corporation,Consumer Discretionary,Publishing,2021-06,5
+SCL,Stepan Company,Materials,Specialty Chemicals,2021-06,5
+SCSC,"ScanSource, Inc.",Information Technology,Technology Distributors,2021-06,5
+SCVL,"Shoe Carnival, Inc.",Consumer Discretionary,Apparel Retail,2021-06,5
+SDGR,"Schrödinger, Inc.",Health Care,Health Care Services,2023-06,3
+SEDG,SolarEdge,Information Technology,Semiconductor Materials & Equipment,2024-06,2
+SEE,Sealed Air,Materials,Paper & Plastic Packaging Products & Materials,2024-06,2
+SEM,Select Medical Holdings Corporation,Health Care,Health Care Facilities,2021-06,5
+SENEA,Seneca Foods Corporation,Consumer Staples,Packaged Foods & Meats,2021-06,3
+SFBS,"ServisFirst Bancshares, Inc.",Financials,Regional Banks,2021-06,5
+SFNC,Simmons First National Corporation,Financials,Regional Banks,2021-06,5
+SGH,"SMART Global Holdings, Inc.",Information Technology,Semiconductors,2021-06,5
+SHAK,"Shake Shack, Inc.",Consumer Discretionary,Restaurants,2021-06,5
+SHEN,Shenandoah Telecommunications Co,Communication Services,Wireless Telecommunication Services,2021-06,5
+SHO,"Sunstone Hotel Investors, Inc.",Real Estate,Hotel & Resort REITs,2023-06,3
+SHOO,"Steven Madden, Ltd.",Consumer Discretionary,Footwear,2021-06,5
+SIG,Signet Jewelers,Consumer Discretionary,Specialty Stores,2021-06,5
+SITC,SITE Centers Corp.,Real Estate,Retail REITs,2021-06,5
+SITM,SiTime,Information Technology,Semiconductors,2023-06,3
+SIX,Six Flags,Consumer Discretionary,Leisure Facilities,2023-06,2
+SJI,"South Jersey Industries, Inc.",Utilities,Gas Utilities,2021-06,2
+SJW,SJW Group,Utilities,Water Utilities,2023-06,3
+SKT,"Tanger Factory Outlet Centers, Inc.",Real Estate,Retail REITs,2021-06,5
+SKY,"Champion Homes, Inc.",Consumer Discretionary,Homebuilding,2025-06,1
+SKYW,"SkyWest, Inc.",Industrials,Airlines,2021-06,5
+SLCA,"U.S. Silica Holdings, Inc.",Energy,Oil & Gas Equipment & Services,2021-06,4
+SLG,SL Green Realty,Real Estate,Office REITs,2023-06,3
+SLP,"Simulations Plus, Inc.",Health Care,Health Care Technology,2021-06,5
+SLQT,"SelectQuote, Inc.",Financials,Insurance Brokers,2021-06,2
+SLVM,Sylvamo Corp.,Materials,Paper Products,2022-06,4
+SM,SM Energy Company,Energy,Oil & Gas Exploration & Production,2021-06,5
+SMP,"Standard Motor Products, Inc.",Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+SMPL,Simply Good Foods Company,Consumer Staples,Packaged Foods & Meats,2021-06,5
+SMTC,Semtech,Information Technology,Semiconductors,2023-06,3
+SNBR,Sleep Number Corporation,Consumer Discretionary,Homefurnishing Retail,2021-06,3
+SNCY,Sun Country Airlines,Industrials,Airlines,2023-06,3
+SNDK,SanDisk,Information Technology,"Technology Hardware, Storage & Peripherals",2025-06,1
+SNDR,Schneider National,Industrials,Cargo Ground Transportation,2025-06,1
+SNEX,StoneX Group Inc.,Financials,Investment Banking & Brokerage,2021-06,5
+SONO,"Sonos, Inc.",Consumer Discretionary,Consumer Electronics,2022-06,4
+SPNT,Third Point Reinsurance Ltd.,Financials,Reinsurance,2022-06,4
+SPOK,"Spok Holdings, Inc.",Communication Services,Wireless Telecommunication Services,2021-06,1
+SPPI,"Spectrum Pharmaceuticals, Inc.",Health Care,Biotechnology,2021-06,1
+SPSC,"SPS Commerce, Inc.",Information Technology,Application Software,2021-06,5
+SPTN,SpartanNash Company,Consumer Staples,Food Distributors,2021-06,5
+SPWR,SunPower,Industrials,Electrical Components & Equipment,2023-06,2
+SPXC,SPX Corporation,Industrials,Industrial Machinery,2021-06,5
+SRDX,"Surmodics, Inc.",Health Care,Health Care Equipment,2021-06,2
+SSP,The E.W. Scripps Company,Consumer Discretionary,Broadcasting,2021-06,3
+SSTK,"Shutterstock, Inc.",Consumer Discretionary,Specialized Consumer Services,2021-06,5
+STAA,STAAR Surgical Company,Health Care,Health Care Equipment,2024-06,2
+STAR,"iStar, Inc.",Real Estate,Diversified REITs,2021-06,2
+STBA,"S&T Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+STC,Stewart Information Services Corporation,Financials,Property & Casualty Insurance,2021-06,5
+STEL,"Stellar Bancorp, Inc.",Financials,Regional Banks,2023-06,3
+STEP,StepStone Group,Financials,Asset Management & Custody Banks,2025-06,1
+STMP,"Stamps.com, Inc.",Consumer Discretionary,Specialized Consumer Services,2021-06,1
+STRA,"Strategic Education, Inc.",Consumer Discretionary,Education Services,2022-06,4
+STRL,"Sterling Infrastructure, Inc.",Industrials,Construction & Engineering,2025-06,1
+SUPN,"Supernus Pharmaceuticals, Inc.",Health Care,Pharmaceuticals,2021-06,5
+SVC,Service Properties Trust,Real Estate,Specialized REITs,2021-06,4
+SWM,"Schweitzer-Mauduit International, Inc.",Materials,Paper Products,2021-06,3
+SWN,Southwestern Energy Co.,Energy,Oil & Gas Exploration & Production,2021-06,2
+SXC,"SunCoke Energy, Inc.",Materials,Steel,2021-06,5
+SXI,Standex International Corporation,Industrials,Industrial Machinery,2021-06,5
+SXT,Sensient Technologies,Materials,Specialty Chemicals,2024-06,2
+SYKE,"Sykes Enterprises, Inc.",Information Technology,Data Processing & Outsourced Services,2021-06,1
+TALO,"Talos Energy, Inc.",Energy,Oil & Gas Exploration & Production,2021-06,5
+TBBK,"The Bancorp, Inc.",Financials,Regional Banks,2021-06,5
+TBI,"TrueBlue, Inc.",Industrials,Human Resource & Employment Services,2021-06,3
+TBK,"Triumph Bancorp, Inc.",Financials,Regional Banks,2021-06,3
+TCMD,"Tactile Systems Technology, Inc.",Health Care,Health Care Equipment,2021-06,1
+TDC,Teradata,Information Technology,IT Consulting & Other Services,2025-06,1
+TDS,"Telephone and Data Systems, Inc.",Communication Services,Integrated Telecommunication Services,2022-06,4
+TDW,"Tidewater, Inc.",Energy,Oil & Gas Equipment & Services,2025-06,1
+TFIN,"Triumph Bancorp, Inc.",Financials,Regional Banks,2024-06,2
+TFX,Teleflex,Health Care,Health Care Equipment,2025-06,1
+TG,Tredegar Corporation,Materials,Commodity Chemicals,2021-06,2
+TGI,"Triumph Group, Inc.",Industrials,Aerospace & Defense,2021-06,5
+TGNA,Tegna,Communication Services,Broadcasting,2025-06,1
+TGTX,"TG Therapeutics, Inc.",Health Care,Biotechnology,2025-06,1
+THRM,Gentherm Incorporated,Consumer Discretionary,Auto Parts & Equipment,2021-06,5
+THRY,"Thryv Holdings, Inc.",Communication Services,Interactive Media & Services,2022-06,4
+THS,"TreeHouse Foods, Inc.",Consumer Staples,Packaged Foods & Meats,2022-06,4
+TILE,"Interface, Inc.",Industrials,Office Services & Supplies,2021-06,5
+TISI,"Team, Inc.",Industrials,Environmental & Facilities Services,2021-06,1
+TMDX,"TransMedics Group, Inc.",Health Care,Health Care Equipment,2025-06,1
+TMP,Tompkins Financial Corporation,Financials,Regional Banks,2021-06,5
+TMST,TimkenSteel Corporation,Materials,Steel,2021-06,3
+TNC,Tennant Company,Industrials,Industrial Machinery,2021-06,5
+TNDM,Tandem Diabetes Care,Health Care,Health Care Equipment,2023-06,3
+TPH,"Tri Pointe Homes, Inc.",Consumer Discretionary,Homebuilding,2022-06,4
+TPRE,Third Point Reinsurance Ltd.,Financials,Reinsurance,2021-06,1
+TR,"Tootsie Roll Industries, Inc.",Consumer Staples,Packaged Foods & Meats,2022-06,4
+TREE,LendingTree,Financials,Thrifts & Mortgage Finance,2022-06,1
+TRHC,"Tabula Rasa HealthCare, Inc.",Health Care,Health Care Services,2021-06,1
+TRIP,TripAdvisor,Communication Services,Interactive Media & Services,2024-06,2
+TRMK,Trustmark Corp.,Financials,Regional Banks,2022-06,4
+TRN,"Trinity Industries, Inc.",Industrials,Construction Machinery & Heavy Trucks,2022-06,4
+TRNO,Terreno Realty Corporation,Real Estate,Industrial REITs,2025-06,1
+TRST,TrustCo Bank Corp NY,Financials,Thrifts & Mortgage Finance,2021-06,5
+TRUP,Trupanion,Financials,Life & Health Insurance,2021-06,5
+TSE,Trinseo,Materials,Specialty Chemicals,2021-06,3
+TTEC,"TTEC Holdings, Inc.",Information Technology,Data Processing & Outsourced Services,2021-06,4
+TTGT,TechTarget,Communication Services,Interactive Media & Services,2021-06,5
+TTMI,"TTM Technologies, Inc.",Information Technology,Electronic Manufacturing Services,2021-06,5
+TUP,Tupperware Brands Corp.,Consumer Discretionary,Housewares & Specialties,2021-06,2
+TVTY,Tivity Health,Health Care,Health Care Services,2021-06,2
+TWI,"Titan International, Inc.",Materials,Agricultural & Farm Machinery,2021-06,5
+TWNK,Hostess Brands,Consumer Staples,Packaged Foods & Meats,2022-06,2
+TWO,Two Harbors Investment Corp.,Financials,Mortgage REITs,2021-06,5
+UBA,"Urstadt Biddle Properties, Inc.",Real Estate,Retail REITs,2021-06,3
+UCBI,"United Community Banks, Inc.",Financials,Regional Banks,2021-06,5
+UCTT,"Ultra Clean Holdings, Inc.",Information Technology,Semiconductor Equipment,2021-06,5
+UE,Urban Edge Properties,Real Estate,Retail REITs,2022-06,4
+UEIC,Universal Electronics Inc.,Consumer Discretionary,Consumer Electronics,2021-06,2
+UFCS,"United Fire Group, Inc.",Financials,Property & Casualty Insurance,2021-06,5
+UFI,"Unifi, Inc.",Consumer Discretionary,Textiles,2021-06,2
+UFPI,"Universal Forest Products, Inc.",Industrials,Building Products,2021-06,2
+UFPT,"UFP Technologies, Inc.",Health Care,Health Care Equipment,2023-06,3
+UFS,Domtar Corp.,Materials,Paper Products,2021-06,1
+UHT,Universal Health Realty Income Trust,Real Estate,Health Care REITs,2021-06,5
+UIHC,United Insurance Holdings Corp.,Financials,Property & Casualty Insurance,2021-06,1
+UIS,Unisys Corp.,Information Technology,IT Consulting & Other Services,2021-06,2
+UNF,UniFirst Corporation,Industrials,Diversified Support Services,2021-06,5
+UNFI,United Natural Foods Inc,Consumer Staples,Food Retail,2021-06,5
+UNIT,Uniti Group,Real Estate,Specialized REITs,2021-06,5
+UPBD,"Upbound Group, Inc.",Consumer Discretionary,Computer & Electronics Retail,2024-06,2
+URBN,"Urban Outfitters, Inc.",Consumer Discretionary,Apparel Retail,2022-06,4
+USCR,"U.S. Concrete, Inc.",Materials,Construction Materials,2021-06,1
+USNA,"Usana Health Sciences, Inc.",Consumer Staples,Packaged Foods & Meats,2021-06,5
+USPH,"U.S. Physical Therapy, Inc.",Health Care,Health Care Facilities,2021-06,5
+UTL,Unitil Corporation,Utilities,Electric Utilities,2021-06,5
+UVE,"Universal Insurance Holdings, Inc.",Financials,Property & Casualty Insurance,2021-06,3
+UVV,Universal Corporation,Consumer Staples,Tobacco,2021-06,5
+VBTX,"Veritex Holdings, Inc.",Financials,Regional Banks,2021-06,5
+VCEL,Vericel,Health Care,Biotechnology,2021-06,5
+VECO,Veeco Instruments Inc.,Information Technology,Semiconductor Equipment,2021-06,5
+VFC,VF Corporation,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2024-06,1
+VG,Vonage Holdings Corp.,Communication Services,Alternative Carriers,2021-06,2
+VGR,Vector Group,Consumer Staples,Tobacco,2021-06,4
+VIAV,VIAVI Solutions,Information Technology,Communications Equipment,2021-06,5
+VICR,Vicor Corporation,Industrials,Electrical Components & Equipment,2021-06,3
+VIR,"Vir Biotechnology, Inc.",Health Care,Biotechnology,2022-06,4
+VIRT,"Virtu Financial, Inc.",Financials,Financial Exchanges & Data,2025-06,1
+VIVO,"Meridian Bioscience, Inc.",Health Care,Health Care Supplies,2021-06,2
+VNDA,Vanda Pharmaceuticals Inc.,Health Care,Pharmaceuticals,2021-06,3
+VRA,"Vera Bradley Sales, LLC",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",2021-06,1
+VRE,"Veris Residential, Inc.",Real Estate,Office REITs,2022-06,4
+VREX,Varex Imaging Corporation,Health Care,Health Care Equipment,2021-06,4
+VRRM,Verra Mobility Corporation,Information Technology,Data Processing & Outsourced Services,2023-06,3
+VRTS,"Virtus Investment Partners, Inc.",Financials,Asset Management & Custody Banks,2021-06,5
+VRTV,Veritiv Corporation,Industrials,Trading Companies & Distributors,2021-06,3
+VSAT,"Viasat, Inc.",Information Technology,Communications Equipment,2023-06,3
+VSCO,Victoria's Secret,Consumer Discretionary,Apparel Retail,2023-06,3
+VSH,Vishay Intertechnology,Information Technology,Electronic Components,2025-06,1
+VSTO,Vista Outdoor Inc.,Consumer Discretionary,Leisure Products,2021-06,4
+VSTS,Vestis,Industrials,Diversified Support Services,2024-06,2
+VTLE,"Vital Energy, Inc.",Energy,Oil & Gas Exploration & Production,2024-06,2
+VTOL,Bristow Group Inc.,Energy,Oil & Gas Equipment & Services,2021-06,5
+VVI,Viad Corp,Industrials,Diversified Support Services,2021-06,5
+VYX,NCR Voyix,Information Technology,IT Consulting & Other Services,2024-06,2
+WABC,Westamerica Bancorporation,Financials,Regional Banks,2021-06,5
+WAFD,Washington Federal,Financials,Thrifts & Mortgage Finance,2023-06,3
+WD,"Walker & Dunlop, Inc.",Financials,Thrifts & Mortgage Finance,2021-06,5
+WDFC,WD-40 Company,Consumer Staples,Household Products,2021-06,5
+WERN,Werner Enterprises,Industrials,Cargo Ground Transportation,2025-06,1
+WETF,"WisdomTree Investments, Inc.",Financials,Asset Management & Custody Banks,2021-06,3
+WGO,"Winnebago Industries, Inc.",Consumer Discretionary,Automobile Manufacturers,2021-06,5
+WHD,"Cactus, Inc.",Energy,Oil & Gas Equipment & Services,2025-06,1
+WIRE,Encore Wire Corporation,Industrials,Electrical Components & Equipment,2021-06,4
+WKC,World Kinect Corporation,Energy,Oil & Gas Refining & Marketing,2024-06,2
+WLY,John Wiley & Sons,Communication Services,Publishing,2023-06,3
+WNC,Wabash National,Industrials,Construction Machinery & Heavy Trucks,2021-06,4
+WOLF,Wolfspeed,Information Technology,Semiconductors,2025-06,1
+WOR,Worthington Enterprises,Consumer Discretionary,Other Specialty Retail,2024-06,2
+WRE,Washington Real Estate Investment,Real Estate,Diversified REITs,2021-06,3
+WRLD,World Acceptance Corporation,Financials,Consumer Finance,2021-06,5
+WS,Worthington Steel,Materials,Steel,2024-06,2
+WSC,WillScot Holdings Corp.,Industrials,Office Services & Supplies,2025-06,1
+WSFS,WSFS Financial Corporation,Financials,Regional Banks,2021-06,5
+WSR,Whitestone REIT,Real Estate,Retail REITs,2021-06,5
+WT,"WisdomTree Investments, Inc.",Financials,Asset Management & Custody Banks,2024-06,2
+WTS,"Watts Water Technologies, Inc.",Industrials,Industrial Machinery,2021-06,1
+WW,WW International,Consumer Discretionary,Specialized Consumer Services,2022-06,1
+WWW,"Wolverine World Wide, Inc.",Consumer Discretionary,Footwear,2021-06,5
+XHR,"Xenia Hotels & Resorts, Inc.",Real Estate,Hotel & Resort REITs,2021-06,5
+XNCR,Xencor Inc,Health Care,Biotechnology,2021-06,5
+XPEL,"XPEL, Inc.",Consumer Discretionary,Auto Parts & Equipment,2022-06,4
+XPER,Xperi Holding Corp,Information Technology,Semiconductor Equipment,2021-06,4
+XRX,Xerox,Information Technology,"Technology Hardware, Storage & Peripherals",2024-06,2
+YELP,"Yelp, Inc.",Communication Services,Interactive Media & Services,2022-06,4
+YOU,"Clear Secure, Inc.",Information Technology,Application Software,2025-06,1
+ZD,Ziff Davis,Communication Services,Advertising,2025-06,1
+ZEUS,"Olympic Steel, Inc.",Materials,Steel,2021-06,4
+ZIMV,"ZimVie, Inc.",Health Care,Health Care Equipment,2022-06,1
+ZUMZ,"Zumiez, Inc.",Consumer Discretionary,Apparel Retail,2021-06,2
+ZWS,Zurn Elkay Water Solutions Corp.,Industrials,Industrial Machinery & Supplies & Components,2025-06,1
+ZYXI,"Zynex, Inc.",Health Care,Health Care Equipment,2021-06,3

@@ -1,0 +1,70 @@
+{
+  "artifact": "historical-constituent union (pre-reg #13 \u00a71, amended)",
+  "source": "https://en.wikipedia.org/wiki/List_of_S%26P_600_companies revision history (MediaWiki API)",
+  "snapshot_date": "2026-08-15",
+  "schedule": "earliest 600-row table (2021-03) + most recent revision before Y-07-01T00:00:00Z for 2021-2025; S&P 1000-era revisions (2018-2021-01) excluded \u2014 ghost-member table; reconstruction rejected (pre-reg #13 \u00a71)",
+  "snapshots": [
+    {
+      "revid": 1030576925,
+      "timestamp": "2021-06-26T20:17:43Z",
+      "status": "ok",
+      "rows": 601,
+      "year": "2021-06",
+      "n_tickers": 601
+    },
+    {
+      "revid": 1094398428,
+      "timestamp": "2022-06-22T11:08:40Z",
+      "status": "ok",
+      "rows": 601,
+      "year": "2022-06",
+      "n_tickers": 601
+    },
+    {
+      "revid": 1161531950,
+      "timestamp": "2023-06-23T09:50:49Z",
+      "status": "ok",
+      "rows": 601,
+      "year": "2023-06",
+      "n_tickers": 601
+    },
+    {
+      "revid": 1231006396,
+      "timestamp": "2024-06-25T22:49:20Z",
+      "status": "ok",
+      "rows": 602,
+      "year": "2024-06",
+      "n_tickers": 602
+    },
+    {
+      "revid": 1297281645,
+      "timestamp": "2025-06-25T06:19:57Z",
+      "status": "ok",
+      "rows": 602,
+      "year": "2025-06",
+      "n_tickers": 602
+    }
+  ],
+  "union": {
+    "n_tickers": 904,
+    "per_snapshot_ticker_sets": {
+      "2021-06": 601,
+      "2022-06": 601,
+      "2023-06": 601,
+      "2024-06": 602,
+      "2025-06": 602
+    },
+    "pairwise_overlaps": {
+      "2021-06|2022-06": 536,
+      "2021-06|2023-06": 461,
+      "2021-06|2024-06": 399,
+      "2021-06|2025-06": 344,
+      "2022-06|2023-06": 518,
+      "2022-06|2024-06": 446,
+      "2022-06|2025-06": 388,
+      "2023-06|2024-06": 519,
+      "2023-06|2025-06": 453,
+      "2024-06|2025-06": 528
+    }
+  }
+}

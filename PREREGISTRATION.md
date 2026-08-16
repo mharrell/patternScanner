@@ -2037,6 +2037,20 @@ every pre-declared sensitivity parity-checked with a fresh seed
 changed after this date; any change is a new hypothesis requiring a fresh
 pre-registration and a fresh evaluation window.
 
+**§1/§3 AMENDED 2026-08-15 (artifact construction evidence; no measurement
+performed yet).** The frozen schedule assumed the page carried S&P 600
+membership from its creation. Construction disproved that: the page was
+created 2018-08-27 as an "S&P 1000" page (S&P 400 + S&P 600 combined) and
+kept a 1000-row table until March 2021 — a sloppy list containing ghost
+members (delisted names AKRX, AKS, AVP still listed 2021-01-26). The
+set-difference reconstruction "S&P 600 = S&P 1000 table − S&P 400 table"
+(S&P 400 list page has a clean parallel history) was probed and REJECTED:
+validated at 2021-01-26 it yields 755 names vs the 600 real (155 ghosts —
+the 1000 table's staleness is uncontrolled, so the reconstruction's
+composition cannot be trusted). The page's first true S&P 600 list is the
+revision of 2021-03-12 (revid 1011745109, 600 rows). §1/§3 amended
+accordingly; everything else (measurement, verdicts, gate rules) unchanged.
+
 ## 0. Why this campaign exists (pre-registered context)
 
 Pre-reg #10 measured the I-X-02/03/04 RSI-divergence claims on the
@@ -2067,15 +2081,26 @@ captured IJS holdings pages. The list page's revision history (page
 created 2018-08-27) is the only gap-free free source of historical S&P 600
 membership.
 
-Snapshot schedule (frozen): **8 snapshots** — the page's creation revision
-(2018-08-27, the earliest membership record) plus, for each year
-2019–2025, the most recent revision dated before Y-07-01T00:00:00Z (the
-membership as of June 30 of that year). Each snapshot's rendered table is
-parsed with the same normalization as `tools/build_universe.py`
-(`yahoo_ticker`: strip footnote markers, "." → "-", drop placeholder
-cells) and recorded with its revision id and timestamp. **The re-check
-universe = the union of the eight snapshots' ticker sets** (~800–1,100
-names, including delisted and removed members).
+Snapshot schedule (amended, frozen): **5 snapshots** — for each year
+2021–2025, the most recent revision dated before Y-07-01T00:00:00Z (the
+membership as of June 30 of that year): revids 1030576925 / 1094398428 /
+1161531950 / 1231006396 / 1297281645, 601 / 601 / 601 / 602 / 602
+tickers. The 2021-03-12 earliest 600-row list is subsumed by the 2021-06
+snapshot (it adds only names removed before 2021-06, which have no
+OOS-window events). Each snapshot's rendered table is parsed with the
+same normalization as `tools/build_universe.py` (`yahoo_ticker`: strip
+footnote markers, "." → "-", drop placeholder cells) — the symbol column
+is matched as "symbol" **or** "ticker symbol" (the page renamed it
+mid-era) — with a row-count sanity gate (550–750) that distinguishes the
+S&P 600 table from the S&P 1000-era table, and recorded with its
+revision id and timestamp. **The re-check universe = the union of the
+five snapshots' ticker sets = 904 names** (2021-06 cohort 601, additions
+65 / 83 / 81 / 74 in 2022–2025), including ~330 names delisted or
+removed since 2021 — that is the survivorship correction. Churn
+validated before freezing: adjacent-year overlaps 536 / 518 / 519 / 528,
+2021-06 → 2025-06 survival 344, 2021-06 → 2026-08 survival 274 — a
+stable ~64 removals/year, matching the S&P 600's known ~10%/yr turnover;
+the residual between-snapshot gap is bounded and documented in §3.
 
 Artifact files (new, tracked): `tools/build_hist_universe.py` (builder),
 `data/cache/universe_sp600_hist_2026-08-15.csv` (union universe),
@@ -2097,7 +2122,7 @@ process-local rebinding at runtime). The driver
 
 1. rebinds four module-level inputs before invoking the frozen `main()`:
    - `UNIVERSE_CSV` → the historical-union CSV;
-   - `ERA_OOS` → **"2019-01-01"** on **both** `measure.ERA_OOS` (tags the
+   - `ERA_OOS` → **"2022-01-01"** on **both** `measure.ERA_OOS` (tags the
      engine's `is_oos` rows) and `measure_divergence.ERA_OOS` (the
      frequency function) — the era boundary is the only parameter change,
      forced by the artifact's coverage (§3);
@@ -2108,8 +2133,9 @@ process-local rebinding at runtime). The driver
    JSON `"pre_reg": "#10"` → `"#13"`; JSON `"claim"` → the re-check
    descriptor; the report's header line; the "Pre-registration #10
    (frozen 2026-08-14): …" block; the era-split line ("IS 2000-2015 /
-   OOS 2016-2025" → "IS 2000-2018 (descriptive only) / OOS 2019-2025");
-   the S6 section header; and the reproducibility line (`python -X utf8
+   OOS 2016-2025" → "IS 2000-2021 (descriptive only) / OOS 2022-2025");
+   the S6 section header (annotated "descriptive only — no IS-era
+   membership data"); and the reproducibility line (`python -X utf8
    tools/measure_divergence_hist.py`).
 
 All frozen parameters carry over unchanged: simple-average RSI period 10
@@ -2123,21 +2149,29 @@ identical.
 
 ## 3. Era handling (pre-registered, forced by the artifact)
 
-Membership data covers 2018-08-27 → 2025-12-31. The re-check measures with
-**OOS = signal date ≥ 2019-01-01 through 2025-12-31** — the subset of the
-original OOS era (2016–2025) whose years are fully covered by membership
-data. Consequences, pre-registered:
+The artifact's membership data covers the five snapshots 2021-06-30 …
+2025-06-30 (the earliest true S&P 600 list, 2021-03-12, is subsumed —
+§1). The re-check measures with **OOS = signal date ≥ 2022-01-01 through
+2025-12-31** (4 years) — every OOS month is bracketed by a snapshot on
+each side, and the 2021-07..2021-12 half-year (which would rest on a
+single trailing snapshot) is excluded to keep the window conservative.
+Consequences, pre-registered:
 
-- **All verdicts (F1, F2, frequency) are computed on the 2019–2025 OOS
-  window.** The 2016–2018 OOS years are NOT measured: tickers removed
+- **All verdicts (F1, F2, frequency) are computed on the 2022–2025 OOS
+  window.** The 2016–2021 OOS years are NOT measured: tickers removed
   before the first snapshot are absent from the union, so those years
   would re-introduce the very survivorship bias this gate exists to
-  remove. The 2016–2018 blind spot is a documented residual limitation.
-- **IS (2000–2018) statistics are reported descriptively only (S6), NOT
+  remove. The 2016–2021 blind spot is a documented residual limitation.
+- **Residual membership gap:** a name joining and leaving between two
+  consecutive snapshots appears in no snapshot and is absent from the
+  union. Bounded by the validated ~64 removals/year churn — at most a
+  few dozen names per year, and only for events strictly inside their
+  ~1-year window.
+- **IS (2000–2021) statistics are reported descriptively only (S6), NOT
   as verdicts**: the union universe has no IS-era membership data, so its
   IS rows are biased by construction. Nothing in the IS block can carry a
   verdict in this campaign.
-- The count floor (100 OOS events per leg) applies to the 2019–2025
+- The count floor (100 OOS events per leg) applies to the 2022–2025
   window.
 
 ## 4. Verdicts (identical rules to pre-reg #10, applied on the re-check window)

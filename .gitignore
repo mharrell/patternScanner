@@ -38,6 +38,11 @@ data/cache/*
 !data/cache/bigmove_measure_results.json
 !data/cache/speed_measure_report.md
 !data/cache/speed_measure_results.json
+# Pre-reg #13 historical-constituent artifact + re-check outputs (records of evidence)
+!data/cache/universe_sp600_hist_*.csv
+!data/cache/hist_universe_provenance.json
+!data/cache/divergence_hist_measure_report.md
+!data/cache/divergence_hist_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt
