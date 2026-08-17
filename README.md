@@ -138,15 +138,14 @@ reports:
 `data/cache/bigmove_measure_report.md`,
 `data/cache/speed_measure_report.md`,
 `data/cache/divergence_hist_measure_report.md`.
-Next candidates: the divergence family is closed — the §5 survivorship
-re-check (pre-reg #13) did not confirm the F1-BULL EDGE on historical
-constituents (gate FAILS, §I.10), and the big-move claim is measured
-(relative correction confirmed, literal retracement falsified — §I.8).
-The top remaining testable candidates are the I-X-05 stop-placement
-claim (post-signal breach of the prior extreme low — testable on the
-existing divergence detections) and the I-X-06/I-D-01 price-tier family
-(sub-$5 cohorts' forward returns — needs a small-cap universe beyond the
-S&P 600). The remaining untested ledger items need intraday data.
+Next candidates: pre-registration #14 (the I-X-05 stop-placement claim —
+"the market shouldn't take out that prior extreme low", measured as the
+breach rate of the divergence's lower low within N=10, with the §5
+survivorship gate pre-registered within the campaign) is **frozen
+2026-08-16, measurement pending**. After it, the top remaining candidate
+is the I-X-06/I-D-01 price-tier family (sub-$5 cohorts' forward returns —
+needs a small-cap universe beyond the S&P 600). The remaining untested
+ledger items need intraday data.
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -196,7 +195,13 @@ S&P 600). The remaining untested ledger items need intraday data.
   runtime-rebound to the historical universe with OOS 2022–2025; the §5
   gate: F1-BULL EDGE survives ⇒ PASSED, NO EDGE/FADE ⇒ FAILS and the
   family is closed), frozen 2026-08-15, **measured: gate FAILS, family
-  closed (§I.10)**. Verdicts return to the ledger.
+  closed (§I.10)**. Pre-registration #14: the I-X-05 stop-placement claim
+  (bullish divergence — "the market shouldn't take out that prior extreme
+  low": breach rate of the divergence's lower low Low[t2] within N=10
+  after the frozen pre-reg #10 BULL event set, vs fractal-low
+  confirmation-bar baselines and vs OS crossings; the §5 survivorship gate
+  (historical-union re-run) pre-registered within the campaign, frozen
+  2026-08-16, measurement pending. Verdicts return to the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

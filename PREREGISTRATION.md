@@ -2318,3 +2318,145 @@ c7421fbf… imported unchanged — no frozen file was modified). Report:
 `data/cache/divergence_hist_measure_report.md`
 (+ `divergence_hist_measure_results.json`). Verdicts written back to
 CLAIMS_LEDGER §I.7 (superseded-by note) and §I.10 (re-check table).
+
+---
+
+# Pre-registration #14 — I-X-05 stop placement: "the market shouldn't take out that prior extreme low" (ledger row I-X-05)
+
+**Frozen 2026-08-16, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claim as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "good thing with the divergence... we have two higher lows so if we're buying because there's bullish divergence we have two obvious levels to place our stop loss beyond because by definition if the divergence is going to work out bullish divergence the market shouldn't take out that prior extreme low so we have a very sensible point I think to place the stop-loss so potential low risk but a potential high reward trade" | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | **The stop-placement claim, measured on the frozen pre-reg #10 bullish-divergence event set.** For each BULL event (signal bar s = t2+k — the confirmation bar; the divergence's two swing lows at t1 < t2, with Low[t2] < Low[t1] and RSI[t2] > RSI[t1]), the "prior extreme low" = **Low[t2]** (the pair's second, lower low — the level the chartist places the stop beyond). The claim: after the signal, the market should not take out that prior extreme low. Measured as the **breach rate** — the fraction of events with min(Low[s+1..s+N]) < Low[t2] (intrabar low trades *beyond* the level, the way a stop placed beyond the low triggers) — vs era-matched baselines, and vs the 70/30 oversold crossings (the alternate bounce signal). The second "obvious level" (Low[t1], the pair's first, higher low) is sensitivity S2. The "low risk, high reward" half is a measurement row (stop distance + outcome decomposition), NOT a verdict family. |
+
+## 2. Measurement
+
+- **Events**: the frozen pre-reg #10 bullish-divergence detection, unchanged —
+  simple-average (Cutler) RSI period 10; strict k=2 fractal swings on Low;
+  consecutive swing pairs, t2 − t1 ≥ 5; BULL condition (Low[t2] < Low[t1]
+  AND RSI[t2] > RSI[t1], both RSI finite); signal bar s = t2 + k
+  (confirmation-bar timing — the fractal is only knowable at close t2+k, no
+  look-ahead); warm-up guard s < 60. The tool recomputes the detection with
+  the FROZEN detection functions (`measure_divergence.swing_idx`,
+  `measure_divergence._pair_events` — the module's sha is asserted at
+  import, nothing modified) and asserts per-leg all-era event counts equal
+  the frozen pre-reg #10 JSON's `sensitivities.per_year` sums — the event
+  set is the #10 event set by construction.
+- **Stop level**: L = Low[t2] (primary). Breach window: bars s+1 .. s+N
+  (entry open s+1 through exit close s+N — the frozen forward-return
+  window). Breach ⇔ min(Low[s+1..s+N]) < L (a stop placed "beyond" the low
+  triggers when price trades strictly below it; an equal low survives).
+- **N = 10** primary (house). S1: N = 5 / 20.
+- **F1 (absolute — the claim's core)**: BULL breach rate vs era-matched
+  baselines:
+  - *random (whole universe)*: every OOS confirmation bar c = f + 2 of every
+    strict k=2 fractal low f in the universe (warm-up c ≥ 60; c + N beyond
+    the series end dropped and counted), reference Low[f], breach ⇔
+    min(Low[c+1..c+N]) < Low[f]; rate = breached / pool size. The fractal-low
+    confirmation bar is the divergence event's own geometric template minus
+    the divergence condition — same structure, same 2-bar age of the
+    reference level. The pool EXCLUDES the divergence event bars: the
+    comparison is "the divergence condition adds value over the same low
+    without it".
+  - *same-ticker*: the same baseline restricted to the event tickers, bars
+    weighted by per-ticker BULL event counts (the frozen make_sample_same
+    convention).
+  - Contrast = event rate − baseline rate via paired bootstrap (B=1000,
+    seed **20260816**): resample M events with replacement → rate; resample
+    M baseline bars (ticker-weighted for same-ticker, uniform for random) →
+    rate; contrast over B draws → (est, ci_low, ci_high, p_two_sided).
+    p_input = max(p_rand, p_same), est = max, ci_low = min, ci_upper = min.
+    Holm at α=0.05 across the F1 family (a single test → gate 0.05).
+  - **EDGE** iff Holm-rejected AND CI-upper < 0 (the low holds better than
+    typical lows — the claim); **FADE** iff Holm-rejected AND CI-low > 0
+    (taken out *more* often — the claim contradicted); NO EDGE otherwise.
+    Count floor 100 OOS events.
+- **F2 (contrast vs the alternate bounce signal)**: OS crossings (the frozen
+  pre-reg #9 S4 rule — first bar of each RSI<30 excursion, period 10;
+  `measure_divergence.cross_frame`, sha-asserted). For crossing bar c,
+  reference = the most recent strict k=2 fractal low at bar ≤ c within the
+  60-bar lookback (crossings without one are dropped and counted); breach ⇔
+  min(Low[c+1..c+N]) < reference. Contrast = divergence rate − crossing
+  rate, same bootstrap. **EDGE** iff Holm-rejected AND CI-upper < 0
+  (divergence lows hold better than crossing references); gate 0.05. *Age
+  asymmetry documented:* the divergence reference is exactly 2 bars old; a
+  crossing's reference averages older, and older levels are less likely to
+  be breached — a conservative direction for the claim.
+- **Measurement rows (no verdicts)**: stop distance (open[s+1] → Low[t2],
+  mean/median/percentiles, % and in 14-bar ATR units); breach-loss (the
+  entry → Low[t2] return when breached); continue-gain (mean N-bar return −
+  COST when NOT breached); combined expected outcome = (1−br)·continue +
+  br·loss; the same decomposition on the same-ticker baseline for
+  comparison; per-year breach rates (all years reported, 2016–2025 the
+  verdict rows).
+- **Era**: OOS by signal date ≥ 2016-01-01 (the frozen `measure.ERA_OOS`;
+  house standard); IS 2000–2015 descriptive only. Universe and bars: the
+  frozen pre-reg #10 inputs (S&P 600 current constituents,
+  universe_sp600_2026-08-13.csv, cached bars) — unchanged.
+- **Integrity**: the tool sha-asserts `measure.py` (c7421fbf…) and
+  `measure_divergence.py` (85f2ae0d4a1e…) at import; the event-set anchor
+  (§2, per_year sums); determinism check (two runs, byte-compare) and an
+  independent verification pass before any write-back.
+
+## 3. The §5 survivorship gate (pre-registered within this campaign)
+
+The brief §5 rule — "any positive result must be re-checked against (a)
+[historical constituents] before being trusted" — is pre-registered here
+so the re-check needs no separate campaign:
+
+- **If F1-BULL is EDGE on the primary** (current constituents, 2016–2025):
+  the SAME measurement is re-run against the pre-reg #13
+  historical-constituent union (904 names, 5 annual S&P 600 snapshots
+  2021–2025; bars present for 706 — 199 former members are purged from
+  Yahoo's data, 0 of them current members, flagged and NOT substituted;
+  OOS 2022–2025, the only era the artifact covers) with `measure.ERA_OOS`
+  rebound to "2022-01-01". **Gate PASSED** iff F1-BULL EDGE survives on the
+  corrected window (Holm-rejected, CI-upper < 0, floor met) → the
+  Phase-5 trigger-check conversation is then held with the surviving
+  evidence. **Gate FAILS** (NO EDGE or FADE on the corrected window) → the
+  claim is corrected to the survivorship-resilient record and the family is
+  closed with the re-check as definitive; Phase 5 stays untriggered.
+- **If F1-BULL is NOT EDGE on the primary**: the campaign ends as NO EDGE /
+  FADE; no re-check is needed (the brief gates only positive results) and
+  none is run.
+- **INCONCLUSIVE** (count floor on either window) → the gate is UNMET with
+  a documented data limitation.
+
+## 4. Pre-declared expectations
+
+- **F1**: divergence lows are structural levels selected by the pattern —
+  expect the breach rate at or below the fractal-low baseline, but small in
+  magnitude. The claim's own "by definition" phrasing overstates the
+  reliability; a modest, possibly null, effect is the honest expectation.
+  Pre-reg #10's BULL events averaged +0.80% post-signal after cost on this
+  universe, so the lows demonstrably hold often enough for a positive
+  average trade — but that does not imply the rate beats the fractal-low
+  baseline.
+- **F2**: the same, vs crossings — small or null.
+- **Gate**: the same survivorship caution as #13 — if the primary is
+  positive, the re-check may fail it.
+
+## 5. Data & bias handling
+
+- **Look-ahead**: the event set and the stop level are fully knowable at
+  the signal close (t2+k); the breach is measured after entry. No
+  look-ahead.
+- **Survivorship**: the §5 gate is pre-registered within this campaign
+  (§3) — a positive primary triggers the historical-constituent re-check.
+- **Costs**: COST 0.0015 enters the continue-gain / outcome measurement
+  rows; breach rates themselves are cost-free.
+- **Multiple testing**: two verdict families (F1 single test, F2 single
+  test), Holm at α=0.05; all sensitivities exploratory.
+- **Non-stationarity**: per-year breach rates (measurement row).
+- **Data quality**: frozen bars; the 199 purged names flagged not
+  substituted in the gate run; determinism + independent verification
+  before write-back.
+
+## 6. Freeze
+
+§1–§5 are frozen as of 2026-08-16, before any measurement. Implementation
+must not change any of them. §8 will record the campaign outcome.
