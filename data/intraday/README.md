@@ -43,6 +43,12 @@ is how the bias sneaks back in. The pull script enforces this by taking the
 whole CSV every run. When membership changes, a **new** universe CSV is
 created (`universe_sp600_<date>.csv`); the frozen snapshot is never edited.
 
+The full pre-registration is **PREREGISTRATION.md §Pre-registration #15**
+(frozen 2026-08-19): B-01 micro pullback on 1-minute bars (primary), the
+B-02/I-E-02 pullback-vs-chase contrast (F3), and the F-01/F-02 time-of-day
+measurement rows. Measurement is gated on its §5 floors (≥ 20
+full-universe bar-dates ≥ 2026-08-19).
+
 ## Layout
 
 | Path | Contents | Git |

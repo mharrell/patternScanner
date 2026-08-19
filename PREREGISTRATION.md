@@ -2561,3 +2561,239 @@ imported unchanged. Reports:
 `data/cache/stop_placement_gate_measure_report.md`
 (+ `stop_placement_gate_measure_results.json`). Verdicts written back to
 CLAIMS_LEDGER §I.11.
+
+# Pre-registration #15 — B-01 micro pullback on 1-minute bars: "the first candle that makes a new high versus the high of the previous candle" (ledger row B-01; secondary rows B-02/I-E-02; intraday track)
+
+**Frozen 2026-08-19, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §5's floors are met; the archive bar-dates before this
+freeze (2026-08-12…18, the 6-ticker test cycle) are excluded by §2.
+
+## 0. Why this campaign exists
+
+The intraday accumulation track (PR #1, merged 2026-08-19) exists to test
+the ledger claims stated on 1-minute charts. B-01 is the corpus's single
+most machine-testable rule — its own ledger row says so — and it is the
+track's first campaign. Its daily adaptation (Shape B: pullback + new
+high) was measured and **rejected** 2026-08-13 (§B.5-B: NO EDGE,
+significantly below baselines); the rule **as actually stated** — on 1-min
+bars, with a ≥2-red-candle pullback, a double bottom, and entry on the
+first candle making a new high versus the previous candle — has never been
+measured. This campaign measures it, plus the two claims it embeds by
+construction: B-02 ("better to wait for the stock to pull back" — pullback
+entries vs chasing the breakout) and I-E-02 ("chasing… doesn't work" —
+new-high chasing fails). F-01 (7–10 a.m. window) and F-02 (pre-market
+cleanliness) are unverifiable on daily bars; the campaign measures their
+factual basis as descriptive rows.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **B-01**: stock squeezes up (green candles), pulls back (confirmed by ≥2 red candles), bounces forming a double bottom; **entry = the first candle that makes a new high versus the high of the previous candle**; stop = low of the pullback; profit target = retest of the high of day; wants ≥2:1 reward:risk ("I always want to retest a high of day… when this setup works it goes to the high of day") | warrior-trading [1:28:40–1:31:18] | **The detector of §3, per bar-date file, RTH (09:30–16:00 ET).** Entry signal bar e: first bar after a ≥2-red-candle pullback (with double bottom) whose High exceeds the previous bar's high. Stop S = low of the pullback. Target T = the day's high so far (max High from day open through e). F1: mean N-bar forward return (entry open e+1, exit close e+N, COST deducted) vs hour-matched same-ticker and random-universe baselines. F2: the HOD-retest reach rate — fraction of events where max(High[e+1..session close]) ≥ T — vs the same baselines' retake rate of their own day-high-so-far. Measurement row (no verdict): the ≥2:1 geometry, (T − O[e+1])/(O[e+1] − S). |
+| **B-02**: "if I bought right here, what would be my max loss?… it's really far away… my profit target has to be two times that… it's better to wait for the stock to pull back" (don't buy the breakout move itself) | warrior-trading [1:29:17–1:29:40] | **F3: the pullback-vs-chase contrast.** Chase events = every run-up bar c (run-up as defined in §3, no pullback) with High[c] > High[c−1] — the breakout-chase entries. Contrast = mean N-bar return of B-01 events − mean N-bar return of chase events, same bootstrap. The pre-registered verdict row for B-02 ("waiting beats chasing") and I-E-02 ("chasing doesn't work"): EDGE iff B-01 events beat chase events on both slots. |
+| **I-E-02**: "I personally have high a day scanners but I don't find it to be a successful strategy just to buy a stock because it's hitting high a day… it doesn't work" | txWaMpSzHhM [24:19–24:40] | Same F3 row (chase leg). Consistent with the measured daily analog: Shape B (new-K-day-high after pullback) NO EDGE, below baselines (§B.5-B). |
+| **F-01**: best trading window 7–10 a.m. ET — "peak volatility and peak liquidity" | warrior-trading [1:44:58–1:47:07] | **Measurement row (no verdict):** per hour-of-day bucket (ET) across the archive: mean \|r\| per bar, mean (H−L)/O, volume share. The claim is read against the 07–10 bucket's ranks, volatility AND liquidity jointly. |
+| **F-02**: pre-market moves are "typically cleaner" (no halts, no circuit breakers 4–9:30 a.m.) | warrior-trading [1:45:30–1:46:32] | **Measurement row (no verdict):** pre-market (04:00–09:30 ET) vs RTH (09:30–16:00): per-bar \|r\| mean/median, tail frequency (\|r\| > 3× the file's median \|r\|), volume share. "Cleaner" read = lower per-bar volatility and rarer tail bars pre-market. Halts/circuit breakers are not directly observable from bars — proxy documented. |
+
+## 2. The data artifact — the forward-accumulated 1-minute archive
+
+- **Archive** (data/intraday/README.md): immutable (bar-date, ticker)
+  parquet files, tz-aware America/New_York, minute-floored, unadjusted
+  OHLCV, extended hours 04:00–20:00 ET, LFS-tracked; manifest.json is the
+  SHA-256 ledger with a self-validating pull chain; repairs.json records
+  every deliberate deletion; the nightly pull is blind full-universe
+  (Task Scheduler 22:05 MT, `--qa`).
+- **Universe per bar-date**: the pull takes the whole membership CSV every
+  run and records the file + its SHA in the pull record. A name is
+  measurable on a bar-date **iff** it is in that bar-date's pull-record
+  universe. A membership change creates a new `universe_sp600_<date>.csv`;
+  the frozen snapshot is never edited.
+- **Excluded bar-dates**: 2026-08-12…18 (test cycle — 6 hand-picked
+  tickers, not the blind universe, and pre-freeze). The measurement window
+  is bar-dates ≥ 2026-08-19 (the first session pulled after this freeze),
+  per §5.
+- **Splits**: OHLCV is unadjusted; a recorded split (splits.json) falling
+  inside a measured (ticker, bar-date) excludes that name-day, counted.
+- **Sparsity reality**: Yahoo 1m emits a bar only when a trade prints —
+  thin S&P 600 names show real RTH gaps. Detection runs on stored bars
+  as-is (each stored bar is the tradable bar at its timestamp); the
+  gap distribution at entry is a measurement row, and sensitivity S4
+  requires detection bars ≤ 2 min apart.
+
+## 3. The detector — B-01 on 1-minute bars (frozen)
+
+Per (bar-date, ticker) file, RTH bars only (primary; S3: 07:00–10:00 ET,
+his stated best window):
+
+- UP bar: Close > Open. DOWN bar: Close < Open. Others: neither.
+- **Run-up**: R = 3 consecutive UP bars (S1: R = 4; S2: R = 2). Run-up
+  high H = max(High of the run-up bars).
+- **Pullback**: P = 2 consecutive DOWN bars immediately after the run-up
+  ("confirmed by ≥2 red candles"; S1: P = 3). Pullback lows L1 (first
+  DOWN bar), L2 (second DOWN bar). **Double bottom** (primary, required):
+  L2 ≥ L1 — the second test does not break the first. Stop S = min(L1, L2)
+  = L1 under the primary rule. (S2: no double-bottom requirement.)
+- **Entry signal bar e**: the first bar after the pullback with
+  High[e] > High[e−1] — "the first candle that makes a new high versus the
+  high of the previous candle". All detection state (run-up, pullback,
+  double bottom) is complete at the close of e−1; only High[e] vs High[e−1]
+  completes at e. Entry = open of e+1 (house protocol; no look-ahead).
+- **Target T** = max(High[day open .. e]) — the day's high so far (the
+  run-up's high if the run-up made it; an earlier day high if not — either
+  way, the retest level of the claim).
+- **Validity**: e+1 must exist within the session; events with e+N beyond
+  the last RTH bar are dropped and counted (house).
+
+## 4. Measurement
+
+All bootstraps B = 1000, seed **20260819** (freeze date). Three verdict
+families; each slot is a contrast; Holm at α=0.05 within each family.
+
+- **F1 (absolute forward returns — does the entry have edge?)**: forward
+  return = (C[e+N] − O[e+1]) / O[e+1] − COST, N = **60** primary (one
+  hour; S: 15 / 120 / 240). Baselines (same convention, COST deducted):
+  (a) *same-ticker hour-matched* — random RTH bars c in the same (bar-date,
+  ticker) file, matched to the event's hour-of-day bucket (ET), c+N within
+  the session, pool excludes event entry bars; (b) *random-universe
+  hour-matched* — same across all files in the archive. EDGE iff both
+  slots Holm-rejected with CI-low > 0; FADE iff both rejected with
+  CI-upper < 0; mixed or unrejected → NO EDGE. Count floor 100.
+- **F2 (the claim's geometry — the HOD retest)**: reach rate = fraction of
+  events with max(High[e+1 .. session close]) ≥ T. Baseline (same-ticker,
+  then random-universe): random RTH bars c with day-high-so-far
+  T_c = max(High[day open..c]), reach = fraction with
+  max(High[c+1..end]) ≥ T_c, hour-matched. Same contrast/bootstrap/EDGE
+  rules as F1 (positive direction: setups retest the day's high more often
+  than typical minutes). Floor 100.
+- **F3 (B-02/I-E-02 — pullback vs chase)**: chase events = every run-up
+  bar c with High[c] > High[c−1] (RTH, same files). Contrast = mean N=60
+  return of B-01 events − mean of chase events, paired bootstrap
+  (resample M events from each pool per draw). EDGE iff both slots
+  (same-ticker pairs, then universe-wide pools) Holm-rejected with
+  CI-low > 0 (waiting beats chasing); FADE iff CI-upper < 0; mixed → NO
+  EDGE. Floors 100 per leg.
+- **COST**: 0.15% round-trip (house, §6 protocol) on every return —
+  deliberately the daily-tier cost; on 1-min bars it is a strict bar.
+  S1 0.05% (intraday tier) and S2 0.30% are pre-declared sensitivities,
+  NO verdicts.
+- **Measurement rows (no verdicts)**: (a) the ≥2:1 R:R geometry —
+  (T − O[e+1])/(O[e+1] − S), distribution and fraction ≥ 2.0; (b) name-day
+  collapse — F1 means per (ticker, bar-date) (event-level multiplicity is
+  correlated within a name-day; the collapsed row shows the verdict
+  direction at the independent-unit level); (c) entry-bar gap distribution
+  (sparse names); (d) F-01 time-of-day profile and (e) F-02 pre-market vs
+  RTH (both per §1); (f) per-bar-date and per-ticker F1 breakdowns (the
+  archive accumulates whatever regimes come next — every measured bar-date
+  is reported; no year aggregation exists for a forward archive).
+- **Era**: no IS/OOS split by date exists for a forward archive — the
+  whole measured window is OOS-by-construction (everything post-freeze).
+
+## 5. When measurement may begin (floors) — and the one-shot rule
+
+- The measurement window is the complete full-universe bar-dates ≥
+  2026-08-19. All floors must hold at the first measurement: (a) ≥ 20
+  full-universe bar-dates; (b) ≥ 2,000 F1-evaluable events; (c) events
+  across ≥ 100 distinct tickers; (d) events across ≥ 15 distinct
+  bar-dates.
+- **One-shot rule**: verdicts are recorded at the FIRST measurement meeting
+  all floors. There is no second measurement on a larger archive within
+  this campaign; later windows are new pre-registrations. No forward-return
+  number is computed before the floors are met (detection event counts for
+  the §6 audit are allowed).
+- **INCONCLUSIVE** (floors unmet at an audit-clean measurement attempt, or
+  count floor 100 unmet on a slot) → the campaign ends INCONCLUSIVE with
+  the documented floors; a follow-up is a new pre-registration.
+
+## 6. The §5 gate (intraday form)
+
+The brief §5 rule — any positive result must be re-checked against
+historical constituents before being trusted — cannot run for 1-minute
+data: no vendor history exists, no retrospective archive can be built
+(forward accumulation is the design, per Mike's decision 2026-08-18). The
+frozen design note (data/intraday/README.md §"Pre-registration #15 design
+note") replaces the retrospective gate with **continuous blind capture**.
+Pre-registered gate mechanics:
+
+- **EDGE verdicts require the archive-integrity audit to PASS at
+  measurement time**: (1) every pull record lists the membership file + its
+  SHA; (2) each measured name-day's universe = that bar-date's pull-record
+  universe; (3) all measured files hash-match the manifest (pull chain
+  valid end to end); (4) repairs.json contains no selection/trimming
+  reasons (deletions only for corruption/mechanical causes); (5) no
+  bar-date in the window was captured non-blindly (no `--limit` runs; any
+  `--adopt` files' origins verified). Audit evidence (per-bar-date universe
+  files + SHAs, repair list, adoption records) is recorded in the results
+  JSON.
+- **Gate PASSED** = audit clean → the EDGE is entered as the
+  forward-accumulated record; the Phase-5 trigger-check conversation is
+  then held with the surviving evidence (house).
+- **Gate FAILS** = audit dirty → the campaign is **void** (results
+  reported NULL/unusable); the pipeline is repaired and any re-measurement
+  requires a new pre-registration (the one-shot rule of §5, applied to
+  gate failures too).
+- **INCONCLUSIVE** → the gate is UNMET with the documented data
+  limitation (§5).
+
+## 7. Pre-declared expectations
+
+- **F1**: the daily adaptation of this rule was NO EDGE and below
+  baselines; the true 1-min rule differs in structure (the pullback wait,
+  the double bottom, the HOD target), but the honest expectation is small
+  or null absolute edge after 0.15% COST on 1-min bars. This campaign's
+  value is the first honest measurement of the corpus's flagship intraday
+  rule, whatever the outcome.
+- **F2**: the claim's own phrasing is conditional ("when this setup works
+  it goes to the high of day") — it concedes selectivity. Expect reach
+  rates above the random-minutes baseline if the setup has any structure,
+  materially below 100% either way; small positive or null.
+- **F3**: consistent with the measured daily analogs (Shape A breakout NO
+  EDGE; Shape B NO EDGE, below baselines): small or null. I-E-02's
+  direction says the chase leg fails — relative to the pullback leg, not
+  that the setup wins.
+- **F-01/F-02 rows**: descriptive; the rows exist because these claims
+  cannot be tested at all on daily bars. If the 7–10 a.m. bucket is NOT
+  the volatility/liquidity peak, F-01's factual basis is falsified at the
+  row level (still no verdict family).
+- **Regime caveat**: the measured window is weeks of whatever the market
+  delivers next — a few regimes at most. Verdicts are conditional on the
+  captured regime(s); documented, not corrected.
+
+## 8. Data & bias handling
+
+- **Look-ahead**: the signal is complete at the close of e; entry at open
+  e+1; baselines use the same convention. Detection state uses only bars
+  ≤ e−1 plus High[e]. None.
+- **Survivorship**: none by construction — blind forward capture records
+  every name while alive, deaths included (§2, §6). The audit is the gate.
+  The residual exposure is the reverse: a short measured window with no
+  era dimension (documented in §7).
+- **Costs**: COST 0.15% on every return; the 0.05%/0.30% tiers are
+  sensitivities (§4).
+- **Multiple testing**: three families, one primary slot each (F1 N=60,
+  F2, F3) with two baseline slots apiece, Holm at α=0.05 within each
+  family; every other horizon/condition is exploratory with no verdicts.
+- **Non-stationarity**: per-bar-date and per-ticker rows; regime caveat.
+- **Data quality**: manifest-verified files only; unadjusted OHLCV with
+  recorded splits excluding affected name-days; tz-aware timestamps;
+  sparse bars measured as stored with the gap row (§2).
+- **Integrity**: `tools/measure_intraday.py` implements exactly §3–§4 and
+  nothing else; its sha is frozen before any forward-return computation
+  and asserted at measurement; determinism check (two runs, byte-compare)
+  and an independent from-scratch verification pass (fresh seed) before
+  any write-back (house).
+
+## 9. Freeze
+
+§0–§8 are frozen as of 2026-08-19, before any measurement. Implementation
+must not change any of them. §10 records the campaign outcome.
+
+## 10. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged; gate outcome per §6.)*
+
+*Measurement is gated on §5's floors (≥ 20 full-universe bar-dates ≥
+2026-08-19, ≥ 2,000 events, ≥ 100 tickers, ≥ 15 bar-dates). At the current
+archive state (first full-universe pull scheduled 2026-08-19 22:05 MT)
+this section is empty by design.*
