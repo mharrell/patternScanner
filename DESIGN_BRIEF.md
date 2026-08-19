@@ -28,6 +28,11 @@ a rigorous null — which is still worth publishing.
 - No order execution, no broker API, no live loop. (Alpaca paper trading is a
   later phase, and only to verify plumbing after a shape shows edge.)
 - Daily bars only — no intraday data. These shapes are multi-day structures.
+  (Amended 2026-08-19: an **intraday track** now runs alongside — a
+  forward-accumulated 1-minute archive under `data/intraday`, pre-reg #15 in
+  preparation. It does not change v1's daily-bar scope for the pre-registered
+  shape campaigns; it exists to test the course ledger's short-term claims
+  once the archive has depth.)
 - No news, fundamentals, sentiment, or LLM in the loop.
 - No ML model. v1 is pure rule-based detection. ML earns a place later only if
   a shape clears the bar and needs exploitation, not discovery.
