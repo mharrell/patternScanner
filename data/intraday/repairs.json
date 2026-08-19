@@ -1,0 +1,17 @@
+{
+  "repairs": [
+    {
+      "path": "2026-08-12/AAMI.parquet",
+      "at_utc": "2026-08-19T04:09:19.901461+00:00",
+      "sha256_before": "0f500ec58706ea5fe662e6c2f65ffb57cdb36f3f2c409952d5712baf605b6af1",
+      "manifest_rec": {
+        "sha256": "0f500ec58706ea5fe662e6c2f65ffb57cdb36f3f2c409952d5712baf605b6af1",
+        "rows": 264,
+        "first": "2026-08-12 04:05:00-04:00",
+        "last": "2026-08-12 19:34:00-04:00",
+        "pull_id": "20260819-040838"
+      },
+      "reason": "corruption test - tampered file, deliberate removal"
+    }
+  ]
+}
