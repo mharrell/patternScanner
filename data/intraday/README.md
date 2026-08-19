@@ -61,7 +61,8 @@ created (`universe_sp600_<date>.csv`); the frozen snapshot is never edited.
 3. **Manifest of evidence.** Every run re-hashes **all** recorded files and
    walks `raw/` for orphans **before** writing anything. A missing, corrupt,
    or unrecorded file aborts the pull with a loud error — it is **never
-   silently regenerated**.
+   silently regenerated**. Crashed-pull orphans are recovered with
+   `--adopt` (kept, hash-verified) or `--repair` (deleted with a record).
 4. **No partial days.** A bar-date is written only after its full
    04:00–20:00 ET session has closed (D < today(ET), or D == today(ET) and
    now(ET) ≥ 20:01). Data is only ever written after the fact.
@@ -99,9 +100,35 @@ archive is pushed, local disk is the only copy: push after every pull.
 python -X utf8 tools\fetch_intraday_bars.py --repair "2026-08-18/AAP.parquet" --reason "what happened, who decided"
 ```
 
-Records the deletion in `repairs.json` **first**, then deletes. Verification
-skips repaired paths (the manifest entry is retained as historical evidence).
-Anything deleted without a repair record aborts the next pull loudly.
+Records the deletion in `repairs.json` **first**, then deletes the file and
+removes the manifest entry. The full manifest record (sha256, rows, span,
+pull-id) is preserved inside the repair record — the entry itself is removed
+so the next pull can re-write the (date, ticker) fresh if the window still
+covers it. `--repair` also works on crashed-pull orphans (no manifest entry):
+the deletion is recorded, nothing else changes. Anything deleted without a
+repair record aborts the next pull loudly.
+
+If a crash interrupts a repair (record written, file deleted, entry not yet
+dropped), the next pull detects the state and completes the recorded repair
+loudly — a manifest entry whose file is gone is never counted as verified.
+
+### Adopting crashed-pull orphans
+
+A pull that crashed mid-run may leave valid parquet files the manifest never
+recorded. The next pull aborts on them (files without a ledger are never
+trusted). Two sanctioned recoveries:
+
+```bat
+python -X utf8 tools\fetch_intraday_bars.py --adopt "2026-08-18/XYZ.parquet" --reason "crashed-pull file, hash-verified"
+python -X utf8 tools\fetch_intraday_bars.py --repair "2026-08-18/XYZ.parquet" --reason "orphan from crashed pull, re-fetch"
+```
+
+`--adopt` schema-checks the file (tz-aware, minute-floored, sorted, unique,
+single bar-date, OHLCV columns) and registers it in the manifest — it becomes
+a normal, permanently verified archive member, drift-checked like any other.
+`--repair` deletes it with a record; the next pull re-fetches it from the
+7-day window while the window lasts. Adopt preserves the data; repair is for
+files you don't trust or want re-fetched.
 
 ### Recording a split event
 

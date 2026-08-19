@@ -49,7 +49,7 @@ GAP_FLAG = 5                    # interior gaps above this are flagged
 
 def rth_mask(idx: pd.DatetimeIndex) -> pd.Series:
     t = idx.tz_convert(TZ)
-    return (t.hour * 60 + t.minute >= RTH_OPEN * 60 + RTH_OPEN) & \
+    return (t.hour * 60 + t.minute >= RTH_OPEN * 60 + RTH_CLOSE) & \
            (t.hour * 60 + t.minute < RTH_END_H * 60 + RTH_END_M)
 
 
@@ -122,6 +122,7 @@ def check_one(rel: str, manifest_files: dict, daily_cache: dict) -> dict:
     daily = daily_cache.get(key)
     if daily is None:
         rec["daily_missing"] = True
+        rec["notes"].append("daily bar missing — envelope check skipped")
     else:
         d = pd.Timestamp(rec["bar_date"], tz=TZ)
         day = daily[daily.index == d]
@@ -144,14 +145,18 @@ def check_one(rel: str, manifest_files: dict, daily_cache: dict) -> dict:
 def load_daily_cache(daily_dir: Path) -> dict:
     cache = {}
     if not daily_dir.exists():
+        print(f"NOTE: daily-bars cache {daily_dir} not found — envelope "
+              f"check skipped for all files (see 'daily bar missing' in "
+              f"qa_report.md)", file=sys.stderr)
         return cache
     for p in daily_dir.glob("*.parquet"):
         try:
             df = pd.read_parquet(p, columns=["Open", "High", "Low", "Volume"])
             df.index = df.index.tz_localize(TZ)
             cache[p.stem] = df
-        except Exception:
-            pass    # QA notes the missing daily below via daily_missing
+        except Exception as e:
+            print(f"NOTE: daily-bars cache failed to load {p.name} ({e}) — "
+                  f"envelope check skipped for {p.stem}", file=sys.stderr)
     return cache
 
 
@@ -176,6 +181,10 @@ def main(argv=None) -> int:
     daily = load_daily_cache(args.daily_bars)
     rows = [check_one(r, manifest_files, daily) for r in rels]
     df = pd.DataFrame(rows)
+    try:
+        daily_src = str(args.daily_bars.relative_to(ROOT))
+    except ValueError:
+        daily_src = str(args.daily_bars)
 
     n_files = len(df)
     n_tickers = df["ticker"].nunique()
@@ -193,7 +202,7 @@ def main(argv=None) -> int:
         f"- Generated: {pd.Timestamp.now(TZ).isoformat()}",
         f"- Files checked: {n_files} ({n_tickers} tickers, {n_dates} bar-dates)",
         f"- QA tool: `tools/qa_intraday.py` — flags only, nothing deleted or corrected",
-        f"- Daily envelope source: `{args.daily_bars}`",
+        f"- Daily envelope source: `{daily_src}`",
         "",
         "## Summary",
         "",
@@ -201,6 +210,8 @@ def main(argv=None) -> int:
         f"- interior gap minutes across archive: {gaps}",
         f"- envelope violations (high/low): {env_h} / {env_l}",
         f"- volume-sum mismatches (> {VOL_TOL:.0%}): {len(vol_flags)}",
+        f"- daily-bar envelope unavailable (missing/not-loaded): "
+        f"{int(df['daily_missing'].sum())} files",
         f"- naive-tz / not-minute-floored / unsorted / dup-ts files: "
         f"{int(df['naive_tz'].sum())} / {int(df['not_floored'].sum())} / "
         f"{int(df['unsorted'].sum())} / {int(df['dup_ts'].sum())}",
@@ -222,6 +233,7 @@ def main(argv=None) -> int:
         "naive_tz": "naive tz",
         "not_floored": "not floored",
         "unsorted": "unsorted",
+        "daily_missing": "daily missing",
     }
     mask = ((df["rth_cov"] < RTH_COV_FLOOR) | (df["interior_gaps"] > 0)
             | (df["ohlc_bad"] > 0) | (df["env_high_viol"] > 0)
@@ -230,7 +242,7 @@ def main(argv=None) -> int:
             | (df["zero_vol"] > 0) | (df["nan_price"] > 0)
             | (df["price_nonpos"] > 0) | (df["dup_ts"] > 0)
             | df["naive_tz"] | df["not_floored"] | df["unsorted"]
-            | (df["notes"].apply(len) > 0))
+            | df["daily_missing"] | (df["notes"].apply(len) > 0))
     show = df[mask]
     if len(show):
         lines.append("| file | rows | " + " | ".join(flag_cols.values()) + " | notes |")

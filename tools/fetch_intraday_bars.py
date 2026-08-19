@@ -43,6 +43,13 @@ Usage (nightly; Task Scheduler entry in data/intraday/README.md):
   python -X utf8 tools/fetch_intraday_bars.py --qa         # pull, then QA
   python -X utf8 tools/fetch_intraday_bars.py --repair "2026-08-18/AAP.parquet" \
       --reason "documented restatement fix"
+  python -X utf8 tools/fetch_intraday_bars.py --adopt "2026-08-18/AAP.parquet" \
+      --reason "crashed-pull file, hash-verified"
+
+The only sanctioned deletion is --repair (recorded first). Crashed-pull
+orphans — valid files the manifest never recorded — are recovered with
+--adopt (hash + schema-check + register, kept) or --repair (delete with a
+record; the next pull re-fetches while the window lasts).
 """
 import argparse
 import hashlib
@@ -194,11 +201,23 @@ def verify_manifest(manifest: dict, repairs: dict) -> tuple[int, int]:
         raise DataError(f"manifest schema_version {manifest.get('schema_version')} "
                         f"!= {SCHEMA_VERSION} — stop and investigate.")
     checked = ok = 0
-    for rel, rec in files.items():
+    for rel, rec in list(files.items()):
         p = RAW_DIR / rel
+        if rel in repaired:
+            if not p.exists():
+                # Zombie state: the repair record was written and the file
+                # removed, but a crash landed between the unlink and the
+                # manifest rewrite. The recorded intent is documented, so we
+                # complete it loudly — an entry whose file is gone must not
+                # pass as "verified" in every future pull record.
+                del manifest["files"][rel]
+                print(f"NOTE: completing recorded repair — {rel}: manifest "
+                      f"entry dropped (file already removed by a prior "
+                      f"repair)", file=sys.stderr)
+                continue
+            # Repair recorded but the file survived (crash before the
+            # unlink): hash it like any other recorded file.
         if not p.exists():
-            if rel in repaired:
-                continue                      # deliberate, recorded removal
             raise DataError(f"manifest records {rel} but the file is MISSING and "
                             f"has no repair record — restore it or --repair it "
                             f"with a reason. Nothing written.")
@@ -225,9 +244,11 @@ def verify_manifest(manifest: dict, repairs: dict) -> tuple[int, int]:
         shown = ", ".join(sorted(unrecorded)[:5])
         raise DataError(f"{len(unrecorded)} unrecorded parquet files under "
                         f"{RAW_DIR} (e.g. {shown}) — from a crashed run or an "
-                        f"unsupervised add. If they came from a crashed pull "
-                        f"they are valid data: --repair each with a reason "
-                        f"and the next pull re-writes them from the window.")
+                        f"unsupervised add. They are not in the ledger, so "
+                        f"they are not trusted. Crashed-pull files are valid "
+                        f"data: --adopt each (hash + schema-verified, kept) "
+                        f"or --repair each (delete with a reason) and the "
+                        f"next pull re-writes them from the window.")
     return checked, ok
 
 
@@ -444,7 +465,9 @@ def run_pull(args) -> int:
               file=sys.stderr)
     if args.qa:
         from qa_intraday import main as qa_main
-        return qa_main([]) or EXIT_OK
+        qa_rc = qa_main([])
+        if qa_rc:
+            return qa_rc
     if pull["tickers_failed"] or pull["tickers_no_data"]:
         return EXIT_TICKER_FAILURES
     return EXIT_OK
@@ -459,12 +482,19 @@ def main(argv=None) -> int:
     ap.add_argument("--qa", action="store_true", help="run tools/qa_intraday.py after")
     ap.add_argument("--repair", metavar="REL_PATH",
                     help="delete one archived file with a repair record "
-                         "(e.g. '2026-08-18/AAP.parquet'); requires --reason")
-    ap.add_argument("--reason", default="", help="required with --repair")
+                         "(e.g. '2026-08-18/AAP.parquet'); works on orphans "
+                         "(no manifest entry) too; requires --reason")
+    ap.add_argument("--adopt", metavar="REL_PATH",
+                    help="register one crashed-pull orphan in the manifest "
+                         "(hash + schema-verified, kept) instead of "
+                         "re-fetching; requires --reason")
+    ap.add_argument("--reason", default="", help="required with --repair/--adopt")
     args = ap.parse_args(argv)
 
     if args.repair:
         return do_repair(args.repair, args.reason)
+    if args.adopt:
+        return do_adopt(args.adopt, args.reason)
     acquired = False
     try:
         acquire_lock()
@@ -501,28 +531,125 @@ def do_repair(rel: str, reason: str) -> int:
         acquire_lock()
         acquired = True
         manifest = load_manifest()
-        if rel not in manifest["files"]:
-            print(f"ABORT: {rel} has no manifest entry — nothing to repair", file=sys.stderr)
+        rec = manifest["files"].get(rel)
+        if rec is None:
+            if not p.exists():
+                print(f"ABORT: {rel} has no manifest entry and no file on "
+                      f"disk — nothing to repair", file=sys.stderr)
+                return EXIT_ABORT
+            print(f"note: {rel} has no manifest entry (crashed-pull orphan) "
+                  f"— recording the deletion without an entry; the next "
+                  f"pull re-writes it from the window", file=sys.stderr)
+        elif not p.exists():
+            print(f"ABORT: {rel} does not exist (manifest entry present but "
+                  f"file missing — restore it first, or let the next pull "
+                  f"complete the recorded repair)", file=sys.stderr)
             return EXIT_ABORT
-        if not p.exists():
-            print(f"ABORT: {rel} does not exist (manifest entry present but file "
-                  f"missing — restore it first, or remove the entry deliberately "
-                  f"via the repairs ledger)", file=sys.stderr)
-            return EXIT_ABORT
-        rec = manifest["files"].pop(rel)
         repairs = load_repairs()
         repairs["repairs"].append({"path": rel,
                                    "at_utc": datetime.now(ZoneInfo("UTC")).isoformat(),
-                                   "sha256_before": rec["sha256"],
+                                   "sha256_before": rec["sha256"] if rec
+                                   else sha256_file(p),
                                    "manifest_rec": rec,
                                    "reason": reason})
         atomic_write_json(REPAIRS_PATH, repairs)   # record FIRST, then delete
         p.unlink()
-        atomic_write_json(MANIFEST_PATH, manifest)  # then drop the entry
+        if rec is not None:
+            del manifest["files"][rel]
+            atomic_write_json(MANIFEST_PATH, manifest)  # then drop the entry
         print(f"repaired: {rel} deleted with repair record (sha "
-              f"{rec['sha256'][:12]}…, reason: {reason})")
+              f"{repairs['repairs'][-1]['sha256_before'][:12]}…, "
+              f"reason: {reason})")
         print(f"note: manifest entry removed — the next pull will re-write "
               f"{rel} fresh if the window still covers it")
+        return EXIT_OK
+    except DataError as e:
+        print(f"ABORT: {e}", file=sys.stderr)
+        return EXIT_ABORT
+    finally:
+        if acquired:
+            release_lock()
+
+
+# ---------------------------------------------------------------------------
+# Adoption (the sanctioned way to keep crashed-pull orphans)
+# ---------------------------------------------------------------------------
+
+def validate_day_file(p: Path) -> dict:
+    """Trust-but-verify for --adopt: a file is registered in the manifest
+    only if it is a plausible archived day file (schema rules of the
+    archive). Returns rows/first/last for the entry."""
+    rel = p.relative_to(RAW_DIR).as_posix()
+    try:
+        df = pd.read_parquet(p)
+    except Exception as e:
+        raise DataError(f"adopt {rel}: unreadable parquet ({e}) — not adopted.")
+    if not set(COLS) <= set(df.columns):
+        raise DataError(f"adopt {rel}: missing OHLCV columns "
+                        f"({sorted(set(COLS) - set(df.columns))}) — not adopted.")
+    idx = df.index
+    if not isinstance(idx, pd.DatetimeIndex):
+        raise DataError(f"adopt {rel}: index is not a DatetimeIndex — not adopted.")
+    if idx.tz is None:
+        raise DataError(f"adopt {rel}: naive timestamps — tz discipline "
+                        f"(README), not adopted.")
+    idx = idx.tz_convert(TZ)
+    if not (idx.floor("min") == idx).all():
+        raise DataError(f"adopt {rel}: not minute-floored — not adopted.")
+    if not idx.is_monotonic_increasing:
+        raise DataError(f"adopt {rel}: timestamps not sorted — not adopted.")
+    if idx.duplicated().any():
+        raise DataError(f"adopt {rel}: duplicate timestamps — not adopted.")
+    bar_date = Path(rel).parts[0]
+    if len(idx) == 0 or {d.isoformat() for d in idx.date} != {bar_date}:
+        raise DataError(f"adopt {rel}: all rows must be bar-date {bar_date} "
+                        f"(got {len(idx)} rows spanning "
+                        f"{sorted({d.isoformat() for d in idx.date})[:3]}) — "
+                        f"not adopted.")
+    return {"rows": int(len(idx)), "first": str(idx[0]), "last": str(idx[-1])}
+
+
+def do_adopt(rel: str, reason: str) -> int:
+    """Register one crashed-pull orphan in the manifest after hashing and
+    schema-checking it, so it becomes a normal, permanently verified member
+    of the archive. The alternative to --repair when the file is valid and
+    the 7-day window no longer covers a re-fetch."""
+    if not reason.strip():
+        print("ABORT: --adopt requires --reason (what happened, who decided)",
+              file=sys.stderr)
+        return EXIT_ABORT
+    rel = rel.replace("\\", "/")
+    p = (RAW_DIR / rel).resolve()
+    if not p.is_relative_to(RAW_DIR.resolve()) or ".." in Path(rel).parts \
+            or not rel.endswith(".parquet"):
+        print(f"ABORT: {rel!r} is not an archive file path under {RAW_DIR}",
+              file=sys.stderr)
+        return EXIT_ABORT
+    acquired = False
+    try:
+        acquire_lock()
+        acquired = True
+        manifest = load_manifest()
+        if rel in manifest["files"]:
+            print(f"ABORT: {rel} already has a manifest entry — nothing to "
+                  f"adopt", file=sys.stderr)
+            return EXIT_ABORT
+        if not p.exists():
+            print(f"ABORT: {rel} does not exist — nothing to adopt",
+                  file=sys.stderr)
+            return EXIT_ABORT
+        info = validate_day_file(p)
+        manifest["files"][rel] = {
+            "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
+            "rows": info["rows"], "first": info["first"], "last": info["last"],
+            "pull_id": f"adopt-{datetime.now(ZoneInfo('UTC')).strftime('%Y%m%d-%H%M%S')}",
+            "adopted": True, "reason": reason}
+        atomic_write_json(MANIFEST_PATH, manifest)
+        print(f"adopted: {rel} registered in the manifest (sha "
+              f"{manifest['files'][rel]['sha256'][:12]}…, rows {info['rows']}, "
+              f"reason: {reason})")
+        print(f"note: the next pull will verify and drift-check {rel} like "
+              f"any archived file")
         return EXIT_OK
     except DataError as e:
         print(f"ABORT: {e}", file=sys.stderr)

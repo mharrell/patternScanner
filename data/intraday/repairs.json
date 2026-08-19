@@ -12,6 +12,13 @@
         "pull_id": "20260819-040838"
       },
       "reason": "corruption test - tampered file, deliberate removal"
+    },
+    {
+      "path": "2026-08-12/AAAA.parquet",
+      "at_utc": "2026-08-19T05:28:18.849719+00:00",
+      "sha256_before": "893a12fdf2ea084ab6be4006651110e39ec9068a0e563d2c1537139127db5d63",
+      "manifest_rec": null,
+      "reason": "review-test orphan repair"
     }
   ]
 }
