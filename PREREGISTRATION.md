@@ -2855,8 +2855,13 @@ cross-market note).
 first snapshot appearance, `n_snapshots` = number of the 5 snapshots
 containing the name), `hist_universe_provenance.json` (snapshot revids +
 pairwise overlaps), `data/cache/universe_sp600_2026-08-13.csv` (current 603),
-cached daily bars (per-ticker parquet; 199 union names purged from Yahoo
+cached daily bars (per-ticker parquet; 198 union names purged from Yahoo
 have no bars — flagged, never substituted, the #13/#14 convention).
+*Record correction 2026-08-19 (verified at tool freeze, before any
+measurement): the #13/#14 narrative said "199 purged" but #13's own
+campaign outcome records "the 706-name universe" — 904 − 706 = 198. The
+operative census has always been 198 purged / 706 with bars; the text
+count was off by one. No parameter changes.*
 
 **F1 family (I-D-01 — short-horizon price-tier screen).**
 - Universe: the historical union's names **with bars**; every (name,
@@ -2964,9 +2969,9 @@ have no bars — flagged, never substituted, the #13/#14 convention).
 - **Multiple testing**: two families (F1: 4 slots; F2: 2 slots), Holm at
   α=0.05 per family; all sensitivities exploratory.
 - **Non-stationarity**: per-year F1 rows; per-cohort F2 rows.
-- **Data quality**: frozen artifacts; 199 purged names flagged not
-  substituted; determinism (two runs, byte-compare) + an independent
-  verification pass before any write-back.
+- **Data quality**: frozen artifacts; 198 purged names flagged not
+  substituted (see the §2 record correction); determinism (two runs,
+  byte-compare) + an independent verification pass before any write-back.
 - **The 2017-vs-2019 inconsistency**: handled structurally (F1a $2–5
   primary, S-BAND10 $2–10) and reported per-band regardless of verdict.
 
