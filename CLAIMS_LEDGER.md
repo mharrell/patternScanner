@@ -563,6 +563,10 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 ### I-Notes: cross-course and internal consistency (2026-08-14 scan)
 
+> The formal course-drift comparison is now done — **§I.12** (paired rule
+> map + language layer, 2026-08-18). Items 1–2 below were the informal
+> precursor; item 2's tension is adjudicated in §I.12 row 2.
+
 1. **Same core rules, repeated a decade apart:** first-new-high-candle entry
    (3 videos + B-01); first/second-pullback-only (I-B-01 + B-03); 2:1–3:1
    R:R requirement (I-E-05 + B-01/B-04); "wrong 40% still profitable" /
@@ -1140,6 +1144,115 @@ recorded in PREREGISTRATION.md pre-reg #14 §8.
 
 ---
 
+## I.12 Course-drift comparison — the 2015–2019 playlist vs the 2025 Ultimate Guide (2026-08-18)
+
+**Question:** same strategy a decade apart, or drifted? Two Ross Cameron
+corpora, both claim-scanned: §A–H (2025 Ultimate Guide — one polished
+3h06 course video, ~38.5k words) and §I (2015–2019 playlist — the 8 Ross
+videos: 4 classroom teaching videos from 2015 + 4 retrospectives/
+equipment). The 9 other-channel rows (I-X) are excluded from the
+comparison. Method: (1) paired mapping of the ledger rows (the quotes
+are the evidence); (2) targeted transcript verification of the pivotal
+passages; (3) language-layer rates via
+`tools/compare_courses.py` (per-1,000-word pattern counts, 6-gram
+overlap — outputs only counts, no transcript text). Caveats: auto-caption
+quality; genre mix within the playlist (teaching vs retrospective — the
+accuracy/performance claims live in the retrospectives, the rules in the
+classroom); n-gram rates measure vocabulary, not semantics.
+
+### The paired rule map
+
+| Family | 2015 (playlist, Ross videos) | 2025 (Ultimate Guide) | Verdict |
+|---|---|---|---|
+| Entry: first new-high candle after pullback | I-B-02 "the first one minute or the first five minute candle to make a new high" after a decline; I-B-01 first/second pullback after a breakout | B-01 micro pullback: entry = "the first candle that makes a new high versus the high of the previous candle" after a ≥2-red-candle pullback | **SAME** — identical rule; 2025 systematized the confirmation (≥2 red candles) |
+| Entry: the breakout (apex) itself — **the §I-Notes flagged tension** | I-B-03 "as soon as we break 3750... the apex point that's the breakout"; "it either works instantly or it doesn't" — apex break is a live entry | B-02 "if I bought right here, what would be my max loss? ... it's really far away ... my profit target has to be two times that ... better to wait for the stock to pull back" | **CONTRADICTED** — adjudicated: 2015 taught the apex break as an entry (I-B-07 preferred the fresh break); 2025 repudiates it on R:R. The entry *family* survives (the new-high-after-pullback variant, row above); what died is the apex timing. 2015 was internally multi-variant; 2025 narrowed to one variant |
+| Pullback count restriction | I-B-01 "I trade the first and the second pullback... I never trade almost never trade the third" | B-03 "I always like to trade the first and the second pullback... third and fourth pullback, it can be a little too risky" | **SAME** — near-verbatim, a decade apart |
+| R:R requirement + win-rate threshold | I-E-05 3:1 good-setup bar, "2:1... really important", "wrong forty percent of the time and still make money" | B-01 ≥2:1; B-04 wide-range exception; G-01 2:1 + "only need to be right 33%... to break even" | **SAME core** — the 2:1 floor and the 60%-win arithmetic are identical (the family we measured: I-E-05 ↔ A-05/G-01 are the same math); 3:1 emphasis dropped, the 33% breakeven formula made explicit in 2025 |
+| Trading window | I-B-05 four inconsistent windows (9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30) | F-01 7–10 a.m.; F-02 pre-market "typically cleaner" | **SAME core, DRIFTED specifics** — morning-is-best stable; the four 2015 windows collapsed to one in 2025 and the pre-market leg (7 a.m.) was added |
+| Price band | I-D-01 $2–5 (2017 P&L), $2–10 (2019 filter), "above 20 I ignore it" | D-01 $2–20 ("$2–10 even better"); D-02 $1–10; A-04: >$10 unprofitable → $2–10 | **DRIFTED (widened)** — upper edge $5 → $10 → $20 across the decade; the $2–10 sweet spot persists in 2025's own examples; D-01 vs D-02 is an internal 2025 inconsistency |
+| Relative volume threshold | I-D-04 "relative volume is 500 percent or higher" | D-01 "5× relative volume" (=500%); D-02 sample plan "10×" | **SAME** — D-01 matches 2015 exactly; the 10× restatement is an internal 2025 escalation |
+| Absolute volume band | I-D-03 "total volume between two million and at most 25 million" | — | **DROPPED** — subsumed by relative volume |
+| Float | I-D-06 "lower float stocks" (qualitative; GE ~10B counter-example) | D-02 float "<10M shares" | **SAME, quantified** — explicit <10M in 2025 |
+| Anti-chasing | I-E-02 buying high-ADV = "usually chasing... it doesn't work" | B-02's R:R argument against buying the move | **SAME family** — reframed as the R:R argument; measured consistent with both eras (Shape B new-high buy: NO EDGE, below baselines, §B.5-B) |
+| The two-filter veto (MACD + volume red candle) | — (MACD: zero mentions in all four 2015 classroom transcripts) | E-01/E-04; E-03's MACD-cross lesson self-dated "learned in the 2022 bear market" | **NEW 2025** — an added filter, not a drift of an existing rule; measured: NO EDGE on the daily adaptations (§E.5) |
+| RSI-extreme screening | I-B-06 RSI 90/10 "peak my interest", V5/V8 scanner screens RSI<20/>80, with Class 1's caveat; I-D-08 | — (RSI: zero mentions in the entire 2025 transcript) | **DROPPED** — the 2015 indicator vocabulary vanished; MACD replaced it as the course's indicator |
+| Exit rules | I-C-01 stop at last-candle low / low of day / 20–30¢; I-C-02 trail to breakeven + sell half; I-C-03 9MA→20MA→VWAP target ladder; I-C-04 flat = out | C-01 five numbered exit indicators (volume red candle, MACD cross, topping tail, VWAP break, 9EMA break); C-03 two-steps-down; C-04 cap losers not winners; C-02/C-05 level-2 exits | **SAME family, systematized** — chart-based trailing exits + breakeven stops + target ladders in both; 2015's ad-hoc list became the 2025 numbered checklist; the VWAP/MA-target family is stable (I-C-03 ↔ F-03); the level-2 exit leg exists in both |
+| Market-structure teachings | I-F-01 big moves corrected; I-F-02 stairs/window; I-F-03 trend with market unless catalyst; I-F-04 macro channel; I-F-06 sideways-market profits | F-03 VWAP/MA support; F-04 stop hunting | **DROPPED as teaching** — the 2015 classroom's market-structure rationale is absent from 2025 (setup mechanics + process instead). Two of the dropped claims are measured: I-F-01 (relative correction EDGE, literal retracement FADE, §I.8), I-F-02 (split, §I.9) |
+| Process / psychology layer | I-G-01 three red trades → walk away; I-G-02 risk capped ~$500; I-G-03 red days follow green days; I-G-04 95% buying power | G-03 trader rehab; G-04 size scaling + "three strikes you're out"; G-05 guard rails + 3 phases; G-06 +50 shares/10 days; G-07 simulator-first; G-08 Annie Duke | **EXPANDED** — the structured process layer is new in 2025 (simulator 1.04 vs 0.00/1k, phase 0.68 vs 0.05, plan 0.52 vs 0.05); I-G-01's rule survives as G-04's three-strikes |
+| Accuracy claims | I-A-04 window chain 100→87→75→68–70→67% (retrospectives only; the 2015 classroom never quotes accuracy) | A-03 66% "which is why I'm up $12.3M"; A-05/G-05 60% threshold | **SAME range, stable** — 68–70% (2015 long-run) → 66% (2025); the 60%-enough floor identical in both; accuracy rhetoric moved from the retrospectives into the course itself (0.68 vs 0.00/1k classroom) |
+| Performance narrative | I-A-01/02 $583→$335K 2017; I-A-06 $1M in 553 days 2019 | A-01 retells the same story; endpoint extended: $10M+ pandemic, A-02 "$12.3M verified", A-08 Roth $7M | **SAME story, growing endpoint** — the trajectory is stable and the "verified" rhetoric constant (2017: "verified gains"; 2025: "verified" + accountant); the numbers grew with the decade |
+
+Tally: **8 SAME · 1 CONTRADICTED · 2 DRIFTED · 3 DROPPED · 1 NEW · 1
+EXPANDED · 1 ESCALATED** (the 80%, below).
+
+### The 80% escalation (the sharpest finding)
+
+- **2015, Class 1 [22:25–23:38]** — his own cautionary tale (verified
+  verbatim in the transcript): "when I back tested that formula I would
+  have a you know an 80% chance of being right, an 80% success rate... I
+  would run that formula live for 60 days... it was an 80% success rate
+  would drop to 40%... I was writing a formula to match a certain set of
+  back test results... the scanner was great backward testing but was
+  impossible forward testing because the market is always changing".
+  Lesson taught: overfit backtests decay; don't trust them.
+- **2025, E-02 [04:29–05:54]** — "80% chance of this working" for the
+  veto-pass setup: the same number, now the marketing claim.
+- **Measured (pre-reg #7)**: REJECTED × 3 — actual pass-set win rates
+  48.7–52.9% (§E.7). The 2015 passage predicted the decay directionally
+  ("drop to 40%"; measured ~49–53%).
+- Verdict: **same number, inverted epistemic use** — 2015's warning
+  became 2025's pitch. Corroborated by the language layer: back-test
+  vocabulary is 2015-only (0.28 vs 0.00/1k) — the cautionary frame
+  vanished from the 2025 course.
+
+### Language layer (per 1,000 words; UG 2025 | 2015 classroom; tools/compare_courses.py)
+
+| Term | UG 2025 | 2015 cls | Read |
+|---|---|---|---|
+| RSI / MACD / VWAP / EMA | 0.00 / 0.78 / 0.23 / 0.36 | 0.56 / 0.00 / 0.00 / 0.00 | indicator vocabulary flipped |
+| breakout / reversal / flag / apex | 0.10 / 0.26 / 0.05 / 0.00 | 0.83 / 2.08 / 0.46 / 0.09 | 2015 classroom vocabulary |
+| pullback / squeeze | 1.01 / 0.29 | 0.46 / 0.05 | 2025's replacement terminology |
+| "new high" / "high of day" / confirm* | 0.26 / 0.16 / 0.26 | 0.42 / 0.14 / 0.23 | stable entry/target language |
+| relative volume / volume / scanner | 0.13 / 1.72 / 0.94 | 0.14 / 1.85 / 1.11 | stable selection language |
+| float / catalyst / gap | 0.29 / 0.18 / 0.03 | 0.79 / 0.56 / 0.32 | 2015-heavy selection vocabulary |
+| stop / risk / break even | 0.62 / 1.27 / 0.05 | 1.90 / 3.28 / 0.28 | 2015 classroom mechanics |
+| simulator / phase / plan / rehab | 1.04 / 0.68 / 0.52 / 0.05 | 0.00 / 0.05 / 0.05 / 0.00 | 2025-only process layer |
+| accuracy / verified | 0.68 / 0.05 | 0.00 / 0.00 | 2025 course claims accuracy; the classroom never did |
+| back-test* | 0.00 | 0.28 | the overfit warning lives only in 2015 |
+| 60% / 33% / 40% | 0.05 / 0.05 / 0.00 | 0.05 / 0.00 / 0.09 | the win-rate math, stable |
+| 9:30 / 10:00 / 12:00 / 7:00 | 0.29 / 0.00 / 0.00 / 0.05 | 0.19 / 0.19 / 0.05 / 0.00 | 2015 regular-hours windows; 2025 adds 7 a.m. |
+
+6-gram surface overlap (recomputed): UG 38,120 distinct 6-grams; max 26
+shared with any one playlist video (xTPcI7HHu5w); 102 shared with the
+combined WT set of 46,051 — essentially zero surface reuse (prior index
+finding confirmed at the same order of magnitude). The rules are the
+same; the words are not (polished deck vs raw classroom).
+
+### Overall reading
+
+**Same strategy, polished and narrowed.** Of the 16 rule families + the
+80% escalation: 8 SAME (two near-verbatim — first/second-pullback, the
+60%-win math), 1 CONTRADICTED (apex-break entry, repudiated on R:R), 2
+DRIFTED parameters (price band widened $5→$10→$20; window narrowed +
+pre-market added), 3 DROPPED (RSI-extreme screening, absolute volume
+band, market-structure rationale), 1 NEW (MACD two-filter veto,
+self-dated 2022), 1 EXPANDED (process/psychology layer), 1 ESCALATED
+(the 80% number, inverted from warning to claim). The 2015 corpus was
+multi-variant classroom teaching; the 2025 course is the same method
+narrowed to one variant per rule, systematized into numbered checklists
+and phases, with the performance story retold at a larger endpoint.
+
+Project consequence: the claims pre-registered and measured from both
+corpora were drawn from the *stable* core (pullback/new-high entry,
+2:1/60% math, RSI extremes, MACD veto, big-moves-corrected) — the drift
+analysis confirms those families genuinely persisted a decade, so the
+measurements address the teacher's recurring teachings, not one-off
+statements. The §I-Notes flagged tension (B-02 vs I-B-03) is now
+adjudicated (row 2). The one escalated claim (E-02's 80%) is the one
+the measurements rejected most decisively.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -1310,10 +1423,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).
   **Compare the two courses for drift** (same strategy 10 years apart?
-  parameters changed? claims escalated?) — still open; §I-Notes has partial
-  qualitative evidence (rules consistent, one flagged tension). The formal
-  n-gram/parameter comparison remains a future task; both corpora are
-  ingested.
+  parameters changed? claims escalated?) — done 2026-08-18: **§I.12**
+  (paired rule map of all 16 rule families + the 80% escalation,
+  `tools/compare_courses.py` language layer, both tensions adjudicated).
+  Verdict: same strategy, polished and narrowed — 8 SAME, 1 CONTRADICTED
+  (apex-break entry), 2 DRIFTED (price band $5→$20, window + pre-market),
+  3 DROPPED (RSI extremes, absolute volume, market structure), 1 NEW
+  (MACD veto, self-dated 2022), 1 EXPANDED (process layer), 1 ESCALATED
+  (the 80%: 2015's overfit warning became 2025's claim; measured
+  REJECTED × 3).
 - [x] Fill `topics`/`claims` frontmatter in transcript files as the ledger
   grows — done 2026-08-14 for all 13 transcript files (§I rows mapped back
   per video; non-trading videos get topics only).

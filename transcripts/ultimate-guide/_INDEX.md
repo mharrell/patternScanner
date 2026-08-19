@@ -20,10 +20,15 @@ not evidence** — same scrutiny rules as everything else in this repo
 **This is a different course, not a compilation of the 2015 videos.** We
 measured 6-word-gram overlap between this transcript and every video in
 `../warrior-trading/` (the fan-curated "Class 1-12" playlist): essentially
-zero (max 13 of 38,166 grams). Same teacher, ~10 years apart, distinct
+zero at the surface level (recomputed in the 2026-08-18 course-drift
+comparison: max 26 of this transcript's 38,120 distinct 6-grams shared
+with any single playlist video; 102 shared with the combined WT set of
+46,051 distinct). Same teacher, ~10 years apart, distinct surface
 content — this one is a polished slide-deck course; the playlist is raw
-classroom footage. Treat them as separate corpora unless later review finds
-real overlap.
+classroom footage. **The rules, however, are the same strategy: see the
+paired rule map in CLAIMS_LEDGER §I.12** (8 of 16 rule families SAME,
+incl. two near-verbatim; the rest drifted/narrowed/added — full verdict
+there).
 
 The captions show no explicit chapter announcements (one mention of "chapter
 five" at 1:28:42); the chapter structure lives in YouTube's chapter cards.

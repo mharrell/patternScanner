@@ -234,7 +234,10 @@ ledger items need intraday data.
 - [transcripts/ultimate-guide/_INDEX.md](transcripts/ultimate-guide/_INDEX.md) —
   the same expert's official 3-hour "Ultimate Day Trading Guide" from his own
   channel — a separate course, not a compilation of the playlist (verified via
-  n-gram overlap).
+  n-gram overlap); the 2026-08-18 course-drift analysis ([CLAIMS_LEDGER
+  §I.12](CLAIMS_LEDGER.md)) shows the *rules* are the same strategy a decade
+  apart (8 of 16 families SAME, incl. two near-verbatim), with narrowed/
+  dropped/added layers and one escalated accuracy claim.
 - Not investment advice. No execution, no real money.
 - Methodology lineage: [BreakoutBot](https://github.com/mharrell/BreakoutBot) —
   the backtest is the custom engine; live trading is the ALE. Calibrate before
