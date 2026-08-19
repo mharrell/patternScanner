@@ -49,7 +49,7 @@ checked against public records if we ever do a diligence pass.
 | A-01 | [07:49–09:36] | Starting account $583.15 (2017) → $100K in 45 days during "the challenge" (2 trades/day) → $335K by December → ~$500K next year → ~$1M the year after → $10M+ during the pandemic. | `red flag` — nothing to measure here, but the trajectory is the claim's rhetorical engine. Public records could partially verify (challenge accounts were posted); not our job. |
 | A-02 | [09:00ish] | "Just over $12.3 million of verified trading profits" in 2024; says a third-party accountant audited the accounts. | `red flag` — self-reported, and "verified" is doing a lot of work. Fatal ambiguity: profits in *what* periods, across *which* accounts (personal, Roth, firm)? An accountant's signature is not a research audit. |
 | A-03 | [30:45–33:08] | "My accuracy is showing at 66% which is why I'm up $12.3 million" (average winner ≈ average loser, ≈$1,300 each). | `red flag` — if avg win ≈ avg loss, break-even win rate is 50%; 66% over thousands of trades would make the P&L claim *plausibly consistent*, but the accuracy number is unverifiable without the trade log. |
-| A-04 | [33:47] | March: $10K month, avg win $700, avg loss $1,100, 61% accuracy; says losses were on stocks >$10, so April he traded $2–10 → $36K month. | `red flag` — same category. Useful as a *testable claim in disguise*: "stocks >$10 were unprofitable for me in March 202X" is a claim about price-tier edge. |
+| A-04 | [33:47] | March: $10K month, avg win $700, avg loss $1,100, 61% accuracy; says losses were on stocks >$10, so April he traded $2–10 → $36K month. | `red flag` — same category. Useful as a *testable claim in disguise*: "stocks >$10 were unprofitable for me in March 202X" is a claim about price-tier edge. **Testable core measured (pre-reg #16):** the $2–10 vs >$10 split is **EDGE** (F1b +0.51%, CI 0.37–0.65, p=0.000, §I.13) — the disguised claim survives in relative form on small-caps. |
 | A-05 | [06:00] | "A strategy that over the course of 100 trades is giving you profit 60% of the time, 70% of the time, that can be enough to be a very profitable trader." | `out of scope` as stated (true by arithmetic given R:R) — but this is the *only* quantitative claim about how good the strategy needs to be. Note the tension with A-03: 66% accuracy is the claim; 60–70% is the threshold he asserts is enough. |
 | A-06 | [01:38:38–01:39:04] | On WKEY (a day when he "finished the day up about $116,000"): "the number one leading percentage gainer in the entire market." | `red flag` — performance anecdote; the *selection* claim underneath (top gainer day = best day) is testable and listed in §D. |
 | A-07 | [01:40:09–01:40:26] | "This is a day where I made $98,654.39" (order-execution demo). | `red flag` — anecdote. Includes the standard disclaimer: "my results are not typical." |
@@ -507,7 +507,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| I-D-01 | xTPcI7HHu5w [25:38–26:18]; H82nRY9TYU4 [20:16–20:26] | Price sweet spot: "stocks between $2 and $5 I made a quarter million dollars two hundred and forty thousand dollars profit... stocks over $5 40,000 bucks... above 20 I ignore it" (2017 P&L); 2019 filter: "I only trade stocks between $2 and $10 so this was off the list this was too cheap too expensive". | `candidate` — testable-daily: forward returns by price tier (cross-ref A-04's ">$10 was unprofitable" anecdote). **Internal inconsistency:** $2–5 (2017) vs $2–10 (2019); the claim needs its year. |
+| I-D-01 | xTPcI7HHu5w [25:38–26:18]; H82nRY9TYU4 [20:16–20:26] | Price sweet spot: "stocks between $2 and $5 I made a quarter million dollars two hundred and forty thousand dollars profit... stocks over $5 40,000 bucks... above 20 I ignore it" (2017 P&L); 2019 filter: "I only trade stocks between $2 and $10 so this was off the list this was too cheap too expensive". | `tested` (pre-reg #16, measured 2026-08-19, verified 2026-08-19) — **EDGE × 4 + §5 gate PASSES** (§I.13): F1a $2–5 vs >$20 +1.11% (CI 0.86–1.37), F1b $2–10 vs >$10 +0.51% (CI 0.37–0.65), F1c $10–20 vs >$20 +0.29% (CI 0.21–0.37), F1d same-name control +7.92% (CI 7.68–8.18) — all p=0.000, Holm 0.0125; per-band means monotone (lt2 6.10% > 2-5 1.47% > 5-10 0.53% > 10-20 0.32% > gt20 −0.08%); gate on current 603 OOS 2016–2025: all four EDGE again (+2.33/+1.05/+0.50/+3.99%). **Internal inconsistency resolved in the measurement's favor:** both the $2–5 (F1a) and $2–10 (F1b) variants are EDGE, so the 2017/2019 band drift does not change the verdict. Phase-5 trigger-check held: **NOT TRIGGERED** (relative tiering effect, modest absolute size, no tradeable construction). |
 | I-D-02 | xTPcI7HHu5w [26:40–26:52] | "Obviously making the most money on stocks that have a larger price range that move more than $1 per share". | `candidate` — testable-daily: daily high-low range ≥ $1 as a selection filter. |
 | I-D-03 | xTPcI7HHu5w [27:28–28:24] | Volume band: "I do best on stocks where the total volume is between two million and at most 25 million shares of volume traded on the day that I traded that stock" (sub-250K band: −$7,600). | `candidate` — testable-daily: forward returns by day-volume band. |
 | I-D-04 | xTPcI7HHu5w [28:27–29:36] | "I perform best on stocks where the relative volume is 500 percent or higher... what we're looking for are stocks that have news that came out this morning". | `candidate` / `partial` — the RV ≥ 500% leg (day volume vs own average) is testable-daily; the news leg is out of scope (§3). |
@@ -556,7 +556,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BULL EDGE** (§I.7): n=16,985 OOS; mean +0.80%; +0.34pp vs same-ticker (CI +0.15..+0.53, p=0.002, Holm-rejected) — the first event-level absolute EDGE in the project, the claim's bounce leg confirmed; robust across k=3/5, period 14, min-sep 10, extreme-gated; 9/10 OOS years positive. **Re-checked against historical constituents (pre-reg #13, the §5 gate, measured 2026-08-15): F1-BULL NO EDGE — n=9,384, +0.49pp vs same-ticker (CI −0.15..+0.87, p=0.072), p_input 0.072; the gate FAILS, the EDGE is corrected to the survivorship-resilient record, the family is closed (§I.10).** |
 | I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BEAR NO EDGE** (§I.7): n=20,800 OOS; mean +0.46%; −0.04pp vs same-ticker (p=0.662) — the pullback leg is not confirmed; at N=20 it turns negative (−0.26pp). **Re-checked against historical constituents (pre-reg #13, the §5 gate, measured 2026-08-15): F1-BEAR NO EDGE holds (n=9,656, p=0.106; vs same-ticker −0.38pp, raw p=0.024, not Holm-significant); F2-BEAR-hit EDGE — bearish divergence hits positive *less* often than overbought crossings, "more reliable" in the claimed direction on the bearish side (§I.10).** |
 | I-X-05 | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | Stop placement for bullish divergence: "we have two obvious levels to place our stop loss beyond because by definition... the market shouldn't take out that prior extreme low". | `tested` (pre-reg #14, measured 2026-08-17, verified 2026-08-18) — **F1-BULL EDGE on the primary AND the §5 gate PASSES** (§I.11): n=16,984 OOS; breach rate of Low[t2] within N=10 47.54% vs 52.99%/53.28% → excess −5.46pp / −5.71pp (both CIs < 0, p=0.000) — the prior extreme low is breached substantially *less* often than typical fractal lows, the claim's "shouldn't" supported; F2-BULL EDGE vs OS crossings (−28.56pp). **Gate (historical-union re-run, all anchors PASSED): F1-BULL EDGE — n=9,384, breach 50.53% vs 55.37%/56.20% → −4.82pp/−5.70pp** — the first EDGE to survive the brief §5 survivorship re-check. Phase-5 trigger-check held: **NOT TRIGGERED** — a risk-placement property (where the obvious stop sits, how often it is hit), not a tradeable signal; the divergence events were already gated null on mean returns (#13). Recorded data-state deviation (the frozen #10 record is not regenerable on the 08-16-restated bars; 3 divergence events / 1 crossing across 5 year-legs, drift bound ~1.9e-4, verdicts not drift-sensitive) — recorded and quantified in the results JSON `anchor` block. |
-| I-X-06 | lMZv0K71HOg [02:37–02:50] (EatSleepProfit) | "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically". | `candidate` — testable-daily: sub-$5 cohorts' multi-year forward returns / delisting rates (cross-ref A-04, I-D-01 price-tier family). |
+| I-X-06 | lMZv0K71HOg [02:37–02:50] (EatSleepProfit) | "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically". | `tested, fade` (pre-reg #16, measured 2026-08-19, verified 2026-08-19) — **contradicted on the delisting-aware 2021 cohort** (§I.13): F2b 3y cumulative low <$10 +39.5% (n=35) vs high >$20 +6.0% (n=339), contrast +0.3352 (CI 0.009..0.727, p=0.040) **FADE** — the low-priced cohort *outperformed*, the gap accruing with horizon (1y +5.0% → 4y +42.2%); F2a index-exit NO EDGE (25.7% vs 28.0%, p=0.756); 147 no-bar death-proxy names (117 removed, 79.6%) counted, not substituted — the deaths do not flip the sign. The claim's broadest reading (literal penny stocks, <$2) is a thin slice on this data — pre-declared untested (§2). |
 | I-X-07 | lMZv0K71HOg [06:56–07:04] (EatSleepProfit) | Per-trade target: "I usually like to aim for 88 to 10%" (caption garble for "8 to 10%"). | `out of scope` (process). |
 | I-X-08 | kZNF5Hynk4E [06:35–07:23], [08:33–08:52] (Cameron Bennion) | Robinhood fills ~$0.05/share above the ask on a $1 stock (≈$50 per 1,000-share order); PFOF "profit of about three to four cents" per share. | `out of scope` — broker execution claims; no order data. Kept as the corpus's only execution-quality content. |
 | I-X-09 | lMZv0K71HOg (whole video) (EatSleepProfit) | PDT-rule mechanics (90-day restriction, cash-account workarounds). | `out of scope` — regulatory process content. |
@@ -1253,6 +1253,69 @@ the measurements rejected most decisively.
 
 ---
 
+## I.13 Price-tier verdicts — pre-registration #16 campaign (I-D-01 / I-X-06 / A-04)
+
+Claims: I-D-01 (xTPcI7HHu5w [25:38–26:18]; H82nRY9TYU4 [20:16–20:26]) —
+"stocks between $2 and $5 I made a quarter million dollars... stocks over
+$5 40,000 bucks... above 20 I ignore it" (2017 P&L), 2019 filter "$2–10";
+A-04 cross-ref (losses on >$10, then traded $2–10); I-X-06
+(lMZv0K71HOg [02:37–02:50], EatSleepProfit) — "penny stocks and small
+caps... over the long term these companies are going to fall drastically".
+Measured 2026-08-19, verified 2026-08-19, per [PREREGISTRATION.md](PREREGISTRATION.md)
+#16 (frozen 2026-08-19: hist 904-union with bars OOS 2022–2025, N=10,
+COST 0.0015, day-paired bootstrap seed 20260819, Holm per family, §5 gate
+pre-registered within the campaign). Full reports:
+`data/cache/pricetier_measure_report.md` (+ `pricetier_measure_results.json`)
+and `pricetier_gate_measure_report.md` (+ `pricetier_gate_measure_results.json`).
+
+| Verdict | Result (primary, OOS 2022–2025) | Holm gate | §5 gate (current 603, OOS 2016–2025) |
+|---|---|---|---|
+| **F1a $2–5 vs >$20 EDGE** | n=993 common bar-dates; est +1.11% (CI 0.86–1.37, p=0.000), 109 vs 618 names | 0.0125, rejected | **PASSES** — n=2,504; +2.33% (CI 2.06–2.62), EDGE |
+| **F1b $2–10 vs >$10 EDGE** | est +0.51% (CI 0.37–0.65, p=0.000), 240 vs 686 names | 0.0125, rejected | **PASSES** — +1.05% (CI 0.95–1.15), EDGE |
+| **F1c $10–20 vs >$20 EDGE** | est +0.29% (CI 0.21–0.37, p=0.000), 411 vs 618 names | 0.0125, rejected | **PASSES** — +0.50% (CI 0.45–0.55), EDGE |
+| **F1d same-name control EDGE** | 35,451 pairs / 153 low names; est +7.92% (CI 7.68–8.18, p=0.000) | 0.0125, rejected | **PASSES** — 94,688 pairs; +3.99% (CI 3.85–4.12), EDGE |
+| **F2a index-exit NO EDGE** | removal low 25.7% (n=35) vs high 28.0% (n=343); est −0.0227 (CI −0.169..0.132, p=0.756) | not rejected | not triggered (F2 not EDGE); 2022 cohort descriptive — INCONCLUSIVE (5/29 names, floors unmet) |
+| **F2b 3y cumulative FADE** | low +39.5% (n=35) vs high +6.0% (n=339); est +0.3352 (CI 0.009..0.727, p=0.040) | 0.05, rejected — wrong direction | — |
+
+**Reading.** The price-tier screen claim is **supported on both windows**:
+within the S&P 600 small-cap universe, lower-priced tiers earn better
+N=10 forward returns after cost, and the effect is perfectly monotone
+across the five bands (lt2 +6.10% > 2-5 +1.47% > 5-10 +0.53% > 10-20
++0.32% > gt20 −0.08%, name-day collapsed). The same-name control (F1d) is
+the sharpest form: the *same ticker* earns +7.9% per 10-bar window on its
+<$10 bar-dates vs +0.1% on its own >$20 bar-dates — the band adds value
+over the name. The effect survives the §5 gate on the frozen current
+constituents across 2016–2025 — the first time the gate confirms in the
+reverse direction (the primary is delisting-aware; the gate is the live
+index). Sensitivities corroborate: N=5/20 escalate, LAG5/BAND10/REL hold,
+every OOS year positive (2022 0.83% → 2025 0.31%). The long-term fall
+claim (I-X-06) is **contradicted**: the 2021 low-priced cohort *outpaced*
+the high-priced cohort on 3-year cumulative returns (+39.5% vs +6.0%,
+FADE), the gap accruing with horizon (1y +5.0% → 4y +42.2%), with no
+excess index-exit rate (F2a NO EDGE) and a 79.6% death-proxy row (147
+no-bar names, 117 removed) that only strengthens the record — those names
+are not the survivors. **The Phase-5 trigger-check was held: NOT
+TRIGGERED** — the finding is a monotone *relative* tiering effect with
+modest absolute size (+1.1% per 10-bar window after cost on the cheapest
+band) and no tradeable construction; the claim's own "sweet spot" framing
+(P&L anecdotes) is not a tradeable signal. Note the claim's internal
+inconsistency is resolved in the measurement's favor: both the $2–5 (F1a)
+and $2–10 (F1b) variants are EDGE, so the 2017/2019 band drift does not
+change the verdict. The literal penny-stock population (<$2) is a thin
+slice on this data (pre-declared, §2); lt2 is reported descriptively
+(+6.10%, 33 names) — the claim's broadest reading remains untested.
+
+**Verification.** Deterministic: primary three runs byte-identical
+(results 732ccd01ca0b…, report 04b31aa10440…); gate two runs
+byte-identical (ccb6f713a4d4… / 24b35d886452…). Independent
+from-scratch verification (imports nothing from the frozen stack, fresh
+seeds 20260820/21/22, 129 checks): freeze shas exact; census exact
+(union 904, purged 198, current 603, cohort 601/259); per-band stats
+exact; all slot/F2 ests exact to 1e-12 with CIs within fresh-seed MC
+spread; Holm recomputed; gate ests exact — **PASSED**.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -1339,10 +1402,16 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     outpace the moves — n=35,997, +0.40pp/bar, p<0.001); swing-scale S6
     confirms the claim across bars, per-bar F1/F2 falsify it; Phase 5
     not implicated by construction (no forward returns). Verdicts: §I.9.
-15. **I-D-01 (price-tier edge: $2–5 vs >$20)** — testable-daily; ties to
-    A-04; the 2017/2019 band inconsistency must be handled in the pre-reg.
-16. **I-X-06 (penny/small-cap long-term fall)** — testable-daily multi-year
-    horizon; needs delisting-aware data work.
+15. **I-D-01 (price-tier edge: $2–5 vs >$20)** — ✅ MEASURED (pre-reg #16,
+    2026-08-19): **EDGE × 4 + §5 gate PASSES** (F1a +1.11%, F1b +0.51%,
+    F1c +0.29%, F1d +7.92%, all p=0.000; gate +2.33/+1.05/+0.50/+3.99%) —
+    the first candidate whose EDGE survives the *reverse* gate (the
+    primary is delisting-aware; the gate is the live index). Phase-5
+    trigger-check held: NOT TRIGGERED. Verdicts: §I.13.
+16. **I-X-06 (penny/small-cap long-term fall)** — ✅ MEASURED (pre-reg #16,
+    2026-08-19): **contradicted** — F2b **FADE** (+0.3352, p=0.040; low
+    cohort +39.5% vs high +6.0% over 3y, accruing to +42.2% at 4y), F2a
+    NO EDGE, death-proxy row counted (§I.13).
 17. **I-F-03 (stocks trend with the market unless catalyst)** — correlation
     decomposition; cheap but lower value.
 18. **I-X-05 (stop placement for bullish divergence)** — ✅ MEASURED (pre-reg
@@ -1419,6 +1488,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   NOT TRIGGERED (risk-placement property, no tradeable size) (§I.11,
   `data/cache/stop_placement_measure_report.md` +
   `stop_placement_gate_measure_report.md`). Fourteenth completed campaign.
+- [x] Measure the price-tier family (pre-reg #16, I-D-01 / I-X-06 / A-04)
+  and write the verdicts back — done 2026-08-19: **F1 EDGE × 4 + §5 gate
+  PASSES** (F1a +1.11%, F1b +0.51%, F1c +0.29%, F1d same-name +7.92%,
+  p=0.000; gate on current 603 OOS 2016–2025 +2.33/+1.05/+0.50/+3.99%);
+  **F2b FADE** (low +39.5% vs high +6.0%, p=0.040 — the long-term-fall
+  claim contradicted), F2a NO EDGE; Phase-5 trigger-check held: NOT
+  TRIGGERED (§I.13, `data/cache/pricetier_measure_report.md` +
+  `pricetier_gate_measure_report.md`; independently verified 2026-08-19,
+  129 checks). Fifteenth completed campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

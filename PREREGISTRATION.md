@@ -2995,3 +2995,94 @@ must not change any of them. §8 records the campaign outcome.
 ## 8. Campaign outcome
 
 *(Recorded after measurement — parameters unchanged; gate outcome per §3.)*
+
+Measured 2026-08-19, verified 2026-08-19. **F1 EDGE in all four slots on
+the primary AND the F1 §5 gate PASSES on the frozen current-constituent
+universe** — the price-tier screen claim (I-D-01's "$2–5 sweet spot",
+A-04's ">$10 unprofitable") is supported with a monotone price-tier
+gradient. **F2 is NOT supported: F2a NO EDGE, F2b FADE** — the long-term
+fall claim (I-X-06) is contradicted on the delisting-aware cohort; the
+low-priced names *outperformed* on 3-year cumulative returns.
+
+**F1 primary** (hist union, 706 names with bars; OOS 2022-01-01–2025-12-31,
+N=10, COST 0.0015; Holm gate 0.0125; n_dates 993 = common OOS bar-dates):
+- **F1a $2–5 vs >$20 EDGE**: est +1.11% (CI 0.86–1.37, p=0.000), 109 vs
+  618 names — the 2017 "sweet spot" band beats the "ignore" band.
+- **F1b $2–10 vs >$10 EDGE**: est +0.51% (CI 0.37–0.65, p=0.000), 240 vs
+  686 names — A-04's ">$10 unprofitable" split, the 2019 filter.
+- **F1c $10–20 vs >$20 EDGE**: est +0.29% (CI 0.21–0.37, p=0.000), 411 vs
+  618 names — the gradient leg: the effect is monotone across the price
+  axis, shrinking as price rises (not a "$2–5-only" artifact).
+- **F1d same-name control EDGE**: est +7.92% (CI 7.68–8.18, p=0.000),
+  35,451 matched pairs / 153 low names — the same ticker earns far more
+  on its low-price bar-dates than on its own >$20 bar-dates; the band
+  effect is not a name-mix artifact.
+- Per-band measurement rows (IS+OOS 2021-06-30–2025-12-31; name-day
+  collapse, 772,966 pairs across 706 names): lt2 +6.10% (33 names,
+  5,657 pairs) > 2-5 +1.47% (110, 26,809) > 5-10 +0.53% (244, 68,513) >
+  10-20 +0.32% (422, 155,791) > gt20 −0.08% (628, 516,196) — perfectly
+  monotone in the claimed direction.
+
+**F2 primary** (2021-06 cohort, 601 names exact from the frozen artifact;
+tier at Close 2021-06-30; low leg <$10 incl. lt2, high leg >$20):
+- **F2a (index-exit, n_snapshots < 5 = 259/601) NO EDGE**: removal rate
+  low 25.7% (n=35) vs high 28.0% (n=343); contrast −0.0227 (CI
+  −0.169..0.132, p=0.756) — no excess exit rate for the low-priced leg.
+- **F2b (3y cumulative to 2024-06-30) FADE**: low mean +39.5% (n=35) vs
+  high +6.0% (n=339); contrast **+0.3352** (CI 0.009..0.727, p=0.040),
+  Holm-rejected in the wrong direction — the low-priced cohort
+  *outperformed* the high-priced one, the opposite of "fall drastically".
+  Death-proxy row: 147 no-bar cohort names (117 removed, 79.6%) counted,
+  excluded from verdict legs (no price data → no tier, §2).
+
+**§5 gate (pre-registered §3; triggered by F1 EDGE)**: F1 re-run on the
+frozen current-603 universe, OOS 2016–2025. **PASSED** — all four slots
+EDGE with floors met (Holm 0.0125; n_dates 2504): F1a +2.33% (CI
+2.06–2.62), F1b +1.05% (CI 0.95–1.15), F1c +0.50% (CI 0.45–0.55), F1d
++3.99% (CI 3.85–4.12, 94,688 pairs). The price-tier EDGE is
+survivorship-resilient: it holds on the *current* live index across a
+decade of OOS bars, complementing the delisting-aware primary. The
+Phase-5 trigger-check conversation is held with the surviving evidence
+(§3): **held, NOT TRIGGERED** — the finding is a monotone *relative*
+tiering effect, not a tradeable signal: no entry/exit construction, no
+per-trade size, and the absolute returns (+1.1% per 10-bar window after
+cost on the cheapest band) do not compound into a claimed P&L; the
+F2b FADE simultaneously answers the "fall drastically" half with the
+opposite sign. Practical read: within small-caps, cheap tiers earn better
+10-bar forward returns than expensive tiers, and the cheapest names did
+not fall over 3 years — both claims are real but modest and relative.
+
+F2 gate (2022-06 cohort): NOT TRIGGERED (F2 primary was FADE, not EDGE);
+measured descriptively — 5 sub-$10 names vs 29 >$20 → floors unmet →
+INCONCLUSIVE, gate UNMET with the documented data limitation (§3).
+
+Sensitivities (primary; exploratory, no verdicts): N=5/20 escalate the
+slots' contrast (F1a +0.56%/+1.91%); S-BAND10 ($2–10 vs >$20) +0.57%;
+S-LAG5 (tier at Close[t−5]) +0.57% — the effect is not a same-day-price
+artifact; S-REL (bottom vs top quartile) +0.60% — robust to relative
+tiering; S-ERA decays across the window (2022 0.83% → 2025 0.31%) — the
+effect is present every year, stronger earlier; F2-horizons 1y +5.0% →
+2y +14.5% → 3y +33.5% → 4y +42.2% — the low leg's outperformance
+*accrues* over the horizon (the opposite of a fall).
+
+Determinism: primary three runs byte-identical (results 732ccd01ca0b…,
+report 04b31aa10440…); gate two runs byte-identical (results
+ccb6f713a4d4…, report 24b35d886452…). Independent verification
+(from-scratch implementation importing nothing from the frozen stack,
+fresh seeds 20260820/21/22; 129 checks): freeze shas exact; census exact
+(union 904, purged 198, current 603, cohort 601/259); F1 per-band
+stats (n_pairs/n_names/mean/median/p10/p90) exact; all four slot ests
+exact to 1e-12 with CIs within the fresh-seed MC spread; Holm gates
+recomputed independently — all rejected at 0.0125 with CI-low > 0; F2a/
+F2b legs, rates, means, ests exact; no-bar death-proxy row exact
+(147/117); sensitivities ests exact; gate slot counts + ests exact —
+**PASSED**. Input fingerprints: measure code 8a717d52de90… (frozen sha
+675106eb8b31…), hist universe 904-union 2026-08-15, current 603
+2026-08-13, provenance JSON — all unchanged from the §2 frozen inputs
+(the record-correction note in §2 documents the 198-vs-199 census fix,
+verified at freeze before any measurement). Reports:
+`data/cache/pricetier_measure_report.md`
+(+ `pricetier_measure_results.json`) and
+`data/cache/pricetier_gate_measure_report.md`
+(+ `pricetier_gate_measure_results.json`). Verdicts written back to
+CLAIMS_LEDGER §I.13 (rows I-D-01, I-X-06, A-04 cross-ref).
