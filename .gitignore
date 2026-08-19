@@ -48,6 +48,9 @@ data/cache/*
 !data/cache/stop_placement_measure_results.json
 !data/cache/stop_placement_gate_measure_report.md
 !data/cache/stop_placement_gate_measure_results.json
+# Pre-reg #15 intraday measurement outputs (records of evidence)
+!data/cache/intraday_measure_report.md
+!data/cache/intraday_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

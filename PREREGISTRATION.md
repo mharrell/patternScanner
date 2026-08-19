@@ -2626,22 +2626,22 @@ factual basis as descriptive rows.
 - **Sparsity reality**: Yahoo 1m emits a bar only when a trade prints —
   thin S&P 600 names show real RTH gaps. Detection runs on stored bars
   as-is (each stored bar is the tradable bar at its timestamp); the
-  gap distribution at entry is a measurement row, and sensitivity S4
+  gap distribution at entry is a measurement row, and sensitivity S-GAP
   requires detection bars ≤ 2 min apart.
 
 ## 3. The detector — B-01 on 1-minute bars (frozen)
 
-Per (bar-date, ticker) file, RTH bars only (primary; S3: 07:00–10:00 ET,
-his stated best window):
+Per (bar-date, ticker) file, RTH bars only (primary; S-WIN:
+07:00–10:00 ET, his stated best window):
 
 - UP bar: Close > Open. DOWN bar: Close < Open. Others: neither.
-- **Run-up**: R = 3 consecutive UP bars (S1: R = 4; S2: R = 2). Run-up
+- **Run-up**: R = 3 consecutive UP bars (S-R4: R = 4; S-R2: R = 2). Run-up
   high H = max(High of the run-up bars).
 - **Pullback**: P = 2 consecutive DOWN bars immediately after the run-up
-  ("confirmed by ≥2 red candles"; S1: P = 3). Pullback lows L1 (first
+  ("confirmed by ≥2 red candles"; S-P3: P = 3). Pullback lows L1 (first
   DOWN bar), L2 (second DOWN bar). **Double bottom** (primary, required):
   L2 ≥ L1 — the second test does not break the first. Stop S = min(L1, L2)
-  = L1 under the primary rule. (S2: no double-bottom requirement.)
+  = L1 under the primary rule. (S-DB: no double-bottom requirement.)
 - **Entry signal bar e**: the first bar after the pullback with
   High[e] > High[e−1] — "the first candle that makes a new high versus the
   high of the previous candle". All detection state (run-up, pullback,
@@ -2660,7 +2660,8 @@ families; each slot is a contrast; Holm at α=0.05 within each family.
 
 - **F1 (absolute forward returns — does the entry have edge?)**: forward
   return = (C[e+N] − O[e+1]) / O[e+1] − COST, N = **60** primary (one
-  hour; S: 15 / 120 / 240). Baselines (same convention, COST deducted):
+  hour; S-N15: 15; S-N120: 120; S-N240: 240). Baselines (same convention,
+  COST deducted):
   (a) *same-ticker hour-matched* — random RTH bars c in the same (bar-date,
   ticker) file, matched to the event's hour-of-day bucket (ET), c+N within
   the session, pool excludes event entry bars; (b) *random-universe
@@ -2683,8 +2684,8 @@ families; each slot is a contrast; Holm at α=0.05 within each family.
   EDGE. Floors 100 per leg.
 - **COST**: 0.15% round-trip (house, §6 protocol) on every return —
   deliberately the daily-tier cost; on 1-min bars it is a strict bar.
-  S1 0.05% (intraday tier) and S2 0.30% are pre-declared sensitivities,
-  NO verdicts.
+  S-C05 0.05% (intraday tier) and S-C30 0.30% are pre-declared
+  sensitivities, NO verdicts.
 - **Measurement rows (no verdicts)**: (a) the ≥2:1 R:R geometry —
   (T − O[e+1])/(O[e+1] − S), distribution and fraction ≥ 2.0; (b) name-day
   collapse — F1 means per (ticker, bar-date) (event-level multiplicity is
@@ -2795,6 +2796,11 @@ Pre-registered gate mechanics:
 
 §0–§8 are frozen as of 2026-08-19, before any measurement. Implementation
 must not change any of them. §10 records the campaign outcome.
+
+*Sensitivity labels uniquified 2026-08-19 (S-R4/S-R2/S-P3/S-DB/S-WIN/
+S-GAP/S-N15/S-N120/S-N240/S-C05/S-C30) so the measurement tool can
+reference each variant unambiguously — label change only, zero parameter
+change.*
 
 ## 10. Campaign outcome
 
