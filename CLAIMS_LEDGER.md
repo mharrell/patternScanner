@@ -102,10 +102,10 @@ with fresh parameters and a fresh window.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| C-01 | [1:34:02–1:35:15] | **Exit indicators** (chart-based): (1) high-volume red candle; (2) MACD crossover; (3) topping tail / doji at top; (4) break of VWAP going down; (5) break of 9 EMA going down. | `candidate` — each is a formalizable rule; on daily bars, (1), (4), (5) translate directly; (2) needs the 1-min MACD. The interesting protocol question: are exits as a *system* better than fixed-2R exits? |
+| C-01 | [1:34:02–1:35:15] | **Exit indicators** (chart-based): (1) high-volume red candle; (2) MACD crossover; (3) topping tail / doji at top; (4) break of VWAP going down; (5) break of 9 EMA going down. | `tested` (pre-reg #17, measured 2026-08-19, verified 2026-08-19) — the protocol question resolved: S1 (HV-red) and S2 (VWAP-break) timing EDGE in the primary but **fail the §5 gate** (NO EDGE on the 904-union) and do not reproduce under the fresh-seed baseline redraw; F1 system contrast NO EDGE (pooled) / FADE (Shape A). The exits are well-timed; the system isn't (§I.14). |
 | C-02 | [2:31:08–2:31:27] | Exit indicator (6): "level 2 big seller or burst of red on the time and sales" (order-book data). | `out of scope` — we don't have level-2 data; note as a real edge risk: the strategy as practiced uses data we can't reproduce, so our backtest is of a *subset* of the claimed strategy. |
-| C-03 | [1:12:02–1:12:34] | "When we make the full two steps down... it's basically when you have two candles that go lower and lower that we get out." | `candidate` — simple, testable: exit on second lower-low candle. |
-| C-04 | [1:33:19–1:33:48] | "I want to cap my losers, not my winners": exit immediately at max-loss point; hold winners until an exit indicator. | `candidate` — the asymmetry claim; testable as system comparison (trailing vs fixed target). |
+| C-03 | [1:12:02–1:12:34] | "When we make the full two steps down... it's basically when you have two candles that go lower and lower that we get out." | `tested` (pre-reg #17, measured 2026-08-19, verified 2026-08-19) — two-steps-down exit NO EDGE (n=195, est −0.0080, p=0.198) (§I.14). |
+| C-04 | [1:33:19–1:33:48] | "I want to cap my losers, not my winners": exit immediately at max-loss point; hold winners until an exit indicator. | `tested` (pre-reg #17, measured 2026-08-19, verified 2026-08-19) — asymmetry claim: q90/q95 **FADE** (both windows), q99 **EDGE** and survives the §5 gate; F1 system contrast NO EDGE / FADE-A; trigger-check NOT TRIGGERED (§I.14). |
 | C-05 | [2:05:37–2:06:58] | Order-book override: a 250,000-share sell order on level 2 means "that chart will never do what I thought it might have done" — i.e. book structure can veto a chart pattern. | `out of scope` (no level-2 data). Important honesty note: his edge may partly live in data we cannot see, so measured results won't reproduce his P&L — expected, not evidence of fraud. |
 
 ---
@@ -1314,6 +1314,60 @@ seeds 20260820/21/22, 129 checks): freeze shas exact; census exact
 exact; all slot/F2 ests exact to 1e-12 with CIs within fresh-seed MC
 spread; Holm recomputed; gate ests exact — **PASSED**.
 
+## I.14 C-exit comparison verdicts — pre-registration #17 campaign (C-01 / C-03 / C-04)
+
+Claims: C-01 (exit indicators — HV-red, VWAP-break, 9-EMA-break, topping
+tail, MACD), C-03 ("two steps down... two candles that go lower and lower
+that we get out"), C-04 ("cap my losers, not my winners"). Measured
+2026-08-19, verified 2026-08-19, per [PREREGISTRATION.md](PREREGISTRATION.md)
+#17 (frozen 2026-08-19: OOS 2016–2025 by signal date, A/B/C detections
+from the frozen pre-reg #2 set, same-entry two-arm contrast, R units,
+day-paired bootstrap seed 20260819, Holm per family, §5 gate
+pre-registered within the campaign). Full reports:
+`data/cache/cexit_measure_report.md` (+ `cexit_measure_results.json`) and
+`cexit_gate_measure_report.md` (+ `cexit_gate_measure_results.json`).
+
+| Verdict | Result (primary, OOS 2016–2025) | Holm gate | §5 gate (904-union) |
+|---|---|---|---|
+| **F1 system contrast NO EDGE / FADE-A** | pooled −0.0215R (CI −0.0537..+0.0105, p=0.202); A **FADE** −0.0777R (CI −0.1320..−0.0307, p=0.000); B +0.0265 (p=0.172); C −0.0928 (p=0.038) | 0.0125 — A rejected (wrong direction) | A **FADE** −0.0616 (p=0.002); B/C/pooled NO EDGE |
+| **F2 S1 HV-red timing EDGE (primary only)** | n=3,020; est +0.0043 (CI +0.0009..+0.0076, p=0.014) | 0.0125, rejected | **NO EDGE** — n=3,405; +0.0041 (p=0.028, not rejected) |
+| **F2 S2 VWAP-break timing EDGE (primary only)** | n=9,082; est +0.0046 (CI +0.0014..+0.0078, p=0.006) | 0.0125, rejected | **NO EDGE** — n=10,414; +0.0039 (p=0.016, not rejected) |
+| **F2 S3/S4 NO EDGE** | S3 n=150 +0.0030 (p=0.690); S4 n=195 −0.0080 (p=0.198) | not rejected | NO EDGE (n 162/216) |
+| **F3 q90/q95 FADE** | est −1.4840 / −1.0385 (p=0.000) | 0.0167, rejected (wrong direction) | FADE −1.4922 / −1.0405 (p=0.000) |
+| **F3 q99 EDGE — survives the gate** | est +0.6767 (CI +0.4584..+0.9178, p=0.000) | 0.0167, rejected | **EDGE** +0.6425 (CI +0.4463..+0.8897, p=0.000) |
+
+**Reading.** The C-01 protocol question is answered: indicator exits are
+well-timed but not a better *system*. S1/S2 fire at genuinely weak points
+in the primary (post-exit 10-bar returns ~0.43/0.46pp below same-ticker
+random baselines) but the edge is fragile — essentially unchanged
+estimates on the 904-union land above the Holm gate (p 0.028/0.016), and
+the fresh-seed baseline redraw fails to reproduce the verdicts (fresh p
+0.126/0.024) — and as a system (F1) the indicator arm loses to the
+corpus's own fixed-2R exits on Shape A and breaks even elsewhere (pooled
+NO EDGE both windows). C-04's asymmetry holds only in its extreme
+statistical form: q90/q95 FADE (the fixed cap beats the indicator arm's
+typical winners) while q99 EDGE survives the gate (the very best
+indicator-arm trades run ~0.64R beyond +2R). C-03's two-steps-down shows
+no timing edge. **The Phase-5 trigger-check was held: NOT TRIGGERED** —
+the surviving EDGE is a tail-quantile contrast of the same construction
+that nets negative as a system (F1 pooled NO EDGE, A FADE); the tail
+cannot be selected ex ante, so there is no tradeable version of "don't
+cap winners."
+
+**Verification.** Deterministic: three primary runs byte-identical
+(results 71fbbd49…, report f896459d…); gate recorded (results 0a67241a…,
+report b708fd85…). Independent verification re-implemented the
+measurement from scratch (fresh code importing nothing from the frozen
+stack, fresh seeds): counts/means/ests exact to 1e-9, CIs within the
+fresh-seed MC spread, Holm + floors + verdicts stable, the frozen
+detector re-run on the 904 union ⊇ the frozen detection set on the shared
+names (extras only from the documented CWEN-A float-precision bar
+regeneration, entries within 1e-6 relative). 215 checks, all PASS
+(2026-08-19). Artifact note: 8 microscopic-R events (split-adjusted entry
+≈ structural low; worst NSSC A 2016-01-29, COST_R ≈ 22,650R) — kept per
+the frozen §3 contract, verdicts robust to their exclusion, R levels
+reported with that caveat.
+
 ---
 
 ## What gets pre-registered next
@@ -1360,8 +1414,10 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
 9. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
-   and rejected (§B.5-A, §B.5-C); the intraday and comparison forms remain
-   untested.
+   and rejected (§B.5-A, §B.5-C); **C-01/C-03/C-04 measured 2026-08-19
+   (pre-reg #17)** — exits well-timed but not a better system; F2 timing
+   EDGEs fail the §5 gate; q99 tail EDGE survives, trigger-check NOT
+   TRIGGERED (§I.14). The B-02/B-03/B-05 intraday forms remain untested.
 10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — ✅ MEASURED
     (pre-reg #8, 2026-08-14): F1-A/B **NO EDGE**, F2-B NO EDGE (contrast
     +0.30pp, p=0.302 — the claimed direction, never significant), F1-C/F2-C

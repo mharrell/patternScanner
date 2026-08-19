@@ -3304,6 +3304,111 @@ u = H − max(O, C) ≥ 0.6·(H−L), and H ≥ running max high of the trade �
 
 ## 8. Campaign outcome
 
-(Not yet measured — filled at measurement: verdicts, gate decision,
-determinism shas, independent verification, report paths. Verdicts are
-then written back to CLAIMS_LEDGER.)
+**Measured 2026-08-19** (first measurement; one-shot rule applies). Tool:
+`tools/measure_cexit.py`, frozen at fixed-point sha `afcc0222…` (code
+sha256 `582972c5…`). Determinism: three primary runs byte-identical
+(results sha256 `71fbbd49…`, report sha256 `f896459d…`); gate run
+recorded (results sha256 `0a67241a…`, report sha256 `b708fd85…`).
+Independent verification (house §4): `verify_cexit.py` re-implemented the
+measurement from scratch — fresh code importing nothing from the frozen
+stack, fresh seeds; counts/means/ests exact to 1e-9, CIs within the
+fresh-seed MC spread, Holm + floors + verdicts stable under fresh seeds,
+and the frozen detector re-run on the 904-union contains the frozen
+detection set on the shared names (extras attributable only to the
+documented CWEN-A bar-file regeneration at float precision, entries
+within 1e-6 relative). 215 checks, all PASS (see §I.14 in
+CLAIMS_LEDGER).
+
+Artifacts: `data/cache/cexit_measure_results.json` +
+`data/cache/cexit_measure_report.md`; gate:
+`data/cache/cexit_gate_measure_results.json` +
+`data/cache/cexit_gate_measure_report.md`.
+
+**Floors**: every F1/F2/F3 slot met ≥ 100 events and ≥ 20 distinct dates
+at first measurement (the binding C slot: n=364, dates=321).
+
+**Verdicts — F1 (C-04/C-01 system contrast, indicator − fixed-2R,
+Holm 0.05/4 → 0.0125; est in R units):**
+
+| slot | n | dates | est | CI | p | verdict |
+|---|---|---|---|---|---|---|
+| A | 5,605 | 1,646 | −0.0777 | −0.1320..−0.0307 | 0.000 | **FADE** — fixed-2R beats the indicator arm |
+| B | 7,105 | 1,623 | +0.0265 | −0.0118..+0.0630 | 0.172 | NO EDGE |
+| C | 364 | 321 | −0.0928 | −0.1799..−0.0055 | 0.038 | NO EDGE (not Holm-rejected) |
+| pooled | 13,074 | 2,114 | −0.0215 | −0.0537..+0.0105 | 0.202 | NO EDGE |
+
+**Verdicts — F2 (per-signal exit timing, mean(baseline) − mean(post-exit)
+over 10-bar forward returns, Holm 0.05/4 → 0.0125):**
+
+| signal | n | dates | est | CI | p | verdict |
+|---|---|---|---|---|---|---|
+| S1 HV-red | 3,020 | 1,285 | +0.0043 | +0.0009..+0.0076 | 0.014 | **EDGE** — fires at a genuinely weak point |
+| S2 VWAP-break | 9,082 | 1,923 | +0.0046 | +0.0014..+0.0078 | 0.006 | **EDGE** |
+| S3 9-EMA-break | 150 | 126 | +0.0030 | −0.0103..+0.0162 | 0.690 | NO EDGE |
+| S4 two-steps-down | 195 | 156 | −0.0080 | −0.0193..+0.0050 | 0.198 | NO EDGE |
+
+**Verdicts — F3 (C-04 tail claim, quantile(ind) − quantile(fix) R,
+Holm 0.05/3 → 0.0167; n 13,074 / dates 2,114):**
+
+| slot | est | CI | p | verdict |
+|---|---|---|---|---|
+| q90 | −1.4840 | −1.5318..−1.4389 | 0.000 | **FADE** |
+| q95 | −1.0385 | −1.1144..−0.9569 | 0.000 | **FADE** |
+| q99 | +0.6767 | +0.4584..+0.9178 | 0.000 | **EDGE** |
+
+**Reading.** As a *system*, the indicator exits do not beat the corpus's
+own fixed-2R exits on the same entries: F1 pooled NO EDGE, Shape A FADE
+(−0.0777R), Shapes B/C null. The signal-level timing story is the reverse:
+S1 (high-volume red candle) and S2 (anchored-VWAP break) bind often
+(3,020 / 9,082 events) and fire at genuinely weak points — post-exit
+10-bar returns ~0.43/0.46pp below the same-ticker random baseline
+(Holm-rejected) — but the timing value does not overcome the mechanical
+−1R-stop/±2R geometry as a system. The C-04 asymmetry claim ("cap losers,
+not winners") is contradicted at the 90/95 tails (fixed-2R's winners are
+capped at +2R; the indicator arm's 90/95-quantile winners run only to
+~1.0–1.5R — its best *typical* trades are smaller than the fixed cap) and
+holds only at the extreme tail (q99: the very best indicator-arm trades
+exceed +2R by ~0.68R). S3/S4 bind too rarely to judge and show no timing
+edge.
+
+**§5 gate (904-union; detector re-run, same seeds, same floors).**
+Trigger: F2 (S1, S2) and F3 (q99) carry EDGE slots in the primary. Gate
+results (n 14,927 pooled / dates 2,160; S1 n 3,405; S2 n 10,414):
+
+- F1 A **FADE again** (−0.0616, p=0.002, rejected); B/C/pooled NO EDGE.
+- F2 S1 **NO EDGE** (est +0.0041, p=0.028 — not rejected at 0.0125);
+  S2 **NO EDGE** (est +0.0039, p=0.016 — not rejected). The timing
+  estimates are essentially unchanged on the union (+0.0041/+0.0039 vs
+  +0.0043/+0.0046) but the wider universe spreads the bootstrap and
+  pushes both p values across the Holm gate — **the F2 EDGEs do not
+  survive the gate**. The verification's fresh-seed baseline redraw shows
+  the same fragility at the primary level: S1/S2 do not reproduce their
+  EDGE verdicts under a fresh draw (fresh p 0.126/0.024; §4 CIs still
+  overlap).
+- F3 q90/q95 **FADE again** (−1.4922 / −1.0405); q99 **EDGE** (+0.6425,
+  CI +0.4463..+0.8897, p=0.000, rejected, floors met) — **the q99 EDGE
+  survives the gate**.
+
+Surviving evidence: **F3 q99 EDGE** (both windows); F1 A FADE and F3
+q90/q95 FADE stable across both windows (the claim contradicts).
+
+**Phase-5 trigger-check (held with the surviving evidence — the
+construction question is live).** The tradeable construction — the
+indicator exits replacing the fixed cap on the same entries — is F1:
+pooled NO EDGE in both windows (gate −0.0070, p=0.624), FADE on Shape A.
+The q99 EDGE is a tail-quantile contrast of that same construction (its
+best 1% of trades run ~0.64R past the cap) while q90/q95 FADE show its
+typical winners are smaller than the cap, and the F2 timing EDGEs failed
+the gate. There is no construction in which "uncapped winners" adds value
+ex ante: the tail cannot be selected for, and the system it belongs to
+nets negative vs fixed-2R. **NOT TRIGGERED.**
+
+**Artifact note (kept, not "fixed")**: 8 events carry microscopic R —
+split-adjusted prices where the entry sits ≈ the structural low (worst:
+NSSC A 2016-01-29, R = 1.6e-7 → COST_R ≈ 22,650R on that single trade).
+The frozen §3 contract drops only R ≤ 0 (84 such drops, degenerate
+stops); these R > 0 events are kept per contract. Verdicts are robust
+(excluding the 8 leaves F1 estimates unchanged at the 4th decimal; F2/F3
+do not use R); per-slot R *levels* (means, q90/q95 magnitudes) are
+polluted by the two most extreme of the 8 and are reported with that
+caveat.
