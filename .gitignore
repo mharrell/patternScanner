@@ -54,6 +54,10 @@ data/cache/*
 transcripts/*/*
 !transcripts/*/_INDEX.md
 
+# Intraday accumulation archive — raw parquet is LFS-tracked (data/intraday/README.md);
+# only the pull lock is never committed
+data/intraday/.lock
+
 # IDE
 .idea/
 .vscode/
