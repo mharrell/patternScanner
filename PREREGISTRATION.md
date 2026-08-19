@@ -2610,10 +2610,17 @@ factual basis as descriptive rows.
   measurable on a bar-date **iff** it is in that bar-date's pull-record
   universe. A membership change creates a new `universe_sp600_<date>.csv`;
   the frozen snapshot is never edited.
-- **Excluded bar-dates**: 2026-08-12…18 (test cycle — 6 hand-picked
-  tickers, not the blind universe, and pre-freeze). The measurement window
-  is bar-dates ≥ 2026-08-19 (the first session pulled after this freeze),
-  per §5.
+- **Excluded bar-dates**: 2026-08-12…18. The test cycle first captured
+  6 hand-picked tickers (not the universe file); at 2026-08-19 06:19 MT —
+  before this freeze — the full universe was blind-captured for those
+  bar-dates as well (pull `20260819-121942`: 603 tickers, 3,000 files,
+  universe `5e6f45a3…`), so the bar-dates are no longer test-only. They
+  **remain excluded**: captured before this freeze, and the measurement
+  window is bar-dates ≥ 2026-08-19 by §5's date rule. A recorded test pull
+  (`20260819-052855`, `bad_universe.csv`, 0 files written) is retained as
+  audit evidence. The 6 test-cycle names outside the universe file (AAPL,
+  MSFT, SPY) are not measurable on any bar-date (the per-pull universe
+  rule above).
 - **Splits**: OHLCV is unadjusted; a recorded split (splits.json) falling
   inside a measured (ticker, bar-date) excludes that name-day, counted.
 - **Sparsity reality**: Yahoo 1m emits a bar only when a trade prints —
