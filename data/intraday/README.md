@@ -1,7 +1,9 @@
 # Intraday accumulation track — 1-minute OHLCV archive (v1)
 
-**Status: pipeline built 2026-08-18 (worktree branch, pending merge); archive
-starts empty. First nightly pull runs once merged and scheduled.**
+**Status: pipeline merged to main 2026-08-19 (PR #1, merge `3541eea`);
+nightly pull scheduled (Task Scheduler `\patternScanner-intraday-pull`,
+22:05 MT, `--qa`) and archive is accumulating forward — the first scheduled
+pull is 2026-08-19 22:05 MT.**
 
 The intraday track extends patternScanner beyond daily bars: the untested
 ledger claims (B-01 micro pullback, I-B-01, I-C-02/03/04, E-01/E-04 1-min
