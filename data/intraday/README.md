@@ -2,8 +2,11 @@
 
 **Status: pipeline merged to main 2026-08-19 (PR #1, merge `3541eea`);
 nightly pull scheduled (Task Scheduler `\patternScanner-intraday-pull`,
-22:05 MT, `--qa`) and archive is accumulating forward — the first scheduled
-pull is 2026-08-19 22:05 MT.**
+22:05 MT, `--qa`) plus a nightly push (`\patternScanner-intraday-push`,
+23:00 MT, `tools\push_intraday_archive.cmd`); the archive is accumulating
+forward — the first scheduled pull is 2026-08-19 22:05 MT. Operations
+(morning checks, failure modes, re-creating the tasks): see
+[INTRAday_OPERATIONS.md](../../INTRAday_OPERATIONS.md).**
 
 The intraday track extends patternScanner beyond daily bars: the untested
 ledger claims (B-01 micro pullback, I-B-01, I-C-02/03/04, E-01/E-04 1-min
@@ -88,17 +91,18 @@ full-universe bar-dates ≥ 2026-08-19).
 
 ## Nightly schedule (Windows Task Scheduler)
 
-Action: `Start a program`
-Program: `C:\Python312\python.exe` (or the project interpreter)
-Arguments: `-X utf8 C:\Users\Silver Pangolin\PycharmProjects\patternScanner\tools\fetch_intraday_bars.py --qa`
-Start in: `C:\Users\Silver Pangolin\PycharmProjects\patternScanner`
-Trigger: daily at 22:05 (10:05 PM MT) — after the 04:00–20:00 ET session
-close (session ends 20:00 ET = 18:00 MT) and outside DeepSeek peak pricing.
-If the machine is off, Task Scheduler runs the task at next wake.
+Two tasks, both with `StartWhenAvailable` (if the machine is off, they run
+at next wake):
 
-The script pushes nothing by itself — the nightly **git push** of the
-LFS-tracked archive is a second scheduled step (or a git hook). Until the
-archive is pushed, local disk is the only copy: push after every pull.
+| Task | When | What |
+|---|---|---|
+| `\patternScanner-intraday-pull` | daily 22:05 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\fetch_intraday_bars.py --qa` (Start in: repo root) |
+| `\patternScanner-intraday-push` | daily 23:00 MT | `tools\push_intraday_archive.cmd` — commits `data/intraday` only, fast-forwards main first, pushes, logs to `%TEMP%\intraday_push.log` |
+
+The pull runs after the 04:00–20:00 ET session close (session ends 20:00 ET
+= 18:00 MT) and outside DeepSeek peak pricing. The push script skips itself
+if a pull is still running (`.lock` present) and never touches files
+outside `data/intraday`.
 
 ## Operations
 
@@ -176,6 +180,16 @@ for the test artifacts.
 ## LFS notes
 
 `raw/**` is LFS-tracked (`.gitattributes`). GitHub free tier: 1 GB LFS
-storage / 1 GB bandwidth per month — the archive grows ~1 GB/year, so the
-LFS quota is a ~12-month horizon. Local disk remains the primary store;
-revisit (releases, pruning, or a vendor backfill) before the cap.
+storage / 1 GB bandwidth per month. Measured on the first full-universe pull
+(2026-08-19, 603 tickers): ~11.2 KB per file, ~6.9 MB per pull — about
+**2.5 GB/year**, i.e. a **~4.7-month storage horizon** on the free quota
+(the earlier 1 GB/year estimate was optimistic). Bandwidth is fine
+(~210 MB/month). Local disk remains the primary store; revisit (releases,
+pruning, or a vendor backfill) before the cap.
+
+**Windows reserved device names.** The S&P 600 contains a ticker literally
+named `CON`, which Windows treats as a reserved device name: Python writes
+`CON.parquet` fine, but git-for-Windows refuses to open it unless
+`core.protectNTFS` is `false` (repo-local). The push script sets it
+self-healing on every run; a fresh clone of the archive needs the same
+setting before `git lfs pull` restores `CON.parquet`.
