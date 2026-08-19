@@ -1,0 +1,360 @@
+{
+  "pre_reg": "#14",
+  "mode": "primary",
+  "claim": "Stop-placement claim (I-X-05, Trading 212, rgVdgR1y1Dg [07:40-08:03]): after a bullish divergence the market 'shouldn't take out that prior extreme low' \u2014 measured as the breach rate of Low[t2] (the pair's lower low) within N=10 bars after the frozen pre-reg #10 BULL signal (s = t2+2), vs fractal-low confirmation-bar baselines (divergence bars excluded) and vs oversold crossings",
+  "params": {
+    "period": 10,
+    "period_sensitivity": 14,
+    "k_fractal": 2,
+    "min_sep": 5,
+    "confirm_lag": 2,
+    "n": 10,
+    "n_sensitivities": [
+      5,
+      20
+    ],
+    "stop_level": "Low[t2]",
+    "breach_rule": "min(Low[s+1..s+N]) < L (intrabar, strict)",
+    "f2_lookback": 60,
+    "ob_hi": 70.0,
+    "os_lo": 30.0,
+    "cost": 0.0015,
+    "b": 1000,
+    "seed": 20260816,
+    "alpha": 0.05,
+    "count_floor": 100,
+    "warmup": 60,
+    "era_oos_start": "2016-01-01",
+    "anchor_json": "divergence_measure_results.json"
+  },
+  "families": {
+    "f1_absolute": {
+      "BULL": {
+        "n": 16984,
+        "breach_rate": 0.4754474799811587,
+        "baseline_random": {
+          "pool_n": 165376,
+          "rate": 0.5298834171826625
+        },
+        "baseline_same": {
+          "rate": 0.532809340537582
+        },
+        "excess": {
+          "random": [
+            -0.054593087611870005,
+            -0.05469853980216674,
+            -0.06471090438059356,
+            -0.04439325247291568,
+            0.0
+          ],
+          "same_ticker": [
+            -0.0571333019312294,
+            -0.0573480923221856,
+            -0.06748263071125764,
+            -0.04663065237870937,
+            0.0
+          ]
+        },
+        "p": 0.0,
+        "est": -0.054593087611870005,
+        "ci_low": -0.06748263071125764,
+        "ci_upper": -0.04663065237870937,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; excess CI-upper -0.0466 < 0 \u2014 divergence lows hold better than typical lows, as claimed)",
+        "drift_bound": 0.00019477731454408374,
+        "drift_sensitive": false
+      }
+    },
+    "f2_contrast": {
+      "BULL": {
+        "n_div": 16984,
+        "n_cross": 57427,
+        "rate_div": 0.4754474799811587,
+        "rate_cross": 0.7608790290281575,
+        "excess": [
+          -0.28560150730098915,
+          -0.2856217616580311,
+          -0.2957533560998587,
+          -0.27578750588789447,
+          0.0
+        ],
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; contrast CI-upper -0.2758 < 0 \u2014 divergence lows hold better than oversold-crossing references)",
+        "drift_bound": 0.00019405024647769866,
+        "drift_sensitive": false
+      }
+    }
+  },
+  "measurements": {
+    "stop_distance_pct": {
+      "n": 16984,
+      "mean": 0.052750337274825074,
+      "median": 0.042357682462088764,
+      "p10": 0.013027690962635135,
+      "p90": 0.10297669568253255
+    },
+    "stop_distance_atr14": {
+      "n": 16984,
+      "mean": 1.3974208455839674,
+      "median": 1.2795118887701542,
+      "p10": 0.4379032421203098,
+      "p90": 2.4958830569663957
+    },
+    "decomposition_events": {
+      "n": 16984,
+      "n_breached": 8075,
+      "breach_loss": -0.036587797865566964,
+      "continue_gain": 0.045451099789921595,
+      "combined": 0.006445912639187368
+    },
+    "decomposition_same_ticker": {
+      "breach_rate": 0.532809340537582,
+      "breach_loss": -0.0450164715305753,
+      "continue_gain": 0.003869328864008149,
+      "combined": 0.003632842315483359
+    },
+    "decomposition_random": {
+      "breach_rate": 0.5298834171826625,
+      "breach_loss": -0.04467371629507954,
+      "continue_gain": 0.004083656079899614,
+      "combined": 0.0038271457900584784
+    },
+    "per_year": {
+      "2000": {
+        "n": 680,
+        "breach_rate": 0.4838235294117647
+      },
+      "2001": {
+        "n": 678,
+        "breach_rate": 0.4306784660766962
+      },
+      "2002": {
+        "n": 981,
+        "breach_rate": 0.48623853211009177
+      },
+      "2003": {
+        "n": 732,
+        "breach_rate": 0.42213114754098363
+      },
+      "2004": {
+        "n": 849,
+        "breach_rate": 0.464075382803298
+      },
+      "2005": {
+        "n": 1141,
+        "breach_rate": 0.49868536371603855
+      },
+      "2006": {
+        "n": 979,
+        "breach_rate": 0.4616956077630235
+      },
+      "2007": {
+        "n": 1250,
+        "breach_rate": 0.496
+      },
+      "2008": {
+        "n": 1412,
+        "breach_rate": 0.5113314447592068
+      },
+      "2009": {
+        "n": 1018,
+        "breach_rate": 0.4037328094302554
+      },
+      "2010": {
+        "n": 1072,
+        "breach_rate": 0.36847014925373134
+      },
+      "2011": {
+        "n": 1411,
+        "breach_rate": 0.48263642806520196
+      },
+      "2012": {
+        "n": 1144,
+        "breach_rate": 0.4606643356643357
+      },
+      "2013": {
+        "n": 993,
+        "breach_rate": 0.36656596173212486
+      },
+      "2014": {
+        "n": 1410,
+        "breach_rate": 0.4836879432624113
+      },
+      "2015": {
+        "n": 1341,
+        "breach_rate": 0.522744220730798
+      },
+      "2016": {
+        "n": 1276,
+        "breach_rate": 0.3957680250783699
+      },
+      "2017": {
+        "n": 1511,
+        "breach_rate": 0.46525479814692255
+      },
+      "2018": {
+        "n": 1736,
+        "breach_rate": 0.5057603686635944
+      },
+      "2019": {
+        "n": 1474,
+        "breach_rate": 0.37720488466757124
+      },
+      "2020": {
+        "n": 1624,
+        "breach_rate": 0.4630541871921182
+      },
+      "2021": {
+        "n": 1540,
+        "breach_rate": 0.4883116883116883
+      },
+      "2022": {
+        "n": 2083,
+        "breach_rate": 0.5180028804608737
+      },
+      "2023": {
+        "n": 2053,
+        "breach_rate": 0.5031660983925962
+      },
+      "2024": {
+        "n": 1677,
+        "breach_rate": 0.5181872391174717
+      },
+      "2025": {
+        "n": 2010,
+        "breach_rate": 0.4716417910447761
+      }
+    },
+    "is_record": {
+      "n": 17091,
+      "breach_rate": 0.46369434205137205
+    },
+    "oos_record": {
+      "n": 16984,
+      "breach_rate": 0.4754474799811587
+    }
+  },
+  "sensitivities": {
+    "N=5": {
+      "n": 17000,
+      "breach_rate": 0.359,
+      "baseline_random_rate": 0.40281538934759925,
+      "baseline_same_rate": 0.4048705282577276
+    },
+    "N=20": {
+      "n": 16952,
+      "breach_rate": 0.5946201038225578,
+      "baseline_random_rate": 0.6471367459044286,
+      "baseline_same_rate": 0.6498262054049884
+    },
+    "level_t1": {
+      "n": 16984,
+      "breach_rate": 0.7283325482807348,
+      "baseline_random_rate": 0.5298834171826625,
+      "baseline_same_rate": 0.532809340537582
+    },
+    "period14": {
+      "n": 16853,
+      "breach_rate": 0.47291283451017624,
+      "baseline_random_rate": 0.5298834171826625,
+      "baseline_same_rate": 0.532809340537582,
+      "drops": 28
+    },
+    "close_breach": {
+      "n": 16984,
+      "breach_rate": 0.37240932642487046,
+      "baseline_random_rate": 0.4143164667182663,
+      "baseline_same_rate": 0.417137278212954
+    },
+    "bear_mirror": {
+      "n": 20798,
+      "breach_rate": 0.8918165208193095,
+      "baseline_random_rate": 0.5872216119351691,
+      "baseline_same_rate": 0.5900862406183306,
+      "drops": 112
+    }
+  },
+  "assertions": {
+    "frozen_shas_ok": true,
+    "rsi_min_all": 0.0,
+    "rsi_max_all": 100.0,
+    "min_t1": 10,
+    "min_signal_bar": 17,
+    "max_signal_bar": 6538,
+    "n_bad_signal": 0,
+    "anchor_per_year_sum_bull": 34075,
+    "anchor_per_year_sum_bear": 42757,
+    "oos_bull_raw": 17016,
+    "oos_bear_raw": 20910,
+    "drops_primary_bull": 32,
+    "baseline": {
+      "drops_end": 746,
+      "drops_warmup": 4336,
+      "excluded_event_bars": 16984,
+      "pool_n_random": 165376,
+      "same_ticker_missing_pools": 0
+    },
+    "f2": {
+      "no_reference_dropped": 15,
+      "drops_end": 314
+    }
+  },
+  "anchor": {
+    "status": "DEVIATION",
+    "record": "divergence_measure_results.json (frozen pre-reg #10, written 2026-08-15 05:08 UTC)",
+    "frozen": {
+      "per_year_bull_sum": 34076,
+      "per_year_bear_sum": 42759,
+      "n_bull_raw": 17017,
+      "n_bear_raw": 20912,
+      "f1_bull_n": 16985
+    },
+    "observed": {
+      "per_year_bull_sum": 34075,
+      "per_year_bear_sum": 42757,
+      "n_bull_raw": 17016,
+      "n_bear_raw": 20910,
+      "f1_bull_n": 16984
+    },
+    "deltas": {
+      "per_year_bull": -1,
+      "per_year_bear": -2,
+      "n_bull_raw": -1,
+      "n_bear_raw": -2,
+      "f1_bull_n": -1
+    },
+    "per_year_deltas": {
+      "2016": {
+        "BEAR": -1
+      },
+      "2017": {
+        "BEAR": -1
+      },
+      "2021": {
+        "BULL": -1
+      },
+      "2024": {
+        "BEAR": -1
+      },
+      "2025": {
+        "BULL": 32,
+        "BEAR": 113
+      }
+    },
+    "drift_guard": {
+      "events_changed_ub": 3,
+      "crossings_changed_ub": 1,
+      "delta_event_rate": 0.00017663683466792276,
+      "delta_f1": 0.00019477731454408374,
+      "delta_f2": 0.00019405024647769866
+    },
+    "note": "The frozen primary record is not regenerable from the current bars: the frozen pipeline and md.main() itself (shas asserted) yield per_year BULL 34075/BEAR 42757 vs frozen 34076/42759, freq n_bull 17016/n_bear 20910 vs 17017/20912, fam1 BULL n 16984 vs 16985. The frozen #13 hist record (2026-08-16) regenerates exactly on the same data, bracketing the change to the 08-15/08-16 window. The 08-13-era bytes are unrecoverable (fetch_log.json records only rows/dates; no raw downloads). Deviation: 3 divergence events (2021 BULL -1; 2016/2017/2024 BEAR -1; 2025 BEAR +1) and 1 OB crossing; the OOS BULL event set under test differs from the frozen record by exactly 1 event. Recorded + quantified + guarded; not a parameter change; no frozen file modified."
+  },
+  "fingerprints": {
+    "universe_sha256": "5e6f45a3c791c21a374b07bb981b620e12fa7e9c1a55777e7203fbdc935018ec",
+    "measure_code_sha256": "a9ccedd163869c78b09c72910cb55dc630769b3c19096b48dbf1381d29c2b57c",
+    "engine_sha256": "c7421fbffeaf16ed43278faafa7325e2972634d516bc013c41e15e7f733b1b93"
+  }
+}

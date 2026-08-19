@@ -555,7 +555,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | I-X-02 | rgVdgR1y1Dg [05:33–05:39] (Trading 212) | "These divergence signals are a lot less common so arguably a bit more reliable". | `tested` (pre-reg #10, 2026-08-14) — **frequency CONFIRMED, reliability split** (§I.7): 37,929 divergences vs 124,298 crossings → ratio 0.3051 (CI 0.3022..0.3081), "a lot less common" trivially true; reliability: bullish divergence **EDGE × 2** vs oversold crossings (mean +0.18pp, hit +1.50pp), bearish divergence **FADE** on the mean (+0.21pp — *less* reliable than overbought crossings, the opposite direction) and NO EDGE on hit rate. **Re-checked against historical constituents (pre-reg #13, the §5 gate, measured 2026-08-15): frequency CONFIRMED (ratio 0.3012, CI 0.2972..0.3052); reliability flips on the bearish side — F2-BEAR-hit EDGE (hit rate −1.35pp vs overbought crossings), F2 BULL-mean/hit and BEAR-mean all NO EDGE (§I.10).** |
 | I-X-03 | rgVdgR1y1Dg [05:51–06:15] (Trading 212) | Bullish divergence: price makes a lower low while "the RSI... we've got higher lows so this is a suggestion that maybe this weakness is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BULL EDGE** (§I.7): n=16,985 OOS; mean +0.80%; +0.34pp vs same-ticker (CI +0.15..+0.53, p=0.002, Holm-rejected) — the first event-level absolute EDGE in the project, the claim's bounce leg confirmed; robust across k=3/5, period 14, min-sep 10, extreme-gated; 9/10 OOS years positive. **Re-checked against historical constituents (pre-reg #13, the §5 gate, measured 2026-08-15): F1-BULL NO EDGE — n=9,384, +0.49pp vs same-ticker (CI −0.15..+0.87, p=0.072), p_input 0.072; the gate FAILS, the EDGE is corrected to the survivorship-resilient record, the family is closed (§I.10).** |
 | I-X-04 | rgVdgR1y1Dg [06:39–07:03] (Trading 212) | Bearish divergence: "the market has pushed to a high pushes a little bit higher... we've got our lower high so that's a suggestion that maybe the strength is running out of steam". | `tested` (pre-reg #10, 2026-08-14) — **F1-BEAR NO EDGE** (§I.7): n=20,800 OOS; mean +0.46%; −0.04pp vs same-ticker (p=0.662) — the pullback leg is not confirmed; at N=20 it turns negative (−0.26pp). **Re-checked against historical constituents (pre-reg #13, the §5 gate, measured 2026-08-15): F1-BEAR NO EDGE holds (n=9,656, p=0.106; vs same-ticker −0.38pp, raw p=0.024, not Holm-significant); F2-BEAR-hit EDGE — bearish divergence hits positive *less* often than overbought crossings, "more reliable" in the claimed direction on the bearish side (§I.10).** |
-| I-X-05 | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | Stop placement for bullish divergence: "we have two obvious levels to place our stop loss beyond because by definition... the market shouldn't take out that prior extreme low". | `pre-registered` (pre-reg #14, frozen 2026-08-16) — measured as the breach rate of the divergence's prior extreme low (Low[t2]) within N=10 after the frozen pre-reg #10 BULL event set, vs fractal-low confirmation-bar baselines (random + same-ticker) and vs OS crossings; the brief §5 survivorship gate is pre-registered within the campaign (historical-union re-run iff the primary is EDGE); measurement pending. |
+| I-X-05 | rgVdgR1y1Dg [07:40–08:03] (Trading 212) | Stop placement for bullish divergence: "we have two obvious levels to place our stop loss beyond because by definition... the market shouldn't take out that prior extreme low". | `tested` (pre-reg #14, measured 2026-08-17, verified 2026-08-18) — **F1-BULL EDGE on the primary AND the §5 gate PASSES** (§I.11): n=16,984 OOS; breach rate of Low[t2] within N=10 47.54% vs 52.99%/53.28% → excess −5.46pp / −5.71pp (both CIs < 0, p=0.000) — the prior extreme low is breached substantially *less* often than typical fractal lows, the claim's "shouldn't" supported; F2-BULL EDGE vs OS crossings (−28.56pp). **Gate (historical-union re-run, all anchors PASSED): F1-BULL EDGE — n=9,384, breach 50.53% vs 55.37%/56.20% → −4.82pp/−5.70pp** — the first EDGE to survive the brief §5 survivorship re-check. Phase-5 trigger-check held: **NOT TRIGGERED** — a risk-placement property (where the obvious stop sits, how often it is hit), not a tradeable signal; the divergence events were already gated null on mean returns (#13). Recorded data-state deviation (the frozen #10 record is not regenerable on the 08-16-restated bars; 3 divergence events / 1 crossing across 5 year-legs, drift bound ~1.9e-4, verdicts not drift-sensitive) — recorded and quantified in the results JSON `anchor` block. |
 | I-X-06 | lMZv0K71HOg [02:37–02:50] (EatSleepProfit) | "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically". | `candidate` — testable-daily: sub-$5 cohorts' multi-year forward returns / delisting rates (cross-ref A-04, I-D-01 price-tier family). |
 | I-X-07 | lMZv0K71HOg [06:56–07:04] (EatSleepProfit) | Per-trade target: "I usually like to aim for 88 to 10%" (caption garble for "8 to 10%"). | `out of scope` (process). |
 | I-X-08 | kZNF5Hynk4E [06:35–07:23], [08:33–08:52] (Cameron Bennion) | Robinhood fills ~$0.05/share above the ask on a $1 stock (≈$50 per 1,000-share order); PFOF "profit of about three to four cents" per share. | `out of scope` — broker execution claims; no order data. Kept as the corpus's only execution-quality content. |
@@ -1065,6 +1065,81 @@ Verification: deterministic (results 45d6ebe9d882…, report 125ad2af14d5…, by
 
 ---
 
+## I.11 Stop-placement verdicts — pre-registration #14 campaign (I-X-05)
+
+Claim (I-X-05, rgVdgR1y1Dg [07:40–08:03]): for a bullish divergence, "we
+have two obvious levels to place our stop loss beyond because by
+definition... the market shouldn't take out that prior extreme low".
+Measured 2026-08-17, verified 2026-08-18, against the frozen pre-reg #10
+BULL event set (pre-reg #14 §2): stop level L = Low[t2], breach ⇔
+min(Low[s+1..s+N]) < L (intrabar, strict), N=10 primary, signal s = t2+2,
+OOS 2016–2025.
+
+| Verdict | Result (primary) | p_input / Holm | Gate (pre-reg §3, historical union) |
+|---|---|---|---|
+| **F1-BULL EDGE** | n=16,984 OOS; breach 47.54% vs random 52.99% / same-ticker 53.28% → excess −5.46pp (CI −6.47..−4.44) and −5.71pp (CI −6.75..−4.66), p=0.000 | 0.000, rejected (CI-upper −4.66pp < 0) | **PASSES** — n=9,384; breach 50.53% vs 55.37%/56.20% → −4.82pp (CI −6.28..−3.43) and −5.70pp (CI −6.98..−3.58), p=0.000; all event-set anchors PASSED |
+| **F2-BULL EDGE** | contrast vs OS crossings −28.56pp (CI −29.58..−27.58, p=0.000); n_cross 57,427 | 0.000, rejected | −26.87pp (CI −28.20..−25.62, p=0.000); n_cross 31,509 |
+
+**Reading.** The claim's "shouldn't" is supported: the divergence's prior
+extreme low is breached within 10 bars substantially LESS often than
+typical fractal lows (and far less than oversold-crossing references,
+whose age asymmetry is documented conservative). The stop below the prior
+extreme low is a genuinely tight, rarely-hit level — a defensive
+risk-placement property. **The §5 gate PASSES** — the first EDGE in the
+project to survive the historical-constituent re-check (distinct from
+pre-reg #13, where I-X-03's mean-return EDGE failed on the corrected
+universe). The Phase-5 trigger-check conversation was held with the
+surviving evidence: **NOT TRIGGERED** — the finding is a risk-placement
+property, not a tradeable signal (no entry/exit construction, no
+per-trade size), and the divergence events themselves were already gated
+null on mean returns (#13).
+
+**Data-integrity deviation (recorded, quantified, guarded).** The frozen
+#10 record is NOT regenerable on the current (08-16-restated) bars: the
+frozen pipeline yields per_year BULL 34,075 / BEAR 42,757, fam1 n 16,984,
+freq 17,016/20,910 vs the frozen 34,076/42,759/16,985/17,017/20,912 — a
+3-divergence-event, 1-OB-crossing delta across 5 year-legs (2021 BULL −1;
+2016/2017/2024 BEAR −1; 2025 BEAR +1); the frozen #13 hist record
+regenerates exactly on the same data, bracketing the change to the
+08-15→08-16 window, and the 08-13-era bytes are unrecoverable (fetch log
+has no hashes; no raw downloads exist). Handled as a recorded DEVIATION:
+the OOS BULL set under test differs from frozen by exactly 1 event;
+drift-materiality bound ≈1.9e-4 (~60× below the bootstrap CI width);
+neither family's decisive CI bound falls within it — verdicts not
+drift-sensitive. NOT a parameter change; no frozen file modified.
+
+Measurement rows (primary): stop distance open[s+1] → Low[t2] mean 5.28%
+(median 4.24%, p10 1.30%, p90 10.30%) = 1.40 ATR14 units (median 1.28);
+breach-loss −3.66% vs continue-gain +4.55% (combined +0.64%,
+n_breached 8,075); all 26 per-year breach rates (0.37–0.52) below the OOS
+random baseline 0.5299; IS descriptive n=17,091 breach 46.37%.
+
+Sensitivities (primary, exploratory — no verdicts): S1 N=5 0.359 vs
+0.403/0.405, N=20 0.595 vs 0.647/0.650 (edge persists at both horizons);
+S2 stop = Low[t1] 0.728 vs 0.530/0.533 (the older, shallower low is
+breached far more often — the claim's t2 choice is the tight one);
+S3 period 14 0.473; S4 close-based breach 0.372; S5 BEAR mirror 0.892 vs
+0.587/0.590 (exploratory; no bearish stop claim was pre-registered).
+Gate sensitivities directionally consistent throughout (N=5 0.375, N=20
+0.638, S2 0.749, S3 0.508, S4 0.405, S5 0.904).
+
+Determinism: primary two runs byte-identical (results 1162e0c54457…,
+report 11f7beb09d19…); gate two runs byte-identical (results
+b761dfa9cfe2…, report 35a8b49ca7e2…). Independent verification
+(from-scratch implementations importing nothing from the frozen stack,
+fresh seeds 20260817/20260818): primary — BULL n=16,984 exact, breach
+0.4754474799811587 exact, baseline rates exact, bootstrap excess within
+6e-4, driver CI-upper within verifier CI ±1.5e-3, F2 exact — **PASSED**;
+gate — n=9,384 exact, rates exact, excess within the data-derived 3σ MC
+bound (max(3·√2·sd/√B, 6e-4)) — **PASSED**. Input fingerprints: universe
+5e6f45a3c791… (primary) / 62f681d58cdb… (gate), measure code
+a9ccedd16386…, Phase-3 engine c7421fbf… imported unchanged — no frozen
+file modified. Reports: `data/cache/stop_placement_measure_report.md` /
+`stop_placement_gate_measure_report.md` (+ `_results.json`). Outcome also
+recorded in PREREGISTRATION.md pre-reg #14 §8.
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -1157,6 +1232,12 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     horizon; needs delisting-aware data work.
 17. **I-F-03 (stocks trend with the market unless catalyst)** — correlation
     decomposition; cheap but lower value.
+18. **I-X-05 (stop placement for bullish divergence)** — ✅ MEASURED (pre-reg
+    #14, 2026-08-17/18): **F1-BULL EDGE on the primary AND the §5 gate
+    PASSES** — the first EDGE to survive the historical-constituent
+    re-check (breach −5.46pp/−5.71pp primary, −4.82pp/−5.70pp gate,
+    p=0.000 both); F2-BULL EDGE (−28.56pp/−26.87pp); Phase-5 trigger-check
+    held: NOT TRIGGERED (risk-placement property). Verdicts: §I.11.
 
 ## Open work
 
@@ -1216,6 +1297,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   the moves), frequency reported (§I.9, `data/cache/speed_measure_report.md`);
   Phase 5 not implicated by construction (no forward returns measured).
   Twelfth completed campaign.
+- [x] Measure the stop-placement claim (pre-reg #14, I-X-05) and write the
+  verdicts back — done 2026-08-17/18: **F1-BULL EDGE** (breach 47.54% vs
+  52.99%/53.28%, excess −5.46pp/−5.71pp, p=0.000) **and the §5 gate
+  PASSES** (n=9,384, breach 50.53% vs 55.37%/56.20%, −4.82pp/−5.70pp) —
+  the first EDGE to survive the historical-constituent re-check; F2-BULL
+  EDGE (−28.56pp primary, −26.87pp gate); Phase-5 trigger-check held:
+  NOT TRIGGERED (risk-placement property, no tradeable size) (§I.11,
+  `data/cache/stop_placement_measure_report.md` +
+  `stop_placement_gate_measure_report.md`). Fourteenth completed campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

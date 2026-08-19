@@ -43,6 +43,11 @@ data/cache/*
 !data/cache/hist_universe_provenance.json
 !data/cache/divergence_hist_measure_report.md
 !data/cache/divergence_hist_measure_results.json
+# Pre-reg #14 stop-placement outputs (records of evidence)
+!data/cache/stop_placement_measure_report.md
+!data/cache/stop_placement_measure_results.json
+!data/cache/stop_placement_gate_measure_report.md
+!data/cache/stop_placement_gate_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt

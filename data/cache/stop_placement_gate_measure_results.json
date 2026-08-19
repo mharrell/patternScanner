@@ -1,0 +1,308 @@
+{
+  "pre_reg": "#14",
+  "mode": "gate",
+  "claim": "Stop-placement claim (I-X-05, Trading 212, rgVdgR1y1Dg [07:40-08:03]): after a bullish divergence the market 'shouldn't take out that prior extreme low' \u2014 measured as the breach rate of Low[t2] (the pair's lower low) within N=10 bars after the frozen pre-reg #10 BULL signal (s = t2+2), vs fractal-low confirmation-bar baselines (divergence bars excluded) and vs oversold crossings; the brief \u00a75 survivorship gate (pre-reg #14 \u00a73): historical-constituent union, OOS 2022-2025",
+  "params": {
+    "period": 10,
+    "period_sensitivity": 14,
+    "k_fractal": 2,
+    "min_sep": 5,
+    "confirm_lag": 2,
+    "n": 10,
+    "n_sensitivities": [
+      5,
+      20
+    ],
+    "stop_level": "Low[t2]",
+    "breach_rule": "min(Low[s+1..s+N]) < L (intrabar, strict)",
+    "f2_lookback": 60,
+    "ob_hi": 70.0,
+    "os_lo": 30.0,
+    "cost": 0.0015,
+    "b": 1000,
+    "seed": 20260816,
+    "alpha": 0.05,
+    "count_floor": 100,
+    "warmup": 60,
+    "era_oos_start": "2022-01-01",
+    "anchor_json": "divergence_hist_measure_results.json"
+  },
+  "families": {
+    "f1_absolute": {
+      "BULL": {
+        "n": 9384,
+        "breach_rate": 0.5053282182438192,
+        "baseline_random": {
+          "pool_n": 82299,
+          "rate": 0.5536762293588015
+        },
+        "baseline_same": {
+          "rate": 0.562046375727681
+        },
+        "excess": {
+          "random": [
+            -0.04819554560954816,
+            -0.048060528559249804,
+            -0.06276641091219093,
+            -0.03430306905370844,
+            0.0
+          ],
+          "same_ticker": [
+            -0.05700383631713555,
+            -0.0571184995737426,
+            -0.06980498721227622,
+            -0.04358216112531961,
+            0.0
+          ]
+        },
+        "p": 0.0,
+        "est": -0.04819554560954816,
+        "ci_low": -0.06980498721227622,
+        "ci_upper": -0.04358216112531961,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; excess CI-upper -0.0436 < 0 \u2014 divergence lows hold better than typical lows, as claimed)"
+      }
+    },
+    "f2_contrast": {
+      "BULL": {
+        "n_div": 9384,
+        "n_cross": 31509,
+        "rate_div": 0.5053282182438192,
+        "rate_cross": 0.7735567615601892,
+        "excess": [
+          -0.2686881926683717,
+          -0.2684356351236147,
+          -0.28197197357203757,
+          -0.2561780690537084,
+          0.0
+        ],
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; contrast CI-upper -0.2562 < 0 \u2014 divergence lows hold better than oversold-crossing references)"
+      }
+    }
+  },
+  "measurements": {
+    "stop_distance_pct": {
+      "n": 9384,
+      "mean": 0.05526864280534027,
+      "median": 0.0458910240659436,
+      "p10": 0.014166438373839563,
+      "p90": 0.10649378249345776
+    },
+    "stop_distance_atr14": {
+      "n": 9384,
+      "mean": 1.3735611348271468,
+      "median": 1.2445963169160756,
+      "p10": 0.40754623721823374,
+      "p90": 2.4776297349289615
+    },
+    "decomposition_events": {
+      "n": 9384,
+      "n_breached": 4742,
+      "breach_loss": -0.03876984374013479,
+      "continue_gain": 0.05050351972709402,
+      "combined": 0.005391170029566415
+    },
+    "decomposition_same_ticker": {
+      "breach_rate": 0.562046375727681,
+      "breach_loss": -0.04911466210892555,
+      "continue_gain": -0.0015737478121377046,
+      "combined": 0.0009744133396468234
+    },
+    "decomposition_random": {
+      "breach_rate": 0.5536762293588015,
+      "breach_loss": -0.04811268010375263,
+      "continue_gain": -0.00041459812466351184,
+      "combined": 0.0019022256110343544
+    },
+    "per_year": {
+      "2000": {
+        "n": 874,
+        "breach_rate": 0.488558352402746
+      },
+      "2001": {
+        "n": 903,
+        "breach_rate": 0.4407530454042082
+      },
+      "2002": {
+        "n": 1231,
+        "breach_rate": 0.48659626320064986
+      },
+      "2003": {
+        "n": 885,
+        "breach_rate": 0.4135593220338983
+      },
+      "2004": {
+        "n": 1101,
+        "breach_rate": 0.4586739327883742
+      },
+      "2005": {
+        "n": 1407,
+        "breach_rate": 0.4939587775408671
+      },
+      "2006": {
+        "n": 1188,
+        "breach_rate": 0.4781144781144781
+      },
+      "2007": {
+        "n": 1583,
+        "breach_rate": 0.4977890082122552
+      },
+      "2008": {
+        "n": 1776,
+        "breach_rate": 0.5005630630630631
+      },
+      "2009": {
+        "n": 1250,
+        "breach_rate": 0.3952
+      },
+      "2010": {
+        "n": 1339,
+        "breach_rate": 0.37117251680358476
+      },
+      "2011": {
+        "n": 1801,
+        "breach_rate": 0.46862853970016655
+      },
+      "2012": {
+        "n": 1511,
+        "breach_rate": 0.4870946393117141
+      },
+      "2013": {
+        "n": 1324,
+        "breach_rate": 0.3768882175226586
+      },
+      "2014": {
+        "n": 1799,
+        "breach_rate": 0.4874930516953863
+      },
+      "2015": {
+        "n": 1785,
+        "breach_rate": 0.5355742296918767
+      },
+      "2016": {
+        "n": 1612,
+        "breach_rate": 0.4044665012406948
+      },
+      "2017": {
+        "n": 1887,
+        "breach_rate": 0.48224695283518815
+      },
+      "2018": {
+        "n": 2130,
+        "breach_rate": 0.503755868544601
+      },
+      "2019": {
+        "n": 1833,
+        "breach_rate": 0.3982542280414621
+      },
+      "2020": {
+        "n": 2011,
+        "breach_rate": 0.4629537543510691
+      },
+      "2021": {
+        "n": 1881,
+        "breach_rate": 0.4758107389686337
+      },
+      "2022": {
+        "n": 2491,
+        "breach_rate": 0.5266961059815335
+      },
+      "2023": {
+        "n": 2468,
+        "breach_rate": 0.5036466774716369
+      },
+      "2024": {
+        "n": 2087,
+        "breach_rate": 0.5265931959750838
+      },
+      "2025": {
+        "n": 2338,
+        "breach_rate": 0.46535500427716
+      }
+    },
+    "is_record": {
+      "n": 33111,
+      "breach_rate": 0.4629579293890248
+    },
+    "oos_record": {
+      "n": 9384,
+      "breach_rate": 0.5053282182438192
+    }
+  },
+  "sensitivities": {
+    "N=5": {
+      "n": 9407,
+      "breach_rate": 0.37525247156372915,
+      "baseline_random_rate": 0.41867655406466264,
+      "baseline_same_rate": 0.42453048545452665
+    },
+    "N=20": {
+      "n": 9340,
+      "breach_rate": 0.6375802997858673,
+      "baseline_random_rate": 0.6761568897299157,
+      "baseline_same_rate": 0.6842284573659597
+    },
+    "level_t1": {
+      "n": 9384,
+      "breach_rate": 0.7488277919863597,
+      "baseline_random_rate": 0.5536762293588015,
+      "baseline_same_rate": 0.562046375727681
+    },
+    "period14": {
+      "n": 9328,
+      "breach_rate": 0.5076114922813036,
+      "baseline_random_rate": 0.5536762293588015,
+      "baseline_same_rate": 0.562046375727681,
+      "drops": 42
+    },
+    "close_breach": {
+      "n": 9384,
+      "breach_rate": 0.40451832907075874,
+      "baseline_random_rate": 0.4464817312482533,
+      "baseline_same_rate": 0.4542346986816691
+    },
+    "bear_mirror": {
+      "n": 9656,
+      "breach_rate": 0.903893951946976,
+      "baseline_random_rate": 0.5628767532079976,
+      "baseline_same_rate": 0.5712715539483112,
+      "drops": 118
+    }
+  },
+  "assertions": {
+    "frozen_shas_ok": true,
+    "rsi_min_all": 0.0,
+    "rsi_max_all": 100.0,
+    "min_t1": 10,
+    "min_signal_bar": 17,
+    "max_signal_bar": 6538,
+    "n_bad_signal": 0,
+    "anchor_per_year_sum_bull": 42495,
+    "anchor_per_year_sum_bear": 52057,
+    "oos_bull_raw": 9433,
+    "oos_bear_raw": 9774,
+    "drops_primary_bull": 49,
+    "baseline": {
+      "drops_end": 890,
+      "drops_warmup": 5082,
+      "excluded_event_bars": 9384,
+      "pool_n_random": 82299,
+      "same_ticker_missing_pools": 0
+    },
+    "f2": {
+      "no_reference_dropped": 0,
+      "drops_end": 383
+    }
+  },
+  "anchor": {
+    "status": "PASSED"
+  },
+  "fingerprints": {
+    "universe_sha256": "62f681d58cdb5fa87a338fcb4ce1b21856d9f0af4331baa491a236be6790dcc9",
+    "measure_code_sha256": "a9ccedd163869c78b09c72910cb55dc630769b3c19096b48dbf1381d29c2b57c",
+    "engine_sha256": "c7421fbffeaf16ed43278faafa7325e2972634d516bc013c41e15e7f733b1b93"
+  }
+}

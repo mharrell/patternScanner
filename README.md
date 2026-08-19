@@ -3,8 +3,8 @@
 Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
-**Status:** Phase 4 — verdicts written back to the ledger 2026-08-16.
-Thirteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Status:** Phase 4 — verdicts written back to the ledger 2026-08-18.
+Fourteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -125,9 +125,26 @@ re-check** (pre-reg #13, the brief §5 survivorship gate, measured
 historical union (2022–2025, n=9,384, p_input 0.072), the EDGE corrected
 to the survivorship-resilient record, the family closed with the re-check
 as definitive; F2-BEAR-hit EDGE (re-recorded); frequency 0.3012 holds.
-Phase 5 remains **not triggered** after thirteen campaigns.
+**Stop placement** (pre-reg #14, I-X-05 — "the market shouldn't take out
+that prior extreme low", measured 2026-08-17): **F1-BULL EDGE** — the
+divergence's prior extreme low (Low[t2]) is breached within N=10 in
+47.54% of 16,984 OOS events vs 52.99% random / 53.28% same-ticker
+(excess −5.46pp, CI −6.47..−4.44, and −5.71pp, CI −6.75..−4.66, p=0.000
+both) — the claim's "shouldn't" is supported; F2-BULL EDGE vs OS
+crossings (−28.56pp, CI −29.58..−27.58). **The §5 survivorship gate
+PASSES** — the first EDGE to survive the historical-constituent re-check
+(n=9,384, breach 50.53% vs 55.37%/56.20%, excess −4.82pp/−5.70pp,
+p=0.000; all anchors PASSED). Phase-5 trigger-check held with the
+surviving evidence: **not triggered** — the finding is a risk-placement
+property (where the obvious stop sits and how often it is hit), not a
+tradeable signal, and the divergence events were already gated null on
+mean returns. A recorded data-state deviation (the frozen #10 event
+record is not regenerable on the 08-16-restated bars; quantified, drift
+bound ~1.9e-4, verdicts not drift-sensitive) is documented in the
+results JSON `anchor` block.
+Phase 5 remains **not triggered** after fourteen campaigns.
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
@@ -137,12 +154,14 @@ reports:
 `data/cache/divergence_measure_report.md`,
 `data/cache/bigmove_measure_report.md`,
 `data/cache/speed_measure_report.md`,
-`data/cache/divergence_hist_measure_report.md`.
-Next candidates: pre-registration #14 (the I-X-05 stop-placement claim —
-"the market shouldn't take out that prior extreme low", measured as the
-breach rate of the divergence's lower low within N=10, with the §5
-survivorship gate pre-registered within the campaign) is **frozen
-2026-08-16, measurement pending**. After it, the top remaining candidate
+`data/cache/divergence_hist_measure_report.md`,
+`data/cache/stop_placement_measure_report.md`,
+`data/cache/stop_placement_gate_measure_report.md`.
+Next candidates: pre-registration #14 (the I-X-05 stop-placement claim)
+is **measured: F1-BULL EDGE on the primary AND the §5 gate PASSES** —
+the first EDGE to survive the historical-constituent re-check (§I.11,
+`data/cache/stop_placement_measure_report.md` +
+`stop_placement_gate_measure_report.md`). The top remaining candidate
 is the I-X-06/I-D-01 price-tier family (sub-$5 cohorts' forward returns —
 needs a small-cap universe beyond the S&P 600). The remaining untested
 ledger items need intraday data.
@@ -201,7 +220,11 @@ ledger items need intraday data.
   after the frozen pre-reg #10 BULL event set, vs fractal-low
   confirmation-bar baselines and vs OS crossings; the §5 survivorship gate
   (historical-union re-run) pre-registered within the campaign, frozen
-  2026-08-16, measurement pending. Verdicts return to the ledger.
+  2026-08-16, **measured 2026-08-17: F1-BULL EDGE on the primary AND the
+  §5 gate PASSES** — the first EDGE to survive the historical-constituent
+  re-check (§I.11); Phase-5 trigger-check held: NOT TRIGGERED (a
+  risk-placement property, not a tradeable signal). Verdicts return to
+  the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —

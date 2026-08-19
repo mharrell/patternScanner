@@ -2460,3 +2460,104 @@ so the re-check needs no separate campaign:
 
 §1–§5 are frozen as of 2026-08-16, before any measurement. Implementation
 must not change any of them. §8 will record the campaign outcome.
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged; gate outcome per §3.)*
+
+Measured 2026-08-17, verified 2026-08-18. **F1-BULL EDGE on the primary
+AND the §5 gate PASSES** — the first claim whose EDGE survives the
+historical-constituent re-check. The stop-placement claim — after a
+bullish divergence "the market shouldn't take out that prior extreme
+low" — is supported on both windows, on both verdict families:
+
+- **F1-BULL EDGE (primary)**: n=16,984 OOS (2016–2025); breach rate of
+  Low[t2] within N=10 = 47.54% vs 52.99% (random pool 165,376) and
+  53.28% (same-ticker) → excess −5.46pp (CI −6.47..−4.44, p=0.000) and
+  −5.71pp (CI −6.75..−4.66, p=0.000); p_input 0.000, est −5.46pp,
+  CI-upper −4.66pp < 0 — Holm 0.05 cleared. The prior extreme low is
+  breached substantially LESS often than typical fractal lows: the
+  claim's "shouldn't" is supported (excess is negative in the claimed
+  direction — breached less often).
+- **F2-BULL EDGE (primary)**: contrast vs OS crossings −28.56pp (CI
+  −29.58..−27.58, p=0.000) — divergence lows hold far better than
+  oversold-crossing references (the crossing reference's age asymmetry
+  is documented conservative, §2).
+- **§5 gate (pre-registered §3)**: re-run on the historical-constituent
+  union (904 names, 706 with bars; OOS 2022–2025). ALL event-set anchors
+  PASSED — the frozen #13 record regenerates byte-exact (per_year BULL
+  42,495 / BEAR 52,057; fam1 n 9,384; freq 9,433/9,774; drops 49/118;
+  n_os 31,892; drops_cross 383). **F1-BULL EDGE**: n=9,384; breach
+  50.53% vs 55.37% / 56.20% → excess −4.82pp (CI −6.28..−3.43, p=0.000)
+  and −5.70pp (CI −6.98..−3.58, p=0.000) — **EDGE survives**. F2-BULL
+  EDGE −26.87pp (CI −28.20..−25.62, p=0.000).
+
+**Gate decision (per §3): PASSED.** The F1-BULL EDGE is
+survivorship-resilient on the breach-rate measure — distinct from pre-reg
+#13's mean-return gate (I-X-03 FAILED): the stop-level property holds on
+the corrected universe even though the mean forward return does not. The
+Phase-5 trigger-check conversation is held with the surviving evidence
+(§3): **held, NOT TRIGGERED** — the finding is a risk-placement property
+(where the "obvious" stop sits and how often it is hit), not a tradeable
+signal: no entry/exit construction, no per-trade size, and the divergence
+events themselves were already gated null on the mean-return re-check
+(#13). Practical read: the stop below the prior extreme low is a
+genuinely tight, rarely-hit level relative to typical fractal lows — a
+defensive placement property, not an alpha source.
+
+**Data-integrity note (recorded, quantified, guarded — the frozen #10
+record is not regenerable on the current bars):** §2 anchors the event
+set to the frozen pre-reg #10 record. On the current bars the frozen
+pipeline — and md.main() itself, run with outputs rebound and shas
+asserted — yields per_year BULL 34,075 / BEAR 42,757, fam1 BULL n
+16,984, freq n_bull 17,016 / n_bear 20,910 vs the frozen 34,076 /
+42,759 / 16,985 / 17,017 / 20,912: a 3-divergence-event, 1-OB-crossing
+delta across 5 year-legs (2021 BULL −1; 2016/2017/2024 BEAR −1; 2025
+BEAR +1). The frozen #13 hist record regenerates exactly on the same
+data, bracketing the change to the 08-15 → 08-16 window (vendor
+restatement of the bars); the 08-13-era bytes are unrecoverable
+(fetch_log.json records only rows/dates — no hashes; no raw downloads
+exist). The deviation is recorded in the results JSON (`anchor` block)
+and guarded by a drift-materiality bound (1.9e-4, ~60× below the
+bootstrap CI width; the OOS BULL set under test differs by exactly 1
+event); a verdict is flagged drift-sensitive only if a decisive CI bound
+falls within the bound — neither family's does. This is a data-state
+deviation, NOT a parameter change; no frozen file was modified.
+
+Measurement rows (primary): stop distance open[s+1] → Low[t2] mean 5.28%
+(median 4.24%, p10 1.30%, p90 10.30%) = 1.40 ATR14 units (median 1.28);
+outcome decomposition (events): breach-loss −3.66%, continue-gain
++4.55%, combined +0.64% (n_breached 8,075); same-ticker baseline
+breach-loss −4.50% / continue-gain +0.39% / combined +0.36%; random
+baseline −4.47% / +0.25% / +0.32%. IS record (descriptive) n=17,091,
+breach 46.37% vs OOS 47.54%. All 26 per-year breach rates below the OOS
+random baseline (0.37–0.52).
+
+Exploratory sensitivities (primary; no verdicts): S1 N=5 0.359 vs
+0.403/0.405, N=20 0.595 vs 0.647/0.650 — the edge persists at both
+horizons; S2 stop = Low[t1] 0.728 vs 0.530/0.533 — the older, shallower
+low is breached far more often; the claim's t2 choice is the tight one;
+S3 period 14 0.473 vs 0.530/0.533; S4 close-based breach 0.372 vs
+0.414/0.417; S5 BEAR mirror 0.892 vs 0.587/0.590 — the bearish mirror
+(the divergence high) is taken out in ~89% of cases (exploratory; no
+bearish stop claim was pre-registered). Gate sensitivities: consistent
+directions throughout (N=5 0.375, N=20 0.638, S2 0.749, S3 0.508, S4
+0.405, S5 0.904 — each below its baselines).
+
+Determinism: primary two runs byte-identical (results 1162e0c54457…,
+report 11f7beb09d19…); gate two runs byte-identical (results
+b761dfa9cfe2…, report 35a8b49ca7e2…). Independent verification
+(from-scratch implementations importing nothing from the frozen stack,
+fresh seeds 20260817/20260818): primary — BULL n=16,984 exact, breach
+0.4754474799811587 exact to 1e-16, baseline rates exact, bootstrap
+excess points within 6e-4, driver CI-upper within the verifier CI
+±1.5e-3, F2 n_cross/rate exact — **PASSED**; gate — n=9,384 exact,
+rates exact, excess points within the data-derived 3σ MC bound —
+**PASSED**. Input fingerprints: universe 5e6f45a3c791… (primary) /
+62f681d58cdb… (gate), measure code a9ccedd16386…, engine c7421fbf…
+imported unchanged. Reports:
+`data/cache/stop_placement_measure_report.md`
+(+ `stop_placement_measure_results.json`) and
+`data/cache/stop_placement_gate_measure_report.md`
+(+ `stop_placement_gate_measure_results.json`). Verdicts written back to
+CLAIMS_LEDGER §I.11.
