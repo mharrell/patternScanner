@@ -54,6 +54,8 @@ data/cache/*
 # Pre-reg #16 price-tier measurement outputs (records of evidence)
 !data/cache/pricetier_measure_report.md
 !data/cache/pricetier_measure_results.json
+!data/cache/pricetier_gate_measure_report.md
+!data/cache/pricetier_gate_measure_results.json
 
 # Downloaded transcript content — copyrighted, keep local
 *.vtt
