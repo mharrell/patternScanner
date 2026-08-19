@@ -143,6 +143,15 @@ record is not regenerable on the 08-16-restated bars; quantified, drift
 bound ~1.9e-4, verdicts not drift-sensitive) is documented in the
 results JSON `anchor` block.
 Phase 5 remains **not triggered** after fourteen campaigns.
+
+**Intraday track (live since 2026-08-19):** a forward-accumulated 1-minute
+archive of the live S&P 600 is capturing the data the remaining untested
+ledger claims need (they are stated on 1-minute charts — B-01 micro pullback,
+I-B-01, I-C-02/03/04, 1-min MACD, F-01/F-02 time-of-day, I-E-02). Pre-reg
+#15 is frozen with a §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
+before any measurement; nightly pull (22:05) + push (23:00) run under Task
+Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
+[INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
 [CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11](CLAIMS_LEDGER.md);
 reports:
@@ -164,7 +173,10 @@ the first EDGE to survive the historical-constituent re-check (§I.11,
 `stop_placement_gate_measure_report.md`). The top remaining candidate
 is the I-X-06/I-D-01 price-tier family (sub-$5 cohorts' forward returns —
 needs a small-cap universe beyond the S&P 600). The remaining untested
-ledger items need intraday data.
+ledger items need intraday data — which the **intraday track** now
+accumulates nightly (pre-reg #15, frozen 2026-08-19; see
+[data/intraday/README.md](data/intraday/README.md) and
+[INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md)).
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -227,6 +239,13 @@ ledger items need intraday data.
   the ledger.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
+- [data/intraday/README.md](data/intraday/README.md) — the intraday track:
+  forward-accumulated 1-minute archive of the live S&P 600 (no survivorship
+  bias by construction), append-only ledger discipline, nightly pull + push
+  (pre-reg #15 in prep).
+- [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md) — intraday runbook: what
+  runs nightly, monitoring, failure modes and recovery, re-creating the
+  scheduled tasks.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —
   reference corpus of a day-trading "expert" education series (fan-curated
   playlist), for scrutiny and technique reference. Transcript files are

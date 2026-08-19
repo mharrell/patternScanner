@@ -4,7 +4,9 @@
 nightly pull scheduled (Task Scheduler `\patternScanner-intraday-pull`,
 22:05 MT, `--qa`) plus a nightly push (`\patternScanner-intraday-push`,
 23:00 MT, `tools\push_intraday_archive.cmd`); the archive is accumulating
-forward — the first scheduled pull is 2026-08-19 22:05 MT.**
+forward — the first scheduled pull is 2026-08-19 22:05 MT. Operations
+(morning checks, failure modes, re-creating the tasks): see
+[INTRAday_OPERATIONS.md](../../INTRAday_OPERATIONS.md).**
 
 The intraday track extends patternScanner beyond daily bars: the untested
 ledger claims (B-01 micro pullback, I-B-01, I-C-02/03/04, E-01/E-04 1-min
