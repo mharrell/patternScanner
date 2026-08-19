@@ -2819,3 +2819,174 @@ bar-date ≥ 2026-08-19 lands in the 2026-08-19 22:05 MT pull.*
 2026-08-19, ≥ 2,000 events, ≥ 100 tickers, ≥ 15 bar-dates). At the current
 archive state (first full-universe pull scheduled 2026-08-19 22:05 MT)
 this section is empty by design.*
+
+---
+
+# Pre-registration #16 — price-tier family: "my sweet spot is $2–5" (I-D-01) + "penny stocks and small caps fall drastically over the long term" (I-X-06; A-04 cross-ref)
+
+**Frozen 2026-08-19, before any measurement.** No parameters below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window.
+
+## 1. Translation — claim as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "stocks between $2 and $5 I made a quarter million dollars two hundred and forty thousand dollars profit... stocks over $5 40,000 bucks... above 20 I ignore it" (2017 P&L); 2019: "I only trade stocks between $2 and $10 so this was off the list this was too cheap too expensive" | xTPcI7HHu5w [25:38–26:18]; H82nRY9TYU4 [20:16–20:26] (I-D-01) | **The price-tier screen claim, measured on daily bars.** The lowest-priced tier within the S&P 600 small-cap universe earns better forward returns than the highest-priced tier. Bands by Close at bar t: **$2–5 / $5–10 / $10–20 / >$20**; the 2017 claim's literal band ($2–5) is the primary contrast anchor; the 2019 $2–10 band is pre-declared sensitivity S-BAND10 (the internal inconsistency — $2–5 vs $2–10 — is itself a measurement row: per-band results are reported regardless of verdict). |
+| "losses were on stocks >$10, so April he traded $2–10" | [33:47] (A-04, flagged "a testable claim in disguise") | **<$10 vs >$10 contrast** (F1b) — the $2–10 trading band vs everything above it. |
+| "Most of the penny stocks and small caps hey these are horribly fundamentally run companies so over the long term these companies are going to fall drastically" | lMZv0K71HOg [02:37–02:50] (EatSleepProfit, I-X-06) | **The long-term fall claim, measured on the delisting-aware 2021 snapshot cohort**: low-priced small-cap names exit the index (F2a) and/or underperform on multi-year cumulative returns (F2b) relative to high-priced names. |
+
+**Population reality, pre-declared (measured at draft time, before any
+verdict computation):** the claim's literal population is penny stocks; the
+frozen universes contain few. Current S&P 600 (2026-08-13 snapshot): 2–9
+names below $5 at the 2022–2025 anchor dates. Historical union (904 names,
+5 snapshots): up to 28 names below $5 (2025 anchor). The $2–5 band is a thin
+slice on this data — the pre-reg measures the **relative price-tier claim
+within small-caps** (the part of the price axis the data can speak to), with
+the literal penny-stock claim remaining untested regardless of outcome. Era
+translation pre-declared: I-D-01 is stated in 2017/2019 classroom
+retrospectives; the measured window is 2022–2025 (same caveat as #11's
+cross-market note).
+
+## 2. Measurement
+
+**Inputs (all frozen):** `data/cache/universe_sp600_hist_2026-08-15.csv`
+(904-name union; exact per-name membership semantics: `first_seen` =
+first snapshot appearance, `n_snapshots` = number of the 5 snapshots
+containing the name), `hist_universe_provenance.json` (snapshot revids +
+pairwise overlaps), `data/cache/universe_sp600_2026-08-13.csv` (current 603),
+cached daily bars (per-ticker parquet; 199 union names purged from Yahoo
+have no bars — flagged, never substituted, the #13/#14 convention).
+
+**F1 family (I-D-01 — short-horizon price-tier screen).**
+- Universe: the historical union's names **with bars**; every (name,
+  bar-date) pair is a population point. Tier = Close[t]. Forward return =
+  Close[t+N]/Close[t] − 1 − COST, entering at open t+1, exiting at close t+N
+  (house §6). **N = 10** primary, **COST 0.0015**.
+- **Era**: OOS 2022-01-01–2025-12-31 (the snapshot-bracketed window, house
+  #13/#14 convention; bars end 2025-12-31); IS 2021-06-30–2021-12-31
+  descriptive only.
+- **Slots** — the claim's structure is inherently relative, so the contrast
+  slots ARE the baselines (no separate random slot; F1d plays the
+  same-ticker role):
+  - **F1a** — $2–5 vs >$20 (the 2017 sweet spot vs the "ignore" band).
+  - **F1b** — <$10 vs >$10 (A-04's ">$10 unprofitable" split).
+  - **F1c** — $10–20 vs >$20 (gradient leg — monotonicity check).
+  - **F1d** — same-name control: each low-tier (<$10) bar-date matched to
+    the same name's >$20-tier bar-dates (the house same-ticker convention;
+    the event bar-date excluded from the pool) — "the price band adds
+    nothing over the name itself".
+- **Bootstrap** (house `bootstrap_excess`): day-paired — resample M OOS
+  bar-dates with replacement (M = min leg n over dates where both tiers are
+  present), each resampled date contributes its tier's cross-sectional
+  mean; contrast = low-tier mean − high-tier mean over B=1000 draws,
+  seed **20260819**; percentile 2.5/97.5 CI; p = 2·min((diffs≤0).mean(),
+  (diffs≥0).mean()). Holm at α=0.05 across the F1 family (4 slots).
+  **EDGE** iff Holm-rejected AND CI-low > 0 (low tier beats high tier — the
+  claimed direction); **FADE** iff Holm-rejected AND CI-upper < 0; NO EDGE
+  otherwise; INCONCLUSIVE below floor.
+- **Floors**: ≥100 bar-dates per slot **and** ≥10 distinct names per
+  band-slot (the band effect must not ride on a handful of names); name-day
+  collapse (F1 mean per (name, bar-date)) as a measurement row.
+- **Sensitivities** (exploratory, NO verdicts): N=5/20; **S-BAND10** (bands
+  $2–10 vs >$20 — the 2019 filter); S-LAG5 (tier at Close[t−5] — stale-price
+  robustness); S-REL (relative tiering — bottom vs top price quartile of the
+  universe at t); S-ERA (per-year slot results).
+
+**F2 family (I-X-06 — long-term fall of the low-priced cohort).**
+- **Cohort**: the 2021-06 snapshot members = all names with `first_seen`
+  2021-06 (601 names — exact, from the frozen artifact); tiered by Close at
+  2021-06-30 (bands as F1); pooled low leg = <$10, reference = >$20 (the
+  $2–5 band alone, 5 names with bars, is reported as measurement rows only —
+  pre-declared power reality).
+- **F2a (removal leg — index-exit rate)**: "removed at least once by
+  2025-06" ⇔ `n_snapshots` < 5 (exact: a first_seen-2021-06 name with fewer
+  than 5 snapshot appearances has a gap ⇒ exited the index between
+  snapshots; 259/601 at draft time). Contrast: <$10 removal rate − >$20
+  removal rate, name-level two-sample bootstrap (B=1000, seed 20260819).
+  **EDGE** iff Holm-rejected AND CI-low > 0 (low-priced names exit more —
+  the claimed direction); **FADE** iff CI-upper < 0. Floor ≥30 names per
+  leg. **Composition caveat pre-registered**: index exits include mergers
+  and acquisitions (a price event, not necessarily a fall); the artifact
+  does not record exit reasons; the Yahoo-purged subset (no bars: 147 of
+  the cohort, of which 117 exited) is reported as a measurement row — the
+  death-weighted proxy — not a verdict slot (no price data → no tier).
+- **F2b (return leg — long-horizon cumulative returns)**: cumulative return
+  from 2021-06-30 to **2024-06-30 (3y, primary)**; 1y/2y/4y
+  (2022-06-30/2023-06-30/2025-06-30) sensitivities; names with bars only
+  (no-bar names excluded and counted). Contrast <$10 mean − >$20 mean, same
+  bootstrap. **EDGE** iff Holm-rejected AND CI-upper < 0 (low tier's
+  long-term returns below high tier — "fall drastically"); **FADE** iff
+  CI-low > 0. Floor ≥30 names per leg.
+- Holm at α=0.05 across the F2 family (2 slots). Survivorship honesty
+  pre-declared: F2b runs on names with bars only; F2a carries the exit
+  channel; a divergence between the legs is verdict-relevant by design.
+
+## 3. The §5 survivorship gate (pre-registered within this campaign)
+
+- **If any F1 slot is EDGE**: the same F1 measurement re-runs on the frozen
+  current-constituent universe (`universe_sp600_2026-08-13.csv`, 603 names),
+  OOS 2016–2025 (the longer house window). **Gate PASSED** iff the EDGE
+  survives (Holm-rejected, same direction, floors met) → the Phase-5
+  trigger-check conversation is held with the surviving evidence. **Gate
+  FAILS** → the claim is corrected to the survivorship-resilient record and
+  the family closed (the #13/#14 convention). *Direction note: the primary
+  is already the delisting-aware universe (the #13/#14 gate universe); the
+  gate run is the live-index confirmation in the reverse direction.*
+- **If F2 is EDGE**: the gate re-anchors on the **2022-06 cohort**
+  (`first_seen` 2022-06; horizon to 2025-12-31) — cohort robustness, since
+  the F2 primary already contains the deaths and the current-constituent
+  swap is impossible (the 2026-08-13 snapshot has no forward bars; the
+  cache ends 2025-12-31). Same verdict rules.
+- INCONCLUSIVE on either → gate UNMET with a documented data limitation.
+
+## 4. Pre-declared expectations
+
+- **F1**: price-tier effects on daily bars inside an index of $850M+
+  market caps are expected small-to-null — the S&P 600's own membership
+  screens compress the price axis the claim lives on. A null is the honest
+  expectation; the claim's directional structure (monotone, lower = better)
+  is what the slots test.
+- **F2**: the long-term-fall claim is about penny stocks broadly; within
+  S&P 600 the low-priced band is a thin slice (35 names with bars <$10 in
+  the 2021 cohort) — expect low power; a null or INCONCLUSIVE on the verdict
+  slots with the descriptive rows carrying the record.
+- **Gate**: if the primary is positive, the current-universe confirmation
+  may fail it (the #13 lesson: the survivor set's returns are not the
+  deaths' returns).
+
+## 5. Data & bias handling
+
+- **Look-ahead**: tier at close t; returns from open t+1; no look-ahead.
+- **Survivorship**: primary universe is the delisting-aware union; the §5
+  gate is pre-registered within this campaign (§3).
+- **Costs**: COST 0.0015 on every return (house §6).
+- **Multiple testing**: two families (F1: 4 slots; F2: 2 slots), Holm at
+  α=0.05 per family; all sensitivities exploratory.
+- **Non-stationarity**: per-year F1 rows; per-cohort F2 rows.
+- **Data quality**: frozen artifacts; 199 purged names flagged not
+  substituted; determinism (two runs, byte-compare) + an independent
+  verification pass before any write-back.
+- **The 2017-vs-2019 inconsistency**: handled structurally (F1a $2–5
+  primary, S-BAND10 $2–10) and reported per-band regardless of verdict.
+
+## 6. Implementation
+
+- New tool `tools/measure_pricetier.py`, implementing exactly §2 and
+  nothing else; its sha is **frozen before any forward-return computation**
+  and **asserted at measurement** (the fixed-point FROZEN_SHA convention,
+  as `measure_intraday.py`); `measure_code_sha256` recorded in outputs;
+  frozen engine shas asserted where imported.
+- Results: `data/cache/pricetier_measure_report.md` +
+  `pricetier_measure_results.json` (records of evidence).
+- One-shot rule: no forward-return computation before the freeze; verdicts
+  at the first qualifying measurement.
+
+## 7. Freeze
+
+§1–§6 are frozen as of 2026-08-19, before any measurement. Implementation
+must not change any of them. §8 records the campaign outcome.
+
+## 8. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged; gate outcome per §3.)*
