@@ -2802,6 +2802,15 @@ S-GAP/S-N15/S-N120/S-N240/S-C05/S-C30) so the measurement tool can
 reference each variant unambiguously — label change only, zero parameter
 change.*
 
+*Implementation freeze (2026-08-19, before any forward-return computation):
+`tools/measure_intraday.py` FROZEN_SHA
+`765ff1df23c80c006104d2f28b754593e3401e256132115207a161ebf5fdc6f5` —
+sha256 of the file with its own FROZEN_SHA hex blanked to 64 zeros
+(fixed-point; asserted at every run) — raw `measure_code_sha256`
+`c58282caf75c344f228b70b329e9182b54a663d013891fe6a17103dc89f5e14c`.
+Committed 2026-08-19 (edc8de7); §5 floors not yet met — the first
+bar-date ≥ 2026-08-19 lands in the 2026-08-19 22:05 MT pull.*
+
 ## 10. Campaign outcome
 
 *(Recorded after measurement — parameters unchanged; gate outcome per §6.)*
