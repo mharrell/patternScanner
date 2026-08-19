@@ -3086,3 +3086,224 @@ verified at freeze before any measurement). Reports:
 `data/cache/pricetier_gate_measure_report.md`
 (+ `pricetier_gate_measure_results.json`). Verdicts written back to
 CLAIMS_LEDGER §I.13 (rows I-D-01, I-X-06, A-04 cross-ref).
+
+---
+
+# Pre-registration #17 — C-exit comparison: indicator exits vs fixed-2R on the same entries (ledger rows C-01/C-03/C-04; priority-list item 9)
+
+**Frozen 2026-08-19, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement tool
+(`tools/measure_cexit.py`, built from this text) is sha-frozen before any
+measurement; measurement begins only when §5's floors are met.
+
+## 0. Why this campaign exists
+
+The ledger's priority list (item 9) groups the entry/exit variants
+B-02/B-03/B-05/C-01/C-03/C-04; the daily adaptations of B-02 (Shape A)
+and B-05 (Shape C) are already measured and rejected (§B.5-A, §B.5-C).
+The C-rows are pure *exit* claims — the corpus's most explicit statement
+of exit policy — and the ledger's own protocol question for C-01 is:
+"are exits as a *system* better than fixed-2R exits?" This campaign
+measures that question on daily bars, with the fixed-2R arm taken from
+the corpus's own R:R standard (I-E-05 ↔ A-05/G-01, "2:1… really
+important" — the measured 2:1 family).
+
+What is claimed, as stated: exits should be (C-01) chart-indicator
+signals — (1) high-volume red candle, (2) MACD crossover, (3) topping
+tail / doji at top, (4) break of VWAP going down, (5) break of the 9 EMA
+going down — (C-03) two candles going lower and lower, and (C-04) losers
+capped at the max-loss point while winners run to an exit indicator
+rather than a fixed target. The fixed-2R baseline is the corpus's own
+mechanical standard; C-04's loss-capping leg is the same −1R stop in
+both arms by design, so the comparison isolates exactly the contested
+question: **does the indicator-exit system beat the fixed 2:1 target on
+the same entries?**
+
+What this campaign does NOT test (documented so the measured system is
+honest about being a subset): (2) MACD needs 1-minute data — out of scope
+on daily bars; (3) topping tail needs an operational definition the
+corpus never states — excluded from the primary system, added as the
+pre-registered S-DOJI sensitivity; C-02/C-05's level-2 order-book vetoes
+are out of scope (no data) — the measured system is a subset of the
+practiced strategy, so measured results will not reproduce his P&L
+(expected, not evidence of fraud; the C-02/C-05 ledger rows carry the
+same honesty note). B-03's pullback-number claim is intraday by nature
+and is not part of this campaign (it waits on the 1-minute archive,
+pre-reg #15's domain).
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **C-01**: exit indicators: (1) high-volume red candle; (2) MACD crossover; (3) topping tail / doji at top; (4) break of VWAP going down; (5) break of 9 EMA going down | ultimate-guide [1:34:02–1:35:15] | **The indicator-exit arm of §3**, four signals evaluated from the entry bar forward on daily bars: **S1 HV-red** = Close < Open with Volume ≥ 1.5× the prior-20-bar mean; **S2 VWAP-break** = Close below the anchored VWAP (cumulative volume-weighted price from the entry bar); **S3 9-EMA-break** = Close below the 9-day EMA; **S4** per C-03. (2) excluded (needs 1-min); (3) excluded from primary, pre-registered as S-DOJI. |
+| **C-03**: "when we make the full two steps down… it's basically when you have two candles that go lower and lower that we get out" | ultimate-guide [1:12:02–1:12:34] | **S4 two-steps-down** = two consecutive down bars (Close < Open each) with each bar's Low below the prior bar's Low; exit at the second bar's close. |
+| **C-04**: "I want to cap my losers, not my winners": exit immediately at the max-loss point; hold winners until an exit indicator | ultimate-guide [1:33:19–1:33:48] | **F1 contrast + F3 tail test.** Losers: the −1R stop (the max-loss point) in both arms. Winners: fixed +2R target (the null) vs the indicator-exit arm (winners run). F3 tests the tail directly — with a hard +2R cap the fixed arm's winners are capped by construction; "don't cap winners" predicts the indicator arm's upper tail exceeds the cap. |
+| **The R:R floor** (I-E-05 ↔ A-05/G-01, "2:1… really important") | warrior-trading [1:47:07…] / ultimate-guide A-05/G-01 | **The fixed-2R arm** — target +2R, stop −1R. S-1R5/S-3R bound the family. |
+
+## 2. The data artifact — the frozen detections and the frozen bars
+
+- **Entries**: `data/cache/detections_v1.csv` — the frozen pre-reg #2
+  shape detections (A/B/C; detectors.py v1, detector file sha e93ddf7a…,
+  run manifest `9b44f6616013…`; 31,570 rows; era split IS 2000–2015 /
+  OOS 2016–2025 by signal date). Each row carries the entry = open of the
+  signal bar + 1 (house protocol; no look-ahead). **Primary era: OOS
+  only** (pre-reg #2 convention); IS is S-IS.
+- **Bars**: the frozen parquet store `data/cache/bars/` (adjusted OHLCV —
+  the same store the frozen engine `measure.py` c7421fbf reads; the tool
+  reads the bars directly, house convention). Stops, indicator states,
+  and fills are computed from these bars — no new data enters this
+  campaign.
+- **OOS detection counts** (frozen pre-reg #2 report): A 5,669; B 7,218;
+  C 368. The C slot is the binding count floor.
+- **Universe**: the names of detections_v1.csv are the measurable set
+  (the survivor store); §6's gate re-checks on the historical-constituent
+  union.
+
+## 3. The measurement design — the two arms, identical entries
+
+All events are the frozen OOS detections. For every event: entry E =
+entry_open; stop S = the pattern's structural low, computed from the
+frozen bars:
+
+- **A**: S = min(Low, the K=10 setup bars ending at the signal bar − 1)
+  — the consolidation low.
+- **B**: S = min(Low, the P=3 pullback bars ending at the signal bar − 1)
+  — the low of the pullback (the same convention as pre-reg #15's B-01
+  stop).
+- **C**: S = min(L1, L2) — the double-bottom swing lows (recorded in the
+  detection detail).
+
+R = E − S (long entries; all three shapes are long). Events with R ≤ 0
+are dropped and counted (degenerate stop — none expected from the frozen
+pattern semantics). Both arms trade the same events 1:1.
+
+- **Fixed-2R arm (the null)**: exit = +2R target (High ≥ E + 2R) or −1R
+  stop (Low ≤ S), whichever touches first; fill at the trigger price
+  (order semantics; S-CLOSE sensitivity fills at the trigger bar's
+  close); same-bar target+stop collision → the stop (conservative). No
+  exit by the max-hold → fill at the close of e+20 (S-N10/S-N60). Event
+  with e+N beyond the last bar → dropped and counted (house).
+- **Indicator arm (the claim)**: stop −1R always; no fixed target; exit
+  on the first of S1–S4 (S1 HV-red, S2 VWAP-break, S3 9-EMA-break, S4
+  two-steps-down), fill at the signal bar's close; same-bar stop+signal
+  → the stop (conservative to the claim). Max-hold e+20 → close of e+20.
+- **Signal state** (no look-ahead): S1 volume mean = prior 20 bars; S2
+  VWAP = Σ(P×V, entry bar … t) / Σ(V, entry bar … t), anchored at entry;
+  S3 EMA-9 over the full series, state at bar t uses bars ≤ t; S4 bars
+  t−1 and t both down (Close < Open) with Lows strictly lower. Signals
+  are evaluated from bar e+1 (the first bar the trade is open for) — the
+  entry bar's own state is never the exit.
+
+Per-trade outcome (both arms), in **R-units** (the claim's own currency —
+the 2:1 family is stated in R):
+
+- R_return = (fill − E) / R − COST_R, with COST_R = 0.0015 · E / R (the
+  house 0.15% round trip expressed in R units; S-PCT sensitivity uses %
+  units).
+
+## 4. Measurement — verdict families
+
+All bootstraps B = 1000, seed **20260819** (freeze date), date-paired:
+resample calendar dates jointly; per draw, each pool contributes its
+events (or bars) on the drawn dates; est = mean(pool A) − mean(pool B)
+(or the stated contrast); CI = 2.5/97.5 percentiles of the B draws. Holm
+at α = 0.05 within each family. Three verdict families:
+
+- **F1 — the system contrast (C-04; C-01's protocol question):
+  indicator arm vs fixed-2R arm on the same entries.** Slots: F1a Shape
+  A, F1b Shape B, F1c Shape C, F1d pooled (4 Holm tests → gate 0.0125).
+  EDGE iff Holm-rejected with CI-low > 0 (indicator exits beat fixed-2R);
+  FADE iff CI-upper < 0 (fixed-2R beats the indicator system); mixed or
+  unrejected → NO EDGE. Floor: ≥ 100 events per slot, across ≥ 20
+  distinct dates.
+- **F2 — per-signal exit timing (the C-01 indicators and C-03 mark
+  weakness): post-exit forward returns.** For each signal s ∈ {S1, S2,
+  S3, S4}: the events where s is the *binding* exit (fires first, no
+  earlier stop). Post-exit forward return = (C[t+10] − C[t]) / C[t] from
+  the exit bar's close (t = exit bar; t+10 beyond the series → dropped
+  and counted). Baseline: random bars c in the same ticker (OOS era, c+10
+  within the series), pool excluding the signal-exit bars; contrast =
+  mean(baseline) − mean(post-exit) — a positive contrast means the signal
+  fired at a genuinely weak point (the exit saved you). Slots: one per
+  signal (4 Holm tests → gate 0.0125). EDGE iff CI-low > 0 (well-timed);
+  FADE iff CI-upper < 0 (the signal fired before strength); else NO
+  EDGE. Floor: ≥ 100 binding events per signal, ≥ 20 distinct dates.
+- **F3 — the C-04 tail claim ("don't cap winners"): upper-tail per-trade
+  R, pooled entries.** Contrast = quantile_q(indicator R) −
+  quantile_q(fixed R). Slots: F3a q = 0.90, F3b q = 0.95, F3c q = 0.99
+  (3 Holm tests → gate 0.0167). EDGE iff CI-low > 0 (winners run beyond
+  the fixed cap); FADE iff CI-upper < 0; else NO EDGE. Floor: ≥ 100
+  events per slot, ≥ 20 distinct dates.
+
+**Measurement rows (no verdicts)**: (a) per-arm win rate, mean win, mean
+loss (R units), fraction ≥ +2R, fraction stopped at −1R, mean holding
+period in bars — the C-04 asymmetry table, readable directly against "cap
+losers, let winners run"; (b) binding-exit frequency per signal (how
+often each indicator actually fires); (c) name-day collapse of F1 — per
+(ticker, date) means, verdict direction at the independent-unit level;
+(d) R:R geometry of the entries (R as % of E per shape); (e) per-year F1
+breakdown; (f) mean holding-period contrast per arm.
+
+**Determinism and verification (house)**: the tool writes a results JSON
++ report with the code sha256 recorded; three runs byte-identical; the
+§5-required independent verification re-implements the measurement from
+scratch (importing nothing from the frozen stack, fresh seeds) —
+estimates exact to 1e-12, CIs within the fresh-seed MC spread — recorded
+in §8.
+
+## 5. When measurement may begin (floors) — and the one-shot rule
+
+- Floors: every F1/F2/F3 slot ≥ 100 events and ≥ 20 distinct dates at the
+  first measurement (A 5,669 / B 7,218 / C 368 OOS events — the C slot is
+  the binding one). The F2 per-signal floors depend on binding-exit
+  frequencies (measurement row (b)): a signal that never binds cannot be
+  judged, and its slot is INCONCLUSIVE per house (count floor 100 unmet,
+  documented counts).
+- **One-shot rule**: verdicts are recorded at the FIRST measurement
+  meeting all floors; there is no second measurement on the same window;
+  later windows are new pre-registrations.
+- **INCONCLUSIVE**: a slot with floors unmet at an audit-clean measurement
+  attempt → INCONCLUSIVE with the documented counts; a follow-up is a new
+  pre-registration.
+
+## 6. The §5 gate — historical-constituent re-check
+
+The brief §5 rule — any positive result must be re-checked against
+historical constituents before being trusted. Gate artifact: the frozen
+904-union (5 historical snapshots + current 603, 2026-08-15), the
+established historical-constituent gate universe of pre-regs #13/#14/#16.
+
+- **Trigger**: any family with an EDGE slot in the primary → that family
+  is re-run on the union universe (the gate mode of the frozen tool:
+  detector re-run on the union names' bars from the same frozen store —
+  the detector is deterministic, so union detections are the same frozen
+  code applied to the wider name set — then the identical measurement,
+  same seeds, same floors).
+- **Input audit at measurement (house §6)**: detection manifest, detector
+  sha, bars-store fingerprint, and universe files unchanged from §2's
+  fingerprints — a failed audit aborts the campaign.
+- **Verdict**: the EDGE survives only if the gate re-run also delivers
+  EDGE with floors met; the gate numbers are recorded in §8 either way.
+  The Phase-5 trigger-check conversation is then held with the surviving
+  evidence (house) — for this campaign the construction question is live:
+  entries + exits together are a tradeable construction, so the
+  trigger-check is not a formality.
+
+## 7. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+S-1R5 / S-3R (fixed target 1.5R / 3R); S-N10 / S-N60 (max-hold 10 / 60);
+S-C05 / S-C30 (cost 0.05% / 0.30%); S-OPX (all exits fill at the open of
+t+1 instead of signal close / trigger price); S-CLOSE (mechanical legs
+fill at the trigger bar's close); S-VOL2 (S1 threshold 2.0× instead of
+1.5×); S-VWAP5 (S2 = rolling 5-day VWAP instead of anchored); S-DOJI
+(adds the topping-tail signal: |O−C| ≤ 0.1·(H−L), upper shadow
+u = H − max(O, C) ≥ 0.6·(H−L), and H ≥ running max high of the trade −
+0.25·R); S-UNI (F2's random-universe baseline leg); S-IS (IS era
+2000–2015); S-PCT (% units instead of R).
+
+## 8. Campaign outcome
+
+(Not yet measured — filled at measurement: verdicts, gate decision,
+determinism shas, independent verification, report paths. Verdicts are
+then written back to CLAIMS_LEDGER.)
