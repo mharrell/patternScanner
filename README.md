@@ -3,8 +3,8 @@
 Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
-**Status:** Phase 4 — verdicts written back to the ledger 2026-08-18.
-Fourteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Status:** Phase 4 — verdicts written back to the ledger 2026-08-19.
+Sixteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -141,8 +141,41 @@ tradeable signal, and the divergence events were already gated null on
 mean returns. A recorded data-state deviation (the frozen #10 event
 record is not regenerable on the 08-16-restated bars; quantified, drift
 bound ~1.9e-4, verdicts not drift-sensitive) is documented in the
-results JSON `anchor` block.
-Phase 5 remains **not triggered** after fourteen campaigns.
+results JSON `anchor` block. **Price-tier** (pre-reg #16,
+I-D-01/I-X-06/A-04 — "my sweet spot is $2–5", measured 2026-08-19):
+**F1 EDGE × 4 + the §5 gate PASSES** — within the S&P 600 small-cap
+universe lower-priced tiers earn better N=10 forward returns after cost,
+perfectly monotone across five bands (lt2 +6.10% > 2-5 +1.47% > 5-10
++0.53% > 10-20 +0.32% > gt20 −0.08%, name-day collapsed); the sharpest
+form is the same-name control (F1d): the *same ticker* earns +7.9% on
+its <$10 bar-dates vs +0.1% on its own >$20 bar-dates. The gate on the
+frozen current constituents (OOS 2016–2025) confirms in the reverse
+direction (the primary is delisting-aware, the gate is the live index):
++2.33/+1.05/+0.50/+3.99%. The long-term-fall claim (I-X-06) is
+**contradicted**: the 2021 low-priced cohort *outpaced* the high-priced
+cohort on 3-year cumulative returns (+39.5% vs +6.0%, F2b FADE; gap
+accruing with horizon, 1y +5.0% → 4y +42.2%), with no excess index-exit
+rate (F2a NO EDGE). Phase-5 trigger-check held: **NOT TRIGGERED** — a
+monotone *relative* tiering effect with modest absolute size (+1.1% per
+10-bar window after cost on the cheapest band) and no tradeable
+construction; the literal penny-stock population (<$2) is a thin slice,
+reported descriptively (+6.10%, 33 names). **C-exit comparison** (pre-reg
+#17, C-01/C-03/C-04 — indicator exits vs fixed-2R on the same entries,
+measured 2026-08-19): **the exits are well-timed; the system isn't.**
+F1 system contrast NO EDGE (pooled −0.0215R, p=0.202) with Shape A
+**FADE** (−0.0777R, both windows) — the indicator arm loses to the
+corpus's own fixed-2R exits on A and breaks even elsewhere. F2 S1
+(HV-red) / S2 (VWAP-break) timing **EDGE** in the primary (p 0.014/0.006
+— post-exit 10-bar returns ~0.43/0.46pp below same-ticker random
+baselines) but **fail the §5 gate** (union p 0.028/0.016) and do not
+reproduce under the verification's fresh-seed baseline redraw (p
+0.126/0.024). F3 q90/q95 **FADE**, q99 **EDGE and survives the gate**
+(+0.6425, CI +0.4463..+0.8897) — the "cap losers, not winners"
+asymmetry holds only at the extreme tail. Phase-5 trigger-check held:
+**NOT TRIGGERED** — the surviving EDGE is a tail-quantile contrast of a
+construction that nets negative as a system; the tail cannot be selected
+ex ante.
+Phase 5 remains **not triggered** after sixteen campaigns.
 
 **Intraday track (live since 2026-08-19):** a forward-accumulated 1-minute
 archive of the live S&P 600 is capturing the data the remaining untested
@@ -153,7 +186,7 @@ before any measurement; nightly pull (22:05) + push (23:00) run under Task
 Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
@@ -165,16 +198,20 @@ reports:
 `data/cache/speed_measure_report.md`,
 `data/cache/divergence_hist_measure_report.md`,
 `data/cache/stop_placement_measure_report.md`,
-`data/cache/stop_placement_gate_measure_report.md`.
-Next candidates: pre-registration #14 (the I-X-05 stop-placement claim)
-is **measured: F1-BULL EDGE on the primary AND the §5 gate PASSES** —
-the first EDGE to survive the historical-constituent re-check (§I.11,
-`data/cache/stop_placement_measure_report.md` +
-`stop_placement_gate_measure_report.md`). The top remaining candidate
-is the I-X-06/I-D-01 price-tier family (sub-$5 cohorts' forward returns —
-needs a small-cap universe beyond the S&P 600). The remaining untested
-ledger items need intraday data — which the **intraday track** now
-accumulates nightly (pre-reg #15, frozen 2026-08-19; see
+`data/cache/stop_placement_gate_measure_report.md`,
+`data/cache/pricetier_measure_report.md`,
+`data/cache/pricetier_gate_measure_report.md`,
+`data/cache/cexit_measure_report.md`,
+`data/cache/cexit_gate_measure_report.md`.
+Next candidates: the price-tier family (pre-reg #16, I-X-06/I-D-01) is
+**measured: F1 EDGE × 4 with the §5 gate PASSING** (§I.13,
+`data/cache/pricetier_measure_report.md` +
+`pricetier_gate_measure_report.md`); the C-exit comparison (pre-reg #17,
+C-01/C-03/C-04) is **measured** (§I.14, `data/cache/cexit_measure_report.md`
++ `cexit_gate_measure_report.md`). The remaining untested ledger items
+need intraday data — the **intraday track** now accumulates nightly
+(pre-reg #15, frozen 2026-08-19 with a §5 floor of ≥ 20 full-universe
+bar-dates ≥ 2026-08-19 before any measurement; see
 [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md)).
 
@@ -236,7 +273,20 @@ accumulates nightly (pre-reg #15, frozen 2026-08-19; see
   §5 gate PASSES** — the first EDGE to survive the historical-constituent
   re-check (§I.11); Phase-5 trigger-check held: NOT TRIGGERED (a
   risk-placement property, not a tradeable signal). Verdicts return to
-  the ledger.
+  the ledger. Pre-registration #15: the B-01 micro-pullback claim on
+  1-minute bars ("the first candle that makes a new high versus the high
+  of the previous candle"; secondary rows B-02/I-E-02; intraday track),
+  frozen 2026-08-19 — measurement awaits the archive's §5 floor (≥ 20
+  full-universe bar-dates ≥ 2026-08-19, ~mid-September). Pre-registration
+  #16: the price-tier family (I-D-01 "$2–5 sweet spot" + I-X-06
+  penny/small-cap long-term fall, A-04 cross-ref), frozen 2026-08-19,
+  **measured 2026-08-19: F1 EDGE × 4 with the §5 gate PASSING; F2b FADE;
+  Phase-5 trigger-check NOT TRIGGERED (§I.13)**. Pre-registration #17:
+  the C-exit comparison (C-01/C-03/C-04 — indicator exits vs fixed-2R on
+  the same entries), frozen 2026-08-19, **measured 2026-08-19: F1 NO EDGE
+  / FADE-A; F2 S1/S2 timing EDGEs primary-only (fail the §5 gate, fragile
+  under fresh seeds); F3 q99 EDGE survives the gate; NOT TRIGGERED
+  (§I.14)**.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:

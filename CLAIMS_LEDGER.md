@@ -1553,6 +1553,17 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   TRIGGERED (§I.13, `data/cache/pricetier_measure_report.md` +
   `pricetier_gate_measure_report.md`; independently verified 2026-08-19,
   129 checks). Fifteenth completed campaign.
+- [x] Measure the C-exit comparison (pre-reg #17, C-01 / C-03 / C-04)
+  and write the verdicts back — done 2026-08-19: F1 system contrast NO
+  EDGE (pooled −0.0215R, p=0.202) / Shape A **FADE** (−0.0777R); F2 S1/S2
+  timing EDGEs primary-only (p 0.014/0.006) **fail the §5 gate** (union p
+  0.028/0.016, not rejected at 0.0125) and do not reproduce under the
+  verifier's fresh-seed baseline redraw (p 0.126/0.024); F3 q90/q95
+  FADE, **q99 EDGE survives the gate** (+0.6425, CI +0.4463..+0.8897,
+  p=0.000); Phase-5 trigger-check held: NOT TRIGGERED (§I.14,
+  `data/cache/cexit_measure_report.md` + `cexit_gate_measure_report.md`;
+  independently verified 2026-08-19, 215 checks). Sixteenth completed
+  campaign.
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).
