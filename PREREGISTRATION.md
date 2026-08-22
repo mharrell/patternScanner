@@ -3412,3 +3412,224 @@ stops); these R > 0 events are kept per contract. Verdicts are robust
 do not use R); per-slot R *levels* (means, q90/q95 magnitudes) are
 polluted by the two most extreme of the 8 and are reported with that
 caveat.
+
+# Pre-registration #18 — I-F-03: "Stocks will trend with the overall market unless they have a reason not to" (ledger row I-F-03; priority-list item 17)
+
+**Frozen 2026-08-21, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement tool
+(`tools/measure_if03.py`, built from this text) is sha-frozen before any
+measurement; measurement begins only when §4's floors are met.
+
+## 0. Why this campaign exists
+
+The ledger's priority list (item 17) names I-F-03 as its final
+testable-daily item. With this campaign the daily-bar track of the course
+claims is exhausted: the remaining untested claims (B-01, I-B-01,
+I-C-02/03/04, E-01/E-04, F-01/F-02, I-E-02) are 1-minute forms that wait
+on the intraday archive's §5 floor (pre-reg #15, ~mid-September 2026).
+
+The claim is a market-structure statement: most names trade with the tape;
+a name with a catalyst (its own news event) trades on its own. The
+corpus's phrase "running when the markets tanking" makes the practical use
+explicit — catalyst names are selected because they are not hostage to the
+tape.
+
+This campaign measures the claim's structure (co-movement), not its
+profitability: **no forward returns, no entry/exit construction**. It is a
+structural campaign in the sense of pre-reg #12 — the Phase-3 engine's
+`measure_returns` is never invoked, and the Phase-5 trigger cannot fire
+from it by construction.
+
+What is NOT measured (documented so the honest subset is explicit):
+
+- No forward-return prediction. "Trending with the market" and "bucking
+  the market on a catalyst day" are measured as contemporaneous co-movement
+  (same-day correlation), not as a predictor of what happens next.
+- No intraday catalyst timing (the 1-minute forms wait on pre-reg #15's
+  archive).
+- No causality claim. "A reason not to" is proxied by gap/volume; the
+  measured statement is about co-movement on such days, not about whether
+  the news event caused it.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "Stocks will trend with the overall market" | txWaMpSzHhM [31:55–32:38] | **F1**: mean per-stock correlation of daily returns with SPY > 0 on OOS days (2016–2025). |
+| "unless they have a reason not to" | same | **F2**: on catalyst days, the per-stock correlation with SPY is lower than on non-catalyst days. |
+| "catalyst" | corpus usage (news event: earnings, press release, FDA/clinical, breaking news) | Proxied on daily bars: **gap** |open/prior close − 1| ≥ 2% (G) OR **volume spike** RV = volume / mean(volume, prior 20) ≥ 2.0 (V). Two legs (gap, volume), each tested separately. |
+| "running when the markets tanking" | same source | **F3**: on SPY-down days, the mean return of catalyst stocks > the mean return of non-catalyst stocks (same day, cross-sectional). |
+| Trading context | — | A co-movement structure, not a return prediction. Intraday→daily translation pre-declared: catalysts register as gap/volume on daily bars. No forward returns measured. |
+
+## 2. Hypotheses — verdict families
+
+Common machinery: per-stock daily returns r_t = Close_t / Close_{t−1} − 1
+(bar index ≥ 1; index-0 bars excluded and counted). The market factor is
+SPY's daily return (the house market benchmark; the equal-weight S&P 600
+mean is sensitivity S7). Era split by bar date: IS 2000–2015 (descriptive
+only) / OOS 2016–2025 (verdicts only). Bootstrap B = 1000, seed
+**20260813** (the house fixed seed, imported from the frozen engine);
+Holm–Bonferroni at α = 0.05 within each family; percentile
+2.5/97.5 CI; two-sided p.
+
+**F1 — market-trending baseline (the claim's first half).** Per stock:
+Pearson corr(r_i, SPY) over the stock's OOS days (≥ 100 days required).
+Statistic = the mean of the per-stock correlations; one-sample bootstrap
+over stocks. One Holm slot. EDGE iff Holm-rejected AND CI-low > 0 (stocks
+trend with the market, as claimed); FADE iff Holm-rejected AND CI-upper
+< 0; else NO EDGE; INCONCLUSIVE if < 100 qualifying stocks.
+
+**F2 — catalyst decoupling (the claim's second half, correlation form).**
+Per stock: corr_i(cat) on the stock's catalyst OOS days, corr_i(non) on
+the complement; diff_i = corr_i(cat) − corr_i(non). Statistic = the mean
+of diff_i over stocks; one-sample bootstrap over stocks. Holm across the
+two legs (F2-gap: catalyst = G; F2-vol: catalyst = V). EDGE iff
+Holm-rejected AND CI-upper < 0 (correlation lower on catalyst days —
+decoupling as claimed); FADE iff Holm-rejected AND CI-low > 0; else NO
+EDGE; INCONCLUSIVE if < 100 qualifying stocks.
+
+**F3 — buck-the-trend (the "running when the markets tanking" form).** On
+each SPY-down OOS day: mean return of catalyst stocks − mean return of
+non-catalyst stocks (same day, cross-sectional). Statistic = mean over
+qualifying down-days; one-sample bootstrap over days. Holm across the two
+legs (F3-gap: catalyst = G; F3-v: catalyst = V). EDGE iff Holm-rejected
+AND CI-low > 0 (catalyst stocks run when the market tanks, as claimed);
+FADE iff Holm-rejected AND CI-upper < 0; else NO EDGE; INCONCLUSIVE if
+< 100 qualifying down-days.
+
+**Floors (per family):** F1 ≥ 100 stocks with ≥ 100 OOS days; F2 ≥ 100
+stocks with ≥ 30 catalyst AND ≥ 30 non-catalyst OOS days; F3 ≥ 100
+qualifying down-days, each down-day requiring ≥ 5 catalyst AND ≥ 5
+non-catalyst stocks (unqualified days excluded and counted).
+
+**Measurement rows (no verdicts):** (a) the mean per-stock correlation
+level (F1); (b) the per-stock catalyst-day census per leg (stocks passing
+the 30/30 floor); (c) catalyst-day share (fraction of OOS days); (d) the
+down-day census (qualifying days); (e) the within-day return contrast
+level (F3); (f) the name-day collapse (independent-unit view of F2/F3).
+
+## 3. The measurement — how the numbers are computed
+
+The tool reads the frozen parquet bars directly
+(`data/cache/bars/<ticker>.parquet` — the same store the frozen Phase-3
+engine reads), the frozen current-constituent universe
+(`data/cache/universe_sp600_2026-08-13.csv`, 603; 599 with bars; 4
+no-data names logged), and SPY (`data/cache/bars/SPY.parquet`). The
+Phase-3 engine's `measure_returns` is **NOT invoked** — no forward returns,
+no COST, no horizon; the engine's constants (B, SEED, ALPHA, ERA_OOS,
+UNIVERSE_CSV, BARS_DIR) are imported and its sha is recorded as "NOT
+invoked".
+
+Per-bar quantities (all contemporaneous — no look-ahead):
+
+- r_t = Close_t / Close_{t−1} − 1 (t ≥ 1).
+- gap_t = Open_t / Close_{t−1} − 1.
+- RV_t = Volume_t / mean(Volume_{t−20..t−1}) (needs 20 prior bars; earlier
+  bars treated as non-catalyst for the V legs).
+
+Structural checks: zero NaN/zero prior closes (counted); SPY covers every
+stock bar-date (missing market dates counted, expected 0); the catalyst
+mask and its complement partition each stock's OOS days (counted); floors
+enumerated per family.
+
+## 4. Verdicts — pre-registered decision rules
+
+| Verdict | Rule |
+|---|---|
+| EDGE | Holm-rejected at α = 0.05 within the family AND the CI excludes 0 in the claimed direction (F1/F3: CI-low > 0; F2: CI-upper < 0) |
+| FADE | Holm-rejected AND the CI excludes 0 in the opposite direction |
+| NO EDGE | not Holm-rejected, or CI straddles 0 |
+| INCONCLUSIVE | family floor unmet (documented counts) |
+
+A claim half is confirmed only by the corresponding family's EDGE; the
+three families are judged independently.
+
+## 5. Data & bias handling
+
+- No new data: the frozen daily bars, current universe, historical union,
+  and SPY. Survivorship: the current-constituent universe is the primary;
+  the §5 gate (§6) is the historical-constituent re-check.
+- No look-ahead: every quantity is contemporaneous.
+- Correlation ≠ causation, and "a reason" (the catalyst) is only proxied by
+  gap/volume — the measured statement is about co-movement on such days.
+- **Mechanical caveat (pre-declared, not a bug):** a catalyst day is by
+  construction a large-move day (big gap or volume spike). Two consequences
+  are expected: (1) the catalyst subset has higher idiosyncratic variance,
+  which mechanically lowers its same-day correlation with the market — F2
+  is expected to lean negative; the open question is the size, the CI, and
+  whether both proxies (gap and volume) confirm it; (2) on any day, a
+  gap-up catalyst stock is likely up on the day, so F3's raw down-day
+  contrast can be positive without any market-specific behavior. The
+  up-market-day contrast (S8) controls for the general catalyst up-bias;
+  the honest reading of F3 is the down-day edge *relative to* that control.
+
+## 6. The §5 gate — historical-constituent re-check (pre-registered)
+
+The brief §5 rule: any positive result must be re-checked against
+historical constituents before being trusted. Gate artifact: the frozen
+904-name union (5 annual snapshots + current,
+`data/cache/universe_sp600_hist_2026-08-15.csv`; 706 with bars; 198 purged
+logged).
+
+- **Trigger**: any family with an EDGE slot in the primary → that family is
+  re-run on the union. (All three families are re-run — they are cheap, and
+  the gate numbers are recorded either way.)
+- **Verdict**: an EDGE survives only if the gate re-run also delivers EDGE
+  with the same floors met; the gate numbers are recorded in §8 either way.
+- **Phase 5**: no forward returns — the trigger cannot fire from this
+  campaign by construction (no trigger-check conversation required).
+
+## 7. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+| # | Sensitivity | Report |
+|---|---|---|
+| S1 | gap thresholds 1% / 3% / 5% | F2-gap, F3-gap |
+| S2 | volume thresholds 1.5 / 3.0 | F2-v, F3-v |
+| S3 | combined catalyst (gap OR volume) vs neither | F2-combined, F3-combined |
+| S4 | idiosyncratic move size: per-stock mean \|market residual\| (β from a per-stock OOS OLS on SPY) on catalyst vs non-catalyst days (combined catalyst) | per-stock diff, mean + CI |
+| S5 | IS record (2000–2015) | F1, F2, F3 (descriptive only) |
+| S6 | per-year OOS | F2 contrast, F3 contrast per year |
+| S7 | equal-weight S&P 600 mean as the market factor | F1, F2, F3 |
+| S8 | up-market-day F3 contrast (SPY-up days) — the up-bias control | F3 on up days |
+| S9 | Fisher-z transformed correlations | F1, F2 |
+
+## 8. Freeze
+
+Frozen 2026-08-21 (this document, before any measurement). Ledger row
+I-F-03; priority-list item 17 (the final testable-daily item). Inputs: the
+frozen bars store, `data/cache/universe_sp600_2026-08-13.csv`, `data/cache/
+universe_sp600_hist_2026-08-15.csv`, `data/cache/bars/SPY.parquet`. Tool:
+`tools/measure_if03.py` — FROZEN_SHA fixed-point convention (the sha of the
+file with its own FROZEN_SHA hex blanked to 64 zeros, asserted at every
+run; `measure_code_sha256` = the raw file sha recorded in every output).
+`--audit-only` computes NO measurement and verifies the frozen inputs
+(universe sizes, missing-bar census, SPY presence); exit code 1 on FAILED.
+Outputs: `data/cache/if03_measure_results.json` +
+`data/cache/if03_measure_report.md`; gate: `if03_gate_measure_results.json`
++ `if03_gate_measure_report.md`. Verdicts recorded at the FIRST measurement
+meeting all floors (the one-shot rule); later windows are new
+pre-registrations.
+
+**Pre-registered expectations (recorded, not hypotheses — the honest
+priors before the numbers land):**
+
+- F1 will very likely be EDGE: US equities co-move strongly with the S&P
+  500 at daily frequency; a null F1 would mean the "trend with the market"
+  half fails, which the data is unlikely to show.
+- F2 will very likely be EDGE in the claimed direction (correlation lower
+  on catalyst days) — a big idiosyncratic move mechanically lowers the
+  same-day correlation. The open questions are the size, the CI, and
+  whether both proxies (gap and volume) confirm it independently.
+- F3 is the discriminating test. The raw down-day contrast is expected to
+  be positive (catalyst stocks are up-biased on any day). The honest
+  question is whether the DOWN-day edge exceeds the UP-day edge (S8) —
+  i.e., whether "running when the markets tanking" is market-specific or
+  just the general catalyst up-bias.
+- No family measures forward returns — Phase 5 cannot fire from this
+  campaign by construction.
+
+## 9. Campaign outcome
+
+*(Recorded after measurement — parameters unchanged.)*
+
