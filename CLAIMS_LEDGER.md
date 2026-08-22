@@ -1651,6 +1651,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   archive-integrity audit. (I-D-05 gap-scanners is the one `testable-daily`
   orphan never prioritized — it is a $25k-playlist side comment, §I-D-05;
   deliberately not in the intraday prep batch.)
+- [x] Build + freeze the intraday measurement tools (pre-regs #19–#22
+  implementations) — done 2026-08-21, after the hypothesis freeze: each tool
+  byte-locked at its fixed-point FROZEN_SHA — `tools/measure_intraday_entry.py`
+  `cac0e7ed…`, `_exit.py` `544a1c0b…`, `_veto.py` `60569201e5…`,
+  `_regime.py` `b1fe067d…` — with the frozen-input entry set / B-01 reference
+  asserted at import, audit-only + §5 floor-refusal + determinism verified,
+  dev harness green, and the §8 *Implementation freeze* + *Implementation
+  reading* written into [PREREGISTRATION.md](PREREGISTRATION.md). All four
+  await the shared §5 floor (~mid-September).
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

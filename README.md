@@ -201,8 +201,10 @@ second-confirmation), #20 (intraday exits: breakeven-trail + sell-half, the
 9MA→20MA→VWAP ladder, flat-out), #21 (the two-filter veto on 1-min bars) and
 #22 (intraday regime: morning window, pre-market cleanliness) are frozen,
 each with the shared §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
-before any measurement; nightly pull (22:05) + push (23:00) run under Task
-Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
+before any measurement; the measurement tools are frozen too (implementation
+freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). Nightly pull
+(22:05) + push (23:00) run under Task Scheduler. See
+[data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
 [CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14 / §I.15](CLAIMS_LEDGER.md);
@@ -325,7 +327,7 @@ measurement; each awaits the floor (see
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:
   forward-accumulated 1-minute archive of the live S&P 600 (no survivorship
   bias by construction), append-only ledger discipline, nightly pull + push
-  (pre-reg #15 in prep).
+  (pre-regs #15, #19–#22 frozen, awaiting the §5 floor).
 - [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md) — intraday runbook: what
   runs nightly, monitoring, failure modes and recovery, re-creating the
   scheduled tasks.

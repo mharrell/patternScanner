@@ -52,6 +52,18 @@ B-02/I-E-02 pullback-vs-chase contrast (F3), and the F-01/F-02 time-of-day
 measurement rows. Measurement is gated on its §5 floors (≥ 20
 full-universe bar-dates ≥ 2026-08-19).
 
+**Pre-regs #19–#22 (the rest of the frozen intraday queue) share the same
+§5 floor:** #19 intraday entry timing (I-B-02 reversal new-high long+short,
+B-03/I-B-01 pullback-count, B-05 second-confirmation), #20 intraday exits
+(I-C-02 breakeven-trail + sell-half, I-C-03 9MA→20MA→VWAP ladder, I-C-04
+flat-out, on the #15 entry set), #21 the two-filter pre-entry veto on 1-min
+bars (E-01/E-04 — MACD negative + high-volume red candle), #22 the intraday
+regime (I-B-05 morning-is-best volatility/liquidity buckets, F-01/F-02
+pre-market cleanliness). All four were frozen 2026-08-21 with their
+measurement tools (implementation freeze, fixed-point FROZEN_SHA; see
+PREREGISTRATION.md §8), and each measurement is gated on the ≥ 20
+full-universe bar-dates ≥ 2026-08-19 floor.
+
 ## Layout
 
 | Path | Contents | Git |
