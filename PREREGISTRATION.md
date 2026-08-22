@@ -3631,5 +3631,82 @@ priors before the numbers land):**
 
 ## 9. Campaign outcome
 
-*(Recorded after measurement — parameters unchanged.)*
+**Measured 2026-08-21** (first measurement; the one-shot rule applies).
+Tool: `tools/measure_if03.py`, frozen at fixed-point sha `779861550ad3fc27…`
+(code sha256 `86e382c4…`). Determinism: two primary runs byte-identical
+(results sha256 `5407f681…`, report sha256 `c391458c…`); gate run recorded
+(results sha256 `a837df19…`, report sha256 `8f21b9e9…`). Independent
+verification (house §4): `verify_if03.py` re-implemented the measurement
+from scratch — fresh code importing nothing from the frozen stack, fresh
+seeds; counts/means exact to 1e-9, CIs within the fresh-seed MC spread,
+Holm + floors + verdicts stable under fresh seeds for every family and
+every sensitivity. **258 checks, all PASS** (2026-08-21; see §I.15 in
+CLAIMS_LEDGER).
+
+Artifacts: `data/cache/if03_measure_results.json` +
+`data/cache/if03_measure_report.md`; gate:
+`data/cache/if03_gate_measure_results.json` +
+`data/cache/if03_gate_measure_report.md`.
+
+**Floors**: every slot met its count floor at first measurement (F1 598 ≥
+100 stocks; F2-gap 590 / F2-vol 589 ≥ 100; F3-gap 1,086 / F3-vol 1,080
+qualifying down-days ≥ 100).
+
+**Verdicts — F1 (market-trending baseline, mean per-stock corr(r, SPY),
+Holm 0.05/1 → 0.0500):**
+
+| slot | n | est | CI | p | verdict |
+|---|---|---|---|---|---|
+| F1 | 598 | +0.4601 | +0.4521..+0.4681 | 0.000 | **EDGE** — stocks trend with the market, as claimed |
+
+**Verdicts — F2 (catalyst decoupling, corr(catalyst) − corr(non-catalyst),
+Holm 0.05/2 → 0.0250 / 0.05):**
+
+| slot | n | est | CI | p | verdict |
+|---|---|---|---|---|---|
+| F2-gap | 590 | +0.0968 | +0.0864..+0.1080 | 0.000 | **FADE** — correlation HIGHER on gap days, claim contradicted |
+| F2-vol | 589 | −0.2253 | −0.2357..−0.2134 | 0.000 | **EDGE** — correlation lower on volume-spike days, decoupling as claimed |
+
+**Verdicts — F3 (buck-the-trend on SPY-down days, mean(cat) −
+mean(non-cat), Holm 0.05/2 → 0.0250 / 0.05):**
+
+| slot | n | est | CI | p | verdict |
+|---|---|---|---|---|---|
+| F3-gap | 1,086 | +0.0005 | −0.0009..+0.0019 | 0.488 | NO EDGE |
+| F3-vol | 1,080 | +0.0021 | +0.0009..+0.0033 | 0.002 | **EDGE** — but see the S8 caveat below |
+
+**§5 gate** (frozen 904-name union, 706 with bars; pre-reg §6 — all three
+families re-run and reported regardless of the primary verdicts). Every
+primary verdict category reproduces on the historical union: F1 **EDGE**
+(n=703, +0.4455, CI +0.4370..+0.4537, p=0.000); F2-gap **FADE** (n=698,
++0.0858, p=0.000); F2-vol **EDGE** (n=691, −0.2310, p=0.000); F3-gap
+**NO EDGE** (n=1,107, +0.0001, p=0.894); F3-vol **EDGE** (n=1,097,
++0.0042, CI +0.0029..+0.0056, p=0.000 — *stronger* on the historical
+union).
+
+**Reading.** The claim is half-true. F1 confirms the baseline half at the
+strongest possible level — per-stock daily correlation with the market is
++0.46 (CI +0.45..+0.47), uniformly positive across 598 of 599 stocks. The
+"reason not to" half splits by catalyst proxy: volume-spike days decouple
+(correlation drops ~0.23, p=0.000 — the mechanical effect of a large
+idiosyncratic move the pre-registration anticipated), but gap days move
+the OPPOSITE way (correlation RISES ~0.10, p=0.000) — a news-gap name is
+not a name running free of the market, and F3-gap shows no down-day
+contrast at all (p=0.488). F3-vol's down-day edge must be read with S8
+(the pre-declared up-bias control): the down-day contrast (+0.0021) is
+*smaller* than the up-day contrast (+0.0063), and down−up is negative
+(−0.0042, CI −0.0062..−0.0023, p=0.000). Catalyst stocks outperform
+non-catalyst stocks on BOTH kinds of days — "running when the markets
+tanking" is the general up-bias of catalyst names, not a market-specific
+run against the market. The buck-the-trend claim in its literal,
+market-specific form is therefore **not supported**: gap days show no
+down-day edge and the volume-spike "edge" is the up-bias wearing a
+down-day costume. IS record (2000–2015, descriptive) shows the same signs
+at roughly twice the OOS magnitudes (F1 +0.42, F2-gap +0.01, F2-vol
+−0.21, F3-gap +0.0025, F3-vol +0.0055) — F3-gap was positive IS but is
+null OOS, reinforcing the OOS-only verdicts.
+
+**Phase 5**: NOT TRIGGERED — not implicated by construction. This is a
+structural campaign with no forward returns, no entry/exit, no cost; the
+Phase-3 engine's measure_returns is never invoked.
 

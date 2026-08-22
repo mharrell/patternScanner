@@ -532,7 +532,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 |---|---|---|---|
 | I-F-01 | jfe1Zl-5EQI [16:01–16:09] | "We know that almost all of the big moves will eventually be corrected" (rationale for reversal trading). | `tested` (pre-reg #11, 2026-08-14/15) — **split verdict** (§I.8): F1-UP **EDGE** (relative correction — big up-moves below both baselines: n=35,908, −0.48pp vs same-ticker, Holm-rejected; mean +0.03% after cost), F1-DOWN **NO EDGE** (p=0.950); **F2 FADE × 2** — big moves retrace ≥ half within 10 sessions *less* often than typical bars (−12.77pp / −15.53pp), the ledger's literal reading falsified. "Corrected" holds in the relative sense; "retrace half" does not; the DOWN leg's bounce exists only for weak moves (τ=2 +0.24pp → τ=5 −1.36pp). |
 | I-F-02 | jfe1Zl-5EQI [28:28–28:47] | "The move up that may have taken hours can be all given back in a matter of minutes on the good top reversal... the Bulls take the stairs and the Bears take the window". | `tested` (pre-reg #12, 2026-08-15) — **split verdict** (§I.9): A1 **FADE × 3** (per-bar asymmetry INVERTED — up-bars ~6bp larger than down-bars: F1-UP FADE, F1-DOWN FADE knife-edge, F2 FADE), A2 **EDGE** (F4: big up-moves' retracements outpace the moves — n=35,997, +0.40pp/bar, p<0.001); the swing-scale version (S6) confirms the claim across bars (down-swings faster), the per-bar version does not. |
-| I-F-03 | txWaMpSzHhM [31:55–32:38] | "Stocks will trend with the overall market unless they have a reason not to" — catalyst names buck the market ("running when the markets tanking"). | `candidate` — testable-daily: daily-return correlation with the index; catalyst proxies (gap, volume spike) reduce correlation / raise idiosyncratic move size. |
+| I-F-03 | txWaMpSzHhM [31:55–32:38] | "Stocks will trend with the overall market unless they have a reason not to" — catalyst names buck the market ("running when the markets tanking"). | `tested` (pre-reg #18, measured 2026-08-21, verified 2026-08-21) — **half-true** (§I.15): F1 baseline **EDGE** (per-stock corr +0.46, CI 0.4521..0.4681, gate EDGE); "reason not to" splits by proxy — F2-vol **EDGE** (volume-spike decoupling −0.23, gate passes), F2-gap **FADE** (corr HIGHER on gap days +0.097), F3-gap **NO EDGE** (p=0.488); **F3-vol's down-day edge is the general catalyst up-bias, not a market-specific run** (S8 down−up negative). Phase-5 trigger-check held: NOT TRIGGERED (structural). |
 | I-F-04 | txWaMpSzHhM [48:08–48:30] | "If you can see that we're trading at the top or a bottom of a macro channel you can expect a little bit of choppiness" (SPY); mid-channel → "nice clean moves". | `partial` — channel definition is subjective; testable only with a pre-registered operational definition of channel extremes. |
 | I-F-05 | lMZv0K71HOg [04:12–04:25] (EatSleepProfit) | "The momentum side inside the intraday really doesn't carry over until multiple days sometimes it does sometimes it doesn't". | `candidate` — testable-daily adaptation: top-decile one-day gainers' next-day / multi-day forward returns. Cross-ref pre-reg #4 F2 (our signal sets continued drifting up 5→20 bars — EDGE × 3; different population, and that family's F1 absolute momentum at N=20 was NO EDGE — the carryover question is genuinely unresolved). |
 | I-F-06 | xTPcI7HHu5w [29:40–29:55]; dqrTrFpZdcI [16:49–16:58] | "Most of my profits come when the market is just sort of sideways because most days the market is kind of sideways"; "red days for me are usually clustered together because the market becomes really slow". | `partial` — as stated they concern his P&L; the market-regime version (operationally define sideways days on SPY, then forward behavior) is testable. |
@@ -1370,6 +1370,55 @@ reported with that caveat.
 
 ---
 
+## I.15 I-F-03 market-trend verdicts — pre-registration #18 campaign
+
+Claim: I-F-03 ("Stocks will trend with the overall market unless they have
+a reason not to", txWaMpSzHhM [31:55–32:38]). Measured 2026-08-21, verified
+2026-08-21, per [PREREGISTRATION.md](PREREGISTRATION.md) #18 (frozen
+2026-08-21: OOS 2016–2025 by bar date, per-stock Pearson corr with SPY,
+catalyst = gap |open/prior close − 1| ≥ 2% OR RV = vol/mean(vol, prior 20)
+≥ 2.0, one-sample bootstrap seed 20260813, Holm per family, §5 gate
+pre-registered within the campaign). **Structural campaign — no forward
+returns, no entry/exit, no cost; Phase 5 not implicated by construction.**
+Reports: `data/cache/if03_measure_report.md` (+ `if03_measure_results.json`)
+and `if03_gate_measure_report.md` (+ `if03_gate_measure_results.json`).
+
+| Verdict | Result (primary, OOS 2016–2025) | Holm gate | §5 gate (904-union) |
+|---|---|---|---|
+| **F1 baseline EDGE** | n=598; mean corr +0.4601 (CI +0.4521..+0.4681, p=0.000) | 0.0500, rejected | **EDGE** — n=703; +0.4455 (CI +0.4370..+0.4537, p=0.000) |
+| **F2-gap FADE** | n=590; +0.0968 (CI +0.0864..+0.1080, p=0.000) | 0.0250, rejected (wrong direction) | FADE — n=698; +0.0858 (p=0.000) |
+| **F2-vol EDGE** | n=589; −0.2253 (CI −0.2357..−0.2134, p=0.000) | 0.0500, rejected | **EDGE** — n=691; −0.2310 (p=0.000) |
+| **F3-gap NO EDGE** | n=1,086; +0.0005 (CI −0.0009..+0.0019, p=0.488) | not rejected | NO EDGE — n=1,107; +0.0001 (p=0.894) |
+| **F3-vol EDGE (up-bias caveat)** | n=1,080; +0.0021 (CI +0.0009..+0.0033, p=0.002) | 0.0250, rejected | **EDGE** — n=1,097; +0.0042 (p=0.000) |
+
+**Reading.** The claim is half-true. F1 confirms the baseline half at the
+strongest level — per-stock daily correlation with the market is +0.46,
+uniformly positive across 598 of 599 stocks. The "reason not to" half
+splits by catalyst proxy: volume-spike days decouple as claimed (−0.23,
+p=0.000 — the mechanical effect of a large idiosyncratic move); gap days
+move the OPPOSITE way (+0.10, p=0.000 — correlation HIGHER on gap days,
+claim contradicted) and F3-gap shows no down-day contrast (p=0.488).
+F3-vol's down-day edge is the general up-bias of catalyst stocks, not a
+market-specific run: the pre-declared S8 control shows the up-day contrast
+(+0.0100 gap / +0.0063 vol) exceeds the down-day contrast and down−up is
+negative (−0.0095 / −0.0042, p=0.000). Catalyst stocks outperform
+non-catalyst stocks on BOTH kinds of days — "running when the markets
+tanking" is not a market-specific phenomenon. The IS record (2000–2015,
+descriptive) shows the same signs at roughly twice the OOS magnitudes;
+F3-gap was positive IS (+0.0025) but is null OOS. Phase-5 trigger-check
+held: **NOT TRIGGERED** — structural, no forward returns.
+
+**Verification.** Deterministic: two primary runs byte-identical (results
+`5407f681…`, report `c391458c…`); gate recorded (results `a837df19…`,
+report `8f21b9e9…`). Independent verification re-implemented the
+measurement from scratch (`tools/verify_if03.py` — fresh code importing
+nothing from the frozen stack, fresh seeds): counts/means exact to 1e-9,
+CIs within the fresh-seed MC spread, Holm + floors + verdicts stable for
+every family and every sensitivity (S1–S9). 258 checks, all PASS
+(2026-08-21).
+
+---
+
 ## What gets pre-registered next
 
 Priority order for turning `candidate` rows into pre-registered hypotheses
@@ -1468,8 +1517,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
     2026-08-19): **contradicted** — F2b **FADE** (+0.3352, p=0.040; low
     cohort +39.5% vs high +6.0% over 3y, accruing to +42.2% at 4y), F2a
     NO EDGE, death-proxy row counted (§I.13).
-17. **I-F-03 (stocks trend with the market unless catalyst)** — correlation
-    decomposition; cheap but lower value.
+17. **I-F-03 (stocks trend with the market unless catalyst)** — ✅ MEASURED
+    (pre-reg #18, 2026-08-21): **half-true** — F1 baseline **EDGE**
+    (per-stock corr +0.46, §5 gate passes), F2-vol **EDGE** (volume-spike
+    decoupling, gate passes), F2-gap **FADE** (corr HIGHER on gap days),
+    F3-gap NO EDGE; F3-vol's down-day edge is the general catalyst
+    up-bias, not a market-specific run (§I.15). **The final testable-daily
+    item — the daily track is now exhausted; remaining candidates need
+    intraday data (the §5 intraday floor: 2 of 20 bar-dates ≥ 2026-08-19,
+    ~mid-September).**
 18. **I-X-05 (stop placement for bullish divergence)** — ✅ MEASURED (pre-reg
     #14, 2026-08-17/18): **F1-BULL EDGE on the primary AND the §5 gate
     PASSES** — the first EDGE to survive the historical-constituent
@@ -1564,6 +1620,18 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   `data/cache/cexit_measure_report.md` + `cexit_gate_measure_report.md`;
   independently verified 2026-08-19, 215 checks). Sixteenth completed
   campaign.
+- [x] Measure the I-F-03 market-trend claim (pre-reg #18) and write the
+  verdicts back — done 2026-08-21: **half-true** — F1 baseline **EDGE**
+  (per-stock corr +0.46, §5 gate passes), F2-vol **EDGE** (volume-spike
+  decoupling −0.23, gate passes), F2-gap **FADE** (corr HIGHER on gap days),
+  F3-gap **NO EDGE** (p=0.488), F3-vol's down-day edge is the general
+  catalyst up-bias not a market-specific run (S8 down−up negative);
+  Phase-5 trigger-check held: NOT TRIGGERED (structural) (§I.15,
+  `data/cache/if03_measure_report.md` + `if03_gate_measure_report.md`;
+  independently verified 2026-08-21, 258 checks). Seventeenth completed
+  campaign — and the final testable-daily one; the remaining candidates
+  need intraday data (B-01, I-B-01, I-C-02/03/04, E-01/E-04, F-01/F-02,
+  I-E-02), gated on the intraday §5 floor (~mid-September).
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).
