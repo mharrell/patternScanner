@@ -3829,6 +3829,25 @@ is a new pre-registration.
 - Registered against: PREREGISTRATION #19 · rows I-B-02, B-03/I-B-01,
   B-05 · archive bar-dates ≥ 2026-08-19 · seed 20260821.
 
+*Implementation freeze (2026-08-21, before any measurement):
+`tools/measure_intraday_entry.py` FROZEN_SHA
+`cac0e7ed205c8fbea62dad2c1f3f181cbe6b2b247d00c34c9c93b0c426c4b48c` —
+sha256 of the file with its own FROZEN_SHA hex blanked to 64 zeros
+(fixed-point; asserted at every run) — raw `measure_code_sha256`
+`cfd0bddae616edb2fa1d8dd586417625acf2d488a7ced27e05166f82c11762c3`.
+Committed 2026-08-21; §5 floors not yet met (3 window bar-dates ≥
+2026-08-19).*
+
+*Implementation reading (registered with the tool, before measurement):
+F1's two Holm slots are **long** and **short**; the slot-level Holm test
+uses the hour-matched **random-universe** baseline (primary, pre-reg #15
+§4 convention), with the hour-matched **same-ticker** excess reported as
+the slot's secondary statistic (the pre-reg #20 F1
+primary/secondary-benchmark pattern). F2's single Holm slot tests the raw
+**early − late** paired contrast; the same-ticker and random-universe
+baseline-adjusted contrasts are reported as rows (both baseline pairs).
+F3's single Holm slot is the paired **(E2 − E1)** contrast.*
+
 ## 9. Campaign outcome (recorded after measurement — parameters unchanged)
 
 *(Awaiting the §5 floor — measurement window opens at the first meeting
