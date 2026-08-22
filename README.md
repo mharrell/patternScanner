@@ -195,8 +195,12 @@ Phase 5 remains **not triggered** after seventeen campaigns.
 **Intraday track (live since 2026-08-19):** a forward-accumulated 1-minute
 archive of the live S&P 600 is capturing the data the remaining untested
 ledger claims need (they are stated on 1-minute charts — B-01 micro pullback,
-I-B-01, I-C-02/03/04, 1-min MACD, F-01/F-02 time-of-day, I-E-02). Pre-reg
-#15 is frozen with a §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
+I-B-01, I-C-02/03/04, 1-min MACD, F-01/F-02 time-of-day, I-E-02). Pre-regs
+#15 (B-01), #19 (entry timing: reversal new-high / pullback-count /
+second-confirmation), #20 (intraday exits: breakeven-trail + sell-half, the
+9MA→20MA→VWAP ladder, flat-out), #21 (the two-filter veto on 1-min bars) and
+#22 (intraday regime: morning window, pre-market cleanliness) are frozen,
+each with the shared §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
 before any measurement; nightly pull (22:05) + push (23:00) run under Task
 Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
@@ -220,18 +224,11 @@ reports:
 `data/cache/cexit_gate_measure_report.md`,
 `data/cache/if03_measure_report.md`,
 `data/cache/if03_gate_measure_report.md`.
-Next candidates: the price-tier family (pre-reg #16, I-X-06/I-D-01) is
-**measured: F1 EDGE × 4 with the §5 gate PASSING** (§I.13,
-`data/cache/pricetier_measure_report.md` +
-`pricetier_gate_measure_report.md`); the C-exit comparison (pre-reg #17,
-C-01/C-03/C-04) is **measured** (§I.14, `data/cache/cexit_measure_report.md`
-+ `cexit_gate_measure_report.md`); the I-F-03 market-trend claim (pre-reg
-#18) is **measured** (§I.15, `data/cache/if03_measure_report.md` +
-`if03_gate_measure_report.md`) — the **final testable-daily campaign**;
-every remaining untested ledger item needs intraday data — the **intraday
-track** now accumulates nightly
-(pre-reg #15, frozen 2026-08-19 with a §5 floor of ≥ 20 full-universe
-bar-dates ≥ 2026-08-19 before any measurement; see
+Next candidates: the remaining untested ledger items all need intraday data
+— the **intraday track** now accumulates nightly. Pre-regs **#15, #19–#22
+are frozen** (2026-08-19 / 2026-08-21) with the shared §5 floor (≥ 20
+full-universe bar-dates ≥ 2026-08-19, ~mid-September) before any
+measurement; each awaits the floor (see
 [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md)).
 
@@ -312,7 +309,17 @@ bar-dates ≥ 2026-08-19 before any measurement; see
   FADE, F2-vol EDGE (gate passes); F3-gap NO EDGE, F3-vol EDGE (does not
   mean "running when the markets tanking" — the S8 up-day control shows the
   effect is a general up-bias); NOT TRIGGERED (§I.15)** — the final
-  testable-daily campaign.
+  testable-daily campaign. Pre-registration #19: the intraday entry-timing
+  family (I-B-02 reversal new-high long+short, B-03/I-B-01 pullback-count,
+  B-05 second-confirmation), frozen 2026-08-21, awaits the shared §5 floor.
+  Pre-registration #20: the intraday exit rules (I-C-02 breakeven-trail +
+  sell-half, I-C-03 9MA→20MA→VWAP target ladder, I-C-04 flat-out, on the
+  pre-reg #15 B-01 entry set), frozen 2026-08-21, awaits the shared §5
+  floor. Pre-registration #21: the two-filter pre-entry veto on 1-min bars
+  (E-01/E-04 — MACD negative + high-volume red candle), frozen 2026-08-21,
+  awaits the shared §5 floor. Pre-registration #22: the intraday regime
+  (I-B-05 morning-is-best volatility/liquidity buckets, F-01/F-02
+  pre-market cleanliness), frozen 2026-08-21, awaits the shared §5 floor.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:

@@ -3710,3 +3710,435 @@ null OOS, reinforcing the OOS-only verdicts.
 structural campaign with no forward returns, no entry/exit, no cost; the
 Phase-3 engine's measure_returns is never invoked.
 
+---
+
+# Pre-registration #19 — intraday entry timing: the reversal new-high, the pullback-count rule, and the second-confirmation entry (ledger rows I-B-02, B-03 / I-B-01, B-05; intraday track)
+
+**Frozen 2026-08-21, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §5's floors are met (shared with pre-reg #15); the
+archive bar-dates before the 2026-08-19 freeze (2026-08-12…18) are
+excluded by §2.
+
+## 0. Why this campaign exists
+
+Pre-reg #15 measures the corpus's flagship intraday entry (B-01 micro
+pullback). The other entry rules stated on 1-minute charts — the reversal
+new-high after a plain decline (I-B-02), the pullback-count restriction
+(I-B-01/B-03, "never trade the third"), and the second-confirming-candle
+buy (B-05) — have never been measured. Their daily adaptations were all
+**rejected** (Shape B pullback+new-high NO EDGE, §B.5-B; Shape A breakout
+NO EDGE, §B.5-A; Shape C confirmation-close NO EDGE, §B.5-C). This
+campaign measures the rules **as actually stated**, on 1-minute bars,
+before the §5 floor is met — freezing the hypotheses while the archive is
+still young (the anti-look-ahead point of the pre-registration regime).
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **I-B-02**: reversal entry = "the first one minute or the first five minute candle to make a new high" after a decline (long); mirror for shorts: "shorting the first one minute candle to make a new high… your stop is 3780 and your short at 3766" (ATVI) | jfe1Zl-5EQI [24:02–24:22]; pJuG5YtVF84 [02:00–02:26]; txWaMpSzHhM [28:34–29:43] | **F1 (long slot):** decline = ≥3 consecutive DOWN bars immediately preceding the signal (S-D2: 2; S-D5: 5). Signal bar e = the first bar after the decline with High[e] > High[e−1] (the first new-high candle). Entry = open of e+1. Forward = (C[e+N] − O[e+1])/O[e+1] − COST, N = 60 primary. Baselines: hour-matched same-ticker and random-universe (pre-reg #15 §4 convention). **F1 (short slot):** rise = ≥3 consecutive UP bars; signal bar s = first bar after the rise with Low[s] < Low[s−1]; entry open of s+1; forward sign-flipped (long convention). S-5M: same detector on 5-minute bars (every-5th-bar sample). |
+| **B-03 / I-B-01**: "I always like to trade the first and the second pullback… third and fourth pullback, it can be a little too risky"; "I trade the first and the second pullback… I never trade almost never trade the third" | warrior-trading [1:35:20–1:36:07]; txWaMpSzHhM [20:29–20:43] | **F2 (the count rule).** Within a day's (ticker, bar-date) chain, a run = ≥3 consecutive UP bars; a pullback = ≥2 consecutive DOWN bars retracing from the run's high, followed by a resume bar r with High[r] > High[r−1]. Each resume is labeled k = its pullback ordinal in that day's chain (1st, 2nd, 3rd…). Early = k ≤ 2; late = k ≥ 3. Entry open of r+1. Contrast = mean N-bar forward (early) − mean (late), paired bootstrap. Claim supported iff early > late (CI-low > 0); contradicted iff late > early (CI-upper < 0). Win rates per k as a row. |
+| **B-05**: "usually when people take a trade in this area, they're going to be buying… the second candle as it confirms the trend" (reversal patterns: buy the second confirming candle, not the first) | warrior-trading [1:10:53–1:11:22] | **F3 (the second-confirmation entry).** After a decline (D = 3), c1 = first bar closing above its prior close (the first up-close), c2 = the next consecutive bar closing above its prior close (the second up-close). Two candidate entries per occurrence: E1 = open of the bar after c1, E2 = open of the bar after c2; only occurrences with both c1 and c2 (else dropped, counted). Contrast = mean forward N=60 of E2 − mean of E1 (paired). Claim supported iff E2 > E1 (CI-low > 0 — the second candle is the better buy). |
+
+## 2. The data artifact
+
+The shared forward-accumulated 1-minute archive of pre-reg #15 §2
+(`data/intraday/`, immutable (bar-date, ticker) parquet, RTH extended
+04:00–20:00 ET, manifest SHA-256 chain). Same exclusions (2026-08-12…18),
+same per-bar-date universe rule, same split exclusion, same sparsity
+reality — re-registered here by reference. Measurement window: complete
+full-universe bar-dates ≥ 2026-08-19.
+
+## 3. Detectors (frozen)
+
+Per (bar-date, ticker) file, RTH bars (09:30–16:00 ET), entry per the
+house protocol (open of the bar after the signal; no look-ahead; all
+detection state complete at the close of the signal bar). Sensitivities
+as declared in §1 (D/R thresholds, 5-min window). Detection runs on
+stored bars as-is (sparse names show real RTH gaps; S-GAP row measures
+the entry-bar gap distribution).
+
+## 4. Measurement
+
+All bootstraps B = 1000, seed **20260821** (freeze date). Holm at
+α=0.05 within each family. COST = 0.15% round-trip on every return (S-C05
+0.05%, S-C30 0.30% sensitivities, NO verdicts).
+
+- **F1 (I-B-02 reversal edge) — 2 Holm slots (long, short):** absolute
+  forward return vs the two baselines. EDGE iff both slots Holm-rejected
+  with CI-low > 0; FADE iff both with CI-upper < 0; mixed/unrejected →
+  NO EDGE. Count floor 100 per slot.
+- **F2 (pullback-count) — 1 Holm slot:** contrast (early − late), both
+  baseline pairs (same-ticker, random-universe). EDGE iff CI-low > 0
+  (claim supported); FADE iff CI-upper < 0 (contradicted). Floors 100
+  per leg.
+- **F3 (second-candle confirmation) — 1 Holm slot:** paired contrast
+  (E2 − E1). EDGE iff CI-low > 0; FADE iff CI-upper < 0. Floor 100 pairs.
+- **Measurement rows (no verdicts):** per-k pullback means and win rates;
+  R:R geometry (target − entry)/(entry − stop) for F1 (target = day-high
+  so far, stop = decline low); per-bar-date and per-ticker F1 breakdowns;
+  entry-bar gap distribution; hour-of-day profile of F1 events (the
+  morning-window cross-check for pre-reg #22).
+
+## 5. Floors — when measurement may begin (one-shot rule)
+
+All floors must hold at the FIRST measurement: (a) ≥ 20 full-universe
+bar-dates ≥ 2026-08-19; (b) ≥ 2,000 F1-evaluable events across the
+family; (c) events across ≥ 100 distinct tickers; (d) events across ≥ 15
+distinct bar-dates. **One-shot**: verdicts recorded at the first
+measurement meeting all floors; a larger archive is a new pre-registration.
+No forward-return number is computed before the floors are met (detection
+event counts for the audit are allowed). INCONCLUSIVE (floors unmet at an
+audit-clean attempt, or count floor 100 unmet on a slot) → campaign ends
+INCONCLUSIVE with the documented floors.
+
+## 6. The §5 gate (intraday form)
+
+Identical to pre-reg #15 §6: EDGE verdicts require the archive-integrity
+audit to PASS at measurement time (pull records + membership SHAs;
+measured name-days' universe = the bar-date's pull-record universe;
+files hash-match the manifest; repairs.json has no selection/trimming
+reasons; no non-blind capture). Gate PASSED = audit clean → the EDGE is
+entered as the forward-accumulated record and the Phase-5 trigger-check
+conversation is held. Gate FAILS = campaign **void**; any re-measurement
+is a new pre-registration.
+
+## 7. Pre-declared expectations
+
+- **F1**: the daily anchors are all NO EDGE (Shape B new-high, Shape A
+  breakout, Shape C confirmation-close). After 0.15% COST on 1-min bars,
+  the honest expectation is small or null absolute edge. The value is
+  the measurement itself.
+- **F2**: the count rule is the strongest-drawn claim in the batch ("never
+  trade the third"). If pullback #3+ does not underperform #1–2, the
+  selective claim is falsified at the family level. Slight prior: small
+  positive — later pullbacks in a day are later in the move.
+- **F3**: the daily confirmation-close adaptation was NO EDGE; expect
+  small or null.
+- **Regime caveat**: the window is weeks of whatever the market delivers
+  next — a few regimes at most; verdicts are conditional on the captured
+  window.
+
+## 8. Freeze
+
+- Frozen 2026-08-21, before any measurement. Parameters above (detectors,
+  families, baselines, COST, floors, one-shot rule, gate) may not be
+  changed after this date.
+- Registered against: PREREGISTRATION #19 · rows I-B-02, B-03/I-B-01,
+  B-05 · archive bar-dates ≥ 2026-08-19 · seed 20260821.
+
+## 9. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Awaiting the §5 floor — measurement window opens at the first meeting
+of the §5 floors.)*
+
+---
+
+# Pre-registration #20 — intraday exit rules: the breakeven-trail + sell-half, the 9MA→20MA→VWAP target ladder, and the flat-out rule (ledger rows I-C-02, I-C-03, I-C-04; intraday track)
+
+**Frozen 2026-08-21, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §5's floors are met (shared with pre-reg #15); the
+archive bar-dates before the 2026-08-19 freeze are excluded by §2.
+
+## 0. Why this campaign exists
+
+The exit rules the corpus states on 1-minute charts — trail-to-breakeven
++ sell-half, the 9MA→20MA→VWAP target ladder, and "flat after entry = get
+out" — are unmeasured. Pre-reg #17 measured the *daily* exit comparison
+(C-01/C-03/C-04: indicator exits vs fixed-2R on the same entries: mostly
+NO EDGE/FADE, q99 tail EDGE survives the gate). This campaign runs the
+same exit-comparison structure on 1-minute bars, over the corpus's
+flagship intraday entry set (B-01, frozen pre-reg #15 detector). The
+question: do the claimed intraday exits beat a fixed-horizon (and a
+fixed-R:R) benchmark on the same entries?
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **I-C-02**: "If I get into the profit zone I can start adjusting my stop first to break even and then to the low of the last 5-minute candle"; "I just sold half at 2183 forty cents profit just my stop to definitely break even" | jfe1Zl-5EQI [25:55–26:06], [05:01–05:20] | **Breakeven-trail + sell-half rule** on each entry: (i) if C ≥ entry open at any point, stop moves to entry (breakeven); (ii) once price is ≥ entry + 1.5× (the entry's initial stop distance) on a 5-min close, sell half at the next bar open and trail the remainder at the low of the last 5-minute candle; (iii) initial stop = the entry setup's stop (B-01: pullback low; stop distance d = entry − stop). Position halves settle at their own stops. |
+| **I-C-03**: "the nine moving average here coming down at 22 dollars and 20 cents that's the first target the 9 second target will be the twenty third target would be the volume weighted average price" | jfe1Zl-5EQI [05:30–05:45] | **Target-ladder rule**: exits at the 9-period moving average of closes (first third), then the 20-MA (second third), then the intraday cumulative VWAP (final third) — each measured on 1-min closes from the entry bar; a target is hit when C ≥ target. Remaining position liquidated at session close. |
+| **I-C-04**: "If I get in I hold for a few minutes and the price stays flat I get out" (flat after entry = bear flag) | jfe1Zl-5EQI [25:34–25:51] | **Flat-out rule + the flat premise.** Flat after entry = |C − entry| ≤ ε for the whole of M consecutive bars after entry (ε = 0.001×entry per bar, S-E2: 2×; M = 10 primary, S-M20: 20). Rule) exit at the close of the M-th flat bar. Premise) the claim implies flat-after-entry events are dead — mean forward return of flat events < matched non-flat events. |
+
+Entry set (shared, frozen): the B-01 micro-pullback events of pre-reg #15
+§3 (the frozen detector in tools/measure_intraday.py), all RTH, N-horizon
+returns measured from open of the bar after the signal.
+
+## 2. The data artifact
+
+Same shared forward archive as pre-reg #15 §2 / #19 §2 (immutable
+(bar-date, ticker) parquet, manifest SHA-256 chain). Same exclusions
+(2026-08-12…18), same per-bar-date universe rule, same split exclusion,
+same sparsity reality — re-registered here by reference.
+
+## 3. Measurement
+
+All bootstraps B = 1000, seed **20260821** (freeze date). Holm at α=0.05
+within each family. COST = 0.15% round-trip on every realized return
+(S-C05/S-C30 sensitivities, NO verdicts). Entry set = B-01 events (pre-reg
+#15 detector). Benchmarks: fixed-horizon N=60 (hold every entry to the
+60-bar close), and fixed-2R (exit at entry + 2× initial stop distance;
+stop = entry − 1× initial stop). Both benchmarks measured on the same
+entry set, same COST.
+
+- **F1 (each rule vs benchmarks) — 3 Holm slots** (breakeven-trail,
+  ladder, flat-out): mean realized return of the rule − mean of the
+  fixed-N benchmark (primary), and − mean of fixed-2R (secondary), same
+  entry set, paired bootstrap. EDGE iff Holm-rejected with CI-low > 0
+  (the claimed exit beats the benchmark); FADE iff CI-upper < 0; else
+  NO EDGE. Count floor 100 per slot.
+- **F2 (the flat premise) — 1 Holm slot:** contrast mean forward return of
+  flat-after-entry events − matched non-flat events (same entry set,
+  hour-matched, same direction). EDGE iff CI-upper < 0 (flat is worse —
+  the premise holds; the out-rule then has a factual basis); FADE iff
+  CI-low > 0; NO EDGE otherwise. Floor 100 per leg.
+- **Measurement rows (no verdicts):** ladder reach rates at each of
+  9MA/20MA/VWAP; breakeven-trail trigger frequency (how often the
+  half-sell fires); per-bar-date and per-ticker rule outcomes; the flat
+  rule's trade count (a pure trade-count reducer?). These answer whether
+  the exits "work" as mechanisms even where the return contrast is null.
+
+## 4. Floors — when measurement may begin (one-shot rule)
+
+All floors must hold at the FIRST measurement: (a) ≥ 20 full-universe
+bar-dates ≥ 2026-08-19; (b) ≥ 2,000 F1-evaluable B-01 entry events (the
+# entry pool before exit-rule attrition); (c) events across ≥ 100 distinct
+tickers; (d) events across ≥ 15 distinct bar-dates. **One-shot** rule and
+INCONCLUSIVE clause identical to pre-reg #19 §5.
+
+## 5. The §5 gate (intraday form)
+
+Identical to pre-reg #15 §6 (the archive-integrity audit; EDGE verdicts
+require it to PASS; Gate FAILS = campaign void; any re-measurement is a
+new pre-registration).
+
+## 6. Pre-declared expectations
+
+- The daily exit comparison (#17) found indicator exits do not beat
+  fixed-2R on daily entries — expect the same here or worse on 1-min bars
+  after COST (small or null).
+- The flat premise (F2) is the most likely positive: "flat after entry"
+  plausibly does carry worse forward returns — the claim's premise may
+  hold even where the exit rule's returns do not clear a benchmark.
+- Regime caveat as pre-reg #19 §7.
+
+## 7. Freeze
+
+- Frozen 2026-08-21, before any measurement. Parameters above may not be
+  changed after this date.
+- Registered against: PREREGISTRATION #20 · rows I-C-02, I-C-03, I-C-04 ·
+  entry set = pre-reg #15 B-01 detector · archive bar-dates ≥ 2026-08-19 ·
+  seed 20260821.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Awaiting the §5 floor — measurement window opens at the first meeting
+of the §5 floors.)*
+
+---
+
+# Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
+
+**Frozen 2026-08-21, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §5's floors are met (shared with pre-reg #15); the
+archive bar-dates before the 2026-08-19 freeze are excluded by §2.
+
+## 0. Why this campaign exists
+
+E-01/E-04 is the two-filter pre-entry veto: MACD non-negative AND no
+high-volume red candle ("if just one of them says no, I don't take the
+trade"). The **daily** form was measured NO EDGE (pre-reg #3, 2026-08-14):
+the veto is a trade-count reducer, not an edge enhancer — on A and C the
+killed trades had *higher* mean forward returns than the kept. The claim
+was stated on intraday charts; its 1-minute form has never been measured.
+This campaign applies the two filters to an intraday entry set and asks
+whether the veto-pass set actually beats the veto-fail set on 1-min bars,
+and whether the legs decompose as claimed.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **E-01**: "Before entry, two filters: MACD (blue line crossed negative = no) and volume (high-volume selling on red candles = no). If just one of them says no, I don't take the trade." | warrior-trading [02:01–04:57] | **Entry set**: the reversal new-high entries of pre-reg #19 F1 (decline = ≥3 consecutive DOWN bars; signal = first bar with High > prior High; entry open of e+1) — the corpus's reversal-entry rule, independently frozen (#19 §3). **Veto legs**: (i) **MACD**: MACD = EMA12 − EMA26 of closes, computed on the (bar-date, ticker) 1-min close series from day open (warm-up ≥ 26 bars); MACD < 0 at the entry bar → veto. (ii) **Volume**: the entry bar's volume ≥ V× the file's median RTH bar volume AND the bar is red (Close < Open) → veto (V = 3 primary; S-V2: 2, S-V5: 5). **Veto-pass** = neither leg fires; veto-fail = ≥1 leg fires. |
+| **E-04**: "high-volume red candle = no; MACD negative = no; if it's not a hard yes, then it's a no" | warrior-trading [3:02:18–3:04:30] | Same operationalization (the beginner restatement); the "hard yes" = both legs clean. Kill-rate row counts how many candidates each leg alone kills. |
+
+## 2. The data artifact
+
+Same shared forward archive as pre-reg #15 §2 / #19 §2 (immutable
+(bar-date, ticker) parquet, manifest SHA-256 chain). Same exclusions
+(2026-08-12…18), same per-bar-date universe rule, same split exclusion,
+same sparsity reality — re-registered here by reference. (Volume bars are
+raw stored bars; sparse names with few trades have small bar counts —
+the median-volume leg adapts to the file's own volume distribution.)
+
+## 3. Measurement
+
+All bootstraps B = 1000, seed **20260821** (freeze date). Holm at α=0.05
+within the family. COST = 0.15% round-trip on every return (S-C05/S-C30
+sensitivities, NO verdicts). Forward = (C[e+N] − O[e+1])/O[e+1] − COST,
+N = 60 primary (S-N15/S-N120/S-N240). Baselines hour-matched same-ticker
+and random-universe (pre-reg #15 §4 convention).
+
+- **F1 (conditioning) — 4 Holm slots:**
+  1. *pass − fail*: mean forward of veto-pass − veto-fail (claim: pass
+     better). EDGE iff CI-low > 0; FADE iff CI-upper < 0.
+  2. *pass − raw*: veto-pass − all entry candidates (the filter's net
+     value; the daily result was negative here). Same EDGE/FADE rules.
+  3. *macd leg*: entries with MACD ≥ 0 − entries with MACD < 0 (leg alone).
+  4. *volume leg*: entries without a red volume-spike signal bar − entries
+     with one (leg alone).
+  Count floor 100 per slot.
+- **F2 (kill-rate decomposition) — measurement rows, no verdicts:** what
+  fraction of candidates each leg alone kills, and the killed sets' mean
+  forward returns vs the kept set. Answers E-04's "hard yes": is the veto
+  a count reducer or an enhancer, and which leg does the killing.
+- **Sensitivity (NO verdicts):** the veto applied to the B-01 entry set
+  (pre-reg #15 detector) as a cross-check on the entry-set choice.
+
+## 4. Floors — when measurement may begin (one-shot rule)
+
+All floors must hold at the FIRST measurement: (a) ≥ 20 full-universe
+bar-dates ≥ 2026-08-19; (b) ≥ 2,000 F1-evaluable entry candidates; (c)
+candidates across ≥ 100 distinct tickers; (d) across ≥ 15 distinct
+bar-dates. **One-shot** rule and INCONCLUSIVE clause identical to pre-reg
+#19 §5.
+
+## 5. The §5 gate (intraday form)
+
+Identical to pre-reg #15 §6 (the archive-integrity audit; EDGE verdicts
+require it to PASS; Gate FAILS = campaign void; any re-measurement is a
+new pre-registration).
+
+## 6. Pre-declared expectations
+
+- The daily result is the prior: the veto cuts the better trades (FADE in
+  the pass−raw direction). Expect the same on 1-minute bars — the veto's
+  value as a count reducer, not an enhancer — but this is the first
+  intraday test; the claim as stated (on the chart type the speaker uses)
+  is what's being measured.
+- The per-leg rows may show the volume leg carrying whatever the veto
+  does (mirroring the daily result where high-volume-red did the cutting).
+- Regime caveat as pre-reg #19 §7.
+
+## 7. Freeze
+
+- Frozen 2026-08-21, before any measurement. Parameters above may not be
+  changed after this date.
+- Registered against: PREREGISTRATION #21 · rows E-01, E-04 · entry set =
+  pre-reg #19 F1 reversal-new-high · archive bar-dates ≥ 2026-08-19 ·
+  seed 20260821.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Awaiting the §5 floor — measurement window opens at the first meeting
+of the §5 floors.)*
+
+---
+
+# Pre-registration #22 — intraday regime: the morning-is-best window and pre-market cleanliness (ledger rows I-B-05, F-01, F-02; intraday track)
+
+**Frozen 2026-08-21, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §5's floors are met (shared with pre-reg #15); the
+archive bar-dates before the 2026-08-19 freeze are excluded by §2.
+
+## 0. Why this campaign exists
+
+Two claims in the corpus are about *when* to trade, stated on intraday
+charts: the morning window ("9:30 to 12:00… the most volume and
+momentum… that's where all my profits are"; F-01's "7–10 a.m., peak
+volatility and peak liquidity") and pre-market cleanliness (F-02, "no
+halts, no circuit breakers"). Pre-reg #15 carries them as **descriptive
+rows** (no verdicts) because they were unverifiable on daily bars. The
+forward archive now makes them *testable as claims*: this campaign lifts
+them to verdict families. (I-B-05's four inconsistent window phrasings
+are resolved by pre-registering two named buckets — F-01's 07–10 and
+I-B-05's 09:30–12:00 — rather than picking one of the four.)
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| **F-01**: "I kind of trade from 7 a.m. until about 10 a.m., and that's where I can capitalize on peak volatility and peak liquidity" | warrior-trading [1:44:58–1:47:07] | **Bucket B1 = 07:00–10:00 ET** (spans pre-market 7–9:30 + the RTH open 30 min). Claim: B1 ranks #1 on volatility AND liquidity jointly. Measured per bucket: mean \|r\| per bar and mean (H−L)/O (volatility); volume share (liquidity). |
+| **I-B-05**: "9:30 to 12:00 that's when I'm the most aggressive… the most volume and momentum"; "the first 5 10 minutes… the most volume. That's when we make the most money"; "9:30 to 11:30 that's where all my profits are"; "I only trade for one hour a day 9:30 to 10:30" | txWaMpSzHhM [39:03–39:28]; 7UZushUSpLQ [00:10–00:17]; xTPcI7HHu5w [24:53–24:56]; H82nRY9TYU4 [26:42–26:44] | **Bucket B2 = 09:30–12:00 ET** (RTH morning). Row2 = same volatility+liquidity rank test as Row1. **B2 "money" claim**: mean forward return of the pre-reg #19 F1 reversal-long entry, bucketed by entry hour — B2 vs the pooled rest (see F2). |
+| **F-02**: pre-market moves are "typically cleaner" (no halts, no circuit breakers 4–9:30 a.m.); news breaks pre-market | warrior-trading [1:45:30–1:46:32] | **F3: pre-market (04:00–09:30 ET) vs RTH (09:30–16:00)** on per-bar \|r\| mean and median, and tail frequency (\|r\| > 3× the file's median \|r\|). Claim supported iff pre-market is lower on BOTH per-bar volatility AND tail frequency. Halts/circuit breakers are not directly observable from bars — proxy documented. |
+
+## 2. The data artifact
+
+Same shared forward archive as pre-reg #15 §2 / #19 §2 (immutable
+(bar-date, ticker) parquet, manifest SHA-256 chain). Same exclusions
+(2026-08-12…18), same per-bar-date universe rule, same split exclusion,
+same sparsity reality — re-registered here by reference. Buckets are ET
+on stored timestamps; pre-market bars exist only where a trade printed
+(thin names) — the per-file median-volume legs adapt to each file.
+
+## 3. Measurement
+
+All bootstraps B = 1000, seed **20260821** (freeze date). Holm at α=0.05
+within each family.
+
+- **F1 (the morning volatility/liquidity peak) — 2 Holm slots** (B1, B2):
+  for each bucket, contrast = the bucket's mean metric − the maximum of
+  the other buckets' means, for EACH of volatility (mean |r|/bar) and
+  liquidity (volume share). Verdict applies to the jointly-measured pair:
+  EDGE iff the bucket leads on BOTH with CI-low > 0; FADE iff it trails
+  on BOTH with CI-upper < 0; NO EDGE otherwise. Floor 100 bar-dates per
+  bucket with ≥ 10 names.
+- **F2 (the money claim) — 1 Holm slot:** mean forward return of the
+  #19 F1 reversal-long entry when the entry bar is in B2 − the mean when
+  outside B2 (same entry set, hour-matched baselines). EDGE iff CI-low
+  > 0 (B2 is where the money is); FADE iff CI-upper < 0; NO EDGE. Floor
+  100 per leg.
+- **F3 (pre-market cleanliness) — 1 Holm slot:** pre-market per-bar mean
+  |r| − RTH per-bar mean |r| (primary), plus tail-frequency contrast
+  (secondary). EDGE iff both contrasts negative with CI-upper < 0 (pre
+  pre-market cleaner on both); FADE iff CI-low > 0 on both; NO EDGE.
+- **Measurement rows (no verdicts):** the #15 F-01/F-02 descriptive rows
+  (kept for continuity); per-hour profiles; the 09:30–10:30 single-hour
+  variant and the first-5-minutes row (the other I-B-05 phrasings);
+  per-bar-date and per-ticker hour profiles.
+
+## 4. Floors — when measurement may begin (one-shot rule)
+
+All floors must hold at the FIRST measurement: (a) ≥ 20 full-universe
+bar-dates ≥ 2026-08-19; (b) ≥ 2,000 F1-evaluable entries (F2's pool); (c)
+bar-dates/tickers across ≥ 100 distinct tickers; (d) across ≥ 15 distinct
+bar-dates. **One-shot** rule and INCONCLUSIVE clause identical to pre-reg
+#19 §5.
+
+## 5. The §5 gate (intraday form)
+
+Identical to pre-reg #15 §6 (the archive-integrity audit; EDGE verdicts
+require it to PASS; Gate FAILS = campaign void; any re-measurement is a
+new pre-registration).
+
+## 6. Pre-declared expectations
+
+- The morning-is-best core is consistent across four phrasings; the
+  volatility/liquidity peak (F1) is the most likely part to hold — it is
+  close to a market microstructure fact (volume concentrates at the open).
+- The *money* claim (F2) is the one to be skeptical of: even if volume
+  and volatility peak in the morning, forward returns on a fixed entry
+  rule by hour need not — this is where the claim most plausibly fails.
+- F-02 pre-market cleanliness is expected to hold at the volatility
+  level; tail-frequency is less certain (gap news prints pre-market).
+- Regime caveat as pre-reg #19 §7.
+
+## 7. Freeze
+
+- Frozen 2026-08-21, before any measurement. Parameters above may not be
+  changed after this date.
+- Registered against: PREREGISTRATION #22 · rows I-B-05, F-01, F-02 ·
+  archive bar-dates ≥ 2026-08-19 · seed 20260821.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Awaiting the §5 floor — measurement window opens at the first meeting
+of the §5 floors.)*

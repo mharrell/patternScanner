@@ -1458,15 +1458,19 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    p ≤ 2e-24, CI upper ≤ 0.58; even the 0.60 softening fails, C p=0.009),
    **NO EDGE × 3** (F2 vs chance — A/B win *below* random, p=0.004/<0.001)
    (§E.7). Seventh completed campaign.
-8. **B-01 (micro pullback)** — needs intraday data; the daily-bar adaptation
-   (Shape B: pullback + new-high) was already measured and **rejected**
-   2026-08-13 (§B.5-B). The intraday rule remains a `partial` candidate.
+8. **B-01 (micro pullback)** — **pre-registered (pre-reg #15, frozen 2026-08-19)**;
+   the daily-bar adaptation (Shape B: pullback + new-high) was already measured
+   and **rejected** 2026-08-13 (§B.5-B). The intraday rule awaits the §5
+   floor (~mid-September). **Also the shared entry set for pre-regs #20–#21.**
 9. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); **C-01/C-03/C-04 measured 2026-08-19
    (pre-reg #17)** — exits well-timed but not a better system; F2 timing
    EDGEs fail the §5 gate; q99 tail EDGE survives, trigger-check NOT
-   TRIGGERED (§I.14). The B-02/B-03/B-05 intraday forms remain untested.
+   TRIGGERED (§I.14). **The B-03/I-B-01 pullback-count and B-05
+   second-confirmation intraday forms are frozen in pre-reg #19; the
+   C-01/C-03/C-04 1-min exit forms are frozen in pre-reg #20** (both
+   await the §5 floor).
 10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — ✅ MEASURED
     (pre-reg #8, 2026-08-14): F1-A/B **NO EDGE**, F2-B NO EDGE (contrast
     +0.30pp, p=0.302 — the claimed direction, never significant), F1-C/F2-C
@@ -1632,6 +1636,21 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   campaign — and the final testable-daily one; the remaining candidates
   need intraday data (B-01, I-B-01, I-C-02/03/04, E-01/E-04, F-01/F-02,
   I-E-02), gated on the intraday §5 floor (~mid-September).
+- [x] Pre-register the remaining intraday claims — done 2026-08-21: **pre-regs
+  #19–#22 frozen** in [PREREGISTRATION.md](PREREGISTRATION.md) — **#19**
+  intraday entry timing (I-B-02 reversal new-high long+short, B-03/I-B-01
+  pullback-count, B-05 second-confirmation; seed 20260821), **#20** intraday
+  exits (I-C-02 breakeven-trail + sell-half, I-C-03 9MA→20MA→VWAP ladder,
+  I-C-04 flat-out, on the pre-reg #15 B-01 entry set; seed 20260821), **#21**
+  the two-filter pre-entry veto on 1-min bars (E-01/E-04 — MACD negative +
+  high-volume red candle; entry set = pre-reg #19 F1; seed 20260821), **#22**
+  intraday regime (I-B-05 morning-is-best volatility/liquidity buckets,
+  F-01/F-02 pre-market cleanliness; seed 20260821). All four share the
+  pre-reg #15 §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19, ~mid-
+  September) — one-shot rule, Holm α=0.05, COST 0.15%, gate = the #15 §6
+  archive-integrity audit. (I-D-05 gap-scanners is the one `testable-daily`
+  orphan never prioritized — it is a $25k-playlist side comment, §I-D-05;
+  deliberately not in the intraday prep batch.)
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).
