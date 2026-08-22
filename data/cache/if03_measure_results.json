@@ -1,0 +1,660 @@
+{
+  "mode": "measure",
+  "pre_reg": "#18",
+  "claim": "Stocks will trend with the overall market unless they have a reason not to",
+  "frozen_date": "2026-08-21",
+  "params": {
+    "gap": 0.02,
+    "rv": 2.0,
+    "rv_window": 20,
+    "min_oos": 100,
+    "min_cat": 30,
+    "min_noncat": 30,
+    "min_stocks": 100,
+    "min_down": 100,
+    "min_sides": 5
+  },
+  "era_label": "IS 2000-2015 / OOS 2016-2025 (by bar date)",
+  "universe_label": "current 603 (599 with bars; 4 missing logged)",
+  "frozen_sha": "779861550ad3fc2769c5e50a34b56507490294dda5e56b48dfa00d7f8e287e62",
+  "measure_code_sha256": "86e382c4b6e7ebeb61babde9721b667830cfa19591b8fa1b40cda4676372e9f3",
+  "engine_code_sha256": "2d2c6b2ec85787c0",
+  "universe_sha": "5e6f45a3c791c21a",
+  "hist_sha": "62f681d58cdb5fa8",
+  "audit": {
+    "ok": true,
+    "issues": [],
+    "current_n": 603,
+    "current_missing": 4,
+    "hist_n": 904,
+    "hist_missing": 198,
+    "census": {
+      "n_stocks": 599,
+      "oos_stock_days": 1371291,
+      "cat_gap_stock_days": 105516,
+      "cat_vol_stock_days": 74522,
+      "f1_candidates": 598,
+      "f2_gap_candidates": 590,
+      "f2_vol_candidates": 589,
+      "n_down_days_total": 1113
+    },
+    "counters": {
+      "n_index0": 599,
+      "n_bad_prior_close": 0,
+      "n_missing_mkt_oos": 0,
+      "n_vol_nan_stocks": 0
+    }
+  },
+  "families": {
+    "f1": {
+      "name": "F1",
+      "n": 598,
+      "floor": 100,
+      "floor_label": ">= 100 stocks",
+      "mean": 0.460135025878159,
+      "est": 0.4600902483723863,
+      "med": 0.4601455188965395,
+      "ci_low": 0.4520540904358816,
+      "ci_upper": 0.46812305113502867,
+      "p": 0.0,
+      "holm_gate": 0.05,
+      "holm_rejected": true,
+      "leg": "base",
+      "min_oos": 100,
+      "verdict": "EDGE (Holm-rejected; CI-low +0.4521 > 0 \u2014 stocks trend with the market, as claimed)"
+    },
+    "f2": {
+      "gap": {
+        "name": "F2-gap",
+        "n": 590,
+        "floor": 100,
+        "floor_label": ">= 100 stocks",
+        "mean": 0.09683080410459169,
+        "est": 0.0969261532287853,
+        "med": 0.09688746687147241,
+        "ci_low": 0.08643949615925227,
+        "ci_upper": 0.10800790670159052,
+        "p": 0.0,
+        "holm_gate": 0.025,
+        "holm_rejected": true,
+        "verdict": "FADE (Holm-rejected; CI-low +0.0864 > 0 \u2014 correlation HIGHER on catalyst days, claim contradicted)"
+      },
+      "vol": {
+        "name": "F2-vol",
+        "n": 589,
+        "floor": 100,
+        "floor_label": ">= 100 stocks",
+        "mean": -0.22529681524734801,
+        "est": -0.2248702786852022,
+        "med": -0.22490476375980728,
+        "ci_low": -0.2356625249574413,
+        "ci_upper": -0.21338315371255545,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; CI-upper -0.2134 < 0 \u2014 correlation lower on catalyst days, decoupling as claimed)"
+      }
+    },
+    "f3": {
+      "gap": {
+        "name": "F3-gap",
+        "n": 1086,
+        "floor": 100,
+        "floor_label": ">= 100 down-days",
+        "mean": 0.0004967440666932111,
+        "est": 0.0005046538127811368,
+        "med": 0.0005184583470343046,
+        "ci_low": -0.000893886559238563,
+        "ci_upper": 0.0018548370295185948,
+        "p": 0.488,
+        "holm_gate": 0.05,
+        "holm_rejected": false,
+        "n_qual_days": 1086,
+        "n_excluded_days": 27,
+        "verdict": "NO EDGE (p 0.4880; est +0.0005; CI -0.0009..+0.0019)"
+      },
+      "vol": {
+        "name": "F3-vol",
+        "n": 1080,
+        "floor": 100,
+        "floor_label": ">= 100 down-days",
+        "mean": 0.0020931102284628997,
+        "est": 0.0021139788424199483,
+        "med": 0.002128143274835995,
+        "ci_low": 0.0008535697899976715,
+        "ci_upper": 0.0033303393029908016,
+        "p": 0.002,
+        "holm_gate": 0.025,
+        "holm_rejected": true,
+        "n_qual_days": 1080,
+        "n_excluded_days": 33,
+        "verdict": "EDGE (Holm-rejected; CI-low +0.0009 > 0 \u2014 catalyst stocks run when the market runs, as claimed)"
+      }
+    }
+  },
+  "verdict_lines": [
+    "- **F1** (trend): n_stocks=598 | mean corr +0.4601 | CI +0.4521..+0.4681 | p 0.0000 (gate 0.0500) -> **EDGE (Holm-rejected; CI-low +0.4521 > 0 \u2014 stocks trend with the market, as claimed)**",
+    "- **F2-gap** (decoupling): n_stocks=590 | mean diff +0.0968 | CI +0.0864..+0.1080 | p 0.0000 (gate 0.0250) -> **FADE (Holm-rejected; CI-low +0.0864 > 0 \u2014 correlation HIGHER on catalyst days, claim contradicted)**",
+    "- **F2-vol** (decoupling): n_stocks=589 | mean diff -0.2253 | CI -0.2357..-0.2134 | p 0.0000 (gate 0.0500) -> **EDGE (Holm-rejected; CI-upper -0.2134 < 0 \u2014 correlation lower on catalyst days, decoupling as claimed)**",
+    "- **F3-gap** (buck-the-run): n_down=1086 (excl 27) | mean contrast +0.0005 | CI -0.0009..+0.0019 | p 0.4880 (gate 0.0500) -> **NO EDGE (p 0.4880; est +0.0005; CI -0.0009..+0.0019)**",
+    "- **F3-vol** (buck-the-run): n_down=1080 (excl 33) | mean contrast +0.0021 | CI +0.0009..+0.0033 | p 0.0020 (gate 0.0250) -> **EDGE (Holm-rejected; CI-low +0.0009 > 0 \u2014 catalyst stocks run when the market runs, as claimed)**"
+  ],
+  "census": {
+    "n_stocks": 599,
+    "oos_stock_days": 1371291,
+    "cat_gap_stock_days": 105516,
+    "cat_vol_stock_days": 74522,
+    "f1_candidates": 598,
+    "f2_gap_candidates": 590,
+    "f2_vol_candidates": 589,
+    "n_down_days_total": 1113
+  },
+  "sensitivities": {
+    "gap=0.01": {
+      "f2": {
+        "name": "S1",
+        "n": 598,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.11491356482470855,
+        "est": 0.11470701959208486,
+        "med": 0.1147304195506178,
+        "ci_low": 0.10649371959333863,
+        "ci_upper": 0.1224754381105837,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S1",
+        "n": 1111,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.002409231007916216,
+        "est": -0.002397519985901372,
+        "med": -0.002402390019628591,
+        "ci_low": -0.0031103985792592273,
+        "ci_upper": -0.001636162440790272,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "gap=0.03": {
+      "f2": {
+        "name": "S1",
+        "n": 550,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.08562684903238982,
+        "est": 0.08553318493873163,
+        "med": 0.08552532373897714,
+        "ci_low": 0.07266756347253714,
+        "ci_upper": 0.09823903036650264,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S1",
+        "n": 891,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0012188960164163307,
+        "est": 0.0012296363643448784,
+        "med": 0.0012106613868420326,
+        "ci_low": -0.0013337853779225343,
+        "ci_upper": 0.0037184570903794224,
+        "p": 0.356,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "gap=0.05": {
+      "f2": {
+        "name": "S1",
+        "n": 264,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.030498396184622308,
+        "est": 0.03005640589834932,
+        "med": 0.030229283504561513,
+        "ci_low": 0.010092290983981128,
+        "ci_upper": 0.04898002605309821,
+        "p": 0.002,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S1",
+        "n": 395,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0016387788950986215,
+        "est": 0.0015721889758998579,
+        "med": 0.0015409983233972946,
+        "ci_low": -0.00296529715573415,
+        "ci_upper": 0.00610545095093828,
+        "p": 0.504,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "vol=1.5": {
+      "f2": {
+        "name": "S2",
+        "n": 596,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.14831898906555407,
+        "est": -0.14825464788555545,
+        "med": -0.1482576127861167,
+        "ci_low": -0.1575261305786484,
+        "ci_upper": -0.13865983650624214,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S2",
+        "n": 1108,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0017278456918215035,
+        "est": 0.0017246035608803366,
+        "med": 0.0017327104516663395,
+        "ci_low": 0.0010914818622649526,
+        "ci_upper": 0.002307272985332162,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "vol=3.0": {
+      "f2": {
+        "name": "S2",
+        "n": 483,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.3043107369810455,
+        "est": -0.3050937941187874,
+        "med": -0.3054005237601204,
+        "ci_low": -0.3211926923109949,
+        "ci_upper": -0.28908015161203965,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S2",
+        "n": 701,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0012159556937558166,
+        "est": 0.0012308909646627935,
+        "med": 0.0012230338774280494,
+        "ci_low": -0.002134390981639337,
+        "ci_upper": 0.004592731152883654,
+        "p": 0.452,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "combined": {
+      "f2": {
+        "name": "S3",
+        "n": 595,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.04213765142259262,
+        "est": 0.04222539816020762,
+        "med": 0.042196619600021475,
+        "ci_low": 0.03252397741355889,
+        "ci_upper": 0.051836756896613725,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3": {
+        "name": "S3",
+        "n": 1108,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.00014289990920275038,
+        "est": -0.00013985531242612537,
+        "med": -0.00014278218155002842,
+        "ci_low": -0.0010265192061088264,
+        "ci_upper": 0.0007139699574196442,
+        "p": 0.778,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "idio": {
+      "name": "S4",
+      "n": 595,
+      "floor": 0,
+      "floor_label": "sensitivity",
+      "mean": 0.01845660683803906,
+      "est": 0.018461006996931026,
+      "med": 0.01846345311278813,
+      "ci_low": 0.017858427976006338,
+      "ci_upper": 0.019076273395314435,
+      "p": 0.0,
+      "holm_gate": 0.05,
+      "holm_rejected": false
+    },
+    "is": {
+      "f1": {
+        "name": "S5",
+        "n": 463,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.4220361408682864,
+        "est": 0.42199817851887356,
+        "med": 0.4223130884469485,
+        "ci_low": 0.40925810895443393,
+        "ci_upper": 0.4345373897692147,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f2_gap": {
+        "name": "S5",
+        "n": 399,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.009655400471015175,
+        "est": 0.009586433407329615,
+        "med": 0.009753694957058856,
+        "ci_low": -0.002982617696596112,
+        "ci_upper": 0.021191640417671125,
+        "p": 0.142,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f2_vol": {
+        "name": "S5",
+        "n": 426,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.20820359353138188,
+        "est": -0.20833278304379332,
+        "med": -0.20840628319866256,
+        "ci_low": -0.2201186429768134,
+        "ci_upper": -0.19523411537152377,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3_gap": {
+        "name": "S5",
+        "n": 1809,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0025147446462440094,
+        "est": 0.0025305704283010272,
+        "med": 0.0024967838042385957,
+        "ci_low": 0.001092078033869407,
+        "ci_upper": 0.004087904044990912,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3_vol": {
+        "name": "S5",
+        "n": 1809,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0054804763556957105,
+        "est": 0.005469053218367639,
+        "med": 0.0054417514512762645,
+        "ci_low": 0.004495852425611283,
+        "ci_upper": 0.006486220379269898,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      }
+    },
+    "year": {
+      "2016": {
+        "n_cat_days": 6168,
+        "n_non_days": 113023,
+        "pooled_ret_contrast": -0.0015272229402730428,
+        "f3_down_mean": -0.0013031741603715251,
+        "f3_down_n": 112
+      },
+      "2017": {
+        "n_cat_days": 3683,
+        "n_non_days": 119699,
+        "pooled_ret_contrast": 0.004448400438409778,
+        "f3_down_mean": 0.00637218184532452,
+        "f3_down_n": 104
+      },
+      "2018": {
+        "n_cat_days": 4793,
+        "n_non_days": 124060,
+        "pooled_ret_contrast": 0.006423686835584506,
+        "f3_down_mean": 0.0034739074825049774,
+        "f3_down_n": 114
+      },
+      "2019": {
+        "n_cat_days": 4947,
+        "n_non_days": 127964,
+        "pooled_ret_contrast": 0.001101638451583839,
+        "f3_down_mean": 0.0013933831851821704,
+        "f3_down_n": 97
+      },
+      "2020": {
+        "n_cat_days": 29631,
+        "n_non_days": 106675,
+        "pooled_ret_contrast": 0.0037094814911924666,
+        "f3_down_mean": 0.001073010502370668,
+        "f3_down_n": 107
+      },
+      "2021": {
+        "n_cat_days": 9943,
+        "n_non_days": 131898,
+        "pooled_ret_contrast": 0.0036915866083738597,
+        "f3_down_mean": 0.0051578875634205965,
+        "f3_down_n": 104
+      },
+      "2022": {
+        "n_cat_days": 15092,
+        "n_non_days": 129568,
+        "pooled_ret_contrast": 0.001429161024944885,
+        "f3_down_mean": -0.005910907416668139,
+        "f3_down_n": 138
+      },
+      "2023": {
+        "n_cat_days": 8453,
+        "n_non_days": 137353,
+        "pooled_ret_contrast": 0.007455611006513055,
+        "f3_down_mean": -0.003968106580835214,
+        "f3_down_n": 109
+      },
+      "2024": {
+        "n_cat_days": 10054,
+        "n_non_days": 138947,
+        "pooled_ret_contrast": 0.004592002961885992,
+        "f3_down_mean": 0.00027285602914841744,
+        "f3_down_n": 101
+      },
+      "2025": {
+        "n_cat_days": 12752,
+        "n_non_days": 136588,
+        "pooled_ret_contrast": -0.0036812250131891874,
+        "f3_down_mean": 0.0006096698002629814,
+        "f3_down_n": 100
+      }
+    },
+    "ew": {
+      "f1": {
+        "name": "S7",
+        "n": 598,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.5448033342781731,
+        "est": 0.5447084480612235,
+        "med": 0.5444389527531647,
+        "ci_low": 0.5343948416344471,
+        "ci_upper": 0.5549333996244759,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f2_gap": {
+        "name": "S7",
+        "n": 590,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.043715446120344725,
+        "est": 0.04393795979899156,
+        "med": 0.04406116328526842,
+        "ci_low": 0.033978804616547356,
+        "ci_upper": 0.05356374160470647,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f2_vol": {
+        "name": "S7",
+        "n": 589,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.23917318160306605,
+        "est": -0.239222653279805,
+        "med": -0.23920290710202716,
+        "ci_low": -0.2521286662166771,
+        "ci_upper": -0.22652850999150073,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3_gap": {
+        "name": "S7",
+        "n": 1164,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": -0.000854438186268169,
+        "est": -0.0008290200700177043,
+        "med": -0.0008489282312969507,
+        "ci_low": -0.0021138892868616276,
+        "ci_upper": 0.0004805331027029545,
+        "p": 0.218,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "f3_vol": {
+        "name": "S7",
+        "n": 1161,
+        "floor": 0,
+        "floor_label": "sensitivity",
+        "mean": 0.0004523394461726083,
+        "est": 0.0004521271930969676,
+        "med": 0.00044058985881199083,
+        "ci_low": -0.0006706616154654303,
+        "ci_upper": 0.0016495941890599965,
+        "p": 0.416,
+        "holm_gate": 0.05,
+        "holm_rejected": false
+      },
+      "ew_days": 6538
+    },
+    "updown": {
+      "gap": {
+        "down": {
+          "name": "S8",
+          "n": 1086,
+          "floor": 0,
+          "floor_label": "sensitivity",
+          "mean": 0.0004967440666932111,
+          "est": 0.0005327630697216717,
+          "med": 0.000522186815162314,
+          "ci_low": -0.0009154074377075586,
+          "ci_upper": 0.002047433546740789,
+          "p": 0.464,
+          "holm_gate": 0.05,
+          "holm_rejected": false
+        },
+        "up": {
+          "name": "S8",
+          "n": 1361,
+          "floor": 0,
+          "floor_label": "sensitivity",
+          "mean": 0.01002876576588727,
+          "est": 0.009990488992657387,
+          "med": 0.009983100287426222,
+          "ci_low": 0.008422479621835892,
+          "ci_upper": 0.011573392532989476,
+          "p": 0.0,
+          "holm_gate": 0.05,
+          "holm_rejected": false
+        },
+        "down_minus_up": [
+          -0.00951849831667044,
+          -0.009521561606944496,
+          -0.011735440349346987,
+          -0.007493130354610047,
+          0.0
+        ]
+      },
+      "vol": {
+        "down": {
+          "name": "S8",
+          "n": 1080,
+          "floor": 0,
+          "floor_label": "sensitivity",
+          "mean": 0.0020931102284628997,
+          "est": 0.0021035014857172965,
+          "med": 0.002074644313404132,
+          "ci_low": 0.0008882637568033987,
+          "ci_upper": 0.0033796597552581465,
+          "p": 0.0,
+          "holm_gate": 0.05,
+          "holm_rejected": false
+        },
+        "up": {
+          "name": "S8",
+          "n": 1356,
+          "floor": 0,
+          "floor_label": "sensitivity",
+          "mean": 0.006330051541614651,
+          "est": 0.006326492770426631,
+          "med": 0.006296281243082862,
+          "ci_low": 0.004984888258618699,
+          "ci_upper": 0.007867855460170643,
+          "p": 0.0,
+          "holm_gate": 0.05,
+          "holm_rejected": false
+        },
+        "down_minus_up": [
+          -0.004201165875054965,
+          -0.004185095953229278,
+          -0.006150082986392026,
+          -0.0023215673523973115,
+          0.0
+        ]
+      }
+    },
+    "fisherz": {
+      "f1": {
+        "n": 598,
+        "mean_z": 0.5049107705731557,
+        "corr_from_z": 0.4659704462031393,
+        "p": null
+      },
+      "f2_gap": {
+        "n": 590,
+        "mean_z": 0.14545458674677367,
+        "corr_diff_from_z": 0.1444373981438885
+      },
+      "f2_vol": {
+        "n": 589,
+        "mean_z": -0.27047388830213237,
+        "corr_diff_from_z": -0.2640657343456434
+      }
+    }
+  },
+  "report_sha": "c391458cdc96073e04ad7e6b8576b415894e14eabb8608862dbc003120b107a8"
+}

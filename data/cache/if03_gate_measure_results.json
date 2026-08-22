@@ -1,0 +1,154 @@
+{
+  "mode": "gate",
+  "pre_reg": "#18",
+  "claim": "Stocks will trend with the overall market unless they have a reason not to",
+  "frozen_date": "2026-08-21",
+  "params": {
+    "gap": 0.02,
+    "rv": 2.0,
+    "rv_window": 20,
+    "min_oos": 100,
+    "min_cat": 30,
+    "min_noncat": 30,
+    "min_stocks": 100,
+    "min_down": 100,
+    "min_sides": 5
+  },
+  "era_label": "IS 2000-2015 / OOS 2016-2025 (by bar date)",
+  "universe_label": "hist union 904 (706 with bars) \u2014 \u00a75 gate",
+  "frozen_sha": "779861550ad3fc2769c5e50a34b56507490294dda5e56b48dfa00d7f8e287e62",
+  "measure_code_sha256": "86e382c4b6e7ebeb61babde9721b667830cfa19591b8fa1b40cda4676372e9f3",
+  "engine_code_sha256": "2d2c6b2ec85787c0",
+  "universe_sha": "5e6f45a3c791c21a",
+  "hist_sha": "62f681d58cdb5fa8",
+  "audit": {
+    "ok": true,
+    "issues": [],
+    "current_n": 603,
+    "current_missing": 4,
+    "hist_n": 904,
+    "hist_missing": 198,
+    "census": {
+      "n_stocks": 599,
+      "oos_stock_days": 1371291,
+      "cat_gap_stock_days": 105516,
+      "cat_vol_stock_days": 74522,
+      "f1_candidates": 598,
+      "f2_gap_candidates": 590,
+      "f2_vol_candidates": 589,
+      "n_down_days_total": 1113
+    },
+    "counters": {
+      "n_index0": 599,
+      "n_bad_prior_close": 0,
+      "n_missing_mkt_oos": 0,
+      "n_vol_nan_stocks": 0
+    }
+  },
+  "families": {
+    "f1": {
+      "name": "F1",
+      "n": 703,
+      "floor": 100,
+      "floor_label": ">= 100 stocks",
+      "mean": 0.4454999549741428,
+      "est": 0.4453764476994797,
+      "med": 0.44528595384864206,
+      "ci_low": 0.43703168686146365,
+      "ci_upper": 0.45371376924696794,
+      "p": 0.0,
+      "holm_gate": 0.05,
+      "holm_rejected": true,
+      "leg": "base",
+      "min_oos": 100,
+      "verdict": "EDGE (Holm-rejected; CI-low +0.4370 > 0 \u2014 stocks trend with the market, as claimed)"
+    },
+    "f2": {
+      "gap": {
+        "name": "F2-gap",
+        "n": 698,
+        "floor": 100,
+        "floor_label": ">= 100 stocks",
+        "mean": 0.08580532075035249,
+        "est": 0.08560957670711228,
+        "med": 0.08563630624645434,
+        "ci_low": 0.07573835233005605,
+        "ci_upper": 0.09488862615083866,
+        "p": 0.0,
+        "holm_gate": 0.025,
+        "holm_rejected": true,
+        "verdict": "FADE (Holm-rejected; CI-low +0.0757 > 0 \u2014 correlation HIGHER on catalyst days, claim contradicted)"
+      },
+      "vol": {
+        "name": "F2-vol",
+        "n": 691,
+        "floor": 100,
+        "floor_label": ">= 100 stocks",
+        "mean": -0.23098292136157017,
+        "est": -0.23091650469289393,
+        "med": -0.2308957465516654,
+        "ci_low": -0.2415604767015207,
+        "ci_upper": -0.22068784382497533,
+        "p": 0.0,
+        "holm_gate": 0.05,
+        "holm_rejected": true,
+        "verdict": "EDGE (Holm-rejected; CI-upper -0.2207 < 0 \u2014 correlation lower on catalyst days, decoupling as claimed)"
+      }
+    },
+    "f3": {
+      "gap": {
+        "name": "F3-gap",
+        "n": 1107,
+        "floor": 100,
+        "floor_label": ">= 100 down-days",
+        "mean": 0.00012495293921588454,
+        "est": 0.0001146241592080052,
+        "med": 9.750262149846752e-05,
+        "ci_low": -0.0011887958116780883,
+        "ci_upper": 0.001557391495267213,
+        "p": 0.894,
+        "holm_gate": 0.05,
+        "holm_rejected": false,
+        "n_qual_days": 1107,
+        "n_excluded_days": 6,
+        "verdict": "NO EDGE (p 0.8940; est +0.0001; CI -0.0012..+0.0016)"
+      },
+      "vol": {
+        "name": "F3-vol",
+        "n": 1097,
+        "floor": 100,
+        "floor_label": ">= 100 down-days",
+        "mean": 0.0041617454648305375,
+        "est": 0.004156723285108457,
+        "med": 0.004134225612050516,
+        "ci_low": 0.002898101517654231,
+        "ci_upper": 0.0056315327199814,
+        "p": 0.0,
+        "holm_gate": 0.025,
+        "holm_rejected": true,
+        "n_qual_days": 1097,
+        "n_excluded_days": 16,
+        "verdict": "EDGE (Holm-rejected; CI-low +0.0029 > 0 \u2014 catalyst stocks run when the market runs, as claimed)"
+      }
+    }
+  },
+  "verdict_lines": [
+    "- **F1** (trend): n_stocks=703 | mean corr +0.4455 | CI +0.4370..+0.4537 | p 0.0000 (gate 0.0500) -> **EDGE (Holm-rejected; CI-low +0.4370 > 0 \u2014 stocks trend with the market, as claimed)**",
+    "- **F2-gap** (decoupling): n_stocks=698 | mean diff +0.0858 | CI +0.0757..+0.0949 | p 0.0000 (gate 0.0250) -> **FADE (Holm-rejected; CI-low +0.0757 > 0 \u2014 correlation HIGHER on catalyst days, claim contradicted)**",
+    "- **F2-vol** (decoupling): n_stocks=691 | mean diff -0.2310 | CI -0.2416..-0.2207 | p 0.0000 (gate 0.0500) -> **EDGE (Holm-rejected; CI-upper -0.2207 < 0 \u2014 correlation lower on catalyst days, decoupling as claimed)**",
+    "- **F3-gap** (buck-the-run): n_down=1107 (excl 6) | mean contrast +0.0001 | CI -0.0012..+0.0016 | p 0.8940 (gate 0.0500) -> **NO EDGE (p 0.8940; est +0.0001; CI -0.0012..+0.0016)**",
+    "- **F3-vol** (buck-the-run): n_down=1097 (excl 16) | mean contrast +0.0042 | CI +0.0029..+0.0056 | p 0.0000 (gate 0.0250) -> **EDGE (Holm-rejected; CI-low +0.0029 > 0 \u2014 catalyst stocks run when the market runs, as claimed)**"
+  ],
+  "census": {
+    "n_stocks": 706,
+    "oos_stock_days": 1646824,
+    "cat_gap_stock_days": 133709,
+    "cat_vol_stock_days": 90944,
+    "f1_candidates": 703,
+    "f2_gap_candidates": 698,
+    "f2_vol_candidates": 691,
+    "n_down_days_total": 1113
+  },
+  "sensitivities": {},
+  "report_sha": "8f21b9e9435db4bbddebb2453d74d92c33a7748c382b8509ec0334cb27a06f52"
+}
