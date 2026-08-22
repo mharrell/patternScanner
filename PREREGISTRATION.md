@@ -4216,3 +4216,42 @@ new pre-registration).
 
 *(Awaiting the §5 floor — measurement window opens at the first meeting
 of the §5 floors.)*
+
+*Implementation freeze (2026-08-21, before any measurement):
+`tools/measure_intraday_regime.py` FROZEN_SHA
+`b1fe067d8bac111c4532cfc838bb6d210f13a906defc0db8a083bd228a1095c0` —
+sha256 of the file with its own FROZEN_SHA hex blanked to 64 zeros
+(fixed-point; asserted at every run) — raw `measure_code_sha256`
+`9120b2b9c032f2a7f576cd00602322aeb7b37343653d97a66d59d68c4557d1cd`. The
+frozen entry-set input `tools/measure_intraday_entry.py` is asserted AT
+IMPORT at its LF-normalized sha256 `d58a889c6c0a6349…`
+(checkout-independent); the frozen B-01 detector
+`tools/measure_intraday.py` (pre-#15 continuity rows reference) at
+`c58282caf75c344f…`. Committed 2026-08-21; §5 floors not yet met (3
+window bar-dates ≥ 2026-08-19).*
+
+*Implementation reading (registered with the tool, before measurement):
+F1 uses two Holm slots — **B1** (07:00–10:00, ledger F-01 peak
+volatility/liquidity) and **B2** (09:30–12:00, I-B-05 money window) —
+each a two-sample bootstrap (B=1000, seed 20260821, Holm α=0.05) of
+the bucket's mean |r| per 1-minute bar (volatility) and its volume
+share of the window total (liquidity), each contrast measured against
+the MAXIMUM of the other canonical buckets' point means (the runner-up
+bucket, held fixed). Verdict applies to the jointly-measured pair:
+EDGE iff the bucket leads on BOTH with CI-low > 0; FADE iff it trails
+on BOTH with CI-upper < 0; NO EDGE otherwise; INCONCLUSIVE if fewer
+than 100 bar-dates with ≥ 10 names cover the bucket, or the bucket /
+runner pools are below 100 bars. F2 (1 Holm slot) = mean N=60-bar
+forward return ((C[e+60] − O[e+1])/O[e+1] − COST 0.0015) of the frozen
+pre-reg #19 F1 reversal-long entries whose entry bar lies in B2
+(09:30–12:00) minus those outside; EDGE iff CI-low > 0; the
+hour-matched same-ticker and random-universe baseline excesses of the
+B2 leg are reported as secondary rows. F3 (1 slot, pre-market
+cleanliness) = pre-market (04:00–09:30) per-bar mean |r| minus RTH
+(09:30–16:00), primary, plus the tail-frequency contrast (|r| > 3× the
+file's window median |r|), secondary; EDGE iff BOTH negative with
+CI-upper < 0 (pre-market cleaner on both). Measurement rows (no
+verdicts): the pre-#15 continuity profiles (time_of_day 10-bucket,
+pre_vs_rth), the 09:30–10:30 single-hour row, the 09:30–09:35
+first-5-minutes row, per-hour F2 returns, and per-bar-date /
+per-ticker leader rows. No sensitivities are pre-declared.*
