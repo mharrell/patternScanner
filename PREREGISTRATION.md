@@ -3958,6 +3958,31 @@ new pre-registration).
 *(Awaiting the §5 floor — measurement window opens at the first meeting
 of the §5 floors.)*
 
+*Implementation freeze (2026-08-21, before any measurement):
+`tools/measure_intraday_exit.py` FROZEN_SHA
+`544a1c0b911721664136e9a7e3cb5a3b7d776a530a51c789caa2c1d4e180ee5c` —
+sha256 of the file with its own FROZEN_SHA hex blanked to 64 zeros
+(fixed-point; asserted at every run) — raw `measure_code_sha256`
+`70234db02eb60d4009f080ba5e9570fe079c00059e01947ef2fe9e1d376d0fd1`. The
+frozen B-01 input `tools/measure_intraday.py` is asserted AT IMPORT at
+its LF-normalized sha256 `c58282caf75c344f…` (≡ pre-registration #15 §9
+measure_code_sha256; checkout-independent). Committed 2026-08-21; §5
+floors not yet met (3 window bar-dates ≥ 2026-08-19).*
+
+*Implementation reading (registered with the tool, before measurement):
+F1's three Holm slots are **breakeven-trail**, **ladder**, and
+**flat-out**; the slot-level Holm test uses the rule-minus-fixed-N=60
+contrast (primary) on the same entry set (paired bootstrap), with the
+rule-minus-fixed-2R contrast reported as the slot's secondary statistic.
+The fixed-2R benchmark exits at entry + 2d or entry − d stop, whichever
+first, terminal at the session close. The flat-out rule (flat =
+|C − entry| ≤ 0.001×entry over all of the M=10 bars after entry) exits
+at the close of the M-th flat bar and otherwise holds to the fixed-N
+close (a rule return for every entry; the premise is tested separately
+in F2). F2's single Holm slot is the mean N-forward return of
+flat-after-entry events minus hour-matched non-flat events on the same
+entry set; EDGE iff CI-upper < 0.*
+
 ---
 
 # Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
