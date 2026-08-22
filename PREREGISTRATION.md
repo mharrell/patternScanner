@@ -4083,6 +4083,36 @@ new pre-registration).
 *(Awaiting the §5 floor — measurement window opens at the first meeting
 of the §5 floors.)*
 
+*Implementation freeze (2026-08-21, before any measurement):
+`tools/measure_intraday_veto.py` FROZEN_SHA
+`60569201e50982a2a2a837464aaaae81ac2111e0f2dba78c4c0835e36f304997` —
+sha256 of the file with its own FROZEN_SHA hex blanked to 64 zeros
+(fixed-point; asserted at every run) — raw `measure_code_sha256`
+`828e467c35698a67aaaa5645c6aeb9240bee54e4c09907c40990e62b10c4bd8e`. The
+frozen entry-set input `tools/measure_intraday_entry.py` is asserted AT
+IMPORT at its LF-normalized sha256 `d58a889c6c0a6349…`
+(checkout-independent); the frozen B-01 detector
+`tools/measure_intraday.py` (S-B01 cross-check) at `c58282caf75c344f…`.
+Committed 2026-08-21; §5 floors not yet met (3 window bar-dates ≥
+2026-08-19).*
+
+*Implementation reading (registered with the tool, before measurement):
+F1 uses four Holm slots — **pass−fail**, **pass−raw**, **macd leg**, and
+**volume leg** — each a two-sample bootstrap (B=1000, seed 20260821, Holm
+α=0.05) of mean N=60-bar forward returns (C[e+60] − O[e+1])/O[e+1] −
+COST 0.0015, count floor 100 per slot. Veto-pass = neither leg fires on
+a candidate whose MACD warm-up (≥ 26 closes from the day's first bar) is
+met; veto-fail = either leg fires; candidates with an unmet warm-up are
+counted separately (excluded from the classification). The MACD leg
+fires when MACD (EMA12 − EMA26) < 0 at the entry bar; the volume leg
+fires when the entry bar's volume ≥ 3× the day's median RTH bar volume
+AND the bar is red (Close < Open). F2 (rows, no verdicts) decomposes the
+kill rates — MACD leg alone, volume leg alone, both — with each killed
+set's mean forward return vs the kept set and the kept set's
+hour-matched same-ticker / random-universe baseline excess. The
+pre-declared sensitivities (S-V2/S-V5, S-C05/S-C30, S-N15/S-N120/S-N240,
+S-B01) recompute F1 only (no verdicts).*
+
 ---
 
 # Pre-registration #22 — intraday regime: the morning-is-best window and pre-market cleanliness (ledger rows I-B-05, F-01, F-02; intraday track)
