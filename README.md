@@ -3,8 +3,8 @@
 Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
-**Status:** Phase 4 — verdicts written back to the ledger 2026-08-19.
-Sixteen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Status:** Phase 4 — verdicts written back to the ledger 2026-08-21.
+Seventeen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim
@@ -174,8 +174,23 @@ reproduce under the verification's fresh-seed baseline redraw (p
 asymmetry holds only at the extreme tail. Phase-5 trigger-check held:
 **NOT TRIGGERED** — the surviving EDGE is a tail-quantile contrast of a
 construction that nets negative as a system; the tail cannot be selected
-ex ante.
-Phase 5 remains **not triggered** after sixteen campaigns.
+ex ante. **I-F-03 market-trend** (pre-reg #18, I-F-03 — "stocks will trend
+with the overall market unless they have a reason not to", measured
+2026-08-21): **half-true.** F1 baseline **EDGE** — per-stock daily
+correlation with SPY +0.4601 (CI +0.4521..+0.4681, p=0.000), uniformly
+positive across 598 of 599 stocks, and the §5 gate passes (union n=703,
++0.4455). The "reason not to" half splits by catalyst proxy: volume-spike
+days decouple as claimed (F2-vol −0.2253, p=0.000; gate passes), but gap
+days show the OPPOSITE — F2-gap **FADE** (+0.0968, correlation HIGHER on
+gap days), and F3-gap NO EDGE (p=0.488). F3-vol's down-day edge (+0.0021)
+does **not** mean "running when the markets tanking": the pre-declared S8
+control shows the up-day contrast (+0.0063) *exceeds* the down-day one
+(down−up −0.0042, p=0.000) — the effect is the general up-bias of
+catalyst stocks, not a market-specific run. Phase-5 trigger-check held:
+**NOT TRIGGERED** — a structural co-movement campaign with no forward
+returns; Phase 5 cannot fire by construction. **The daily track is now
+exhausted** — the remaining untested ledger claims all need intraday data.
+Phase 5 remains **not triggered** after seventeen campaigns.
 
 **Intraday track (live since 2026-08-19):** a forward-accumulated 1-minute
 archive of the live S&P 600 is capturing the data the remaining untested
@@ -186,7 +201,7 @@ before any measurement; nightly pull (22:05) + push (23:00) run under Task
 Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
-[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14](CLAIMS_LEDGER.md);
+[CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14 / §I.15](CLAIMS_LEDGER.md);
 reports:
 `data/cache/measure_report.md`, `data/cache/pillar_measure_report.md`,
 `data/cache/veto_measure_report.md`, `data/cache/momentum_measure_report.md`,
@@ -202,14 +217,19 @@ reports:
 `data/cache/pricetier_measure_report.md`,
 `data/cache/pricetier_gate_measure_report.md`,
 `data/cache/cexit_measure_report.md`,
-`data/cache/cexit_gate_measure_report.md`.
+`data/cache/cexit_gate_measure_report.md`,
+`data/cache/if03_measure_report.md`,
+`data/cache/if03_gate_measure_report.md`.
 Next candidates: the price-tier family (pre-reg #16, I-X-06/I-D-01) is
 **measured: F1 EDGE × 4 with the §5 gate PASSING** (§I.13,
 `data/cache/pricetier_measure_report.md` +
 `pricetier_gate_measure_report.md`); the C-exit comparison (pre-reg #17,
 C-01/C-03/C-04) is **measured** (§I.14, `data/cache/cexit_measure_report.md`
-+ `cexit_gate_measure_report.md`). The remaining untested ledger items
-need intraday data — the **intraday track** now accumulates nightly
++ `cexit_gate_measure_report.md`); the I-F-03 market-trend claim (pre-reg
+#18) is **measured** (§I.15, `data/cache/if03_measure_report.md` +
+`if03_gate_measure_report.md`) — the **final testable-daily campaign**;
+every remaining untested ledger item needs intraday data — the **intraday
+track** now accumulates nightly
 (pre-reg #15, frozen 2026-08-19 with a §5 floor of ≥ 20 full-universe
 bar-dates ≥ 2026-08-19 before any measurement; see
 [data/intraday/README.md](data/intraday/README.md) and
@@ -286,7 +306,13 @@ bar-dates ≥ 2026-08-19 before any measurement; see
   the same entries), frozen 2026-08-19, **measured 2026-08-19: F1 NO EDGE
   / FADE-A; F2 S1/S2 timing EDGEs primary-only (fail the §5 gate, fragile
   under fresh seeds); F3 q99 EDGE survives the gate; NOT TRIGGERED
-  (§I.14)**.
+  (§I.14)**. Pre-registration #18: the I-F-03 market-trend family ("stocks
+  will trend with the overall market unless they have a reason not to"),
+  frozen 2026-08-21, **measured 2026-08-21: F1 EDGE (gate passes); F2-gap
+  FADE, F2-vol EDGE (gate passes); F3-gap NO EDGE, F3-vol EDGE (does not
+  mean "running when the markets tanking" — the S8 up-day control shows the
+  effect is a general up-bias); NOT TRIGGERED (§I.15)** — the final
+  testable-daily campaign.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:
