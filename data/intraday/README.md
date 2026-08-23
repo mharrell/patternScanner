@@ -64,6 +64,13 @@ measurement tools (implementation freeze, fixed-point FROZEN_SHA; see
 PREREGISTRATION.md §8), and each measurement is gated on the ≥ 20
 full-universe bar-dates ≥ 2026-08-19 floor.
 
+**Pre-reg #23 (the paper loop, frozen 2026-08-23)** consumes the archive
+nightly (22:30 MT, after the pull): it runs the five frozen definitions on
+each bar-date as it lands and writes the paper log to `data/paper/`
+(fills/slippage vs. the recorded bar, gate decisions, daily journal) — the
+L-007 backtest-live gap feed for the §5-gated comparison. Contract:
+[data/paper/README.md](../../data/paper/README.md).
+
 ## Layout
 
 | Path | Contents | Git |
@@ -109,12 +116,14 @@ at next wake):
 | Task | When | What |
 |---|---|---|
 | `\patternScanner-intraday-pull` | daily 22:05 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\fetch_intraday_bars.py --qa` (Start in: repo root) |
-| `\patternScanner-intraday-push` | daily 23:00 MT | `tools\push_intraday_archive.cmd` — commits `data/intraday` only, fast-forwards main first, pushes, logs to `%TEMP%\intraday_push.log` |
+| `\patternScanner-intraday-paper` | daily 22:30 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\paper_loop.py --latest` — runs the five frozen definitions on the latest bar-date, writes `data/paper/` (pre-reg #23) |
+| `\patternScanner-intraday-push` | daily 23:00 MT | `tools\push_intraday_archive.cmd` — commits `data/intraday` + `data/paper`, fast-forwards main first, pushes, logs to `%TEMP%\intraday_push.log` |
 
 The pull runs after the 04:00–20:00 ET session close (session ends 20:00 ET
-= 18:00 MT) and outside DeepSeek peak pricing. The push script skips itself
+= 18:00 MT) and outside DeepSeek peak pricing. The paper task skips itself
+if a pull is still running (`.lock` present). The push script skips itself
 if a pull is still running (`.lock` present) and never touches files
-outside `data/intraday`.
+outside `data/intraday` + `data/paper`.
 
 ## Operations
 

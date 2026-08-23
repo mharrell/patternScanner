@@ -202,9 +202,13 @@ second-confirmation), #20 (intraday exits: breakeven-trail + sell-half, the
 #22 (intraday regime: morning window, pre-market cleanliness) are frozen,
 each with the shared §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
 before any measurement; the measurement tools are frozen too (implementation
-freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). Nightly pull
-(22:05) + push (23:00) run under Task Scheduler. See
-[data/intraday/README.md](data/intraday/README.md) and
+freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). **Pre-reg #23
+(the paper loop, frozen 2026-08-23)** runs the five frozen definitions on
+each live tape day as it lands and logs fills/slippage vs. the recorded bar,
+the gate decisions, and a daily journal — the L-007 backtest-live gap feed for
+the §5-gated comparison (see [data/paper/README.md](data/paper/README.md)).
+Nightly pull (22:05) + paper loop (22:30) + push (23:00) run under Task
+Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
 [CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14 / §I.15](CLAIMS_LEDGER.md);
@@ -227,9 +231,9 @@ reports:
 `data/cache/if03_measure_report.md`,
 `data/cache/if03_gate_measure_report.md`.
 Next candidates: the remaining untested ledger items all need intraday data
-— the **intraday track** now accumulates nightly. Pre-regs **#15, #19–#22
-are frozen** (2026-08-19 / 2026-08-21) with the shared §5 floor (≥ 20
-full-universe bar-dates ≥ 2026-08-19, ~mid-September) before any
+— the **intraday track** now accumulates nightly. Pre-regs **#15, #19–#23
+are frozen** (2026-08-19 / 2026-08-21 / 2026-08-23) with the shared §5 floor
+(≥ 20 full-universe bar-dates ≥ 2026-08-19, ~mid-September) before any
 measurement; each awaits the floor (see
 [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md)).
@@ -322,6 +326,11 @@ measurement; each awaits the floor (see
   awaits the shared §5 floor. Pre-registration #22: the intraday regime
   (I-B-05 morning-is-best volatility/liquidity buckets, F-01/F-02
   pre-market cleanliness), frozen 2026-08-21, awaits the shared §5 floor.
+  Pre-registration #23: the paper loop as a live-execution study (runs the
+  five frozen intraday definitions on each live tape day as it lands; logs
+  fills/slippage vs. the recorded bar, gate decisions, and a daily journal —
+  the L-007 backtest-live gap feed for the §5-gated comparison), frozen
+  2026-08-23, awaits the shared §5 floor.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:

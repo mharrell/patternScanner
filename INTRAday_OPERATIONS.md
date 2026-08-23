@@ -31,20 +31,26 @@ changes after results are a new hypothesis.
 
 ## Function — what runs nightly
 
-Two Windows Task Scheduler tasks (both `StartWhenAvailable`: if the machine
+Three Windows Task Scheduler tasks (all `StartWhenAvailable`: if the machine
 is off at the trigger time, they run at next wake). XML templates are
 versioned in `tools/tasks/` — see "Recreating the scheduled tasks" below.
 
 | Task | Trigger | Runs | Log / evidence |
 |---|---|---|---|
 | `\patternScanner-intraday-pull` | daily 22:05 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\fetch_intraday_bars.py --qa` (Start in: repo root) | pull record in `data/intraday/manifest.json`; QA pass → `data/intraday/qa_report.md` |
+| `\patternScanner-intraday-paper` | daily 22:30 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\paper_loop.py --latest` (Start in: repo root) | `data/paper/<YYYY-MM-DD>.json` + `data/paper/journal/<YYYY-MM-DD>.md` |
 | `\patternScanner-intraday-push` | daily 23:00 MT | `<repo>\tools\push_intraday_archive.cmd` | `%TEMP%\intraday_push.log` (append-only) |
 
 - 22:05 MT is after the 04:00–20:00 ET session closes (20:00 ET = 18:00 MT)
   and outside DeepSeek peak pricing.
+- The paper task skips itself if a pull is still running (`data\intraday\.lock`
+  present) — the paper loop runs the five frozen definitions on the latest
+  bar-date and logs fills/slippage, gate decisions, and the daily journal
+  (pre-reg #23; see [data/paper/README.md](data/paper/README.md)).
 - The push task skips itself if a pull is still running (`data\intraday\.lock`
-  present) and commits **only** `data/intraday`; it fast-forwards `main` first
-  so a rejected push self-heals. The pull script itself never pushes.
+  present) and commits **only** `data/intraday` + `data/paper`; it
+  fast-forwards `main` first so a rejected push self-heals. The pull script
+  itself never pushes.
 
 **Pieces of the system:**
 
@@ -52,8 +58,10 @@ versioned in `tools/tasks/` — see "Recreating the scheduled tasks" below.
 |---|---|
 | `tools/fetch_intraday_bars.py` | Pull: full-universe fetch, append-only writes, manifest verification, drift checks, `--adopt` / `--repair` recovery, `--limit N` for tests. Run `--qa` appends the QA pass. |
 | `tools/qa_intraday.py` | QA pass: flags only, fixes nothing. RTH coverage, OHLC sanity, interior gaps, envelope vs daily bars, volume sums. |
-| `tools/push_intraday_archive.cmd` | Nightly commit+push of `data/intraday` (skips on `.lock`; `git config core.protectNTFS false` self-heal for ticker CON). |
-| `tools/tasks/pull_task.xml`, `push_task.xml` | Task Scheduler import templates (UTF-16; `schtasks /create /xml`). |
+| `tools/push_intraday_archive.cmd` | Nightly commit+push of `data/intraday` + `data/paper` (skips on `.lock`; `git config core.protectNTFS false` self-heal for ticker CON). |
+| `tools/paper_loop.py` | Paper loop (pre-reg #23): runs the five frozen intraday definitions on a bar-date, logs the decision path + three price columns, writes `data/paper/`. Modes `--date`/`--latest`/`--all`/`--check`/`--compare`. |
+| `tools/tasks/pull_task.xml`, `paper_task.xml`, `push_task.xml` | Task Scheduler import templates (UTF-16; `schtasks /create /xml`). |
+| `data/paper/` | Paper-log store: `<date>.json` (byte-deterministic decision path + modeled fills), `journal/<date>.md` (automated facts + operator notes), `observed/<date>.json` (operator fills). Contract: [data/paper/README.md](data/paper/README.md). |
 | `data/intraday/manifest.json` | Cumulative ledger: per-file SHA-256 + rows + span + pull-id; one pull record per run (with universe file + SHA). |
 | `data/intraday/repairs.json` | Recorded deletions (path, sha-before, reason, UTC) — the only sanctioned removals. |
 | `data/intraday/splits.json` | Recorded split events, applied at measurement time only. |
@@ -88,6 +96,9 @@ versioned in `tools/tasks/` — see "Recreating the scheduled tasks" below.
 2. QA report shows the previous bar-date present:
    `python -X utf8 tools\qa_intraday.py` (or read `data/intraday/qa_report.md`)
 3. Manifest pull records grew by one (script prints `ok=N no_data=0 failed=0`).
+4. Paper log present for the previous bar-date:
+   `python -X utf8 tools\paper_loop.py --check` (determinism check) and
+   `data/paper/<previous-bar-date>.json` exists.
 
 Expected data reality, not defects: **thin-name minute sparsity** — Yahoo 1m
 emits a bar only when a name prints a trade/quote, so thinly-traded S&P 600
@@ -104,6 +115,8 @@ RTH coverage.
 | Pull aborts: leftover `.lock` | Pull crashed | Remove `data\intraday\.lock` only after confirming no pull is running (stale-lock check in the script). |
 | Pull aborts: recorded repair not completed | Crash between repair record and deletion | The next pull completes the recorded repair loudly — no action needed. |
 | Push log shows `SKIP: pull still running` | Pull overran 23:00 | Normal; the push skips that night. Verify the pull finished and push manually if the archive is unreplicated for several days. |
+| Paper log missing for a bar-date | Paper task skipped (pull overran 22:30) or failed | Run `python -X utf8 tools\paper_loop.py --all` to backfill (idempotent); the operator fills the journal. |
+| Paper loop aborts: "frozen input must not move" | A frozen measurement tool changed | Restore the frozen tool (its sha is recorded in PREREGISTRATION.md); the paper loop refuses to log until it matches. |
 | Push log shows `ff-only pull failed` | Local `main` diverged from origin | Resolve the divergence (usually nothing but the archive; a merge or rebase of `data/intraday` only), then re-run the script. |
 | Push fails: `error: open('...CON.parquet'): No such file or directory` | Ticker `CON` is a Windows reserved device name | The script self-heals (`git config core.protectNTFS false`, repo-local). A fresh clone needs the same setting before `git lfs pull` restores `CON.parquet`. |
 | LFS push rejected (quota) | GitHub free-tier storage cap | Measured ~2.5 GB/yr, ~4.7-month horizon from 2026-08-19 (bandwidth fine, ~210 MB/month). Local disk is the primary store; plan (releases, pruning, or vendor) before the cap. |
@@ -118,6 +131,7 @@ IgnoreNew`):
 
 ```bat
 schtasks /create /tn "patternScanner-intraday-pull" /xml "tools\tasks\pull_task.xml" /f
+schtasks /create /tn "patternScanner-intraday-paper" /xml "tools\tasks\paper_task.xml" /f
 schtasks /create /tn "patternScanner-intraday-push" /xml "tools\tasks\push_task.xml" /f
 ```
 
@@ -134,3 +148,7 @@ Update the absolute paths inside the XMLs if the repo moves.
   (~11.2 KB/file, ~6.9 MB/pull). Tasks scheduled: pull 22:05, push 23:00.
 - Pre-reg #15 frozen 2026-08-19 (design note and full pre-registration;
   tool SHAs recorded in `PREREGISTRATION.md` §9).
+- Pre-reg #23 (the paper loop) frozen 2026-08-23: `tools/paper_loop.py`
+  byte-locked (FROZEN_SHA `c08b3ca5…`), the five frozen inputs asserted at
+  import, `data/paper/` append-only; paper task scheduled 22:30 MT; the push
+  now commits `data/paper` with the archive.

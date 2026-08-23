@@ -16,10 +16,10 @@ if exist "data\intraday\.lock" (
   echo [%date% %time%] SKIP: pull still running >> "%LOG%"
   exit /b 0
 )
-git add data/intraday >> "%LOG%" 2>&1
+git add data/intraday data/paper >> "%LOG%" 2>&1
 git diff --cached --quiet
 if errorlevel 1 (
-  git commit -m "Intraday archive: nightly pull (auto)" -- data/intraday >> "%LOG%" 2>&1
+  git commit -m "Intraday archive + paper log: nightly pull (auto)" -- data/intraday data/paper >> "%LOG%" 2>&1
 )
 git pull --ff-only origin main >> "%LOG%" 2>&1
 if errorlevel 1 (

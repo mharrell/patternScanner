@@ -1660,6 +1660,14 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   dev harness green, and the §8 *Implementation freeze* + *Implementation
   reading* written into [PREREGISTRATION.md](PREREGISTRATION.md). All four
   await the shared §5 floor (~mid-September).
+- [x] Pre-register the paper loop (pre-reg #23) — done 2026-08-23: the
+  live-execution study frozen before any paper-log results — the five frozen
+  tools' exact definitions run on each live tape day as it lands, logging
+  fills/slippage vs. the recorded bar (three price columns: recorded
+  reference, modeled fill, observed fill), the gate decisions, and a daily
+  journal. Tool `tools/paper_loop.py` byte-locked (FROZEN_SHA `c08b3ca5…`),
+  the five frozen inputs asserted at import, `data/paper/` append-only.
+  Feeds the §5-gated L-007 comparison when the floor flips (~mid-September).
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

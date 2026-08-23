@@ -4255,3 +4255,206 @@ verdicts): the pre-#15 continuity profiles (time_of_day 10-bucket,
 pre_vs_rth), the 09:30–10:30 single-hour row, the 09:30–09:35
 first-5-minutes row, per-hour F2 returns, and per-bar-date /
 per-ticker leader rows. No sensitivities are pre-declared.*
+---
+
+# Pre-registration #23 — the paper loop: live-execution study of the frozen intraday signals (fills/slippage vs. the recorded bar, gate decisions, daily journal; L-007 backtest-live gap; intraday track)
+
+**Frozen 2026-08-23, before any paper-log results exist.** No parameter
+below may be changed after this date; any change is a new hypothesis
+requiring a fresh pre-registration and a fresh evaluation window. The
+paper loop runs on each live tape day as it lands (bar-dates ≥
+2026-08-19); the §5-gated comparison opens only when §5's floors are met
+(shared with pre-reg #15).
+
+## 0. Why this campaign exists
+
+The intraday measurement tools (pre-regs #15, #19–#22) compute
+close-vs-close returns on recorded bars — (C[e+N] − O[e+1])/O[e+1] −
+COST. The archive is 1-minute OHLCV prints with no bid/ask: it records
+what traded, not what a trader could have gotten. The paper loop closes
+that gap — the L-007 backtest-live gap (DESIGN_BRIEF §5 Phase 5 / §10) —
+by running the five frozen tools' exact definitions on each live tape
+day as it lands and logging (1) fills and slippage vs. the recorded bar,
+(2) the entry/exits the veto/regime gates would actually have taken, and
+(3) a daily journal for the operator-process muscle. The scope is frozen
+now, before any paper-log results exist, so that when the §5 floor flips
+the paper log feeds the §5-gated comparison cleanly instead of being
+retrofitted.
+
+## 1. Translation — what the paper loop is and logs
+
+| What | Source | As measured |
+|---|---|---|
+| **L-007 backtest-live gap** ("backtest ≠ live", DESIGN_BRIEF §10) | the archive records OHLCV prints, not tradeable prices | the paper loop logs, per entry/exit, the recorded-bar reference price AND the modeled fill (frozen slippage model) AND the operator-observed fill (ground truth); the gap = fill − recorded-bar reference |
+| **The five frozen tools define which signals matter** | pre-regs #15, #19–#22 | the paper loop runs their exact definitions per (bar-date, ticker) file: B-01 (pre-reg #15 §3), reversal new-high / pullback-count / second-confirmation (pre-reg #19 §3), the veto legs (pre-reg #21 §1), the exit rules (pre-reg #20 §3), the regime buckets (pre-reg #22 §1) |
+| **The three logs** | the task | (1) fills & slippage vs. the recorded bar; (2) the entry/exits the veto/regime gates would actually have taken; (3) the daily journal (operator-process muscle) |
+
+## 2. The data artifact
+
+Same shared forward archive as pre-reg #15 §2 / #19 §2 (immutable
+(bar-date, ticker) parquet, manifest SHA-256 chain). Same exclusions
+(2026-08-12…18), same per-bar-date universe rule, same split exclusion,
+same sparsity reality — re-registered here by reference. The paper loop
+reads each bar-date as it lands (after the 22:05 MT pull).
+
+New artifact: `data/paper/` — the paper-log store:
+
+- `<YYYY-MM-DD>.json` — the deterministic decision path + modeled fills
+  (tracked, byte-deterministic, append-only).
+- `journal/<YYYY-MM-DD>.md` — the daily journal: automated facts
+  (tool-generated) + operator notes (human-edited).
+- `observed/<YYYY-MM-DD>.json` — the operator's structured observed fills
+  (tracked, frozen schema).
+- `README.md` — the paper-log contract.
+
+Append-only: each bar-date's JSON is written once by the first paper-loop
+run that sees the bar-date complete; never modified. Re-runs must
+reproduce it byte-for-byte. No LFS (plain tracked text).
+
+## 3. The paper-loop tool (frozen)
+
+`tools/paper_loop.py` — imports the five frozen tools, asserting each
+tool's LF-normalized sha256 at import (checkout-independent; a change to
+any frozen input aborts loudly). Runs per bar-date as it lands; logs the
+decision path; byte-deterministic; FROZEN_SHA fixed-point (asserted at
+every run). Modes: `--date YYYY-MM-DD`, `--latest`, `--all` (idempotent
+backfill), `--check` (determinism), `--compare` (the §5-gated
+comparison).
+
+## 4. The slippage/fill model (frozen)
+
+Three price columns per entry/exit:
+
+1. **Recorded-bar reference** (deterministic, from the archive): entry
+   open O[e+1]; exit price per rule from the frozen functions.
+2. **Modeled fill** (deterministic, frozen): entry_fill = O[e+1]×(1+s),
+   exit_fill = exit_price×(1−s), s = 0.0005 per side primary (the S-C05
+   intraday tier), 0.0015/0.0030 sensitivities. Labeled MODEL in every
+   output. The modeled-fill comparison is a sensitivity — the "if
+   slippage were exactly s" bound — NOT the L-007 measurement (if the
+   model assumes slippage, the measured gap is the model's own
+   assumption, ≈ −2s by construction).
+3. **Observed fill** (operator, ground truth): recorded in
+   data/paper/observed/<date>.json where the operator was watching the
+   live tape. The observed-fill comparison is the L-007 measurement.
+
+Pre-declared expected modeled gap: ≈ −2s = −0.10% (primary) on the
+fixed-N convention. If the observed-fill gap is materially different from
+−2s, that is the L-007 finding.
+
+## 5. The gate-decision log (frozen)
+
+Per entry candidate, the paper loop logs: signal bar, entry bar, entry
+price, stop, target, hour, veto verdict (pass/fail + which leg — MACD,
+volume), regime bucket (B1/B2/outside), and per exit rule the exit the
+rules would take (breakeven-trail, ladder, flat-out, fixed-N, fixed-2R)
+with the exit price. Entry sets per the frozen tools: B-01 events
+(pre-reg #15 §3) → the five exit rules (pre-reg #20 §3); reversal
+new-high long+short (pre-reg #19 F1) → the veto legs (pre-reg #21 §1);
+pullback-count (pre-reg #19 F2) and second-confirmation (pre-reg #19 F3)
+→ regime bucket; all entries → regime bucket (pre-reg #22 §1).
+
+## 6. The daily journal (frozen format)
+
+`data/paper/journal/<date>.md` — the tool writes the skeleton: a header,
+an "Automated facts" section (bar-date, files processed, per-detector
+entry counts, veto pass/fail, regime bucket counts, modeled-fill
+summary), and an empty "Operator notes" section. The operator appends
+observations/lessons. The frozen format is the structure (section headers
++ the facts table), not the content.
+
+`data/paper/observed/<date>.json` — the operator's structured observed
+fills (frozen schema): {"bar_date", "fills": [{"ticker", "signal_et",
+"dir", "entry_fill", "exit_fill", "source", "note"}]}. Matched to
+deterministic entries by (ticker, signal_et, dir) with a ±2-minute
+tolerance; unmatched fills are counted and reported, never silently
+dropped.
+
+## 7. The §5-gated comparison (pre-registered)
+
+When the §5 floor flips, the paper log feeds a comparison — the L-007
+gap measurement row (NOT a verdict family; the paper loop tests no claim
+about the market, it measures the recorded-bar vs tradeable-price gap):
+
+- **Metric**: mean(paper-log realized return) − mean(recorded-bar return)
+  on the same entry sets as the frozen tools (B-01, reversal long+short,
+  pullback-count, second-confirmation, veto-pass/fail subsets, regime
+  buckets), per exit rule (fixed-N primary; breakeven-trail/ladder/
+  flat-out/fixed-2R on the B-01 set). Reported per entry set, per rule,
+  plus the distribution (p10/p50/p90) and per-bar-date breakdown.
+- **Which fills**: observed fills where present (the L-007 measurement);
+  modeled fills on the full set (the sensitivity).
+- **Floor**: the shared §5 floor (≥ 20 full-universe bar-dates ≥
+  2026-08-19, ≥ 2,000 events, ≥ 100 tickers, ≥ 15 dates) plus a paper-log
+  completeness floor (the paper log covers ≥ 90% of the window bar-dates;
+  below that INCONCLUSIVE with the documented coverage).
+- **One-shot**: the comparison is computed once, at the first meeting of
+  the floor, alongside the other campaigns' one-shot measurements. The
+  paper log itself keeps accumulating (it is a live log), but the
+  comparison is one-shot — a larger paper log is a new pre-registration.
+- **Gate**: the archive-integrity audit must PASS (pre-reg #15 §6 form),
+  plus a paper-log integrity check: re-running the paper loop over the
+  window must reproduce the committed JSON logs byte-for-byte, and the
+  recorded-bar returns recomputed from the archive must match the paper
+  logs' recorded-bar references.
+
+## 8. Floors and gate
+
+The paper loop itself runs daily (no floor — it is a process, not a
+measurement). The §5-gated comparison is gated on the shared §5 floors
+plus the paper-log completeness floor (§7), one-shot. The archive-
+integrity audit (pre-reg #15 §6) applies to the comparison; the paper-log
+integrity check (§7) is the paper loop's own gate.
+
+## 9. Pre-declared expectations
+
+- The modeled-fill gap ≈ −2s by construction (the model's own
+  assumption).
+- The observed-fill gap is the unknown — the L-007 finding. The paper
+  log's value is the first honest tradeable-price record of the intraday
+  rules.
+- The gate decisions are the deterministic facts; the journal is the human
+  layer (the operator-process muscle).
+- Regime caveat as pre-reg #19 §7: the window is weeks of whatever the
+  market delivers next — a few regimes at most; the paper log is
+  conditional on the captured window.
+
+## 10. Freeze
+
+- Frozen 2026-08-23, before any paper-log results exist. Parameters above
+  (the fill model, the gate-decision log, the journal format, the
+  comparison metric, the floors, the one-shot rule, the gate) may not be
+  changed after this date.
+- Registered against: PREREGISTRATION #23 · the five frozen tools (pre-regs
+  #15, #19–#22) · archive bar-dates ≥ 2026-08-19.
+
+*Implementation freeze (2026-08-23, before any paper-log results):
+`tools/paper_loop.py` FROZEN_SHA
+`c08b3ca53cb8d24af404f9f0b2f5fb2779a151fa02e130706ea7f3adc13b579a` — sha256 of the file with its own FROZEN_SHA hex blanked
+to 64 zeros (fixed-point; asserted at every run) — raw
+`measure_code_sha256` `2ad4365a96d589fc75be28b57b19c2ef779c39fc3234732e5857a7c5d6f32edf`. The five frozen-input tools are
+asserted AT IMPORT at their LF-normalized sha256 (checkout-independent):
+`measure_intraday.py` `c58282caf75c344f…`, `measure_intraday_entry.py`
+`d58a889c6c0a6349…`, `measure_intraday_exit.py` `50af1ea6adf7e85a…`,
+`measure_intraday_veto.py` `e35f0a52d76a7414…`, `measure_intraday_regime.py`
+`2fed9790feffe6c5…`. Committed 2026-08-23; §5 floors not yet met (3
+window bar-dates ≥ 2026-08-19).*
+
+*Implementation reading (registered with the tool, before any paper-log
+results): the paper loop imports the five frozen tools and calls only
+their detector/exit/veto/regime functions — MI.detect_b01,
+MIE.detect_reversal / detect_pullback_count / detect_second_conf,
+MIX.breakeven_trail_s / ladder_s / flat_out_s / fixed_n_s / fixed_2r_s,
+MIV.macd_at / volume_spike, MIR.F1_SLOTS / PRE / RTH — never their
+main(). The exit price is derived from the frozen functions' gross
+returns (exit_price = entry × (1 + gross_return)); for multi-leg rules
+(breakeven-trail, ladder) this is the weighted-average fill price. The
+fill model applies s per side: entry_fill = O[e+1]×(1+s), exit_fill =
+exit_price×(1−s); at s=0 the modeled return equals the frozen gross
+return exactly (parity). The §5-gated comparison (§7) is the L-007 gap
+measurement row.*
+
+## 11. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Awaiting the §5 floor — the comparison opens at the first meeting of
+the §5 floors.)*
