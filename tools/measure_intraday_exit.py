@@ -105,7 +105,7 @@ FLOORS = {"min_bar_dates": 20, "min_events": 2000,
 MIN_SLOT = 100
 
 # Freeze sha (house fixed-point convention; see measure_intraday.py).
-FROZEN_SHA = "544a1c0b911721664136e9a7e3cb5a3b7d776a530a51c789caa2c1d4e180ee5c"
+FROZEN_SHA = "0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c"
 
 
 def sha_bytes(b: bytes) -> str:
@@ -563,11 +563,11 @@ def run_f1(a, rng) -> dict:
         fam[k] = {"slot": label, "n": len(rule),
                   "mean_rule": float(rule.mean()),
                   "mean_fixed_n": float(bench_n.mean()),
-                  "excess_primary": d1[0], "ci_low": d1[3],
-                  "ci_upper": d1[4], "p": d1[4],
+                  "excess_primary": d1[0], "ci_low": d1[2],
+                  "ci_upper": d1[3], "p": d1[4],
                   "mean_fixed_2r": float(bench_2r.mean()),
-                  "diff_2r": d2[0], "diff_2r_lo": d2[3],
-                  "diff_2r_hi": d2[4], "p_2r": d2[4]}
+                  "diff_2r": d2[0], "diff_2r_lo": d2[2],
+                  "diff_2r_hi": d2[3], "p_2r": d2[4]}
     return holm(fam, "F1")
 
 
@@ -606,7 +606,7 @@ def run_f2(arch, a, rng) -> dict:
     d = bootstrap_excess(fr, sample_b, rng)
     fam["flat_premise"] = {"slot": "flat premise", "n": len(fr),
                            "mean_flat": float(fr.mean()),
-                           "diff": d[0], "ci_low": d[3], "ci_upper": d[4],
+                           "diff": d[0], "ci_low": d[2], "ci_upper": d[3],
                            "p": d[4]}
     r = fam["flat_premise"]
     r["holm_gate"] = ALPHA

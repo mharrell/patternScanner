@@ -3983,6 +3983,22 @@ in F2). F2's single Holm slot is the mean N-forward return of
 flat-after-entry events minus hour-matched non-flat events on the same
 entry set; EDGE iff CI-upper < 0.*
 
+*§8 amendment (2026-08-22, BEFORE any measurement): the independent
+verification pass (`tools/verify_intraday.py`, built 2026-08-22)
+caught a CI-recording bug in the frozen tool: `run_f1`/`run_f2`
+recorded `ci_low ← bootstrap index 3` and `ci_upper ← index 4`, but
+`bootstrap_excess`/`paired_contrast` return a 5-tuple
+`(mean, median, lo, hi, p)` — so the recorded `ci_low` held the UPPER
+CI and the recorded `ci_upper` held the p-value. Every estimate, p,
+and Holm gate was correct; only the two CI endpoints per slot were
+swapped (and with them any EDGE/FADE verdict relying on the CI). No
+measurement had run, so this is a re-freeze, not a post-hoc change:
+the CI mappings were corrected to `ci_low ← index 2`, `ci_upper ←
+index 3` (`diff_2r_lo/`diff_2r_hi` likewise), the tool was re-frozen,
+and the verification pass re-ran clean. New FROZEN_SHA
+`0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c`
+(fixed-point convention unchanged; frozen B-01 input sha unchanged).*
+
 ---
 
 # Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
