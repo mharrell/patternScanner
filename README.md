@@ -202,7 +202,12 @@ second-confirmation), #20 (intraday exits: breakeven-trail + sell-half, the
 #22 (intraday regime: morning window, pre-market cleanliness) are frozen,
 each with the shared §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
 before any measurement; the measurement tools are frozen too (implementation
-freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). Nightly pull
+freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). Independent
+verifiers for all five tools (`tools/verify_intraday.py`, standalone —
+imports nothing from the frozen stack, fresh bootstrap seeds) were built and
+cross-validated 2026-08-22; the pass caught a CI-recording bug in the #20
+exit tool (pre-measurement re-freeze, §8 amendment, new FROZEN_SHA
+`0c798159ea3e93d9…`), and all five now verify clean. Nightly pull
 (22:05) + push (23:00) run under Task Scheduler. See
 [data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
