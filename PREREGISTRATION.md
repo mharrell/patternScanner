@@ -3983,6 +3983,22 @@ in F2). F2's single Holm slot is the mean N-forward return of
 flat-after-entry events minus hour-matched non-flat events on the same
 entry set; EDGE iff CI-upper < 0.*
 
+*§8 amendment (2026-08-22, BEFORE any measurement): the independent
+verification pass (`tools/verify_intraday.py`, built 2026-08-22)
+caught a CI-recording bug in the frozen tool: `run_f1`/`run_f2`
+recorded `ci_low ← bootstrap index 3` and `ci_upper ← index 4`, but
+`bootstrap_excess`/`paired_contrast` return a 5-tuple
+`(mean, median, lo, hi, p)` — so the recorded `ci_low` held the UPPER
+CI and the recorded `ci_upper` held the p-value. Every estimate, p,
+and Holm gate was correct; only the two CI endpoints per slot were
+swapped (and with them any EDGE/FADE verdict relying on the CI). No
+measurement had run, so this is a re-freeze, not a post-hoc change:
+the CI mappings were corrected to `ci_low ← index 2`, `ci_upper ←
+index 3` (`diff_2r_lo/`diff_2r_hi` likewise), the tool was re-frozen,
+and the verification pass re-ran clean. New FROZEN_SHA
+`0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c`
+(fixed-point convention unchanged; frozen B-01 input sha unchanged).*
+
 ---
 
 # Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
@@ -4439,6 +4455,22 @@ asserted AT IMPORT at their LF-normalized sha256 (checkout-independent):
 `measure_intraday_veto.py` `e35f0a52d76a7414…`, `measure_intraday_regime.py`
 `2fed9790feffe6c5…`. Committed 2026-08-23; §5 floors not yet met (3
 window bar-dates ≥ 2026-08-19).*
+
+*§10 amendment (2026-08-25, BEFORE any paper-log result was used — the
+§5-gated comparison has not run, floor unmet): the independent
+verification pass (pre-reg #20 §8 amendment, 2026-08-22) re-froze
+`tools/measure_intraday_exit.py` at FROZEN_SHA `0c798159ea3e93d9…`
+(a CI-endpoint recording correction; no measurement had run). The paper
+loop asserts that tool's LF-normalized sha at import, so the re-freeze
+moved a frozen input. The paper loop's frozen-input table was
+re-recorded to the re-frozen tool's LF sha `25f859ba4bc22588…` and the
+paper loop re-frozen: FROZEN_SHA `45f91e7a811329fa…`, raw
+`measure_code_sha256` `e06891c50fdffeea…`. Decision paths across the
+four window bar-dates were verified byte-identical to the pre-amendment
+logs (only the `frozen_inputs` record moved); the paper-log JSONs were
+rewritten under the re-frozen tool and byte-reproduce. This is a
+re-freeze, not a post-hoc change: no paper-log result had fed any
+comparison.*
 
 *Implementation reading (registered with the tool, before any paper-log
 results): the paper loop imports the five frozen tools and calls only

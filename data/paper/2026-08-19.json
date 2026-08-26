@@ -143723,7 +143723,7 @@
  "frozen_inputs": {
   "measure_intraday.py": "c58282caf75c344f228b70b329e9182b54a663d013891fe6a17103dc89f5e14c",
   "measure_intraday_entry.py": "d58a889c6c0a634952bacd90bf412140709102053facebf1ee82b5df67592656",
-  "measure_intraday_exit.py": "50af1ea6adf7e85acab666e38cdb9ec951cac4afb518f6f2fa3fe6a662394a7f",
+  "measure_intraday_exit.py": "25f859ba4bc22588a345cf4a01e0c81857f208cd84b3aa1c3a85d6588f8a98f1",
   "measure_intraday_regime.py": "2fed9790feffe6c5eabf195876ecc655007aeff8b7d5bbda2ea0bf7467792cec",
   "measure_intraday_veto.py": "e35f0a52d76a7414fd4345a4076964e8640a1f31691ef4f9b2400b247723880a"
  }

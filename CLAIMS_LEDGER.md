@@ -1668,6 +1668,25 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   journal. Tool `tools/paper_loop.py` byte-locked (FROZEN_SHA `c08b3ca5…`),
   the five frozen inputs asserted at import, `data/paper/` append-only.
   Feeds the §5-gated L-007 comparison when the floor flips (~mid-September).
+- [x] Build the five intraday standalone independent verifiers — done
+  2026-08-22: `tools/verify_intraday.py` (imports nothing from the frozen
+  stack; fresh bootstrap seeds; EXACT + MC-SPREAD check classes; exit 0/1)
+  covers all five frozen intraday tools (pre-regs #15/#19/#20/#21/#22).
+  Interim cross-validation against floor-bypassed dev dumps of each frozen
+  tool: **#15 71/71, #19 84/84, #21 75/75, #22 66/66 green — and #20 red on
+  exactly its CI-endpoint checks**, exposing a CI-recording bug in the
+  frozen exit tool (see §I.14 note below).
+- [ ] **#20 re-freeze (pre-measurement, no data touched)**: the independent
+  verification pass caught that `tools/measure_intraday_exit.py` recorded
+  `ci_low`/`ci_upper` swapped with the upper CI / p-value (`run_f1`, `run_f2`
+  — the 5-tuple indices were 3/4 instead of 2/3). No measurement had run;
+  the mappings were corrected, the tool re-frozen at FROZEN_SHA
+  `0c798159ea3e93d9…` (§8 amendment in PREREGISTRATION #20), and the exit
+  verifier re-ran clean (**#20 55/55**). This is open work in the sense of
+  tool provenance only — the §5 floor is still unmet (~mid-September) and
+  no intraday verdict exists yet. The paper loop's frozen-input assertion
+  for the exit tool was re-recorded to the re-frozen sha 2026-08-25 as part
+  of the main-branch reconcile (pre-reg #23 freeze-block amendment).
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).

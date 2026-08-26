@@ -73,7 +73,7 @@ _FROZEN_INPUTS = {
     "measure_intraday_entry.py":
         "d58a889c6c0a634952bacd90bf412140709102053facebf1ee82b5df67592656",
     "measure_intraday_exit.py":
-        "50af1ea6adf7e85acab666e38cdb9ec951cac4afb518f6f2fa3fe6a662394a7f",
+        "25f859ba4bc22588a345cf4a01e0c81857f208cd84b3aa1c3a85d6588f8a98f1",
     "measure_intraday_veto.py":
         "e35f0a52d76a7414fd4345a4076964e8640a1f31691ef4f9b2400b247723880a",
     "measure_intraday_regime.py":
@@ -111,7 +111,7 @@ COMPLETENESS_FLOOR = 0.90   # paper-log completeness floor (§7)
 # sha of this file with its own FROZEN_SHA hex blanked to 64 zeros — a
 # well-defined fixed point. Any byte change outside the blanked hex breaks
 # the assertion.
-FROZEN_SHA = "c08b3ca53cb8d24af404f9f0b2f5fb2779a151fa02e130706ea7f3adc13b579a"
+FROZEN_SHA = "45f91e7a811329fa784d6ad829193969bd857a4714b6af84ff95afdfc9062595"
 
 
 def sha_bytes(b: bytes) -> str:
