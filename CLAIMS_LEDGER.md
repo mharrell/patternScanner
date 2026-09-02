@@ -1746,11 +1746,12 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   bars); momentum-continuation and round-number proximity NO EDGE with
   claimed-direction whispers (p 0.038 / 0.056); rank-2/3 INCONCLUSIVE
   (population too rare on daily bars). Verdicts in §J.4.
-- [x] Pre-registration #29 — regime conditioning with the frozen leader
-  proxy — done 2026-09-02: **NO EDGE × 2** (contrast +0.35pp at nominal
-  p 0.052 — the fifth and closest directional whisper; absolute family
-  negative). Cold-regime entries are bad (−0.22%) — risk-overlay
-  candidate, not alpha. Verdicts in §J.6; §J.5 course-drift map added.
+- [x] Pre-registration #31 — accuracy/horizon tradeoff + volume leg — done
+  2026-09-02: UvX-30 **FADE** (hit rate RISES with horizon, +7.42pp, p≈0 —
+  direction-inverted on daily bars); Wd_-14 volume leg INCONCLUSIVE (his
+  >25M-share regime is outside this universe). **Daily track complete**
+  (#24–#31, 8 campaigns); remaining corpus is intraday-native.
+  Verdicts in §J.8; §J.6 regime verdicts and §J.5 drift map stand.
 - [x] Pre-registration #30 — sector sympathy momentum — done 2026-09-02:
   same-day sympathy **EDGE** (+0.28pp, p 0.014), next-day **NO EDGE**
   (+0.08pp) — the contagion is real, visible intraday, and fully priced by
@@ -1920,7 +1921,7 @@ Quotes mechanically grep-verified against the transcript by the extraction agent
 | UvX-27 | [1:17:01–1:17:46] | "than half of my profit after hitting my" "$5,000 daily goal I have to walk because" of the emotional response; and "I'm green on the day ,15 $1,200 and I go" "red the second I go red that for me is" "like okay it's time to walk away" | `candidate` | Two walk-away triggers: (a) give back >50% of a hit daily goal; (b) green-to-red after meaningful progress (threshold stated loosely: "a quarter or half of goal"). Mirrors the I-G red-day rule family. |
 | UvX-28 | [1:45:32–1:47:20] | First-trade risk "I'll risk like $500 and if it's a winner and" up $500–$1,000 "I've broken the ice"; daily protocol: "capping my share size at about a quarter" of full size — "my starter size is 5,000 shares 20 cents is" "$11,000 of profit and until I'm up more" "than $1,000 I do not increase my share" size; then "move it up to 20,000 shares" | `candidate` | **Position-scaling rule with an unlock trigger** (¼ size → full only after +20¢/share ≈ +$1,000). Note "$11,000" is a transcription error for $1,000 (5,000 sh × $0.20; resolved by the adjacent "$1,000" figure). First trade sized so a stop-out cannot reach the daily max loss. |
 | UvX-29 | [1:02:06–1:06:03] | Break-even math: 2:1 winners → "if you're right even just 33% of the" time; 1:1 → 50%; inverted → "you would have to be right 66% of the" "time in order to Break Even This is math"; advice: strive for "ratio of 2:1 aim for 2:1 where your" winners are 2× losers, "aim high for" 65–70% accuracy but "come in closer to 55"–"to 60% as a beginner and that's okay" | `process guidance` | The arithmetic is correct; note the tension — his own stated stats (68% accuracy, $1,500 losers vs $1,400 winners, UvX-02) sit in the slightly-inverted-ratio regime this framework warns beginners against; profitability rests entirely on the accuracy edge. |
-| UvX-30 | [1:08:21–1:08:25] | "the bigger your" "winners typically the lower your" "accuracy will be because in order to hit" big winners you must hold through givebacks | `candidate` (structural) | Accuracy/P-L-ratio trade-off claim — the stated reason he runs base-hits (small avg wins, high accuracy). Testable as a holding-horizon sweep. |
+| UvX-30 | [1:08:21–1:08:25] | `tested` (pre-reg #31, 2026-09-02) — **FADE** (direction-inverted): hit rate RISES with horizon on the frozen detections (44.4% at N=1 → 51.8% at N=20, +7.42pp, p≈0, Holm-cleared); "holding through givebacks lowers accuracy" is backwards on daily bars — the givebacks are the SHORT-horizon problem, the trend pays at 20 (§J.8) | `candidate` (structural) | Accuracy/P-L-ratio trade-off claim — the stated reason he runs base-hits (small avg wins, high accuracy). Testable as a holding-horizon sweep. |
 | UvX-31 | [45:09–48:28] | Chart stack: "the moving averages I use" "are the nine the 20 and the 200" "these are all exponential moving" averages, plus VWAP and volume; pullback ladder: price "will pull back to the nine moving" "average and if it breaks that level your" "next level of support is the 20", then "the next level would be your" "volume weighted average price"; VWAP regime: "if the price is above it the Bulls are" "in control if the price is below it the" "Bears are in control" | `candidate` | Full indicator teaching with parameters (9/20/200 EMA + VWAP) — the 9EMA→20EMA→VWAP support ladder is the stop/target reference frame behind UvX-14/17. Self-fulfilling-prophecy framing ("traffic light") is his own stated mechanism. |
 | UvX-32 | [2:29:45–2:30:47] | "if you can't make money in" "simulator there's no point in putting" "real money on the line"; go live after "if you have six weeks of consistent" "profitability a six week stretch of" "being green that's pretty good to" flip the switch with small size | `process guidance` | Sim-first gate with a numeric threshold (6 green weeks). Also his stated reason for pulling the live morning show off YouTube — relevant to selection bias in any corpus built from his public trading footage. |
 
@@ -2525,7 +2526,8 @@ Topics: market-regime, seller-control, point-of-control, leading-gainer-proxy, r
 | Wd_-11 | [07:19–07:38], [05:46–05:54] | After-10 no-trade: "high-risisk no trade zone"; "need to have a harder stop um at 9:30, … 10:00 a.m."; Fridays: "was tightening up my risk on Fridays and … therefore was able to avoid having a … repeat of those big red days I had". | `process guidance` | Notable cross-year tension with I-B-05 (2015: profits concentrated "9:30 to 11:30"; "9:30 to 10:30") — the profitable window has shifted/changed story; 7–10 a.m. remains the core (F-01). |
 | Wd_-12 | [06:02–07:16] | Hour-of-day self-audit: "I'm losing money … between the hour of 10 and 11. In fact, … that I was making the most money between … 7 and 8." but over "last 12 months, I've done better between … 8 and 9." | `process guidance` | Window instability *within the same video* (1-month: 7–8 best; 12-month: 8–9 best) — the I-B-05 window-instability pattern recurring with his own data in hand. |
 | Wd_-13 | [10:59–11:18] | Adjustment bundle worth "+50%": "if I stop trading when I'm down 20 … grand, I'm a little more cautious on … Fridays, I'm I'm careful about the time … of day I'm trading, and I'm avoiding … stocks with lower relative volume. Those … improve my profitability by as much as … 50%." | `red flag` | Counterfactual performance-improvement claim from one month's self-audit; same +50% figure as Wd_-10. |
-| Wd_-14 | [09:41–10:01] | Volume/RVOL self-audit: "I did best on stocks that had … more than 25 million shares of volume" — "Lighter volume stocks I struggled on."; "on stocks that had at least five times … 500% five times higher volume on the day … I traded it versus the 50-day average." | `candidate` | Testable on daily bars. **Tension with KzV-14**: teaching threshold RVOL ≥ 2 vs realized best bucket ≥ 5×; also liquidity-preference drift between 2023 and 2026. |
+| Wd_-14 | [09:41–10:01] | Volume/RVOL self-audit: "I did best on stocks that had … more than 25 million shares of volume" — "Lighter volume stocks I struggled on."; "on stocks that had at least five times … 500% five times higher volume on the day … I traded it versus the 50-day average." | `candidate` **Volume leg tested (pre-reg #31, §J.8)**: INCONCLUSIVE — only 77/25,414 OOS detections occur on >25M-share-volume days (his mega-volume gapper regime sits outside the S&P 600 detection universe; the RV leg was #24's NO EDGE). |
+| Testable on daily bars. **Tension with KzV-14**: teaching threshold RVOL ≥ 2 vs realized best bucket ≥ 5×; also liquidity-preference drift between 2023 and 2026. |
 | Wd_-15 | [16:44–16:59] | Biotech dilution mechanism: "notice here that they've got a shelf … registration, which they just filed. … there's a high likelihood that they're … going to take the opportunity to sell … shares on the open market to raise money" — which "has a real effect on the price of the stock." | `out of scope` | Needs SEC filings data, not bars. Family-relevant as an E-veto (fresh shelf registration → don't buy the squeeze); he used it to pass on BIAF [19:22–19:58]. |
 | Wd_-16 | [19:32–20:01] | The pass itself: "Quality over quantity." on a squeeze where "it barely even … has half a million shares of volume. I … don't know. The volume's too light." — stock then doubled-topped and sold off. | `process guidance` | Anecdotal vindication of the light-volume veto (E-family); single case, hindsight-available. |
 | Wd_-17 | [02:44–03:00], [04:49–05:11], [12:03–12:11] | Account stats: "this year with about $96,000 in my … account." → "had a balance of about $2.1 million."; August: "$287,000 of total … profit right here. Accuracy was about … 65%. Average winners were 6,000. Average … losers were 5,700."; "That's nearly $24 million … of trading profits and showing, you … know, 68% accuracy". | `red flag` | Self-reported; 68% long-run accuracy matches I-A-04's ~68–70% stable core (a rare cross-year consistency point); $96K→$2.1M in 8 months and $24M lifetime rest entirely on his posted statements. |
@@ -2758,3 +2760,35 @@ sector name's 1-min chart wake up within minutes of the leader's spike?)
 is a natural #15-track follow-up once the gate opens. The roll leg
 ("sympathy rolls even harder") remains untestable at this granularity as
 pre-declared — the compound population is ~2–4 events per year.
+
+## J.8 Horizon/volume verdicts — pre-registration #31 campaign (2026-09-02), and the daily-track close
+
+The final daily-track campaign (`tools/measure_hvolumesweep.py`; frozen
+before measurement, one clean run, no amendments; #8-family engine imported
+unchanged; 25,414 paired OOS detections across four horizons).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| H1 | "bigger winners = lower accuracy, because you must hold through givebacks" (UvX-30) | `tested, fade` — **FADE** (direction-inverted) | hit_rate RISES monotonically with horizon: 44.4% (N=1) → 48.5% (N=5) → 50.1% (N=10) → 51.8% (N=20); difference +7.42pp (CI +6.64..+8.23, p≈0); mean returns climb in step (−0.14% → +0.62%) |
+| H2 | "I did best on >25M-share-volume days" (Wd_-14) | `tested, inconclusive` — **INCONCLUSIVE** | only 77/25,414 OOS detections occur on >25M-volume days (< 100 floor) — the claim's population lives in his mega-volume gapper universe, unreachable on this index |
+
+**Reading.** The second direction-inverted verdict of the cycle (#28's
+gap-and-go was the first), and it cuts at the corpus's self-image: the
+base-hits doctrine — small wins, high accuracy, avoid givebacks — is
+exactly backwards at the daily horizon, where holding LONGER raises both
+hit rate and mean return on the same signals. His accuracy mechanism
+describes his own 1-minute practice (minutes-scale givebacks are real);
+transposed to daily bars it inverts. The volume leg's honest INCONCLUSIVE
+is itself a finding: the claims are calibrated to a universe (multi-
+hundred-million-share gappers) that this index cannot express — consistent
+with the whole §J pattern that his SELECTIVITY (#25's bands/caps) carries
+measurable edge while his UNIVERSE ASSUMPTIONS (volume scale, mover
+counts, rarity beliefs) do not.
+
+**Daily track complete.** Eight campaigns (#24–#31): the corpus's
+selection geometry is real but diluted, its mechanism stories are
+backwards or unmeasurable, its context beliefs are wrong, and its
+directional whispers never clear. Everything testable on daily bars from
+the §J scan is now tested. The remaining corpus lives at 1-minute
+resolution: pre-regs #15–#22 + #27 (frozen, §5-gated) fire when the
+paper-log floor opens.

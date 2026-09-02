@@ -5373,3 +5373,96 @@ events 166 across 2016–2025, matching #26's C3 table exactly (11/10/9/7/
 Reading: the contagion is real and same-day only — visible to his intraday
 practice, not tradeable at the daily close. Ledger row afN-06 → tested.
 Verdict section: CLAIMS_LEDGER §J.7.
+
+# Pre-registration #31 — detection follow-ups: the accuracy/horizon tradeoff (UvX-30) and the absolute-volume leg (Wd_-14) (daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-02)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): "the bigger your winners typically the lower your
+accuracy will be because in order to hit big winners you must hold through
+givebacks" (UvX-30 — the stated mechanism behind his base-hits style, and
+behind the corpus's ~1:1 win/loss + high-accuracy self-reports); "I did
+best on stocks that had more than 25 million shares of volume — lighter
+volume stocks I struggled on" (Wd_-14; the RV leg of the same self-audit
+measured NO EDGE in #24, the ABSOLUTE-volume leg is untested).
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "bigger winners → lower accuracy" (UvX-30) | On the frozen veto-pass detections (`veto_detections_v1.csv`, OOS 2016–2025), per-detection paired forward returns at N=1/5/10/20; **H1**: hit rate P(ret>0) at N=20 vs N=1 (paired difference of proportions, bootstrap) — DOWN (his claim: longer holds → lower hit rate) | The horizon sweep is the measurable analog of "holding through givebacks"; the full hit-rate-by-N table is the drift record |
+| "did best on >25M shares of volume" (Wd_-14) | **H2 (UP):** detection forward returns (N=10, cost) on >25M-share-volume days vs ≤25M days, two-sample bootstrap | Same-day volume is known by the close (tag look-ahead documented, as in #1/#25); volume from the bars parquet directly |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 2 slots at α=0.05, OOS only)
+
+- **H1 (accuracy tradeoff, DOWN):** hit_rate(N=20) − hit_rate(N=1) < 0,
+  paired per detection (both horizons computable; detections missing either
+  horizon excluded and counted). EDGE (claim confirmed) iff Holm-rejected
+  AND CI-upper < 0; FADE iff rejected AND CI-low > 0.
+- **H2 (volume leg, UP):** >25M-volume-day detections outperform ≤25M ones.
+  EDGE iff Holm-rejected AND CI-low > 0; FADE iff rejected AND CI-upper < 0.
+
+Floors: ≥100 paired OOS detections per cell. Bootstrap B=1000, seed
+20260906. Era OOS 2016–2025 (the detection set's OOS era, as #24/#29).
+
+## 3. Measurement
+
+New frozen tool `tools/measure_hvolumesweep.py`; detection set + engine
+(`measure_returns`, `two_sample_excess`) imported from the frozen #8-family
+tools; volume read from the parquet directly (as #24's RV did). H1's
+proportions are PAIRED (same detections at both horizons — no
+between-horizon sample drift). Implementation assertions: (a) the
+hit-rate-by-N table (N=1/5/10/20) printed BEFORE the H1 rule is applied;
+(b) volume-bucket counts printed before any p-value; (c) the excluded
+(unequal-horizon) detection count reported.
+
+## 4. Verdicts
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1 (DOWN) | Holm-rejected AND CI-upper < 0 | not rejected AND CI-low ≥ 0 | otherwise / floor unmet |
+| H2 (UP) | Holm-rejected AND CI-low > 0 | not rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+
+## 5. Data & bias handling
+
+Bars, universes, detection set as frozen in #8/#24/#29. Volume uses only
+day-t information (known by the close of the signal day). No parameter
+tuned on data.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+Hit-rate table by shape (A/B/C); volume buckets ≤5M / 5–25M / >25M
+three-way; mean-return (not just hit-rate) by horizon; IS record.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-02, before any measurement (sign-off: the user approved
+the daily queue 2026-09-02). No parameter in §1–§6 may change after this
+line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_hvolumesweep.py` (blanked self-hash, on-disk bytes) | `8862de2627674902` |
+| `tools/measure.py` / `measure_veto.py` (imported) | recorded in output fingerprints |
+| `data/cache/veto_detections_v1.csv` | recorded in output fingerprints |
+
+Measurement runs only after this freeze line; the hit-rate table and
+volume-bucket counts print before any p-value (§3 assertions).
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-02** (`tools/measure_hvolumesweep.py`, frozen sha
+`8862de26…`, one clean run, no amendments). Assertions: hit-rate table and
+volume-bucket counts printed before p-values; paired detections 25,414
+(excluded 105 for unequal horizons); volume buckets >25M n=77 / ≤25M
+n=25,324 (H2 floor unmet — honest INCONCLUSIVE).
+
+| Slot | Verdict |
+|---|---|
+| H1 (hit rate N=20 vs N=1) | **FADE** — hit rate RISES +7.42pp with horizon (44.4% → 51.8%, p≈0, CI +6.64..+8.23) — the claim's direction is inverted on daily bars |
+| H2 (>25M-volume days) | **INCONCLUSIVE** — 77 detections < 100 floor (his volume regime is outside this universe) |
+
+Ledger rows: UvX-30 → tested (FADE); Wd_-14 volume leg noted (INCONCLUSIVE).
+Verdict section: CLAIMS_LEDGER §J.8. **This closes the daily track.**
