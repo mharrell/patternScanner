@@ -4931,3 +4931,110 @@ decision rules.
 Ledger rows: 3rE-03/-04, afN-22, GMR-10, ul3-15 → tested; Wd_-01 proxy
 noted. Verdict section: CLAIMS_LEDGER §J.3. The leader proxy is frozen
 here for downstream conditioning campaigns.
+
+# Pre-registration #27 — the MACD crossover gate on 1-minute bars: the "open" state, the 30-minute window, and the as-practiced conjuncts (ledger rows J-B-01, J-B-04, J-C-01, 2n2-05/-07/-08/-09/-12/-21/-22; intraday track)
+
+**Frozen 2026-09-02, before any measurement.** No parameter below may be
+changed after this date; any change is a new hypothesis requiring a fresh
+pre-registration and a fresh evaluation window. The measurement window
+opens only when §4's floors are met (shared with pre-regs #15/#19/#21);
+the §5 archive-integrity gate applies to every EDGE verdict.
+
+## 0. Why this campaign exists
+
+The §J scan established that his PRIMARY MACD rule is the crossover-state
+gate — "only trading when the macd is open" (line above the 9-signal; J-B-01)
+— which is NOT what the repo's veto implements (`macd_neg` = line < 0, the
+secondary form; pre-reg #21 tests that form separately). The gate-as-practiced
+evidence (2n2) adds a quantified window (~30 min of clean trading after the
+gate opens), a new-highs conjunct, and a 50%-retrace floor; J-B-04 exempts
+the initial breaking-news spike. None of this has ever been measured on
+1-min bars.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "only trading when the macd is open" (J-B-01) | mfGQr2tHoX0 [11:17–11:30]; GXl-11; 2n2-05 | **MACD-open** = MACD line ≥ signal line at the entry bar, MACD = EMA12 − EMA26 of the (bar-date, ticker) 1-min close series from RTH open (warm-up ≥ 26 bars), signal = EMA9 of the MACD line (standard 12/26/9, J-E-01). Entry set = pre-reg #19 F1 reversal new-high entries (unchanged from #21). |
+| "the 30 minute profit window" (2n2-07) | 2n2Jt0PEPss [19:02–20:52] | For gate-open entries: minutes elapsed between the entry bar and the FIRST bullish cross (line crosses above signal) of the RTH session. **Window slot**: entries ≤ 30 min after first cross vs entries > 30 min after it (both gate-open at entry). |
+| "even if the macd goes positive but we're not making new highs... no good" (2n2-08) | 2n2Jt0PEPss [21:29–21:53] | **New-highs conjunct**: among gate-open entries, signal-bar High within 0.5% of the RTH session high vs below it. |
+| "initial gut check if the macd is negative... not going to trade it" (2n2-05/-21) | 2n2Jt0PEPss [16:39–16:52], [31:11–31:24] | The line<0 form is pre-reg #21's macd leg (measured there, §5-gated). This campaign records the J-B-01/J-B-02 form overlap descriptively (what share of gate-closed entries are also line<0) — no second verdict on the same contrast. |
+| News-spike exemption (J-B-04; confirmed 2n2-20) | mfGQr2tHoX0 [09:37–09:50]; 2n2Jt0PEPss [33:14–33:33] | Every gate slot is stratified: entries ≤ 30 RTH minutes from session open (his "first spike" window) vs entries > 30 minutes in. Strata are measurement rows within each slot (no extra Holm slots; each slot's verdict is computed on the FULL set, with strata reported as pre-declared descriptive rows — the stratification exists to expose heterogeneity, not to multiply tests). |
+| 10-second-chart exclusion (2n2-22) | 2n2Jt0PEPss [47:30–47:43] | The gate is computed on 1-min bars only (the archive's native resolution); no sub-minute variant. |
+
+## 2. The data artifact
+
+Same shared forward archive as #15 §2 / #19 §2 / #21 §2 by reference
+(immutable (bar-date, ticker) parquet, manifest SHA-256 chain; exclusions
+2026-08-12…18; per-bar-date universe rule; split exclusion).
+
+## 3. Measurement
+
+All bootstraps B = 1000, seed **20260902**. Holm at α=0.05 across the 4
+slots. COST = 0.15%. Forward = (C[e+N] − O[e+1])/O[e+1] − COST, N = 60
+primary (S-N15/S-N240 sensitivities). Baselines hour-matched same-ticker
+and random-universe (#15 §4 convention).
+
+- **F1 (gate conditioning) — 4 Holm slots:**
+  1. *open − closed*: mean forward of MACD-open entries − MACD-closed
+     entries (the primary claim). EDGE iff CI-low > 0; FADE iff CI-upper < 0.
+  2. *open − raw*: MACD-open entries − all entry candidates (the filter's
+     net value; mirrors #21's pass − raw).
+  3. *window*: gate-open entries ≤ 30 min after first bullish cross −
+     gate-open entries > 30 min after it (claims the early window is
+     better).
+  4. *new-highs conjunct*: gate-open entries with signal-bar High within
+     0.5% of the RTH high − gate-open entries below it.
+  Count floor 100 evaluable per slot; each slot reports its two
+  time-since-open strata (≤30 min / >30 min from session open) as
+  pre-declared descriptive rows (J-B-04).
+- **F2 (descriptives, no verdicts):** gate-open/closed shares and overlap
+  with the line<0 form (#21's leg); cross-timeframe note (5-min MACD state
+  at entry, GXl-11's form) reported descriptively.
+
+## 4. Floors — when measurement may begin (one-shot rule)
+
+All floors must hold at the FIRST measurement: (a) ≥ 20 full-universe
+bar-dates ≥ 2026-08-19; (b) ≥ 2,000 F1-evaluable reversal-entry candidates;
+(c) across ≥ 100 distinct tickers; (d) across ≥ 15 distinct bar-dates.
+**One-shot** rule and INCONCLUSIVE clause identical to pre-reg #19 §5. A
+`--floors` mode reports floor status WITHOUT computing verdicts and does not
+consume the one-shot.
+
+## 5. The §5 gate (intraday form)
+
+Identical to pre-reg #15 §6 (the archive-integrity audit; EDGE verdicts
+require the audit to pass on the same frozen archive state). The tool
+asserts manifest integrity before any verdict computation.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+N=15 and N=240 horizons; the gate on the B-01 entry set (#15 detector) as
+an entry-set cross-check; window at 20/45 min; new-highs conjunct at 1.0%;
+5-min-MACD state as the gate (cross-timeframe form); IS-equivalent record
+(bar-dates before 2026-08-19 are excluded by §2 — the IS record is
+therefore not available; noted as a structural limitation of a live
+archive).
+
+## 7. Freeze
+
+**Frozen:** 2026-09-02 (before any measurement; the §4 floors were unmet at
+freeze time — 15/20 bar-dates — and the one-shot has NOT been consumed).
+No parameter in §1–§6 may change after this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_macd_gate.py` (blanked self-hash) | `c8b7543439096560` |
+| `tools/measure_intraday_veto.py` (Archive imported unchanged) | `60569201…` (its own FROZEN_SHA governs; asserted at every run) |
+| `tools/measure_intraday_entry.py` (contrast_two/holm imported) | recorded in output fingerprints |
+| `data/intraday/manifest.json` | recorded in output fingerprints |
+
+Measurement runs only when §4's floors are met; `--floors` may run earlier
+without consuming the one-shot; EDGE verdicts additionally require the §5
+archive-integrity audit (verify_intraday.py) to pass on the same archive
+state.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Pending — measurement §5-gated; floors were unmet at freeze time
+(15/20 bar-dates).)*
