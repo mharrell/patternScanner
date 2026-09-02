@@ -5145,3 +5145,133 @@ dropped 7,060.
 
 Ledger rows: 3rE-05/-06, 5X_-04/-06b, GMR-07, ZS8-13/-14, HYo-14, 3rE-11 →
 tested. Verdict section: CLAIMS_LEDGER §J.4.
+
+# Pre-registration #29 — regime conditioning: his hot/cold claims measured with the frozen leader proxy (ledger rows KzV-10, Wd_-03, UvX-24, J-E-02; daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-02)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): "when to stop adding is going to be very market
+dependent... if it's a hot market I'm going to hold it as long as I can; if
+we're in a colder market I'm going to be more conservative and take the
+profit off sooner" (KzV-10); "sellers are in control... batten down the
+hatches... trade with smaller size" (Wd_-03); "I trade better when there's
+a tailwind so when the overall market is strong" (UvX-24); the MACD gate's
+value "concentrates in hostile regimes" (J-E-02, 2022 bear adoption story).
+Pre-reg #26 constructed the Wd_-01 regime proxy and found zero daily
+persistence (lag-1 autocorr 0.013) — the pre-registered consequence: hot/
+cold regimes must be defined over WINDOWS, not single days. This campaign
+consumes the frozen proxy as designed.
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "market's hot" / "sellers in control" (KzV-10, Wd_-03, UvX-24) | **Regime R_t** = tercile of the trailing 10-day mean of the frozen leader proxy (L_t = daily max return across the hist universe, dates ≥100 names — #26 §1 definition, unchanged); cutpoints = 1/3 and 2/3 quantiles of R over the FULL 2000–2025 daily series (fixed here, not tuned on OOS); the signal day's regime uses L values strictly BEFORE t (no look-ahead) | His regime language ("hot"/"sellers in control") is undefined; the proxy is the pre-registered operationalization (Wd_-01) |
+| "hot market → hold longer / aggressive; cold → conservative" (KzV-10) | Contrast: OOS forward returns (N=10, cost) of frozen veto-pass shape detections on high-R days vs low-R days (UP: high better) | Population = the frozen detection set (`veto_detections_v1.csv`, as in #8/#24); the conditioning layer approach |
+| "I trade better with a tailwind" (UvX-24) | Absolute family: high-R detections beat era-matched random + same-ticker baselines (UP) | Same convention as #8/#24 F1 (p_input = max of the two p's) |
+| "the gate's value concentrates in hostile regimes" (J-E-02) | Descriptive: the H1 contrast computed per regime-tercile pair reported; any MACD-gate interaction is intraday (#27) and NOT tested here | The daily form carries the regime question only |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 2 slots at α=0.05, OOS only)
+
+- **H1 (contrast):** veto-pass detections on high-regime days outperform
+  low-regime days (two-sample bootstrap, high − low > 0). EDGE iff
+  Holm-rejected AND CI-low > 0; FADE iff rejected AND CI-upper < 0.
+- **H2 (absolute):** high-regime detections beat both baselines (p_input =
+  max(p_rand, p_same)). EDGE iff Holm-rejected AND CI-low > 0.
+
+Floors: ≥100 OOS detections per cell; else INCONCLUSIVE. Bootstrap B=1000,
+seed 20260904; N=10, cost 0.15%; OOS 2016–2025 (the detections' OOS era);
+IS record descriptive.
+
+## 3. Measurement
+
+New frozen tool `tools/measure_regime.py`; detection set, engine
+(`measure_returns`, `bootstrap_excess`), pools (`build_pools`), and
+two-sample machinery imported from the frozen #8-family tools unchanged.
+The leader proxy recomputes exactly as #26 §1 (same formula, same ≥100-name
+dates). Implementation assertions: (a) the recomputed leader series matches
+#26's stored per-year medians within tolerance on the shared years; (b)
+regime tercile cutpoints reported before any p-value; (c) regime
+distribution across detection signal dates reported (how many detections
+land in each tercile).
+
+## 4. Verdicts
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1 (UP contrast) | Holm-rejected AND CI-low > 0 | not rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+| H2 (UP absolute) | Holm-rejected AND CI-low > 0 | not rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+
+## 5. Data & bias handling
+
+Bars, hist universe, and detection set as frozen in #8/#24/#26. The
+regime variable uses only pre-t information. No parameter tuned on OOS;
+tercile cutpoints fixed on the full series (2000–2025) before the OOS era
+is examined. Sensitivity thresholds are pre-declared; nothing else.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+Window 5/20 days instead of 10; terciles on the OOS-era distribution
+instead of full-series; regime quartiles (top-vs-bottom); per-shape H1
+decomposition; per-year; IS record.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-02, before any measurement (sign-off: the user approved
+the daily queue 2026-09-02; #26's frozen proxy consumed per its design). No
+parameter in §1–§6 may change after this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_regime.py` (amendment 1, 2026-09-02, pre-results; blanked self-hash `802555b25c70ebe4`) | `802555b25c70ebe4bc3589aec8405170c5e8fbd80ca3c6fc51985a03cf95ab58` |
+| `tools/measure_regime.py` (amendment 2, 2026-09-02, pre-results; regime-dict fix) | `b14f20d744679d49ae763e2e9fba28313c73f014b98faaf2a1f385ba69d318be` |
+| `tools/measure_regime.py` (original frozen sha, superseded) | `9f0a104488075f43` (blanked-self-hash convention; pre-results) |
+| `tools/measure.py` / `measure_pillars.py` / `measure_veto.py` (imported) | recorded in output fingerprints |
+| `data/cache/veto_detections_v1.csv` | recorded in output fingerprints |
+
+Measurement runs only after this freeze line; the leader-series cross-check
+against #26's stored per-year medians must pass (assertion (a)) before any
+p-value.
+
+**Amendment 1 (2026-09-02, pre-results — no verdict produced):** the first
+frozen run failed startup assertion (a): the recomputed leader medians
+differed from #26's stored values by up to 0.15pp on one year. Root cause:
+#26's per-year medians were computed over `lds[:-1]` (its leader frame
+drops the final day to pair with next-day returns), while #29 recomputed
+over all days. Fix: mirror #26's population exactly (`lds[:-1]`). Nothing
+was measured; the tool re-frozen at the amended sha and re-run. (Freeze
+tooling note: the intermediate freeze attempt hashed un-blanked bytes —
+corrected; the recorded amendment sha is the verified blanked self-hash.)
+
+**Amendment 2 (2026-09-02, still pre-results):** the amendment-1 run crashed
+before any verdict — the regime lookup used `Series.get` on a
+(ticker, signal_date) MultiIndex whose keys are DUPLICATED (multiple shapes
+per day), returning a Series per key and poisoning the regime column. Fix:
+plain dict lookup (identical value per duplicate key). Re-frozen at
+`b14f20d744679d49…`; re-run once. No verdict has yet been produced by any
+run of this tool.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-02** (`tools/measure_regime.py`; four recorded amendments —
+amendments 1–3 pre-results (leader-median population mirror; duplicate-key
+regime lookup; `str(np.datetime64)` date-key truncation — the startup
+cross-check and empty-assignment checks caught both), amendment 4
+post-verdicts label fix; five runs total, verdicts identical in every run
+that computed them; clean report from the amendment-4 run). Assertions:
+leader cross-check vs #26 0.00e+00 (PASS); regime assignment complete
+(high 2,612 / mid 4,418 / low 4,131; unassigned 0).
+
+| Slot | Verdict |
+|---|---|
+| H1 (high − low contrast) | **NO EDGE** — +0.35pp (CI −0.00..+0.75, p 0.052 > gate 0.025) |
+| H2 (absolute vs baselines) | **NO EDGE** — −0.35pp vs random (p 0.152), −0.39pp vs same-ticker (p 0.064) |
+
+Reading: the tailwind claims lean in the claimed direction at nominal
+p 0.052 (the fifth directional whisper) but never clear Holm; the absolute
+family shows even hot-regime entries do not beat chance. Cold-regime
+entries are outright bad (−0.22%) — a loss-avoidance overlay candidate,
+not an edge. Ledger rows: KzV-10, Wd_-03, UvX-24 → tested; J-E-02 regime
+leg noted. Verdict section: CLAIMS_LEDGER §J.6.

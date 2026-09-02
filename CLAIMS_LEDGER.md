@@ -1746,6 +1746,11 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   bars); momentum-continuation and round-number proximity NO EDGE with
   claimed-direction whispers (p 0.038 / 0.056); rank-2/3 INCONCLUSIVE
   (population too rare on daily bars). Verdicts in §J.4.
+- [x] Pre-registration #29 — regime conditioning with the frozen leader
+  proxy — done 2026-09-02: **NO EDGE × 2** (contrast +0.35pp at nominal
+  p 0.052 — the fifth and closest directional whisper; absolute family
+  negative). Cold-regime entries are bad (−0.22%) — risk-overlay
+  candidate, not alpha. Verdicts in §J.6; §J.5 course-drift map added.
 - [ ] Pre-registration #27 measurement — run `tools/measure_macd_gate.py`
   (full mode) when the §4 floors are met (≥20 bar-dates ≥2026-08-19;
   currently 10); the one-shot then closes.
@@ -1780,7 +1785,8 @@ that the signal line is unused there — see J-B-01 vs J-B-02.
 | J-B-04 | mfGQr2tHoX0 [09:37–09:50] | **Gate boundary condition:** "when I first take a trade on something like this I'm not really looking at the macd in those first few minutes" — the initial breaking-news spike is exempt; the gate governs pullback/continuation entries only. | `candidate` (structural) — refines J-B-01: any MACD-gate test must stratify news-spike entries vs pullback entries or it will dilute both. Analogous stratification lesson to the I-B-06 RSI state-vs-event split. |
 | J-C-01 | mfGQr2tHoX0 [16:57–17:11] | **Post-crossover stop-trading:** "imagine if you stopped trading it right there and you didn't trade it again for the rest of the day or at least until you got another crossover you would be in good position". | `candidate` — exit/re-entry side rule: after a bearish cross, stand down until the next bullish cross (not merely "skip this entry"). Distinct from J-B-01 (which gates individual entries); testable as a session-level trade-suppression rule on the intraday archive. |
 | J-E-01 | mfGQr2tHoX0 [07:01–07:17], [07:17–07:41], [18:00–18:07] | **Standard-settings coordination mechanism:** "you want to see the same signals that everyone else is seeing"; traffic-light analogy ("if you say... I'm going to use a magenta light... you're going to crash your car"); "the people that are using macd will do better as a result if they use it consistently". | `candidate` (mechanism) — claims indicator profitability comes from *coordination* (everyone trading the same default signal), not from information in the indicator. Not directly measurable with bars; the measurable consequence is J-B-01 (default-parameter MACD state carries conditioning value). If J-B-01 shows no edge, this mechanism loses its support. Note: MACD is a NEW teaching vs the 2015 corpus (§I.12: "1 NEW (MACD veto, self-dated 2022)") — his own adoption story is [19:03–19:31]. |
-| J-E-02 | mfGQr2tHoX0 [19:03–19:31] | **Regime-conditional utility:** MACD re-adopted during the 2022 bear market "because we were seeing a lot of false breakouts... I needed to focus on improving my accuracy". | `partial` — implicitly claims the gate's value concentrates in high-false-breakout (hostile) regimes. Testable only as an exploratory interaction (MACD-gate × regime); pre-register before any verdict. |
+| J-E-02 | mfGQr2tHoX0 [19:03–19:31] | **Regime-conditional utility:** MACD re-adopted during the 2022 bear market "because we were seeing a lot of false breakouts... I needed to focus on improving my accuracy". | `partial` — implicitly claims the gate's value concentrates in high-false-breakout (hostile) regimes. Testable only as an exploratory interaction (MACD-gate × regime); pre-register before any verdict. **Regime leg tested (pre-reg #29, §J.6)**: the daily form carries no MACD interaction (intraday is #27); the regime conditioning itself measured NO EDGE on the detection set. |
+|
 | J-G-01 | mfGQr2tHoX0 [20:03–20:17], [20:53–21:07], [21:16–21:33] | **Hot/cold hours rule** (via Annie Duke's *Quit*): "the best traders will trade longer... when the market's hot and will walk away even if they don't hit their daily goal when the market is cold"; "those are the days you should trade more hours"; reframe from consecutive green days to "consecutive days... you can maintain discipline". | `process guidance` — same family as I-G; not measurable on bars (would need the paper log's per-session outcomes and is self-fulfilling as stated). Logged for the process layer. |
 | J-G-02 | mfGQr2tHoX0 [18:07–18:26] | Indicators "work when you follow them on every single trade you take... checking them intermittently does not work". | `process guidance` — a consistency precondition, not a testable market claim. |
 | J-H-01 | mfGQr2tHoX0 [01:16–01:21], [05:18–05:26] | "it's valid on all time frames"; moving-average ribbon "all stacked above each other... very bullish". | `out of scope` — general TA framing; no operational rule beyond J-B rows. |
@@ -1898,7 +1904,7 @@ Quotes mechanically grep-verified against the transcript by the extraction agent
 | UvX-21 | [49:56–50:09] | "the macd" "as a technical" "indicator is really good at helping me" "identify when I want to be focusing on" "uh trading a stock and when I want to" "just completely leave it alone all right" | `candidate` | **MACD as a trade/no-trade gate** — the J-Pilot J-B-01/J-B-02 family. Note what is ABSENT: no MACD settings or line/histogram thresholds anywhere in this video (unlike J-E-01's standard-settings coordination), and no volume-veto leg — the repo's two-filter veto (macd_neg + vol_spike) does NOT appear here; MACD is a chart-state gate, volume only an entry confirmation (UvX-11). |
 | UvX-22 | [50:57–51:03] | "when that moving average" "crosses over then for me this is really" "not something that I'm going to be" "interested in any longer" | `candidate` | Post-crossover stand-down — same rule as J-C-01, here generalized to the 9/20 EMA crossover as well as the MACD convergence. |
 | UvX-23 | [51:33–51:41] | "to focus on trading these on the front" "side of the move when they're making" "these really big squeezes" and "alone the rest of the day" | `candidate` | Front-side-only rule — matches J-B-03. Consistent across both corpora; a stock is tradeable only during its active squeeze phase. |
-| UvX-24 | [2:34:30–2:34:38] | "I do find that I trade better" "when there's a Tailwind so when the" "overall Market is strong I'll trade" better; sluggish in weak markets | `candidate` | Market-regime filter, awareness-only (no numeric gate stated — he watches SPY "just to get a perspective"). Testable as an index-regime conditioning variable; same family as I-F-03 and the RV-conditioning campaign (§I.5). |
+| UvX-24 | [2:34:30–2:34:38] | `tested` (pre-reg #29, 2026-09-02) — **NO EDGE** ("tailwind helps": direction consistent at nominal p 0.052, never significant; the frozen leader-proxy regimes do not rescue the detection set) (§J.6) | `candidate` | Market-regime filter, awareness-only (no numeric gate stated — he watches SPY "just to get a perspective"). Testable as an index-regime conditioning variable; same family as I-F-03 and the RV-conditioning campaign (§I.5). |
 | UvX-25 | [1:59:36–1:59:46], [2:01:31–2:01:44], [2:04:35–2:04:40], [2:13:50–2:13:55] | From his trade log: "news was not for all of them um my best" "trades were uh" "9:30 a.m. and 11:00" "a.m. okay um"; metrics conclusion "should stop trading before 7 a.m. and I" "should stop trading after 12:00" p.m. (garbled — likely "start at 7"); routine: "around 9 a.m. I traded until 11:00 a.m."; "I learned to walk away at 11: a.m." every day | `out of scope` (daily bars) / `partial` | **I-B-05 family — THIS video states 9:30–11:00**, a fifth window variant (corpus: 9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30). The 7 a.m.–12 p.m. metrics-derived window contradicts it and is likely a transcription garble; the behavioral constant is "done by 11:00." |
 | UvX-26 | [1:10:25–1:16:50] | Guard rail: "rule tools number one is Max" loss — "at minus $55,000" (transcription of $5,000); "I have a daily goal and my daily" "goal is also" $5,000; mentally allocates "up to four Max loss" "days per month one per week"; "weekly goal is actually my daily goal" "time 3 which equals" $15,000; monthly ~$50–60K; "loss is my daily goal all right so"; enforcement is externalized: "my broker and tell them to set that Max" "loss on my account so if I'm down more" "than that amount I cannot trade" | `candidate` (process, numeric) | **Transcription note**: "minus $55,000" must be $5,000 — resolved internally by "my Max loss is my daily goal" and the $5K daily goal. The rule set (max loss = daily goal, 4 red days/month budget, broker-set hard block) is self-consistent and fully parameterized. |
 | UvX-27 | [1:17:01–1:17:46] | "than half of my profit after hitting my" "$5,000 daily goal I have to walk because" of the emotional response; and "I'm green on the day ,15 $1,200 and I go" "red the second I go red that for me is" "like okay it's time to walk away" | `candidate` | Two walk-away triggers: (a) give back >50% of a hit daily goal; (b) green-to-red after meaningful progress (threshold stated loosely: "a quarter or half of goal"). Mirrors the I-G red-day rule family. |
@@ -2466,7 +2472,7 @@ Topics: scaling-into-winners, averaging-up, starter-position, add-ladder, stop-t
 | KzV-07 | [1:19:58–1:20:21] | Exit ladder is geometric halving via hotkeys: orders "automatically calculate how many shares … So, if I press sell half and I'm … holding 10,000, I sell 5,000 shares." | `process guidance` | Sell-half/sell-half/sell-half ladder; pairs with add ladder of 6K→12K→+quarter (typical shape given at [48:43–48:57]). |
 | KzV-08 | [54:40–56:36] | Keep-adding conditions: "Green on the tape. We want to see more" buying; number of shares "the level two decreasing"; "The stock should be hitting new highs and it should be on the high day scanner" — then "momentary dips to continue adding." | `partial` | Level-2/tape legs out of scope; the new-highs/high-of-day-scanner leg is bar-observable intraday. |
 | KzV-09 | [53:29–53:45] | Add trigger: "as I like to see these sort of squeezes … up and then a momentary pause." — "That momentary pause can be the formation … of a micro pullback as you see right" there. | `candidate` | Micro-pullback = add trigger; same pullback family as I-B-01/J-B-03 at sub-candle resolution. |
-| KzV-10 | [56:59–58:41] | When to stop adding "is going to … be very market dependent." Exit choice too: "If it's a hot market, I'm going to try … to hold it as long as I can. If we're in … a colder market, I'm going to be a bit … more conservative and take the profit … off sooner." | `candidate` | Regime-conditional hold time and add aggressiveness; regime undefined here (see Wd_-02 for his later definition). Cross-ref G-06, J-G-01. |
+| KzV-10 | [56:59–58:41] | `tested` (pre-reg #29, 2026-09-02) — **NO EDGE**: high-regime vs low-regime detections +0.35pp (CI −0.00..+0.75, p 0.052) — the claimed direction, the fifth whisper, not Holm-cleared (§J.6) | `candidate` | Regime-conditional hold time and add aggressiveness; regime undefined here (see Wd_-02 for his later definition). Cross-ref G-06, J-G-01. |
 | KzV-11 | [58:15–58:33] | Weakness response is 3-mode: "sell the full position, … I could begin scaling out quickly, or … sell slowly and wait to … see if strength resumes. The … will be based on my cost basis, my total … profit, both realized and unrealized, … and market sentiment." | `process guidance` | Decision function over (cost basis, realized+unrealized P&L, regime) → exit mode. Not formalizable as stated. |
 | KzV-12 | [27:50–30:50] | Requirements to scale: "you're seeing a stock that's only going … up, you know, 10, 15 cents, you don't … have enough room to scale in" — need "stocks squeezing up 50 … cents, a dollar a share or more"; plus volatility and "maybe perhaps another one is liquidity." | `candidate` (structural) | Testable shape: scaling benefits (size × win) concentrate on large-range/liquid days. |
 | KzV-13 | [31:42–31:52] | Slippage mechanism: "scaling allows … you to move into and out of the market … with less slippage than one big block … order." | `candidate` (structural) | Market-microstructure claim; out of scope for daily bars; relevant to any large-position backtest. |
@@ -2498,7 +2504,7 @@ Topics: market-regime, seller-control, point-of-control, leading-gainer-proxy, r
 | Wd_-01 | [00:12–00:36] | Regime proxy via leader strength: "our leading gainer is up … only 58%. It's GoPro 160 million share … float stock" — "really says … something about the sentiment in the … market." | `candidate` **Proxy constructed (pre-reg #26)**: daily max return, ≥100-name dates; lag-1 autocorr 0.013 (no daily persistence); next-day universe mean by leader tercile low/mid/high = +0.07/+0.07/+0.11%. Definition frozen in pre-reg #26 §1 — conditioning campaigns consume it, not re-tune it. |
 | The most operational F-claim in the corpus: leading-gainer % (and its float size) as a breadth/sentiment gauge. Directly computable from daily data — register as the regime proxy. |
 | Wd_-02 | [00:34–00:46] | Point-of-control shift: "this shift has been a shift … from control among buyers to control … among sellers. The point of control has … shifted from the buy side to the sell … side." | `candidate` | His regime variable ("sellers in control" / "buyers in control") never formally defined; observable correlates he cites: leading-gainer strength, round-trip frequency (Wd_-06/-07). Any test must pre-register the proxy, not the label. |
-| Wd_-03 | [22:50–23:14] | Regime→size response: "feeling right now is that the sellers … are in control." … "sellers are in control, I've got to kind … of batten down the hatches. I've got to … trade with smaller size." — and "rather than … assume that things are going to work, … assume that they won't work." | `candidate` | Regime-conditional sizing now testable *if* Wd_-01/-02 give the regime definition — unlike G-06, which was unmeasurable for lack of one. Cross-ref G-06, KzV-10. |
+| Wd_-03 | [22:50–23:14] | `tested` (pre-reg #29, 2026-09-02) — **NO EDGE** (same campaign as KzV-10; note the tension: high-regime detections still UNDERPERFORM baselines absolutely, −0.35pp p 0.152 — cold-day entries are terrible, hot-day entries merely no better than chance) (§J.6) | `candidate` | Regime-conditional sizing now testable *if* Wd_-01/-02 give the regime definition — unlike G-06, which was unmeasurable for lack of one. Cross-ref G-06, KzV-10. |
 | Wd_-04 | [23:48–23:58] | Cold-market veto: "wait for stocks that actually prove that … they can hold up because I'm going to … see more of these pops and reversals," | `candidate` (E-veto) | "Proof-of-hold" as an entry precondition in cold regimes; in-session stand-down family with J-C-01. Operationalizable: require N-bar hold above the pop before entry. |
 | Wd_-05 | [25:04–25:18] | Late-cold dynamics: "stop buying, then the moves get smaller … and smaller. Shorts get more and more … aggressive until we reach a point where … the second something pops up, shorts are … hammering it and it actually ends up … going red in spite of having news." | `candidate` | Sharp testable prediction: in late-cold regime, news-day returns flip negative. Stratify news-pop next-day returns by regime phase. |
 | Wd_-06 | [26:09–26:21] | Regime ignition mechanism: "typically the way these um shifts occur, … with one stock that makes makes just an … exceptional move." — "shorts got stuck." (+500–700% day). | `candidate` | Cold→hot transitions are single-stock short-squeeze ignition events; the transition date is identifiable ex post via the outlier stock. |
@@ -2648,3 +2654,71 @@ consecutive campaigns (#8, #24, #28×2). H1's inconclusive is honest: the
 top-2/3 claim's population barely exists on daily bars, a structural
 finding about the claim's own granularity (it lives on his gapper scan, not
 on close-based universes).
+
+## J.5 Course-drift comparison II — the "My Favorite Episodes" corpus (2015 → 2026)
+
+§I.12 mapped the 2015 classroom against the 2025 ultimate-guide. The §J scan
+adds the middle and newest of the arc — 2019–2026 YouTube-era videos, all
+official — plus the measured campaigns (#24–#28). The rule map below uses
+§I.12's vocabulary (SAME / DRIFTED / CONTRADICTED / DROPPED / NEW /
+ESCALATED).
+
+| Rule family | Verdict | Evidence |
+|---|---|---|
+| First/second pullback, never the third | **SAME** — the most stable rule in eight years of video | I-B-01 (2015) = J-B-03 = ul3-06 = dkO-16 = 2n2-11 = GXl-14 (2023, with the "I don't actually have the data" admission) — six corpus-wide restatements, parameters unchanged (1–3 pullback candles, ≤50% retrace) |
+| First-candle-to-new-high entry | **SAME** | I-B-02 = ZS8-08 (quantified: ≥5 red candles first) = ul3-03 = 4Pc-12 = UvX-10; the exit mirror (first candle to a new low) equally stable (UvX-16, 4Pc-15) |
+| Sell-half-to-breakeven | **SAME** | I-C-02 = 0sl-15 = ZS8-22 = 4Pc-14; the hot-key behavioral crutch (4Pc-14) is new packaging |
+| No live stops (mental stops only) | **SAME** (2022–2024) | 0sl-25 = ZS8-18 = afN-20; stated as market-maker stop-hunting — never measured (needs fills data) |
+| Volume-profile rule (high-vol green / light-vol red) | **SAME** — the invariant of the candlestick videos | ul3-11 = HYo-05 = 4Pc-04/06, near-verbatim across 2023–2024; daily veto form measured NO EDGE (§E.5), intraday form untested |
+| Indicator stack | **SAME** | 9/20/200 EMA + VWAP + volume = D-05 = MiN-08; MACD is the only addition (below) |
+| Price band | **DRIFTED (measured)** | $2–5 (2017, +1.11pp EDGE #16-F1a) → $2–10 (2019) → $2–20 (2022–24, +0.40pp #25-H1) → $1–20 (HYo-03/GXl-12, +0.52pp): the drift did NOT destroy the edge (#25) but diluted it ~⅔ while the rhetoric escalated; the sub-$2 tier (+6.26%) sits outside every stated band |
+| Float cap | **DRIFTED + CONTRADICTED (internally)** | <10M (2025 course, HYo-03) vs <20M hard (2n2-14, 5X_-05, 3rE-07) vs <30M okay (GXl-12); measured monotone: ≤10M +0.25pp > ≤20M +0.09pp > ≤30M +0.11pp descriptive (#25-H3/H4) |
+| Morning window | **DRIFTED (6 variants, one core)** | I-B-05's four (2015) → 9:30–11:00 (UvX-25) → "first 2 hours," now 7:38–10:30 incl. premarket (ZS8-03) → 2026: after-10 "no-trade zone" with self-audited hour instability (Wd_-11/-12). Behavioral constant: done by ~11:00 |
+| RV threshold | **DRIFTED (nominally)** | 5× stated (2020–24) vs "RV 3 not high enough" (yFo-05) vs 10× (2025 restatement); lookback uncertain even to him (yFo-14); measured NO EDGE at both 2×/20-bar (#8) and 5×/50-bar (#24) — the drift is moot |
+| MACD role | **NEW, escalation datable 2023→2024** | 2023-04: "there are times you'll see me add MACD... especially in a choppy market" (GXl-09, occasional add-on) → 2024-05: core gate with standard settings (mfGQr2tHoX0) → 2024-07: gate + 30-min window + conjuncts (2n2). Consistent with §I.12's "1 NEW (MACD veto, self-dated 2022)" and J-E-02's bear-market adoption story; bounded to 1-min (2n2-22) |
+| Round-number levels | **SAME, never cleared** | ZS8-13/-14 (2022, the most precise form) = HYo-14 = 3rE-11; daily proximity test NO EDGE with the claimed direction at p 0.056 (#28-H3) |
+| Market-structure context claims | **CONTRADICTED (new in this corpus)** | The favorites corpus adds explicit distribution claims the older corpora lacked: ±4% rarity (CONTRADICTED, 11%), 5–10 gainers/day (median 2), 2020–21 parabolic peak (actually 2009) — #26 |
+| Performance narrative | **ESCALATED (endpoints), STABLE (core)** | $335K (2017) → $1M (2019) → $10M (2022) → $12.6M gross (2024) → "nearly $24M" (2026, Wd_-17), with "audited" rhetoric from 2019 on and never shown; the accuracy core holds ~68–70% and avg-win ≈ avg-loss throughout — the only stable figures in the corpus (I-A-04 pattern) |
+| Coordination mechanism | **SAME, pre-dated** | "the only reason the first candle make a new high works so well is because people respect it" (yFo-08, 2020) — stated 4 years before J-E-01's traffic-light version (2024) |
+| Self-awareness layer | **NEW** | The corpus contains its own method critique: the overfitting confession (GXl-06: backtests profitable, live failed), "I don't actually have the data on this chart" (GXl-14), and the survivorship meta-claim about social-media P&L (dkO-06) — epistemically aligned with this repo's posture, and the cleanest reason to treat the corpus's positive claims with its own skepticism |
+
+**Reading.** The favorites corpus confirms §I.12's shape from the middle of
+the arc: the STRATEGY is stable (six verbatim rule restatements), the
+NUMBERS drift (bands widen, caps contradict, windows wander, endpoints
+grow) — and the measured campaigns say the strategy layer is where the
+measurable content lives (#25 EDGE ×4, diluted) while the numbers layer is
+where the errors live (#26 CONTRADICTED ×2). The one genuinely new measured
+mechanism (MACD gate) is also the one with a datable origin story that
+matches his own account of adopting it. Nothing in the drift map changes a
+verdict; it explains why the same teacher's claims test differently across
+vintages.
+
+## J.6 Regime-conditioning verdicts — pre-registration #29 campaign (2026-09-02)
+
+The hot/cold conditional claims measured with the #26-frozen leader proxy
+(`tools/measure_regime.py`; four recorded amendments — three pre-results
+(leader-median population mirror; duplicate-key Series.get poisoning; the
+`str(np.datetime64)` date-key mismatch, all caught before any verdict — and
+one post-verdicts label fix). Regime = trailing 10-session mean of the
+daily-max-return proxy, terciles fixed on the full 2000–2025 series; the
+leader-series cross-check against #26 passed at 0.00e+00. Regime
+distribution over OOS detections: high 2,612 / mid 4,418 / low 4,131.
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| H1 | hot-regime detections outperform cold-regime detections | `tested, no edge` — **NO EDGE** | +0.35pp (mean_high +0.14% vs mean_low −0.22%; CI −0.00..+0.75, p 0.052 > gate 0.025) — claimed direction, not cleared |
+| H2 | hot-regime detections beat random + same-ticker baselines | `tested, no edge` — **NO EDGE** | excess −0.35pp vs random (p 0.152), −0.39pp vs same-ticker (p 0.064) — the "hot" days' entries are still no better than chance |
+
+**Reading.** His regime intuition points the right way for the first time
+in a contrast that ALMOST clears (p 0.052 vs gate 0.025 — the fifth and
+closest directional whisper: #8 F2-B 0.302, #24 H3/H5 0.654/0.324, #28-H2
+0.038, #28-H3 0.056, now #29 0.052). But the decomposition is the finding:
+cold-regime entries are terrible (mean −0.22%) while hot-regime entries are
+merely mediocre (+0.14%, still below baselines) — "trade smaller when
+sellers are in control" (Wd_-03) has support as a LOSS-AVOIDANCE heuristic
+(avoid the low-regime cell) but not as an edge amplifier (nothing beats
+chance anywhere in the regime table). The practical residue: the frozen
+regime proxy separates good days from bad days among the detector's own
+signals even though neither class beats baselines — a risk-overlay
+candidate, not an alpha source. The J-E-02 MACD-gate interaction remains
+intraday-only (#27).
