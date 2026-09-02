@@ -1751,9 +1751,19 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   p 0.052 — the fifth and closest directional whisper; absolute family
   negative). Cold-regime entries are bad (−0.22%) — risk-overlay
   candidate, not alpha. Verdicts in §J.6; §J.5 course-drift map added.
+- [x] Pre-registration #30 — sector sympathy momentum — done 2026-09-02:
+  same-day sympathy **EDGE** (+0.28pp, p 0.014), next-day **NO EDGE**
+  (+0.08pp) — the contagion is real, visible intraday, and fully priced by
+  the next open. Verdicts in §J.7.
+- [ ] Gate opener — script validated (all five gated campaigns correctly
+  report floors-unmet; nothing consumed). Task XML + cmd committed
+  (`tools/tasks/gate_opener_task.xml`, `tools/gate_opener.cmd`); REGISTRATION
+  is a user command: `schtasks /create /tn "patternScanner-gate-opener" /xml
+  "tools\tasks\gate_opener_task.xml" /f` (blocked from this session by
+  design — machine-level persistence is a user decision).
 - [ ] Pre-registration #27 measurement — run `tools/measure_macd_gate.py`
   (full mode) when the §4 floors are met (≥20 bar-dates ≥2026-08-19;
-  currently 10); the one-shot then closes.
+  currently 10) — or let the registered gate-opener do it.
 
 ## J. Warrior-trading corpus — "My Favorite Episodes" playlist claims
 
@@ -2305,7 +2315,7 @@ Topics: `short-squeeze` `parabolic-momentum` `stock-selection` `float` `sympathy
 | afN-03 | [08:55–09:01] | "i'm going to … be much more likely to take an abcd … setup on this stock than on one that's … not intraday parabolic" — stock type conditions entry quality. | `candidate` | Conditioning claim (stock-type as a filter on setup quality). Family of ultimate-guide B-06; testable intraday. |
 | afN-04 | [09:08–09:10] | "it's a setup that we would … only trade on a stock that's been halted" (dip-and-rip). | `out of scope` | Requires halt-event data the repo's daily/intraday bars don't carry. |
 | afN-05 | [13:12–13:18] | "recent reverse splits recent ipos … and spax are … some of the more common stocks that can … become parabolic". | `candidate` | Stock-type → parabolic-frequency claim; daily bars can test which listing/split cohorts produce >100% days. |
-| afN-06 | [15:17–15:24] | "when you have one stock that's going … crazy you might have two three four … others that start kind of moving because … they're in the same sector" (sympathy momentum). | `candidate` | Notes: "when the main stock rolls the sympathy rolls even harder … that's almost always the case" [19:09–19:14] — a directional add-on (sympathy falls harder than leader), separately testable on daily bars. |
+| afN-06 | [15:17–15:24] | `tested` (pre-reg #30, 2026-09-02) — **SPLIT**: same-day sympathy **EDGE** (+0.28pp, p 0.014, Holm-cleared — the sector genuinely moves with the parabolic leader) but next-day **NO EDGE** (+0.08pp, p 0.716 — the effect is consumed by the same close; not tradeable at the daily bar). The "sympathy rolls harder" leg untestable (compound cell too small) (§J.7) | `candidate` | Notes: "when the main stock rolls the sympathy rolls even harder … that's almost always the case" [19:09–19:14] — a directional add-on (sympathy falls harder than leader), separately testable on daily bars. |
 | afN-07 | [19:41–19:44] | "i've seen stocks go up as much as four … thousand percent in one day and that's … been with no news". | `out of scope` | No-news squeeze mechanics lean on short-interest/borrow data the repo lacks; companion claim — "when a stock has no news it's got a … little bit more risk of getting halted" [21:20–21:26] — needs halt data. |
 | afN-08 | [22:34–22:40] | "you'll notice this pattern that this is … much more common for stocks listed with … the new york stock exchange then listed … with nasdaq" (no-news halts). | `out of scope` | Concrete and checkable, but only with a halt database. |
 | afN-09 | [18:13–18:24] | Reverse-split float mechanics: "float a history of reducing float … reducing float reducing float often … followed by secondary offerings selling … more shares on the market increases … float and we see this cycle again and … again". | `out of scope` | Float/share-count series not in the repo's data; mechanics education, no trade rule. |
@@ -2722,3 +2732,29 @@ regime proxy separates good days from bad days among the detector's own
 signals even though neither class beats baselines — a risk-overlay
 candidate, not an alpha source. The J-E-02 MACD-gate interaction remains
 intraday-only (#27).
+
+## J.7 Sector-sympathy verdicts — pre-registration #30 campaign (2026-09-02)
+
+The corpus's only sector-contagion claim (afN-06), measured with frozen
+sector labels over OOS 2016–2025 (`tools/measure_sympathy.py`; frozen
+before measurement, one clean run, no amendments; #16 engine imported
+unchanged; leader = a name ≥+50% on the day, #26's parabolic threshold;
+leaders excluded from both legs; 143 parabolic dates, leader-event counts
+matching #26's C3 table exactly year by year).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| H2 | same-sector names move WITH the parabolic leader (same day) | `tested, edge` — **EDGE** | +0.28pp per-date-mean difference (p 0.014 ≤ gate 0.025), 143 paired dates, 688 sector names |
+| H1 | same-sector names CONTINUE over the next 10 sessions | `tested, no edge` — **NO EDGE** | +0.08pp (p 0.716), 141 paired dates |
+
+**Reading.** The first clean EDGE for a §J contagion claim — and the
+sharpest demonstration yet of the corpus's visibility/tradeability gap:
+the sympathy is REAL and he SEES it (his screens watch the sector move
+with the leader intraday), but by the next daily open it is fully priced —
+the next-day leg is dead flat. The effect lives entirely inside the
+parabolic day, which is exactly the window his 1-min-bar practice trades
+and the daily bars cannot. The intraday form of this claim (does the
+sector name's 1-min chart wake up within minutes of the leader's spike?)
+is a natural #15-track follow-up once the gate opens. The roll leg
+("sympathy rolls even harder") remains untestable at this granularity as
+pre-declared — the compound population is ~2–4 events per year.

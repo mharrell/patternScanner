@@ -5275,3 +5275,101 @@ family shows even hot-regime entries do not beat chance. Cold-regime
 entries are outright bad (−0.22%) — a loss-avoidance overlay candidate,
 not an edge. Ledger rows: KzV-10, Wd_-03, UvX-24 → tested; J-E-02 regime
 leg noted. Verdict section: CLAIMS_LEDGER §J.6.
+
+# Pre-registration #30 — sector sympathy momentum: "when one stock goes crazy, others in the same sector start moving" (ledger rows afN-06, afN-02, dkO-14-adjacent; daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-02)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): "when you have one stock that's going crazy you
+might have two three four others that start kind of moving because they're
+in the same sector" (afN-06), with the directional add-on "when the main
+stock rolls the sympathy rolls even harder — that's almost always the case"
+(afN-06 notes). This is the corpus's only sector-contagion claim; the
+universe CSVs carry frozen sector labels, so it is testable on daily bars.
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "one stock going crazy" (afN-06) | **Leader day**: a hist-universe name with same-day return ≥ +50% (the #26 parabolic threshold, 0sl-21's own "tradeable parabolic" floor) | Leaders on their parabolic day are excluded from the sympathy legs |
+| "others in the same sector start moving" (afN-06, UP) | **H2 (same-day sympathy):** same-sector names' same-day returns on leader days vs all non-sector names' same-day returns, day-paired over leader days | Contemporaneous — no entry timing; tests whether the sector moves WITH the leader, not whether it's tradeable |
+| (implicit tradeable edge) | **H1 (next-day):** N=10 close-to-close forward returns (cost) of same-sector names from the leader's parabolic-day close vs all other names that day (UP) | The tradeable form: the parabolic is known by the close; sector membership is frozen (2021/2022 snapshot sector labels applied backward — no historical sector-change series; documented) |
+| "the sympathy rolls even harder" on the roll (afN-06) | **Not a verdict slot** — the roll leg needs a leader-direction conditional compound (leader-parabolic day THEN leader roll day) — a compound cell too small on daily bars (the #26 C3 counts: ~6–38 parabolic events/year) | Reported descriptively only if events ≥ 10; otherwise noted untestable |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 2 slots at α=0.05, OOS only)
+
+- **H1 (next-day sympathy, UP):** same-sector names outperform other names
+  over N=10 from the leader's parabolic close. EDGE iff Holm-rejected AND
+  CI-low > 0.
+- **H2 (same-day sympathy, UP):** same-sector names' same-day returns beat
+  other names' on parabolic days. Same EDGE rule.
+
+Era: OOS 2016-01-01–2025-12-31 (NOT the #25 2022+ era — the parabolic-day
+population is ~10–50/year and the 100-paired-dates floor needs the full
+decade; pre-declared here). Floors: ≥100 paired dates AND ≥10 distinct
+names per leg. Bootstrap B=1000, seed 20260905, day-paired via #16's
+`day_paired_boot` (imported).
+
+## 3. Measurement
+
+New frozen tool `tools/measure_sympathy.py`; `Bars`, `day_paired_boot`
+imported from `measure_pricetier.py` unchanged; sector labels from the
+frozen hist-universe CSV. Implementation assertions: (a) per-leg date/name
+counts printed before p-values; (b) the parabolic-day count reported
+(cross-check against #26's C3 table within ±2 events per year); (c) the
+leader's own sector excluded from the control leg only (leaders excluded
+from both legs).
+
+## 4. Verdicts
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1/H2 (UP) | Holm-rejected AND CI-low > 0 | not rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+
+## 5. Data & bias handling
+
+Bars and universes as frozen in #16/#25/#26. Sector snapshot survivorship
+documented (a delisted sector-mate is missing — biases H1/H2 toward NULL,
+the conservative direction). Same-day leg (H2) has no look-ahead (both legs
+are day-t returns); the tradeable leg's tag uses only close-t information.
+No parameter tuned on data.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+Leader threshold +25%/+100%; horizon N=5/20; IS 2000–2015 record (the
+parabolic-rich era); sympathy by sector (top-3 sectors by leader count,
+descriptive); next-1-day horizon.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-02, before any measurement (sign-off: the user approved
+the daily queue 2026-09-02). No parameter in §1–§6 may change after this
+line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_sympathy.py` (blanked self-hash, on-disk bytes) | `720c7c72c4c1bd99` |
+| `tools/measure_pricetier.py` (imported unchanged) | `675106eb…` |
+| `data/cache/universe_sp600_hist_2026-08-15.csv` | recorded in output fingerprints |
+
+Measurement runs only after this freeze line; per-leg counts print before
+any p-value (§3 assertions).
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-02** (`tools/measure_sympathy.py`, frozen sha `720c7c72…`,
+one clean run, no amendments). Assertions: per-leg counts printed before
+p-values (H1 141 dates / 688 names; H2 143 dates / 688 names); leader-day
+events 166 across 2016–2025, matching #26's C3 table exactly (11/10/9/7/
+38/18/6/12/28/27); forward dropped (report).
+
+| Slot | Verdict |
+|---|---|
+| H2 (same-day sympathy) | **EDGE** — +0.28pp (p 0.014 ≤ gate 0.025, CI-low > 0) |
+| H1 (next-day N=10) | **NO EDGE** — +0.08pp (p 0.716) |
+
+Reading: the contagion is real and same-day only — visible to his intraday
+practice, not tradeable at the daily close. Ledger row afN-06 → tested.
+Verdict section: CLAIMS_LEDGER §J.7.
