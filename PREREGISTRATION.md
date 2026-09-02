@@ -4780,3 +4780,154 @@ monotone in his direction but small; H3 per-year not robust (neg 2017/2020).
 Ledger rows flipped: UvX-18, HYo-03, 5X_-05, 3rE-07, afN-11, dkO-12, 2n2-14
 (tested/partial), 4Pc-11 (partial), GXl-12 float legs noted. Verdict
 section: CLAIMS_LEDGER §J.2.
+
+# Pre-registration #26 — market-structure calibration: the ±4% day claim, the 5–10 gainers count, parabolic-frequency trend, the below-200DMA veto, and the leading-gainer regime proxy (ledger rows 3rE-03, 3rE-04, afN-22, GMR-10/ul3-15, Wd_-01/-02; daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-01)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): "most stocks in the market trade within a standard
+deviation up or down of about 4 to 5% they rarely go up more than 4% in one
+day" (3rE-03); "out of thousands... there may only be 5 to 10 stocks that
+are up more than 10%" per day (3rE-04); "through 2020 2021 the frequency of
+parabolic momentum stocks reached an unprecedented level... I currently
+expect this trend to continue" (afN-22); "if a stock is below it it's almost
+always going to have resistance at it... I would never buy a stock right
+under the 200" (GMR-10; ul3-15 same rule); "our leading gainer is up only
+58%... really says something about the sentiment in the market" (Wd_-01,
+with Wd_-02's buyer/seller point-of-control).
+
+This is a CALIBRATION campaign: three of its rows are distribution claims
+with pre-registered decision rules (CONFIRMED / PARTIAL / CONTRADICTED), not
+edge tests; one row (the 200DMA veto) is an inferential contrast in the
+#25/#16 mold. The campaign also constructs the Wd_-01 regime proxy that
+later hot/cold conditional campaigns will consume — construction is fixed
+here so the conditioning variable is not tuned downstream.
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "within a standard deviation of about 4 to 5%... rarely up/down more than 4%" (3rE-03) | Share of (ticker, day) close-to-close returns with \|ret\| > 4%, hist universe, OOS 2016–2025; full-period distribution 2000–2025 descriptive | His two statements conflict (a 4–5% σ implies ~1/3 of days beyond ±4% under normality; "rarely" contradicts it). The 4% exceedance share is the decision quantity |
+| "only 5 to 10 stocks up more than 10%" (3rE-04) | Daily count of hist-universe names with ret ≥ +10%; decision on the OOS median count | His scanner universe is the gapper scan, not an index — same documented deviation as #1/#16 |
+| "2020 2021... unprecedented... expect the trend to continue" (afN-22) | Annual count of ticker-days with ret ≥ +50% (parabolic, per 0sl-21's own threshold), hist universe, 2000–2025 | "Unprecedented" = the max annual count falls in 2020/2021; "continue" = 2022–2025 counts vs the 2020–21 peak (descriptive) |
+| "never buy right under the 200" (GMR-10, ul3-15) | Day-paired N=10 contrast: [close < MA200 and close ≥ 0.98·MA200] (right-under) vs [close > MA200 and close ≤ 1.02·MA200] (right-above); hist universe, OOS 2022–2025 | The ±2% band is OUR operationalization of "right under/above" — fixed here; MA200 of closes |
+| "leading gainer is up only 58%..." (Wd_-01) | Proxy: daily max close-to-close return across the hist universe ("leader strength"); report distribution, per-year, persistence (lag-1 autocorrelation of the daily series), and its relation to next-day universe mean return | CALIBRATION ONLY — no verdict; downstream campaigns must consume this definition, not re-tune it |
+
+## 2. Hypotheses and decision rules (pre-registered)
+
+Inferential family — ONE Holm slot (direction DOWN: right-under is claimed
+WORSE than right-above):
+
+- **H1 (200DMA veto):** right-under N=10 mean − right-above N=10 mean < 0.
+  EDGE (claim confirmed) iff Holm-rejected AND CI-upper < 0; FADE iff
+  rejected AND CI-low > 0; else NO EDGE. Day-paired bootstrap (B=1000,
+  seed 20260902), floors 100 paired dates + 10 names/leg.
+
+Calibration decision rules (pre-registered thresholds, applied on OOS
+2016–2025, hist universe):
+
+- **C1 (±4% rarity):** share of (ticker, day) returns with \|ret\| > 4%.
+  CONFIRMED if ≤ 5%; CONTRADICTED if ≥ 10%; PARTIAL otherwise.
+- **C2 (gainer count):** daily count of names ≥ +10%. CONFIRMED if the OOS
+  median count ∈ [5, 10]; CONTRADICTED if median ≥ 20 or if ≥ 50% of days
+  have zero; PARTIAL otherwise.
+- **C3 (parabolic peak):** annual ≥+50% counts, 2000–2025. CONFIRMED if the
+  maximum annual count occurs in 2020 or 2021; CONTRADICTED if any year
+  before 2020 has a strictly higher count; PARTIAL otherwise.
+
+## 3. Measurement
+
+New frozen tool `tools/measure_marketstruct.py`; `Bars` and
+`day_paired_boot` imported from `measure_pricetier.py` unchanged. The
+leader proxy (Wd) is: per day, `L_t = max over universe names of ret_t`;
+reported with per-year medians and its lag-1 autocorrelation; conditioning
+descriptive: next-day universe equal-weight mean return in leader-strength
+terciles. Implementation assertions: (a) MA200 needs 200 prior bars —
+bar-dates without them are excluded and counted; (b) per-year count table
+printed before any decision rule is applied; (c) the #25 cross-check is not
+applicable here (different populations) — instead the C1/C2 tables are
+reported for both eras (2016–2025 and 2000–2015) so drift is visible.
+
+## 4. Verdicts
+
+| Row | Rule (fixed in §2) |
+|---|---|
+| H1 | Holm + CI rule (direction DOWN) |
+| C1–C3 | CONFIRMED / PARTIAL / CONTRADICTED per the fixed thresholds |
+
+Outcomes land in §8 and update the §J rows (3rE-03, 3rE-04, afN-22,
+GMR-10/ul3-15 → tested; Wd_-01/-02 → proxy constructed, claim still open for
+conditioning campaigns).
+
+## 5. Data & bias handling
+
+Bars cache as frozen in #16/#25. Survivorship: the hist universe (2021/2022
+snapshots) over-weights survivors — documented for C3 especially (the
+parabolic count is survivorship-biased UPWARD for past cohorts, which works
+AGAINST "2020–21 unprecedented": earlier decades' counts are inflated by
+survivors; a CONTRADICTED verdict under this bias is strong). MA200 uses
+only bars ≤ t. No parameter tuned on data.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+±4% share by year and by price tier; gainer count by year; parabolic counts
+at ≥+100%; 200DMA band ±1% and ±5%; MA50 variant; leader proxy at median
+instead of max; IS-period record of H1.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-01 (sign-off: the user approved running the campaign
+queue; #25's outcome triggered #26 as next in the recorded order). No
+parameter in §1–§6 may change after this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_marketstruct.py` (amendment 1, 2026-09-01, post-verdicts pre-report; blanked self-hash `28398a72244adef1`) | `28398a72244adef16bb86d85ede1fb9c320efcca4aa4c117070ee7007ab08102` |
+| `tools/measure_marketstruct.py` (amendment 2, 2026-09-01, post-verdicts; C3 argmax label fix) | `fc457780f6a8c1963bd17e7c773a2ff2e285dbaceb1072b5d9e3d45074373d6a` |
+
+| `tools/measure_marketstruct.py` (original frozen sha, superseded) | `0e4aa160114075f08b2ca83570e450685e4e810b15910ec9589b66f4b6a365cb` |
+| `tools/measure_pricetier.py` (imported unchanged) | `675106eb…` |
+| `data/cache/universe_sp600_hist_2026-08-15.csv` | recorded in output fingerprints |
+
+Measurement (`python -X utf8 tools/measure_marketstruct.py`) runs only
+after this freeze line; the tool refuses a placeholder/mismatched
+FROZEN_SHA; the C2/C3 tables print before their decision rules apply.
+
+**Amendment 1 (2026-09-01, post-verdicts, pre-report):** the frozen run
+computed H1 and all three calibration verdicts and wrote
+`marketstruct_measure_results.json`, then crashed writing the markdown
+report (format-code error on a string band key). No verdict changed; the
+JSON is complete. Fix: cast the band key to float for display; tool
+re-frozen (blanked-self-hash of the on-disk file, CRLF convention noted)
+and re-run once for a clean report. Freeze-hash lesson recorded: blanked
+hashes are computed from on-disk bytes, not in-memory strings.
+
+**Amendment 2 (2026-09-01, post-verdicts):** the C3 descriptive field
+`pre2020_max.year` recorded the argmin year (2007) next to the max count
+(54, which belongs to 2009) — a labeling bug; the CONTRADICTED verdict
+depends only on the count (54 > max(2020, 2021) = 38), so it is unaffected.
+Fix: argmax in the label; tool re-frozen at `fc457780f6a8c196…` and re-run
+once for a clean report (amendment 1's re-run produced identical verdicts).
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-01** (`tools/measure_marketstruct.py`; frozen with two
+post-verdicts amendments — report-format bug (amendment 1), C3 argmax
+label fix (amendment 2); all three runs produced identical verdicts; clean
+report from the amendment-2 run). Assertions: warmup-dropped 0; H1 names
+694/695 (floors met, 993 paired dates); C2/C3 tables printed before their
+decision rules.
+
+| Row | Verdict |
+|---|---|
+| H1 (200DMA veto, ±2%) | **NO EDGE** — +0.10pp (CI −0.02..+0.22, p 0.094); ±5% band flips sign (−0.10pp, p 0.006, exploratory) |
+| C1 (±4% rarity) | **CONTRADICTED** — 11.0% of ticker-days exceed ±4% (IS 12.1%) |
+| C2 (5–10 gainers/day) | **PARTIAL** — OOS median 2 (zero-days 15.4%) |
+| C3 (parabolic peak 2020–21) | **CONTRADICTED** — peak 2009 (54 events ≥+50%); 2020: 38, 2021: 18 |
+| Wd proxy | constructed — lag-1 autocorr 0.013; tercile next-day means +0.07/+0.07/+0.11% |
+
+Ledger rows: 3rE-03/-04, afN-22, GMR-10, ul3-15 → tested; Wd_-01 proxy
+noted. Verdict section: CLAIMS_LEDGER §J.3. The leader proxy is frozen
+here for downstream conditioning campaigns.

@@ -1731,11 +1731,16 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   monotone, so the drift did NOT destroy the edge — but the wide bands are
   diluted ~2/3 vs the 2017 $2–5 sweet spot (+0.40pp vs +1.11pp). Verdicts
   in §J.2.
-- [ ] Pre-registration #26 — market-structure calibration (|daily return|
-  ~4–5% claim and 5–10-stocks-up-10% count (3rE-03/-04); parabolic-frequency
-  trend (afN-22); below-200DMA veto (GMR-10, ul3-15); leading-gainer regime
-  proxy (Wd_-01/-02)) — next in queue; the regime proxy unlocks his
-  hot/cold conditional claims.
+- [x] Pre-registration #26 — market-structure calibration — done 2026-09-01:
+  ±4% rarity **CONTRADICTED** (11% of ticker-days), gainer count **PARTIAL**
+  (median 2 vs his 5–10), parabolic-peak **CONTRADICTED** (2009, not
+  2020–21), 200DMA veto **NO EDGE** (±2% band), Wd leader proxy constructed
+  (lag-1 autocorr 0.013 — define regimes over windows, not days). Verdicts
+  in §J.3.
+- [ ] Pre-registration #27 — the MACD crossover gate on 1-min bars (J-B-01
+  + 2n2-07 window + 2n2-08/-12 conjuncts, news-spike stratification per
+  J-B-04) — **§5-gated** (opens at the paper-log floor, ~mid-September);
+  next in queue once the gate opens.
 
 ## J. Warrior-trading corpus — "My Favorite Episodes" playlist claims
 
@@ -1933,8 +1938,8 @@ Topics: five-characteristics, relative-volume-threshold, leading-gainers, price-
 |---|---|---|---|---|
 | 3rE-01 | [00:05–00:10] | "$583 15 into more than $10 million in verified and audited trading profits" | `red flag` | Same trajectory as A-01/I-A-01 with a growing endpoint and a new **"audited"** claim; MiN-07 claims the statements are on his website. |
 | 3rE-02 | [02:34–02:47] | `tested` (pre-reg #24, 2026-09-01) — **NO EDGE at his stated parameters** (50-day baseline, 5× threshold): §I.5's null is robust to his own definition (§J.1) | `red flag` | The yFo-01 claim's sibling. "500 times" is almost certainly "500 **percent**" (=5×) — see 3rE-08's "five times relative volume or [sic] 500 times higher than average". **RV threshold 5×, baseline = 50-day average volume.** §I.5 measured RV≥2.0 over prior-20 bars → NO EDGE (absolute leg); window and threshold both differ from the frozen measure. |
-| 3rE-03 | [03:19–03:29] | "most stocks in the market trade within a standard deviation up or down of about 4 to 5% they rarely go up more than 4% in one day and they rarely go down more than 4% % in one day" | `candidate` | Directly testable on daily bars (distribution of |daily return|). Market-structure claim in the I-F family. |
-| 3rE-04 | [03:41–03:52] | "out of thousands and thousands and thousands of stocks that are in this range of minus 4 to plus4 each day there may only be 5 to 10 stocks that are up more than 10%" | `candidate` | Measurable count claim (daily >+10% names per session); operationalizes the >10% scanner leg of 3rE-08. |
+| 3rE-03 | [03:19–03:29] | `tested` (pre-reg #26, 2026-09-01) — **CONTRADICTED**: 11.0% of ticker-days exceed ±4% (OOS 2016–2025; IS 12.1%) — "rarely" is off by 2× the CONTRADICTED threshold, and inconsistent with his own 4–5% σ statement (§J.3) | `candidate` | Directly testable on daily bars (distribution of |daily return|). Market-structure claim in the I-F family. |
+| 3rE-04 | [03:41–03:52] | `tested` (pre-reg #26, 2026-09-01) — **PARTIAL**: OOS median 2 names ≥+10% per day (his 5–10 range is too high; but the CONTRADICTED zone was ≥20); scanner-universe deviation documented (§J.3) | `candidate` | Measurable count claim (daily >+10% names per session); operationalizes the >10% scanner leg of 3rE-08. |
 | 3rE-05 | [04:43–04:56] | "what I have found is that when a stock is up 40 50 100% even 200% 300% those are the stocks that have the highest likelihood of continuing to move higher so one of my Motts as a momentum day trader is buy high sell higher" + "I never buy a stock that's not already moving" ([05:02–05:06]) | `candidate` | Momentum-continuation selection claim; related to I-B-07 (but here continuation is the *preference*, within-day) and pre-reg #4 horizon family. |
 | 3rE-06 | [06:34–06:42], [07:16–07:24] | "typically what I find is the best stocks to day trade are usually the number one or number two leading percentage gainer in the entire Market … usually when I look at my scan each day it is position one two and three these are the stocks that are going to have the most potential" | `candidate` | Rank-1 claim measured NO EDGE on daily bars (D-03, rank-1 vs 2–10, +0.00pp p=0.986); this restatement widens to top-2/top-3 — a rank-2/3-vs-rest test would be a fresh cell. |
 | 3rE-07 | [10:52–11:00] | `tested` (pre-reg #25, 2026-09-01) — **EDGE**: float ≤20M vs >20M (+0.09pp, CI +0.04..+0.14, p 0.002) (§J.2) | `candidate` | Float ≤20M — matches 5X_-05's "2020 rule", looser than D-02's <10M. Float-parameter drift across the corpus (10M vs 20M). |
@@ -2215,7 +2220,7 @@ Topics: `candle-anatomy` `bull-flag` `flat-top-breakout` `abcd` `vwap` `moving-a
 | ul3-12 | [29:53–30:12] | "we like to see ... multi-time Frame Alignment where I could ... look at this on a one minute chart and ... say yes I like this trade ... say yes I like this trade I take it" (1-min and 5-min agree, else pass). | `candidate` | Multi-timeframe-alignment gate; also in HYo-14 (doji on 1-min blocks an add). Needs intraday data. |
 | ul3-13 | [45:14–45:23] | "based on over 24,000 trades that I've ... taken so I have a lot of metrics that ... back up the choices I make". | `red flag` | Performance/authority claim; unverifiable, same posture as I-A. |
 | ul3-14 | [47:39–48:32] | Checklist: "I check the float how much ... it's up on the day how many shares of ... volume it has uh the relative volume"; veto: "25% versus yesterday but it was up 50%" off the high means "I would say no that chart's ... broken"; daily chart: "if we have any gaps ... if we have any windows". | `candidate` | Stock-selection sequence (float, %up, volume, RV, news) + "broken chart" veto (down a lot from intraday high). Float as filter input already approved (§9 decision 7, I-D-06); the broken-chart veto is intraday. |
-| ul3-15 | [50:07–50:33] | "the first level that that ... look at as resistance is that 200 moving ... average"; veto: "if ... we're right below it I'm not likely to ... trade because I know we're going to have ... resistance at that price". | `candidate` | Daily 200MA as first resistance for beaten-up names; don't buy within pennies of it. Testable-daily (distance-to-200MA at entry vs forward return) — cross-ref F-03, untested. |
+| ul3-15 | [50:07–50:33] | `tested` (pre-reg #26, 2026-09-01) — **NO EDGE** at the ±2% band (same campaign as GMR-10); the ±5% band sensitivity leans his way but was not registered as primary (§J.3) | `candidate` | Daily 200MA as first resistance for beaten-up names; don't buy within pennies of it. Testable-daily (distance-to-200MA at entry vs forward return) — cross-ref F-03, untested. |
 
 ### HYoQYCBW4sw — Master This ONE Candlestick Pattern TODAY (Full Training) (2024-04-01)
 
@@ -2302,7 +2307,7 @@ Topics: `short-squeeze` `parabolic-momentum` `stock-selection` `float` `sympathy
 | afN-19 | [1:12:22–1:12:31] | "the actual entry first pullback … second pullback abcd half dollar whole … dollar micro pullback buying a break of … the high a day v breakout buying into or … out of a hall dip buy that's the … strategy of where i'm actually buying". | `candidate` | The full entry taxonomy in one place; stock-type criteria stated just before ("a certain type of float at a certain type of price … with some type of news" [1:12:14–1:12:20]). Cross-course consistency with I-B-01, B-01, B-03, J-B-03. |
 | afN-20 | [1:13:28–1:13:30] | "don't use stop orders i don't use live … stock orders i have mental stops"; exits at the bid — "have to cut my loss i'm usually selling … at the bid price" [1:13:52–1:13:56]. | `process guidance` | Execution mechanics; the no-live-stop practice is a measurable risk-process divergence, not a market claim. |
 | afN-21 | [1:28:59–1:29:07] | "selling half is one way that i uh … pay myself and then hold the rest for a … little bit of a bigger trade … and when the market is really hot i will … get more aggressive holding longer". | `partial` | Regime-conditional holding (hot market → hold longer); "hot" undefined — pre-register an operational proxy before any test. |
-| afN-22 | [24:20–24:31] | "through 2020 2021 the frequency of … parabolic momentum stocks reached an … unprecedented level as overall trading … volumes increased and more traders have … been joining the markets i currently … expect this trend to continue". | `candidate` | Frequency claim about the market itself — countable with daily bars (multi-bagger days per year); testable trend/regime claim. |
+| afN-22 | [24:20–24:31] | `tested` (pre-reg #26, 2026-09-01) — **CONTRADICTED**: peak parabolic year is 2009 (54 events ≥+50%); 2020: 38, 2021: 18; and the "trend continues" tail is not supported (2022–25: 6/12/28/27) (§J.3) | `candidate` | Frequency claim about the market itself — countable with daily bars (multi-bagger days per year); testable trend/regime claim. |
 
 ### dkOyu_kLKjE — Day Trading Strategies for Beginners (2023-04-18)
 
@@ -2359,7 +2364,7 @@ Topics: `small-account-challenge` · `performance-claims` · `stock-selection-cr
 | GMR-07 | [10:31–10:40] | "once a stock is up 10% it has a much higher likelihood of going up to 20% and doubling its gain on the day then a stock that is at zero going to 10" | `candidate` | Intraday momentum-continuation claim; testable as conditional P(double-from-10%) vs P(0→10%). Distinct from I-B-07's day-2 continuation question. |
 | GMR-08 | [13:17–13:25] | "it's a lot easier for a stock to go from $1 to $2 and be up 100% then it is for a stock to go from 20 to4" | `candidate` | Low-price percentage-move claim ("20 to4" = caption of "20 to 40"). Testable as price-bucket move distributions. |
 | GMR-09 | [27:14–27:24] | "pullbacks that occur on this type of stock that meets these criteria my metrics have shown me that statistically they resolve in my favor" | `candidate` | Unquantified statistical claim (B). Needs the GMR-06 screen as population. |
-| GMR-10 | [23:54–24:02], [24:20–24:24] | "if a stock is below it it's almost always going to have resistance at it" … "I would never buy a stock right under the 200" | `candidate` | 200-DMA daily-resistance veto (B/E). Testable on daily bars. |
+| GMR-10 | [23:54–24:02], [24:20–24:24] | `tested` (pre-reg #26, 2026-09-01) — **NO EDGE** at the ±2% band (est +0.10pp, p 0.094 — right-under slightly OUTperforms); ±5% band flips direction (−0.10pp, p 0.006, exploratory) (§J.3) | `candidate` | 200-DMA daily-resistance veto (B/E). Testable on daily bars. |
 | GMR-11 | [28:25–28:31], [28:39–28:44] | "what's better the perfect pattern or the perfect stock always going to be the perfect stock" … "the qualifier of whether or not to take a trade is the quality of the stock not the pattern" | `candidate` | Stock-quality-over-pattern claim (D) — testable by conditioning pattern quality within the screen. |
 | GMR-12 | [30:37–30:45], [31:13–31:26] | "for my small account challenges I use international Brokers because they do not enforce the $25,000 PDT rule" … "I fund the account with well $600 just for instance and I get uh six times leverage" | `candidate` | PDT-mechanics (F). 600×6 = $3,600 checks; note 6× offshore exceeds the 4× US intraday max claimed in PtF-05/U0f-10. Cross-ref PtF-06, U0f-02. |
 | GMR-13 | [34:13–34:19] | "my hot days are clustered together usually my big green days are are sort of all together" | `candidate` | Serial-dependence claim about his own P&L; mirror of I-G-03 ("big red days follow big green days"). Only testable against a trade log. |
@@ -2482,7 +2487,8 @@ Topics: market-regime, seller-control, point-of-control, leading-gainer-proxy, r
 
 | # | Time | Claim as stated (verbatim quote embedded) | Status | Cross-refs/notes |
 |---|---|---|---|---|
-| Wd_-01 | [00:12–00:36] | Regime proxy via leader strength: "our leading gainer is up … only 58%. It's GoPro 160 million share … float stock" — "really says … something about the sentiment in the … market." | `candidate` | The most operational F-claim in the corpus: leading-gainer % (and its float size) as a breadth/sentiment gauge. Directly computable from daily data — register as the regime proxy. |
+| Wd_-01 | [00:12–00:36] | Regime proxy via leader strength: "our leading gainer is up … only 58%. It's GoPro 160 million share … float stock" — "really says … something about the sentiment in the … market." | `candidate` **Proxy constructed (pre-reg #26)**: daily max return, ≥100-name dates; lag-1 autocorr 0.013 (no daily persistence); next-day universe mean by leader tercile low/mid/high = +0.07/+0.07/+0.11%. Definition frozen in pre-reg #26 §1 — conditioning campaigns consume it, not re-tune it. |
+| The most operational F-claim in the corpus: leading-gainer % (and its float size) as a breadth/sentiment gauge. Directly computable from daily data — register as the regime proxy. |
 | Wd_-02 | [00:34–00:46] | Point-of-control shift: "this shift has been a shift … from control among buyers to control … among sellers. The point of control has … shifted from the buy side to the sell … side." | `candidate` | His regime variable ("sellers in control" / "buyers in control") never formally defined; observable correlates he cites: leading-gainer strength, round-trip frequency (Wd_-06/-07). Any test must pre-register the proxy, not the label. |
 | Wd_-03 | [22:50–23:14] | Regime→size response: "feeling right now is that the sellers … are in control." … "sellers are in control, I've got to kind … of batten down the hatches. I've got to … trade with smaller size." — and "rather than … assume that things are going to work, … assume that they won't work." | `candidate` | Regime-conditional sizing now testable *if* Wd_-01/-02 give the regime definition — unlike G-06, which was unmeasurable for lack of one. Cross-ref G-06, KzV-10. |
 | Wd_-04 | [23:48–23:58] | Cold-market veto: "wait for stocks that actually prove that … they can hold up because I'm going to … see more of these pops and reversals," | `candidate` (E-veto) | "Proof-of-hold" as an entry precondition in cold regimes; in-session stand-down family with J-C-01. Operationalizable: require N-bar hold above the pop before entry. |
@@ -2576,3 +2582,34 @@ is NOT robust (negative 2017/2020) — the float edge is a level effect, not
 a per-year certainty. His cheapest-tier behavior (sub-$2 names, +6.26%)
 sits OUTSIDE every band he states — the corpus's own bands exclude the
 strongest tier in the measured universe.
+
+## J.3 Market-structure calibration verdicts — pre-registration #26 campaign (2026-09-01)
+
+Calibration campaign over the §J corpus's market-structure claims
+(`tools/measure_marketstruct.py`; frozen with two recorded amendments —
+report-format bug, then the C3 argmax label — verdicts identical across all
+three runs; H1 ran on the hist universe OOS 2022–2025, calibration rows on
+OOS 2016–2025, 2000–2015 for drift; survivorship direction documented in
+the pre-reg).
+
+| Row | Claim | Verdict | Evidence |
+|---|---|---|---|
+| 3rE-03 | "rarely up/down more than 4% in one day" | `tested, contradicted` — **CONTRADICTED** | 11.0% of ticker-days exceed ±4% (IS: 12.1%); his own 4–5% σ statement implies the same — the two claims are internally inconsistent |
+| 3rE-04 | "only 5 to 10 stocks up more than 10% per day" | `tested, partial` — **PARTIAL** | OOS median 2 (15.4% of days have zero) — below his range, far below the ≥20 CONTRADICTED bound; his gapper-scan universe is narrower than our index (documented) |
+| afN-22 | "2020–21 parabolic frequency unprecedented... trend continues" | `tested, contradicted` — **CONTRADICTED** | ≥+50% annual counts peak in **2009** (54); 2020: 38, 2021: 18; pre-2020 years dominate. Survivorship bias inflates pre-2020 counts (works against the CONTRADICTED — the finding is strong). "Trend continues": 2022–25 counts (6/12/28/27) sit well below the peak |
+| GMR-10/ul3-15 | "never buy right under the 200 [DMA]" | `tested, no edge` — **NO EDGE** | ±2% band: right-under vs right-above +0.10pp (CI −0.02..+0.22, p 0.094, 993 dates, 694/695 names) — the claimed direction does not appear; the ±5% sensitivity band flips sign (−0.10pp, p 0.006, exploratory) |
+| Wd_-01/-02 | leading-gainer strength as regime proxy | proxy constructed, **no verdict** | lag-1 autocorr 0.013 — the proxy does NOT persist day-to-day; next-day universe mean by leader tercile: low +0.07% / mid +0.07% / high +0.11% (weak, unsieved); 2000/2009/2020/2024–25 are the high-leader years |
+
+**Reading.** The market-structure claims — the numbers he presents as the
+*context* of his strategy — are the corpus's least accurate: three of four
+tested rows land CONTRADICTED/PARTIAL, in contrast to the selection rules
+(#25: EDGE × 4) and the entry/exit rules (untested intraday). His mental
+model of "how unusual" a +4% day or a parabolic is systematically
+overstates rarity, and the 2020–21 melt-up memory is contradicted by his
+own survivor-biased data (bias direction favoring HIS claim, per pre-reg
+§5 — the CONTRADICTED is the strong direction). The 200DMA veto — his most
+stated daily-chart rule — shows no measurable penalty for buying right
+under it at the operational band; the ±5% band's sign flip is exploratory
+and pre-declared as such. The leader proxy is now frozen for downstream
+regime-conditional campaigns: it does not persist daily, so any hot/cold
+test must define regimes over windows, not single days.
