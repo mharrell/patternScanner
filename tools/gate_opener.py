@@ -53,6 +53,9 @@ CAMPAIGNS = [
     ("#27", "tools/measure_macd_gate.py",
      ["data/cache/macdgate_measure_results.json",
       "data/cache/macdgate_measure_report.md"]),
+    ("#32", "tools/measure_sympathy_intraday.py",
+     ["data/cache/symintra_measure_results.json",
+      "data/cache/symintra_measure_report.md"]),
 ]
 # #23 (paper-loop execution comparison) is §7-gated on the OTHER floors
 # being met first; the opener records it as deferred-by-design.

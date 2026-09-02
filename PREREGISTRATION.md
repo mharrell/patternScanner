@@ -5466,3 +5466,75 @@ n=25,324 (H2 floor unmet — honest INCONCLUSIVE).
 
 Ledger rows: UvX-30 → tested (FADE); Wd_-14 volume leg noted (INCONCLUSIVE).
 Verdict section: CLAIMS_LEDGER §J.8. **This closes the daily track.**
+
+# Pre-registration #32 — intraday sector sympathy: does the sector wake up with the leader? (ledger rows afN-06, §J.7 follow-up; intraday track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-02)* · **Status:** DRAFT. On
+freeze, no parameter below may change. Measurement §5-gated with the
+shared intraday floors (pre-reg #27 §4 convention: ≥20 full-universe
+bar-dates ≥2026-08-19, ≥2,000 evaluable entries, ≥100 tickers, ≥15 dates;
+one-shot rule; `--floors` mode does not consume it).
+
+## 0. Why
+
+#30 measured the daily form of afN-06: same-day sympathy EDGE, next-day
+dead. The effect lives inside the parabolic day — the window his 1-minute
+practice trades. This campaign measures the intraday form on the frozen
+reversal-entry set.
+
+## 1. Translation — claims as stated → as measured
+
+| Claim as stated | Source | Translation (as measured) |
+|---|---|---|
+| "when one stock is going crazy... others in the same sector start moving" (afN-06; #30-H2 EDGE is the daily form) | afNhgCc-LCw [15:17–15:24] | **Sector-hot entry**: a reversal-entry event (pre-reg #19 F1 set, #21 Archive unchanged) whose ticker has a same-sector mate (frozen hist-universe sector labels; mate ≠ entry ticker, mate on the same bar-date) whose INTRADAY running move from session open — max(High)/Open[first bar] − 1 — reached ≥ +40% at or before the entry bar. Sector-cold = no such mate yet. All conditions known at the entry bar (no look-ahead: the mate's spike index is the first bar its running move crosses the threshold). |
+| Threshold | — | +40% from session open (pre-fixed): the daily +50% close-to-close figure (#26 C3) includes gap; the intraday-from-open form is a different but pre-declared operationalization — documented here, not tuned |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 2 slots at α=0.05, OOS only)
+
+- **H1 (UP):** sector-hot entries outperform sector-cold entries
+  (two-sample bootstrap, N=60 forward, cost 0.15%, #15 §4 baselines).
+- **H2 (UP):** sector-hot entries outperform the raw candidate pool (the
+  filter's net value, mirroring #21's pass − raw).
+
+Count floor 100 evaluable per slot; time-since-open strata (≤30 min /
+>30 min) reported descriptively per slot (J-B-04 convention). B=1000,
+seed 20260907. §5 archive-integrity gate applies to EDGE verdicts.
+
+## 3. Measurement
+
+New frozen tool `tools/measure_sympathy_intraday.py`, reusing
+`measure_intraday_veto.Archive` unchanged; the per-(bar-date, ticker)
+leader-spike index computed from each file's High/Open series. Sector
+labels: hist-universe CSV; archive tickers absent from it are excluded
+from the sector test and counted. Assertions: (a) per-slot counts printed
+before p-values; (b) the leader-spike day/event count reported per
+bar-date window; (c) unmapped tickers counted.
+
+## 4. Verdicts
+
+UP slots: EDGE iff Holm-rejected AND CI-low > 0; FADE iff rejected AND
+CI-upper < 0; else NO EDGE; floors unmet → INCONCLUSIVE.
+
+## 5. Sensitivities (NO verdicts)
+
+Threshold +25%/+60%; N=15/240 horizons; the B-01 entry set cross-check;
+sector count per leader day.
+
+## 6. Freeze
+
+**Frozen:** 2026-09-02, before any measurement. No parameter in §1–§5 may
+change after this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_sympathy_intraday.py` (blanked self-hash, on-disk bytes) | `bcddce00f1f2e03c` |
+| `tools/measure_intraday_veto.py` (Archive imported unchanged) | `60569201…` (asserted at every run) |
+| `data/intraday/manifest.json` | recorded in output fingerprints |
+
+Measurement runs only when the §1 floors are met; `--floors` does not
+consume the one-shot; EDGE verdicts additionally require the §5
+archive-integrity audit on the same archive state.
+
+## 7. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Pending — §5-gated; fires with the #15–#22/#27 backlog.)*
