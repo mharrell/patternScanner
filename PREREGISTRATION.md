@@ -5038,3 +5038,110 @@ state.
 
 *(Pending — measurement §5-gated; floors were unmet at freeze time
 (15/20 bar-dates).)*
+
+# Pre-registration #28 — daily selection follow-ups: rank-2/3 gainers, momentum-continuation at +10%, round-number proximity, and gap-and-go (ledger rows 3rE-05/-06, 5X_-04/-06b, GMR-07/-08, ZS8-13/-14, HYo-14, 3rE-11; daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-02)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): "the best stocks to day trade are usually the
+number one or number two leading percentage gainer... position one two and
+three" (3rE-06; 5X_-06b "either the top two or three") — the measured
+rank-1 claim (D-03, pre-reg #1) was NO EDGE; the widened top-2/3 form is a
+fresh cell. "Once a stock is up 10% it has a much higher likelihood of
+going up to 20%... then a stock that is at zero going to 10" (GMR-07; 3rE-05
+"buy high sell higher"). "We have psychological resistance around half and
+whole dollars... we'd rather have an apex point be right at it or just above
+it" (ZS8-14; ZS8-13, HYo-14, 3rE-11). "Gap and go means it's opening higher
+than it closed the previous day" (5X_-04).
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "top two or three leading percentage gainers" (3rE-06, 5X_-06b) | Among hist-universe names with same-day return ≥ +10%, rank by that return; contrast rank ∈ {2,3} vs rank ≥ 10, day-paired, N=10 close-to-close | His scan universe is the gapper scan (documented deviation, as in #1/#16); rank 1 itself was measured NO EDGE (D-03) — this is the widened form |
+| "up 10%... higher likelihood of going up to 20%" (GMR-07, 3rE-05) | Contrast: same-day return ≥ +10% (close-based) vs 0–2% band, day-paired, N=10 | Close-based tags the full-day movers (look-ahead on the tag, not the entry — same convention as #1's pillar rows) |
+| "resistance at half and whole dollars... prefer the apex at/above it" (ZS8-14) | Close within 1% BELOW the nearest half/whole-dollar level vs within 1% ABOVE it, day-paired, N=10 | Round levels are absolute price levels ($X.00 / $X.50); the ±1% band operationalizes "right under/above"; direction DOWN for just-below (his claim: just-below underperforms) |
+| "gap and go" (5X_-04) | Gap = open_t / close_{t−1} − 1 ≥ +2% vs |gap| < 0.2%; outcome = open_t → close_t (the intraday continuation), cost-applied, day-paired | The only non-close-based slot; the gap is known at the open, the outcome is the same day's open→close |
+| Entry/exit convention | N=10 close-to-close, cost 0.15% (H1–H3); H4 as above; era OOS 2022-01-01–2025-12-31, hist universe — identical to #25's F1 era | Same protocol as #16/#25 |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 4 slots at α=0.05, OOS only)
+
+- **H1 (rank-2/3):** rank-2/3 gainers outperform rank-≥10 gainers (direction
+  UP). EDGE iff Holm-rejected AND CI-low > 0.
+- **H2 (momentum continuation):** ≥+10% names outperform 0–2% names (UP).
+- **H3 (round-number proximity):** just-below underperforms just-above
+  (DOWN: EDGE iff Holm-rejected AND CI-upper < 0; FADE iff rejected AND
+  CI-low > 0).
+- **H4 (gap-and-go):** ≥+2% gappers' open→close return exceeds flat-open
+  names' (UP).
+
+Floors: ≥100 paired dates AND ≥10 distinct names per leg; day-paired
+bootstrap (B=1000, seed 20260903) via #16's `day_paired_boot` (imported).
+
+## 3. Measurement
+
+New frozen tool `tools/measure_selection2.py`; `Bars`, `day_paired_boot`,
+`holm`-style verdict logic imported from `measure_pricetier.py` unchanged;
+H4 reads Open+Close directly from the bars parquet (documented — #16's Bars
+caches only Close). Implementation assertions: (a) per-leg date/name counts
+printed before p-values; (b) H1's rank distribution reported (how often
+rank-2/3 exist on ≥100-name days); (c) the ±4% calibration finding (§J.3
+C1) noted: ≥+10% names are ~1–2/day-median in this universe — H1/H2's legs
+are smaller populations than the full universe; floors govern.
+
+## 4. Verdicts
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1/H2/H4 (UP) | Holm-rejected AND CI-low > 0 | not rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+| H3 (DOWN) | Holm-rejected AND CI-upper < 0 | not rejected AND CI-low ≥ 0 | otherwise / floor unmet |
+
+## 5. Data & bias handling
+
+Bars and hist universe as frozen in #16/#25/#26. Rank legs use only same-day
+information known by the close (documented tag-look-ahead). No parameter
+tuned on data; all thresholds come from his stated claims (5X: "2 to 20",
+gap rule; GMR-07: 10%; ZS8-14: half/whole dollars). IS 2021-06–2021-12
+record only.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+H1 at ranks 2–5 vs 1; H2 at ≥+25%/≥+30% (the older D-01 thresholds);
+H3 at 0.5%/2% bands and half-dollars-only; H4 at +5% gap and next-day
+open→close; N=5/20 for all slots; per-year; IS record.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-02, before any measurement (sign-off: the user approved
+running the daily queue 2026-09-02). No parameter in §1–§6 may change after
+this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_selection2.py` (blanked self-hash, on-disk bytes) | `d7c66148374a6189` |
+| `tools/measure_pricetier.py` (imported unchanged) | `675106eb…` |
+| `data/cache/universe_sp600_hist_2026-08-15.csv` | recorded in output fingerprints |
+
+Measurement (`python -X utf8 tools/measure_selection2.py`) runs only after
+this freeze line; per-leg counts print before any p-value (§3 assertions).
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-02** (`tools/measure_selection2.py`, frozen sha `d7c66148…`,
+one clean run, no amendments). Assertions: per-leg counts printed before
+p-values (H1 72 dates, 103/510 names; H2 879 dates; H3/H4 993 dates,
+706 names each); rank-2/3 constructible on 72/1,003 OOS days; round-level
+population 282,161 just-below / 268,894 just-above ticker-days; forward
+dropped 7,060.
+
+| Slot | Verdict |
+|---|---|
+| H1 (rank-2/3 vs ≥10) | **INCONCLUSIVE** — 72 paired dates < 100 floor |
+| H2 (≥+10% vs 0–2%) | **NO EDGE** — +1.04pp (CI +0.06..+1.95), p 0.038 > gate 0.0125 |
+| H3 (just-below vs just-above) | **NO EDGE** — −0.04pp (CI −0.08..0.00), p 0.056 |
+| H4 (gap-and-go) | **FADE** — −0.22pp (CI −0.36..−0.06), p 0.008 ≤ gate |
+
+Ledger rows: 3rE-05/-06, 5X_-04/-06b, GMR-07, ZS8-13/-14, HYo-14, 3rE-11 →
+tested. Verdict section: CLAIMS_LEDGER §J.4.
