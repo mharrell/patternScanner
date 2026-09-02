@@ -4642,3 +4642,141 @@ Ledger rows flipped: yFo-01/-05/-09/-14, 3rE-02 → `tested`; GXl-12 RV leg note
 Verdict section: CLAIMS_LEDGER §J.1. GXl-12 stays `candidate` (only its RV leg
 was in scope here — deviation from the §4 "flip all listed rows" wording,
 recorded here per discipline).
+
+# Pre-registration #25 — price-band + float-cap drift adjudication: the §J corpus's contradictory scanner numbers (ledger rows UvX-18, 4Pc-11, HYo-03, 5X_-05, 3rE-07/-09, GXl-12, 2n2-14, dkO-12, afN-11; daily track)
+
+**Frozen:** *(pending freeze — DRAFT 2026-09-01)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims (§J scan): the price band has drifted across the corpus —
+"$2 and 20... that's really my window" (4Pc-11; dkO-12, afN-11, 2n2-14,
+UvX-18 agree on $2–20), "price is between $1 and $20" (HYo-03, GXl-12), with
+an internal $2–10 snapshot (UvX-18) and a $5–10 "sweet spot" (3rE-09); the
+float cap has the same problem — "<10M ideal, <20M fine, <30M okay"
+(GXl-12) vs "<20M hard, won't consider it" (2n2-14, 5X_-05's "2020 rule",
+3rE-07) vs <10M in the 2025 course (D-02, measured in pre-reg #1). Pre-reg
+#16 measured the TIERING claim ($2–5 sweet spot, monotone in price) as EDGE
+on daily bars (§I.13 F1a–F1d). This campaign adjudicates the NEWER stated
+bands and caps: does the $2–20 (or $1–20) trading band still separate from
+the excluded band, and does the float cap separate at 20M/10M?
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "$2–20 is really my window" (4Pc-11 et al.) | Close at bar t in [2, 20) vs Close ≥ 20; day-paired N=10 forward-return contrast, hist universe, OOS 2022-01-01–2025-12-31 | Identical protocol to pre-reg #16's F1 (same era, same engine functions, imported unchanged) |
+| "$1–20" (HYo-03, GXl-12) | [1, 20) vs ≥ 20 — empirically ≈ H1: the S&P 600 universe holds almost no $1–2 names | Registered because the claim says $1; documented |
+| "float higher than 20 million shares I won't consider it" (2n2-14); "<20M" (5X_-05, 3rE-07) | Frozen `float_shares` ≤ 20,000,000 vs > 20M; day-paired N=10 contrast, current universe, OOS 2016-01-01–2025-12-31 | Float is the 2026-08-13 snapshot applied backward (no historical float series — documented limitation); the current-universe era carries a membership-survivorship bias the F1 side does not have |
+| "<10M ideal" (GXl-12, HYo-03; D-02 measured in #1) | `float_shares` ≤ 10M vs > 20M contrast | >20M (his hard cap) as the high leg so both float slots share it |
+| "$5–10 sweet spot" (3rE-09) | **Not a verdict slot** — the sub-band table reports all five tiers; §I.13 already measured the tiering direction (5–10 earns +0.53%, less than cheaper bands) | Descriptive |
+| "most day traders prefer $1–20" (GXl-12) | Same as H2 | — |
+| Entry/exit convention | Close t → close t+N, minus 0.15% cost; N=10 primary, N=5/20 sensitivity | Identical to #16 |
+
+## 2. Hypotheses (pre-registered, ONE Holm family of 4 slots at α=0.05, OOS only)
+
+- **H1 (F1, bands):** the $2–20 band outperforms >$20 (day-paired contrast
+  over bar-dates where both legs present; hist universe, OOS 2022–2025).
+- **H2 (F1, bands):** the $1–20 band outperforms >$20 (same protocol).
+- **H3 (F2, float):** float ≤ 20M outperforms float > 20M (current universe,
+  OOS 2016–2025, day-paired).
+- **H4 (F2, float):** float ≤ 10M outperforms float > 20M (same protocol).
+
+EDGE iff Holm-rejected AND CI-low > 0; FADE iff Holm-rejected AND CI-upper
+< 0. Bootstrap B=1000, seed 20260901, day-paired per #16's
+`day_paired_boot` (imported, not reimplemented). Floors: ≥100 paired dates
+AND ≥10 distinct names in each leg — otherwise INCONCLUSIVE.
+
+## 3. Measurement
+
+New frozen tool `tools/measure_bandfloat.py` implementing exactly §2;
+`tools/measure_pricetier.py` (pre-reg #16, FROZEN_SHA `675106eb…`) imported
+unchanged for `Bars`, `f1_bands`, `day_paired_boot`, `tier_of` — identical
+forward-return and pairing semantics guaranteed by import. Implementation
+assertions (red-flag on violation): (a) the #16 reproduction sensitivity
+slots reproduce #16's reported contrasts within ±10% of est (cross-check);
+(b) per-leg name and date counts printed before any p-value; (c) the
+$1–2 sub-band population is reported (expected ~empty — if non-empty, H2
+diverges from H1 and both stand as measured).
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1–H4 (all "up") | Holm-rejected AND CI-low > 0 | not Holm-rejected AND CI-upper ≤ 0 | otherwise / floor unmet |
+
+Reading rules (fixed here): EDGE on H1/H2 with #16's tiering EDGE would mean
+the wide band keeps a (diluted) edge; NO EDGE on H1/H2 means the newer stated
+bands destroy the measured $2–5/$2–10 edge (a drift finding — the corpus's
+own numbers moved). H3/H4 verdicts are the first float-cap tests; D-02's
+<10M pillar leg (#1) was conjunction-only and is not directly comparable —
+recorded, not reconciled.
+
+## 5. Data & bias handling (§7 checklist)
+
+Bars cache and both universe snapshots as frozen in #16 (gitignored bars,
+tracked QA; hist universe tracked). No parameter tuned on OOS: the bands and
+caps come from his stated claims (outer evidence), and the drift itself is
+the finding under adjudication. Look-ahead: bands/caps use only bar-t
+information. Multiple testing: one primary parameterization, Holm across the
+4 slots; the reproduction slots are labeled sensitivities with NO verdicts.
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+#16 slot reproductions (F1a $2–5 vs >$20; F1b $2–10 vs >$10; F1c $10–20 vs
+>$20) — cross-check; float ≤30M vs >30M (GXl-12's "okay" bound); the "2020
+rule" conjunction ($2–20 AND float ≤ 20M) vs its complement — descriptive;
+full five-tier sub-band means table; N=5 and N=20; per-year; IS record.
+
+## 7. Freeze
+
+**Frozen:** 2026-09-01 (sign-off: the user approved running the campaign
+queue 2026-09-01; #24's outcome triggered #25 as next in the recorded
+order). No parameter in §1–§6 may change after this line.
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_bandfloat.py` (blanked self-hash `eded78974ae2e894`; amendment 1, 2026-09-01, pre-report) | `eded78974ae2e894197a2f8618d846d32f3eee45549d0170b545282eab36f242` |
+| `tools/measure_bandfloat.py` (original frozen sha, superseded) | `71e3acc3f8caeeee4e8460ba7fae04282307b2aa1e956bcbb7b0f9e7dda97d5f` |
+| `tools/measure_pricetier.py` (imported unchanged) | `675106eb…` (its own FROZEN_SHA governs; asserted at its runs) |
+| `data/cache/universe_sp600_hist_2026-08-15.csv` | recorded in output fingerprints |
+| `data/cache/universe_sp600_2026-08-13.csv` | recorded in output fingerprints |
+
+Measurement (`python -X utf8 tools/measure_bandfloat.py`) runs only after
+this freeze line; the tool refuses to run with a placeholder or mismatched
+FROZEN_SHA and prints per-leg counts before any p-value (§3 assertions).
+
+**Amendment 1 (2026-09-01, post-verdicts, pre-report):** the frozen run
+computed all four slots, applied Holm, and wrote
+`bandfloat_measure_results.json`, then crashed writing the markdown report
+(`NameError: fmt` — helper not defined). No verdict changed; the JSON is
+complete. Fix: the `fmt` helper added; tool re-frozen at the amended sha
+above and re-run once for a clean report. The #16 cross-check in the JSON
+matched to absdiff 0.0 on all three reproduction slots.
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+**Ran 2026-09-01** (`tools/measure_bandfloat.py`, amendment-1 sha
+`eded7897…`; first frozen run computed all verdicts and the JSON, crashed in
+the report writer on a missing `fmt` helper — amendment 1 recorded, clean
+re-run identical). §3 assertions: per-leg counts printed before p-values
+(H1/H2 993 dates, 431/618 names; H3/H4 2,504 dates, 65/534 and 12/534);
+lt2 pairs 5,528 (NOT ~empty — assertion (c) anticipated this divergence; H2
+stands as its own test); #16 cross-check absdiff 0.0 on all three
+reproduction slots.
+
+| Slot | Verdict |
+|---|---|
+| H1 ($2–20 vs >$20) | **EDGE** — +0.40pp (CI +0.30..+0.50, p<0.001) |
+| H2 ($1–20 vs >$20) | **EDGE** — +0.52pp (CI +0.42..+0.61) |
+| H3 (float ≤20M vs >20M) | **EDGE** — +0.09pp (CI +0.04..+0.14, p 0.002) |
+| H4 (float ≤10M vs >20M) | **EDGE** — +0.25pp (CI +0.15..+0.34) |
+
+Reading: the newer bands/caps DO separate — the sub-band table stays
+monotone (lt2 +6.26% / 2–5 +1.48% / 5–10 +0.50% / 10–20 +0.30% / >20
+−0.11%) — but the wide bands are diluted vs #16's $2–5 sweet spot
+(+1.11pp): the drift is real and costs ~2/3 of the edge. Float edge is
+monotone in his direction but small; H3 per-year not robust (neg 2017/2020).
+Ledger rows flipped: UvX-18, HYo-03, 5X_-05, 3rE-07, afN-11, dkO-12, 2n2-14
+(tested/partial), 4Pc-11 (partial), GXl-12 float legs noted. Verdict
+section: CLAIMS_LEDGER §J.2.
