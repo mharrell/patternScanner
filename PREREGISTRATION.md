@@ -4591,10 +4591,54 @@ definition recomputed for cross-check (must reproduce §I.5 within tolerance).
 
 ## 7. Freeze
 
-*(On sign-off: record freeze date, `measure_rv2.py` sha256, engine sha
-(c7421fbf…), universe CSV sha, detections CSV sha — same freeze-block format
-as #8. Measurement runs only after the freeze line is written.)*
+**Frozen:** 2026-09-01 (sign-off: the user approved starting the campaign
+queue 2026-09-01; primary lookback 50 bars per the doc's stated resolution —
+his platform display, yFo-14 — with the 30-bar variant as a sensitivity).
+No parameter in §1–§6 may change after this line. Any change is a new
+hypothesis requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+| Frozen input | sha256 (first 16) |
+|---|---|
+| `tools/measure_rv2.py` (amendment 1, 2026-09-01) | `0ccb9dfcb2bdb7e8` |
+| `tools/measure_rv2.py` (original frozen sha, superseded) | `fb2506f88ce459c4` |
+| `tools/measure.py` (Phase-3 engine, imported unchanged) | `c7421fbffeaf16ed` |
+| `data/cache/universe_sp600_2026-08-13.csv` | `5e6f45a3c791c21a` |
+| `data/cache/veto_detections_v1.csv` | `eebdc6b11a19e243` |
+
+Measurement (`python -X utf8 tools/measure_rv2.py`) runs only after this
+freeze line. The tool asserts its pre-registration invariants at startup
+(n_undef == 0; min RV50 over Shape A detections < 2.0; cell counts printed
+before p-values) — an assertion failure is a stop, not a re-parameterize.
+
+**Amendment 1 (2026-09-01, pre-results):** the original frozen tool crashed
+on its assertion-(c) cell-count block — `measure_returns` builds a fresh
+frame that does not propagate the rv columns, and the count block indexed
+`rv50` on it (`KeyError: 'rv50'`). No measurement output had been produced
+(crash occurred before any p-value). Fix: counts computed directly on the
+detection frame with the identical OOS rule (`signal_date >= ERA_OOS` —
+measure_returns' own is_oos definition). Verdict logic, parameters, and
+assertions (a)/(b) untouched. The §8 outcome records the #20-precedent
+treatment: buggy tool re-frozen at the amended sha above, one clean run.
 
 ## 8. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Pending.)*
+**Ran 2026-09-01** (`tools/measure_rv2.py`, amendment-2 sha `f2553a357875…`,
+one clean run; report `data/cache/rv2_measure_report.md`). Assertions (a)/(b)/
+(c) all passed (RV50/RV30 undefined 0/0; min RV50 over A detections 0.1311
+< 2.0, H5 live; cell counts printed before p-values). Cross-check: RV20≥2.0
+recomputation reproduced §I.5's cells exactly (n = 3,941 / 1,026 / 46).
+
+| Slot | Verdict |
+|---|---|
+| H1 (F1-A absolute) | **NO EDGE** — n=347, excess −0.06pp/−0.09pp, p_input 0.964 |
+| H2 (F1-B absolute) | **NO EDGE** — n=133, excess −0.09pp/−0.36pp, p_input 0.956 |
+| H3 (F2-B contrast) | **NO EDGE** — +0.44pp, CI −1.40..+2.38pp, p 0.654 |
+| H4 (F2-C contrast) | **INCONCLUSIVE** — high cell n=7 < 100 floor |
+| H5 (F2-A contrast) | **NO EDGE** — +0.48pp, CI −0.40..+1.42pp, p 0.324 |
+
+Reading: the RV-conditioning null is robust to his stated parameters (5×/50-bar).
+All contrasts again lean in his claimed direction, as in #8 — never significant.
+Ledger rows flipped: yFo-01/-05/-09/-14, 3rE-02 → `tested`; GXl-12 RV leg noted.
+Verdict section: CLAIMS_LEDGER §J.1. GXl-12 stays `candidate` (only its RV leg
+was in scope here — deviation from the §4 "flip all listed rows" wording,
+recorded here per discipline).
