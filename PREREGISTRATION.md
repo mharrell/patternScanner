@@ -4490,3 +4490,111 @@ measurement row.*
 
 *(Awaiting the §5 floor — the comparison opens at the first meeting of
 the §5 floors.)*
+
+# Pre-registration #24 — RV lookback-matched re-measure: his stated definition (50-day baseline, 5× threshold) vs the frozen #8 formula (20-bar, 2×) (ledger rows yFo-01/-05/-09/-14, 3rE-02, GXl-12; daily track)
+
+**Frozen:** *(pending sign-off — DRAFT 2026-09-01)* · **Status:** DRAFT. On
+freeze, no parameter below may change; any change is a new hypothesis
+requiring a fresh pre-registration (DESIGN_BRIEF §4, §6).
+
+Source claims: the §J scan's RV family. "almost 98% of it comes from stocks
+that have relative volume of 5 or higher" (`yFoBnM0iSlc [00:12–00:24]`,
+yFo-01); "just because this has a relative volume of three in my opinion is
+not high enough" (yFo-05); "without that relative volume the patterns aren't
+predictable" (yFo-09); his own lookback uncertainty — "based on the average
+over 30 days right or 14 days I don't know exactly... this actually says it's
+over 50 days" (yFo-14); "90% of my profit comes from stocks that have 500
+times higher volume today than their 50-day average" (3rE-02, where "500
+times" = 500% = 5× per 3rE-08); "calculated by looking at the average volume
+over the last 30 days, and then what's the volume today?" (GXl-12).
+
+Pre-reg #8 measured the *frozen detector's* RV (20-bar lookback, threshold
+2.0) — a **looser threshold on a shorter lookback than he specifies anywhere**
+(§I.5). The §J scan establishes his stated parameters: threshold 5×, baseline
+30–50 days (he is himself unsure; his platform displays 50). This campaign
+re-measures the same conditioning question at his stated parameters. It is a
+fresh pre-registration per §4 — it neither confirms nor overturns #8's
+verdicts; both stand as measured.
+
+## 1. Translation table — as stated → as measured
+
+| Claim leg (as stated) | As measured (daily bars) | Deviation / note |
+|---|---|---|
+| "relative volume of 5 or higher" | `RV50_t = v_t / mean(v, prior 50 bars) ≥ 5.0` | Close-of-day volume vs trailing 50-bar mean (`rolling(50).mean().shift(1)`, mean>0 guard). His scan sees live intraday RV; close-based is the #1/#8 convention |
+| "average over 30 days" (GXl-12) vs "over 50 days" (yFo-14) | **Primary: 50 bars** (his platform display, his own reading of it); 30-bar variant is a pre-declared sensitivity, NO verdict | His statements conflict; resolved here, not discovered |
+| "3 is not high enough" (yFo-05) | Low cell threshold: `RV50 < 2.0` for the contrast family (mirrors #8's low cell) | The 2–5 gray zone is not directly testable as a boundary; sensitivity at 3.0 |
+| "98% of profit comes from RV≥5 stocks" (yFo-01), "90% from RV≥5" (3rE-02) | **Not measured** | Profit-concentration requires his trade log, not bars. The falsifiable market-side form is the conditioning value (yFo-09): do patterns resolve better under high RV? |
+| "patterns aren't predictable without RV" (yFo-09) | Contrast family: same-shape detections, high-RV50 vs low-RV50 forward returns | Identical structure to #8's F2 with the new definition |
+| Entry/exit convention | Signal at close t; entry open t+1; exit close t+N; N=10; cost 0.15% | Identical to #1/#8 |
+| Conditioning layer | Frozen veto-pass detections (`veto_detections_v1.csv`) | Same input set as #3/#6/#7/#8 — no new detection legs |
+
+## 2. Hypotheses (pre-registered, Holm family of 5 slots at α=0.05, OOS only)
+
+Universe U and detection set: identical to #8 (S&P 600 frozen snapshot,
+`veto_detections_v1.csv`, OOS 2016–2025). RV50 recomputed per (ticker, day)
+from the bars parquet.
+
+- **H1 (F1-A, absolute):** Shape A detections with RV50 ≥ 5 beat era-matched
+  random entries AND same-ticker entries (p_input = max(p_rand, p_same)).
+- **H2 (F1-B, absolute):** Shape B detections with RV50 ≥ 5 beat both baselines.
+- **H3 (F2-B, contrast):** Shape B: mean excess(high RV50 ≥ 5) − mean(low
+  RV50 < 2) > 0, two-sample bootstrap on the same shape's detections.
+- **H4 (F2-C, contrast):** same contrast on Shape C.
+- **H5 (F2-A, contrast):** same contrast on Shape A. **Not** inconclusive by
+  construction under RV50 (the #8 construction note was specific to the 20-bar
+  denominator): a v_t ≥ 2×mean20 day can have RV50 < 2 after a long run-up.
+  The construction assertion is re-run for RV50 and must hold empirically
+  (min RV50 over A detections is NOT bounded below by 2.0).
+
+EDGE requires Holm rejection AND the excess/contrast CI-low > 0 (bootstrap
+B=1000, seed 20260813, same engine as #8). Count floors: a cell with < 100
+OOS detections is INCONCLUSIVE regardless of p.
+
+## 3. Measurement
+
+Identical protocol to #8 where shared: `measure_returns` (frozen engine,
+sha-locked import), same-ticker baseline per the #6 protocol correction,
+IS 2000–2015 (record only), OOS 2016–2025 (verdicts only). New frozen tool
+`measure_rv2.py` (variant of `measure_rv.py`; the #8 tool itself is NOT
+modified). Implementation assertions (red-flag on violation): (a) RV50 for
+every #8 high-RV detection is recomputable; (b) A-detection RV50 minimum is
+strictly below 2.0 somewhere (confirming H5 is live); (c) cell counts
+reported before any p-value.
+
+## 4. Verdicts (pre-registered decision rules, applied on OOS)
+
+| Slot | EDGE | NO EDGE | INCONCLUSIVE |
+|---|---|---|---|
+| H1/H2 | Holm-rejected AND excess CI-low > 0 | not Holm-rejected AND CI-low ≤ 0 | otherwise / count floor |
+| H3–H5 | Holm-rejected AND contrast CI-low > 0 | not Holm-rejected AND CI-upper ≤ 0 | otherwise / count floor |
+
+Outcomes land in pre-reg §8 and flip the §J rows' statuses
+(yFo-01/-05/-09/-14, 3rE-02, GXl-12 → `tested`). The relation to #8's
+verdicts is interpretive, not automatic: EDGE here with #8 NO EDGE would
+mean the threshold/lookback matters (a drift finding, exploratory); NO EDGE
+here confirms the null is robust to his stated parameters.
+
+## 5. Data & bias handling (§7 checklist)
+
+Same bars cache and universe snapshot as #1–#8 (frozen, gitignored bars,
+tracked QA). No parameter tuned on OOS; the 5×/50-bar pair is taken from his
+stated claims (outer evidence), not from our data. Multiple-testing: one
+primary parameterization, Holm across the 5 slots; everything else is a
+labeled sensitivity. Look-ahead: RV50 uses only bars ≤ t (shift(1) on the
+rolling mean).
+
+## 6. Sensitivities (pre-declared, exploratory, NO verdicts)
+
+RV30 (30-bar lookback) at 5.0 and 2.0; RV50 at 2.0 and 3.0 (the yFo-05 gray
+zone); per-year OOS record; IS-period record of the same five slots; the #8
+definition recomputed for cross-check (must reproduce §I.5 within tolerance).
+
+## 7. Freeze
+
+*(On sign-off: record freeze date, `measure_rv2.py` sha256, engine sha
+(c7421fbf…), universe CSV sha, detections CSV sha — same freeze-block format
+as #8. Measurement runs only after the freeze line is written.)*
+
+## 8. Campaign outcome (recorded after measurement — parameters unchanged)
+
+*(Pending.)*
