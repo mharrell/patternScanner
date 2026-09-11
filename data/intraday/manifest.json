@@ -16305,6 +16305,110 @@
       ],
       "prev_pull_sha256": "1b0da6ce6830265e10af29ee1b65090a86f9b3620a4854c574f415f9a9913b81",
       "finished_utc": "2026-09-10T04:06:17.102789+00:00"
+    },
+    {
+      "pull_id": "20260911-040517",
+      "started_utc": "2026-09-11T04:05:17.614507+00:00",
+      "driver": "yahoo",
+      "window": "7d",
+      "universe_file": "universe_sp600_2026-08-13.csv",
+      "universe_sha256": "5e6f45a3c791c21a374b07bb981b620e12fa7e9c1a55777e7203fbdc935018ec",
+      "tickers_requested": 603,
+      "tickers_ok": 602,
+      "tickers_no_data": 1,
+      "tickers_failed": 0,
+      "files_written": 601,
+      "files_skipped_existing": 1803,
+      "files_verified": 12061,
+      "files_verified_ok": 12061,
+      "drift": [
+        "2026-09-09/ADT.parquet: fresh fetch differs from stored file (stored 3f2cc67a3d3e\u2026 vs fresh e3af2e63b521\u2026; rows 405->405) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/ASO.parquet: fresh fetch differs from stored file (stored ef7f8f7fffc1\u2026 vs fresh 12f55b6cd9ad\u2026; rows 553->553) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/CORT.parquet: fresh fetch differs from stored file (stored f4d1e0fae9d3\u2026 vs fresh 249a557782ce\u2026; rows 286->286) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/COTY.parquet: fresh fetch differs from stored file (stored 8ad72713cfa7\u2026 vs fresh 6d42179acbff\u2026; rows 393->392) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/DAVE.parquet: fresh fetch differs from stored file (stored 19c72835b596\u2026 vs fresh 9b40709cf158\u2026; rows 162->162) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/DV.parquet: fresh fetch differs from stored file (stored 41cd9d0d4f06\u2026 vs fresh 382aa25d46a9\u2026; rows 394->394) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/EPC.parquet: fresh fetch differs from stored file (stored 3380766f6f5e\u2026 vs fresh 3b983dbddd41\u2026; rows 250->250) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/ETSY.parquet: fresh fetch differs from stored file (stored c4dcff67d2e2\u2026 vs fresh 6de4b2f5fffd\u2026; rows 398->397) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/FBP.parquet: fresh fetch differs from stored file (stored cc7839715fc1\u2026 vs fresh 59a2d8bc0ba3\u2026; rows 335->335) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/FSS.parquet: fresh fetch differs from stored file (stored 0731c44fa5b9\u2026 vs fresh b3d024bd5d3a\u2026; rows 205->204) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/FUN.parquet: fresh fetch differs from stored file (stored e88fce699db9\u2026 vs fresh 3982a0b2f1dd\u2026; rows 411->410) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GFF.parquet: fresh fetch differs from stored file (stored 147cf9ebb294\u2026 vs fresh 37e7c0dfa76a\u2026; rows 156->155) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GOLF.parquet: fresh fetch differs from stored file (stored b2bf3431c498\u2026 vs fresh 48ae634ab13e\u2026; rows 166->165) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GPOR.parquet: fresh fetch differs from stored file (stored b0d3442e2757\u2026 vs fresh de0f4dc9a7ea\u2026; rows 144->143) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GRBK.parquet: fresh fetch differs from stored file (stored 239dd91a29ed\u2026 vs fresh 5f2db7bc22ba\u2026; rows 167->166) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GTY.parquet: fresh fetch differs from stored file (stored 92cb376b98ce\u2026 vs fresh ceca52e1ec09\u2026; rows 198->197) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/GVA.parquet: fresh fetch differs from stored file (stored 8ade43470f02\u2026 vs fresh c31fb1cdb406\u2026; rows 239->238) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/HAYW.parquet: fresh fetch differs from stored file (stored 6ef24d76d14e\u2026 vs fresh f9a5e512c2b7\u2026; rows 361->360) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/HE.parquet: fresh fetch differs from stored file (stored e0a874cc3662\u2026 vs fresh 080cd9278b25\u2026; rows 419->418) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/HNI.parquet: fresh fetch differs from stored file (stored bc95ba578ef3\u2026 vs fresh 7e400e526288\u2026; rows 260->259) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/IBP.parquet: fresh fetch differs from stored file (stored 416d95b84835\u2026 vs fresh dd46bbd79376\u2026; rows 274->273) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/INSP.parquet: fresh fetch differs from stored file (stored 7d99c2f11adc\u2026 vs fresh 097271a525f4\u2026; rows 291->290) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/INSW.parquet: fresh fetch differs from stored file (stored ee00fc3f73ba\u2026 vs fresh 914220547c33\u2026; rows 330->330) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/INVX.parquet: fresh fetch differs from stored file (stored 60a9ecdc646e\u2026 vs fresh 7c1a98a68a89\u2026; rows 376->375) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/IVT.parquet: fresh fetch differs from stored file (stored 50ec5fe53f14\u2026 vs fresh 4115d7bbcd2a\u2026; rows 295->294) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/JBGS.parquet: fresh fetch differs from stored file (stored 3f22d5c52c6f\u2026 vs fresh d3cdfc7101b4\u2026; rows 335->334) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/JBGS.parquet: fresh fetch differs from stored file (stored 8d8a45397ea3\u2026 vs fresh 5d5c4340f10a\u2026; rows 289->289) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/JBTM.parquet: fresh fetch differs from stored file (stored 822545f37f9c\u2026 vs fresh 42ff9214b4c5\u2026; rows 238->237) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/KMPR.parquet: fresh fetch differs from stored file (stored de60080b9e6c\u2026 vs fresh 80926148101b\u2026; rows 338->337) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/KN.parquet: fresh fetch differs from stored file (stored 0487fa5c41c6\u2026 vs fresh a85d397b5d73\u2026; rows 278->277) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/KOP.parquet: fresh fetch differs from stored file (stored 53948fd24c8d\u2026 vs fresh 7464582508d9\u2026; rows 138->137) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/KRMN.parquet: fresh fetch differs from stored file (stored 4ca34728ea88\u2026 vs fresh c3e9ace1affc\u2026; rows 499->498) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/KSS.parquet: fresh fetch differs from stored file (stored 1b786bae9269\u2026 vs fresh a0c53150030b\u2026; rows 419->419) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/KTB.parquet: fresh fetch differs from stored file (stored eff6779b1e67\u2026 vs fresh 365748e1b1d0\u2026; rows 320->319) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LBRT.parquet: fresh fetch differs from stored file (stored f930f7d2c8d3\u2026 vs fresh d5a6e6a5fa1a\u2026; rows 399->398) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LCII.parquet: fresh fetch differs from stored file (stored 77c12bdc7a02\u2026 vs fresh b748067058fa\u2026; rows 225->224) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LEU.parquet: fresh fetch differs from stored file (stored 6bb8a85eed2b\u2026 vs fresh c99d0af8c8a3\u2026; rows 496->495) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LRN.parquet: fresh fetch differs from stored file (stored 766ff03f17a7\u2026 vs fresh 71dd1a661e38\u2026; rows 278->277) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LTC.parquet: fresh fetch differs from stored file (stored 4fa6d0a08b26\u2026 vs fresh a57b8248be07\u2026; rows 262->261) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/LXP.parquet: fresh fetch differs from stored file (stored 7692a5d4b485\u2026 vs fresh 42c817e2948f\u2026; rows 290->289) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/LZ.parquet: fresh fetch differs from stored file (stored 865162b25f6c\u2026 vs fresh f01212127e85\u2026; rows 350->350) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MAN.parquet: fresh fetch differs from stored file (stored edc51f647b09\u2026 vs fresh 51b327685773\u2026; rows 316->315) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/MATX.parquet: fresh fetch differs from stored file (stored fb774e751abd\u2026 vs fresh 31501418714a\u2026; rows 151->151) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/MCY.parquet: fresh fetch differs from stored file (stored c2473298c921\u2026 vs fresh d8347b83dfef\u2026; rows 143->143) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MD.parquet: fresh fetch differs from stored file (stored 98eff3e4e8c2\u2026 vs fresh 6675d0cb3806\u2026; rows 203->202) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/MDU.parquet: fresh fetch differs from stored file (stored 9241a1e60819\u2026 vs fresh c8c956717b06\u2026; rows 358->358) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MHO.parquet: fresh fetch differs from stored file (stored cbbe3e002508\u2026 vs fresh 0a79113df51e\u2026; rows 108->107) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MMI.parquet: fresh fetch differs from stored file (stored 32deb8402647\u2026 vs fresh 00aee06a5ff2\u2026; rows 97->96) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MPT.parquet: fresh fetch differs from stored file (stored 35402448e271\u2026 vs fresh 0cc422c182cd\u2026; rows 441->440) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/MPT.parquet: fresh fetch differs from stored file (stored 49618055a92d\u2026 vs fresh 93c29383eb66\u2026; rows 417->417) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MRP.parquet: fresh fetch differs from stored file (stored 62e4d5ebe3c5\u2026 vs fresh 1098b6341ac3\u2026; rows 372->371) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/MWA.parquet: fresh fetch differs from stored file (stored fda05cfce94a\u2026 vs fresh be42f9a70ebb\u2026; rows 349->348) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/NATL.parquet: fresh fetch differs from stored file (stored f714b9628c22\u2026 vs fresh d64765e9bd52\u2026; rows 239->238) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/NHI.parquet: fresh fetch differs from stored file (stored 5c203c6e45c7\u2026 vs fresh df56f1fa00ef\u2026; rows 194->193) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/NOG.parquet: fresh fetch differs from stored file (stored 5e444a417f02\u2026 vs fresh 10fa82f09668\u2026; rows 384->383) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/PENG.parquet: fresh fetch differs from stored file (stored 2c6acdc39a86\u2026 vs fresh d9fbf027f228\u2026; rows 460->460) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/PJT.parquet: fresh fetch differs from stored file (stored 9d4d6b76e75b\u2026 vs fresh 66ee11fdc0aa\u2026; rows 129->129) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/PMT.parquet: fresh fetch differs from stored file (stored d6850f38488c\u2026 vs fresh e396975a0df2\u2026; rows 302->302) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/POWI.parquet: fresh fetch differs from stored file (stored 063c231d4c54\u2026 vs fresh a3c8d10208c8\u2026; rows 244->244) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/QNST.parquet: fresh fetch differs from stored file (stored 830db2bebad1\u2026 vs fresh 43f5bf601e2d\u2026; rows 281->281) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/RAL.parquet: fresh fetch differs from stored file (stored f816cfa5a010\u2026 vs fresh fb3fdeed803b\u2026; rows 307->307) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SEZL.parquet: fresh fetch differs from stored file (stored a2a8369a9f0c\u2026 vs fresh c01054c258a9\u2026; rows 220->220) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SHEN.parquet: fresh fetch differs from stored file (stored f9d40e4bf567\u2026 vs fresh b22dc666b633\u2026; rows 311->311) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SKT.parquet: fresh fetch differs from stored file (stored 3226c1ae22fe\u2026 vs fresh 160e3b9f1317\u2026; rows 260->260) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SKY.parquet: fresh fetch differs from stored file (stored fd33dd2eb9a2\u2026 vs fresh eb697218dfc0\u2026; rows 205->205) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SKYW.parquet: fresh fetch differs from stored file (stored 30fb874a4bf9\u2026 vs fresh dd5b53f37fb8\u2026; rows 183->182) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SONO.parquet: fresh fetch differs from stored file (stored 1233658685ff\u2026 vs fresh aa07a89a1c0a\u2026; rows 378->378) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/SPHR.parquet: fresh fetch differs from stored file (stored 766a668ef78e\u2026 vs fresh 7284b110a0c0\u2026; rows 239->239) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/THRM.parquet: fresh fetch differs from stored file (stored f89c2279ee25\u2026 vs fresh 62477c5aa18e\u2026; rows 109->108) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/TMDX.parquet: fresh fetch differs from stored file (stored e83472d8ecba\u2026 vs fresh a9d6c27a1bca\u2026; rows 265->265) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/TMP.parquet: fresh fetch differs from stored file (stored 02de9391ba43\u2026 vs fresh efe15b75dc70\u2026; rows 71->71) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/TRMK.parquet: fresh fetch differs from stored file (stored afce469db166\u2026 vs fresh cb5c8b8fde00\u2026; rows 212->212) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/UE.parquet: fresh fetch differs from stored file (stored d3697c4acecf\u2026 vs fresh a9b85cb1e893\u2026; rows 272->272) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/VECO.parquet: fresh fetch differs from stored file (stored d68f573bd703\u2026 vs fresh f599babacb3c\u2026; rows 275->275) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-04/VSAT.parquet: fresh fetch differs from stored file (stored 6d0c99b14466\u2026 vs fresh aa4cf916cc2e\u2026; rows 408->408) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/VSH.parquet: fresh fetch differs from stored file (stored 6ee121a7bc45\u2026 vs fresh c6214b709920\u2026; rows 411->411) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/VSTS.parquet: fresh fetch differs from stored file (stored 456cccf85b10\u2026 vs fresh 1b61f5dfe398\u2026; rows 385->385) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/WGO.parquet: fresh fetch differs from stored file (stored 9db421115328\u2026 vs fresh 58aedda0689e\u2026; rows 233->233) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/WRBY.parquet: fresh fetch differs from stored file (stored 5cc21b03ac43\u2026 vs fresh a465f43ecc8d\u2026; rows 401->401) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-08/WRLD.parquet: fresh fetch differs from stored file (stored cc259708abdd\u2026 vs fresh 9940a62bbc97\u2026; rows 55->54) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh",
+        "2026-09-09/YOU.parquet: fresh fetch differs from stored file (stored 6f4dd18de463\u2026 vs fresh b4e1e5758f05\u2026; rows 352->352) \u2014 possible Yahoo restatement; stored file is final, --repair + re-pull to refresh"
+      ],
+      "failed": [
+        "LEG: no data (last error: no data)"
+      ],
+      "prev_pull_sha256": "97efb875c71b10d4100b5ea2ecef5b92f3580155ecbfdb5568d0d592a436b3e4",
+      "finished_utc": "2026-09-11T04:06:20.769597+00:00"
     }
   ],
   "files": {
@@ -100734,6 +100838,4213 @@
       "first": "2026-09-09 09:30:00-04:00",
       "last": "2026-09-09 17:44:00-04:00",
       "pull_id": "20260910-040516"
+    },
+    "2026-09-10/AAMI.parquet": {
+      "sha256": "5a9b7225e0e6ddea30e6e010586e2d04b3f71a159f4fe49649c7300f179ba63a",
+      "rows": 184,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AAP.parquet": {
+      "sha256": "92e13c8ae48c0da229fd4fbb1a1af329f38968a23e353f27a88a97404060f7d9",
+      "rows": 333,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AAT.parquet": {
+      "sha256": "2a1b9d9e005cb126f60145622047300d5a79917c29e83dbfa222d00620147f33",
+      "rows": 195,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ABCB.parquet": {
+      "sha256": "3f2583568064da26997b833f7e8f73e263037e4e4434691da1f65525f8cae016",
+      "rows": 184,
+      "first": "2026-09-10 04:51:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ABG.parquet": {
+      "sha256": "8ab764978e438a63ed3abbd8c80a5e4b57ab167c481f85ea49f00fadbcb89292",
+      "rows": 121,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ABM.parquet": {
+      "sha256": "5ef3642112c610a19c26ca1cb31643283dc586ffdf89e4b327f35def0cc166ce",
+      "rows": 291,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ABR.parquet": {
+      "sha256": "eb005e5098d9965ead89977be74f9d6d47efbdd4d850ad502e8ad8c59b8429df",
+      "rows": 416,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:07:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACA.parquet": {
+      "sha256": "3f6b3cb54d472012776cbe6ccdb66aa20e0d72d005a2d567a492a8476a7a13ca",
+      "rows": 283,
+      "first": "2026-09-10 06:39:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACAD.parquet": {
+      "sha256": "91919738baa2635f01ad6db015b2caccf4c1697d851632fab7ea248cd18abc33",
+      "rows": 348,
+      "first": "2026-09-10 04:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACHC.parquet": {
+      "sha256": "c20f48243acd3cdf158f0fb0a83b9ccf34de5b38f4f1cf6f6424051bd4c25bd0",
+      "rows": 322,
+      "first": "2026-09-10 08:41:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACIW.parquet": {
+      "sha256": "23536445c3685dd5bf6f25984936af6edff556e0c824fa237f4a4f65748948d3",
+      "rows": 275,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACLS.parquet": {
+      "sha256": "a4eee7fd993622db730dd4a54adbe684def4bb27151f2205876b93d5ab87775e",
+      "rows": 139,
+      "first": "2026-09-10 08:04:00-04:00",
+      "last": "2026-09-10 19:39:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACMR.parquet": {
+      "sha256": "045612e055e1b341d4babb501749b8755d9a74bc12bd3ad87ddb251c63a22d06",
+      "rows": 304,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:53:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ACT.parquet": {
+      "sha256": "a365c00115a2e6ac9651fff60fdb30618d0bc4499e8fe533497813f6469a62d4",
+      "rows": 182,
+      "first": "2026-09-10 09:27:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADAM.parquet": {
+      "sha256": "64f5dcd3dbb3adf3216dede540ad1d81ae4aea796e6a6db98467b958beb9d80f",
+      "rows": 313,
+      "first": "2026-09-10 07:04:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADEA.parquet": {
+      "sha256": "584233665dd76522c38456225bcfebfa6cec33cb4fca0c6c8f1bdf2f42bcf84e",
+      "rows": 242,
+      "first": "2026-09-10 07:02:00-04:00",
+      "last": "2026-09-10 19:40:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADIG.parquet": {
+      "sha256": "446f9065fb0c127112a4b1f5d79f11ed4f5429488b6776a359a735c5d98827b1",
+      "rows": 189,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADMA.parquet": {
+      "sha256": "e724a55e40f4674caf120dea21c69807482fac147f957deda592430ee363a490",
+      "rows": 361,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADNT.parquet": {
+      "sha256": "6201d2632bd64ba4fbd1f2053529687e4f42cdfe80f03bfabc3c01309196c310",
+      "rows": 271,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADT.parquet": {
+      "sha256": "cffb2859265e82893a7fd83025dd752159e4333d1d2af44f0cff5d61ad7cf16d",
+      "rows": 407,
+      "first": "2026-09-10 05:03:00-04:00",
+      "last": "2026-09-10 19:09:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ADUS.parquet": {
+      "sha256": "b2b5f5eee65e09335174310ef2f30c29368afbc5a5e241416971f12f04790568",
+      "rows": 125,
+      "first": "2026-09-10 08:10:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AEO.parquet": {
+      "sha256": "7eec5417a4f497a14ae6cbfcb36595ac12df7e58a3f121a417a29c96bc2701fc",
+      "rows": 655,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:52:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AESI.parquet": {
+      "sha256": "3b5ccdabdd043a6ad3d86df7b69baa4b1afe5c28f43745358c8667c4ee6718a3",
+      "rows": 401,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 18:13:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AGNT.parquet": {
+      "sha256": "6e5a69fda7c1efcb45751922371b6e790d13f5272ba25ee397a0761ae8b4689c",
+      "rows": 304,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AGO.parquet": {
+      "sha256": "89ce92232fb1096b49de48c29bd9518bb1c51ae4526915ac59af0d3d9e2f7c82",
+      "rows": 219,
+      "first": "2026-09-10 06:07:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AGX.parquet": {
+      "sha256": "2c0b13d9a99784bf5e34beee531f8f9aa633b487d9741b0caf8a92cec9d2af5b",
+      "rows": 370,
+      "first": "2026-09-10 07:04:00-04:00",
+      "last": "2026-09-10 18:39:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AGYS.parquet": {
+      "sha256": "3302e011475e62f6bf973416905b8f6f54783289d123c5f091c007ff1cc735c6",
+      "rows": 84,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AHCO.parquet": {
+      "sha256": "5bb3263b3115753022b1792bb054ae922e739ef75fab1e457038032d91a1f5a5",
+      "rows": 374,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AIN.parquet": {
+      "sha256": "57a09dde397dc6332e335a868370d8c96a9075d849ffacf17c5fe8f773fe948b",
+      "rows": 120,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:26:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AIR.parquet": {
+      "sha256": "9f10a90991fd68908ef6ffa6735c8dfaf8f997a14ef6e016e650514019757379",
+      "rows": 163,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AKR.parquet": {
+      "sha256": "2cfc7d8c65bd6f449b35fdbddf8467dd0e4850768ae762b108202371e0ccf01b",
+      "rows": 318,
+      "first": "2026-09-10 04:04:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ALG.parquet": {
+      "sha256": "f8864efb2133aaed45f9305986d0cd7bfebb2036a9f83264f76086fcc8175c8d",
+      "rows": 87,
+      "first": "2026-09-10 09:12:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ALGT.parquet": {
+      "sha256": "10af5da6a5d30da35bdae3f46bd0055fe0374175b696736deb24a720d2931f00",
+      "rows": 250,
+      "first": "2026-09-10 07:40:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ALHC.parquet": {
+      "sha256": "e697a0f9d88138edf683667ecf26228a129aa0fa9a1fe3777cb92c395197982d",
+      "rows": 384,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:34:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ALKS.parquet": {
+      "sha256": "d36b2a9a936d50f394f17c299e4627f753c8c1aea864d5ce34ff3ef9b64e2100",
+      "rows": 314,
+      "first": "2026-09-10 09:11:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ALRM.parquet": {
+      "sha256": "78b57d20a70033061301788cd6990bf6e72638cc44c2b28eb51129071339d07b",
+      "rows": 231,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMN.parquet": {
+      "sha256": "1406f9b2e986123550ce03818b6f4562a08799f8fe3eccec777e4e1bfd6766b3",
+      "rows": 212,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:10:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMPH.parquet": {
+      "sha256": "569f76f68c852ad0f94695a91408f06f870e99e2de3ef6baa407b80666226055",
+      "rows": 204,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMR.parquet": {
+      "sha256": "82b9c0b1f99fa0de7bb5e3305f52d763b44e1aab78a34339c9aeca537ff0a4fd",
+      "rows": 118,
+      "first": "2026-09-10 04:10:00-04:00",
+      "last": "2026-09-10 18:09:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMRX.parquet": {
+      "sha256": "538e3cc337299177f8f4696f31fa12fcb9c8f55fb780c8cad15bc7667a9e79d5",
+      "rows": 345,
+      "first": "2026-09-10 07:22:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMSF.parquet": {
+      "sha256": "f536bd24f1c772e954dee272da64a332a482471f07df3532e296fcc0f5c6f3d8",
+      "rows": 242,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AMTM.parquet": {
+      "sha256": "3bab1ad9569ed1292bac264dee7c06fddadc686e58e80e79678e306a89e40e8a",
+      "rows": 349,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 18:24:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ANDE.parquet": {
+      "sha256": "5890b960cc92c24ae09acbfe9f0dbaab0718d3b34ad43806ce7058d9e99a4ab0",
+      "rows": 148,
+      "first": "2026-09-10 04:35:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ANIP.parquet": {
+      "sha256": "96f2d16dd21a1ee9a8a61717f7c99562de2455adb6d15a18ba1682fb67d8879b",
+      "rows": 136,
+      "first": "2026-09-10 05:55:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AORT.parquet": {
+      "sha256": "7434115ba45213abbdfcb1e3489a4dea018092d3e96f9b93b40f48fc2759c17c",
+      "rows": 241,
+      "first": "2026-09-10 05:44:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AOSL.parquet": {
+      "sha256": "6d43f76880723d5c9a675df50c6e5d865060329b43996d9573aed2878168c86c",
+      "rows": 213,
+      "first": "2026-09-10 05:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/APAM.parquet": {
+      "sha256": "3bf31772bca450c31cd452e4c2231978b29045a8ebfb9518164d6522eb6dc8e5",
+      "rows": 294,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 20:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/APLE.parquet": {
+      "sha256": "9d81f263f0059b6faceef0a448a4cdc5190a529789272e8f4422ca4f4595b43b",
+      "rows": 370,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 18:11:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/APOG.parquet": {
+      "sha256": "ccfdc0cfbde8758e2653478d2bb3faf585cdd65b8d6bb53eeae62d9fcaffb179",
+      "rows": 127,
+      "first": "2026-09-10 06:14:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ARCB.parquet": {
+      "sha256": "bd5589132bcbb3203ed800fa2e5fa7cb2c39f0f42e10fbe345f66ba06465cb8c",
+      "rows": 118,
+      "first": "2026-09-10 04:48:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ARLO.parquet": {
+      "sha256": "823c3e7a0c5bd2f05785d12255f9a78beefce91d0d18bbb0044cfbeb6ff4ef30",
+      "rows": 318,
+      "first": "2026-09-10 07:02:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AROC.parquet": {
+      "sha256": "d8410feac7032319bd00964ca17a96b484c63c394e050aeef19dd13df034c477",
+      "rows": 370,
+      "first": "2026-09-10 08:33:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ARR.parquet": {
+      "sha256": "1ab3ac6d04a29b5d67083ca18afb30ddb9065baeaf5614ef5cef494d6edf8fd4",
+      "rows": 436,
+      "first": "2026-09-10 07:14:00-04:00",
+      "last": "2026-09-10 20:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ASO.parquet": {
+      "sha256": "22408e3e63105a33ddab926d77e3a2add3f354fae2a8ad7dd2007eb0d5ce8d21",
+      "rows": 460,
+      "first": "2026-09-10 04:15:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ASTE.parquet": {
+      "sha256": "f20adb229c1e89a2dcd49e7e8fa8d36abb0ec30681204d3a22f4916f0a37b05c",
+      "rows": 143,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ASTH.parquet": {
+      "sha256": "f31788108c1a27d2d8d16718e49b5371056b39f223007496d6fda592f249b7b7",
+      "rows": 140,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ATEN.parquet": {
+      "sha256": "6d1579e2b0e1f288fa771102f678ea6a1dc45fff61cfa86419b636002946114d",
+      "rows": 313,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ATMU.parquet": {
+      "sha256": "96d244e1249558670e2694e271079ad62edd7abfcd9ef74ac9e0812d763babaa",
+      "rows": 219,
+      "first": "2026-09-10 08:39:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AUB.parquet": {
+      "sha256": "d78141038fb4a41243812322fefa8e769bbb5e5308bfb88c42e5130962e0ca82",
+      "rows": 350,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 16:40:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AVA.parquet": {
+      "sha256": "ee8eca37ca93ad7464564b5bfb71d9cfef35dec3371b74954b5304bba0da3253",
+      "rows": 253,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AWI.parquet": {
+      "sha256": "0507a21d6803c369cf5b7f1022ea7beeca7c4b54772e8c0cb8c9de7f6b3a4894",
+      "rows": 209,
+      "first": "2026-09-10 05:54:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AWR.parquet": {
+      "sha256": "3705473a871ac515846fc02459cca193cc8a9f1147b243d496588246942b5f6c",
+      "rows": 75,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AX.parquet": {
+      "sha256": "16d06deaa5e8c1ec8e63c9797cc8c67f4b1394c0162aba87bfbf22660a64609c",
+      "rows": 122,
+      "first": "2026-09-10 06:52:00-04:00",
+      "last": "2026-09-10 16:48:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AZTA.parquet": {
+      "sha256": "d5c480205189b670da74fede8cf5dc300352f06288883e76720904dc3ca3e234",
+      "rows": 301,
+      "first": "2026-09-10 04:17:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/AZZ.parquet": {
+      "sha256": "57ff0864bcbd474b52b875aeda1de6c8bb87654bf531a70ffb0c13a46a367ea2",
+      "rows": 118,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:09:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BANC.parquet": {
+      "sha256": "e58c1e2716cca4faf25fb7b481a47609b0da6bacbb06e9342518ccef392df8fe",
+      "rows": 380,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BANF.parquet": {
+      "sha256": "34269da5798cc151940cfa7a037fda19c0e8dfea57effae728a02fb89fb07539",
+      "rows": 76,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BANR.parquet": {
+      "sha256": "6eaaff47eef773b6ae66f15dc44ac615ced6266927d37d9ffa0d86b4bfb4299a",
+      "rows": 171,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BBT.parquet": {
+      "sha256": "66ca9614690bb1e1e9afb1b78688bc70091667ee2164a344f2d316fa6c35ebc2",
+      "rows": 257,
+      "first": "2026-09-10 04:41:00-04:00",
+      "last": "2026-09-10 17:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BCC.parquet": {
+      "sha256": "c642e79b68b058f6b3d53240a0414866fd1517c88938232692b00b8dc25cb75c",
+      "rows": 125,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BCPC.parquet": {
+      "sha256": "67ed671b7e80083498595bf3725b9332d00660fdd189f7a2aa21cc4c158d1a34",
+      "rows": 106,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BFAM.parquet": {
+      "sha256": "5e7cdbe7e938547cda651a45893d90b03001887cae926b165c3e2f1ee2f723ee",
+      "rows": 381,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 16:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BFH.parquet": {
+      "sha256": "08cd5f8d3ec52c3e942d73312c413330a73d76953724802cd7ebea915281f34d",
+      "rows": 223,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BFS.parquet": {
+      "sha256": "90c873ed3ff4ca23e2d410564fda9fe392f84c9fbdceff3921c49a25ad0446f4",
+      "rows": 110,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BGC.parquet": {
+      "sha256": "b291b2e879d478dfd4c26eaec269c2621cbf2d148d966840c9dfbffdc9e0e790",
+      "rows": 342,
+      "first": "2026-09-10 07:47:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BHE.parquet": {
+      "sha256": "0551b7ff5026bccba3695ef66331ab8b93303c577f2b65615160da7c5cf4d919",
+      "rows": 172,
+      "first": "2026-09-10 06:56:00-04:00",
+      "last": "2026-09-10 16:45:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BJRI.parquet": {
+      "sha256": "052b23cfb571d1437dc24934f2e672f8e34253a193aa415714441c7ec8c553cf",
+      "rows": 187,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BKE.parquet": {
+      "sha256": "05e6dbe7c066d61e7ca614f90c3500f4fd30c2d918679de5e0360603a705984a",
+      "rows": 252,
+      "first": "2026-09-10 07:19:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BKU.parquet": {
+      "sha256": "8ff71c4f75717b40180503695b535d878e1377c6093d02a3f270e00ebe68e5fd",
+      "rows": 320,
+      "first": "2026-09-10 05:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BL.parquet": {
+      "sha256": "aed2af16c50c9b8b9b86ea80bf132633594473f588c7d3348f36bef8dfcb80ce",
+      "rows": 303,
+      "first": "2026-09-10 07:06:00-04:00",
+      "last": "2026-09-10 19:44:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BLFS.parquet": {
+      "sha256": "5a20176a6afafb0e374ac68d0fc2c54a8a923679d42ed6cb9bc465e1ddff8e0d",
+      "rows": 316,
+      "first": "2026-09-10 08:58:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BLKB.parquet": {
+      "sha256": "b76d433a81c75642940443f3e9d3444bfb5f39d9d554809121c7a080d38c98be",
+      "rows": 190,
+      "first": "2026-09-10 08:35:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BMI.parquet": {
+      "sha256": "dee875d60a0cbb0427b5ccdb36330cee99544a8e911ff6756f3377fcca1f985b",
+      "rows": 196,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BNL.parquet": {
+      "sha256": "f50bf9c4ca59a5fc6c5cc04944a4984340e810a2bc34cbd007d54355b7904a7a",
+      "rows": 341,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BOH.parquet": {
+      "sha256": "3bb107866dcd03aa789113153734f20fcc817d5e81d68270cead67fb6ebecda7",
+      "rows": 146,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BOOT.parquet": {
+      "sha256": "1e435411c133bdad5eb75994f9da38ce84dc72dfdbb3e36c9b7e8cd85636e742",
+      "rows": 299,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BOX.parquet": {
+      "sha256": "9df82385f0ef532746e663a72871321c243116ce88ed4c374a87c69700e50b39",
+      "rows": 391,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BRC.parquet": {
+      "sha256": "1ad3cece024b44519f441629eebfc373792327d00d8efd5afc1d569002da1ece",
+      "rows": 136,
+      "first": "2026-09-10 04:08:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BTU.parquet": {
+      "sha256": "294f8f6ad2894006379f94b44d6243bf9761f24edd5cfac385ffe8647e3e3812",
+      "rows": 376,
+      "first": "2026-09-10 08:12:00-04:00",
+      "last": "2026-09-10 17:50:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/BXMT.parquet": {
+      "sha256": "287141154f7a07d4191584e9f3991fdb1a6087e2038e0776c960d512f1d17058",
+      "rows": 395,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 18:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CACC.parquet": {
+      "sha256": "57c55ffc40acc3845955af53db94435c0252f80681e5e35d8730c6423c443335",
+      "rows": 118,
+      "first": "2026-09-10 05:13:00-04:00",
+      "last": "2026-09-10 19:40:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CAG.parquet": {
+      "sha256": "48ed901ee08aefa4ed30334818a7d233cc5e5ff6227522e7b2c750356b3158d5",
+      "rows": 420,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CAKE.parquet": {
+      "sha256": "2828860af823d8d192e6443dc08c8f714a39d7c12983d96e71f6e3c9ffda59e0",
+      "rows": 394,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:54:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CALM.parquet": {
+      "sha256": "17f0e592919f06e0a2bbdf5abfe9d9016283f9cb0a308213fa742d211870093f",
+      "rows": 344,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CALX.parquet": {
+      "sha256": "53c77b6d4bdc654572ef60096f9ecf824c23e719f9c609711133c6e2811fd49d",
+      "rows": 282,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CALY.parquet": {
+      "sha256": "3f12a3a613979546eb42eb1b12ceee4f58e23e423fd2f59ba9fcd8531deafcfa",
+      "rows": 353,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 20:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CARG.parquet": {
+      "sha256": "2604152bb18c2dbde16bfd57e8cb56f664d353b16b13d55707458b380b42ddb9",
+      "rows": 322,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CASH.parquet": {
+      "sha256": "4b1461981daeeea1cb4cac3ea8b00565fb5c1a2540fa6ac0e65612d811e2d207",
+      "rows": 169,
+      "first": "2026-09-10 04:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CATY.parquet": {
+      "sha256": "b9588f86f1b0ee210695efb54ec5ed2e06a1db27b86c09bab607c7b0e2f07523",
+      "rows": 161,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CBRL.parquet": {
+      "sha256": "1d4bfd930c4cf7305a4051d399d6a433681fa1f101845d0a17570ece70191ce7",
+      "rows": 320,
+      "first": "2026-09-10 05:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CBU.parquet": {
+      "sha256": "2c8b6f3a8502b0143ffec83a7e7434e82bdd8edcb731ea3ff35f3f627a26138b",
+      "rows": 103,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CC.parquet": {
+      "sha256": "68137e57987ebfcfe67e654543e2c59c3e9630abf3e39a425c0a4b0984a1fad7",
+      "rows": 404,
+      "first": "2026-09-10 06:47:00-04:00",
+      "last": "2026-09-10 18:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CCOI.parquet": {
+      "sha256": "0d24abbeee955f77e5a5d4b195356f2437ae58a60867279d474d69c39700c6d0",
+      "rows": 372,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CCS.parquet": {
+      "sha256": "2f71858e94f4bf6a13d1bf1b226a4791c5f9bc84f8b50a896af430d5ab110101",
+      "rows": 185,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 17:27:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CE.parquet": {
+      "sha256": "25456347c4904341223c90b4d1a4340b5c6481e76e74f36bf567d75318c18a84",
+      "rows": 393,
+      "first": "2026-09-10 08:01:00-04:00",
+      "last": "2026-09-10 17:42:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CENT.parquet": {
+      "sha256": "df77bbcb7e9b1f99eefdf31c5234f727929d8e253bbabfdbb5843352b2d7dea6",
+      "rows": 76,
+      "first": "2026-09-10 05:06:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CENTA.parquet": {
+      "sha256": "5be06aa0a1db70b5fdfaaaefa2a715e1b6bd9235b3d27215606400115a4976a2",
+      "rows": 163,
+      "first": "2026-09-10 09:08:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CENX.parquet": {
+      "sha256": "f1d3e24050db701b2dd1293031788788ef4e0e277ea5cd8c8ceb995a64e9a68c",
+      "rows": 431,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CERT.parquet": {
+      "sha256": "c6d9532a7516a4d6489ebe7eef7297590c30e517dbc36b6e49b83edcadf990ab",
+      "rows": 306,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CFFN.parquet": {
+      "sha256": "15290eb1af0f69d47f5224ae53b9980abfd08caa215f23aea452961983a08276",
+      "rows": 197,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CHCO.parquet": {
+      "sha256": "d6312be16fbcd59c6a87a5e5f5ba08200854633738704337058fdac43e27b678",
+      "rows": 50,
+      "first": "2026-09-10 06:13:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CHEF.parquet": {
+      "sha256": "f3e500e3a1d41f206a13a2c2b14307eaf51a5f7e2da962f3f4b6878f4e0c2fd1",
+      "rows": 192,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CLSK.parquet": {
+      "sha256": "e9612be483a964c57510956f70400d750b14b3f216ddbe497a4a5586b6dbcd98",
+      "rows": 633,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:54:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNK.parquet": {
+      "sha256": "0b7f9d09f37286a2d8dfcaaf43c609c705a33c1a4b5491e7c609a219ac10642b",
+      "rows": 359,
+      "first": "2026-09-10 04:35:00-04:00",
+      "last": "2026-09-10 18:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNMD.parquet": {
+      "sha256": "b4978e5f7e2217c7edf092c1ad9490b8f0916b7a93d32ee25746ba15482e7f70",
+      "rows": 191,
+      "first": "2026-09-10 06:59:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNR.parquet": {
+      "sha256": "b2db6cf6b8aeafa13a5e5b04d73d00e66a8d0224845d997a2b4fa61e77d8fdef",
+      "rows": 210,
+      "first": "2026-09-10 05:09:00-04:00",
+      "last": "2026-09-10 18:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNS.parquet": {
+      "sha256": "2cdd0080e7d3b7103b37fa594690a0becb93c8b6875c7892f53fd9f336477e95",
+      "rows": 165,
+      "first": "2026-09-10 06:02:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNXC.parquet": {
+      "sha256": "e6633805b336a3ca5efd44e502a1b7ffe9ed5694296942c568311de8c38aea23",
+      "rows": 342,
+      "first": "2026-09-10 06:13:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CNXN.parquet": {
+      "sha256": "a164da8dcb9e27a6322b9c04df9fa0627133cc720cf2c3ee06a19dcf49804f40",
+      "rows": 71,
+      "first": "2026-09-10 09:48:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/COCO.parquet": {
+      "sha256": "49fc6bd3f6adae58ae3f6eda76f9105f934d725db711ff5472d3ac12cdee6010",
+      "rows": 299,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:51:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/COHU.parquet": {
+      "sha256": "9130fe5b37f302f48dea5b6999e8226a0249702962bed4d29da79b0ab6f3d912",
+      "rows": 381,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/COLL.parquet": {
+      "sha256": "25b4e4cc1a9b43832e72b84f224e5913cdc190aa630e078836095a61743d28a1",
+      "rows": 271,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CON.parquet": {
+      "sha256": "77199fb0f92c8f32745aa9752bdae1e560b589978bfb9d4811d5d25176bca00c",
+      "rows": 273,
+      "first": "2026-09-10 08:47:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CORT.parquet": {
+      "sha256": "8992835d8ef6d367b9da81daf44d91d6e62c10c4a71966a693e3957f84af2cf4",
+      "rows": 262,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/COTY.parquet": {
+      "sha256": "475af6defac12b7e365d09a03fb0e50a57ac18ca2b409c282eb89faf3a8a8399",
+      "rows": 383,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CPB.parquet": {
+      "sha256": "053a7844f3fb7dfe92817781cff4d9055739e52e1fd30f932c461e817bafd0d4",
+      "rows": 484,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CPF.parquet": {
+      "sha256": "d491310c98f187bda8832c74eb8f6288546b9d9e72aae606007edea54e5beb1a",
+      "rows": 80,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CPK.parquet": {
+      "sha256": "5b99436ad76d2c4af00a55d11f5d7abc952d0e6bdfd95d5a0a0d5fea19750f07",
+      "rows": 93,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRC.parquet": {
+      "sha256": "fdbcfe9b91481ae2e079708ba768d805d359c54d1c14e09923d61170a14a99e2",
+      "rows": 352,
+      "first": "2026-09-10 05:03:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRGY.parquet": {
+      "sha256": "1508aa7747dd36f1acc80618e0de611314f32a8f14bef58f2901797fcb836ce1",
+      "rows": 415,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 18:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRI.parquet": {
+      "sha256": "f0b5475bce7ccd773e11e9917279e1045c7acaf5938aed9d7b6aeb89e3d7a80e",
+      "rows": 375,
+      "first": "2026-09-10 05:48:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRK.parquet": {
+      "sha256": "de41e014873a46c5292938ff5658d91025aeb32399acdbd6f961c52d44b9fe5f",
+      "rows": 389,
+      "first": "2026-09-10 07:14:00-04:00",
+      "last": "2026-09-10 16:04:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRSR.parquet": {
+      "sha256": "eedea461af0662c9d5e0ebf68a2c3800b226832c089fdfc91cec8dd81263f7e7",
+      "rows": 316,
+      "first": "2026-09-10 05:20:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CRVL.parquet": {
+      "sha256": "08e098027b967f3a3dc423e7a4c5ddfd04624df1b47287dee2e4db367c1a15b7",
+      "rows": 109,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CSR.parquet": {
+      "sha256": "dc885aca9d63e392d5ed0b090b36e5cb73828e8717572a014267b1be0eb68e21",
+      "rows": 256,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CSW.parquet": {
+      "sha256": "703965ed672b364b6718257f2c82312ec51409b60a226e06659505a11e7b5530",
+      "rows": 125,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:27:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CTS.parquet": {
+      "sha256": "91b1fdfc128608f13c418fdc4c6eea22c095c156f2697ca3763cb4c21b5faa9c",
+      "rows": 117,
+      "first": "2026-09-10 08:05:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CUBI.parquet": {
+      "sha256": "a98edc539009f54429a9c5eb99fb07e3062feefb27a6fe65171b1256682fce07",
+      "rows": 114,
+      "first": "2026-09-10 04:33:00-04:00",
+      "last": "2026-09-10 16:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CURB.parquet": {
+      "sha256": "1cc427d6c64e88e697f5a7ce5e31e7c5ba9706c5700784074dbcb44c68c82364",
+      "rows": 337,
+      "first": "2026-09-10 04:20:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CVBF.parquet": {
+      "sha256": "71798a97571e6c2d290f4c181f955c93284d9a723176fd9ca1f5ddc60f7822db",
+      "rows": 311,
+      "first": "2026-09-10 04:17:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CVCO.parquet": {
+      "sha256": "d9c6ab117394cad461175a80fde5e3f4406d57f1f7ce4ddb349eb07d8d3ba35e",
+      "rows": 93,
+      "first": "2026-09-10 08:52:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CVI.parquet": {
+      "sha256": "7178623aded608741210b633066a956cc5d23c8ab3e266d18291cb26b4c69630",
+      "rows": 380,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 18:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CVSA.parquet": {
+      "sha256": "cce28c50bdf70ae2f9439338ea829950a346392657f4001cbea67699f34cc40c",
+      "rows": 154,
+      "first": "2026-09-10 04:13:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CWEN.parquet": {
+      "sha256": "fd45965bc4c09cdbfdcaea71cacd265326ff1416d6486cc074f58316ffbff63b",
+      "rows": 328,
+      "first": "2026-09-10 08:26:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CWEN-A.parquet": {
+      "sha256": "fd45965bc4c09cdbfdcaea71cacd265326ff1416d6486cc074f58316ffbff63b",
+      "rows": 328,
+      "first": "2026-09-10 08:26:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CWK.parquet": {
+      "sha256": "c217afe36154ea08f6c827718a289dcc2258a31d985eaf264267ef7e50d8dc60",
+      "rows": 385,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 18:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CWST.parquet": {
+      "sha256": "0e47071710306e922d7deb85990fe8511c44eaa3a99ee66d79da87badb19c446",
+      "rows": 157,
+      "first": "2026-09-10 08:49:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CWT.parquet": {
+      "sha256": "9e820151dcc0f2483ccf37c034c2c8bb198778a1d60c210d7b7ef761c20ac2fa",
+      "rows": 240,
+      "first": "2026-09-10 05:50:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CXM.parquet": {
+      "sha256": "81d7970d626c73d6708a47a84979ff8338862b8a8869f546006181550f6e07e8",
+      "rows": 385,
+      "first": "2026-09-10 07:52:00-04:00",
+      "last": "2026-09-10 19:20:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CXW.parquet": {
+      "sha256": "77ec6640db8463dd08215529914b82010ab7749a379ea713059af2b6ab904109",
+      "rows": 345,
+      "first": "2026-09-10 07:31:00-04:00",
+      "last": "2026-09-10 17:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/CZR.parquet": {
+      "sha256": "ae3c5446b6d9fcf7890ea7b8aff458144f5123cff350d45859d1841a5b0e5de2",
+      "rows": 293,
+      "first": "2026-09-10 06:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DAN.parquet": {
+      "sha256": "12666a2116628c146257ee3ae0f84656bb8b4aedf3051efff100a5c5c168318c",
+      "rows": 327,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 16:11:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DAVE.parquet": {
+      "sha256": "3cc2e96d66f34f767713f2a23f1393c6a2e3e3ce44a46e43fad7e2d8c593d707",
+      "rows": 127,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DBD.parquet": {
+      "sha256": "026f4d86069cd6ab8277f03e5c202185cbae86e66da1d8ab2782bd07ae2f7be5",
+      "rows": 110,
+      "first": "2026-09-10 05:35:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DCH.parquet": {
+      "sha256": "34e270bcdc2141288225c4382ba97b5306e9581771661d9bb3416fd7de676c58",
+      "rows": 357,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DCOM.parquet": {
+      "sha256": "4dd95c4851e3b3d655270e8fe8a53c67ed695d7e580008c979fe9193eed6f3a1",
+      "rows": 167,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 17:27:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DEA.parquet": {
+      "sha256": "a607ed9cbbe498255baa7ab3589947c01bfa319fbead465505c6eb9b37c8ef96",
+      "rows": 190,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:51:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DEI.parquet": {
+      "sha256": "0c752486d4aac1771972f1a9fcbcdfcb6e14ae51bfc1702086dffa5c60e37ec2",
+      "rows": 382,
+      "first": "2026-09-10 04:04:00-04:00",
+      "last": "2026-09-10 17:32:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DFH.parquet": {
+      "sha256": "a0b28d40b63be5505682bbf04d97398bfd7cb8ec57f432776c589d3f1ea320d7",
+      "rows": 317,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 18:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DFIN.parquet": {
+      "sha256": "56f6202741119843454cffa818e328027bd75b80204eec8710b8d48f7c78f776",
+      "rows": 127,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:33:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DGII.parquet": {
+      "sha256": "62d031adaa3c7695c43a0eb92376b21495fb454d948642dfea1ce7a8ff82269b",
+      "rows": 144,
+      "first": "2026-09-10 04:53:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DIOD.parquet": {
+      "sha256": "b905e9f6d702d7f13fc3cff37a4c39cbb84ee1d3fc346f9486a3c68f199233cf",
+      "rows": 193,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DLX.parquet": {
+      "sha256": "3b69437ebe21fd6c419faa05b2ab9c9b975aa4b38314fce11faf0eaf4aa27e20",
+      "rows": 168,
+      "first": "2026-09-10 09:03:00-04:00",
+      "last": "2026-09-10 18:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DMC.parquet": {
+      "sha256": "63ee319b0d3164926075d32d504f34e63436461500a90821058242565cfba5d5",
+      "rows": 204,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DNOW.parquet": {
+      "sha256": "50677a5b3ebbc8b91270d0229baa2c1151c2b64fd9e5e62d4931e0cb28d2a585",
+      "rows": 387,
+      "first": "2026-09-10 06:19:00-04:00",
+      "last": "2026-09-10 16:03:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DORM.parquet": {
+      "sha256": "5bdeb12ee81f839b7235a211ea4a90b486558c5bb94df3a057c05e3c87796837",
+      "rows": 67,
+      "first": "2026-09-10 06:05:00-04:00",
+      "last": "2026-09-10 19:50:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DRH.parquet": {
+      "sha256": "2aacbb619217b98b8fd9399e0ce9cf2fbff07d946ec8fc6e070f366f44ed61ee",
+      "rows": 359,
+      "first": "2026-09-10 05:31:00-04:00",
+      "last": "2026-09-10 19:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DV.parquet": {
+      "sha256": "5bf3cab2b4d0b8da148600523c1d1a8e700874a87edc4f8cb712d63ba17598dd",
+      "rows": 366,
+      "first": "2026-09-10 08:17:00-04:00",
+      "last": "2026-09-10 17:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DXC.parquet": {
+      "sha256": "7b656be716962a2f53536968b11ceff48da4cd9966fad621575322b2268f4f8f",
+      "rows": 384,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/DXPE.parquet": {
+      "sha256": "7175941d2f87e44005dcf00522d3d043ae00c937488d50650f921f1dd1d46a23",
+      "rows": 48,
+      "first": "2026-09-10 07:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EAT.parquet": {
+      "sha256": "79ef78e62a2c5acbf4dd195383d682117dffc7cc7e0611f1ba5821a80863ab70",
+      "rows": 356,
+      "first": "2026-09-10 05:13:00-04:00",
+      "last": "2026-09-10 17:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EBC.parquet": {
+      "sha256": "73a3324af41578a8aa0fdd68ea826af8ddb66154917661bd1aff00d205bb2376",
+      "rows": 357,
+      "first": "2026-09-10 05:50:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ECG.parquet": {
+      "sha256": "2257a72bd22eaa5584ac29fe89c7dc34a2209b6ff38676c4299450cf765b979b",
+      "rows": 202,
+      "first": "2026-09-10 08:03:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ECPG.parquet": {
+      "sha256": "e7272bd8f5a8e68bc2563b765d2f5611ad5256aceb8f376b6e6f520ab90930b6",
+      "rows": 193,
+      "first": "2026-09-10 07:33:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EFC.parquet": {
+      "sha256": "2c3a2ad531433e38503e9f8b127ec3554b1530c485a4f92aff1420af6327b102",
+      "rows": 381,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 18:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EFOR.parquet": {
+      "sha256": "139984313cc2cfc7438a85f74d4b9a00f3ff4e71bd7cd65a0d01e7196bf3ac66",
+      "rows": 231,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EGBN.parquet": {
+      "sha256": "df9f0b779ba849b9fab93bbf88f8bd4d2712e41d91b018e93e6952bc35dac9f2",
+      "rows": 168,
+      "first": "2026-09-10 05:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EIG.parquet": {
+      "sha256": "3e03d3bc636f818244e7aa8ca569e3eab6e9f6c03a2c38e575b0c52613ca96cd",
+      "rows": 100,
+      "first": "2026-09-10 04:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EMN.parquet": {
+      "sha256": "c1a4b58bed1e3b00641fa79f7e627185c1a424d493c6f6fca573e7160bf7c16f",
+      "rows": 362,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ENOV.parquet": {
+      "sha256": "0970c864a3c62f31c3ae9bcc5d8754aadd48fbfc7e0c90fb7a6c19b737478968",
+      "rows": 349,
+      "first": "2026-09-10 08:35:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ENPH.parquet": {
+      "sha256": "ca3f80cfde9bd3a157532b61eb0fdc61536f61d6ecbe2da8b7d5c90eff456f6a",
+      "rows": 572,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ENR.parquet": {
+      "sha256": "9f8fcb3773ebe072fe3997be6319beb57abfbf531a5d308ec2abdf24b59f1c82",
+      "rows": 360,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ENVA.parquet": {
+      "sha256": "23387d75505ef57d5c7d661ca5cd0b74ea45de069cc3a346a821e72e431ee6ca",
+      "rows": 122,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:48:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EPAC.parquet": {
+      "sha256": "711963172adc102876cb175081b5ceb87c0971e64666b3c792ff7b09622497af",
+      "rows": 188,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EPAM.parquet": {
+      "sha256": "7780d4683b86a4709f17e9ccb121c1c893a56f71abbf218bf8a6652f755504ce",
+      "rows": 357,
+      "first": "2026-09-10 09:12:00-04:00",
+      "last": "2026-09-10 18:08:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EPC.parquet": {
+      "sha256": "2dea2a361a6424f03c7ac7ba0a5ee43ff71572ee41ca447f488c2904335c531d",
+      "rows": 320,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EPRT.parquet": {
+      "sha256": "e8b087ca432c6104bdfe38f3b4e35b654fe7108b0597cf707ca255b73f4a4fbc",
+      "rows": 336,
+      "first": "2026-09-10 05:10:00-04:00",
+      "last": "2026-09-10 17:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ESE.parquet": {
+      "sha256": "ac48c29682715b0bfa1602ee4f2df0986677df0083ed133201251db0f3c5b799",
+      "rows": 193,
+      "first": "2026-09-10 08:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ESI.parquet": {
+      "sha256": "4e15d6d6954722de163e6d3430e96740f5640fde5c26eb75c1315c54401f72d5",
+      "rows": 396,
+      "first": "2026-09-10 07:26:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ETSY.parquet": {
+      "sha256": "507c5a425d370d2370dfd7fdb651362ca87e960f3ae59e0d9fa02f78d0275c81",
+      "rows": 392,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EVTC.parquet": {
+      "sha256": "1f1368d3b76171a898bf7a95b79655564aee9fb59d9d81dcc66ea9b8cdbf08b3",
+      "rows": 222,
+      "first": "2026-09-10 05:25:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EXTR.parquet": {
+      "sha256": "245115bce811893eb101d5af9f1d78198279af9482e131df9c6e9d1ba0872c7c",
+      "rows": 314,
+      "first": "2026-09-10 08:07:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EYE.parquet": {
+      "sha256": "32a8f15e24d39523900edf312c78fa6be603341d838244c09a339c0c38607e3f",
+      "rows": 369,
+      "first": "2026-09-10 07:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/EZPW.parquet": {
+      "sha256": "5c1bd1102db9260b672e153f4f38c3b4847be9cfbc729970bd1d9e4c5f8dc05e",
+      "rows": 213,
+      "first": "2026-09-10 06:45:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FA.parquet": {
+      "sha256": "ed876bd8ae0bd3ed114360bef21db7e377308b552c197c92a4ba70e5cbb21e99",
+      "rows": 307,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 16:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FBK.parquet": {
+      "sha256": "16fa9ac8bff351e0a9471c3f8d70d2ac1f4341233d09c3668f0f53ea7d351d7d",
+      "rows": 229,
+      "first": "2026-09-10 06:10:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FBNC.parquet": {
+      "sha256": "fe77c855edfe5dd8bf0cb84d981c978a190699a65c977009e93d9e97ad93948f",
+      "rows": 113,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FBP.parquet": {
+      "sha256": "930a4d5fd67e08b42d977819def592b6617fea8450e61f321285eeb7c368e665",
+      "rows": 322,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FBRT.parquet": {
+      "sha256": "cbb6d0d432cc0fdce7ecc297e833e4851e12fa4fc49aa92bdb2abb16aaef5ffa",
+      "rows": 385,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:16:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FCF.parquet": {
+      "sha256": "88e27ad6d2dd7bfe2d3a40800ee6c2ec0e7846c984aa3b85d1fcfcabcd719e69",
+      "rows": 322,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FCPT.parquet": {
+      "sha256": "c9da500c01c947cfdf03cd72f8e363d8ae57e4cda104f710d81867575c323c2a",
+      "rows": 268,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FELE.parquet": {
+      "sha256": "ecd41c6324f4c651219ac2553780e921b15c1fc373f060050e8e97336446071e",
+      "rows": 157,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FFBC.parquet": {
+      "sha256": "b39c90b5d12cbabb00972e4e124ae09931ee2d0161211707201a283f6e154ae7",
+      "rows": 254,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FG.parquet": {
+      "sha256": "666dbd5459c471b5ad09285025e7631574eea79203778cfcbc8d8c647345a47c",
+      "rows": 182,
+      "first": "2026-09-10 08:43:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FHB.parquet": {
+      "sha256": "0c17a2fc0b9b7fa64e27e656245e7e2f9d90307f03125226cbbb13f501385613",
+      "rows": 344,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FIBK.parquet": {
+      "sha256": "98d5371a5996a04a3f95f2c900c3e411113b614ab0618a20c895de2e7d29d535",
+      "rows": 308,
+      "first": "2026-09-10 04:56:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FIVN.parquet": {
+      "sha256": "a6c69bef931691ace49e08607ba3a1639624c750e64f82986e9f830baa347bc2",
+      "rows": 354,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FIZZ.parquet": {
+      "sha256": "51590f4e7250e0fa8734f932f9af4fc67a9cc6a1e4ce22f7af11d45a0693b446",
+      "rows": 203,
+      "first": "2026-09-10 06:52:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FLO.parquet": {
+      "sha256": "c76524b8e37e1cc937168b645faa2d6a3ae0590289ad97cd6ce93fd7f3069971",
+      "rows": 417,
+      "first": "2026-09-10 04:37:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FMC.parquet": {
+      "sha256": "0a032b8cce3f49274960471227b05a14253ee90a73eedc482a4371c469ed12e1",
+      "rows": 371,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:16:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FORM.parquet": {
+      "sha256": "bf53cdc88055f0c133b64f362d0d229e1faa8357859e560cd33b234e32e054db",
+      "rows": 436,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:46:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FOXF.parquet": {
+      "sha256": "e528c730b074a58aa024740c0f3929475344a0449fbcdb3373042bd5b1d9a5ef",
+      "rows": 219,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FRPT.parquet": {
+      "sha256": "fa1d3b3a8f6af758cc34dca45b80fa6bfd4ccc242edf69867a3ed78dce182374",
+      "rows": 331,
+      "first": "2026-09-10 09:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FSS.parquet": {
+      "sha256": "7a3cd48d669af791fa37c751fe78cd54f8ff430b648136462d11558daab575f8",
+      "rows": 163,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FTDR.parquet": {
+      "sha256": "3a4261c1e4e380094a4d55fb4381db0a2acb5cebaf71cef8d51a733159993999",
+      "rows": 246,
+      "first": "2026-09-10 07:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FTRE.parquet": {
+      "sha256": "cb8f8faf0aca89e1842a0c41cc6ed88b2b9c0e551b2b6a88aa74d84ebdb60bb1",
+      "rows": 264,
+      "first": "2026-09-10 07:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FUL.parquet": {
+      "sha256": "48cc50d315371f83478969b3e50364865c00012557d01a279574849a1b7e1575",
+      "rows": 242,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FULT.parquet": {
+      "sha256": "f6813cc78c36d3118fa34b2d78d3c387b7503fce18ffbc4f04c7eef36517ae62",
+      "rows": 273,
+      "first": "2026-09-10 06:04:00-04:00",
+      "last": "2026-09-10 16:20:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/FUN.parquet": {
+      "sha256": "8fe7f434edb1f44efe177842684249a41dd11512752020e7703b09c81b928484",
+      "rows": 337,
+      "first": "2026-09-10 04:14:00-04:00",
+      "last": "2026-09-10 16:44:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GBX.parquet": {
+      "sha256": "94fe67a4732a1635cfe5ac8fd5f1a445bf70500c429d815110f13797f9f64a18",
+      "rows": 135,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GEO.parquet": {
+      "sha256": "33aabf1f789dea5edf8054741b5edb2fe0c28513a6814801949e2d2a0fb4e17a",
+      "rows": 303,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:44:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GFF.parquet": {
+      "sha256": "edbbc1db916dbb598dccae4a091762124766baaf78520175f970527c38e0262a",
+      "rows": 149,
+      "first": "2026-09-10 06:22:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GIII.parquet": {
+      "sha256": "b5230f4df27d65d9cc687fdb5b1abf5f5d2a19eeb12dffd505b08ffbf1c00f31",
+      "rows": 274,
+      "first": "2026-09-10 04:47:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GKOS.parquet": {
+      "sha256": "e378d57d699950d3ba11bfecc1f3500e4e9791223f363284a822ed780999ba2c",
+      "rows": 271,
+      "first": "2026-09-10 05:58:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GNL.parquet": {
+      "sha256": "52d8ae1a7100b43918cfbc8236dc56afc9ef18580cf5f8bfec01f5729f1b5cc8",
+      "rows": 362,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GNW.parquet": {
+      "sha256": "e61fb38ac8ce10f8640e19e2718ff6210df9406f761e24a1e01d5d95e95b7d10",
+      "rows": 371,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GO.parquet": {
+      "sha256": "b70ade2a2035b566aec43a7613d68298bdbc35dbe86507bd988ed8745727551b",
+      "rows": 328,
+      "first": "2026-09-10 05:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GOLF.parquet": {
+      "sha256": "663889fae5176e28bfc1889baa07c7350c4801c342bbbbc7f6524a5f1f88992c",
+      "rows": 179,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GPI.parquet": {
+      "sha256": "ca5c719ad3bd66a08750fe59eebb192a7da17cfc881980ece6c11ada64450cae",
+      "rows": 254,
+      "first": "2026-09-10 05:58:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GPOR.parquet": {
+      "sha256": "5770aebbd1a20210be4a0e3acc08deeeaeccfbf3a80e3e1f1a476b69480a88a1",
+      "rows": 128,
+      "first": "2026-09-10 04:07:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GRBK.parquet": {
+      "sha256": "f181c0793d431d46f2e582b6edf3bc1934010a845a1e436723fea9f0d2f9940d",
+      "rows": 206,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:20:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GSHD.parquet": {
+      "sha256": "6208fbdf2d62bd05d7970a525908eeed3b086f078b114ae6ef92423532c5f4aa",
+      "rows": 197,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GT.parquet": {
+      "sha256": "8323e0e689df15780558f772e140d5ad6c8ef29765a0ffd807cc127839fb9142",
+      "rows": 492,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GTES.parquet": {
+      "sha256": "fa730f4f75a7cd7b04bb4b7909b5510083eb30a2e5ab041e19ff09b48c10190c",
+      "rows": 382,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GTM.parquet": {
+      "sha256": "4c2d484213ebd8a1f14c246ca4d6d409d7dc5b2a5e3f6dca3850340e8d2e9c71",
+      "rows": 371,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GTY.parquet": {
+      "sha256": "ac55235b84fad001e9ba87830b86f89bea1163507a044d4c3138308db8d4bf46",
+      "rows": 261,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/GVA.parquet": {
+      "sha256": "1aef02ea643fc98c085cd5489faf8730c917b179455e6efd1193c0ddada05286",
+      "rows": 252,
+      "first": "2026-09-10 04:04:00-04:00",
+      "last": "2026-09-10 19:04:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HAFC.parquet": {
+      "sha256": "f97d89b09b63183437dded535775acf2570c01ea097925c7d36ebd577a9429a9",
+      "rows": 106,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HASI.parquet": {
+      "sha256": "102a5ee91033bb7268bfe1116c59effae1bf30f64c7a032abbe58f578317fe89",
+      "rows": 318,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HAYW.parquet": {
+      "sha256": "7a92f3196d6b67149234b5e1681acd175cfc71a8d849b82e9b04d6fc9d7ae405",
+      "rows": 391,
+      "first": "2026-09-10 08:39:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HCC.parquet": {
+      "sha256": "00d4987640bc41fe2f84cf8496239c99a7b623f1d5ee47a58a9cb5eefa2b6e68",
+      "rows": 186,
+      "first": "2026-09-10 06:31:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HCI.parquet": {
+      "sha256": "2ae0c0bc5b0718bd857c10cde1202aa1d85da8ec1bbe2d6853b7f56bf9304ddf",
+      "rows": 46,
+      "first": "2026-09-10 05:54:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HCSG.parquet": {
+      "sha256": "c3aff37e56dfe3a023ed5ea3fb9cf83d66e34f77530d91bd8f6ecf121e47503a",
+      "rows": 181,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HE.parquet": {
+      "sha256": "13b354c2729c4e5b7953d39889d4af3121d150ae5838a5c8ff71345d100da590",
+      "rows": 393,
+      "first": "2026-09-10 08:01:00-04:00",
+      "last": "2026-09-10 18:55:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HFWA.parquet": {
+      "sha256": "3f4224fb1031fa42753b888e541fe02b1131ffeb564f80e99fc9b9a24d0cf80b",
+      "rows": 216,
+      "first": "2026-09-10 05:08:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HIW.parquet": {
+      "sha256": "84a5b18ce39577813ab3c6374221c1a9be18d5cd1ebd5cc9e2cde5b991a96e9c",
+      "rows": 326,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HLIT.parquet": {
+      "sha256": "c65bf7f186b7a4f7b6c1b785e91de7324ea18ae5e9177f48eac544bf66802834",
+      "rows": 352,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:34:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HMN.parquet": {
+      "sha256": "bba62d6ef2681a4ac730363b1f8a16f2ddab0adf718f2e3ef4780f441a95dd97",
+      "rows": 136,
+      "first": "2026-09-10 04:29:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HNI.parquet": {
+      "sha256": "57800717c4465f49da60e7855860cbc01a0b2bf7471f4c71b7bd451e5c367787",
+      "rows": 228,
+      "first": "2026-09-10 08:34:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HOPE.parquet": {
+      "sha256": "ad767718b73e57b9258081504c9464497fec37f7a7a7f00d95c6022ba0fc10fe",
+      "rows": 217,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HP.parquet": {
+      "sha256": "450f95bf68d65562a602e9b1ae96037af067262bb43c05be855e38c8245b28b6",
+      "rows": 347,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:08:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HRMY.parquet": {
+      "sha256": "0a366510e6b33a7fa4a721e1c9339a69ce43e4d5feb28b2077ce752334c58174",
+      "rows": 271,
+      "first": "2026-09-10 05:24:00-04:00",
+      "last": "2026-09-10 19:39:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HSTM.parquet": {
+      "sha256": "11a9392ff8ae6b1d26a3aa68afc9d2a517bdeb5dbee301a7e9787ecac0e31e43",
+      "rows": 103,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HTH.parquet": {
+      "sha256": "352c9c640e0c2728212b40cc8f8c7b79a6ac1c2b032acd7e0adcf3164d637096",
+      "rows": 199,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HTLD.parquet": {
+      "sha256": "61bb25534a612378eb0220a281a00e56375b5bdd03b63c294f8c5c50ec17eaee",
+      "rows": 185,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HTO.parquet": {
+      "sha256": "784760288eeabf49308ead42522febe4747abc90ad7375c3a903b3d7c89261e4",
+      "rows": 196,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HUBG.parquet": {
+      "sha256": "2cbd840a07e327cdb77b03d979dba411c1000c895cf0cdbce973b52556ec9c2d",
+      "rows": 324,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HWKN.parquet": {
+      "sha256": "5c3ac9d93e14fb5186c10ddd9cf40eca89eceffdf982e80543f25b9f016adc25",
+      "rows": 124,
+      "first": "2026-09-10 08:58:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/HZO.parquet": {
+      "sha256": "1eefb22a71a4d42db84d41267f6ae834a6de54770da3011d8af12c4b3a27bc39",
+      "rows": 314,
+      "first": "2026-09-10 08:29:00-04:00",
+      "last": "2026-09-10 16:11:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IART.parquet": {
+      "sha256": "b66f8f5b8d488197598f2c7bb12f29c4dca7eb74d12003942f13864fdcecf954",
+      "rows": 346,
+      "first": "2026-09-10 05:38:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IBP.parquet": {
+      "sha256": "ac5c1746153faddffa65658433ec033fa72ca2dcf5bf7ec163bab518a79620e1",
+      "rows": 369,
+      "first": "2026-09-10 04:18:00-04:00",
+      "last": "2026-09-10 16:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ICHR.parquet": {
+      "sha256": "40a962344ef3a24140f80033dc89f742c9af0c6daf76d7f7f38303f57ccc304d",
+      "rows": 281,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ICUI.parquet": {
+      "sha256": "13f0d2437dbc399103267b7afec116c6ac182e05bd08468d826a60d3537fe7c6",
+      "rows": 110,
+      "first": "2026-09-10 08:39:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IIPR.parquet": {
+      "sha256": "fb967677a8e5808aa3ed85991b66808bff57106a6cf377fa6b3ce7c689032a6a",
+      "rows": 212,
+      "first": "2026-09-10 07:43:00-04:00",
+      "last": "2026-09-10 16:32:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INDB.parquet": {
+      "sha256": "7b51ed8a314da63de1135ff0d7e9e0ffdf6bddcfcfb0ea212655721454e936a3",
+      "rows": 200,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INDV.parquet": {
+      "sha256": "2894e7dd2f58e57b22cda703e6735f1b9e828d16f4691d6702e8f3ee25364fc5",
+      "rows": 313,
+      "first": "2026-09-10 07:26:00-04:00",
+      "last": "2026-09-10 19:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INSP.parquet": {
+      "sha256": "efa1b8bf0318295701a547df30e12a737df8e6c4a78be2996c31b53b7575f609",
+      "rows": 356,
+      "first": "2026-09-10 05:13:00-04:00",
+      "last": "2026-09-10 19:33:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INSW.parquet": {
+      "sha256": "17ad38ef0df0409c1b79c41fa3c869ff26cb0209999062885b6b70616c76be3b",
+      "rows": 289,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 18:53:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INVA.parquet": {
+      "sha256": "521799273ae52ca6b231c3ca7f82eac899607e817452575cef2e75328fa76c8c",
+      "rows": 232,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/INVX.parquet": {
+      "sha256": "38c93691316a9f6f88865650466f268b0917e3e2288890c4e3ac361f6bb518d8",
+      "rows": 337,
+      "first": "2026-09-10 05:34:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IOSP.parquet": {
+      "sha256": "2ebc59e92e630f35c2d4c56d3bd5a788e6ba56851f3cb0151ee2c75f86f6d5e1",
+      "rows": 86,
+      "first": "2026-09-10 08:54:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IPAR.parquet": {
+      "sha256": "8e3076303fb42f6059450b28ab4f1cb56a6db3d566887d50e353203ba99d830b",
+      "rows": 85,
+      "first": "2026-09-10 04:11:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IRDM.parquet": {
+      "sha256": "caf3e1ad436343508cb191a220b38f6513167504dba3c9e1fa3edb1bd494b781",
+      "rows": 237,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ITGR.parquet": {
+      "sha256": "29c959da7cb7d73e214135d055d0a0e6d13bc62e4bff9b6f421f862031d298a8",
+      "rows": 226,
+      "first": "2026-09-10 08:06:00-04:00",
+      "last": "2026-09-10 16:45:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ITRI.parquet": {
+      "sha256": "f3cd8320031fd749d402308f2d04acd4d8305e1c48d14e110b4454d6ba5a9813",
+      "rows": 256,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/IVT.parquet": {
+      "sha256": "b02d1d0dde2041fcdf196ebf4f943e6a14302b755423a08b9f1e3640ac00bc59",
+      "rows": 341,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JBGS.parquet": {
+      "sha256": "23a16f3fe158337d5e505f318f7ccd86a1c8e77369f806f02696fb70ba8b2534",
+      "rows": 272,
+      "first": "2026-09-10 05:35:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JBLU.parquet": {
+      "sha256": "9bc46001384d377e980354157eacba6a873f7ddf968584b18fb892a2b9335bd6",
+      "rows": 556,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JBSS.parquet": {
+      "sha256": "7eb4f91d718512ec85b616c6045f195c9e321948e4443a697ed820b86f6128b5",
+      "rows": 85,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JBTM.parquet": {
+      "sha256": "945bc5a03b4d9e784565296ba684ac5cd89dd31b1fa527ec20817dc273e58b6a",
+      "rows": 216,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JJSF.parquet": {
+      "sha256": "97da57eb9834bc84fdd527b82529e63b34ab4170279025fd78e8152b5e393ea7",
+      "rows": 129,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JOE.parquet": {
+      "sha256": "d3d434a88c8ba4d07bbb2fe6d3ae63cae352c7eeffe7b4a6cb7118e3cdf8ccad",
+      "rows": 220,
+      "first": "2026-09-10 05:08:00-04:00",
+      "last": "2026-09-10 19:10:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/JXN.parquet": {
+      "sha256": "ff2628475a7812236393b4b919088ba9ab9a9bf23af9950564cbe8877d7f907e",
+      "rows": 317,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KAI.parquet": {
+      "sha256": "883e3c6a11ab553bf29e73e75718b3d9a2904591d369fb17b87e164289e36b66",
+      "rows": 212,
+      "first": "2026-09-10 05:30:00-04:00",
+      "last": "2026-09-10 16:51:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KALU.parquet": {
+      "sha256": "68f711e80a6cfb0113c0d028cf2641d31f325ebb469ade2c3cdde3487520a13e",
+      "rows": 193,
+      "first": "2026-09-10 04:16:00-04:00",
+      "last": "2026-09-10 19:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KFY.parquet": {
+      "sha256": "26be3eb495d67a1fc2457f5a3c5885892634e7d31f55fdb6f3b5d2d0f4e8977b",
+      "rows": 224,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KGS.parquet": {
+      "sha256": "5c1f1035385cfb82666225f20f1dc82728d5baded300b044eed1af87bd246fb7",
+      "rows": 372,
+      "first": "2026-09-10 05:44:00-04:00",
+      "last": "2026-09-10 17:40:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KLIC.parquet": {
+      "sha256": "43cb05f469ef694405df933fd74ff353e663bd01617d5b7c7baee244a99b7e42",
+      "rows": 232,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:42:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KMPR.parquet": {
+      "sha256": "ac17b341af78107eeb531b4720355a78e1ce18e18aef6c983ce8f8d29e830084",
+      "rows": 297,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KMT.parquet": {
+      "sha256": "db3cdce9a054bce1817335868a6ec58432b68eba2ff21bdd237976e453c0ea5d",
+      "rows": 359,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:20:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KMX.parquet": {
+      "sha256": "5347c6fac1fc544b614ba07da861a03e389d4d2ad5f00409a27e785fed79ab2c",
+      "rows": 359,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KN.parquet": {
+      "sha256": "8bb0c8c7c69e32e057e3ee1197010e797f445df774571935d6037b64e44ea424",
+      "rows": 233,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KNTK.parquet": {
+      "sha256": "21c3f155702b65895a54dd7b7809bbd6cd135d87f43586eb083e75eafe82637c",
+      "rows": 383,
+      "first": "2026-09-10 06:49:00-04:00",
+      "last": "2026-09-10 18:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KOP.parquet": {
+      "sha256": "631bb5c85935f794ad244a2ef08a348f7b8a7a24981bacf7390b305dd4d56807",
+      "rows": 121,
+      "first": "2026-09-10 04:58:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KRMN.parquet": {
+      "sha256": "d620ee46223570a6533850a4a0d1ea10afe80c1de43f1c420ca5c9e0706437d0",
+      "rows": 442,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 17:21:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KSS.parquet": {
+      "sha256": "75aa9ad9a5d828dd3bb2516dfc9cc2edbe0c6736e53f753a864d2702a9acd4be",
+      "rows": 411,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:53:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KTB.parquet": {
+      "sha256": "7cd987fbb501b9637a5c95a7b8c93f62f70565579f3015262f21ecf708d77d93",
+      "rows": 329,
+      "first": "2026-09-10 08:04:00-04:00",
+      "last": "2026-09-10 16:40:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/KWR.parquet": {
+      "sha256": "4ae00a1f8d68aeba0a7b19ff068cfff271f7edc0caa571f501f93d03e99f3e0b",
+      "rows": 117,
+      "first": "2026-09-10 08:39:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LAUR.parquet": {
+      "sha256": "f459a662359a4cc899badd5c7755139e93f1a2f2fa1811e0b14445ad7833c500",
+      "rows": 278,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LAZ.parquet": {
+      "sha256": "f051a8aa866e8019df0070378ea8c985cfdc0ca6378d9d0d2ceef9aa738eafbe",
+      "rows": 318,
+      "first": "2026-09-10 08:22:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LBRT.parquet": {
+      "sha256": "8e49fd33ebfa478c93a7ce263188e4ec470f3863eab25658ab2ed511e2320dcc",
+      "rows": 402,
+      "first": "2026-09-10 07:10:00-04:00",
+      "last": "2026-09-10 17:19:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LCII.parquet": {
+      "sha256": "6cfbc1432917987a388958ecf08321ad41266bcee7e8d5e3997010604cc050ff",
+      "rows": 212,
+      "first": "2026-09-10 05:11:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LEU.parquet": {
+      "sha256": "21c782b3953fd9b3bff2004fa4de8703fbcc9b70c80ba04725eb1ebabd65204b",
+      "rows": 417,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:52:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LFST.parquet": {
+      "sha256": "ad0142df30bc40661eee44c084977ee5e2946441a1d6887f330feda023782839",
+      "rows": 404,
+      "first": "2026-09-10 04:12:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LGIH.parquet": {
+      "sha256": "fbe040b2b62a85e419d786a34f002244f0164986100d634744527a445b6f1a4a",
+      "rows": 227,
+      "first": "2026-09-10 05:15:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LGND.parquet": {
+      "sha256": "716b645257e2b96880ca599123fbb962b73dfc49fe1a3042aab04eadc10ddeef",
+      "rows": 86,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LIF.parquet": {
+      "sha256": "119d816f7e1e9fcf1fb554b162cdf84239ff883206ae18a9fcc11c1552393f15",
+      "rows": 231,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LKFN.parquet": {
+      "sha256": "5e548c56b912be11a64bb85f082f639784e9fff784d03d4813f90182623c68db",
+      "rows": 122,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LKQ.parquet": {
+      "sha256": "190abddd0bb900a51a3bbd14ff130cef0ce5d81b4355945d7b28de40cef508e7",
+      "rows": 379,
+      "first": "2026-09-10 08:05:00-04:00",
+      "last": "2026-09-10 19:48:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LMAT.parquet": {
+      "sha256": "8f62652471f5e6412d15375d1431ed68ecca5c8448d78cb0b226399201c88a70",
+      "rows": 138,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LNC.parquet": {
+      "sha256": "cfe205bf1e02d679bb0b2c0ad23e6dc53d2ce08d9479c63214de65a458081912",
+      "rows": 351,
+      "first": "2026-09-10 07:45:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LNN.parquet": {
+      "sha256": "e143e5fb1909c0be5a5e289728ef98d3f8cfbc82f7af0e732182091e09f89da0",
+      "rows": 95,
+      "first": "2026-09-10 07:16:00-04:00",
+      "last": "2026-09-10 17:31:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LPG.parquet": {
+      "sha256": "25947da149db19d6513a66944d1181a92e2348c87b4441e156a49f9b0c20ad29",
+      "rows": 299,
+      "first": "2026-09-10 08:20:00-04:00",
+      "last": "2026-09-10 16:52:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LQDA.parquet": {
+      "sha256": "920eb0455fe0ea7671c9a0bd93bc7c90232d0aeb2ef1d2fdfb4c04699c175fdc",
+      "rows": 316,
+      "first": "2026-09-10 07:37:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LQDT.parquet": {
+      "sha256": "b348fd821ad62151df7b8d4c30b345982ed01e9aa22aae6af8196b137dc1e921",
+      "rows": 87,
+      "first": "2026-09-10 09:29:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LRN.parquet": {
+      "sha256": "8b82998e580d2dc8c2c493f35053d7c5f7ed96931ccc4bd63007985e1a34c7a8",
+      "rows": 202,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LTC.parquet": {
+      "sha256": "a249aef1a3ee386f1bf04c06c662ab2642f9616bab05d529eb0a5325ac967631",
+      "rows": 262,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LTH.parquet": {
+      "sha256": "f1009cec4e41b936a3eeb67da18508add87f51817df64efb016319d13011e2f0",
+      "rows": 371,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LUMN.parquet": {
+      "sha256": "c3dfc041deee5ab611dd6275461ceec3e071dfd76768c9f751cc54be706eb0f9",
+      "rows": 433,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:45:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LW.parquet": {
+      "sha256": "dcdb446299ea2c7ec5bba75ddcef958bc334fe238a8903128ebb694a6068fe50",
+      "rows": 355,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LXP.parquet": {
+      "sha256": "3665fedab7c435e400813d087b00e2edfeb88f564bc8b1edc476196d651c787d",
+      "rows": 284,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LYFT.parquet": {
+      "sha256": "06f2cee4465b4f29292085ea93c3e6afee10f4ac7734e8cba9f6fb385829398a",
+      "rows": 512,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LZ.parquet": {
+      "sha256": "d701b72c131fc51d706decfc798bbbd57478e06731addc569514d81582a7f288",
+      "rows": 350,
+      "first": "2026-09-10 09:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/LZB.parquet": {
+      "sha256": "06eb70cedced174b2c9172391994e412c79d81d9aa149c9faea0130b4e219f9c",
+      "rows": 312,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MAC.parquet": {
+      "sha256": "b48285d7c4e4017612db618fbed10d602401971d2e541a313f32a84ce0ea95a4",
+      "rows": 391,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:04:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MAN.parquet": {
+      "sha256": "eade1658870906e9ad40375d5c7b6a154d38b34d742f06c429458beca937149b",
+      "rows": 321,
+      "first": "2026-09-10 08:58:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MARA.parquet": {
+      "sha256": "b7580b240bbf294b95430daaf98854f44b53ab0f50ecb9ca5545b7f13f449ec8",
+      "rows": 729,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MATW.parquet": {
+      "sha256": "2ffffd492b1637951c6cf0caf26f7413a67bc4e7938662bbc4121ffabedeb32b",
+      "rows": 280,
+      "first": "2026-09-10 05:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MATX.parquet": {
+      "sha256": "534f88326684c8c05a89fc66b898c7482e03797ad480b6dce12f0b1c29807bdd",
+      "rows": 188,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MBC.parquet": {
+      "sha256": "971fc36ef4edb46729725bc599c865d630f946df929200fb863dd2a8a9cf469b",
+      "rows": 383,
+      "first": "2026-09-10 07:27:00-04:00",
+      "last": "2026-09-10 19:03:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MBGL.parquet": {
+      "sha256": "7f966a80af5fdaf38bb18d58a973bcee74f7befe3169505aca7b30bfcc276c8e",
+      "rows": 387,
+      "first": "2026-09-10 09:08:00-04:00",
+      "last": "2026-09-10 18:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MBIN.parquet": {
+      "sha256": "6ff2ae710a0c68bacc2a98e31c2f4fa773b8f7e2ad970be47df0146c57790b99",
+      "rows": 101,
+      "first": "2026-09-10 04:38:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MC.parquet": {
+      "sha256": "a1f29d6045deffdbb1a68d420e28f5534e81c3b19fff112dfe0e44d9fa73b443",
+      "rows": 304,
+      "first": "2026-09-10 08:02:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MCRI.parquet": {
+      "sha256": "b685c8a3a9e3b95359b166fc3a11914dc69d505c2c9bc60de9d24608eeb457fb",
+      "rows": 61,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MCY.parquet": {
+      "sha256": "55bf5df603c016b6dc4da8d473721c79a0a8b0fa8d31b57d2ff3db8bb5e4feb7",
+      "rows": 156,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:27:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MD.parquet": {
+      "sha256": "f925fc1aa6b8d3926777121d2242289e7840f487b8659eb17587f60f89189d8f",
+      "rows": 276,
+      "first": "2026-09-10 08:57:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MDU.parquet": {
+      "sha256": "405fcc195c5226500ed4ff371e6e93ae71abe974623d358cf3b6b28ed9906e40",
+      "rows": 378,
+      "first": "2026-09-10 09:10:00-04:00",
+      "last": "2026-09-10 17:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MFP.parquet": {
+      "sha256": "c1eb060a8006569006b9e575a7487a030b9fd6ebaf66e829570fae29b3a074c5",
+      "rows": 167,
+      "first": "2026-09-10 06:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MGEE.parquet": {
+      "sha256": "c79590d28cd095dc617507bff18df6f56f2ebe2d97cb9edfda11378f131988c3",
+      "rows": 81,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MGY.parquet": {
+      "sha256": "4af8f5ccefd722b957f825b08b68da1fbb9136e3ff6b430c03729e3e4080ead6",
+      "rows": 401,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 18:35:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MHK.parquet": {
+      "sha256": "7818f2cc99c8ae3e5f980c3da9a2bd6bc993ad41326fea2d55e1effd225224f2",
+      "rows": 340,
+      "first": "2026-09-10 08:31:00-04:00",
+      "last": "2026-09-10 17:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MHO.parquet": {
+      "sha256": "612444286d9b8100c148137cefc518a031926ef9286d45e392ec81c39291d59c",
+      "rows": 180,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MIR.parquet": {
+      "sha256": "0bd386fd88eb8af3d94c3e1b71f64a32c2a331bfba136d20a87bfca8f9fed132",
+      "rows": 373,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MKTX.parquet": {
+      "sha256": "e842cdde0665bb543c9f5d0f70342c703bf2821921fac5bc1578944354659940",
+      "rows": 277,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MLKN.parquet": {
+      "sha256": "99a1997d5ef734729acfa8918b4cc6734178ac13276f7c993dc9654740b279fe",
+      "rows": 197,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MMI.parquet": {
+      "sha256": "21f4b094b1c2eb143e24a41b2a69fa8c71c2abb011f55f754762caa06afb3f39",
+      "rows": 118,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MMSI.parquet": {
+      "sha256": "2df1deb6353dfdf6096d95149f6f0b4bc6c380e288af53b233810396454a1c9b",
+      "rows": 185,
+      "first": "2026-09-10 05:17:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MPT.parquet": {
+      "sha256": "e3c2cd017c4d3f0a18f114e7a4e4bbecae5cc2e17af4d8a107561f4bb4936ddf",
+      "rows": 453,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MRCY.parquet": {
+      "sha256": "827ff28c87fa3ff6eb944caf06940407374217fce12db52d56f7658b7457160a",
+      "rows": 199,
+      "first": "2026-09-10 07:02:00-04:00",
+      "last": "2026-09-10 19:45:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MRP.parquet": {
+      "sha256": "f2514688be9bebfbcbe9192d9f030a0644595410e1c6a2d943087e41431533c8",
+      "rows": 356,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MRTN.parquet": {
+      "sha256": "ff4ae38cf11ebffcfe92087d2dfb495432ab6518cc177b21d47003610fb46a60",
+      "rows": 196,
+      "first": "2026-09-10 09:29:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MSEX.parquet": {
+      "sha256": "261625db3bfe82fe439f244407e14c630b7c97498b4017f74c803c8f5b489385",
+      "rows": 77,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MSGS.parquet": {
+      "sha256": "910f869e145801d206a581b32c45368970db7278167a3c4d4dfc85a1dfe0adf9",
+      "rows": 241,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MTCH.parquet": {
+      "sha256": "6988ee2c5d1355c4aa8d4677269ca489790b240b380674bdcbdbb0d5aa2c6d8e",
+      "rows": 387,
+      "first": "2026-09-10 07:43:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MTH.parquet": {
+      "sha256": "03e9fe505b6752a4b88222fd726752489cea63d78f3648a09c588ffde3ddd19e",
+      "rows": 338,
+      "first": "2026-09-10 08:38:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MTRN.parquet": {
+      "sha256": "cc26d98175eeb60783e823c329ce04f34363d5b4c486128031e84c3ffd0a7769",
+      "rows": 189,
+      "first": "2026-09-10 04:27:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MTUS.parquet": {
+      "sha256": "54dcf58e546dc852de193126d67e5ee046a8f911be6d3174dc9c12b69de57fae",
+      "rows": 203,
+      "first": "2026-09-10 07:55:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MTX.parquet": {
+      "sha256": "f59cf099ff8325bf1cc502d72f9f5b4c6967355102f66f808920ba5327b4b4f3",
+      "rows": 133,
+      "first": "2026-09-10 07:48:00-04:00",
+      "last": "2026-09-10 18:11:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MWA.parquet": {
+      "sha256": "346bdc7dd0d4e819af062ddc06cff82c225b5bbb4d757fbeef9ca12055a2ed41",
+      "rows": 333,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MXL.parquet": {
+      "sha256": "cd29bf9445136bf2e2ec2d73443cc55a757ec1a00668d51543e97c38ff131813",
+      "rows": 546,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/MYRG.parquet": {
+      "sha256": "5ad852a437ba9545452fea4b31c61fa4102cae0f08645e88360f51901439efa8",
+      "rows": 203,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NABL.parquet": {
+      "sha256": "4f6341e981662a35244e95edfbe8c15ec8554176cfd98433ecc54345fbb2f339",
+      "rows": 361,
+      "first": "2026-09-10 09:12:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NATL.parquet": {
+      "sha256": "8ba9b6af6a9a6344c3dc74eb84f8a0cc819915b121f07377f97938ec3a10fb16",
+      "rows": 285,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NAVI.parquet": {
+      "sha256": "f39dbd246dc43f8fada96c8e23f279b9f53c433f633d3f3309f02005f2f1b56d",
+      "rows": 221,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:55:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NBHC.parquet": {
+      "sha256": "03ad98b2a71fcba146ea3c2d0aed14b9d8165d1200ea33d4e4019c988854e5e0",
+      "rows": 204,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NBTB.parquet": {
+      "sha256": "4acbb9e1583c8dd8a8c04602c55696a13844669a9bd6caecca8ec8955568cc5a",
+      "rows": 145,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NE.parquet": {
+      "sha256": "b9180130ab321bf15524c9c6536fd1ffcd7b12c2cabcc07b098ad83917e92808",
+      "rows": 333,
+      "first": "2026-09-10 08:37:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NEO.parquet": {
+      "sha256": "4b7f220d0dfe6398483ab88703c52f50d89f63aad33b9fc92a88f18cdf10090f",
+      "rows": 311,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NEOG.parquet": {
+      "sha256": "23480ee9221d2249ef017bb6c73095b45947803a98e2a00c7cd60fbdc3323be3",
+      "rows": 325,
+      "first": "2026-09-10 05:45:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NGVT.parquet": {
+      "sha256": "646c63990d08621e5a9b7a5f4142c9e87aec609a2a75db4011d3841a74f9abc5",
+      "rows": 121,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NHC.parquet": {
+      "sha256": "a55a29c7b8b23f7e2856b4a6dfde7f00253b91770a785872189c9d727133b8be",
+      "rows": 62,
+      "first": "2026-09-10 04:17:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NHI.parquet": {
+      "sha256": "278eb292a7f330309a82ab138b7e6ba93ad7f8d74992489c78584f937101028c",
+      "rows": 218,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NIC.parquet": {
+      "sha256": "3e5f610e7f72d57b92038eaa02aa20345a4e95859221b420707131328e1ad199",
+      "rows": 89,
+      "first": "2026-09-10 08:54:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NMIH.parquet": {
+      "sha256": "cb4b64bfbc09057482765fdc540e6d3a4ee534473f238b6f23dfc6dd4c5d5ec3",
+      "rows": 195,
+      "first": "2026-09-10 09:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NOG.parquet": {
+      "sha256": "e2b00e7ae65c9effdb95afb41785bc95af6bb1ee7901a5940ad294b9b9059ae2",
+      "rows": 394,
+      "first": "2026-09-10 08:07:00-04:00",
+      "last": "2026-09-10 17:43:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NPK.parquet": {
+      "sha256": "63fd4276576910d1490540669b30a8398f216923173b3066ddeae1ca2fd1b80d",
+      "rows": 58,
+      "first": "2026-09-10 08:15:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NPO.parquet": {
+      "sha256": "e062391daf855164f7296b18b89259c4cdf754416612c3ff015cadcb91f7e4b5",
+      "rows": 187,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NSIT.parquet": {
+      "sha256": "78a716d9283b70f7d9dd7db1d3ae1e4325e1932156222e3223fdb5a49591a442",
+      "rows": 139,
+      "first": "2026-09-10 08:10:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NSP.parquet": {
+      "sha256": "4ed0b899a58198762db5948e0a32b796c82a4b5272062aa50598bbd8b0c5b190",
+      "rows": 200,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NSSC.parquet": {
+      "sha256": "ba598d06aea2516abf28852bbc0ffa1b61c83f7d6f34eeb06f4da845dc606fa2",
+      "rows": 117,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NTCT.parquet": {
+      "sha256": "32ea15d82666c97c00eab47497f5ed9756df6d078d7e28328c87dbc12b2a4ba2",
+      "rows": 223,
+      "first": "2026-09-10 07:12:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NTST.parquet": {
+      "sha256": "94d85cff2b4f2425c4b2de0cfa896e12c1780080acffc6a9d82231bf7682522a",
+      "rows": 374,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NWBI.parquet": {
+      "sha256": "7a977128e6c7a5f596198036cf0c0010a250ce731270b0835ed7f8128f42cca8",
+      "rows": 250,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NWL.parquet": {
+      "sha256": "d059c5c72e9f44b3bd47a303a5982299c1e34386ffa4b90da828079f6f89cade",
+      "rows": 408,
+      "first": "2026-09-10 07:10:00-04:00",
+      "last": "2026-09-10 19:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NWN.parquet": {
+      "sha256": "79c45e9ab78497d2714ff44a92899d52168fc58ff920d975aede31db9a999bde",
+      "rows": 177,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NX.parquet": {
+      "sha256": "ffe4ae96d60ef674356fb15c60a17477b040cf399c6fe8f1a158ebe2b94486f7",
+      "rows": 247,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/NXRT.parquet": {
+      "sha256": "2e2c73874ad21f3a2b5d5fa7019eba5c80892e3afd280fb98f78440c6144ca73",
+      "rows": 264,
+      "first": "2026-09-10 08:02:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OFG.parquet": {
+      "sha256": "f7da006546ffc91651fc9090c0fc4c0eef91d70b26ea08f8f52fbc367d9d4e16",
+      "rows": 145,
+      "first": "2026-09-10 04:23:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OGN.parquet": {
+      "sha256": "7988dc1b07df376c695c1bc1450aa210d46df606e917a68aed9dfb5208ec593c",
+      "rows": 380,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OI.parquet": {
+      "sha256": "5062a03fc0ba39479e98f47d59e3c0f447150c9d5e903d8841225385c8999667",
+      "rows": 387,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OII.parquet": {
+      "sha256": "8eef44b6e33e1b5654a24cc4c55353f26b10c4d87610a6bb2c1d331fd81f0546",
+      "rows": 355,
+      "first": "2026-09-10 06:19:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OMCL.parquet": {
+      "sha256": "bc81ce30cacfacd2ff8c76d4fae563ef5e178fc2b9eeaacfc9fcbdbe30ec752f",
+      "rows": 236,
+      "first": "2026-09-10 08:47:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OPLN.parquet": {
+      "sha256": "af910ba4509d44ee4f522a87fe130a016a3071715e8c1c986e4c50ec7d1facf2",
+      "rows": 263,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:17:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OSIS.parquet": {
+      "sha256": "71054e2adfe5f60a05408c51e6a4f4c7c2b9371237810dd808af2b3aa9ec79dc",
+      "rows": 196,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OSW.parquet": {
+      "sha256": "a2498a02831ccc5c27864b0897a7015fd9f6ec0a2c0b5971cdca3d859fca5f8b",
+      "rows": 303,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OTTR.parquet": {
+      "sha256": "48ad2545021183609c8e9de7773e707b0b25700fb57c69163d84f3618097d7cc",
+      "rows": 102,
+      "first": "2026-09-10 09:27:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/OUT.parquet": {
+      "sha256": "79f3e5539d9de592cd0af374884bef5d46c734a0392b6efbf4402a2da17e34b2",
+      "rows": 369,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:26:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PAHC.parquet": {
+      "sha256": "2bf7b5399d2f1da7aca5b14aea376e1c1ed4fe70738d4cd3871ab2beaba38d17",
+      "rows": 95,
+      "first": "2026-09-10 04:58:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PARR.parquet": {
+      "sha256": "a940c01b07f346e3051eb2938533a8f55033b9054e61635d4a20a9acd487dfdc",
+      "rows": 349,
+      "first": "2026-09-10 04:29:00-04:00",
+      "last": "2026-09-10 16:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PATK.parquet": {
+      "sha256": "6d60dbb9827f9e782f9809904f2ac64d1073257baaef3bf43f2b664995e45699",
+      "rows": 268,
+      "first": "2026-09-10 09:10:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PAYC.parquet": {
+      "sha256": "ca765dcb0fb33f0f3ea5c8bccb0f84eee10c84aa48c021dd4021e4486412de3e",
+      "rows": 270,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PAYO.parquet": {
+      "sha256": "8d1fe3a96c6c0195d9f43ea648b098439a25c9069bc142a2b7799c7adc6fbcef",
+      "rows": 329,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PBH.parquet": {
+      "sha256": "8df66d256bb55c7738d3af1f5ad666ab9480ad93ec8a0248dd873ef00b9e6ebe",
+      "rows": 250,
+      "first": "2026-09-10 04:09:00-04:00",
+      "last": "2026-09-10 16:11:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PBI.parquet": {
+      "sha256": "25034089147bd77de9209b50aff20eac1541e96912ff39b3c2b11e5f39f48aaa",
+      "rows": 309,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PCRX.parquet": {
+      "sha256": "29e396e010f0773cc1186afa52ea0b11376e07667cf49d5fccc4023dfbb5bb7d",
+      "rows": 198,
+      "first": "2026-09-10 07:31:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PDFS.parquet": {
+      "sha256": "cc0cc6386ecdf5c09aab850a279c17e4938a6f3c67e1ac84205b2934473e917e",
+      "rows": 283,
+      "first": "2026-09-10 09:20:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PEB.parquet": {
+      "sha256": "ba954233a8bb6007af8e87a93650b6f6606aa005e4013ab919592c1604448874",
+      "rows": 384,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PECO.parquet": {
+      "sha256": "8364546e1f0b8f49d7a043969285238f3a3bf74eb8a8c94ffb63c5846620ca0b",
+      "rows": 297,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PENG.parquet": {
+      "sha256": "628b810ac178a46adb7fcbac60540bb23dcd82089b4a45d3eb04068e4e82baaf",
+      "rows": 404,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PENN.parquet": {
+      "sha256": "4f2a68f8a2acb875475b064b715adcd8001b792a09625acf1470c459437815fa",
+      "rows": 377,
+      "first": "2026-09-10 07:23:00-04:00",
+      "last": "2026-09-10 19:53:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PFBC.parquet": {
+      "sha256": "62ba701e573505623fffe9b3b582e89082556a131dcf762c35b95968511f5ae7",
+      "rows": 45,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PFS.parquet": {
+      "sha256": "253d746e4e295cad8c8cfe37f80f151cfc62dfaaa28cb4cfd9949903da74f6b3",
+      "rows": 275,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PGNY.parquet": {
+      "sha256": "c7e77f87b3405bad69774c45e8f16a901e6502decff038122af5c901401fbc63",
+      "rows": 360,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PHIN.parquet": {
+      "sha256": "8ca156a027388d6fb105fdeede21dd6805087b6dde47d74e1002b26e9ec094fa",
+      "rows": 170,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PI.parquet": {
+      "sha256": "7be71d1d94acc26fb7e8e307fdfedca39893af888f7d62911889c2ec992abb4a",
+      "rows": 141,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PIPR.parquet": {
+      "sha256": "8f944bcb9dcf94e06dab8be72426d6cd5a54252e8a6f2fc7a1febce53b597df3",
+      "rows": 244,
+      "first": "2026-09-10 04:18:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PJT.parquet": {
+      "sha256": "74fbab31df168e86ea123b14dcf796dcd569aa25e2d6cfe1b086bbdcab45a860",
+      "rows": 185,
+      "first": "2026-09-10 04:19:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PLAB.parquet": {
+      "sha256": "79f5a0b8397f07a511e4b24568183b0cb66af884241a508b201bd29bd1c2a214",
+      "rows": 350,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PLMR.parquet": {
+      "sha256": "120c133aadc865b3eaeade4a431e3562869d913e4cb7910f1f85d22d887dfedd",
+      "rows": 115,
+      "first": "2026-09-10 07:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PLUS.parquet": {
+      "sha256": "a8674c08c10dd2d091fd8ee370520ee6ea93f44f3838d88d512274233e7691ff",
+      "rows": 78,
+      "first": "2026-09-10 07:14:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PLXS.parquet": {
+      "sha256": "ce9d5212d5d4e568cbb71a4b0383b57bd833dad0dbac4083173319abfa78be9b",
+      "rows": 101,
+      "first": "2026-09-10 04:07:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PMT.parquet": {
+      "sha256": "d1494df89cc5de77764d715f3f75624f1ac96611752e787c0a357c55be149117",
+      "rows": 353,
+      "first": "2026-09-10 08:33:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/POOL.parquet": {
+      "sha256": "2fa66d0a4bb1af624f222bfa6556d76d8b7261564756bde2b7344ee375de3abd",
+      "rows": 320,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/POWI.parquet": {
+      "sha256": "995d2fefc9bfdd9b2e926ed0b736aff7eb55c946e675ad359471438584c68e8b",
+      "rows": 262,
+      "first": "2026-09-10 05:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/POWL.parquet": {
+      "sha256": "106e7a1ce044d03ab6740df47933c3cd8d8c2e8a856ebdd250be6b33c39f18b0",
+      "rows": 384,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PPLI.parquet": {
+      "sha256": "dc489b85d48fdf94c80484e66112fa6ecd787f3974bd093bd5dbfdc84da75008",
+      "rows": 282,
+      "first": "2026-09-10 09:27:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRDO.parquet": {
+      "sha256": "3c5dc8063cc3c55ef11c2480f7c55e1b6baa26fb1c22e4f9c857d54a9929371d",
+      "rows": 133,
+      "first": "2026-09-10 04:56:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRG.parquet": {
+      "sha256": "6c6fa7aa0ff203b67fd2e4fbff158120ffad6cf437ffa35244d72c5dc0bc52a4",
+      "rows": 267,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRGO.parquet": {
+      "sha256": "368ee5aebd88fb973ee44c2620a8f4eb3a308b652228c92fc919bcc516bdca9d",
+      "rows": 359,
+      "first": "2026-09-10 06:56:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRGS.parquet": {
+      "sha256": "991be26e2c7d9aa472319d3713c193bea13f0d21da5a8cae41e83f0d5a5fdd05",
+      "rows": 176,
+      "first": "2026-09-10 08:19:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRIM.parquet": {
+      "sha256": "f5940f8222d92babaf29181381220919a28a068da2e238ebd43e8d0d762f7107",
+      "rows": 357,
+      "first": "2026-09-10 08:01:00-04:00",
+      "last": "2026-09-10 16:04:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRK.parquet": {
+      "sha256": "16e89f39beacd1aab80f03e9f30d8a1ea23802bea60145cac5b0c172c7cc359d",
+      "rows": 64,
+      "first": "2026-09-10 04:52:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRKS.parquet": {
+      "sha256": "01637ff309454ed497aa14d4f53f42565166f7c348d46b66d8f6aa82f088c1a7",
+      "rows": 252,
+      "first": "2026-09-10 07:20:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRLB.parquet": {
+      "sha256": "e50fc699f21e09cf0f935b77c93e6156673d2ff98efad077f2466327146e0b2c",
+      "rows": 102,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRSU.parquet": {
+      "sha256": "95c73b2b807c13d12b802d984f876dbcebd7548d892b2e11bb33dbc72efa64e6",
+      "rows": 88,
+      "first": "2026-09-10 04:26:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PRVA.parquet": {
+      "sha256": "e19e373c15c60351d6edceaf25c8e7ac4529c29a209a44b10ee9616d4ca9d387",
+      "rows": 301,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PSMT.parquet": {
+      "sha256": "a5a845a4d973dbecf0d6239ba75ffbdde9d59efa64b1812f43b3e82e09b3b453",
+      "rows": 116,
+      "first": "2026-09-10 04:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PTCT.parquet": {
+      "sha256": "3de2e3466a2bd10963f5eb5bf68f8ac29ce057bba7d8da3a8651cad619847919",
+      "rows": 273,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:38:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PTEN.parquet": {
+      "sha256": "7c4a36cd751eadf10cee135c9e06794907c0058c7363736ddf521b2707c633d8",
+      "rows": 428,
+      "first": "2026-09-10 07:37:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PTGX.parquet": {
+      "sha256": "c4e0d93bf8cd9fd6b7574ac6f589b811ed083f9bc1ee7ee97c576b89ebc74fd5",
+      "rows": 205,
+      "first": "2026-09-10 04:04:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PTON.parquet": {
+      "sha256": "032f6e11b39b2bd61c296c3207816dcef3698147b86adbd68244666061e4d90b",
+      "rows": 423,
+      "first": "2026-09-10 04:30:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/PZZA.parquet": {
+      "sha256": "26578db96a2849b5d2407cb20ccb9a8203828899cace9756fbb9b865eae75512",
+      "rows": 382,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/QDEL.parquet": {
+      "sha256": "d3895fda22ee6983ac70a34c54a4995c88f8c7bd93957ceaf5f4c467ff40517e",
+      "rows": 298,
+      "first": "2026-09-10 07:22:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/QNST.parquet": {
+      "sha256": "75dae617413c2aa8ff211519939de1e0c6ecd899d3abeb5e76553e7cfb116b47",
+      "rows": 244,
+      "first": "2026-09-10 08:36:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/QRVO.parquet": {
+      "sha256": "41d4a7ce874ac9060f65f5bba624630e7881796606c6d34c7cf549327319c022",
+      "rows": 406,
+      "first": "2026-09-10 08:47:00-04:00",
+      "last": "2026-09-10 19:54:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/QTWO.parquet": {
+      "sha256": "a95ccc50b223ef7de99ba29e7f946471a9fd1af0391d27af8463954c44aa21d6",
+      "rows": 238,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RAL.parquet": {
+      "sha256": "10726d75b9a02d85ad86d5cca0907668e8725d3c003032b5ffeae1940702a943",
+      "rows": 374,
+      "first": "2026-09-10 04:07:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RAMP.parquet": {
+      "sha256": "01dee4f631086e62b1418d2cff56a711ede74c3761b400106014e4c22829fdff",
+      "rows": 316,
+      "first": "2026-09-10 04:12:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RCUS.parquet": {
+      "sha256": "124a306eefab3c58784a5d156968b3fe5e6b6b02f795e2393cbb5225b04efef3",
+      "rows": 349,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RDN.parquet": {
+      "sha256": "e2d998db54a0653cbf0674ceb65b483deb2e99c1aa12b216898de4bb89f64fa5",
+      "rows": 258,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RDNT.parquet": {
+      "sha256": "9a0194af7db8097d2187cf532aca3ed2cc0289a73e3ac55b77bce039ba9087bd",
+      "rows": 276,
+      "first": "2026-09-10 08:24:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RELY.parquet": {
+      "sha256": "3af17b614f47f2cd5a2b914a0276aad2f5ff6d566ede1df44038ae2fbfa87203",
+      "rows": 440,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:48:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RES.parquet": {
+      "sha256": "39f121b7fe4e1560a36b029dcb7a9dd82ec85ad9663e077dbb2eaca75e7fb0e1",
+      "rows": 321,
+      "first": "2026-09-10 08:43:00-04:00",
+      "last": "2026-09-10 18:22:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/REX.parquet": {
+      "sha256": "4f1745258b17dadc45e5f168be609146f6913093ef52abd86b9b312c365ef8c3",
+      "rows": 105,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:51:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/REYN.parquet": {
+      "sha256": "93610daa56d9af845a8bb9fb2c3a08c454e314f35be1015ecd8226f1e016230f",
+      "rows": 344,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/REZI.parquet": {
+      "sha256": "5d4c41fc754f1b9f66bcdc7fe2e06b4dc4be9af8ef7f3af75991b072a3b07d79",
+      "rows": 379,
+      "first": "2026-09-10 08:43:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RHI.parquet": {
+      "sha256": "b1cefe9bcbeafdf9d6b4c6cf86b45f4120fa6ab0dcd0f18571ec528971ad489a",
+      "rows": 366,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RHP.parquet": {
+      "sha256": "9f6215bd3a44ba97ac523b3765038bba51d9615c61b02818640e114da03a8184",
+      "rows": 212,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RITM.parquet": {
+      "sha256": "71abbbbfbf07e5a6beb7eb8ed28f7aee3cd26faa3e75be53b13db2f11437a3b9",
+      "rows": 418,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:50:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RNG.parquet": {
+      "sha256": "7d88a0574e23b3b6fabbce0c183f793fb6cf63b068d4e72bc95705ad2b39e4cb",
+      "rows": 352,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 17:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RNST.parquet": {
+      "sha256": "c955998fa10659e999c1f6a80c27787708b66b6a90f541c0439d57b213410dfe",
+      "rows": 260,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:26:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ROAD.parquet": {
+      "sha256": "931e8a2414eb953c27b03d33ff0e68bbee81f269715ffa9432c3fcd9bb1cbb2d",
+      "rows": 193,
+      "first": "2026-09-10 06:49:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ROCK.parquet": {
+      "sha256": "af47e1a5410ff785ba3252379ae2213257f2ac8b38e5e56746a4439c5453631f",
+      "rows": 160,
+      "first": "2026-09-10 08:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ROG.parquet": {
+      "sha256": "2e21621eb32f0d9d8662133e706dd992cb384fd159e840fd3390d6250d1a6681",
+      "rows": 112,
+      "first": "2026-09-10 07:02:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RRR.parquet": {
+      "sha256": "ec64d4855cb7c7918279ab57f607feb3af587857348602635e033eed5a5b7a26",
+      "rows": 208,
+      "first": "2026-09-10 04:15:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RSI.parquet": {
+      "sha256": "c916b317fbf5f717cf0eb4ba7ea440c63a4b65b0f3092bb44c05ac91502ab0df",
+      "rows": 352,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RUN.parquet": {
+      "sha256": "d5a6943ac628fde41a05fd828beec37eb413a68f88cd8153272776e04869267e",
+      "rows": 535,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:56:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RUSHA.parquet": {
+      "sha256": "ce82c839862eb5abe64fbd2b0d690a4d7157ed75cc97f9b51796f1d0dbff1930",
+      "rows": 227,
+      "first": "2026-09-10 09:16:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/RXO.parquet": {
+      "sha256": "e0cb5845587cc21b5b256ad5c0a50b3ff6ff353fbcba5b3f2f7cb149db3ec475",
+      "rows": 345,
+      "first": "2026-09-10 04:56:00-04:00",
+      "last": "2026-09-10 16:13:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SABR.parquet": {
+      "sha256": "201b2fed9ee35fff6e9e30dcf6375b1fd8cfd955317f7ce7c14aa6bb6e670bed",
+      "rows": 380,
+      "first": "2026-09-10 04:53:00-04:00",
+      "last": "2026-09-10 19:38:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SAFE.parquet": {
+      "sha256": "2621cad7b6a92719e471061ccbe34757eb76e94c8549353b3a0ec94f669e81e8",
+      "rows": 167,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SAFT.parquet": {
+      "sha256": "09a94075497b5c3bf43fd3091e526e0e5b871868745902b7601ca495719712cc",
+      "rows": 87,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SAH.parquet": {
+      "sha256": "5736ea5d840395eb2be9a48b383bb8e1b7afa7ee65eec5fb88181fa8f771e062",
+      "rows": 149,
+      "first": "2026-09-10 06:14:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SBCF.parquet": {
+      "sha256": "19cf43c31ad614a3475024940787f5e3e54d7e1afaa4b6fd4e52beb9c7d3e097",
+      "rows": 245,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SBH.parquet": {
+      "sha256": "255d3b03354df3ea56ca8e27f95c6db52f46c654bf0e9831df1fa1dca5b15e4e",
+      "rows": 315,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SBSI.parquet": {
+      "sha256": "a623a67d7cff9f8f0477279f110425ffc2931eb0bac4373e0010bc0bca5a1597",
+      "rows": 91,
+      "first": "2026-09-10 05:13:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SCHL.parquet": {
+      "sha256": "a197d67cae63cd5300f0f32f76dc68c1821b7ea2eae3e4854897a02e59544b15",
+      "rows": 162,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SCL.parquet": {
+      "sha256": "70ecca272759c4f292d25b57fbd676d8528b070fc21df258030b59c22af6f26c",
+      "rows": 76,
+      "first": "2026-09-10 04:21:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SCSC.parquet": {
+      "sha256": "5e48609c5d64983703b2ad6585659460393cdcaf9c3516dd64bddf9c44ee7562",
+      "rows": 124,
+      "first": "2026-09-10 07:52:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SDGR.parquet": {
+      "sha256": "c779274882dd9ded001a81df1b339095bc23db71764f75c610914baf38d48bcf",
+      "rows": 273,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SEDG.parquet": {
+      "sha256": "ae73a67cf2ca9b8d5004175f66f6fa171e802b63893e7862073ffe5c575c0b15",
+      "rows": 563,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SEI.parquet": {
+      "sha256": "27defdb51756caa2ec52e7a91b9c26c535aaedcc7531fa40d68c250c60f86e38",
+      "rows": 399,
+      "first": "2026-09-10 06:29:00-04:00",
+      "last": "2026-09-10 18:50:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SEZL.parquet": {
+      "sha256": "67976c501940107246b7790bd5000540d4ec3065d99127251c0cac931367d7fa",
+      "rows": 248,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:38:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SFBS.parquet": {
+      "sha256": "6d1e3ca39577769224e48ca6cc6f648ad78db5e87cb5822207f5196737d96f9a",
+      "rows": 244,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SFNC.parquet": {
+      "sha256": "7a00e636f626a255a7abe254da5d9b7dd0867fa100cb41b749ee076048cfa5dc",
+      "rows": 311,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SHAK.parquet": {
+      "sha256": "3f286dce1803a8228cc2a9aaa6b17655d31d23485d8e0c6e622cb0a2c1b9d548",
+      "rows": 375,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 19:29:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SHEN.parquet": {
+      "sha256": "39dd4cae098fbec78198d7dcfd2d5985bb24ba6769b21f6af662765e286432da",
+      "rows": 283,
+      "first": "2026-09-10 09:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SHO.parquet": {
+      "sha256": "6a35d9b8d553ead9bca156a6da3038c7a04fadd66de3c235e381a8f350ae0939",
+      "rows": 340,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SHOO.parquet": {
+      "sha256": "07c44f5e195ed03df88e4a30f38ba67a096af1d665dc9d18e2f2183a1bcb307e",
+      "rows": 346,
+      "first": "2026-09-10 05:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SIG.parquet": {
+      "sha256": "aaccb740c8829e89a3524d8748aaceef84931a9174d3e29334968177e49cc085",
+      "rows": 385,
+      "first": "2026-09-10 07:03:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SKT.parquet": {
+      "sha256": "9a9220ac2aa0ac5cb37844382f46998f73f29712e97461cc7a1b2b06294dc96f",
+      "rows": 264,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SKY.parquet": {
+      "sha256": "e9cb008cdc70a7963002d71ac037e455347e5abce63c404095a8a47dabf5726c",
+      "rows": 249,
+      "first": "2026-09-10 05:57:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SKYW.parquet": {
+      "sha256": "45f0b2ff88b241fd82daa1122f6e455b8ae500c31bbbff649be604a432dec7a2",
+      "rows": 162,
+      "first": "2026-09-10 07:04:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SLG.parquet": {
+      "sha256": "75383aa68a79b71da0c3bc32473c231f13493b91dd755cfb96675e94137c33f5",
+      "rows": 293,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:38:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SLVM.parquet": {
+      "sha256": "0fd7a4cc5f7374c08c5043269495d4fc55ee54210bbe3d1b74a48d3c914069f8",
+      "rows": 133,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SM.parquet": {
+      "sha256": "0992f038695d965289604e246e545a31b76458cb94b15ee56fe388260de8c193",
+      "rows": 411,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 18:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SMP.parquet": {
+      "sha256": "3fb6e5db341b5c653833d2630eee5e4c1f55da582061eabdb2204805a405daa5",
+      "rows": 118,
+      "first": "2026-09-10 05:42:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SMPL.parquet": {
+      "sha256": "2cffd325ae52d4926507732150c63254e996d09d0c70bd7255ac66d66a529f11",
+      "rows": 377,
+      "first": "2026-09-10 06:45:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SNDR.parquet": {
+      "sha256": "f551841dc30cc3822a726a81fe49f4b390390b8fad352d74ffd983b7dae14e89",
+      "rows": 301,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SNEX.parquet": {
+      "sha256": "cf08beea3159e52745baf51c49e30e570aeb6f4deef5ee03af73e2afed9329f2",
+      "rows": 227,
+      "first": "2026-09-10 08:15:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SONO.parquet": {
+      "sha256": "47d4cecaf969f79d0506f2358b38a6e9caaaa77bc25f7a326ab9b19f0da8d18b",
+      "rows": 343,
+      "first": "2026-09-10 05:45:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SPHR.parquet": {
+      "sha256": "530dc0e57f5283d48ee58ec1deadccfd2c5d43c45463e42bdc972bfb8b2a0eb2",
+      "rows": 214,
+      "first": "2026-09-10 04:07:00-04:00",
+      "last": "2026-09-10 16:37:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SPNT.parquet": {
+      "sha256": "5288ceb66ecd8874af653ec638207eee13e6976197f1d008f4beb53fb5f890bc",
+      "rows": 178,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SPSC.parquet": {
+      "sha256": "3f48d87f8711f65006e09226edc2c59fc4fa8e5f5a1b986007ee754965537894",
+      "rows": 183,
+      "first": "2026-09-10 09:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SRPT.parquet": {
+      "sha256": "4906a1bb2d2585971407eff62729f3eb06a5a6a99d3c4ad68edabb9a741d5a04",
+      "rows": 414,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/STAA.parquet": {
+      "sha256": "4d149046ab85b547bb9e902aa32df46696e9dbef48df6a1c8ce0cafb10e80030",
+      "rows": 261,
+      "first": "2026-09-10 08:45:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/STBA.parquet": {
+      "sha256": "d692ba4307eda741e6faf66088cd471564091fdb693e54a9910acb5da731e15f",
+      "rows": 104,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/STC.parquet": {
+      "sha256": "0a9987210802354a353a68fd74aa584ddcb8cd5a246c4578f6a9548c478a06c2",
+      "rows": 120,
+      "first": "2026-09-10 06:41:00-04:00",
+      "last": "2026-09-10 17:27:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/STEP.parquet": {
+      "sha256": "4cb5027285d75597126c561f6cb58c9f5b7f21de46ae03b3bb0366235221f0b1",
+      "rows": 292,
+      "first": "2026-09-10 05:25:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/STRA.parquet": {
+      "sha256": "35028ffbc0f4c2a504135d70f4e819e0abafe6c3b71cddde04aac5284faafc86",
+      "rows": 166,
+      "first": "2026-09-10 05:21:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SUPN.parquet": {
+      "sha256": "8b8eeffaceff48a9222351d1ffb7eacc890e135838e993bce125e4cf6a7ac521",
+      "rows": 236,
+      "first": "2026-09-10 04:14:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SXI.parquet": {
+      "sha256": "2a43f0931c0b01b4c43cbfb3f91ac411b30659240007075c250b2d0bd7b8cbb8",
+      "rows": 146,
+      "first": "2026-09-10 05:20:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/SXT.parquet": {
+      "sha256": "f6ae023e42ed2df9d04af8e965ff040856d63ffd63797c52ead5840fd5ff311f",
+      "rows": 153,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TALO.parquet": {
+      "sha256": "940ad6e659862c955e24e61364cd3e241f3ccf74907e6d2d9977085c0834be0f",
+      "rows": 384,
+      "first": "2026-09-10 05:19:00-04:00",
+      "last": "2026-09-10 19:54:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TBBK.parquet": {
+      "sha256": "f4b15d549de9d4e1517989b25f45028a135ee2e5ea9eae37e1393d5a962c4031",
+      "rows": 339,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TDC.parquet": {
+      "sha256": "cf337ea9ff829c8f5059770f43a12010af8f5b8b2d27fadf924d2656dfd4e066",
+      "rows": 373,
+      "first": "2026-09-10 08:01:00-04:00",
+      "last": "2026-09-10 18:32:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TDS.parquet": {
+      "sha256": "58a23ddb15557ea50301fa758b3822541402ecbe28641c8681a5d26fffb56ff7",
+      "rows": 349,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TDW.parquet": {
+      "sha256": "ea66acef79ee60bb374954500cabb115ef3d1db2330ce52008d497a1ae9ea392",
+      "rows": 261,
+      "first": "2026-09-10 07:53:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TFIN.parquet": {
+      "sha256": "9b7775b2c48be6cf37ab57ac9df15de507b24c1ad11d64bd8e9350f3792f7a96",
+      "rows": 124,
+      "first": "2026-09-10 07:28:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TFX.parquet": {
+      "sha256": "c2066ead555f63e8b8d926fdb85e3130b6f384e7342d94f9daf69be47633269a",
+      "rows": 301,
+      "first": "2026-09-10 07:12:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TGTX.parquet": {
+      "sha256": "708543017fede003c8b2aa515d2f61c96e53da380e26130095595335735ca65e",
+      "rows": 304,
+      "first": "2026-09-10 07:21:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/THRM.parquet": {
+      "sha256": "7263fd36b1fe04f0a433a2598a7602ccfdf2ac56ca644298b81a7f2d4293184c",
+      "rows": 90,
+      "first": "2026-09-10 05:14:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TILE.parquet": {
+      "sha256": "c115dd8cd25e45f821425f76f640e7e0c15b5afb02341c5a87772eb68ed3cc1a",
+      "rows": 194,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TMDX.parquet": {
+      "sha256": "299c357f163132e5adcbc52ad9f083d4605a1e3412b938b7f22856bba736b3a3",
+      "rows": 312,
+      "first": "2026-09-10 05:53:00-04:00",
+      "last": "2026-09-10 19:53:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TMP.parquet": {
+      "sha256": "4eb5c4f8ec68097b16f066f759c15fec03b61db57cca0e3d1a3c7c9156afbadb",
+      "rows": 76,
+      "first": "2026-09-10 04:06:00-04:00",
+      "last": "2026-09-10 17:39:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TNC.parquet": {
+      "sha256": "05549a300a3449f1de0c1273e09c0e87f05d6b7021ac0fe4f8eb1f557fe398a2",
+      "rows": 121,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TNDM.parquet": {
+      "sha256": "4a6689d509c1794ca234ac3014d3a4c7de36eccc38c18e91239fc40df0fd5d34",
+      "rows": 366,
+      "first": "2026-09-10 09:10:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TPC.parquet": {
+      "sha256": "a60a5da7ce40e75521389227599397ed1893ec57434c7d71d666f1d31ad32ccd",
+      "rows": 175,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:13:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TR.parquet": {
+      "sha256": "1bde441907573d2a100f0995d3596c924b022a81694412217ce47df1713cc043",
+      "rows": 91,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRIP.parquet": {
+      "sha256": "fb70a92f6c619892600b46de980b347bf07d242087babb9356abc40a132eab6e",
+      "rows": 416,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRMK.parquet": {
+      "sha256": "792486cb598554fa70aaa84e4246dc75150a6ed2f2f23bfac8886d301e9f5bc2",
+      "rows": 241,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRN.parquet": {
+      "sha256": "72efcac971adb614bb289c3f38810fff69bf7429d827c860168a2406086d672e",
+      "rows": 218,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRNO.parquet": {
+      "sha256": "a2b16e13f02c273b71847bc5cf5cb834597855e11ddfe21835b0caeb7e33c976",
+      "rows": 245,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRST.parquet": {
+      "sha256": "aef927f0be0636c6649a5a51b6568a93347b8d71d6187a9948a07ba8ad03c7d4",
+      "rows": 99,
+      "first": "2026-09-10 04:21:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/TRUP.parquet": {
+      "sha256": "5b1879e1a7e6f11820ead701af29d18b1e3bb691a4d9a9ea34ec7598ed6633c1",
+      "rows": 196,
+      "first": "2026-09-10 04:20:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UA.parquet": {
+      "sha256": "e4f4ee550e909ef171a482a10d2a5f012526dadba9c9aed17963ae33d0caa4d5",
+      "rows": 352,
+      "first": "2026-09-10 07:37:00-04:00",
+      "last": "2026-09-10 18:28:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UAA.parquet": {
+      "sha256": "0516e4ee67c4b58a3aef1bbab38e61dc65ee93e9004dbd9b1cc6fe53b3ecf745",
+      "rows": 404,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:54:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UCB.parquet": {
+      "sha256": "de0f65871429b016acbf39e96afa39377541cce7caad0a4e677b3b2d5aa01034",
+      "rows": 284,
+      "first": "2026-09-10 04:21:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UCTT.parquet": {
+      "sha256": "bd260f3cc31b0753335e058c4bcfcdb95eaac19e36ca34d09e9c1238ddfd7025",
+      "rows": 282,
+      "first": "2026-09-10 05:35:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UE.parquet": {
+      "sha256": "37b85fe4afed17a3a0c33f8385d23682f84b2a85a5ffcb23c46d988e8ff31873",
+      "rows": 297,
+      "first": "2026-09-10 04:20:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UFCS.parquet": {
+      "sha256": "61980fa338459a45de6331a72e3cdc0f3cdd7c620d8936c52139b9d3b5823b37",
+      "rows": 90,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UFPT.parquet": {
+      "sha256": "0a278969fe8b8451a7d142429ce4417fe948c0e1a67b19f78426dc624b8a8fc4",
+      "rows": 111,
+      "first": "2026-09-10 08:13:00-04:00",
+      "last": "2026-09-10 19:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UNF.parquet": {
+      "sha256": "9421b6c9705f1585b97a76c50fc0074d9ab3946ba7b825ead4909a0ac8f15ddb",
+      "rows": 257,
+      "first": "2026-09-10 05:42:00-04:00",
+      "last": "2026-09-10 17:36:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UNFI.parquet": {
+      "sha256": "f4bdceccf99ca6bd199edcd92c0606d08e32e6e23b6a7d5ca14e6a0a0c34524c",
+      "rows": 236,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:03:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UNIT.parquet": {
+      "sha256": "4ffd612346dc75a2c643f528e87bfc9647bfd5860db23aefe790e7c9fbc0d295",
+      "rows": 311,
+      "first": "2026-09-10 08:56:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UPBD.parquet": {
+      "sha256": "0c36ad52f064eed949f66d91546fe043aae9493fa875808e13dd92399ab8cce6",
+      "rows": 287,
+      "first": "2026-09-10 06:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UPWK.parquet": {
+      "sha256": "0499faaefc9eb06bd14cb9b5f74e26b0a3465e9cd0cc4f60015aa6c2d4b0a0ed",
+      "rows": 360,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:35:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/URBN.parquet": {
+      "sha256": "6b0e6411ca2ae38a837b71d7c14207dda83689bff0d5809553ad8934d0898afc",
+      "rows": 355,
+      "first": "2026-09-10 04:42:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/USLM.parquet": {
+      "sha256": "db00fdfd8452082a7c648e49581178d2555ef2f90d748c7b48d71f19f80a6b6d",
+      "rows": 56,
+      "first": "2026-09-10 07:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/USPH.parquet": {
+      "sha256": "7a925b1d675ff556e4df5aa4ab0015d3960075e9a0505d8d14312ac907c743e4",
+      "rows": 100,
+      "first": "2026-09-10 05:40:00-04:00",
+      "last": "2026-09-10 16:33:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UTI.parquet": {
+      "sha256": "e30204bcb5a0f8cc28d3c6e8b0e9cac17992eab4af1bd24bb48352c5d65fc0cf",
+      "rows": 349,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 18:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UTL.parquet": {
+      "sha256": "0f1e39272ce58b9f92b71bad4ad860e176cf03429eb0096d721f4e283175ab23",
+      "rows": 108,
+      "first": "2026-09-10 06:28:00-04:00",
+      "last": "2026-09-10 16:06:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/UVV.parquet": {
+      "sha256": "68b81faf237364410cd7082b5e01b37f902563e4c5a854252e5f54e3d08d3401",
+      "rows": 148,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VAC.parquet": {
+      "sha256": "e8a2e04130cb9c7e0f9cafbee974cd1e9eb3930c0c83bbf7c4f46098507af48b",
+      "rows": 187,
+      "first": "2026-09-10 05:36:00-04:00",
+      "last": "2026-09-10 16:33:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VCEL.parquet": {
+      "sha256": "dec6bf90e57f316f66a9b47f99c41a3d78e0b92f6cf3cfec26d6e48399e150a2",
+      "rows": 247,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VCTR.parquet": {
+      "sha256": "70f546cab17dc18d77f239c14389842deb994fec9895ec5118ea3494280eb6cb",
+      "rows": 306,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VCYT.parquet": {
+      "sha256": "f2d2d0c8d02c4da37166f3b60c887961f3815b38b8c75663cbb0d2a5f0773477",
+      "rows": 268,
+      "first": "2026-09-10 04:15:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VECO.parquet": {
+      "sha256": "a76e31add0986aa74650c0f366fbb5b8b0e53c37824e989b00e9109a50605b3b",
+      "rows": 195,
+      "first": "2026-09-10 07:48:00-04:00",
+      "last": "2026-09-10 19:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VGNT.parquet": {
+      "sha256": "0d0b5753fe124415d031b3044516fe9197ce464dc2d51508d090c42f73a2c0d4",
+      "rows": 229,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VIR.parquet": {
+      "sha256": "245c36039958de31ee47556275fc95ca6ca3f7622b7a6f3d13cd1d28e8ffdd3c",
+      "rows": 343,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VIRT.parquet": {
+      "sha256": "4885b9fc62e53ca4a87abd77751a2c62cc386c8544c886f6125bb222e79b2e0f",
+      "rows": 282,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:35:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VRRM.parquet": {
+      "sha256": "c48693705a279225c8cceb606e38edbde28beaa76bd843d2b81156fe53529a7b",
+      "rows": 440,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:58:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VRTS.parquet": {
+      "sha256": "7b6217433dd1bf2aba426c8c7201f28b2b6d90d1f865f077eafed8665df7afe9",
+      "rows": 57,
+      "first": "2026-09-10 06:11:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSAT.parquet": {
+      "sha256": "1d66fb85c0658e968295c49735d0b4c60b8edf512c103213c5a83f20afe295c0",
+      "rows": 396,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:57:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSEC.parquet": {
+      "sha256": "b00a805f74259523b89efc563cbadc90906bff58776dbb3f1cbaa57717e03004",
+      "rows": 155,
+      "first": "2026-09-10 08:34:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSH.parquet": {
+      "sha256": "2c10aab6178e180ee1d08b58af9a853fbb96a586f3946ba877fa35dd84da3f78",
+      "rows": 390,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSNT.parquet": {
+      "sha256": "8317983aa77ba06aa6530cc4986fef9a8bbaae191523a72b85118dda82b7c409",
+      "rows": 325,
+      "first": "2026-09-10 08:32:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSTS.parquet": {
+      "sha256": "769b495678fb66429e72ba6bfa5e6656a6af579cf96b16f5504b05daeebbac1e",
+      "rows": 362,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:49:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VSXY.parquet": {
+      "sha256": "df147df67f9409cd41f5e62694fddc8eae7ac214d1c5af47b2bf0ec49e6ec8b6",
+      "rows": 393,
+      "first": "2026-09-10 07:23:00-04:00",
+      "last": "2026-09-10 18:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VTOL.parquet": {
+      "sha256": "3815958678af18257ce9136765661a027275bec2b536c3e70760d70b10d05ebe",
+      "rows": 123,
+      "first": "2026-09-10 06:12:00-04:00",
+      "last": "2026-09-10 16:01:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VVX.parquet": {
+      "sha256": "0db3989ae97639d2dbb198950e0c3570272bfa362db19db79c346063c3da8ff0",
+      "rows": 294,
+      "first": "2026-09-10 04:16:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/VYX.parquet": {
+      "sha256": "3abf2a94389ea40399da9bce0206b22a67f3c4184cfe36ece2934e0c6a215863",
+      "rows": 393,
+      "first": "2026-09-10 04:16:00-04:00",
+      "last": "2026-09-10 17:44:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WABC.parquet": {
+      "sha256": "555efb83250f3f4dfe9d379b23031efffdd403a834b7e86d73683c3ecc283a35",
+      "rows": 126,
+      "first": "2026-09-10 04:05:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WAFD.parquet": {
+      "sha256": "b2a57fb816c2b01c9db446d622ad0e199f897434a551e56bd56913898edd95ce",
+      "rows": 348,
+      "first": "2026-09-10 07:58:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WAY.parquet": {
+      "sha256": "f5d0d3cfc39b6a8b24f530d36019dbd5e7cf164f17a7b1b07757dbdab3177f90",
+      "rows": 317,
+      "first": "2026-09-10 07:00:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WD.parquet": {
+      "sha256": "42322c03b4e85299073f904e5869b672dd20ad273d4bb18e043a92660a5d6533",
+      "rows": 190,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:23:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WDFC.parquet": {
+      "sha256": "0e586bfb7bb663140d888f13a60c9873bf7229a9a9ff863839bbd420eff151cb",
+      "rows": 67,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WEN.parquet": {
+      "sha256": "9da82120238404b49db0bac041b39fdc06564c2bfdfc16104305399ee8276d9c",
+      "rows": 468,
+      "first": "2026-09-10 04:00:00-04:00",
+      "last": "2026-09-10 19:59:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WERN.parquet": {
+      "sha256": "c28c759286474f93a0121a3d54a87ebc48de05eebf6abf5c7c901190c4c986f3",
+      "rows": 324,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WGO.parquet": {
+      "sha256": "85a83c97c77b5c0dfd5a6c6c7dd58aa37cc4f6f97148dd8afd63962185c066b7",
+      "rows": 260,
+      "first": "2026-09-10 05:16:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WHD.parquet": {
+      "sha256": "70c59d340b70394fccd4cf651349b1816642ffd7473f307f9b402d689c3cbe89",
+      "rows": 230,
+      "first": "2026-09-10 04:20:00-04:00",
+      "last": "2026-09-10 17:42:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WINA.parquet": {
+      "sha256": "e1b9e5632aaf34078fd06177fcdee9018118e04329855d80f30f4464e5ab6894",
+      "rows": 64,
+      "first": "2026-09-10 06:34:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WKC.parquet": {
+      "sha256": "f5f831a78a676134b61ad0c92caa1ff1ca9d766204b9aa8c31d01b48f35571b0",
+      "rows": 290,
+      "first": "2026-09-10 08:41:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WLY.parquet": {
+      "sha256": "2cc86f43a6a7fffa348758e19d6b91835ccd3690ccc72013769fe4a38e74e891",
+      "rows": 210,
+      "first": "2026-09-10 04:51:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WOR.parquet": {
+      "sha256": "5630b642598cc8b82db0d4273cf42c21cb35598cc4e01d5e47ca41c7cb1176c0",
+      "rows": 171,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WRBY.parquet": {
+      "sha256": "9b6aa7fe2ef2a824107da6c8c5f9287284a88329149beaaf05dc6f255f05f11f",
+      "rows": 378,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WRLD.parquet": {
+      "sha256": "4304e637845f8b33850ad9b20ba77b10600f9fc582429fe7b8b3268c4752bd34",
+      "rows": 40,
+      "first": "2026-09-10 07:19:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WS.parquet": {
+      "sha256": "6e5d753ace436b9d891e910d145b65444beb4c2b9abd71e914f812fc85b36c15",
+      "rows": 150,
+      "first": "2026-09-10 07:01:00-04:00",
+      "last": "2026-09-10 17:42:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WSBC.parquet": {
+      "sha256": "21d67103941e85da7e563b3f0f43dfbe547a14acfb838e57cbd15f0da28d6b9c",
+      "rows": 270,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WSC.parquet": {
+      "sha256": "2ccd4231e76dd92ff02657aef22aa4f01cbf7c0417fa58f4c21b93ffbf5ddaa9",
+      "rows": 360,
+      "first": "2026-09-10 09:28:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WSFS.parquet": {
+      "sha256": "4b635cc5dd83b5fc71f3dcb0e36fa6d6c6e4c1d555eb649cb8df4ca3e91dcada",
+      "rows": 202,
+      "first": "2026-09-10 04:02:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WT.parquet": {
+      "sha256": "f2485501bb9f200a7f447d529fa777ddac6644e27f037f5600a12ef2e042297c",
+      "rows": 348,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:02:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WU.parquet": {
+      "sha256": "9cf18735ab770cf28b6ad3a91f81a928993e13c77ef510547b8b1c176ceac171",
+      "rows": 418,
+      "first": "2026-09-10 06:05:00-04:00",
+      "last": "2026-09-10 19:50:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/WWW.parquet": {
+      "sha256": "a88fe5d3f520e63595bb917292f21b2bef2a1fe16fa19ef97dd86c001d37bff6",
+      "rows": 239,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 16:00:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/XHR.parquet": {
+      "sha256": "9a65bf7c0e9e1539330137a992264d0b27c71e05afeb5679335d3696f255db07",
+      "rows": 316,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 16:15:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/XNCR.parquet": {
+      "sha256": "097ecc7bca5c727154c7e0e7e249c675a6e8e6a0cae81b674985196a1537ea57",
+      "rows": 336,
+      "first": "2026-09-10 04:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/XPEL.parquet": {
+      "sha256": "9e3eca04fa9aac53bd27b1b691e88cb5119cf0ebc3add42633c188f632431634",
+      "rows": 138,
+      "first": "2026-09-10 07:01:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/YELP.parquet": {
+      "sha256": "8c362441a52266556fa209755905de394d899ef45378db7aa01efdcaf69f0dd9",
+      "rows": 367,
+      "first": "2026-09-10 09:30:00-04:00",
+      "last": "2026-09-10 17:05:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/YOU.parquet": {
+      "sha256": "5754c1a44c4c78c551d4a1c8945f4824c44b692628d54a974d4344335cad3cc4",
+      "rows": 355,
+      "first": "2026-09-10 07:25:00-04:00",
+      "last": "2026-09-10 17:47:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ZD.parquet": {
+      "sha256": "c36834c3f9e89403eaf45f084c8ae3a14aba44935866286afcb368313411bfe4",
+      "rows": 226,
+      "first": "2026-09-10 04:03:00-04:00",
+      "last": "2026-09-10 19:30:00-04:00",
+      "pull_id": "20260911-040517"
+    },
+    "2026-09-10/ZWS.parquet": {
+      "sha256": "52e8965be6296279aaae3d03790bd6f27e89b1d163fe2067a07d1b565cbba746",
+      "rows": 306,
+      "first": "2026-09-10 06:28:00-04:00",
+      "last": "2026-09-10 17:27:00-04:00",
+      "pull_id": "20260911-040517"
     }
   }
 }
