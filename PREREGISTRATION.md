@@ -2813,12 +2813,34 @@ bar-date ≥ 2026-08-19 lands in the 2026-08-19 22:05 MT pull.*
 
 ## 10. Campaign outcome
 
-*(Recorded after measurement — parameters unchanged; gate outcome per §6.)*
+**Ran 2026-09-18** — the one-shot fired by `tools/gate_opener.py` at the
+§5 floor: 21 full-universe bar-dates 2026-08-19…2026-09-17, 2,622 B-01
+events, 455 tickers, 21 bar-dates (659 F1 events dropped for e+N beyond
+session end, counted per §3). Frozen tool `tools/measure_intraday.py`
+(FROZEN_SHA `765ff1df…`, asserted; one clean run, no amendments; B=1000
+seed 20260819). §6 archive-integrity audit **PASSED** at measurement
+time (39 pulls, 15,667 ledger files, chain valid end to end; 2 repairs
+on record, both mechanical) — the F2 EDGE below is entered as the
+forward-accumulated record.
 
-*Measurement is gated on §5's floors (≥ 20 full-universe bar-dates ≥
-2026-08-19, ≥ 2,000 events, ≥ 100 tickers, ≥ 15 bar-dates). At the current
-archive state (first full-universe pull scheduled 2026-08-19 22:05 MT)
-this section is empty by design.*
+| Family | Verdict |
+|---|---|
+| F1 (absolute N=60 vs both hour-matched baselines) | **FADE** — mean −0.21%; same-ticker −0.23pp (CI −0.31..−0.16), universe −0.16pp (CI −0.22..−0.09); both Holm-rejected p<0.001 |
+| F2 (HOD-retest reach rate) | **EDGE** (§6 gate PASSED) — reach 83.8%; +53.4pp / +57.0pp vs baselines (CIs +51.3..+55.6 / +54.9..+59.2), p≈0 |
+| F3 (pullback vs chase, B-02/I-E-02) | **FADE** (direction-inverted) — pullback − chase −0.18pp / −0.12pp (CIs −0.25..−0.11 / −0.18..−0.04); chasing does better |
+
+Sensitivities: FADE/EDGE/FADE reproduces under every structural variant
+(S-R4/S-R2/S-P3/S-DB/S-GAP); S-WIN (7–10 a.m.) INCONCLUSIVE at 325
+events. Fade deepens with horizon (−0.17% N15 → −0.34% N240) and
+survives 0.05% cost (−0.11%). Rows: R:R ≥2:1 at only 22.9% of events
+(median 0.60; 842/1,780 entry ≤ stop); name-day collapse −0.23%, 36.3%
+name-days positive; F-01 volatility half confirmed / liquidity half not;
+F-02 pre-market NOT cleaner (rows recorded §K.1).
+
+Ledger rows: B-01 → tested (SPLIT: geometry EDGE, entry FADE); B-02,
+I-E-02 → tested (CONTRADICTED, direction-inverted); F-01, F-02 →
+measured, descriptive. Verdict section: CLAIMS_LEDGER §K.1. Archived:
+`data/measurements/measure_intraday/`.
 
 ---
 
@@ -3850,8 +3872,27 @@ F3's single Holm slot is the paired **(E2 − E1)** contrast.*
 
 ## 9. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Awaiting the §5 floor — measurement window opens at the first meeting
-of the §5 floors.)*
+**Ran 2026-09-18** — the one-shot completed by the session chain (the
+tool was not in `gate_opener.py`'s queue: the queue paired #19 with
+#15's tool in error, and #15's report covers only the B-01 detector;
+bookkeeping note, no measurement consequence — this tool ran frozen and
+untouched, FROZEN_SHA `cac0e7ed…`, one clean run, no amendments).
+Floors met on their own: 21 bar-dates, 85,707 valid F1 events (43,722
+long / 41,985 short), 601 tickers. Audit **PASSED**.
+
+| Slot | Verdict |
+|---|---|
+| F1 long (reversal new-high) | **FADE** — mean −0.20%; universe excess −0.15pp (CI −0.16..−0.14), same-ticker −0.07pp; p≈0 |
+| F1 short (new-low mirror) | **FADE** — mean −0.11% (sign-flipped); excess −0.16pp (CI −0.17..−0.14); p≈0 |
+| F2 (early k≤2 − late k≥3) | **NO EDGE** — −0.016pp (CI −0.065..+0.038, p 0.522; n 5,812/2,512) |
+| F3 (E2 − E1, paired) | **FADE (inverted)** — −0.070pp (CI −0.073..−0.067, p≈0, n=18,008) |
+
+Sensitivities: FADE/NO EDGE/FADE holds at D=2/D=5; S-5M NO EDGE;
+S-C05/S-C30 hold. Rows: R:R median 1.15/1.12, ≥2:1 only ~36%,
+~57% degenerate (entry ≤ stop). Ledger rows: I-B-02 → tested (FADE ×2);
+B-03, I-B-01 → tested (NO EDGE); B-05 → tested (FADE, inverted).
+Verdict section: CLAIMS_LEDGER §K.6. Archived:
+`data/measurements/measure_intraday_entry/`.
 
 ---
 
@@ -4096,8 +4137,26 @@ new pre-registration).
 
 ## 8. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Awaiting the §5 floor — measurement window opens at the first meeting
-of the §5 floors.)*
+**Ran 2026-09-18** — the one-shot completed by the session retry chain
+(after the gate-opener attempt crashed at the report writer, amendment 1
+below; the re-run recomputes identically under the fixed seed and
+completes the same one-shot). Floors: 21 bar-dates, 43,722 valid events,
+600 tickers, 21 dates — met. Audit **PASSED** (39 pulls, 15,667 ledger
+files). 13,225 cleanly-classified veto candidates.
+
+| Slot | Verdict |
+|---|---|
+| pass − fail | **NO EDGE** — −0.002pp (CI −0.021..+0.019, p 0.834) |
+| pass − raw | **NO EDGE** — −0.001pp (p 0.886) |
+| MACD leg | **NO EDGE** — −0.009pp (p 0.326) |
+| volume leg | **NO EDGE** — +0.029pp (p 0.278; n=1,663) |
+
+Kill-rate rows: both legs together 2.7%; per-bar-date pass rates
+26–43% — the gate is restrictive and value-free on this entry set.
+S-B01 (the veto on the B-01 entry set): same null. Ledger rows: E-01,
+E-04 → tested (intraday NO EDGE appended to the 2026-08-14 daily
+rejections). Verdict section: CLAIMS_LEDGER §K.2. Archived:
+`data/measurements/measure_intraday_veto/`.
 
 *Implementation freeze (2026-08-21, before any measurement):
 `tools/measure_intraday_veto.py` FROZEN_SHA
@@ -4111,6 +4170,20 @@ IMPORT at its LF-normalized sha256 `d58a889c6c0a6349…`
 `tools/measure_intraday.py` (S-B01 cross-check) at `c58282caf75c344f…`.
 Committed 2026-08-21; §5 floors not yet met (3 window bar-dates ≥
 2026-08-19).*
+
+*Amendment 1 (2026-09-18, before the first successful measurement — no
+results had been written by any prior attempt): report-writer fix only.
+The 2026-09-18 gate-opener attempt computed the full measurement in
+memory, then crashed in `write_report`'s §4 floors table
+(`KeyError: 'min_bar_dates'` — the table indexed the `min_*` requirement
+names while `check_floors` emits the `window_bar_dates`-family actual
+keys); nothing was written to disk. Fix: a requirement→actual key map in
+the floors table only. Detector, contrast, seeds, verdict rules — all
+measurement code — untouched; the re-run recomputes identically (fixed
+seed) and completes the one-shot. Old FROZEN_SHA `60569201…` → new
+FROZEN_SHA `69893306…` (companion: `verify_intraday.py`'s veto pin
+updated for the deferred #23). Precedent: pre-reg #25's post-verdict,
+pre-report `fmt` amendment.*
 
 *Implementation reading (registered with the tool, before measurement):
 F1 uses four Holm slots — **pass−fail**, **pass−raw**, **macd leg**, and
@@ -4230,8 +4303,22 @@ new pre-registration).
 
 ## 8. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Awaiting the §5 floor — measurement window opens at the first meeting
-of the §5 floors.)*
+**Ran 2026-09-18** — one-shot completed by the session retry chain
+(report-writer amendment 1 below; identical recomputation under the
+fixed seed). Floors met (21 bar-dates, 43,722 events, 600 tickers).
+Audit **PASSED**.
+
+| Slot | Verdict |
+|---|---|
+| F1-B1 (7–10 a.m. joint peak) | **INCONCLUSIVE** — vol ties the 16:00–20:00 runner (diff 0.0000, p 0.55); liquidity trails (8.4% vs 27.4% close hour); joint rule unsatisfiable |
+| F1-B2 (9:30–12:00 joint peak) | **INCONCLUSIVE** — rejected both stats, OPPOSITE directions (vol −0.32pp/bar below runner, liq +2.7pp above) |
+| F2 (entries in B2 vs outside) | **EDGE (relative)** — +0.035pp (CI +0.018..+0.053, p<0.001, n 23,986/19,736); both sides absolutely negative (−0.18%/−0.22%) and below both hour-matched baselines (−0.05pp/−0.15pp) |
+| F3 (pre-market cleaner) | **FADE** — pre-market \|r\| 4.3× RTH (CI 0.0030..0.0030), tails 19.8% vs 13.2% |
+
+Ledger rows: I-B-05 → tested (EDGE relative only, window-shape
+INCONCLUSIVE); F-01/F-02 verdict-family updates in §K.3. Verdict
+section: CLAIMS_LEDGER §K.3. Archived:
+`data/measurements/measure_intraday_regime/`.
 
 *Implementation freeze (2026-08-21, before any measurement):
 `tools/measure_intraday_regime.py` FROZEN_SHA
@@ -4245,6 +4332,18 @@ IMPORT at its LF-normalized sha256 `d58a889c6c0a6349…`
 `tools/measure_intraday.py` (pre-#15 continuity rows reference) at
 `c58282caf75c344f…`. Committed 2026-08-21; §5 floors not yet met (3
 window bar-dates ≥ 2026-08-19).*
+
+*Amendment 1 (2026-09-18, before the first successful measurement — no
+results had been written by any prior attempt): report-writer fix only.
+The 2026-09-18 gate-opener attempt computed the full measurement, then
+crashed in `write_report`'s §4 floors table (`KeyError: 'min_bar_dates'`
+— same defect as pre-reg #21's report writer); nothing was written to
+disk. Fix: a requirement→actual key map in the floors table only; all
+measurement code untouched; the re-run recomputes identically (fixed
+seed) and completes the one-shot. Old FROZEN_SHA `b1fe067d…` → new
+FROZEN_SHA `e4502ba5…` (companion: `verify_intraday.py` regime pin
+updated for the deferred #23). Precedent: pre-reg #25's post-verdict,
+pre-report `fmt` amendment.*
 
 *Implementation reading (registered with the tool, before measurement):
 F1 uses two Holm slots — **B1** (07:00–10:00, ledger F-01 peak
@@ -5024,10 +5123,22 @@ No parameter in §1–§6 may change after this line.
 
 | Frozen input | sha256 (first 16) |
 |---|---|
-| `tools/measure_macd_gate.py` (blanked self-hash) | `c8b7543439096560` |
-| `tools/measure_intraday_veto.py` (Archive imported unchanged) | `60569201…` (its own FROZEN_SHA governs; asserted at every run) |
+| `tools/measure_macd_gate.py` (blanked self-hash) | `7328379f55937289` (amendment 1, 2026-09-18; was `c8b7543439096560`) |
+| `tools/measure_intraday_veto.py` (Archive imported unchanged) | fingerprint only (its own FROZEN_SHA governs; asserted at every run) |
 | `tools/measure_intraday_entry.py` (contrast_two/holm imported) | recorded in output fingerprints |
 | `data/intraday/manifest.json` | recorded in output fingerprints |
+
+*Amendment 1 (2026-09-18, before the first successful measurement — no
+results had been written by any prior attempt): report/format fix only.
+The 2026-09-18 gate-opener attempt computed the full F1 measurement, then
+crashed in the verdict loop (`AttributeError: 'str' object has no
+attribute 'get'` — `MIE.holm` inserts the `_family` string into the
+family dict and the loop called `.get()` on it; the frozen #21 report
+writer's `if k == "_family": continue` idiom was missing here). Fix:
+`isinstance(r, dict)` guards in the two family loops; all measurement
+code untouched; the re-run recomputes identically (fixed seed) and
+completes the one-shot. Old FROZEN_SHA `c8b75434…` → new `7328379f…`.
+Precedent: pre-reg #25's post-verdict, pre-report `fmt` amendment.*
 
 Measurement runs only when §4's floors are met; `--floors` may run earlier
 without consuming the one-shot; EDGE verdicts additionally require the §5
@@ -5036,8 +5147,28 @@ state.
 
 ## 8. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Pending — measurement §5-gated; floors were unmet at freeze time
-(15/20 bar-dates).)*
+**Ran 2026-09-18** — one-shot completed by the session retry chain
+(verdict-loop amendment 1 above; identical recomputation under the
+fixed seed). Floors met (21 bar-dates, 43,722 valid events, 600
+tickers). 41,495 evaluable entries; gate-open 10,333 / closed 31,162.
+
+| Slot | Verdict |
+|---|---|
+| open − closed (primary) | **NO EDGE** — +0.000pp (CI −0.0002..+0.0002, p 0.920) |
+| open − raw (net filter value) | **NO EDGE** — +0.000pp (p 0.904) |
+| ≤30min-after-cross window | **NO EDGE** — −0.0004pp (p 0.210; n 983/9,350) |
+| at-running-high conjunct | **NO EDGE** — −0.0002pp (p 0.444; n 2,011/8,322) |
+
+Verdict labels are these pre-registered rules applied to the frozen
+outputs (every slot ≥ 100, none Holm-rejected); the tool's printed
+"INCONCLUSIVE" strings are a shared-helper key artifact (`MIE.holm`
+reads `n`, these families carry `n_a`/`n_b`) — documented in
+CLAIMS_LEDGER §K.4 rather than amending a frozen engine imported by
+three other campaigns. Descriptives: gate closed on 75% of the entry
+set; line-negative share 67%; J-B-04 strata 28.2% vs 24.6% gate-open.
+Ledger rows: J-B-01 → tested (NO EDGE ×4); 2n2-05, 2n2-07 → tested;
+J-B-04 → measured, descriptive. Verdict section: §K.4. Archived:
+`data/measurements/measure_macd_gate/`.
 
 # Pre-registration #28 — daily selection follow-ups: rank-2/3 gainers, momentum-continuation at +10%, round-number proximity, and gap-and-go (ledger rows 3rE-05/-06, 5X_-04/-06b, GMR-07/-08, ZS8-13/-14, HYo-14, 3rE-11; daily track)
 
@@ -5527,9 +5658,20 @@ change after this line.
 
 | Frozen input | sha256 (first 16) |
 |---|---|
-| `tools/measure_sympathy_intraday.py` (blanked self-hash, on-disk bytes) | `bcddce00f1f2e03c` |
-| `tools/measure_intraday_veto.py` (Archive imported unchanged) | `60569201…` (asserted at every run) |
+| `tools/measure_sympathy_intraday.py` (blanked self-hash, on-disk bytes) | `aa781bffabd53066` (amendment 1, 2026-09-18; was `bcddce00f1f2e03c`) |
+| `tools/measure_intraday_veto.py` (Archive imported unchanged) | fingerprint only (asserted at every run) |
 | `data/intraday/manifest.json` | recorded in output fingerprints |
+
+*Amendment 1 (2026-09-18, before the first successful measurement — no
+results had been written by any prior attempt): report/format fix only.
+The 2026-09-18 gate-opener attempt computed the full F1 measurement, then
+crashed in the verdict loop (`AttributeError` on the `_family` string
+`MIE.holm` inserts — same defect as pre-reg #27). Fix: `isinstance` guards
+in the two family loops; all measurement code untouched; the re-run
+recomputes identically (fixed seed) and completes the one-shot. Old
+FROZEN_SHA `bcddce00…` → new `aa781bff…`. Registered implementation
+reading, standing since freeze: "session open" = the file's first bar
+(04:00 ET pre-market open), per the tool docstring's `Open[0]` anchor.*
 
 Measurement runs only when the §1 floors are met; `--floors` does not
 consume the one-shot; EDGE verdicts additionally require the §5
@@ -5537,4 +5679,18 @@ archive-integrity audit on the same archive state.
 
 ## 7. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Pending — §5-gated; fires with the #15–#22/#27 backlog.)*
+**Ran 2026-09-18** — one-shot completed by the session retry chain
+(verdict-loop amendment 1 above; identical recomputation under the
+fixed seed). Floors met, audit-gated. Outcome: **INCONCLUSIVE, both
+slots** — the frozen leader definition (running move ≥ +40% from the
+file's first bar = the 04:00 pre-market open; reading registered at
+freeze) found **ZERO leader spikes** across 21 bar-dates × ~600 names
+(2,646 tickers unmappable to the frozen sector CSV), so both slots sit
+below the 100 floor with an empty hot pool (n_a=0, n_b=30,376).
+
+Reading: +40% intraday runners are not an S&P 600 phenomenon in this
+window — the same universe-mismatch signature as #31's H2. The daily
+sympathy EDGE (#30, §J.7) stands untested intraday. Any follow-up
+(different threshold, RTH-open anchor, mover-universe) is a NEW
+pre-registration. Verdict section: CLAIMS_LEDGER §K.5. Archived:
+`data/measurements/measure_sympathy_intraday/`.

@@ -49,7 +49,7 @@ SEED = 20260907
 LEADER_INTRA = 0.40          # pre-reg #32 §1: +40% from session open
 FLOORS = {"min_bar_dates": 20, "min_events": 2000,
           "min_tickers": 100, "min_dates_with_events": 15}
-FROZEN_SHA = "bcddce00f1f2e03c81e618b2205e4078e4ab3a840be487e56f96268599bb0453"    # placeholder until freeze
+FROZEN_SHA = "aa781bffabd53066a163b4248ebd287424ac0fca2053603c88bf836a431b35c2"    # placeholder until freeze
 
 
 def hash_self() -> str:
@@ -169,7 +169,7 @@ def main() -> int:
     slot("hot_minus_raw", "sector-hot − raw (net value)", hot, valid)
     fam = MIE.holm(fam, "F1")
     for k, r in fam.items():
-        if r.get("verdict") == "INCONCLUSIVE":
+        if not isinstance(r, dict) or r.get("verdict") == "INCONCLUSIVE":
             continue
         r["verdict"] = ("EDGE" if r["holm_rejected"] and r["ci_low"] > 0
                         else "FADE" if r["holm_rejected"] and r["ci_upper"] < 0
@@ -209,6 +209,8 @@ def main() -> int:
     L.append("## F1 verdicts (Holm family of 2)")
     L.append("")
     for k, r in fam.items():
+        if not isinstance(r, dict):
+            continue
         L.append(f"- {r['slot']}: n_a={r['n_a']} n_b={r['n_b']} | est "
                  f"{MIV._fmt(r['est'])} (CI {MIV._fmt(r['ci_low'])}.."
                  f"{MIV._fmt(r['ci_upper'])}, p {r['p']:.3f}) | gate "

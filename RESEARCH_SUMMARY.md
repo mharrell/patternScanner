@@ -82,9 +82,32 @@ caveats point to.
 
 ## What's next
 
-The intraday track: pre-regs #15–#22, #27 (the MACD crossover gate — his
-primary untested rule), and #32 (intraday sympathy) are frozen and
-§5-gated on the paper-log floor; they fire via `tools/gate_opener.py` when
-≥20 full-universe 1-min bar-dates accumulate. Verdict recording follows
-each fire. Nothing on the daily track remains: every claim from the §J
-scan that daily bars can express has been tested.
+The intraday track fired 2026-09-18 (see below). Remaining: pre-reg #20
+(intraday exit rules — pending its own floors) and #23 (the paper loop,
+deferred by design until #15–#22 land). Nothing on the daily track
+remains: every claim from the §J scan that daily bars can express has
+been tested.
+
+## The intraday track (fired 2026-09-18)
+
+The §5 floor opened at 21 full-universe 1-minute bar-dates
+(2026-08-19…09-17, ~15,700 (bar-date, ticker) files, blind nightly
+capture). Six campaigns measured; verdict sections in
+`CLAIMS_LEDGER.md` §K.1–§K.6:
+
+| # | Claim family | Verdict | Key evidence |
+|---|---|---|---|
+| #15 | B-01 micro pullback (his flagship 1-min rule) | **SPLIT: geometry EDGE / entry FADE** | HOD retest 83.8% vs baselines (+53/+57pp) — but entry −0.21% after cost, worse with holding time; pullback-wait INVERTED (chase does better) |
+| #19 | reversal new-high (long AND short), pullback-count, second-candle | **FADE ×2, NO EDGE, FADE** | his most-repeated rule loses in both directions (n=85,707, the repo's largest event count); "never trade the third pullback" is noise; the second confirming candle COSTS 7bp |
+| #21 | the two-filter veto (MACD-negative + high-volume red) | **NO EDGE ×4** | kills ~70% of entries, keeps no better than it kills (p 0.83) |
+| #22 | the intraday regime (7–10 a.m. peak; 9:30–12 money window; pre-market clean) | **EDGE (relative), INCONCLUSIVE, FADE** | his 9:30–12 window IS the least-bad time (+0.035pp) — but both sides lose; pre-market is 4.3× noisier, not cleaner |
+| #27 | the MACD crossover gate (his primary untested rule) | **NO EDGE ×4** | gate closed on 75% of his entry set, separates nothing (p 0.92) |
+| #32 | intraday sector sympathy (+40% leader) | **INCONCLUSIVE** | zero +40% intraday leaders exist in the S&P 600 — the universe-mismatch signature again |
+
+**The intraday reading, in one line:** the structure his eye sees is
+real (setups DO reach the high of day; the morning IS the least-bad
+window) — and every timing instruction attached to it (wait for the
+pullback, wait for the second candle, filter by MACD, filter by volume,
+trade only 7–10) measures as null or inverted at the moment of entry.
+The daily track's finding — edge lives in selectivity and structure,
+never in the timing rules — holds at his own resolution.

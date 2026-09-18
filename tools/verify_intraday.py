@@ -71,8 +71,8 @@ FROZEN = {
     "b01":   "765ff1df23c80c006104d2f28b754593e3401e256132115207a161ebf5fdc6f5",
     "entry": "cac0e7ed205c8fbea62dad2c1f3f181cbe6b2b247d00c34c9c93b0c426c4b48c",
     "exit":  "0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c",
-    "veto":  "60569201e50982a2a2a837464aaaae81ac2111e0f2dba78c4c0835e36f304997",
-    "regime": "b1fe067d8bac111c4532cfc838bb6d210f13a906defc0db8a083bd228a1095c0",
+    "veto":  "6989330642d0e23951cb6b00d8343df37025428ac1349fef73b9e4da0d3e833a",
+    "regime": "e4502ba5cea73841338d4a1c239808d8557ff5a10850961c9f46abee71d164fc",
 }
 # Frozen-input tools' LF-normalized shas recorded in the results JSONs.
 INPUT_ENTRY_SHA = \

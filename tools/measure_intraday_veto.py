@@ -132,7 +132,7 @@ MIN_SLOT = 100  # per-slot count floor (house)
 # sha of this file with its own FROZEN_SHA hex blanked to 64 zeros — a
 # well-defined fixed point (a file cannot hash to a value embedded in
 # itself). Any byte change outside the blanked hex breaks the assertion.
-FROZEN_SHA = "60569201e50982a2a2a837464aaaae81ac2111e0f2dba78c4c0835e36f304997"
+FROZEN_SHA = "6989330642d0e23951cb6b00d8343df37025428ac1349fef73b9e4da0d3e833a"
 
 
 def sha_bytes(b: bytes) -> str:
@@ -559,9 +559,14 @@ def write_report(audit: dict, arc: Archive, floors: dict | None,
     L.append("")
     L.append("| floor | required | actual | met |")
     L.append("|---|---|---|---|")
+    _actual_of = {"min_bar_dates": "window_bar_dates",
+                  "min_events": "events_f1_valid",
+                  "min_tickers": "tickers",
+                  "min_dates_with_events": "dates_with_events"}
     for k, req in FLOORS.items():
-        L.append(f"| {k} | {req} | {floors[k]} | "
-                 f"{'✓' if floors[k] >= req else '✗'} |")
+        act = floors.get(_actual_of.get(k, ""), 0)
+        L.append(f"| {k} | {req} | {act} | "
+                 f"{'✓' if act >= req else '✗'} |")
     L.append("")
     L.append("## F1 — conditioning (4 Holm slots)")
     L.append("")

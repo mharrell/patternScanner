@@ -98,7 +98,16 @@ def main() -> int:
         elif proc.returncode == 2:
             log.append(f"[{pre_reg}] {name}: floors unmet — pending")
         else:
-            log.append(f"[{pre_reg}] {name}: ERROR (see stderr in log file)")
+            # exit 1+: keep the full stderr — these are the diagnosis
+            # input for a retry (recorded amendment, never silent).
+            errdir = CACHE / "gate_opener_errors"
+            errdir.mkdir(parents=True, exist_ok=True)
+            errfile = errdir / f"{name}_{proc.returncode}.log"
+            errfile.write_text(
+                (proc.stdout or "") + "\n--- STDERR ---\n" + (proc.stderr or ""),
+                encoding="utf-8")
+            log.append(f"[{pre_reg}] {name}: ERROR — stderr saved to "
+                       f"{errfile.relative_to(REPO)}")
     STATE.write_text(json.dumps(state, indent=2), encoding="utf-8")
     print("\n".join(log))
     if measured:

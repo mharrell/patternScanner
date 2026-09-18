@@ -64,7 +64,7 @@ WINDOW_MIN = 30          # 2n2-07's 30-minute profit window
 NH_PCT = 0.005           # 2n2-08 new-highs conjunct: within 0.5% of RTH high
 FLOORS = {"min_bar_dates": 20, "min_events": 2000,
           "min_tickers": 100, "min_dates_with_events": 15}
-FROZEN_SHA = "c8b75434390965601b94adc37737e31d67a38d43d9294a6c20024c564ff23431"    # placeholder until freeze
+FROZEN_SHA = "7328379f55937289956802cbd08c03043a9a7be0a4993b6f9f9345bf5f079a02"    # placeholder until freeze
 
 
 def hash_self() -> str:
@@ -200,7 +200,7 @@ def main() -> int:
          nh_in, nh_out)
     fam = MIE.holm(fam, "F1")
     for k, r in fam.items():
-        if r.get("verdict") == "INCONCLUSIVE":
+        if not isinstance(r, dict) or r.get("verdict") == "INCONCLUSIVE":
             continue
         r["verdict"] = ("EDGE" if r["holm_rejected"] and r["ci_low"] > 0
                         else "FADE" if r["holm_rejected"] and r["ci_upper"] < 0
@@ -262,6 +262,8 @@ def main() -> int:
     L.append("## F1 verdicts (Holm family of 4)")
     L.append("")
     for k, r in fam.items():
+        if not isinstance(r, dict):
+            continue
         L.append(f"- {r['slot']}: n_a={r['n_a']} n_b={r['n_b']} | est "
                  f"{MIV._fmt(r['est'])} (CI {MIV._fmt(r['ci_low'])}.."
                  f"{MIV._fmt(r['ci_upper'])}, p {r['p']:.3f}) | gate "

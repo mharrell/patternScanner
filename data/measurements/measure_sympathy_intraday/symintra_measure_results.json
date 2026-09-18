@@ -1,0 +1,59 @@
+{
+  "pre_reg": "#32",
+  "claim": "intraday sector sympathy: reversal entries with a same-sector mate spiking >= +40% from the open beat sector-cold entries",
+  "params": {
+    "n": 60,
+    "cost": 0.0015,
+    "seed": 20260907,
+    "leader_intra": 0.4,
+    "holm_slots": [
+      "hot_minus_cold",
+      "hot_minus_raw",
+      "_family"
+    ]
+  },
+  "f1": {
+    "hot_minus_cold": {
+      "slot": "sector-hot \u2212 sector-cold",
+      "n_a": 0,
+      "n_b": 30376,
+      "p": 1.0,
+      "est": null,
+      "ci_low": null,
+      "ci_upper": null,
+      "verdict": "INCONCLUSIVE",
+      "holm_gate": 0.025,
+      "holm_rejected": false
+    },
+    "hot_minus_raw": {
+      "slot": "sector-hot \u2212 raw (net value)",
+      "n_a": 0,
+      "n_b": 30376,
+      "p": 1.0,
+      "est": null,
+      "ci_low": null,
+      "ci_upper": null,
+      "verdict": "INCONCLUSIVE",
+      "holm_gate": 0.05,
+      "holm_rejected": false
+    },
+    "_family": "INCONCLUSIVE"
+  },
+  "descriptives": {
+    "n_valid": 30376,
+    "n_hot": 0,
+    "n_cold": 30376
+  },
+  "floors": {
+    "window_bar_dates": 21,
+    "events_f1_valid": 43722,
+    "tickers": 600,
+    "dates_with_events": 21,
+    "met": true
+  },
+  "fingerprints": {
+    "manifest_sha256": "40c5b385554ca192298e65e392dfc0e9caa38e76bfc544ec182aeab7cd880f2a",
+    "measure_code_sha256": "8beae9e23e40bc6f722d0fdeb8be9e8e7fd76a4127b5d53d730fd167896c648f",
+    "veto_engine_sha256": "6989330642d0e23951cb6b00d8343df37025428ac1349fef73b9e4da0d3e833a"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "pre_reg": "#27",
+  "claim": "MACD crossover gate on 1-min bars: line \u2265 9-signal at entry, the 30-minute window after the first bullish cross, and the new-highs conjunct; news-spike stratification per J-B-04",
+  "params": {
+    "n": 60,
+    "cost": 0.0015,
+    "b": 1000,
+    "seed": 20260902,
+    "alpha": 0.05,
+    "window_min": 30,
+    "nh_pct": 0.005,
+    "holm_slots": [
+      "open_minus_closed",
+      "open_minus_raw",
+      "window",
+      "new_highs",
+      "_family"
+    ],
+    "min_slot": 100
+  },
+  "f1": {
+    "open_minus_closed": {
+      "slot": "open \u2212 closed (primary claim)",
+      "n_a": 10333,
+      "n_b": 31162,
+      "mean_a": -0.001969180131994926,
+      "mean_b": -0.0019809279436876106,
+      "est": 1.0150013695340678e-05,
+      "ci_low": -0.00021809263715022348,
+      "ci_upper": 0.00023375229332716198,
+      "p": 0.92,
+      "holm_gate": 0.05,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE"
+    },
+    "open_minus_raw": {
+      "slot": "open \u2212 raw (net filter value)",
+      "n_a": 10333,
+      "n_b": 41495,
+      "mean_a": -0.001969180131994926,
+      "mean_b": -0.0019780025276562693,
+      "est": 1.142263950549572e-05,
+      "ci_low": -0.00018198328084058357,
+      "ci_upper": 0.00021666532427266758,
+      "p": 0.904,
+      "holm_gate": 0.025,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE"
+    },
+    "window": {
+      "slot": "\u226430min-after-cross \u2212 >30min",
+      "n_a": 983,
+      "n_b": 9350,
+      "mean_a": -0.002348838196498221,
+      "mean_b": -0.0019292652787963448,
+      "est": -0.0004143587753897625,
+      "ci_low": -0.0010895421228285555,
+      "ci_upper": 0.0002837086518327285,
+      "p": 0.21,
+      "holm_gate": 0.0125,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE"
+    },
+    "new_highs": {
+      "slot": "at-running-high \u2212 below (gate-open only)",
+      "n_a": 2011,
+      "n_b": 8322,
+      "mean_a": -0.002098951873632721,
+      "mean_b": -0.0019378209668382805,
+      "est": -0.00017337722537301515,
+      "ci_low": -0.0006522651722798868,
+      "ci_upper": 0.0002976879032577,
+      "p": 0.444,
+      "holm_gate": 0.016666666666666666,
+      "holm_rejected": false,
+      "verdict": "INCONCLUSIVE"
+    },
+    "_family": "INCONCLUSIVE"
+  },
+  "f2_descriptives": {
+    "n_valid": 41495,
+    "gate_open": 10333,
+    "gate_closed": 31162,
+    "line_neg_share": 0.6710206048921556,
+    "closed_and_line_neg_share": 0.7041910018612413,
+    "strata_minutes_since_open": {
+      "early_<=30min": {
+        "n": 3321,
+        "open_share": 0.28184281842818426
+      },
+      "late_>30min": {
+        "n": 38174,
+        "open_share": 0.24616230942526326
+      }
+    }
+  },
+  "floors": {
+    "window_bar_dates": 21,
+    "events_f1_valid": 43722,
+    "tickers": 600,
+    "dates_with_events": 21,
+    "met": true
+  },
+  "fingerprints": {
+    "manifest_sha256": "40c5b385554ca192298e65e392dfc0e9caa38e76bfc544ec182aeab7cd880f2a",
+    "measure_code_sha256": "bd71e2ee466c5a17edcca66fb4bed09a23789763534379366b9dd94f60b00881",
+    "veto_engine_sha256": "6989330642d0e23951cb6b00d8343df37025428ac1349fef73b9e4da0d3e833a",
+    "entry_engine_sha256": "cfd0bddae616edb2fa1d8dd586417625acf2d488a7ced27e05166f82c11762c3"
+  }
+}

@@ -63,11 +63,11 @@ The strategy's actual entry rule, stated repeatedly in nearly identical form.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| B-01 | [1:28:40–1:31:18] | **Micro pullback**: stock squeezes up (green candles), pulls back (confirmed by ≥2 red candles), bounces forming a double bottom; **entry = the first candle that makes a new high versus the high of the previous candle**; stop = low of the pullback; profit target = retest of the high of day; wants ≥2:1 reward:risk ("I always want to retest a high of day... 'when this setup works it goes to the high of day'"). | `candidate` — the single most machine-testable rule in the corpus: on 1-min bars, entry candle makes new high after a ≥2-candle pullback. Needs intraday data; on daily bars it becomes an *adapted* version (see B-05). **Daily adaptation (Shape B: pullback + new-high) measured 2026-08-13 → NO EDGE, significantly below baselines (§B.5-B); the intraday rule itself remains untested.** |
-| B-02 | [1:29:17–1:29:40] | Don't buy the breakout move itself: "if I bought right here, what would be my max loss? ... it's really far away ... my profit target has to be two times that ... it's better to wait for the stock to pull back." | `candidate` — testable as a comparison: pullback entries vs chasing entries, same-day forward returns. Directly relevant to how patternScanner's Shape A (consolidation breakout) should be defined — he's claiming breakout-chasing has bad R:R. **Daily adaptation (Shape A: buy above tight range) measured 2026-08-13 → NO EDGE (§B.5-A); the pullback-vs-chase R:R comparison itself remains untested.** |
-| B-03 | [1:35:20–1:36:07] | "My rule of thumb: I always like to trade the first and the second pullback... third and fourth pullback, it can be a little too risky." | `candidate` — testable: win rate / R:R by pullback number within the same day's move. |
+| B-01 | [1:28:40–1:31:18] | **Micro pullback**: stock squeezes up (green candles), pulls back (confirmed by ≥2 red candles), bounces forming a double bottom; **entry = the first candle that makes a new high versus the high of the previous candle**; stop = low of the pullback; profit target = retest of the high of day; wants ≥2:1 reward:risk ("I always want to retest a high of day... 'when this setup works it goes to the high of day'"). | `tested` (pre-reg #15, 2026-09-18) — **SPLIT**: geometry **EDGE** (HOD-retest 83.8% vs baselines, +53/+57pp, p≈0 — the setup's structure is real), but entry **FADE** (−0.21% mean after 0.15% cost, below both hour-matched baselines, p<0.001) and the fade deepens with holding time (§K.1) |
+| B-02 | [1:29:17–1:29:40] | Don't buy the breakout move itself: "if I bought right here, what would be my max loss? ... it's really far away ... my profit target has to be two times that ... it's better to wait for the stock to pull back." | `tested` (pre-reg #15, 2026-09-18) — **CONTRADICTED** (direction-inverted): waiting for the pullback does NOT beat chasing — pullback entries underperform chase entries by −0.18pp/−0.12pp over the next hour (both Holm-rejected); also his own 2:1 R:R requirement is met at entry only 22.9% of the time (§K.1) |
+| B-03 | [1:35:20–1:36:07] | "My rule of thumb: I always like to trade the first and the second pullback... third and fourth pullback, it can be a little too risky." | `tested` (pre-reg #19, 2026-09-18) — **NO EDGE**: pullback ordinal carries no information — early (k≤2) − late (k≥3) −0.016pp (CI −0.065..+0.038, p 0.522, n 5,812/2,512); "never trade the third" has no differential at 1-minute resolution (§K.6) |
 | B-04 | [1:31:36–1:32:56] | Will relax the 2:1 requirement for wide-range stocks: "when you have a stock that has big ranges like this, I will sometimes take the risk of taking a trade even if it doesn't offer the perfect 2:1 profit-to-loss ratio." | `partial` — a defined exception (big ATR days), still formalizable. |
-| B-05 | [1:10:53–1:11:22] | On reversal patterns: buy the *second* confirming candle, not the first ("usually when people take a trade in this area, they're going to be buying... the second candle as it confirms the trend"). | `candidate` — testable on daily bars: confirmation-candle entries vs first-candle entries. Same tension appears in patternScanner Shape C (double bottom) definition. **Confirmation-close adaptation (Shape C) measured 2026-08-13 → NO EDGE (§B.5-C); the first-vs-second-candle comparison remains untested.** |
+| B-05 | [1:10:53–1:11:22] | On reversal patterns: buy the *second* confirming candle, not the first ("usually when people take a trade in this area, they're going to be buying... the second candle as it confirms the trend"). | `candidate` — testable on daily bars: confirmation-candle entries vs first-candle entries. Same tension appears in patternScanner Shape C (double bottom) definition. **Confirmation-close adaptation (Shape C) measured 2026-08-13 → NO EDGE (§B.5-C). First-vs-second-candle measured 2026-09-18 (pre-reg #19) → FADE, direction-inverted**: buying the second confirming candle is WORSE by −0.070pp (CI −0.073..−0.067, p≈0, n=18,008 pairs) — the wait costs 7bp (§K.6). |
 | B-06 | [1:25:30–1:25:53] | "The best trades are when multiple time frames are aligning and giving you positive signals to buy" (daily → 5-min → 1-min alignment). | `candidate` — testable in adapted form: does daily-chart context (e.g. above VWAP-equivalent, MACD state) raise the hit rate of the intraday setup? This is a *conditioning* claim. |
 
 ---
@@ -262,10 +262,10 @@ sub-era, per-year means, dedupe-20 by sub-era — all in the report.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| E-01 | [02:01–04:57] | Before entry, two filters: **MACD** (blue line crossed negative = no) and **volume** (high-volume selling on red candles = no). "If just one of them says no, I don't take the trade." | `tested, rejected` — **H-VA/VB/VC** in [PREREGISTRATION.md](PREREGISTRATION.md) #3, measured 2026-08-14 → **NO EDGE in both verdict families, all three shapes** (§E.5). Does conditioning on (MACD non-negative AND no high-volume red bar) improve forward returns vs the raw pattern? No — on A and C the veto cuts trades whose mean forward return was *higher* than the kept trades'. |
+| E-01 | [02:01–04:57] | Before entry, two filters: **MACD** (blue line crossed negative = no) and **volume** (high-volume selling on red candles = no). "If just one of them says no, I don't take the trade." | `tested, rejected` — **H-VA/VB/VC** in [PREREGISTRATION.md](PREREGISTRATION.md) #3, measured 2026-08-14 → **NO EDGE in both verdict families, all three shapes** (§E.5). Does conditioning on (MACD non-negative AND no high-volume red bar) improve forward returns vs the raw pattern? No — on A and C the veto cuts trades whose mean forward return was *higher* than the kept trades'. **Intraday re-test (pre-reg #21, 2026-09-18): NO EDGE ×4** — pass−fail −0.002pp (p 0.83), both legs null alone; kills ~65–70% of his own entry set, keeps no better (§K.2). |
 | E-02 | [04:29–05:54] (ultimate-guide/oxob0x0Xz7s.md) | "**80% chance of this working**" (of the setup when both filters pass). | `tested, rejected` — the literal 80% is falsified on all three shapes (win rates 48.7–52.9%, one-sided p ≤ 2e-24, CI upper ≤ 0.58); even his own softened 60% "enough to be profitable" floor fails at α=0.05 (C p=0.009); on A/B the pass set wins *below* chance (§E.7). The pre-registered expectation — fail honestly like most 80% claims — was met. |
 | E-03 | [1:21:54–1:23:04] | "When the MACD actually crosses... more times than not, any attempt to break out will reject and the price will end up selling off." (Learned in the 2022 bear market; "very consistent especially during the bear market.") | `tested, partial support` — **FADE EDGE on Shape B** (bear days: −1.62pp, p=0.012; vs chance: p_input 0.014), NO EDGE × 6, INCONCLUSIVE × 1 — the project's first verdicts in a claim's favor, and they land on the shape that matches the described scenario, in the regime he emphasizes (§E.6). The unconditional form is null; the effect is a **fade signal** — it says *don't take* the trade, it does not make any pattern profitable. Phase 5 not triggered. |
-| E-04 | [3:02:18–3:04:30] | Final quiz restates the veto: high-volume red candle = no; MACD negative = no; "if it's not a hard yes, then it's a no" (beginner rule). | `tested, rejected` — same campaign as E-01 ([PREREGISTRATION.md](PREREGISTRATION.md) #3), measured 2026-08-14. The kill-rate decomposition answers the "hard yes" question: the veto is a **trade-count reducer, not an edge enhancer** (A −30%, B −3%, C −15% of OOS trades; the killed sets had *higher* mean forward returns on A and C — §E.5). |
+| E-04 | [3:02:18–3:04:30] | Final quiz restates the veto: high-volume red candle = no; MACD negative = no; "if it's not a hard yes, then it's a no" (beginner rule). | `tested, rejected` — same campaign as E-01 ([PREREGISTRATION.md](PREREGISTRATION.md) #3), measured 2026-08-14. The kill-rate decomposition answers the "hard yes" question: the veto is a **trade-count reducer, not an edge enhancer** (A −30%, B −3%, C −15% of OOS trades; the killed sets had *higher* mean forward returns on A and C — §E.5). **Intraday re-test (pre-reg #21, 2026-09-18): same verdict at 1-minute resolution** — "hard yes" keeps no better than the rest (§K.2). |
 
 ---
 
@@ -412,8 +412,8 @@ were verified exactly).
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| F-01 | [1:44:58–1:47:07] | Best trading window 7–10 a.m. ET: "I kind of trade from 7 a.m. until about 10 a.m., and that's where I can capitalize on peak volatility and peak liquidity." | `out of scope` for daily bars; relevant only if intraday data is ever added. |
-| F-02 | [1:45:30–1:46:32] | Pre-market moves are "typically cleaner" (no halts, no circuit breakers 4–9:30 a.m. and 4–8 p.m.); news breaks pre-market, not during regular hours. | `out of scope` (intraday); the daily-bar residue: gap direction + pre-market volume may matter for next-day behavior — worth a question in DESIGN_BRIEF §9, not a claim. |
+| F-01 | [1:44:58–1:47:07] | Best trading window 7–10 a.m. ET: "I kind of trade from 7 a.m. until about 10 a.m., and that's where I can capitalize on peak volatility and peak liquidity." | `measured, descriptive` (pre-reg #15 row, 2026-09-18, no verdict family) — **SPLIT at row level**: volatility peak CONFIRMED (07:00–09:30 has the highest per-bar \|r\|, 0.45%, and range) but liquidity peak is NOT in his window — measured volume share peaks 15:00–16:00 (27.4%) on the S&P 600 universe (§K.1) |
+| F-02 | [1:45:30–1:46:32] | Pre-market moves are "typically cleaner" (no halts, no circuit breakers 4–9:30 a.m. and 4–8 p.m.); news breaks pre-market, not during regular hours. | `measured, descriptive` (pre-reg #15 row, 2026-09-18, no verdict family) — **FALSIFIED at row level**: pre-market is NOT cleaner — mean per-bar \|r\| 4.2× RTH (0.39% vs 0.09%), tail frequency 19.9% vs 13.2% (§K.1) |
 | F-03 | [1:25:53–1:26:17] | "Most stocks will have support at the VWAP... at least for a moment"; support at the 9/20/200 MAs; "prior resistance, once the stock can break above it, becomes support." | `candidate` — testable on daily bars (MA levels, prior-resistance flip); these are the patternScanner-relevant structural claims. |
 | F-04 | [1:41:22–1:44:46] | Stop orders are visible to brokers/market makers who "engage in stop hunting": they move price down to trigger stops, then buy. | `out of scope` — unfalsifiable with daily close data; would need tick data + a well-defined test. Note it, don't measure it. |
 
@@ -485,11 +485,11 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
-| I-B-01 | txWaMpSzHhM [20:29–20:43] | "I trade the first and the second pullback okay... I never trade almost never trade the third" (after a breakout). | `candidate` — same rule as B-03 in the ultimate-guide (cross-course consistency, §I-Notes). Needs intraday data for the pullback-count form. |
-| I-B-02 | jfe1Zl-5EQI [24:02–24:22]; pJuG5YtVF84 [02:00–02:26]; txWaMpSzHhM [28:34–29:43] | Reversal entry = "the first one minute or the first five minute candle to make a new high" after a decline (long); mirror for shorts: "shorting the first one minute candle to make a new high... your stop is 3780 and your short at 3766 so you're risking 14 cents" (ATVI). | `candidate` — the most repeated entry rule in the corpus (3 videos + ultimate-guide B-01). Needs intraday; the daily adaptation (Shape B: pullback + new high) was measured → **NO EDGE** (§B.5-B). The intraday rule itself remains untested. |
+| I-B-01 | txWaMpSzHhM [20:29–20:43] | "I trade the first and the second pullback okay... I never trade almost never trade the third" (after a breakout). | `tested` (pre-reg #19, 2026-09-18) — **NO EDGE**, same campaign as B-03: pullback ordinal carries no differential (§K.6) |
+| I-B-02 | jfe1Zl-5EQI [24:02–24:22]; pJuG5YtVF84 [02:00–02:26]; txWaMpSzHhM [28:34–29:43] | Reversal entry = "the first one minute or the first five minute candle to make a new high" after a decline (long); mirror for shorts: "shorting the first one minute candle to make a new high... your stop is 3780 and your short at 3766 so you're risking 14 cents" (ATVI). | `tested` (pre-reg #19, 2026-09-18) — **FADE, both directions**: long mean −0.20%, excess −0.15pp vs universe (CI −0.16..−0.14, n=43,722); short excess −0.16pp (CI −0.17..−.014, n=41,985) — the corpus's most repeated entry rule is an adverse price in both directions, the largest event count of any campaign in the repo (§K.6) |
 | I-B-03 | txWaMpSzHhM [13:56–14:11], [20:08–20:26], [26:40–27:25] | Breakout entries: "as soon as we break 3750 buyers come in and anyone that is short covers and you get that spike up"; "I wait for us to break the top of that resistance area that's gonna be the apex point that's the breakout"; "it either works instantly or it doesn't". | `candidate` (structural) — the buy is the break of resistance, not the consolidation. **Cross-course tension:** ultimate-guide B-02 says *don't* buy the breakout ("better to wait for the stock to pull back"). Shape A (break-above-consolidation) measured → NO EDGE (§B.5-A). |
 | I-B-04 | txWaMpSzHhM [19:13–19:50] | Flag/stair-step: "three big candles going up it can be anywhere from 3 to 10... then you have a series of candles consolidating" then another move up. | `candidate` — a trend+consolidation continuation definition, distinct from Shapes A/B/C as defined; pre-register the operational definition if pursued. |
-| I-B-05 | txWaMpSzHhM [39:03–39:28]; 7UZushUSpLQ [00:10–00:17]; xTPcI7HHu5w [24:53–24:56]; H82nRY9TYU4 [26:42–26:44] | Morning concentration: "9:30 to 12:00 that's when I'm the most aggressive that's when we have the most volume and momentum"; "the first 5 10 minutes of the day is when we have the most volume. That's when we make the most money"; "9:30 to 11:30 that's where all my profits are"; "I only trade for one hour a day 9:30 to 10:30". | `out of scope` for daily bars (intraday timing — same family as F-01). **Internal inconsistency:** four different windows across videos (9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30); the "morning is best" core is consistent, the exact window is not. |
+| I-B-05 | txWaMpSzHhM [39:03–39:28]; 7UZushUSpLQ [00:10–00:17]; xTPcI7HHu5w [24:53–24:56]; H82nRY9TYU4 [26:42–26:44] | Morning concentration: "9:30 to 12:00 that's when I'm the most aggressive that's when we have the most volume and momentum"; "the first 5 10 minutes of the day is when we have the most volume. That's when we make the most money"; "9:30 to 11:30 that's where all my profits are"; "I only trade for one hour a day 9:30 to 10:30". | `tested` (pre-reg #22, 2026-09-18) — **EDGE, relative only**: entries inside 9:30–12:00 beat the same entries outside it (+0.035pp, CI +0.018..+0.053, p<0.001) — but both sides are absolutely negative and trail hour-matched baselines; the window is the least-bad time, not a profitable one. The window-shape claim itself (9:30–12:00 as the joint vol+liquidity peak) INCONCLUSIVE — vol below the pre-open runner, liquidity above; and the first-5-minutes volume claim fails on RTH share (§K.3). **Internal inconsistency** across videos (9:30–12:00 / first 5–10 min / 9:30–11:30 / 9:30–10:30) stands. |
 | I-B-06 | jfe1Zl-5EQI [17:45–18:16], [23:16–23:55], [19:58–20:11]; txWaMpSzHhM [23:42–24:05] | Reversal checklist: "an RSI above 90 or below 10 are going to peak my interest a candle outside the bounzer bands is going to peak my interest and also five to ten consecutive candles ending with a pin bar or a doji"; volume "half a million in shares or higher I prefer a million", peaking at the sell-off bottom; the V5/V8 scanner screens "RSI below 20 and then... the green above 80". Class 1 caveat: RSI "is more condition to find stocks at extremes it's not by any means a buy or sell indicator". | `candidate` / `partial` — the RSI-extreme component measured via I-X-01 (§I.6): extremes carry directional information at the state level (EDGE × 3) but not at the event level — consistent with **both** Class 1's "not a buy or sell indicator" and Class 4's entry-condition reading; the 90/10-vs-20/80 discrepancy (trade threshold vs scanner threshold) is an internal tension; **Class 1 says RSI is not a signal while Class 4 treats RSI extremes as entry conditions** — within-corpus inconsistency. |
 | I-B-07 | 7UZushUSpLQ [01:38–01:41], [05:03–05:27] | Continuation plays are riskier: on VLTC he sized down because "it was not um a fresh breakout. It was a continuation play. And we know that continuation plays can be very risky". | `candidate` (structural) — day-1 fresh-breakout entries vs day-2+ continuation entries of the same move; testable on daily bars (cross-ref pre-reg #4 F2: our signal sets' continuation 5→20 bars showed EDGE — different population, same question family). |
 | I-B-08 | txWaMpSzHhM [32:41–33:27] | Reversal selectivity: "my favorite reversal trades are on stocks that are selling off because there's bad news out... a quick sell off because of bad news lots of people are gonna notice it and start watching it for a bottom bounce" — vs market-driven selloffs that "pop up 10 cents and then they sell off another 50 cents". | `partial` — the news/catalyst leg is out of scope (§3: no news in the loop); the market-vs-idiosyncratic regime leg is testable with daily data (cross-ref I-F-03). |
@@ -521,7 +521,7 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | I-E-01 | txWaMpSzHhM [16:33–17:02], [20:57–21:10], [35:26–35:41], [37:00–37:20] | "If we trade the stocks that are dominated and much higher in high-frequency trading we're gonna lose money hands down every time"; "Apple or Priceline or coca-cola or IBM... very hard to day trade"; patterns are "meaningless" there; "we don't trade penny stocks we don't trade the OTC markets". | `tested` via I-D-07's F2 contrast (pre-reg #8, 2026-08-14) — **NO EDGE:** the low-RV side never significantly outperforms the high-RV side (B contrast +0.30pp, p=0.302 — the claimed direction, not significant). Daily bars cannot measure HFT dominance directly; the contrast is the proxy the data supports. Verdicts: §I.5. |
-| I-E-02 | txWaMpSzHhM [24:19–24:40] | "I personally have high a day scanners but I don't find it to be a successful strategy just to buy a stock because it's hitting high a day I'm usually chasing when I do that and it doesn't work". | `candidate` (needs intraday) — chasing new highs fails. **Consistent with what we measured:** Shape B (buying the new-K-day high after a pullback) → NO EDGE, below baselines (§B.5-B) — the daily adaptation of "buying new highs" also fails. |
+| I-E-02 | txWaMpSzHhM [24:19–24:40] | "I personally have high a day scanners but I don't find it to be a successful strategy just to buy a stock because it's hitting high a day I'm usually chasing when I do that and it doesn't work". | `tested` (pre-reg #15, 2026-09-18) — **CONTRADICTED** (direction-inverted): on 1-min bars the chase leg (new-high entries) does BETTER than the pullback leg (−0.09% vs −0.21% mean next-hour return, Holm-rejected contrast); "chasing doesn't work" inverts — waiting is what costs (§K.1) |
 | I-E-03 | pJuG5YtVF84 [20:19–22:23] | "When we see double tops we know that these are typically um not the best pattern to buy because look at all this empty space here in the middle"; "a lot of people do like to short double tops with a stop right over this level". | `candidate` (structural) — after a big single-day pop, a second test of the high is followed by pullback more often than breakout; testable-daily with a pre-registered double-top definition. |
 | I-E-04 | pJuG5YtVF84 [08:02–08:57] | "A day trader doesn't want to trade stocks that have huge spreads just because the risk is so much higher as soon as you get in you're down 30 cents" (30¢ spread needs 60¢ of favorable move to clear cost). | `partial` — no quote data; the embedded arithmetic (cost = spread + fees) is what COST 0.15% approximates for liquid names; motivates a spread-aware cost model if data is ever added. |
 | I-E-05 | txWaMpSzHhM [02:51–03:20], [14:16–14:39]; pJuG5YtVF84 [03:37–03:41] | "A good set up means we might be risking $100 but we have the potential to make 300... we would call that a three-to-one profit loss ratio"; "risking $100 to make 10... negative risk reward ratio" — don't take; "using this strategy I can be wrong forty percent of the time and still make money"; "looking at setups that offer two to1 profit loss ratios that's really important with trading". | `candidate` (structural) — R:R-filtered setups vs sub-1:1 setups. Cross-course consistency: 2:1–3:1 R:R matches ultimate-guide B-01/B-04; the "wrong 40% still profitable" arithmetic matches A-05/G-01 (break-even win rate = 1/(R+1); at 2:1 that's 33%, so a 60% win rate is comfortably profitable). |
@@ -1790,10 +1790,10 @@ that the signal line is unused there — see J-B-01 vs J-B-02.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | J-A-01 | mfGQr2tHoX0 [00:40–00:45], [09:08–09:12] | "a stock that I traded uh just yesterday I locked up about $5,000 of profit on it" (SGBX); repeated at [09:08–09:12] "I actually made $5,000 on it". | `red flag` — self-reported single-day anecdote framing the lesson ("how I nailed"); unverifiable, same posture as I-A. |
-| J-B-01 | mfGQr2tHoX0 [11:10–11:17], [11:17–11:30], [11:49–11:58], [16:33–16:42] | **MACD-open gate (primary rule):** "when I see this crossover I am no longer a buyer"; "as a beginner trader you'll find more accuracy if you're only trading when the macd is open"; no-trade sequence while "macd is against the position"; dip-buying gated the same way ("first pullback do we buy this dip the answer is yes because the macd is open"). Open = MACD line ≥ signal line (bearish cross closes it). | `candidate` — the primary intraday gate, **not implemented anywhere in the repo**: the veto's `macd_neg` leg tests the *line-below-zero* form (J-B-02), not the line-vs-signal crossover form. Testable on the intraday archive (MACD-state conditioning at candidate entries, vs same entries with the gate flipped — the pre-reg #8/#9 conditioning-campaign family). Advanced traders may trade against it ([11:30–11:45] "lower probability of success but... they can work well") — implies a directional asymmetry prediction, testable as J-B-01b. |
+| J-B-01 | mfGQr2tHoX0 [11:10–11:17], [11:17–11:30], [11:49–11:58], [16:33–16:42] | **MACD-open gate (primary rule):** "when I see this crossover I am no longer a buyer"; "as a beginner trader you'll find more accuracy if you're only trading when the macd is open"; no-trade sequence while "macd is against the position"; dip-buying gated the same way ("first pullback do we buy this dip the answer is yes because the macd is open"). Open = MACD line ≥ signal line (bearish cross closes it). | `tested` (pre-reg #27, 2026-09-18) — **NO EDGE ×4**: gate-open vs closed +0.000pp (p 0.92, n 10,333/31,162), net filter value +0.000pp (p 0.90), the 30-minute profit window −0.004pp (p 0.21), the gate-open∧running-highs conjunct −0.002pp (p 0.44). The gate is CLOSED on 75% of his own entry set and separates nothing (§K.4). The J-B-01b contrarian asymmetry was not separately tested (no contrarian population declared). |
 | J-B-02 | mfGQr2tHoX0 [14:46–14:52] | **MACD-negative variant:** "right here when the price popped back up the macd was still negative there was nothing to trade". | `candidate` — the form the paper loop's veto *does* implement (`macd_neg = MACD(12/26) line < 0`, kills the entry). His usage matches ours (negative-side no-trade), but note he treats it as the weaker, implied case of J-B-01; the crossover form is the stated primary. Intraday verdict pending (§5 floor unmet, ~mid-September). |
 | J-B-03 | mfGQr2tHoX0 [15:37–15:47], [17:23–17:30] | **Front-side / pullback-count rule:** "I like to focus on trading the front side of the move the beginning of the move the first pullback the second pullback"; late re-pops are "a high-risk spot and you've got a higher likelihood of seeing a false breakout" ("in this spot I'd be done"). | `candidate` — **cross-course consistency data point**: same rule as I-B-01 (2015: "I trade the first and the second pullback... almost never trade the third") and ultimate-guide B-03; 9 years apart, unchanged. Strongest drift-map candidate for a §I.12-style update. |
-| J-B-04 | mfGQr2tHoX0 [09:37–09:50] | **Gate boundary condition:** "when I first take a trade on something like this I'm not really looking at the macd in those first few minutes" — the initial breaking-news spike is exempt; the gate governs pullback/continuation entries only. | `candidate` (structural) — refines J-B-01: any MACD-gate test must stratify news-spike entries vs pullback entries or it will dilute both. Analogous stratification lesson to the I-B-06 RSI state-vs-event split. |
+| J-B-04 | mfGQr2tHoX0 [09:37–09:50] | **Gate boundary condition:** "when I first take a trade on something like this I'm not really looking at the macd in those first few minutes" — the initial breaking-news spike is exempt; the gate governs pullback/continuation entries only. | `measured, descriptive` (pre-reg #27 strata row, 2026-09-18, no verdict family) — gate-open share 28.2% in the first 30 min vs 24.6% after; the stratified picture does not differ materially from the pooled null (§K.4). |
 | J-C-01 | mfGQr2tHoX0 [16:57–17:11] | **Post-crossover stop-trading:** "imagine if you stopped trading it right there and you didn't trade it again for the rest of the day or at least until you got another crossover you would be in good position". | `candidate` — exit/re-entry side rule: after a bearish cross, stand down until the next bullish cross (not merely "skip this entry"). Distinct from J-B-01 (which gates individual entries); testable as a session-level trade-suppression rule on the intraday archive. |
 | J-E-01 | mfGQr2tHoX0 [07:01–07:17], [07:17–07:41], [18:00–18:07] | **Standard-settings coordination mechanism:** "you want to see the same signals that everyone else is seeing"; traffic-light analogy ("if you say... I'm going to use a magenta light... you're going to crash your car"); "the people that are using macd will do better as a result if they use it consistently". | `candidate` (mechanism) — claims indicator profitability comes from *coordination* (everyone trading the same default signal), not from information in the indicator. Not directly measurable with bars; the measurable consequence is J-B-01 (default-parameter MACD state carries conditioning value). If J-B-01 shows no edge, this mechanism loses its support. Note: MACD is a NEW teaching vs the 2015 corpus (§I.12: "1 NEW (MACD veto, self-dated 2022)") — his own adoption story is [19:03–19:31]. |
 | J-E-02 | mfGQr2tHoX0 [19:03–19:31] | **Regime-conditional utility:** MACD re-adopted during the 2022 bear market "because we were seeing a lot of false breakouts... I needed to focus on improving my accuracy". | `partial` — implicitly claims the gate's value concentrates in high-false-breakout (hostile) regimes. Testable only as an exploratory interaction (MACD-gate × regime); pre-register before any verdict. **Regime leg tested (pre-reg #29, §J.6)**: the daily form carries no MACD interaction (intraday is #27); the regime conditioning itself measured NO EDGE on the detection set. |
@@ -1821,9 +1821,9 @@ Topics: `macd-gate` `30-minute-window` `front-side` `pullback-count` `scanner-cr
 | 2n2-02 | [04:29–05:23] | **Internal contradiction (order of magnitude):** on stock A ($2→$112) he says "I locked up just under $330,000 of profit" [04:37–04:40], but in the same segment: "I made about $118,000 on this profit in this like window right here", "I locked up 18,000 but I gave back a little bit off", "got myself to up $30,000" — and 2n2-01's day total is $45.5K. | `red flag` | The $330K figure cannot coexist with the $45.5K day total or the $118K/$30K window walk-through; "locked up" appears to mean different things (peak unrealized vs realized). Strongest self-report contradiction found in the corpus so far — worse than I-A-03's 2× discrepancy. |
 | 2n2-03 | [56:18–56:31] | Cumulative: "this is $12.8 million of gross profit" (with the usual "results not typical"). | `red flag` | Trajectory escalation vs I-A-06 ($1M by 2019) and GXl's $10M (2023, GXl-02). |
 | 2n2-04 | [56:52–57:11], [57:56–58:23] | **Accuracy asserted before the data exists:** "I can't import these right now I have to wait till tomorrow" — "have pretty good accuracy probably above 70%". Contrast: a losing month he "finished month um of March with $20,000" and calls "not a great month... a little embarrassing". | `red flag` | The >70% is an expectation, not a reading. Matches the corpus accuracy-window pattern (I-A-04); the +$20K "bad month" framing is itself a self-report anchor. |
-| 2n2-05 | [16:39–16:52] | **Gate as stated (both forms in one passage):** "trading when macd is positive is a lot easier for me than trading when it's negative" + "initial gut check if the macd is negative which is from right here to here I'm not going to trade it". | `candidate` | J-B-01 (crossover form) AND J-B-02 (line<0 form, the repo's veto leg) stated together; here the negative-side form is the beginner "gut check". Gate-as-practiced evidence below (2n2-10, 2n2-12, 2n2-21). |
+| 2n2-05 | [16:39–16:52] | **Gate as stated (both forms in one passage):** "trading when macd is positive is a lot easier for me than trading when it's negative" + "initial gut check if the macd is negative which is from right here to here I'm not going to trade it". | `tested` (pre-reg #27, 2026-09-18) — **NO EDGE** (crossover form, family result; §K.4) | J-B-01 (crossover form) AND J-B-02 (line<0 form, the repo's veto leg) stated together; here the negative-side form is the beginner "gut check". Gate-as-practiced evidence below (2n2-10, 2n2-12, 2n2-21). |
 | 2n2-06 | [17:44–17:56], [18:49–18:56] | Settings: "the fast length is 12 the slow length is 26 the source is the close and the signal length is nine"; "I actually only have the macd on my one minute time frame" (charts: 10-sec/1-min/5-min/daily). | `candidate` | Identical to mfGQr2tHoX0 settings (J-E-01 coordination mechanism). Confirms veto's `macd_at` 12/26 EMA on 1-min bars. |
-| 2n2-07 | [19:02–19:11], [20:22–20:52] | **New parameter — window length:** "I call this the 30 minute profit window because once the macd opens right here which was at about 8:46 it stayed open for about 30 minutes"; "generally for most stocks we have a window of you know about 30 minutes when we've got some really clean trading"; window closes at "once you get that first macd crossover for a lot of stocks that can be it you got one window it's crossing over and then from that point forward the stock is choppy". | `candidate` | Quantifies J-B-01 beyond the pilot: gate-open *duration* ≈30 min is a testable timing claim. Not stated in mfGQr2tHoX0. |
+| 2n2-07 | [19:02–19:11], [20:22–20:52] | **New parameter — window length:** "I call this the 30 minute profit window because once the macd opens right here which was at about 8:46 it stayed open for about 30 minutes"; "generally for most stocks we have a window of you know about 30 minutes when we've got some really clean trading"; window closes at "once you get that first macd crossover for a lot of stocks that can be it you got one window it's crossing over and then from that point forward the stock is choppy". | `tested` (pre-reg #27, 2026-09-18) — **NO EDGE** (the ≤30-min-post-cross slot: −0.004pp, p 0.21, n 983/9,350; §K.4) | Quantifies J-B-01 beyond the pilot: gate-open *duration* ≈30 min is a testable timing claim. Not stated in mfGQr2tHoX0. |
 | 2n2-08 | [21:29–21:53] | **Front-side conjunct on the gate:** "the front side of the move means the stock should be making new highs around the time when we're trading it"; "even if the macd goes positive but we're not making new highs I would say it's no good" — he *rejects* a positive-MACD entry on A's late re-pop for exactly this reason. | `candidate` | Gate-as-practiced: MACD-positive is necessary but NOT sufficient; new-highs condition is a second conjunct the repo's veto does not have (J-B-02 is a single leg). Refines J-B-03. |
 | 2n2-09 | [53:33–53:52] | **Exit ≠ cross; cross = trade-ban:** "so if you waited for the crossover to exit you would have held too long so I don't wait for the crossover to exit but once we have a crossover I don't want to trade it anymore" (PGHL went 4.50→10 before the cross caught up at 6). | `candidate` | Sharpens J-C-01: the bearish cross is a *stop-trading* trigger, never a *sell* trigger; exits are pre-cross weakness. |
 | 2n2-10 | [51:30–52:36], [43:56–44:08] | **Walk-away behavior (J-C-01 as practiced):** "macd open stopped trading it very aggressively right here stopped trading it and I'm looking for something else"; "I'm not going to trade this one stock all day long I'm going to trade it while the windows open and then I'm going to look for the next one"; "I was up 32,000 on the day when I stopped trading" ACTR and rotated to SLRX. | `candidate` | The pilot's "stand down until the next bullish cross" (J-C-01) is practiced as stock-level session abandonment: window closed → rotate capital to the next screener hit. Second windows do reopen on fresh breakouts (A's, GFAI's in GXl-18). |
@@ -2316,7 +2316,7 @@ Topics: `short-squeeze` `parabolic-momentum` `stock-selection` `float` `sympathy
 | afN-03 | [08:55–09:01] | "i'm going to … be much more likely to take an abcd … setup on this stock than on one that's … not intraday parabolic" — stock type conditions entry quality. | `candidate` | Conditioning claim (stock-type as a filter on setup quality). Family of ultimate-guide B-06; testable intraday. |
 | afN-04 | [09:08–09:10] | "it's a setup that we would … only trade on a stock that's been halted" (dip-and-rip). | `out of scope` | Requires halt-event data the repo's daily/intraday bars don't carry. |
 | afN-05 | [13:12–13:18] | "recent reverse splits recent ipos … and spax are … some of the more common stocks that can … become parabolic". | `candidate` | Stock-type → parabolic-frequency claim; daily bars can test which listing/split cohorts produce >100% days. |
-| afN-06 | [15:17–15:24] | `tested` (pre-reg #30, 2026-09-02) — **SPLIT**: same-day sympathy **EDGE** (+0.28pp, p 0.014, Holm-cleared — the sector genuinely moves with the parabolic leader) but next-day **NO EDGE** (+0.08pp, p 0.716 — the effect is consumed by the same close; not tradeable at the daily bar). The "sympathy rolls harder" leg untestable (compound cell too small) (§J.7) | `candidate` | Notes: "when the main stock rolls the sympathy rolls even harder … that's almost always the case" [19:09–19:14] — a directional add-on (sympathy falls harder than leader), separately testable on daily bars. |
+| afN-06 | [15:17–15:24] | `tested` (pre-reg #30, 2026-09-02) — **SPLIT**: same-day sympathy **EDGE** (+0.28pp, p 0.014, Holm-cleared — the sector genuinely moves with the parabolic leader) but next-day **NO EDGE** (+0.08pp, p 0.716 — the effect is consumed by the same close; not tradeable at the daily bar). The "sympathy rolls harder" leg untestable (compound cell too small) (§J.7). **Intraday follow-up (pre-reg #32, 2026-09-18): INCONCLUSIVE** — the frozen +40%-leader definition finds zero population in the S&P 600; the sympathy roll exists at the daily bar but has no testable +40%-leader expression on this index (§K.5) | `candidate` | Notes: "when the main stock rolls the sympathy rolls even harder … that's almost always the case" [19:09–19:14] — a directional add-on (sympathy falls harder than leader), separately testable on daily bars. |
 | afN-07 | [19:41–19:44] | "i've seen stocks go up as much as four … thousand percent in one day and that's … been with no news". | `out of scope` | No-news squeeze mechanics lean on short-interest/borrow data the repo lacks; companion claim — "when a stock has no news it's got a … little bit more risk of getting halted" [21:20–21:26] — needs halt data. |
 | afN-08 | [22:34–22:40] | "you'll notice this pattern that this is … much more common for stocks listed with … the new york stock exchange then listed … with nasdaq" (no-news halts). | `out of scope` | Concrete and checkable, but only with a halt database. |
 | afN-09 | [18:13–18:24] | Reverse-split float mechanics: "float a history of reducing float … reducing float reducing float often … followed by secondary offerings selling … more shares on the market increases … float and we see this cycle again and … again". | `out of scope` | Float/share-count series not in the repo's data; mechanics education, no trade rule. |
@@ -2792,3 +2792,195 @@ directional whispers never clear. Everything testable on daily bars from
 the §J scan is now tested. The remaining corpus lives at 1-minute
 resolution: pre-regs #15–#22 + #27 (frozen, §5-gated) fire when the
 paper-log floor opens.
+
+## K.1 B-01 micro-pullback verdicts — pre-registration #15 campaign (2026-09-18), intraday track opens
+
+The intraday track's first measurement: `tools/measure_intraday.py`
+(frozen 2026-08-19 before any forward-return computation, FROZEN_SHA
+`765ff1df…`; one-shot fired by `tools/gate_opener.py` 2026-09-18 at the
+§5 floor: **21 full-universe bar-dates** 2026-08-19…09-17, 2,622 B-01
+events across 455 tickers / 21 bar-dates; B=1000 seed 20260819). The §6
+archive-integrity audit **PASSED** at measurement time (39 pulls, 15,667
+ledger files, chain valid end to end), so the F2 EDGE below is entered
+as the forward-accumulated record.
+
+| Family | Claim | Verdict | Evidence |
+|---|---|---|---|
+| F1 | B-01 entry has positive absolute edge over the next hour | `tested, fade` — **FADE** | mean −0.21% after 0.15% cost; vs hour-matched same-ticker −0.23pp (CI −0.31..−0.16), vs random-universe −0.16pp (CI −0.22..−0.09); both Holm-rejected, p<0.001 |
+| F2 | the setup's geometry: it retests the high of day | `tested, edge` — **EDGE** (§6-gated, audit PASSED) | reach rate 83.8% vs hour-matched baselines: +53.4pp same-ticker (CI +51.3..+55.6), +57.0pp universe (CI +54.9..+59.2), p≈0 — the setup's structure is real |
+| F3 | B-02/I-E-02: waiting for the pullback beats chasing the new high | `tested, fade` — **FADE** (direction-inverted) | pullback − chase = −0.18pp same-ticker pairs (CI −0.25..−0.11), −0.12pp universe (CI −0.18..−0.04, p 0.002); the chase leg does BETTER |
+
+**Sensitivities (no verdicts):** every structural variant reproduces
+FADE/EDGE/FADE exactly (S-R4 run-up 4, S-R2 run-up 2, S-P3 pullback 3,
+S-DB no-double-bottom [11,302 events], S-GAP tight-bars); S-WIN (his
+7–10 a.m. window) is too thin at 325 events (F1/F3 INCONCLUSIVE). The
+FADE deepens with holding time (S-N15 −0.17%, N=60 −0.21%, S-N120
+−0.27%, S-N240 −0.34%) and survives the gentle cost tier (S-C05 0.05%:
+still −0.11%).
+
+**Measurement rows:** the claim's own 2:1 R:R geometry almost never
+exists at entry — median 0.60, only 22.9% of events ≥ 2:1, and 842 of
+1,780 priced events have entry ≤ stop (the e+1 open gaps below the
+pullback low). Name-day collapse (1,552 independent name-days) agrees:
+mean −0.23%, only 36.3% of name-days positive.
+
+**F-01/F-02 rows (descriptive, no verdicts):** the 7–10 a.m. volatility
+claim is CONFIRMED (07:00–09:30 has the highest per-bar |r|, 0.45%, and
+range) but his liquidity claim is not — measured volume share peaks in
+15:00–16:00 (27.4%), not his window. Pre-market is NOT cleaner: mean
+|r| 4.2× RTH (0.39% vs 0.09%/bar), tail frequency 19.9% vs 13.2%.
+
+**Reading.** The intraday track's first result sharpens the daily
+pattern into its final form. The rule has real GEOMETRY — the flagship
+setup does reach the high of day far more often than typical minutes
+(F2, the campaign's one EDGE, gate-clean) — but the ENTRY is the adverse
+price: negative absolute edge after even 0.05% cost, monotonic bleed
+with holding time, and the pullback WAIT is direction-inverted (F3:
+chasing the breakout beats waiting, the third inverted verdict of the
+cycle after #28's gap-and-go and #31's base-hits). On this universe
+(S&P 600, 3 weeks, one regime — the caveat stands), his 1-minute entries
+mark local extremes: what he reads as confirmation is where the move
+exhausts. The corpus's edge, where measurement finds any, lives in
+selectivity and structure — never in the timing rules themselves.
+
+## K.2 Two-filter veto verdicts — pre-registration #21 campaign (2026-09-18)
+
+`tools/measure_intraday_veto.py` (frozen 2026-08-21; one-shot completed
+2026-09-18; amendment 1 = report-writer fix only, recorded in its freeze
+block; 13,225 cleanly-classified veto candidates from the #19 F1
+reversal-long entry set, 43,722 valid events, audit **PASSED**; B=1000
+seed 20260821).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| pass − fail | the two-filter veto keeps better entries | `tested, no edge` — **NO EDGE** | diff −0.002pp (CI −0.021..+0.019, p 0.834) |
+| pass − raw | net filter value | `tested, no edge` — **NO EDGE** | −0.001pp (CI −0.019..+0.018, p 0.886) |
+| MACD leg alone | MACD ≥ 0 better than MACD < 0 | `tested, no edge` — **NO EDGE** | −0.009pp (CI −0.029..+0.011, p 0.326) |
+| volume leg alone | no red volume-spike better | `tested, no edge` — **NO EDGE** | +0.029pp (CI −0.021..+0.082, p 0.278; n=1,663) |
+
+Kill-rate rows: both legs fire together on only 2.7% of candidates; the
+MACD leg is the restrictive one (pass rates 26–43% by bar-date). The
+veto cuts ~65–70% of entries and what it keeps does no better than what
+it kills — the daily #3 verdict ("trade-count reducer, not an edge
+enhancer") now confirmed at 1-minute resolution on his own entry set.
+S-B01 (veto applied to the B-01 entry set instead): same null.
+
+## K.3 Intraday regime verdicts — pre-registration #22 campaign (2026-09-18)
+
+`tools/measure_intraday_regime.py` (frozen 2026-08-21; one-shot
+completed 2026-09-18; amendment 1 = report-writer fix only; audit
+**PASSED**; B=1000 seed 20260821).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| F1-B1 | 7–10 a.m. is the joint vol+liquidity peak | `tested, inconclusive` — **INCONCLUSIVE** | vol TIES the runner-up (16:00–20:00, diff 0.0000, p 0.55); liquidity trails badly (share 8.4% vs close-hour 27.4%) — the joint rule cannot hold; his window is not the peak |
+| F1-B2 | 9:30–12:00 is the joint vol+liquidity peak | `tested, inconclusive` — **INCONCLUSIVE** | rejected on both stats but in OPPOSITE directions (vol BELOW runner −0.32pp/bar, liq ABOVE +2.7pp) — joint rule unsatisfiable |
+| F2 | his entries do better inside 9:30–12:00 ("when we make the most money") | `tested, edge` — **EDGE (relative only)** | B2 − outside +0.035pp (CI +0.018..+0.053, p<0.001, n 23,986/19,736). But absolute means are NEGATIVE on both sides (−0.18% in vs −0.22% out) and BOTH hour-matched baseline excesses stay negative (−0.05pp / −0.15pp) — the morning is the least-bad window, not a profitable one |
+| F3 | pre-market is cleaner | `tested, fade` — **FADE** (falsified) | pre-market \|r\| 4.3× RTH (0.39% vs 0.09%/bar, CI 0.0030..0.0030), tails 19.8% vs 13.2% |
+
+**Reading.** F-01's factual basis fails twice on his own data shape:
+7–10 a.m. does not peak volatility (it ties the after-hours bucket) and
+is nowhere near the liquidity peak (the close hour carries 3.3× the
+volume share on this universe). The one EDGE — the 9:30–12:00 money
+window — is relative, and the finest print is the honest one: even in
+his best window, his entries lose to hour-matched random entries. The
+morning concentration is real as a *scheduling* fact (volume share IS
+highest 9:30–12:00 among RTH buckets) but not as an *edge* fact.
+
+## K.4 MACD crossover gate verdicts — pre-registration #27 campaign (2026-09-18)
+
+`tools/measure_macd_gate.py` (frozen 2026-09-02; one-shot completed
+2026-09-18; amendment 1 = verdict-loop `_family` guard, recorded; entry
+set = #19 F1 reversal entries; audit-gated; B=1000 seed 20260902).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| open − closed | only trade with the MACD crossover open | `tested, no edge` — **NO EDGE** | +0.000pp (CI −0.02..+0.02, p 0.920; n 10,333/31,162) |
+| open − raw | net filter value | `tested, no edge` — **NO EDGE** | +0.000pp (p 0.904) |
+| ≤30min window | the 30-minute profit window after the cross | `tested, no edge` — **NO EDGE** | −0.004pp (p 0.210; n 983/9,350) |
+| new-highs conjunct | gate-open AND at running highs | `tested, no edge` — **NO EDGE** | −0.002pp (p 0.444; n 2,011/8,322) |
+
+Verdict labels are the pre-registered rules applied to the frozen
+outputs (every slot n ≥ 100, none Holm-rejected); the tool's printed
+"INCONCLUSIVE" strings are a shared-helper artifact (`MIE.holm` reads an
+`n` key these n_a/n_b families don't use) — documented here rather than
+amending a frozen engine that three other campaigns import. Descriptives:
+the gate is CLOSED on 75% of his entry set (line-negative share 67%);
+the news-spike strata (J-B-04) show gate-open share 28.2% early vs 24.6%
+late — no materially different picture. J-B-01, his primary untested
+rule, joins the null column: on this universe the MACD gate does not
+separate good entries from bad.
+
+## K.5 Intraday sympathy verdict — pre-registration #32 campaign (2026-09-18)
+
+`tools/measure_sympathy_intraday.py` (frozen 2026-09-02; one-shot
+completed 2026-09-18; amendment 1 = verdict-loop `_family` guard,
+recorded; seed 20260907).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| sector-hot − sector-cold | a same-sector mate ≥ +40% from the open improves reversal entries | `tested, inconclusive` — **INCONCLUSIVE** | ZERO leader spikes in 21 bar-dates × ~600 names (2,646 tickers unmappable to the frozen sector CSV) — both slots < 100 floor |
+| sector-hot − raw | net value | `tested, inconclusive` — **INCONCLUSIVE** | same empty hot pool |
+
+**Reading.** The frozen leader definition (running move ≥ +40% from the
+file's first bar, i.e. the 04:00 pre-market open — reading registered at
+freeze) finds NO population in the S&P 600: +40% intraday runners are a
+penny/squeeze phenomenon outside this index. The honest verdict is
+INCONCLUSIVE with the documented empty population — the same
+universe-mismatch signature as #31's H2. Any follow-up (different
+threshold, RTH-open anchor, or a small-cap/mover universe) is a NEW
+pre-registration. The daily sympathy EDGE (#30, §J.7) stands untested
+intraday — the sector rolls, but not via +40% leaders on this index.
+
+**Intraday track status after #15/#21/#22/#27/#32:** one gated EDGE
+(#22 F2, relative), one structure EDGE (#15 F2), three FADEs (#15 F1/F3,
+#22 F3), six NO EDGE families (#21 ×4 slots, #27 ×4, plus the daily
+nulls they re-test), two honest INCONCLUSIVEs (#32; #15's S-WIN). #19
+(entry timing: reversal new-high long/short, pullback count, second
+confirmation) and #20 (exit rules — floors unmet, pending) remain.
+
+## K.6 Entry-timing verdicts — pre-registration #19 campaign (2026-09-18)
+
+`tools/measure_intraday_entry.py` (frozen 2026-08-21, untouched; the
+one-shot completed by the session chain — the tool was never in the
+opener's queue, which had paired #19 with #15's tool in error; floors
+met on its own: 85,707 valid F1 events, 601 tickers, 21 bar-dates;
+audit **PASSED**; B=1000 seed 20260821).
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| F1 long | reversal new-high after a ≥3-bar decline beats baselines | `tested, fade` — **FADE** | mean −0.20%, universe excess −0.15pp (CI −0.16..−0.14), same-ticker −0.07pp (CI −0.08..−0.06); n=43,722, p≈0 |
+| F1 short | shorting the first new-low mirror | `tested, fade` — **FADE** | mean −0.11% (sign-flipped), excess −0.16pp (CI −0.17..−0.14); n=41,985, p≈0 |
+| F2 | pullbacks 1–2 beat 3+ ("never trade the third") | `tested, no edge` — **NO EDGE** | early − late −0.016pp (CI −0.065..+0.038, p 0.522; n 5,812/2,512) — the count rule has no differential |
+| F3 | buy the second confirming candle, not the first | `tested, fade` — **FADE** (direction-inverted) | E2 − E1 −0.070pp (CI −0.073..−0.067, p≈0, n=18,008) — waiting for confirmation COSTS 7bp |
+
+**Sensitivities:** FADE/NO EDGE/FADE reproduces at decline lengths 2 and
+5; the 5-minute variant is NO EDGE (weaker, n=1,262 long); cost tiers
+0.05%/0.30% hold the fade. **Rows:** R:R at entry — median 1.15
+(long) / 1.12 (short), ≥2:1 in only ~36%, ~57% of priced events
+degenerate (entry ≤ stop).
+
+**Reading.** The corpus's most-repeated rule fails twice: both the long
+and the short reversal new-high are adverse prices on this universe,
+with the largest event counts of any campaign in the repo (85,707) and
+p-values indistinguishable from zero distance. The "never trade the
+third pullback" selectivity — the strongest-drawn count claim in the
+corpus — measures as pure noise: pullback ordinal carries no
+information. And the confirmation doctrine inverts for the fourth time
+(after #28's gap-and-go, #31's base-hits, #15's pullback-wait): every
+form of WAITING his teaching prescribes — for the pullback, for the
+second candle, for the base hit — costs money at the 1-minute horizon,
+because these entries mark local extremes and the wait arrives after
+the reversion has begun.
+
+**Intraday track final (2026-09-18):** #15, #19, #21, #22, #27, #32 all
+measured — two EDGEs (#15 F2 HOD-retest structure, gate-clean; #22 F2
+money window, relative-only), four FADEs, six NO EDGE slots, two honest
+INCONCLUSIVEs (#32 empty population, #15 S-WIN thin). #20 (exit rules)
+pending on its own floors; #23 (paper loop) deferred by design. The
+corpus's intraday teaching, measured: structure is real, timing advice
+is inverted or null, and the filter stack (veto + MACD gate + window
+selection) does not separate good entries from bad on the universe a
+blind full-index archive can express.
+
+

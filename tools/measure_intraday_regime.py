@@ -160,7 +160,7 @@ RTH = (dtime(9, 30), dtime(16, 0))
 # sha of this file with its own FROZEN_SHA hex blanked to 64 zeros — a
 # well-defined fixed point. Any byte change outside the blanked hex breaks
 # the assertion.
-FROZEN_SHA = "b1fe067d8bac111c4532cfc838bb6d210f13a906defc0db8a083bd228a1095c0"
+FROZEN_SHA = "e4502ba5cea73841338d4a1c239808d8557ff5a10850961c9f46abee71d164fc"
 
 
 def sha_bytes(b: bytes) -> str:
@@ -787,9 +787,14 @@ def write_report(audit: dict, arc: Archive, floors: dict | None,
     L.append("")
     L.append("| floor | required | actual | met |")
     L.append("|---|---|---|---|")
+    _actual_of = {"min_bar_dates": "window_bar_dates",
+                  "min_events": "events_f1_valid",
+                  "min_tickers": "tickers",
+                  "min_dates_with_events": "dates_with_events"}
     for k, req in FLOORS.items():
-        L.append(f"| {k} | {req} | {floors[k]} | "
-                 f"{'✓' if floors[k] >= req else '✗'} |")
+        act = floors.get(_actual_of.get(k, ""), 0)
+        L.append(f"| {k} | {req} | {act} | "
+                 f"{'✓' if act >= req else '✗'} |")
     L.append("")
     L.append("## F1 — morning volatility/liquidity peak (2 Holm slots)")
     L.append("")
