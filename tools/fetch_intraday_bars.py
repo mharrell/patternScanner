@@ -72,6 +72,22 @@ REPAIRS_PATH = INTRA / "repairs.json"
 SPLITS_PATH = INTRA / "splits.json"
 LOCK_PATH = INTRA / ".lock"
 
+
+def set_archive_root(root: Path | None) -> None:
+    """Point the pull at an archive root (mover-universe design §3:
+    a second archive instance of the same machinery). Default (None)
+    keeps data/intraday — byte-identical behavior for the nightly task.
+    Must be called BEFORE any other use of the module paths."""
+    global INTRA, RAW_DIR, MANIFEST_PATH, REPAIRS_PATH, SPLITS_PATH, LOCK_PATH
+    if root is None:
+        return
+    INTRA = ROOT / root
+    RAW_DIR = INTRA / "raw"
+    MANIFEST_PATH = INTRA / "manifest.json"
+    REPAIRS_PATH = INTRA / "repairs.json"
+    SPLITS_PATH = INTRA / "splits.json"
+    LOCK_PATH = INTRA / ".lock"
+
 TZ = ZoneInfo("America/New_York")   # exchange-local; Yahoo 1m data is ET
 POST_MARKET_CLOSE = dtime(20, 1)    # 04:00-20:00 ET session, 1-min grace
 WINDOW = "7d"                       # Yahoo's hard cap for 1m data
@@ -464,8 +480,9 @@ def run_pull(args) -> int:
         print(f"  {len(pull['drift'])} drift note(s) — see manifest pull record",
               file=sys.stderr)
     if args.qa:
-        from qa_intraday import main as qa_main
-        qa_rc = qa_main([])
+        import qa_intraday
+        qa_intraday.set_archive_root(args.archive_root)
+        qa_rc = qa_intraday.main([])
         if qa_rc:
             return qa_rc
     if pull["tickers_failed"] or pull["tickers_no_data"]:
@@ -477,6 +494,9 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--universe", type=Path,
                     default=ROOT / "data" / "cache" / "universe_sp600_2026-08-13.csv")
+    ap.add_argument("--archive-root", type=Path, default=None,
+                    help="archive root under data/ (default: data/intraday; "
+                         "e.g. data/intraday_movers for the mover archive)")
     ap.add_argument("--threads", type=int, default=3)
     ap.add_argument("--limit", type=int, default=0, help="first N tickers only (test)")
     ap.add_argument("--qa", action="store_true", help="run tools/qa_intraday.py after")
@@ -490,6 +510,8 @@ def main(argv=None) -> int:
                          "re-fetching; requires --reason")
     ap.add_argument("--reason", default="", help="required with --repair/--adopt")
     args = ap.parse_args(argv)
+
+    set_archive_root(args.archive_root)
 
     if args.repair:
         return do_repair(args.repair, args.reason)

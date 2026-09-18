@@ -38,6 +38,19 @@ MANIFEST_PATH = INTRA / "manifest.json"
 DAILY_BARS = ROOT / "data" / "cache" / "bars"
 OUT_PATH = INTRA / "qa_report.md"
 
+
+def set_archive_root(root) -> None:
+    """Point QA at an archive root (mover-universe design §3). Default
+    (None) keeps data/intraday. Called by fetch_intraday_bars when
+    running QA for an alternate archive."""
+    global INTRA, RAW_DIR, MANIFEST_PATH, OUT_PATH
+    if root is None:
+        return
+    INTRA = ROOT / root
+    RAW_DIR = INTRA / "raw"
+    MANIFEST_PATH = INTRA / "manifest.json"
+    OUT_PATH = INTRA / "qa_report.md"
+
 TZ = ZoneInfo("America/New_York")
 RTH_OPEN, RTH_CLOSE = 9, 30     # 09:30 ET
 RTH_END_H, RTH_END_M = 16, 0    # 16:00 ET (exclusive -> 390 minutes)

@@ -5694,3 +5694,64 @@ sympathy EDGE (#30, §J.7) stands untested intraday. Any follow-up
 (different threshold, RTH-open anchor, mover-universe) is a NEW
 pre-registration. Verdict section: CLAIMS_LEDGER §K.5. Archived:
 `data/measurements/measure_sympathy_intraday/`.
+
+---
+
+# Pre-registration #33 — the mover-universe track: his timing rules on HIS population (design: analysis/mover_universe_design.md; intraday track II)
+
+**Status: DRAFT 2026-09-18 — NOT FROZEN.** Per the design document, this
+pre-reg freezes after the one-week pipeline shakedown (rosters sane,
+backfill verified, QA clean) and BEFORE any forward-return is computed
+on the mover archive. Nothing below may be treated as a hypothesis until
+the freeze line exists.
+
+## 0. Why
+
+The 2026 cycle's structural finding is the universe mismatch (#31 H2:
+77/25,414 volume-population detections; #32: zero +40% leaders in the
+S&P 600; #25: band edge diluted ~⅔ on an index that only visits his
+bands). His timing rules nulled/faded on the index (#15/#19/#21/#27);
+the open question is whether they have edge **inside his own
+population** — or whether the population is the only edge. This track
+builds the archive that separates those.
+
+## 1. The population (frozen at capture start, 2026-09-18)
+
+Nightly roster = Yahoo day-gainers screener, filtered: last price
+$1.00–$20.00; day volume ≥ 1,000,000 shares; listed exchanges
+NMS/NYQ/ASE; top 100 by % change. Evidence: raw response SHA + roster
+CSV per night (`data/mover_rosters/`); empty rosters recorded; first
+capture wins; no retro edits. First roster captured 2026-09-18 (100
+tickers, top GEMI +31.2% $5.81). Rule changes = new population + new
+pre-reg.
+
+## 2. The archive
+
+`data/intraday_movers/` — the same immutable machinery as
+`data/intraday/` (`fetch_intraday_bars.py --archive-root`), same
+audit/QA/repair discipline, LFS-tracked. Roster-name bars back-filled
+within Yahoo's 7-day window nightly. Overlap with the S&P 600 archive
+allowed (cross-population checks are a feature).
+
+## 3. Planned families (to be finalized at freeze)
+
+- **F1/F2/F3 of #15 and #19 re-run on the mover archive** — the frozen
+  detectors imported unchanged; baselines hour-matched same-ticker and
+  random **within the mover archive** (the right null is "other moments
+  of the same movers").
+- **#32 sympathy re-run** — its population (+40% intraday leaders)
+  exists here.
+- **#25 bands within movers** — does the band edge survive when every
+  name is already in-band?
+- Seeds, COST 0.15%, B=1000, Holm at α=0.05, count floors 100/slot —
+  house protocol as in #15–#32.
+
+## 4. Floors (planned)
+
+≥ 20 mover bar-dates; ≥ 2,000 events per family; ≥ 100 tickers; ≥ 15
+bar-dates with events. One-shot rule as everywhere.
+
+## 5. Freeze (pending shakedown)
+
+*(to be recorded: date + tool shas, before any forward-return
+computation on this archive)*
