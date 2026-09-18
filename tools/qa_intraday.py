@@ -178,7 +178,11 @@ def main(argv=None) -> int:
     ap.add_argument("--daily-bars", type=Path, default=DAILY_BARS,
                     help="daily parquet dir for the envelope check "
                          "(default: data/cache/bars)")
+    ap.add_argument("--archive-root", type=Path, default=None,
+                    help="archive root under data/ (default: data/intraday; "
+                         "e.g. data/intraday_movers)")
     args = ap.parse_args(argv)
+    set_archive_root(args.archive_root)
 
     manifest_files = {}
     if MANIFEST_PATH.exists():

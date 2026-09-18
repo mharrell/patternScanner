@@ -18,7 +18,18 @@ if "%CSV%"=="" (
 )
 echo [%date% %time%] roster %CSV% >> "%LOG%"
 
-python -X utf8 tools\fetch_intraday_bars.py --universe "%CSV%" --archive-root data\intraday_movers --qa >> "%LOG%" 2>&1
-set RC=%errorlevel%
-echo [%date% %time%] fetch exit=%RC% >> "%LOG%"
+rem Backfill EVERY roster in the window (design §3: a missed night is
+rem revisited until its bars age out of Yahoo's 7-day window). Existing
+rem files are hash-verified and skipped, so re-running older rosters is cheap.
+set RC=0
+for %%f in ("data\mover_rosters\*.csv") do (
+  echo [%date% %time%] pull %%f >> "%LOG%"
+  python -X utf8 tools\fetch_intraday_bars.py --universe %%f --archive-root data\intraday_movers >> "%LOG%" 2>&1
+  if errorlevel 1 set RC=1
+)
+echo [%date% %time%] pulls exit=%RC% >> "%LOG%"
+
+python -X utf8 tools\qa_intraday.py --archive-root data\intraday_movers >> "%LOG%" 2>&1
+if errorlevel 1 set RC=1
+echo [%date% %time%] exit=%RC% >> "%LOG%"
 exit /b %RC%
