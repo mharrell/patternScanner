@@ -41,6 +41,7 @@ versioned in `tools/tasks/` — see "Recreating the scheduled tasks" below.
 | `\patternScanner-intraday-paper` | daily 22:30 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\paper_loop.py --latest` (Start in: repo root) | `data/paper/<YYYY-MM-DD>.json` + `data/paper/journal/<YYYY-MM-DD>.md` |
 | `\patternScanner-intraday-push` | daily 23:00 MT | `<repo>\tools\push_intraday_archive.cmd` | `%TEMP%\intraday_push.log` (append-only) |
 | `\patternScanner-gate-opener` | daily 23:45 MT | `<repo>\tools\gate_opener.cmd` | `%TEMP%\gate_opener.log` (append-only); NOT yet registered — see recreate block |
+| `\patternScanner-mover-pull` | daily 22:35 MT | `<repo>\tools\mover_pull.cmd` | `%TEMP%\mover_pull.log` (append-only); mover-universe track (roster capture + `data/intraday_movers` pull, backfills the 7-day window); NOT yet registered — see recreate block |
 
 - 22:05 MT is after the 04:00–20:00 ET session closes (20:00 ET = 18:00 MT)
   and outside DeepSeek peak pricing.
@@ -135,7 +136,17 @@ schtasks /create /tn "patternScanner-intraday-pull" /xml "tools\tasks\pull_task.
 schtasks /create /tn "patternScanner-intraday-paper" /xml "tools\tasks\paper_task.xml" /f
 schtasks /create /tn "patternScanner-intraday-push" /xml "tools\tasks\push_task.xml" /f
 schtasks /create /tn "patternScanner-gate-opener" /xml "tools\tasks\gate_opener_task.xml" /f
+schtasks /create /tn "patternScanner-mover-pull" /xml "tools\tasks\mover_pull_task.xml" /f
 ```
+
+The mover pull (added 2026-09-18, mover-universe design
+`analysis/mover_universe_design.md`) captures the nightly mover roster
+(`tools/mover_roster.py` — first capture of a session date wins) and
+pulls the roster names' 1-minute bars into `data/intraday_movers/`
+(same immutable machinery, `--archive-root`), backfilling Yahoo's
+rolling 7-day window. Safe to register any time: a missed night
+back-fills on the next run, and the 23:00 push sweeps both archives
+and the rosters.
 
 The gate opener (added 2026-09-02) runs `tools/gate_opener.py`: each
 §5-gated campaign (#15/#19, #20, #21, #22, #27, in pre-reg order) is run

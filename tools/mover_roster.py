@@ -174,6 +174,7 @@ def main() -> int:
     if csv_path.exists():
         print(f"{csv_path.name} already captured — first capture wins "
               "(no-op)")
+        print(f"CSV_PATH {csv_path}")
         return 0
 
     pd.DataFrame(rows).to_csv(csv_path, index=False)
@@ -188,6 +189,7 @@ def main() -> int:
         "tickers": [r["ticker"] for r in rows],
     }, indent=2), encoding="utf-8")
     print(f"wrote {csv_path.name} + {json_path.name} ({len(rows)} tickers)")
+    print(f"CSV_PATH {csv_path}")
     return 0
 
 
