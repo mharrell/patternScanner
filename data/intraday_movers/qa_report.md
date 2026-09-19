@@ -1,17 +1,17 @@
 # Intraday archive QA report
 
-- Generated: 2026-09-18T16:22:43.046345-04:00
-- Files checked: 500 (100 tickers, 5 bar-dates)
+- Generated: 2026-09-19T16:45:16.876875-04:00
+- Files checked: 600 (100 tickers, 6 bar-dates)
 - QA tool: `tools/qa_intraday.py` — flags only, nothing deleted or corrected
 - Daily envelope source: `data\cache\bars`
 
 ## Summary
 
-- regular-session coverage < 98%: 372 files
-- interior gap minutes across archive: 232732
+- regular-session coverage < 98%: 445 files
+- interior gap minutes across archive: 280527
 - envelope violations (high/low): 0 / 0
 - volume-sum mismatches (> 2%): 0
-- daily-bar envelope unavailable (missing/not-loaded): 420 files
+- daily-bar envelope unavailable (missing/not-loaded): 504 files
 - naive-tz / not-minute-floored / unsorted / dup-ts files: 0 / 0 / 0 / 0
 
 ## Anomalies (flagged, not fixed)
@@ -518,6 +518,106 @@
 | 2026-09-17/XRAY.parquet | 435 | 99.7% | 501 | 0 | 0 | 0 |  | 45 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
 | 2026-09-17/XXI.parquet | 454 | 95.9% | 504 | 0 | 0 | 0 |  | 79 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 95.9% < 98%; daily bar missing — envelope check skipped |
 | 2026-09-17/ZH.parquet | 167 | 39.5% | 761 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 39.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ABSI.parquet | 533 | 98.2% | 426 | 0 | 0 | 0 |  | 149 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/ACRS.parquet | 344 | 83.6% | 430 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 83.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ADTN.parquet | 312 | 75.1% | 624 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.1% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/AESI.parquet | 397 | 90.0% | 534 | 0 | 0 | 0 |  | 45 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.0% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/AG.parquet | 714 | 100.0% | 246 | 0 | 0 | 0 |  | 323 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/ALKT.parquet | 307 | 75.9% | 303 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 75.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/AMRX.parquet | 374 | 86.4% | 487 | 0 | 0 | 0 |  | 38 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/ANGX.parquet | 473 | 96.9% | 486 | 0 | 0 | 0 |  | 94 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ANNX.parquet | 366 | 89.5% | 320 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 89.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/APUS.parquet | 442 | 49.2% | 492 | 0 | 0 | 0 |  | 249 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 49.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ARHS.parquet | 295 | 73.6% | 308 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 73.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ARIS.parquet | 424 | 94.4% | 520 | 0 | 0 | 0 |  | 55 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 94.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ASM.parquet | 474 | 96.2% | 485 | 0 | 0 | 0 |  | 98 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/AUTL.parquet | 294 | 70.3% | 575 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 70.3% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/BBWI.parquet | 461 | 99.0% | 500 | 0 | 0 | 0 |  | 74 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/BEKE.parquet | 450 | 98.5% | 492 | 0 | 0 | 0 |  | 65 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/BGC.parquet | 359 | 88.2% | 572 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.2% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/BILI.parquet | 468 | 93.3% | 475 | 0 | 0 | 0 |  | 103 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 93.3% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/BKKT.parquet | 528 | 91.0% | 426 | 0 | 0 | 0 |  | 172 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 91.0% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/BMEA.parquet | 246 | 58.2% | 693 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 58.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/BORR.parquet | 491 | 98.7% | 470 | 0 | 0 | 0 |  | 105 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/BTG.parquet | 524 | 100.0% | 431 | 0 | 0 | 0 |  | 133 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/BTGO.parquet | 519 | 97.4% | 442 | 0 | 0 | 0 |  | 138 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 97.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/CANG.parquet | 412 | 84.6% | 530 | 0 | 0 | 0 |  | 81 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 84.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/CHPT.parquet | 519 | 94.9% | 438 | 0 | 0 | 0 |  | 148 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 94.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/CIFR.parquet | 838 | 100.0% | 122 | 0 | 0 | 0 |  | 447 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/CMPS.parquet | 446 | 95.6% | 510 | 0 | 0 | 0 |  | 73 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 95.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/CORZ.parquet | 501 | 100.0% | 457 | 0 | 0 | 0 |  | 111 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/CTKB.parquet | 255 | 63.1% | 346 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.1% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/CTNM.parquet | 208 | 51.3% | 393 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 51.3% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/DDD.parquet | 458 | 96.4% | 502 | 0 | 0 | 0 |  | 81 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.4% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/DSP.parquet | 575 | 93.1% | 377 | 0 | 0 | 0 |  | 212 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 93.1% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/EC.parquet | 353 | 80.8% | 578 | 0 | 0 | 0 |  | 37 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 80.8% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/EMBC.parquet | 233 | 55.9% | 698 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.9% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/ENOV.parquet | 393 | 91.3% | 538 | 0 | 0 | 0 |  | 36 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.3% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/ENVX.parquet | 465 | 96.2% | 494 | 0 | 0 | 0 |  | 91 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/EQX.parquet | 522 | 100.0% | 438 | 0 | 0 | 0 |  | 131 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/EROC.parquet | 522 | 97.7% | 429 | 0 | 0 | 0 |  | 140 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 97.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/EVGO.parquet | 425 | 89.0% | 531 | 0 | 0 | 0 |  | 78 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 89.0% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/FDMT.parquet | 271 | 62.1% | 470 | 0 | 0 | 0 |  | 29 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 62.1% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/FEAM.parquet | 469 | 89.7% | 491 | 0 | 0 | 0 |  | 123 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 89.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/FIP.parquet | 286 | 65.9% | 674 | 0 | 0 | 0 |  | 29 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 65.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/FRVO.parquet | 516 | 99.5% | 441 | 0 | 0 | 0 |  | 127 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/FUBO.parquet | 444 | 91.3% | 516 | 0 | 0 | 0 |  | 87 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 91.3% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/GAU.parquet | 342 | 80.5% | 616 | 0 | 0 | 0 |  | 27 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 80.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/GEMI.parquet | 650 | 99.7% | 310 | 0 | 0 | 0 |  | 262 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/GORO.parquet | 325 | 66.4% | 606 | 0 | 0 | 0 |  | 65 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 66.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/GRPN.parquet | 278 | 65.6% | 659 | 0 | 0 | 0 |  | 22 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 65.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/HAFN.parquet | 466 | 98.2% | 485 | 0 | 0 | 0 |  | 82 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/HLF.parquet | 381 | 88.7% | 543 | 0 | 0 | 0 |  | 34 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 88.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/HLIT.parquet | 350 | 84.6% | 581 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/HYLN.parquet | 449 | 92.0% | 509 | 0 | 0 | 0 |  | 89 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 92.0% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/IAUX.parquet | 506 | 93.8% | 447 | 0 | 0 | 0 |  | 139 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 93.8% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/IRWD.parquet | 311 | 75.6% | 389 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.6% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/KC.parquet | 421 | 87.4% | 539 | 0 | 0 | 0 |  | 80 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 87.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/KLXE.parquet | 133 | 32.3% | 511 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 32.3% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/KPTI.parquet | 212 | 48.7% | 660 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 48.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/LBRT.parquet | 427 | 96.2% | 511 | 0 | 0 | 0 |  | 51 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.2% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/LI.parquet | 399 | 89.5% | 532 | 0 | 0 | 0 |  | 50 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 89.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/LVWR.parquet | 491 | 93.1% | 469 | 0 | 0 | 0 |  | 127 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 93.1% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/MBC.parquet | 421 | 100.0% | 512 | 0 | 0 | 0 |  | 30 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-18 |
+| 2026-09-18/NAK.parquet | 485 | 95.9% | 475 | 0 | 0 | 0 |  | 110 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 95.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/NAT.parquet | 499 | 100.0% | 461 | 0 | 0 | 0 |  | 108 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/NEOG.parquet | 377 | 89.5% | 554 | 0 | 0 | 0 |  | 29 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.5% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/NEWP.parquet | 369 | 89.5% | 462 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 89.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/NIO.parquet | 828 | 100.0% | 132 | 0 | 0 | 0 |  | 437 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/NRGV.parquet | 453 | 96.4% | 503 | 0 | 0 | 0 |  | 76 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/NTSK.parquet | 453 | 100.0% | 505 | 0 | 0 | 0 |  | 63 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/NVAX.parquet | 474 | 97.7% | 479 | 0 | 0 | 0 |  | 93 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 97.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/NXH.parquet | 343 | 77.4% | 504 | 0 | 0 | 0 |  | 41 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 77.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/OCTV.parquet | 401 | 97.2% | 387 | 0 | 0 | 0 |  | 21 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 97.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/OPK.parquet | 311 | 72.8% | 448 | 0 | 0 | 0 |  | 28 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 72.8% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/OPTU.parquet | 359 | 86.4% | 597 | 0 | 0 | 0 |  | 21 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 86.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/PINS.parquet | 522 | 100.0% | 427 | 0 | 0 | 0 |  | 131 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/PLAY.parquet | 437 | 90.3% | 513 | 0 | 0 | 0 |  | 85 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.3% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/PTON.parquet | 433 | 98.5% | 520 | 0 | 0 | 0 |  | 49 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-18 |
+| 2026-09-18/PWP.parquet | 315 | 77.2% | 616 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 77.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/RBBN.parquet | 189 | 44.6% | 554 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 44.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/RC.parquet | 342 | 77.4% | 617 | 0 | 0 | 0 |  | 39 | 0 | 0 | 0 |  |  |  |  | RTH coverage 77.4% < 98%; no daily bar for 2026-09-18 |
+| 2026-09-18/RXRX.parquet | 742 | 100.0% | 218 | 0 | 0 | 0 |  | 352 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/SB.parquet | 392 | 88.2% | 539 | 0 | 0 | 0 |  | 47 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 88.2% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/SECZ.parquet | 835 | 99.7% | 125 | 0 | 0 | 0 |  | 445 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/SG.parquet | 451 | 98.7% | 498 | 0 | 0 | 0 |  | 65 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/SLI.parquet | 327 | 69.5% | 631 | 0 | 0 | 0 |  | 55 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 69.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/SOC.parquet | 486 | 99.7% | 474 | 0 | 0 | 0 |  | 96 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/SOFI.parquet | 908 | 100.0% | 52 | 0 | 0 | 0 |  | 518 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/STTK.parquet | 294 | 72.8% | 307 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 72.8% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/TDUP.parquet | 332 | 74.4% | 599 | 0 | 0 | 0 |  | 41 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 74.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/TGB.parquet | 438 | 99.0% | 519 | 0 | 0 | 0 |  | 51 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/THM.parquet | 432 | 92.6% | 527 | 0 | 0 | 0 |  | 70 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 92.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/TLRY.parquet | 489 | 85.4% | 409 | 0 | 0 | 0 |  | 156 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 85.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/TMC.parquet | 516 | 95.1% | 442 | 0 | 0 | 0 |  | 145 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 95.1% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/TRX.parquet | 499 | 98.2% | 461 | 0 | 0 | 0 |  | 115 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/USAS.parquet | 498 | 96.7% | 459 | 0 | 0 | 0 |  | 120 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.7% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/VISN.parquet | 427 | 99.7% | 514 | 0 | 0 | 0 |  | 38 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/VNET.parquet | 375 | 90.5% | 558 | 0 | 0 | 0 |  | 22 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 90.5% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/VZLA.parquet | 433 | 92.6% | 498 | 0 | 0 | 0 |  | 71 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 92.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/XRAY.parquet | 448 | 100.0% | 483 | 0 | 0 | 0 |  | 58 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-18/XXI.parquet | 501 | 96.4% | 454 | 0 | 0 | 0 |  | 124 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 96.4% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-18/ZH.parquet | 245 | 59.2% | 685 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 59.2% < 98%; daily bar missing — envelope check skipped |
 
 ## Known expected patterns (not defects)
 
@@ -536,4 +636,4 @@
 - The archive starts fresh: earlier bar-dates are legitimately
   absent before enough nightly pulls have run.
 
-_(end of QA report — 500 files checked)_
+_(end of QA report — 600 files checked)_
