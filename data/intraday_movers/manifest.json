@@ -100,6 +100,26 @@
       "failed": [],
       "prev_pull_sha256": "0245989a24381bc3117efef5535359cfccef4968c45456b31c6524f679850e4e",
       "finished_utc": "2026-09-19T20:44:39.500215+00:00"
+    },
+    {
+      "pull_id": "20260920-043503",
+      "started_utc": "2026-09-20T04:35:03.412081+00:00",
+      "driver": "yahoo",
+      "window": "7d",
+      "universe_file": "2026-09-18.csv",
+      "universe_sha256": "0fadd13417a2d6506bd3121fe8df4052df7db27da4cee28a4fcdf52320881171",
+      "tickers_requested": 100,
+      "tickers_ok": 100,
+      "tickers_no_data": 0,
+      "tickers_failed": 0,
+      "files_written": 0,
+      "files_skipped_existing": 500,
+      "files_verified": 600,
+      "files_verified_ok": 600,
+      "drift": [],
+      "failed": [],
+      "prev_pull_sha256": "ef4173cfb6b89692b06c21c584b1582b919d9b6388389779a355d4084fa22e8e",
+      "finished_utc": "2026-09-20T04:35:15.710436+00:00"
     }
   ],
   "files": {
