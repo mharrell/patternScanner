@@ -1458,19 +1458,30 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    p ≤ 2e-24, CI upper ≤ 0.58; even the 0.60 softening fails, C p=0.009),
    **NO EDGE × 3** (F2 vs chance — A/B win *below* random, p=0.004/<0.001)
    (§E.7). Seventh completed campaign.
-8. **B-01 (micro pullback)** — **pre-registered (pre-reg #15, frozen 2026-08-19)**;
-   the daily-bar adaptation (Shape B: pullback + new-high) was already measured
-   and **rejected** 2026-08-13 (§B.5-B). The intraday rule awaits the §5
-   floor (~mid-September). **Also the shared entry set for pre-regs #20–#21.**
+8. **B-01 (micro pullback)** — **pre-registered (pre-reg #15, frozen
+   2026-08-19) and MEASURED 2026-09-18 (§K.1)**: the setup's geometry is
+   **EDGE** — it retests the high of day on 83.8% of events vs 30.4%
+   (same-ticker) / 26.8% (universe) — but the **entry is FADE** (−0.21%
+   after cost, monotonically worse with holding time) and the
+   pullback-wait is direction-inverted (chasing the new high beats
+   waiting, −0.18pp for the wait). The daily-bar adaptation (Shape B:
+   pullback + new-high) was already measured and **rejected** 2026-08-13
+   (§B.5-B). **Also the shared entry set for pre-regs #20–#21** — of which
+   #21 is measured (§K.2, **NO EDGE ×4**) and **#20 still awaits its floor**
+   (1,519/2,000 F1-evaluable events at 24 bar-dates, 2026-09-22).
 9. **B-02/B-03/B-05/C-01/C-03/C-04 (entry/exit variants)** — system-comparison
    questions. Daily adaptations of B-02 (Shape A) and B-05 (Shape C) measured
    and rejected (§B.5-A, §B.5-C); **C-01/C-03/C-04 measured 2026-08-19
    (pre-reg #17)** — exits well-timed but not a better system; F2 timing
    EDGEs fail the §5 gate; q99 tail EDGE survives, trigger-check NOT
    TRIGGERED (§I.14). **The B-03/I-B-01 pullback-count and B-05
-   second-confirmation intraday forms are frozen in pre-reg #19; the
-   C-01/C-03/C-04 1-min exit forms are frozen in pre-reg #20** (both
-   await the §5 floor).
+   second-confirmation intraday forms (pre-reg #19) were MEASURED
+   2026-09-18 (§K.6)** — pullback-count **NO EDGE** (the "never trade the
+   third" rule is noise), second-confirmation **FADE** (waiting for the
+   second candle costs 7bp). **The C-01/C-03/C-04 1-min exit forms
+   (pre-reg #20) await the §5 floor** — 24/20 bar-dates, 361/100 tickers
+   and 24/15 dates-with-events are met, but 1,519/2,000 F1-evaluable
+   B-01 events are not (~8 more sessions, ~2026-10-02).
 10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — ✅ MEASURED
     (pre-reg #8, 2026-08-14): F1-A/B **NO EDGE**, F2-B NO EDGE (contrast
     +0.30pp, p=0.302 — the claimed direction, never significant), F1-C/F2-C
@@ -1676,17 +1687,17 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   tool: **#15 71/71, #19 84/84, #21 75/75, #22 66/66 green — and #20 red on
   exactly its CI-endpoint checks**, exposing a CI-recording bug in the
   frozen exit tool (see §I.14 note below).
-- [ ] **#20 re-freeze (pre-measurement, no data touched)**: the independent
-  verification pass caught that `tools/measure_intraday_exit.py` recorded
-  `ci_low`/`ci_upper` swapped with the upper CI / p-value (`run_f1`, `run_f2`
-  — the 5-tuple indices were 3/4 instead of 2/3). No measurement had run;
-  the mappings were corrected, the tool re-frozen at FROZEN_SHA
-  `0c798159ea3e93d9…` (§8 amendment in PREREGISTRATION #20), and the exit
-  verifier re-ran clean (**#20 55/55**). This is open work in the sense of
-  tool provenance only — the §5 floor is still unmet (~mid-September) and
-  no intraday verdict exists yet. The paper loop's frozen-input assertion
-  for the exit tool was re-recorded to the re-frozen sha 2026-08-25 as part
-  of the main-branch reconcile (pre-reg #23 freeze-block amendment).
+- [x] **#20 re-freeze (pre-measurement, no data touched)** — DONE
+  2026-08-22/25: the independent verification pass caught that
+  `tools/measure_intraday_exit.py` recorded `ci_low`/`ci_upper` swapped
+  with the upper CI / p-value (`run_f1`, `run_f2` — the 5-tuple indices
+  were 3/4 instead of 2/3). No measurement had run; the mappings were
+  corrected, the tool re-frozen at FROZEN_SHA `0c798159ea3e93d9…` (§8
+  amendment in PREREGISTRATION #20), and the exit verifier re-ran clean
+  (**#20 55/55**). The paper loop's frozen-input assertion for the exit
+  tool was re-recorded to the re-frozen sha 2026-08-25 as part of the
+  main-branch reconcile (pre-reg #23 §10 amendment 1). Still open on the
+  measurement side only: the §5 floor is unmet (see the #20 item below).
 - [x] Scan `transcripts/warrior-trading/` (the 2015 "Class 1-12" playlist) for
   claims — done 2026-08-14: 53 rows in §I (I-A..I-X + §I-Notes), quotes
   re-verified against the transcripts, priority list updated (items 10–17).
@@ -1756,15 +1767,64 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   same-day sympathy **EDGE** (+0.28pp, p 0.014), next-day **NO EDGE**
   (+0.08pp) — the contagion is real, visible intraday, and fully priced by
   the next open. Verdicts in §J.7.
-- [ ] Gate opener — script validated (all five gated campaigns correctly
+- [x] Gate opener — REGISTERED and firing nightly since 2026-09-19 (23:45 MT;
+  `%TEMP%\gate_opener.log` shows exit 0 every night, the five consumed
+  one-shots skipped by `data/cache/gate_opener_state.json`, #20 still
+  reporting floors-unmet without consuming its shot). Script validated (all
+  five gated campaigns correctly
   report floors-unmet; nothing consumed). Task XML + cmd committed
-  (`tools/tasks/gate_opener_task.xml`, `tools/gate_opener.cmd`); REGISTRATION
-  is a user command: `schtasks /create /tn "patternScanner-gate-opener" /xml
-  "tools\tasks\gate_opener_task.xml" /f` (blocked from this session by
-  design — machine-level persistence is a user decision).
-- [ ] Pre-registration #27 measurement — run `tools/measure_macd_gate.py`
-  (full mode) when the §4 floors are met (≥20 bar-dates ≥2026-08-19;
-  currently 10) — or let the registered gate-opener do it.
+  (`tools/tasks/gate_opener_task.xml`, `tools/gate_opener.cmd`).
+- [x] Pre-registration #27 measurement — done 2026-09-18 by the registered
+  gate-opener: the MACD crossover gate is **NO EDGE ×4** (§K.4; gate closed
+  on 75% of his entry set, separates nothing, p=0.92). The §4 floor of 20
+  bar-dates opened 2026-09-18 (21 bar-dates), exactly as the "fires when the
+  window opens (~Sep 8–9)" note predicted.
+
+- [x] Measure the six intraday campaigns (pre-regs #15/#19/#21/#22/#27/#32)
+  and write the verdicts back — done 2026-09-18, when the shared §5 floor
+  opened at 21 full-universe bar-dates: **two EDGEs** (#15 F2 high-of-day
+  retest geometry, gate-clean; #22 F2 the 9:30–12:00 window, relative-only),
+  **four FADEs** (#15 F1 entry, #15 F3 pullback-wait inverted; #19 F1 long
+  and short, #19 F3 second-candle wait; #22 F3 pre-market), **six NO EDGE
+  slots** (#21 ×4, #27 ×4 minus overlap, #19 F2), **two INCONCLUSIVEs**
+  (#32's empty +40%-leader population; #15's thin S-WIN). Verdicts
+  §K.1–§K.6; durable results/reports in `data/measurements/<tool>/`
+  (tracked) with the `data/cache/` twins for #15.
+- [ ] **#20 (intraday exits) — the last unmeasured frozen intraday campaign.**
+  Floor status 2026-09-22: bar-dates **24/20** ✓, tickers **361/100** ✓,
+  dates-with-events **24/15** ✓, **F1-evaluable B-01 events 1,519/2,000** ✗
+  — the binding floor (~8 more sessions, ~2026-10-02). The gate-opener
+  re-checks nightly without consuming the one-shot; no measurement has run.
+- [x] Keep the paper loop (pre-reg #23) running nightly — **found broken and
+  fixed 2026-09-22**: the tool aborted at import from 2026-09-18 because the
+  §K campaign amendments to `measure_intraday_veto.py` / `_regime.py`
+  (report-writer only; AST-verified byte-identical outside `write_report`)
+  moved two frozen inputs whose shas the paper loop still held. Re-recorded
+  under pre-reg #23 §10 amendment 2, the tool re-frozen, and the three
+  missed bar-dates (2026-09-18/-21/-22) backfilled with `paper_loop.py
+  --all`; decision paths byte-identical across every previously logged date,
+  only the `frozen_inputs` record moved.
+- [x] Mover-universe track (pre-reg #33 draft) — automation live: nightly
+  roster capture + `data/intraday_movers` pull since 2026-09-18 (22:35 MT,
+  exit 0 every night), 3 rosters (09-18/-21/-22), 8 bar-dates / 240 tickers
+  / 1,581 files hash-verified; QA flags in the expected class only.
+- [ ] **#33 shakedown blockers (must clear before the freeze).** (1) *The §5
+  gate as wired cannot pass on this archive* — the frozen #15
+  `audit_archive()` requires every in-window pull to name an
+  `universe_sp600_*` membership file, while mover pulls record a roster CSV;
+  sweeping the mover archive returns **1,581 attribution errors /
+  `passed: False`** (chain, hash and orphan checks clean), so both campaigns
+  would abort as "campaign void" even after the floors open. Recommended:
+  a mover analogue inside the still-draft `tools/measure_mover_entry.py`
+  (frozen engines stay byte-identical), NOT an amendment to the shared
+  engine's sha — the #15 stack and the #23 paper loop both assert it.
+  (2) *The population must be read per bar-date from
+  `data/mover_rosters/<date>.csv`*, never from the directory listing: a
+  bar-date directory is the union of every roster in the 7-day window, so a
+  listing-derived population is partly determined by later captures. Both
+  recorded in PREREGISTRATION #33 §5. Floors 2026-09-22: campaign A 8/20
+  bar-dates, 659/2,000 events, 8/15 dates; campaign B 8/20 bar-dates,
+  19,245/2,000 events, 8/15 dates → the 20-bar-date floor opens ~2026-10-08.
 
 ## J. Warrior-trading corpus — "My Favorite Episodes" playlist claims
 
@@ -2803,6 +2863,22 @@ events across 455 tickers / 21 bar-dates; B=1000 seed 20260819). The §6
 archive-integrity audit **PASSED** at measurement time (39 pulls, 15,667
 ledger files, chain valid end to end), so the F2 EDGE below is entered
 as the forward-accumulated record.
+
+**Recorded data-state note (2026-09-22 audit, no verdict implication).** The
+archive's pull records show a **bulk vendor restatement inside this
+measurement window.** The 2026-08-25 pull hash-verified 4,839 files and
+re-reported 2,412 of them as byte-differing from the stored record — exactly
+603 tickers × the whole sessions 2026-08-18…08-21 — with the wave decaying
+through 08-26 (1,660 notes spanning 08-19…08-24) and 09-02 (741, including
+all 603 names of 08-26), then settling into the 54–179-note background from
+09-03. Nothing above changes: every stored file was written once, never
+modified, and was hash-verified again at measurement time (the §6 audit in
+the preceding paragraph), and the measurement read the archived bytes — these
+notes are what the vendor serves *now* for the same (date, ticker). It is
+recorded because the daily track records the same class of deviation (§I.11's
+08-16 restatement note) and because a later re-fetch would not reproduce
+these sessions. Per-pull counts live in `data/intraday/manifest.json`;
+operational context in [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 
 | Family | Claim | Verdict | Evidence |
 |---|---|---|---|

@@ -4,7 +4,17 @@ Detect predefined chart shapes on US equity daily bars and measure, honestly,
 whether they predict forward returns better than chance.
 
 **Status:** Phase 4 — verdicts written back to the ledger 2026-08-21.
-Seventeen pre-registered campaigns are measured. **Shapes A/B/C** (pre-reg #2):
+**Since then the intraday track opened.** The nightly 1-minute archive of
+the live S&P 600 crossed its §5 floor on 2026-09-18 and its first six
+campaigns are measured (§K.1–§K.6): two EDGEs (the B-01 setup's
+high-of-day geometry, and the 9:30–12:00 "money window" — relative only),
+four FADEs and six NO EDGE slots, two honest INCONCLUSIVEs. **Open:** #20
+(intraday exits — floors partially met: 1,519/2,000 events, ~early
+October), #23 (the paper loop — runs nightly on each tape day), and the
+**mover-universe track** (`data/intraday_movers/`, pre-reg #33 draft,
+awaiting its one-week shakedown → freeze). Documentation/automation audit
+run **2026-09-22**; see [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
+Seventeen daily-track campaigns are measured. **Shapes A/B/C** (pre-reg #2):
 all **NO EDGE** out-of-sample (2016–2025, N=10, Holm-corrected; Shape B
 significantly *below* its baselines). **Pillars H1–H3** (pre-reg #1):
 **H3 NO EDGE** at the frozen N=1 — the day-paired rank-1-vs-rank-2–10 claim

@@ -4040,6 +4040,17 @@ and the verification pass re-ran clean. New FROZEN_SHA
 `0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c`
 (fixed-point convention unchanged; frozen B-01 input sha unchanged).*
 
+*§8 floor status (2026-09-22, re-checked by the nightly gate-opener):
+the floors are **partially met** — window bar-dates **24** (need 20) OK,
+events across tickers **361** (need 100) OK, dates with events **24**
+(need 15) OK, but **F1-evaluable B-01 events 1,519 (need 2,000)** — the
+binding floor. At the observed rate (~63 F1-evaluable events per
+bar-date) the window opens after roughly **8 more sessions
+(~2026-10-02)**. The tool refuses (exit 2) without consuming its one-shot
+and the gate-opener re-checks nightly; the earlier "3 window bar-dates"
+note above is superseded. No measurement has run; no parameter has
+changed.*
+
 ---
 
 # Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
@@ -4570,6 +4581,44 @@ logs (only the `frozen_inputs` record moved); the paper-log JSONs were
 rewritten under the re-frozen tool and byte-reproduce. This is a
 re-freeze, not a post-hoc change: no paper-log result had fed any
 comparison.*
+
+*§10 amendment 2 (2026-09-22 — BEFORE any paper-log result was used: the
+§5-gated comparison has not run and the floor is unmet; but three
+bar-dates had gone unlogged because of the break below). The nightly
+paper task aborted at import from 2026-09-18 with
+`measure_intraday_veto.py changed … frozen input must not move`. Cause:
+the 2026-09-18 §K campaign runs amended `measure_intraday_veto.py` and
+`measure_intraday_regime.py` (pre-regs #21/#22 amendment 1 — the
+floor-table key mapping inside `write_report`, a report-writer fix, with
+the corresponding FROZEN_SHA bump), while the paper loop's frozen-input
+table still held their pre-amendment shas (`e35f0a52…`, `2fed9790…`).*
+
+*Verification before re-recording (this is a re-record, not a waiver).
+An AST comparison of each tool's pre-amendment blob (`70881d35^`) against
+the current file, with the `FROZEN_SHA` assignment and the `write_report`
+function removed from both sides, is **identical** — every statement
+outside the report writer is unchanged — and the paper loop reaches only
+`MIV.macd_at`, `MIV.volume_spike` and `MIV.V_PRIMARY` (never
+`write_report`; `MIR` is imported for the sha lock only), so no decision
+path can move. The table was then re-recorded to the amended
+LF-normalized shas (`measure_intraday_veto.py` `e69fd884bb29f90b…`,
+`measure_intraday_regime.py` `efc88062fa263e0b…`) and the paper loop
+re-frozen: FROZEN_SHA `1de03118b5527f33…` (fixed point, verified
+self-consistent), raw `measure_code_sha256` `6be91cdcaab9760a…` on this
+checkout (like every FROZEN_SHA here, the raw value depends on the
+checkout's line endings — CRLF here; LF-normalized
+`d7496736bc8645ce…`).*
+
+*Recovery and re-verification. The three missed bar-dates (2026-09-18,
+-21, -22) were backfilled with `tools/paper_loop.py --all` — the
+runbook's sanctioned recovery for a missed paper night — so the log now
+covers all 24 window bar-dates, and `--check` reports the
+byte-determinism check **OK** under the re-frozen tool. Every one of the
+21 previously written logs has a **decision path identical** to its
+pre-amendment bytes once `frozen_inputs` is removed (the only key that
+moved, and only for the two amended tools): 21/21 identical, 0
+different. No measurement parameter, fill model, floor, journal format
+or verdict rule moved; no paper-log result has fed any comparison.*
 
 *Implementation reading (registered with the tool, before any paper-log
 results): the paper loop imports the five frozen tools and calls only
@@ -5755,3 +5804,72 @@ bar-dates with events. One-shot rule as everywhere.
 
 *(to be recorded: date + tool shas, before any forward-return
 computation on this archive)*
+
+### Shakedown findings (recorded 2026-09-22, after three sessions of capture)
+
+**1. Roster capture and backfill work as designed.** Rosters captured
+2026-09-18, -21, -22 (100 names each). The weekend runs correctly no-op:
+2026-09-19 and -20 both re-derived session date 2026-09-18 and
+first-capture-wins held (no roster was rewritten). The archive holds
+**8 bar-dates (2026-09-11…2026-09-22), 240 tickers, 1,581 files**, all
+hash-verified end to end; `tools/mover_pull.cmd` (22:35 MT) has exited 0
+every night since registration, re-verifying ≥1,100 files per night. QA
+flags are the expected class only: thin-name RTH sparsity, 1,314 of 1,581
+files with no daily-envelope to check against (the envelope source is the
+S&P 600 daily cache — mover names are mostly not in it), and 22 recorded
+Yahoo-restatement drift notes across the night's three roster runs
+(12 + 6 + 4; reported in the pull records, never auto-fixed).
+
+**2. A bar-date directory is a SUPERSET of that date's roster — the
+population of record is the roster CSV.** `tools/mover_pull.cmd` loops
+over *every* roster in `data/mover_rosters/`, and each
+`fetch_intraday_bars.py --universe <roster>.csv` run backfills that
+roster's names across the whole rolling window. So `raw/2026-09-16/`
+holds 240 names (the union of the 09-18/-21/-22 rosters) even though no
+2026-09-16 roster exists. This is correct for the bar store and for the
+within-archive baselines, but it means **#33 must define its population
+per bar-date from `data/mover_rosters/<date>.csv`, never from the
+directory listing**: a name appears in an early date's directory only
+because it was a mover later, so a directory-derived population would be
+partly determined by the future. `tools/measure_mover_entry.py` currently
+has no roster-reading logic — it inherits the engine's manifest-walk
+population. **Pre-freeze work item.**
+
+**3. The §5 gate as wired CANNOT pass on this archive (verified
+empirically 2026-09-22).** The frozen #15 engine's `audit_archive()`
+requires every in-window file to trace to a pull whose `universe_file` is
+an S&P 600 membership file (`universe_sp600_*`); mover pulls record a
+roster CSV instead. Sweeping the mover archive with the redirected
+globals returns `passed: False` with **exactly 1,581 errors, all of one
+kind** ("universe '2026-09-18.csv' is not a membership file (non-blind
+capture)") and an empty `window_pulls`. The chain, hash and orphan checks
+are themselves clean. `tools/measure_mover_entry.py` treats a failed
+audit as *campaign void* (exit 1), so both campaigns would abort at the
+gate even after the floors open. Resolution is required **before** the
+freeze:
+
+- *(a)* generalize the frozen engine's attribution check behind a
+  module-level membership glob and re-record its sha — **rejected as the
+  default**: that sha is asserted by the #15 stack *and* by the #23 paper
+  loop, so the amendment would ripple into two other frozen campaigns;
+- *(b)* **recommended** — implement the mover analogue inside
+  `tools/measure_mover_entry.py`, which is still an unfrozen draft: keep
+  the chain/hash/orphan/repair verification and re-adjudicate only the
+  attribution class with the roster rule (in-window file ⇒ its pull's
+  `universe_file` is a roster CSV recorded in `data/mover_rosters/` with
+  `tickers_requested` == that roster's row count; the file's own
+  bar-date roster must exist). The frozen engines stay byte-identical.
+
+**4. Floors (2026-09-22, `--floors`; one-shot untouched).** Campaign A
+(B-01 on movers): 8/20 bar-dates, **659/2,000 events**, 187/100 tickers
+OK, 8/15 dates-with-events. Campaign B (the #19 families on movers):
+8/20 bar-dates, 19,245/2,000 F1-valid events OK, 240/100 tickers OK,
+8/15 dates-with-events. The binding constraint is the **20-bar-date
+floor (~12 more sessions ≈ 2026-10-08)** and dates-with-events
+(~2026-10-08); campaign A additionally needs its event floor.
+
+**5. Freeze readiness.** Of the design §6 shakedown criteria — rosters
+sane ✓, backfill verified ✓, QA clean (flags only, recorded) ✓ — what
+remains is finding 3 (the §5 gate) and finding 2 (the roster-defined
+population), both to be resolved and recorded at the freeze session
+before `FROZEN = True` is set in `tools/measure_mover_entry.py`.*

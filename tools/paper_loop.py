@@ -67,6 +67,8 @@ WINDOW_START = "2026-08-19"
 # Each tool's LF-normalized sha256 (checkout-independent) is asserted AT
 # IMPORT; a change to any frozen input aborts loudly. The first two are
 # recorded in pre-regs #15/#19 §8; the last three are recorded in #23 §10.
+# (amendment 2, 2026-09-22: the veto/regime entries re-recorded to the
+# 2026-09-18 report-writer-only amendment shas -- see #23 §10).
 _FROZEN_INPUTS = {
     "measure_intraday.py":
         "c58282caf75c344f228b70b329e9182b54a663d013891fe6a17103dc89f5e14c",
@@ -75,9 +77,9 @@ _FROZEN_INPUTS = {
     "measure_intraday_exit.py":
         "25f859ba4bc22588a345cf4a01e0c81857f208cd84b3aa1c3a85d6588f8a98f1",
     "measure_intraday_veto.py":
-        "e35f0a52d76a7414fd4345a4076964e8640a1f31691ef4f9b2400b247723880a",
+        "e69fd884bb29f90bc21a9fa1822b1272662224bdcf5492d39915f0c5eb1bee71",
     "measure_intraday_regime.py":
-        "2fed9790feffe6c5eabf195876ecc655007aeff8b7d5bbda2ea0bf7467792cec",
+        "efc88062fa263e0b7bce9c57f4314342bbb3463591b2959872cc815de944f2fe",
 }
 _FROZEN_MODULES = {
     "measure_intraday.py": MI,
@@ -111,7 +113,7 @@ COMPLETENESS_FLOOR = 0.90   # paper-log completeness floor (§7)
 # sha of this file with its own FROZEN_SHA hex blanked to 64 zeros — a
 # well-defined fixed point. Any byte change outside the blanked hex breaks
 # the assertion.
-FROZEN_SHA = "45f91e7a811329fa784d6ad829193969bd857a4714b6af84ff95afdfc9062595"
+FROZEN_SHA = "1de03118b5527f334f02e973e8669674bcfc05c51aa86875e88b85b796f8478f"
 
 
 def sha_bytes(b: bytes) -> str:

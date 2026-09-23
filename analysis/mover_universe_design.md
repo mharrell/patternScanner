@@ -138,3 +138,21 @@ computed on the archive. Measurement reuses the frozen engines;
 
 *No capture begins before this document and the roster rule are
 committed to main.*
+
+**Status 2026-09-22 (shakedown, three sessions in).** Steps 1–2 are live and
+the nightly task is registered: rosters captured 2026-09-18/-21/-22 (100 names
+each; weekend runs correctly no-op onto the last session date), archive at
+8 bar-dates (2026-09-11…09-22) / 240 tickers / 1,581 files with the chain
+verified end to end, QA flags only (thin-name sparsity, no daily envelope for
+mover names, 22 recorded drift notes across the night's three roster runs). Step 3's shakedown surfaced **two
+blockers, recorded in PREREGISTRATION #33 §5**: (i) the #15
+`audit_archive()` §5 gate cannot pass on a roster-defined archive — it demands
+an `universe_sp600_*` membership file per in-window pull and returns 1,581
+attribution errors on the mover archive, so the mover analogue belongs in the
+still-draft `tools/measure_mover_entry.py`, leaving the frozen engines
+byte-identical; and (ii) the per-bar-date population must be read from
+`data/mover_rosters/<date>.csv`, never from the directory listing (a date
+directory accumulates the union of every roster in the 7-day window, so a
+listing-derived population is partly determined by later captures). Both to be
+resolved and recorded before the freeze; the 20-bar-date floor opens
+~2026-10-08 (campaign A is also short of its 2,000-event floor: 659).

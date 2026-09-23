@@ -82,11 +82,37 @@ caveats point to.
 
 ## What's next
 
-The intraday track fired 2026-09-18 (see below). Remaining: pre-reg #20
-(intraday exit rules — pending its own floors) and #23 (the paper loop,
-deferred by design until #15–#22 land). Nothing on the daily track
-remains: every claim from the §J scan that daily bars can express has
-been tested.
+The intraday track fired 2026-09-18 (see below). Remaining: **#20** (the
+intraday exit rules — floors partially met on 2026-09-22: 24/20 bar-dates,
+361/100 tickers and 24/15 dates-with-events all met, but only
+**1,519/2,000 F1-evaluable B-01 events**; the binding floor opens
+~2026-10-02), **#23** (the paper loop — running nightly on each tape day
+again since the 2026-09-22 frozen-input repair; its §5-gated comparison
+opens with the shared floor), and the **mover-universe track** below.
+Nothing on the daily track remains: every claim from the §J scan that daily
+bars can express has been tested.
+
+## The mover-universe track (pre-reg #33, DRAFT — capture live since 2026-09-18)
+
+The cycle's structural finding was the **universe mismatch**: #31's
+volume-population claim reached 77 of 25,414 daily detections, #32 found
+**zero** +40% intraday leaders in the S&P 600, and #25's price-band edge is
+diluted ~⅔ on an index whose members only visit his bands briefly. The
+remaining open question is therefore whether his timing rules have edge
+**inside his own population** — or whether the population is the only edge.
+So the nightly roster of Yahoo's day-gainers screener ($1–$20, ≥1M shares,
+listed only, top 100 by % change) has its names' 1-minute bars archived into
+`data/intraday_movers/` under the same immutable machinery as the S&P 600
+archive. Design: `analysis/mover_universe_design.md`; pre-registration #33
+is a DRAFT until its one-week shakedown completes.
+
+| Track | Status at 2026-09-22 |
+|---|---|
+| Roster capture | live — 3 rosters (2026-09-18/-21/-22), 100 names each; weekend runs correctly no-op onto the last session date |
+| Bar archive | 8 bar-dates (2026-09-11…09-22), 240 tickers, 1,581 files, hash-verified; the 22:35 MT pull exits 0 nightly |
+| QA | flags only — thin-name RTH sparsity, no daily envelope for mover names, 22 recorded Yahoo-restatement drift notes across the night's three roster runs |
+| Freeze | blocked on two shakedown findings (pre-reg #33 §5): the §5 integrity gate as wired cannot pass on a roster-defined archive (1,581 attribution errors), and the population must be read from the roster CSV rather than the directory listing |
+| Floors | campaign A (B-01 on movers) 8/20 bar-dates, 659/2,000 events; campaign B (entry families) 8/20 bar-dates, 19,245/2,000 events → the 20-bar-date floor opens ~2026-10-08 |
 
 ## The intraday track (fired 2026-09-18)
 

@@ -40,8 +40,8 @@ versioned in `tools/tasks/` — see "Recreating the scheduled tasks" below.
 | `\patternScanner-intraday-pull` | daily 22:05 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\fetch_intraday_bars.py --qa` (Start in: repo root) | pull record in `data/intraday/manifest.json`; QA pass → `data/intraday/qa_report.md` |
 | `\patternScanner-intraday-paper` | daily 22:30 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\paper_loop.py --latest` (Start in: repo root) | `data/paper/<YYYY-MM-DD>.json` + `data/paper/journal/<YYYY-MM-DD>.md` |
 | `\patternScanner-intraday-push` | daily 23:00 MT | `<repo>\tools\push_intraday_archive.cmd` | `%TEMP%\intraday_push.log` (append-only) |
-| `\patternScanner-gate-opener` | daily 23:45 MT | `<repo>\tools\gate_opener.cmd` | `%TEMP%\gate_opener.log` (append-only); NOT yet registered — see recreate block |
-| `\patternScanner-mover-pull` | daily 22:35 MT | `<repo>\tools\mover_pull.cmd` | `%TEMP%\mover_pull.log` (append-only); mover-universe track (roster capture + `data/intraday_movers` pull, backfills the 7-day window); NOT yet registered — see recreate block |
+| `\patternScanner-gate-opener` | daily 23:45 MT | `<repo>\tools\gate_opener.cmd` | `%TEMP%\gate_opener.log` (append-only); registered and firing nightly since 2026-09-19 (log evidence) |
+| `\patternScanner-mover-pull` | daily 22:35 MT | `<repo>\tools\mover_pull.cmd` | `%TEMP%\mover_pull.log` (append-only); mover-universe track (roster capture + `data/intraday_movers` pull, backfills the 7-day window); registered and firing nightly since 2026-09-19 (log evidence) |
 
 - 22:05 MT is after the 04:00–20:00 ET session closes (20:00 ET = 18:00 MT)
   and outside DeepSeek peak pricing.
@@ -108,6 +108,27 @@ names show large real RTH gaps (e.g. ~30–55% RTH coverage) while liquid names
 are complete. Measurement on thin names must resample (e.g. 5-min) or count
 RTH coverage.
 
+Also expected: **recurring Yahoo drift notes.** The pull re-fetches the whole
+rolling window and byte-compares it against the stored files, so each run
+reports the files where Yahoo's current answer differs from the recorded one.
+The 44-pull record (2026-08-19…09-22) has three regimes:
+
+| Pulls | Drift notes | Reading |
+|---|---|---|
+| 2026-08-19…08-24 | 0–85 | archive startup, first writes |
+| **2026-08-25…09-02** | **741–2,412** | a **bulk vendor restatement**: the 08-25 pull re-reported 2,412 of the 4,839 files it hash-verified (≈ half the then-archive, i.e. the whole window), decaying to 741 by 09-02 |
+| 2026-09-03…09-22 | 54–179 | the settled background — 2026-09-22: 122 notes, 80 of them on the two oldest bar-dates still inside the window (2026-09-16/-17), ~2/3 a one-row shrink, ~1/3 a same-row-count content change |
+
+The same files keep re-reporting while their date stays in the window, so a
+persistent note is expected, not an incident. This is the designed "drift is
+reported, never auto-fixed" path: the stored file is **final**, the note lands
+in the pull record, and the only sanctioned refresh is `--repair` + re-pull
+while the window still covers the date. Treat it as an incident only if the
+per-pull count jumps by an order of magnitude (a new bulk episode, as on
+2026-08-25) or if envelope/volume QA flags appear alongside it. Not diagnosed
+further: whether the dropped row sits at the head or the tail of the session —
+stored files are final either way, so it changes no measurement.
+
 ## Failure modes and recovery
 
 | Symptom | Cause | Action |
@@ -119,6 +140,7 @@ RTH coverage.
 | Push log shows `SKIP: pull still running` | Pull overran 23:00 | Normal; the push skips that night. Verify the pull finished and push manually if the archive is unreplicated for several days. |
 | Paper log missing for a bar-date | Paper task skipped (pull overran 22:30) or failed | Run `python -X utf8 tools\paper_loop.py --all` to backfill (idempotent); the operator fills the journal. |
 | Paper loop aborts: "frozen input must not move" | A frozen measurement tool changed | Restore the frozen tool (its sha is recorded in PREREGISTRATION.md); the paper loop refuses to log until it matches. |
+| Paper loop aborted every night 2026-09-18 → 09-22 | The 09-18 campaign amendments (`measure_intraday_veto.py`, `_regime.py` — verdict-loop/report-writer only) moved two frozen inputs, but the paper loop's expected-sha table still held their pre-amendment shas | Fixed 2026-09-22 (pre-reg #23 §10 amendment 2: table re-recorded to the amended shas, AST-verified as report-writer-only, tool re-frozen); the three missed bar-dates backfilled with `python -X utf8 tools\paper_loop.py --all` |
 | Push log shows `ff-only pull failed` | Local `main` diverged from origin | Resolve the divergence (usually nothing but the archive; a merge or rebase of `data/intraday` only), then re-run the script. |
 | Push fails: `error: open('...CON.parquet'): No such file or directory` | Ticker `CON` is a Windows reserved device name | The script self-heals (`git config core.protectNTFS false`, repo-local). A fresh clone needs the same setting before `git lfs pull` restores `CON.parquet`. |
 | LFS push rejected (quota) | GitHub free-tier storage cap | Measured ~2.5 GB/yr, ~4.7-month horizon from 2026-08-19 (bandwidth fine, ~210 MB/month). Local disk is the primary store; plan (releases, pruning, or vendor) before the cap. |
@@ -176,3 +198,44 @@ Update the absolute paths inside the XMLs if the repo moves.
   byte-locked (FROZEN_SHA `c08b3ca5…`), the five frozen inputs asserted at
   import, `data/paper/` append-only; paper task scheduled 22:30 MT; the push
   now commits `data/paper` with the archive.
+- 2026-09-02 → 09-19: gate opener committed (`tools/gate_opener.py` +
+  `gate_opener_task.xml`) and registered by the user; firing nightly at
+  23:45 MT since 2026-09-19, exit 0, correctly skipping the five consumed
+  one-shots and re-reporting #20 as floors-unmet without consuming it.
+- 2026-09-18: **the intraday track measured.** The shared §5 floor opened at
+  21 full-universe bar-dates and six campaigns fired their one-shots
+  (#15/#19/#21/#22/#27/#32 — verdicts §K.1–§K.6; two EDGEs, four FADEs, six
+  NO EDGE slots, two INCONCLUSIVEs). The same day the **mover-universe
+  track** went live (design §3): roster capture plus the
+  `data/intraday_movers` pull, task `patternScanner-mover-pull` registered
+  at 22:35 MT and firing from 2026-09-19.
+- 2026-09-22 (audit session): nightlies verified healthy end to end.
+  *Intraday*: 29 bar-dates / 606 tickers / 17,470 files; the 2026-09-22 pull
+  wrote 601 files, hash-verified 16,869, `ok=601 no_data=2 failed=0`, 122
+  drift notes (routine — see the monitoring note). The one non-routine
+  episode in the 44-pull record is a **bulk vendor restatement inside the
+  #15 measurement window**: the 2026-08-25 pull re-reported 2,412 of the
+  4,839 files it verified (603 tickers × the whole sessions 2026-08-18…08-21),
+  decaying through 08-26 and 09-02 and settling from 09-03. Stored files were
+  never modified and the §6 audit PASSED — recorded in CLAIMS_LEDGER §K.1.
+  *Movers*: 8 bar-dates / 240 tickers / 1,581 files, 295 files written, 1,286
+  verified, 22 drift notes across the night's three roster runs (12 + 6 + 4,
+  one per roster). QA flags in both archives are the expected class only. The
+  23:00 push swept both archives, the rosters and the paper log.
+  **Two problems found and one of them fixed:**
+  1. **The paper loop (pre-reg #23) had been dead since 2026-09-18** — its
+     frozen-input assertion still held the pre-amendment shas of
+     `measure_intraday_veto.py`/`_regime.py`, which the §K campaigns amended
+     that morning (report-writer only, AST-verified). Repaired under §10
+     amendment 2; the three missed bar-dates (2026-09-18/-21/-22) were
+     backfilled and the earlier logs re-verified decision-path-identical.
+  2. **The mover track's §5 gate cannot pass as wired** (1,581 attribution
+     errors — the frozen #15 audit demands an `universe_sp600_*` membership
+     file per pull, the mover pulls record a roster) — recorded with the two
+     remediation options in PREREGISTRATION #33 §5; resolution required
+     before the #33 freeze.
+  Status of the open experiments: **#20** is the only unmeasured frozen
+  intraday campaign (1,519/2,000 F1-evaluable B-01 events at 24 bar-dates;
+  ~early October). **#33** floors: campaign A 8/20 bar-dates and 659/2,000
+  events, campaign B 8/20 bar-dates and 19,245/2,000 events — the
+  20-bar-date floor opens ~2026-10-08.
