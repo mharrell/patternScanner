@@ -1,10 +1,17 @@
 # Paper log — live-execution study of the frozen intraday signals (pre-reg #23)
 
-**Status: pre-registration #23 frozen 2026-08-23, before any paper-log
-results exist; the paper loop runs nightly (Task Scheduler
-`\patternScanner-intraday-paper`, 22:30 MT) on each bar-date as it lands.
-The §5-gated comparison opens when the shared §5 floor is met
-(~mid-September).**
+**Status (2026-09-22): pre-registration #23 frozen 2026-08-23, before any
+paper-log results exist; the paper loop runs nightly (Task Scheduler
+`\patternScanner-intraday-paper`, 22:30 MT) on each bar-date as it lands. The
+log now covers all 24 window bar-dates (2026-08-19…2026-09-22) — 2026-09-18,
+-21 and -22 were backfilled after the loop was found dead (see the amendment
+note below) — and the shared §5 floor opened 2026-09-18, so the §5-gated
+comparison is now **ELIGIBLE and its one-shot is UNCONSUMED** (§7: computed
+once, at the first meeting of the floor; a larger paper log is a new
+pre-registration). It was deliberately NOT fired by the 2026-09-22 audit
+session. Note also that the operator-fill layer is empty by design, so the
+L-007 row has no observed-fill data yet while the modeled-fill sensitivity is
+computable.**
 
 The intraday measurement tools (pre-regs #15, #19–#22) compute close-vs-close
 returns on recorded bars — `(C[e+N] − O[e+1])/O[e+1] − COST`. The archive is
@@ -33,7 +40,13 @@ money.**
    reproduce it byte-for-byte (`tools/paper_loop.py --check` enforces this).
 2. **Frozen inputs.** The paper loop imports the five frozen measurement tools
    and asserts their LF-normalized sha256 at import — a change to any frozen
-   input aborts loudly (pre-reg #23 §3).
+   input aborts loudly (pre-reg #23 §3). The expected table has been
+   re-recorded twice under recorded amendments — §10 amendment 1 (2026-08-25:
+   the #20 exit tool re-froze pre-measurement) and amendment 2 (2026-09-22:
+   the #21/#22 report-writer amendments, which had silently killed the loop
+   from 2026-09-18) — so `frozen_inputs` in the JSON logs differs by era. That
+   is the audit record, not drift; old logs are never rewritten except by the
+   sanctioned backfill, whose decision paths are verified identical.
 3. **Three price columns** (pre-reg #23 §4): the recorded-bar reference
    (deterministic), the modeled fill (frozen slippage model, `s = 0.0005` per
    side primary), and the observed fill (operator, ground truth, in
@@ -102,7 +115,7 @@ with the archive. Manual runs:
 ```bat
 python -X utf8 tools\paper_loop.py --all      rem backfill all window bar-dates
 python -X utf8 tools\paper_loop.py --check    rem determinism check
-python -X utf8 tools\paper_loop.py --compare  rem the §5-gated comparison (refuses until the floor)
+python -X utf8 tools\paper_loop.py --compare  rem the §5-gated comparison (floor met 2026-09-18; one-shot UNCONSUMED)
 ```
 
 The operator's daily practice: review the previous bar-date's journal skeleton,

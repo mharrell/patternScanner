@@ -4532,6 +4532,12 @@ plus the paper-log completeness floor (§7), one-shot. The archive-
 integrity audit (pre-reg #15 §6) applies to the comparison; the paper-log
 integrity check (§7) is the paper loop's own gate.
 
+**Floor status 2026-09-22:** the shared §5 floor is MET (24 window bar-dates
+≥ 20; the event, ticker and date floors satisfied by the §K campaign runs)
+and the paper-log completeness floor passes (24/24 = 100% ≥ 90%). The §5-gated
+comparison is therefore **eligible and its one-shot is unconsumed** — see
+§11.
+
 ## 9. Pre-declared expectations
 
 - The modeled-fill gap ≈ −2s by construction (the model's own
@@ -4636,8 +4642,21 @@ measurement row.*
 
 ## 11. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Awaiting the §5 floor — the comparison opens at the first meeting of
-the §5 floors.)*
+***Status 2026-09-22 — the comparison is ELIGIBLE and the one-shot is
+UNCONSUMED.*** *The shared §5 floor (§8) opened on 2026-09-18 (the §K campaign
+runs fired that day at 21 full-universe bar-dates; 24 by 2026-09-22), and the
+§7 paper-log completeness floor passes: the log now covers **24/24 window
+bar-dates (100% ≥ the 90% floor)** after the three bar-dates lost to the
+frozen-input break (§10 amendment 2) were backfilled, with `--check`
+reporting byte-determinism OK. Per §7 the comparison is computed **once, at
+the first meeting of the floor** — a larger paper log is a new
+pre-registration. It was deliberately NOT fired by the 2026-09-22 audit
+session: firing a gated one-shot measurement is a session act, and its result
+belongs in this section plus a ledger row. One pre-declared caveat stands: the
+operator-fill layer is empty by design (no live tape has been watched yet), so
+the L-007 row has no observed-fill data while the modeled-fill sensitivity
+(§9: gap ≈ −2s by construction) is computable. The paper loop itself keeps
+running nightly, as a process, with no floor.*
 
 # Pre-registration #24 — RV lookback-matched re-measure: his stated definition (50-day baseline, 5× threshold) vs the frozen #8 formula (20-bar, 2×) (ledger rows yFo-01/-05/-09/-14, 3rE-02, GXl-12; daily track)
 

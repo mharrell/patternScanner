@@ -1670,15 +1670,25 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   asserted at import, audit-only + §5 floor-refusal + determinism verified,
   dev harness green, and the §8 *Implementation freeze* + *Implementation
   reading* written into [PREREGISTRATION.md](PREREGISTRATION.md). All four
-  await the shared §5 floor (~mid-September).
+  **fired their one-shots on 2026-09-18** when the shared §5 floor opened at
+  21 bar-dates (§K.2/#21, §K.3/#22, §K.6/#19) — with #20's tool the
+  exception: its own event floor is still short (1,519/2,000 F1-evaluable
+  events at 2026-09-22).
 - [x] Pre-register the paper loop (pre-reg #23) — done 2026-08-23: the
   live-execution study frozen before any paper-log results — the five frozen
   tools' exact definitions run on each live tape day as it lands, logging
   fills/slippage vs. the recorded bar (three price columns: recorded
   reference, modeled fill, observed fill), the gate decisions, and a daily
-  journal. Tool `tools/paper_loop.py` byte-locked (FROZEN_SHA `c08b3ca5…`),
-  the five frozen inputs asserted at import, `data/paper/` append-only.
-  Feeds the §5-gated L-007 comparison when the floor flips (~mid-September).
+  journal. Tool `tools/paper_loop.py` byte-locked (FROZEN_SHA `c08b3ca5…`;
+  re-frozen `45f91e7a…` 2026-08-25 under §10 amendment 1, and `1de03118…`
+  2026-09-22 under amendment 2), the five frozen inputs asserted at import,
+  `data/paper/` append-only. The floor flipped 2026-09-18 and the log now
+  covers all 24 window bar-dates, so the §5-gated L-007 comparison is
+  **eligible with its one-shot UNCONSUMED** (§7: computed once, at the first
+  meeting of the floor) — firing it is a deliberate session act. Amendment 2
+  was needed because the #21/#22 report-writer amendments had silently killed
+  the loop from 2026-09-18; the three missed bar-dates were backfilled and
+  every prior decision path verified identical.
 - [x] Build the five intraday standalone independent verifiers — done
   2026-08-22: `tools/verify_intraday.py` (imports nothing from the frozen
   stack; fresh bootstrap seeds; EXACT + MC-SPREAD check classes; exit 0/1)
@@ -1795,6 +1805,15 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   dates-with-events **24/15** ✓, **F1-evaluable B-01 events 1,519/2,000** ✗
   — the binding floor (~8 more sessions, ~2026-10-02). The gate-opener
   re-checks nightly without consuming the one-shot; no measurement has run.
+- [ ] **#23's §5-gated L-007 comparison is ELIGIBLE and its one-shot is
+  UNCONSUMED (2026-09-22).** The shared §5 floor opened 2026-09-18 and the
+  paper log now covers 24/24 window bar-dates (100% ≥ the §7 90% completeness
+  floor), so per pre-reg #23 §7 the comparison is due at the first meeting of
+  the floor. Deliberately not fired by the audit session — a gated one-shot
+  measurement is a session act, and per §7 a larger paper log would be a new
+  pre-registration. Caveat to record with the result: the operator-fill layer
+  is empty by design, so the L-007 row has no observed-fill data while the
+  modeled-fill sensitivity (gap ≈ −2s by construction) is computable.
 - [x] Keep the paper loop (pre-reg #23) running nightly — **found broken and
   fixed 2026-09-22**: the tool aborted at import from 2026-09-18 because the
   §K campaign amendments to `measure_intraday_veto.py` / `_regime.py`
@@ -3053,7 +3072,9 @@ the reversion has begun.
 measured — two EDGEs (#15 F2 HOD-retest structure, gate-clean; #22 F2
 money window, relative-only), four FADEs, six NO EDGE slots, two honest
 INCONCLUSIVEs (#32 empty population, #15 S-WIN thin). #20 (exit rules)
-pending on its own floors; #23 (paper loop) deferred by design. The
+pending on its own floors; #23 (the paper loop) runs nightly and, as of
+2026-09-22, its §5-gated L-007 comparison is eligible with its one-shot
+unconsumed (PREREGISTRATION #23 §8/§11). The
 corpus's intraday teaching, measured: structure is real, timing advice
 is inverted or null, and the filter stack (veto + MACD gate + window
 selection) does not separate good entries from bad on the universe a

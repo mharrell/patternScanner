@@ -202,28 +202,32 @@ returns; Phase 5 cannot fire by construction. **The daily track is now
 exhausted** — the remaining untested ledger claims all need intraday data.
 Phase 5 remains **not triggered** after seventeen campaigns.
 
-**Intraday track (live since 2026-08-19):** a forward-accumulated 1-minute
-archive of the live S&P 600 is capturing the data the remaining untested
-ledger claims need (they are stated on 1-minute charts — B-01 micro pullback,
-I-B-01, I-C-02/03/04, 1-min MACD, F-01/F-02 time-of-day, I-E-02). Pre-regs
-#15 (B-01), #19 (entry timing: reversal new-high / pullback-count /
-second-confirmation), #20 (intraday exits: breakeven-trail + sell-half, the
-9MA→20MA→VWAP ladder, flat-out), #21 (the two-filter veto on 1-min bars) and
-#22 (intraday regime: morning window, pre-market cleanliness) are frozen,
-each with the shared §5 floor (≥ 20 full-universe bar-dates ≥ 2026-08-19)
-before any measurement; the measurement tools are frozen too (implementation
-freeze 2026-08-21, fixed-point FROZEN_SHA in each §8 block). Independent
-verifiers for all five tools (`tools/verify_intraday.py`, standalone —
-imports nothing from the frozen stack, fresh bootstrap seeds) were built and
-cross-validated 2026-08-22; the pass caught a CI-recording bug in the #20
-exit tool (pre-measurement re-freeze, §8 amendment, new FROZEN_SHA
-`0c798159ea3e93d9…`), and all five now verify clean. **Pre-reg #23
-(the paper loop, frozen 2026-08-23)** runs the five frozen definitions on
-each live tape day as it lands and logs fills/slippage vs. the recorded bar,
-the gate decisions, and a daily journal — the L-007 backtest-live gap feed for
-the §5-gated comparison (see [data/paper/README.md](data/paper/README.md)).
-Nightly pull (22:05) + paper loop (22:30) + push (23:00) run under Task
-Scheduler. See [data/intraday/README.md](data/intraday/README.md) and
+**Intraday track (live since 2026-08-19; measured 2026-09-18):** a
+forward-accumulated 1-minute archive of the live S&P 600 captured the data the
+remaining untested ledger claims need (they are stated on 1-minute charts —
+B-01 micro pullback, I-B-01, I-C-02/03/04, 1-min MACD, F-01/F-02 time-of-day,
+I-E-02). Pre-regs #15 (B-01), #19 (entry timing: reversal new-high /
+pullback-count / second-confirmation), #21 (the two-filter veto on 1-min bars),
+#22 (intraday regime), #27 (the MACD crossover gate) and #32 (intraday sector
+sympathy) **fired their one-shots on 2026-09-18**, when the shared §5 floor
+opened at 21 full-universe bar-dates: two EDGEs (#15 F2 high-of-day retest
+geometry, gate-clean; #22 F2 the 9:30–12:00 window, relative-only), four
+FADEs, six NO EDGE slots and two honest INCONCLUSIVEs — verdicts
+[§K.1–§K.6](CLAIMS_LEDGER.md); durable reports in `data/measurements/`.
+**Still open:** **#20** (the intraday exits — floors partially met on
+2026-09-22: 24/20 bar-dates, 361/100 tickers, 24/15 dates-with-events, but
+1,519/2,000 F1-evaluable events → ~2026-10-02). The frozen tools are
+byte-locked (fixed-point FROZEN_SHA in each §8 block) and independently
+verified (`tools/verify_intraday.py`). **Pre-reg #23 (the paper loop, frozen
+2026-08-23)** runs the five frozen definitions on each live tape day as it
+lands and logs fills/slippage vs. the recorded bar, the gate decisions and a
+daily journal — the L-007 backtest-live gap feed. Its log now covers all 24
+window bar-dates, so **the §5-gated comparison is eligible and its one-shot is
+UNCONSUMED** (see [data/paper/README.md](data/paper/README.md)). The
+**mover-universe track** (`data/intraday_movers/`, pre-reg #33 draft) captures
+his own population nightly. Nightly: pull (22:05) + paper loop (22:30) + mover
+pull (22:35) + push (23:00) + gate opener (23:45) under Task Scheduler. See
+[data/intraday/README.md](data/intraday/README.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 Verdicts:
 [CLAIMS_LEDGER §B.5 / §D.5 / §E.5 / §D.6 / §D.7 / §E.6 / §E.7 / §I.5 / §I.6 / §I.7 / §I.8 / §I.9 / §I.10 / §I.11 / §I.13 / §I.14 / §I.15](CLAIMS_LEDGER.md);
@@ -245,13 +249,16 @@ reports:
 `data/cache/cexit_gate_measure_report.md`,
 `data/cache/if03_measure_report.md`,
 `data/cache/if03_gate_measure_report.md`.
-Next candidates: the remaining untested ledger items all need intraday data
-— the **intraday track** now accumulates nightly. Pre-regs **#15, #19–#23
-are frozen** (2026-08-19 / 2026-08-21 / 2026-08-23) with the shared §5 floor
-(≥ 20 full-universe bar-dates ≥ 2026-08-19, ~mid-September) before any
-measurement; each awaits the floor (see
-[data/intraday/README.md](data/intraday/README.md) and
-[INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md)).
+Next candidates: the daily track is exhausted — everything left needs intraday
+data, and the **intraday track** has now fired. Measured 2026-09-18: **#15,
+#19, #21, #22, #27, #32** (§K.1–§K.6). Still open: **#20** (the intraday exits
+— floors partially met, the 2,000-event floor opens ~2026-10-02), **#23's
+§5-gated L-007 comparison** (eligible now that the floor is met; one-shot
+UNCONSUMED), and **#33** (the mover-universe track — draft, blocked on two
+shakedown findings). See [data/intraday/README.md](data/intraday/README.md),
+[data/paper/README.md](data/paper/README.md),
+[analysis/mover_universe_design.md](analysis/mover_universe_design.md) and
+[INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
 
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — scope, shape definitions, measurement
   protocol, bias checklist, phases.
@@ -314,8 +321,8 @@ measurement; each awaits the floor (see
   the ledger. Pre-registration #15: the B-01 micro-pullback claim on
   1-minute bars ("the first candle that makes a new high versus the high
   of the previous candle"; secondary rows B-02/I-E-02; intraday track),
-  frozen 2026-08-19 — measurement awaits the archive's §5 floor (≥ 20
-  full-universe bar-dates ≥ 2026-08-19, ~mid-September). Pre-registration
+  frozen 2026-08-19, **measured 2026-09-18 at the §5 floor (21 bar-dates):
+  geometry EDGE / entry FADE / pullback-wait inverted (§K.1)**. Pre-registration
   #16: the price-tier family (I-D-01 "$2–5 sweet spot" + I-X-06
   penny/small-cap long-term fall, A-04 cross-ref), frozen 2026-08-19,
   **measured 2026-08-19: F1 EDGE × 4 with the §5 gate PASSING; F2b FADE;
@@ -332,26 +339,42 @@ measurement; each awaits the floor (see
   effect is a general up-bias); NOT TRIGGERED (§I.15)** — the final
   testable-daily campaign. Pre-registration #19: the intraday entry-timing
   family (I-B-02 reversal new-high long+short, B-03/I-B-01 pullback-count,
-  B-05 second-confirmation), frozen 2026-08-21, awaits the shared §5 floor.
-  Pre-registration #20: the intraday exit rules (I-C-02 breakeven-trail +
-  sell-half, I-C-03 9MA→20MA→VWAP target ladder, I-C-04 flat-out, on the
-  pre-reg #15 B-01 entry set), frozen 2026-08-21, awaits the shared §5
-  floor. Pre-registration #21: the two-filter pre-entry veto on 1-min bars
+  B-05 second-confirmation), frozen 2026-08-21, **measured 2026-09-18:
+  FADE ×2, NO EDGE, FADE (§K.6)**. Pre-registration #20: the intraday exit
+  rules (I-C-02 breakeven-trail + sell-half, I-C-03 9MA→20MA→VWAP target
+  ladder, I-C-04 flat-out, on the pre-reg #15 B-01 entry set), frozen
+  2026-08-21, **the one frozen intraday campaign not yet measured** — floors
+  partially met at 2026-09-22 (24/20 bar-dates, 361/100 tickers, 24/15
+  dates-with-events, **1,519/2,000 F1-evaluable events** → ~2026-10-02).
+  Pre-registration #21: the two-filter pre-entry veto on 1-min bars
   (E-01/E-04 — MACD negative + high-volume red candle), frozen 2026-08-21,
-  awaits the shared §5 floor. Pre-registration #22: the intraday regime
-  (I-B-05 morning-is-best volatility/liquidity buckets, F-01/F-02
-  pre-market cleanliness), frozen 2026-08-21, awaits the shared §5 floor.
+  **measured 2026-09-18: NO EDGE ×4 (§K.2)**. Pre-registration #22: the
+  intraday regime (I-B-05 morning-is-best volatility/liquidity buckets,
+  F-01/F-02 pre-market cleanliness), frozen 2026-08-21, **measured
+  2026-09-18: EDGE (relative) / INCONCLUSIVE / FADE (§K.3)**.
   Pre-registration #23: the paper loop as a live-execution study (runs the
   five frozen intraday definitions on each live tape day as it lands; logs
   fills/slippage vs. the recorded bar, gate decisions, and a daily journal —
   the L-007 backtest-live gap feed for the §5-gated comparison), frozen
-  2026-08-23, awaits the shared §5 floor.
+  2026-08-23, **live since: the log covers all 24 window bar-dates and the
+  §5-gated comparison is eligible with its one-shot UNCONSUMED**.
+  Pre-registration #27: the MACD crossover gate on his entry set, frozen
+  2026-09-02, **measured 2026-09-18: NO EDGE ×4 (§K.4)**. Pre-registration
+  #32: intraday sector sympathy, frozen 2026-09-02, **measured 2026-09-18:
+  INCONCLUSIVE — zero +40% intraday leaders exist in the S&P 600 (§K.5)**.
+  Pre-registration #33: the mover-universe track (his timing rules on his own
+  population — nightly day-gainers roster + 1-minute bars in
+  `data/intraday_movers/`; design `analysis/mover_universe_design.md`),
+  **DRAFT 2026-09-18, awaiting its one-week shakedown → freeze** (two
+  shakedown blockers recorded in its §5).
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:
   forward-accumulated 1-minute archive of the live S&P 600 (no survivorship
-  bias by construction), append-only ledger discipline, nightly pull + push
-  (pre-regs #15, #19–#22 frozen, awaiting the §5 floor).
+  bias by construction), append-only ledger discipline, nightly pull + paper
+  loop + mover pull + push + gate opener (pre-regs #15/#19/#21/#22/#27/#32
+  measured 2026-09-18; #20 pending; #33 the mover archive
+  `data/intraday_movers/`).
 - [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md) — intraday runbook: what
   runs nightly, monitoring, failure modes and recovery, re-creating the
   scheduled tasks.

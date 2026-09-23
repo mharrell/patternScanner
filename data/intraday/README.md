@@ -110,20 +110,22 @@ L-007 backtest-live gap feed for the §5-gated comparison. Contract:
 
 ## Nightly schedule (Windows Task Scheduler)
 
-Two tasks, both with `StartWhenAvailable` (if the machine is off, they run
+Five tasks, all with `StartWhenAvailable` (if the machine is off, they run
 at next wake):
 
 | Task | When | What |
 |---|---|---|
 | `\patternScanner-intraday-pull` | daily 22:05 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\fetch_intraday_bars.py --qa` (Start in: repo root) |
 | `\patternScanner-intraday-paper` | daily 22:30 MT | `C:\Python312\python.exe -X utf8 <repo>\tools\paper_loop.py --latest` — runs the five frozen definitions on the latest bar-date, writes `data/paper/` (pre-reg #23) |
-| `\patternScanner-intraday-push` | daily 23:00 MT | `tools\push_intraday_archive.cmd` — commits `data/intraday` + `data/paper`, fast-forwards main first, pushes, logs to `%TEMP%\intraday_push.log` |
+| `\patternScanner-mover-pull` | daily 22:35 MT | `tools\mover_pull.cmd` — captures the session's mover roster (`data/mover_rosters/`) and pulls those names into `data/intraday_movers/` with the same machinery (`--archive-root`); pre-reg #33 draft. Its own manifest/QA live under `data/intraday_movers/` |
+| `\patternScanner-intraday-push` | daily 23:00 MT | `tools\push_intraday_archive.cmd` — commits `data/intraday` + `data/paper` + `data/intraday_movers` + `data/mover_rosters`, fast-forwards main first, pushes, logs to `%TEMP%\intraday_push.log` |
+| `\patternScanner-gate-opener` | daily 23:45 MT | `tools\gate_opener.cmd` — runs each §5-gated campaign in full mode; an unmet floor refuses (exit 2) WITHOUT consuming its one-shot, so it is safe to run nightly; logs to `%TEMP%\gate_opener.log` |
 
 The pull runs after the 04:00–20:00 ET session close (session ends 20:00 ET
 = 18:00 MT) and outside DeepSeek peak pricing. The paper task skips itself
 if a pull is still running (`.lock` present). The push script skips itself
-if a pull is still running (`.lock` present) and never touches files
-outside `data/intraday` + `data/paper`.
+if a pull is still running (`.lock` present) and never touches files outside
+the four paths listed above.
 
 ## Operations
 

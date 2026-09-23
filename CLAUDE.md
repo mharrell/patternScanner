@@ -8,15 +8,31 @@ suspect until it survives the §5 survivorship gate.** Docs map:
 parameters after results is a new hypothesis), [CLAIMS_LEDGER.md](CLAIMS_LEDGER.md)
 (verdicts), [README.md](README.md) (status).
 
-## The intraday track (live since 2026-08-19)
+## The intraday tracks (S&P 600 live since 2026-08-19; movers since 2026-09-18)
 
-A nightly automation runs on this machine and is **not to be fought**:
+A nightly automation runs on this machine and is **not to be fought** — five
+registered tasks, all `StartWhenAvailable`:
 
 - **22:05 MT** Task Scheduler `\patternScanner-intraday-pull`:
   `tools\fetch_intraday_bars.py --qa` — pulls the full S&P 600 1-minute
   archive (04:00–20:00 ET, Yahoo), appends to `data/intraday/`.
+- **22:30 MT** `\patternScanner-intraday-paper`: `tools\paper_loop.py --latest`
+  — the pre-reg #23 paper log into `data/paper/`.
+- **22:35 MT** `\patternScanner-mover-pull`: `tools\mover_pull.cmd` — the
+  mover-universe roster + `data/intraday_movers/` pull (pre-reg #33 draft).
 - **23:00 MT** `\patternScanner-intraday-push`: `tools\push_intraday_archive.cmd`
-  — commits `data/intraday` only and pushes (log: `%TEMP%\intraday_push.log`).
+  — commits `data/intraday` + `data/paper` + `data/intraday_movers` +
+  `data/mover_rosters` and pushes (log: `%TEMP%\intraday_push.log`).
+- **23:45 MT** `\patternScanner-gate-opener`: `tools\gate_opener.cmd` — runs
+  each §5-gated campaign in full mode; an unmet floor REFUSES (exit 2) without
+  consuming the one-shot, so it is safe nightly (`%TEMP%\gate_opener.log`).
+
+Status 2026-09-22: the shared §5 floor opened 2026-09-18 and six campaigns are
+measured (#15/#19/#21/#22/#27/#32 → ledger §K.1–§K.6). **#20 is the last
+unmeasured frozen campaign** (1,519/2,000 F1-evaluable events, ~early
+October). **#23's §5-gated comparison is now eligible and its one-shot is
+UNCONSUMED** — firing it is a deliberate session act. The mover track waits on
+its shakedown (two blockers in pre-reg #33 §5).
 
 **The archive is append-only and must never be regenerated or edited.**
 Each (bar-date, ticker) file is written once and immutable; every run
@@ -35,7 +51,16 @@ Gotchas: ticker `CON` is a Windows reserved device name — git needs
 `core.protectNTFS false` (the push script self-heals it). LFS free-tier
 storage is a ~4.7-month horizon at measured ~2.5 GB/yr — local disk is the
 primary store. Thin-name RTH minute gaps are data reality, not pipeline
-faults.
+faults. Recurring Yahoo drift notes are data reality too (54–179/pull is the
+settled background; the one bulk episode was 2026-08-25, 2,412 files) — the
+stored file is final, only `--repair` + re-pull refreshes.
+
+**Amending a frozen intraday tool breaks the paper loop.** `paper_loop.py`
+asserts the five frozen tools' shas at import, so any amendment to
+`measure_intraday*.py` (even a report-writer fix) kills the 22:30 paper task
+until its table is re-recorded AND pre-reg #23 §10 gets an amendment record.
+That is how 2026-09-18→09-22 went unlogged. Amendment discipline, not a
+silent table edit — and backfill with `paper_loop.py --all`.
 
 ## Discipline notes
 
