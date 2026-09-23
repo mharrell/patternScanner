@@ -1,0 +1,33 @@
+paper-log integrity: OK (2274 fixed-N returns verified)
+L-007 gap measurement row (B-01 entry set; modeled = primary s sensitivity, observed = L-007 measurement):
+  breakeven_trail  n= 2041  recorded -0.000033  modeled -0.001032  gap -0.000999  p10 -0.001001  p50 -0.000999  p90 -0.000998
+  fixed_2r         n= 2041  recorded -0.000227  modeled -0.001226  gap -0.000999  p10 -0.001003  p50 -0.000999  p90 -0.000996
+  fixed_n          n= 2274  recorded -0.000528  modeled -0.001527  gap -0.000999  p10 -0.001010  p50 -0.000999  p90 -0.000988
+  flat_out         n= 2322  recorded -0.000478  modeled -0.001477  gap -0.000999  p10 -0.001010  p50 -0.000999  p90 -0.000988
+  ladder           n= 3043  recorded -0.000390  modeled -0.001389  gap -0.000999  p10 -0.001005  p50 -0.001000  p90 -0.000993
+  per-bar-date (fixed_n gap):
+    2026-08-19: n=  132  gap -0.000999
+    2026-08-20: n=   79  gap -0.000995
+    2026-08-21: n=  102  gap -0.001000
+    2026-08-24: n=   76  gap -0.000999
+    2026-08-25: n=   88  gap -0.000999
+    2026-08-26: n=   70  gap -0.000998
+    2026-08-27: n=   89  gap -0.001002
+    2026-08-28: n=   82  gap -0.000998
+    2026-08-31: n=   72  gap -0.000999
+    2026-09-01: n=   94  gap -0.000998
+    2026-09-02: n=  113  gap -0.001000
+    2026-09-03: n=   88  gap -0.000999
+    2026-09-04: n=   90  gap -0.001001
+    2026-09-08: n=   99  gap -0.001000
+    2026-09-09: n=   90  gap -0.000998
+    2026-09-10: n=   91  gap -0.000998
+    2026-09-11: n=   89  gap -0.000999
+    2026-09-14: n=  109  gap -0.000997
+    2026-09-15: n=  105  gap -0.001000
+    2026-09-16: n=  113  gap -0.000997
+    2026-09-17: n=   92  gap -0.001001
+    2026-09-18: n=   98  gap -0.001000
+    2026-09-21: n=   94  gap -0.001000
+    2026-09-22: n=  119  gap -0.000997
+  observed-fill L-007 gap: no observed fills recorded yet (the operator's ground-truth layer is empty by design until the live tape is watched)

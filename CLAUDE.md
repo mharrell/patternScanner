@@ -30,9 +30,12 @@ registered tasks, all `StartWhenAvailable`:
 Status 2026-09-22: the shared §5 floor opened 2026-09-18 and six campaigns are
 measured (#15/#19/#21/#22/#27/#32 → ledger §K.1–§K.6). **#20 is the last
 unmeasured frozen campaign** (1,519/2,000 F1-evaluable events, ~early
-October). **#23's §5-gated comparison is now eligible and its one-shot is
-UNCONSUMED** — firing it is a deliberate session act. The mover track waits on
-its shakedown (two blockers in pre-reg #33 §5).
+October). **#23's §5-gated comparison RAN 2026-09-22 and its one-shot is
+CONSUMED** — the modeled gap came out exactly as pre-declared (−0.000999 ≈
+−2s) and the **L-007 row is empty** because the operator-fill layer was never
+populated, so the campaign's declared finding was not captured; a
+quotes-based successor pre-registration is the path to a real backtest-live
+gap. The mover track waits on its shakedown (two blockers in pre-reg #33 §5).
 
 **The archive is append-only and must never be regenerated or edited.**
 Each (bar-date, ticker) file is written once and immutable; every run

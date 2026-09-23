@@ -4534,9 +4534,9 @@ integrity check (§7) is the paper loop's own gate.
 
 **Floor status 2026-09-22:** the shared §5 floor is MET (24 window bar-dates
 ≥ 20; the event, ticker and date floors satisfied by the §K campaign runs)
-and the paper-log completeness floor passes (24/24 = 100% ≥ 90%). The §5-gated
-comparison is therefore **eligible and its one-shot is unconsumed** — see
-§11.
+and the paper-log completeness floor passed (24/24 = 100% ≥ 90%). The §5-gated
+comparison was therefore computed at that first meeting — **RAN 2026-09-22,
+one-shot CONSUMED, L-007 row empty** (no observed fills; see §11).
 
 ## 9. Pre-declared expectations
 
@@ -4642,21 +4642,46 @@ measurement row.*
 
 ## 11. Campaign outcome (recorded after measurement — parameters unchanged)
 
-***Status 2026-09-22 — the comparison is ELIGIBLE and the one-shot is
-UNCONSUMED.*** *The shared §5 floor (§8) opened on 2026-09-18 (the §K campaign
-runs fired that day at 21 full-universe bar-dates; 24 by 2026-09-22), and the
-§7 paper-log completeness floor passes: the log now covers **24/24 window
-bar-dates (100% ≥ the 90% floor)** after the three bar-dates lost to the
-frozen-input break (§10 amendment 2) were backfilled, with `--check`
-reporting byte-determinism OK. Per §7 the comparison is computed **once, at
-the first meeting of the floor** — a larger paper log is a new
-pre-registration. It was deliberately NOT fired by the 2026-09-22 audit
-session: firing a gated one-shot measurement is a session act, and its result
-belongs in this section plus a ledger row. One pre-declared caveat stands: the
-operator-fill layer is empty by design (no live tape has been watched yet), so
-the L-007 row has no observed-fill data while the modeled-fill sensitivity
-(§9: gap ≈ −2s by construction) is computable. The paper loop itself keeps
-running nightly, as a process, with no floor.*
+***RAN 2026-09-22 — the one-shot is CONSUMED.*** *The comparison was computed
+at the first meeting of the §5 floor (§8: met 2026-09-18; the log then covered
+24/24 window bar-dates, completeness 100% ≥ the 90% floor, after the three
+bar-dates lost to the frozen-input break (§10 amendment 2) were backfilled,
+`--check` byte-determinism OK). Gate checks: the archive-integrity audit
+PASSED, and the paper-log integrity check recomputed every recorded-bar return
+from the archive and matched it against the logs — **OK, 2,274 fixed-N
+returns verified**. Raw output archived as
+`data/measurements/measure_paper_loop/paper_compare_2026-09-22.txt`.*
+
+*The **modeled** row (the sensitivity) came out exactly as §9 pre-declared:
+gap **−0.000999 ≈ −2s**, identical to six decimals across all five exit rules
+(breakeven_trail n=2,041; fixed_2r n=2,041; fixed_n n=2,274; flat_out n=2,322;
+ladder n=3,043) and stable across all 24 bar-dates (per-date gaps
+−0.001002…−0.000995; p10/p90 within ±0.000012 of the mean). That is a
+construction check on the fill model, not a market finding — the
+pre-registration called it in advance.*
+
+***The L-007 row itself is EMPTY, and that is this campaign's outcome:*** *the
+run printed "observed-fill L-007 gap: no observed fills recorded yet". The
+operator-observation layer (`data/paper/observed/`) was never populated — the
+directory did not exist at the time of the run — so the campaign's declared
+finding (§9: "the observed-fill gap is the unknown — the L-007 finding") was
+not captured. Per §7 the comparison is one-shot and a larger paper log is a
+new pre-registration, so the backtest-live gap cannot be recovered inside
+#23.*
+
+*Recorded reading (2026-09-22). This closes #23 procedurally, and **null on its
+declared finding**. The design element that failed is the **manual** observed
+layer: the operator does not intend to hand-log fills from a live tape, and
+this pre-registration set no floor on observed-fill count, so an empty layer
+passed every floor the campaign declared. The path to a real L-007 answer is
+therefore a NEW pre-registration that defines "tradeable price" from an
+independent, reproducible source (e.g. a quotes/bid-ask feed at the signal
+bar) rather than from a human — a schema and data-source question, not a
+parameter tweak, and it requires a data-source decision before it can be
+frozen. Until then the paper log remains what it is: a deterministic,
+integrity-checked record of what the frozen definitions would have done on
+each live tape day. The paper loop itself keeps running nightly, as a process,
+with no floor.*
 
 # Pre-registration #24 — RV lookback-matched re-measure: his stated definition (50-day baseline, 5× threshold) vs the frozen #8 formula (20-bar, 2×) (ledger rows yFo-01/-05/-09/-14, 3rE-02, GXl-12; daily track)
 
@@ -5879,16 +5904,73 @@ freeze:
   `tickers_requested` == that roster's row count; the file's own
   bar-date roster must exist). The frozen engines stay byte-identical.
 
-**4. Floors (2026-09-22, `--floors`; one-shot untouched).** Campaign A
-(B-01 on movers): 8/20 bar-dates, **659/2,000 events**, 187/100 tickers
-OK, 8/15 dates-with-events. Campaign B (the #19 families on movers):
-8/20 bar-dates, 19,245/2,000 F1-valid events OK, 240/100 tickers OK,
-8/15 dates-with-events. The binding constraint is the **20-bar-date
-floor (~12 more sessions ≈ 2026-10-08)** and dates-with-events
-(~2026-10-08); campaign A additionally needs its event floor.
+**4. Floors (2026-09-22, `--floors`; one-shot untouched).** *Reported twice,
+because blocker 2 changes the number.* **Archive-wide** (the manifest-walk
+population the frozen floor check counts): campaign A 8/20 bar-dates,
+659/2,000 events, 187/100 tickers ✓, 8/15 dates-with-events; campaign B 8/20
+bar-dates, 19,245/2,000 F1-valid events ✓, 240/100 tickers ✓, 8/15
+dates-with-events. **Population of record** (events restricted to names on
+that bar-date's roster — the reading §3 requires): campaign A **3/20 roster
+bar-dates, 175/2,000 events (484 dropped), 114/100 tickers ✓, 3/15 dates**;
+campaign B **3/20 roster bar-dates, 4,183/2,000 F1-valid events (18,169 F1
+dropped), 238/100 tickers ✓, 3/15 dates**. The five pre-roster archive
+bar-dates (2026-09-11…09-17) contribute no events under §3 — that gap *is* the
+size of blocker 2. **Revised clock under the population of record:** ~20
+roster bar-dates ≈ **2026-10-15** (rosters accumulate one per session from
+09-18); campaign B's 15 dates-with-events ≈ 2026-10-08; campaign A's
+2,000-event floor ≈ **early November** at the observed ~58 B-01 events per
+roster date. **§4's "≥ 20 mover bar-dates" must therefore be read as roster
+bar-dates** — recorded here for the freeze decision; `--floors` prints both
+counts.
 
-**5. Freeze readiness.** Of the design §6 shakedown criteria — rosters
-sane ✓, backfill verified ✓, QA clean (flags only, recorded) ✓ — what
-remains is finding 3 (the §5 gate) and finding 2 (the roster-defined
-population), both to be resolved and recorded at the freeze session
-before `FROZEN = True` is set in `tools/measure_mover_entry.py`.*
+**5. Freeze readiness.** Of the design §6 shakedown criteria — rosters sane ✓,
+backfill verified ✓, QA clean (flags only, recorded) ✓ — the two blockers
+(the roster-defined population, and the §5 gate as wired) are **resolved in the
+tool**, and a third finding surfaced while resolving them (a bootstrap smoke
+test, bounded below). What remains for the freeze session: settle the §4 floor
+reading, decide the smoke-test files' fate, and complete the freeze record
+(`FROZEN = True`, `FROZEN_DATE`, seeds).
+
+### Shakedown findings resolved in the tool (2026-09-22)
+
+**RESOLVED — the §5 gate as wired.** `tools/measure_mover_entry.py` gains
+`mover_audit()`: it re-reads the evidence dict the frozen `audit_archive()`
+produced — keeping every archive-agnostic check (pull chain, per-file SHA-256
+ledger match, orphans, repairs) — and re-adjudicates *only* the S&P-600
+universe-attribution class against the roster rule (in-window file ⇒ its pull
+named a roster CSV recorded in `data/mover_rosters/`, with
+`tickers_requested` == that roster's row count). Verified:
+`python -X utf8 tools/measure_mover_entry.py --audit` → **PASS**, attribution
+**1,566/1,581 clean**, 1,581 S&P-600-clause errors re-adjudicated, **3 roster
+pulls attributed**, 1,581 ledger files, chain OK, exit 0. The frozen engines
+stay byte-identical (their shas are still asserted by `self_check()` at
+import).
+
+**RESOLVED — the population of record.** `restrict_to_rosters()` keeps only
+events whose (bar-date, ticker) is on the roster captured *for* that bar-date
+— applied to whichever event lists the engine exposes (`events`/`chase` for
+#15's engine, `f1_events`/`f2_events`/`f3_pairs` for #19's) — and then rebuilds
+the engine's own baseline pools. A bar-date with no roster contributes no
+events; bars from the whole archive remain available as baseline material (the
+design's stated null is "other moments of the same movers", and the frozen
+engine's pools are window-wide, so the baseline treatment is unchanged). This
+is recorded because the alternative — deriving the population from the
+directory listing — would let *later* roster captures determine an *earlier*
+date's population.
+
+**NEW FINDING — the bootstrap smoke test.** Running the new gate surfaced that
+the archive's first pull (`20260918-200323`) was a `--limit 3` smoke test, so
+**15 files** (CANG/GEMI/SECZ × the five then-available bar-dates) are not blind
+full-roster captures. They lie entirely on pre-roster dates
+(2026-09-11…09-17) and contribute no events under §3. The gate records a
+**bounded exemption**: by pull id, only on bar-dates before the first roster,
+always printed in the evidence (`exempt_bootstrap_smoke_test`), and it errors
+if such a file ever appears inside the roster window. The alternative — a
+recorded `--repair` of the 15 files — is left to the freeze session, since
+those dates are long outside Yahoo's 7-day window and a repair now deletes the
+bars permanently.
+
+**Still open for the freeze session:** the §4 floor reading (roster bar-dates
+— recommended, and what the numbers above assume); the smoke-test files' fate;
+and the freeze record itself. `--audit` and `--floors` remain safe to run at
+any time and consume no one-shot.*

@@ -1,17 +1,20 @@
 # Paper log — live-execution study of the frozen intraday signals (pre-reg #23)
 
-**Status (2026-09-22): pre-registration #23 frozen 2026-08-23, before any
-paper-log results exist; the paper loop runs nightly (Task Scheduler
-`\patternScanner-intraday-paper`, 22:30 MT) on each bar-date as it lands. The
-log now covers all 24 window bar-dates (2026-08-19…2026-09-22) — 2026-09-18,
--21 and -22 were backfilled after the loop was found dead (see the amendment
-note below) — and the shared §5 floor opened 2026-09-18, so the §5-gated
-comparison is now **ELIGIBLE and its one-shot is UNCONSUMED** (§7: computed
-once, at the first meeting of the floor; a larger paper log is a new
-pre-registration). It was deliberately NOT fired by the 2026-09-22 audit
-session. Note also that the operator-fill layer is empty by design, so the
-L-007 row has no observed-fill data yet while the modeled-fill sensitivity is
-computable.**
+**Status (2026-09-22): pre-registration #23 frozen 2026-08-23; the paper loop
+runs nightly (Task Scheduler `\patternScanner-intraday-paper`, 22:30 MT) on
+each bar-date as it lands, and the log covers all 24 window bar-dates
+(2026-08-19…2026-09-22) — 2026-09-18, -21 and -22 were backfilled after the
+loop was found dead (see the amendment note below). The §5-gated comparison
+**RAN on 2026-09-22 and its one-shot is CONSUMED**: the modeled row came out
+exactly as §9 pre-declared (gap −0.000999 ≈ −2s across all five exit rules and
+all 24 dates, from 2,274 integrity-verified fixed-N returns), and the **L-007
+row is empty** — `data/paper/observed/` was never populated, so the campaign's
+declared finding (the tradeable-price gap) was not captured. Per §7 the
+comparison is one-shot and a larger log is a new pre-registration, so a real
+backtest-live gap needs a successor pre-registration whose tradeable prices
+come from an independent, reproducible source (quotes/bid-ask) rather than
+from hand-logged operator fills. Raw output:
+`data/measurements/measure_paper_loop/paper_compare_2026-09-22.txt`.**
 
 The intraday measurement tools (pre-regs #15, #19–#22) compute close-vs-close
 returns on recorded bars — `(C[e+N] − O[e+1])/O[e+1] − COST`. The archive is
@@ -115,7 +118,7 @@ with the archive. Manual runs:
 ```bat
 python -X utf8 tools\paper_loop.py --all      rem backfill all window bar-dates
 python -X utf8 tools\paper_loop.py --check    rem determinism check
-python -X utf8 tools\paper_loop.py --compare  rem the §5-gated comparison (floor met 2026-09-18; one-shot UNCONSUMED)
+python -X utf8 tools\paper_loop.py --compare  rem the §5-gated comparison (RAN 2026-09-22; one-shot CONSUMED — see PREREGISTRATION #23 §11)
 ```
 
 The operator's daily practice: review the previous bar-date's journal skeleton,

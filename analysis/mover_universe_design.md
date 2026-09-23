@@ -153,6 +153,17 @@ still-draft `tools/measure_mover_entry.py`, leaving the frozen engines
 byte-identical; and (ii) the per-bar-date population must be read from
 `data/mover_rosters/<date>.csv`, never from the directory listing (a date
 directory accumulates the union of every roster in the 7-day window, so a
-listing-derived population is partly determined by later captures). Both to be
-resolved and recorded before the freeze; the 20-bar-date floor opens
-~2026-10-08 (campaign A is also short of its 2,000-event floor: 659).
+listing-derived population is partly determined by later captures). **Both are
+now resolved in the draft tool (2026-09-22):** `mover_audit()` re-adjudicates
+only that attribution clause against the roster rule — the gate PASSES
+(1,566/1,581 files clean, 15 bootstrap smoke-test files exempt by pull id and
+scope, 3 roster pulls attributed, chain OK) — and `restrict_to_rosters()`
+applies the population of record in code. Two consequences for the clock:
+events can only come from **roster** bar-dates (3 today), so the restricted
+floor counts are campaign A 3/20 bar-dates and 175/2,000 events, campaign B
+3/20 bar-dates and 4,183/2,000 events — against 8/20, 659 and 19,245 on the
+unrestricted archive-walk, a gap that *is* the size of the population rule.
+~20 roster bar-dates ≈ **2026-10-15**; campaign A's event floor ≈ early
+November. Freeze still pending: the §4 floor reading (roster bar-dates), the
+15 smoke-test files' fate, and the freeze record — all recorded in
+PREREGISTRATION #33 §5.

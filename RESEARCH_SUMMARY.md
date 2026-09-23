@@ -86,9 +86,12 @@ The intraday track fired 2026-09-18 (see below). Remaining: **#20** (the
 intraday exit rules — floors partially met on 2026-09-22: 24/20 bar-dates,
 361/100 tickers and 24/15 dates-with-events all met, but only
 **1,519/2,000 F1-evaluable B-01 events**; the binding floor opens
-~2026-10-02), **#23** (the paper loop — running nightly on each tape day
-again since the 2026-09-22 frozen-input repair; its §5-gated comparison
-opens with the shared floor), and the **mover-universe track** below.
+~2026-10-02), **#23** (the paper loop — running nightly again since the
+2026-09-22 frozen-input repair; its §5-gated comparison **ran 2026-09-22**:
+the modeled gap came out exactly as pre-declared at −0.000999 ≈ −2s, and the
+**L-007 row is empty** because no observed fills were ever logged — so the
+tradeable-price gap needs a successor pre-registration with a programmatic
+quotes source), and the **mover-universe track** below.
 Nothing on the daily track remains: every claim from the §J scan that daily
 bars can express has been tested.
 
@@ -111,8 +114,8 @@ is a DRAFT until its one-week shakedown completes.
 | Roster capture | live — 3 rosters (2026-09-18/-21/-22), 100 names each; weekend runs correctly no-op onto the last session date |
 | Bar archive | 8 bar-dates (2026-09-11…09-22), 240 tickers, 1,581 files, hash-verified; the 22:35 MT pull exits 0 nightly |
 | QA | flags only — thin-name RTH sparsity, no daily envelope for mover names, 22 recorded Yahoo-restatement drift notes across the night's three roster runs |
-| Freeze | blocked on two shakedown findings (pre-reg #33 §5): the §5 integrity gate as wired cannot pass on a roster-defined archive (1,581 attribution errors), and the population must be read from the roster CSV rather than the directory listing |
-| Floors | campaign A (B-01 on movers) 8/20 bar-dates, 659/2,000 events; campaign B (entry families) 8/20 bar-dates, 19,245/2,000 events → the 20-bar-date floor opens ~2026-10-08 |
+| Freeze | pending three decisions (pre-reg #33 §5): §4's "mover bar-dates" = roster bar-dates, the 15 bootstrap smoke-test files (bounded exemption vs `--repair`), and the freeze record. The two blockers found 2026-09-22 — the §5 gate and the population of record — are **resolved in the draft tool** (gate PASSES 1,566/1,581 + 15 exempt; `restrict_to_rosters()` in code) |
+| Floors | on the **population of record** (roster bar-dates): campaign A 3/20, 175/2,000 events; campaign B 3/20, 4,183/2,000 events — vs 8/20, 659 and 19,245 on the unrestricted archive walk. ~20 roster bar-dates ≈ 2026-10-15; campaign A's event floor ≈ early November |
 
 ## The intraday track (fired 2026-09-18)
 

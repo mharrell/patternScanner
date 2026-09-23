@@ -221,9 +221,13 @@ byte-locked (fixed-point FROZEN_SHA in each §8 block) and independently
 verified (`tools/verify_intraday.py`). **Pre-reg #23 (the paper loop, frozen
 2026-08-23)** runs the five frozen definitions on each live tape day as it
 lands and logs fills/slippage vs. the recorded bar, the gate decisions and a
-daily journal — the L-007 backtest-live gap feed. Its log now covers all 24
-window bar-dates, so **the §5-gated comparison is eligible and its one-shot is
-UNCONSUMED** (see [data/paper/README.md](data/paper/README.md)). The
+daily journal — the L-007 backtest-live gap feed. Its log covers all 24 window
+bar-dates and **its §5-gated comparison ran 2026-09-22**: the modeled row came
+out exactly as pre-declared (−0.000999 ≈ −2s, across every exit rule and all
+24 dates) while the **L-007 row is empty** — the operator-fill layer was never
+populated and the one-shot cannot be re-run, so the real backtest-live gap
+needs a new (quotes-based) pre-registration (see
+[data/paper/README.md](data/paper/README.md)). The
 **mover-universe track** (`data/intraday_movers/`, pre-reg #33 draft) captures
 his own population nightly. Nightly: pull (22:05) + paper loop (22:30) + mover
 pull (22:35) + push (23:00) + gate opener (23:45) under Task Scheduler. See
@@ -253,9 +257,12 @@ Next candidates: the daily track is exhausted — everything left needs intraday
 data, and the **intraday track** has now fired. Measured 2026-09-18: **#15,
 #19, #21, #22, #27, #32** (§K.1–§K.6). Still open: **#20** (the intraday exits
 — floors partially met, the 2,000-event floor opens ~2026-10-02), **#23's
-§5-gated L-007 comparison** (eligible now that the floor is met; one-shot
-UNCONSUMED), and **#33** (the mover-universe track — draft, blocked on two
-shakedown findings). See [data/intraday/README.md](data/intraday/README.md),
+L-007 row** (the comparison ran 2026-09-22 — the modeled gap came out exactly
+as pre-declared while the observed layer was empty, so a new quotes-based
+pre-registration is the path to a real backtest-live gap), and **#33** (the
+mover-universe track — draft; the §5-gate and population blockers are resolved
+in the draft tool, and the floors are now measured on the roster population:
+~20 roster bar-dates ≈ 2026-10-15). See [data/intraday/README.md](data/intraday/README.md),
 [data/paper/README.md](data/paper/README.md),
 [analysis/mover_universe_design.md](analysis/mover_universe_design.md) and
 [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md).
@@ -355,9 +362,9 @@ shakedown findings). See [data/intraday/README.md](data/intraday/README.md),
   Pre-registration #23: the paper loop as a live-execution study (runs the
   five frozen intraday definitions on each live tape day as it lands; logs
   fills/slippage vs. the recorded bar, gate decisions, and a daily journal —
-  the L-007 backtest-live gap feed for the §5-gated comparison), frozen
-  2026-08-23, **live since: the log covers all 24 window bar-dates and the
-  §5-gated comparison is eligible with its one-shot UNCONSUMED**.
+  the L-007 backtest-live gap feed), frozen 2026-08-23, **live since; its
+  §5-gated comparison RAN 2026-09-22 — the modeled gap exactly as
+  pre-declared, the L-007 row empty (no observed fills), one-shot consumed**.
   Pre-registration #27: the MACD crossover gate on his entry set, frozen
   2026-09-02, **measured 2026-09-18: NO EDGE ×4 (§K.4)**. Pre-registration
   #32: intraday sector sympathy, frozen 2026-09-02, **measured 2026-09-18:
@@ -365,8 +372,9 @@ shakedown findings). See [data/intraday/README.md](data/intraday/README.md),
   Pre-registration #33: the mover-universe track (his timing rules on his own
   population — nightly day-gainers roster + 1-minute bars in
   `data/intraday_movers/`; design `analysis/mover_universe_design.md`),
-  **DRAFT 2026-09-18, awaiting its one-week shakedown → freeze** (two
-  shakedown blockers recorded in its §5).
+  **DRAFT 2026-09-18 — capture live, the shakedown blockers resolved in the
+  tool, freeze pending three decisions (the §4 roster-bar-date reading, the
+  bootstrap smoke-test files, the freeze record)**.
 - [data/README.md](data/README.md) — Phase 1 data: frozen S&P 600 snapshot,
   per-ticker bars, QA report, documented gaps and artifacts.
 - [data/intraday/README.md](data/intraday/README.md) — the intraday track:

@@ -1683,9 +1683,13 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   re-frozen `45f91e7a…` 2026-08-25 under §10 amendment 1, and `1de03118…`
   2026-09-22 under amendment 2), the five frozen inputs asserted at import,
   `data/paper/` append-only. The floor flipped 2026-09-18 and the log now
-  covers all 24 window bar-dates, so the §5-gated L-007 comparison is
-  **eligible with its one-shot UNCONSUMED** (§7: computed once, at the first
-  meeting of the floor) — firing it is a deliberate session act. Amendment 2
+  covers all 24 window bar-dates, so the §5-gated L-007 comparison **ran
+  2026-09-22 (one-shot CONSUMED)**: the modeled row came out exactly as §9
+  pre-declared (−0.000999 ≈ −2s across all five exit rules and all 24 dates,
+  from 2,274 integrity-verified fixed-N returns) and the **L-007 row is
+  empty** — `data/paper/observed/` was never populated, so the
+  tradeable-price gap was not captured; a quotes-based successor
+  pre-registration is the path to it. Amendment 2
   was needed because the #21/#22 report-writer amendments had silently killed
   the loop from 2026-09-18; the three missed bar-dates were backfilled and
   every prior decision path verified identical.
@@ -1805,15 +1809,24 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   dates-with-events **24/15** ✓, **F1-evaluable B-01 events 1,519/2,000** ✗
   — the binding floor (~8 more sessions, ~2026-10-02). The gate-opener
   re-checks nightly without consuming the one-shot; no measurement has run.
-- [ ] **#23's §5-gated L-007 comparison is ELIGIBLE and its one-shot is
-  UNCONSUMED (2026-09-22).** The shared §5 floor opened 2026-09-18 and the
-  paper log now covers 24/24 window bar-dates (100% ≥ the §7 90% completeness
-  floor), so per pre-reg #23 §7 the comparison is due at the first meeting of
-  the floor. Deliberately not fired by the audit session — a gated one-shot
-  measurement is a session act, and per §7 a larger paper log would be a new
-  pre-registration. Caveat to record with the result: the operator-fill layer
-  is empty by design, so the L-007 row has no observed-fill data while the
-  modeled-fill sensitivity (gap ≈ −2s by construction) is computable.
+- [x] **#23's §5-gated L-007 comparison — RAN 2026-09-22, one-shot consumed.**
+  The shared §5 floor opened 2026-09-18 and the paper log covered all 24 window
+  bar-dates (100% ≥ the §7 90% completeness floor), so the comparison was
+  computed at the first meeting of the floor as §7 requires (archive audit
+  PASSED; paper-log integrity recomputed and matched, 2,274 fixed-N returns).
+  Result: the **modeled row** (sensitivity) came out exactly as §9
+  pre-declared — gap **−0.000999 ≈ −2s** for every exit rule (n 2,041–3,043)
+  and every one of the 24 dates — while the **L-007 row is EMPTY**: no
+  observed fills were ever recorded (`data/paper/observed/` did not exist).
+  So the campaign closed procedurally and **null on its declared finding**.
+  The failed design element is the *manual* observed layer (no floor was ever
+  set on observed-fill count, so an empty layer passed every floor). The path
+  to a real backtest-live gap is a NEW pre-registration defining tradeable
+  prices from an independent, reproducible source (quotes/bid-ask at the
+  signal bar) — a schema and data-source decision, to be made before it can
+  be frozen. Raw output:
+  `data/measurements/measure_paper_loop/paper_compare_2026-09-22.txt`;
+  reasoning in PREREGISTRATION #23 §11.
 - [x] Keep the paper loop (pre-reg #23) running nightly — **found broken and
   fixed 2026-09-22**: the tool aborted at import from 2026-09-18 because the
   §K campaign amendments to `measure_intraday_veto.py` / `_regime.py`
@@ -1827,23 +1840,30 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   roster capture + `data/intraday_movers` pull since 2026-09-18 (22:35 MT,
   exit 0 every night), 3 rosters (09-18/-21/-22), 8 bar-dates / 240 tickers
   / 1,581 files hash-verified; QA flags in the expected class only.
-- [ ] **#33 shakedown blockers (must clear before the freeze).** (1) *The §5
-  gate as wired cannot pass on this archive* — the frozen #15
-  `audit_archive()` requires every in-window pull to name an
-  `universe_sp600_*` membership file, while mover pulls record a roster CSV;
-  sweeping the mover archive returns **1,581 attribution errors /
-  `passed: False`** (chain, hash and orphan checks clean), so both campaigns
-  would abort as "campaign void" even after the floors open. Recommended:
-  a mover analogue inside the still-draft `tools/measure_mover_entry.py`
-  (frozen engines stay byte-identical), NOT an amendment to the shared
-  engine's sha — the #15 stack and the #23 paper loop both assert it.
-  (2) *The population must be read per bar-date from
-  `data/mover_rosters/<date>.csv`*, never from the directory listing: a
-  bar-date directory is the union of every roster in the 7-day window, so a
-  listing-derived population is partly determined by later captures. Both
-  recorded in PREREGISTRATION #33 §5. Floors 2026-09-22: campaign A 8/20
-  bar-dates, 659/2,000 events, 8/15 dates; campaign B 8/20 bar-dates,
-  19,245/2,000 events, 8/15 dates → the 20-bar-date floor opens ~2026-10-08.
+- [x] **#33 shakedown blockers — RESOLVED in the draft tool (2026-09-22).**
+  (1) *The §5 gate as wired could not pass on the mover archive*: the frozen
+  #15 `audit_archive()` requires every in-window pull to name an
+  `universe_sp600_*` membership file, while mover pulls record a roster CSV —
+  1,581 attribution errors, so both campaigns would have aborted as "campaign
+  void". Fixed **without touching the frozen engines** (their shas are
+  asserted by the #15 stack and the #23 paper loop): `mover_audit()` in
+  `tools/measure_mover_entry.py` keeps every archive-agnostic check and
+  re-adjudicates only that clause against the roster rule — the gate now
+  **PASSES** (attribution 1,566/1,581 clean, 3 roster pulls attributed, chain
+  OK, exit 0). (2) *The population must come from the roster CSV* — implemented
+  as `restrict_to_rosters()`, and it moves the numbers: the restricted floor
+  counts are campaign A **3/20 roster bar-dates, 175/2,000 events** and
+  campaign B **3/20 roster bar-dates, 4,183/2,000 events**, against 8/20, 659
+  and 19,245 on the unrestricted archive walk. A third finding surfaced while
+  fixing it: the archive's first pull was a `--limit 3` smoke test (15 files on
+  pre-roster dates), held as a bounded, printed exemption rather than silently
+  trusted. Verdicts/reasoning: PREREGISTRATION #33 §5.
+- [ ] **#33 freeze-session decisions (before `FROZEN = True`).** Settle §4's
+  "≥ 20 mover bar-dates" as roster bar-dates (recommended; both counts are
+  printed by `--floors`); decide whether the 15 bootstrap smoke-test files stay
+  (bounded exemption) or are `--repair`ed; then complete the freeze record.
+  Clock under the population of record: ~20 roster bar-dates ≈ 2026-10-15,
+  campaign A's 2,000-event floor ≈ early November.
 
 ## J. Warrior-trading corpus — "My Favorite Episodes" playlist claims
 
@@ -3072,9 +3092,11 @@ the reversion has begun.
 measured — two EDGEs (#15 F2 HOD-retest structure, gate-clean; #22 F2
 money window, relative-only), four FADEs, six NO EDGE slots, two honest
 INCONCLUSIVEs (#32 empty population, #15 S-WIN thin). #20 (exit rules)
-pending on its own floors; #23 (the paper loop) runs nightly and, as of
-2026-09-22, its §5-gated L-007 comparison is eligible with its one-shot
-unconsumed (PREREGISTRATION #23 §8/§11). The
+pending on its own floors; #23 (the paper loop) runs nightly and its
+§5-gated L-007 comparison **ran 2026-09-22** — one-shot consumed, the modeled
+row exactly as pre-declared, the **L-007 row empty** (no observed fills were
+ever logged), so the tradeable-price gap moved to a successor pre-registration
+(PREREGISTRATION #23 §8/§11). The
 corpus's intraday teaching, measured: structure is real, timing advice
 is inverted or null, and the filter stack (veto + MACD gate + window
 selection) does not separate good entries from bad on the universe a
