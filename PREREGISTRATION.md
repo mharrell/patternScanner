@@ -5972,5 +5972,20 @@ bars permanently.
 
 **Still open for the freeze session:** the §4 floor reading (roster bar-dates
 — recommended, and what the numbers above assume); the smoke-test files' fate;
-and the freeze record itself. `--audit` and `--floors` remain safe to run at
-any time and consume no one-shot.*
+**the cost model** (below); and the freeze record itself. `--audit` and
+`--floors` remain safe to run at any time and consume no one-shot.
+
+**Cost model — must NOT inherit 0.15% unchanged.** The exploratory cost screen
+(`analysis/cost_screen_2026-09-22.md`, NO VERDICTS) measured the mover
+population's hard lower bound on round-trip cost: two ticks is **0.274%** in
+the $5–10 band, **0.609%** in $2–5 and **1.361%** in $1–2, and **61% of roster
+name-days have a tick floor above the frozen 0.15%**. Against the movers' median
+60-bar window range (1.465%), that floor alone consumes 19% / 42% / 93% of the
+available move — before any real spread, which is unmeasured and sits on top of
+it. (For contrast, the index population where #15/#19 were measured has a
+0.038% floor on 80% of its name-days, so the archived index FADE verdicts do
+not depend on a generous convention.) **Freeze decision:** either keep 0.15% as
+the comparability tier and add a tick-floor-aware sensitivity (free and honest,
+but flatters results by 2–9× on most of this population), or set the primary
+cost from a measured spread sample once quotes exist (needs the data purchase).
+Recorded here so the choice is made with the numbers in view.*

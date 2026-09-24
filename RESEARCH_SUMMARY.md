@@ -117,6 +117,28 @@ is a DRAFT until its one-week shakedown completes.
 | Freeze | pending three decisions (pre-reg #33 §5): §4's "mover bar-dates" = roster bar-dates, the 15 bootstrap smoke-test files (bounded exemption vs `--repair`), and the freeze record. The two blockers found 2026-09-22 — the §5 gate and the population of record — are **resolved in the draft tool** (gate PASSES 1,566/1,581 + 15 exempt; `restrict_to_rosters()` in code) |
 | Floors | on the **population of record** (roster bar-dates): campaign A 3/20, 175/2,000 events; campaign B 3/20, 4,183/2,000 events — vs 8/20, 659 and 19,245 on the unrestricted archive walk. ~20 roster bar-dates ≈ 2026-10-15; campaign A's event floor ≈ early November |
 
+## Cost reality (exploratory screen, 2026-09-22 — no verdicts)
+
+`analysis/cost_screen_2026-09-22.md` measured what the owned data can say about
+*price* cost, before any quotes purchase. Three findings that shape what is
+worth doing next:
+
+1. **Both long legs lose before cost is charged** (gross −4.1bp for #15's
+   B-01, −4.4bp for #19's reversal-longs). No fill model, no execution skill
+   and no cost assumption can rescue a negative gross — the archived FADEs are
+   conservative.
+2. **The only positive intraday legs are the shorts, and they earn less than
+   the minimum crossing cost**: +4.0/+4.4bp gross against a **6.2bp median
+   tick floor** on those very events. The best absolute intraday edge in the
+   record sits inside the noise of the tick.
+3. **The exit, not the entry, owns the leverage**: within the same entry set
+   and 60-bar window, the exit choice spans ~60–70bp (as-measured −0.041% →
+   perfect-foresight +0.645%) while the entry contributes ≈0. That raises
+   **#20** (intraday exits, the one unmeasured frozen campaign) from a
+   formality to the live question — and it means a quotes budget would be
+   wasted on the timing rules and only useful for the mover population's cost
+   model.
+
 ## The intraday track (fired 2026-09-18)
 
 The §5 floor opened at 21 full-universe 1-minute bar-dates

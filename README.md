@@ -386,6 +386,15 @@ in the draft tool, and the floors are now measured on the roster population:
 - [INTRAday_OPERATIONS.md](INTRAday_OPERATIONS.md) — intraday runbook: what
   runs nightly, monitoring, failure modes and recovery, re-creating the
   scheduled tasks.
+- [analysis/mover_universe_design.md](analysis/mover_universe_design.md) — the
+  mover-universe track's design (testing his rules on his own population) and
+  its shakedown status.
+- [analysis/cost_screen_2026-09-22.md](analysis/cost_screen_2026-09-22.md) —
+  **exploratory cost screen (NO VERDICTS)**: the tick floor by population,
+  break-even cost for the archived legs, and foresight bounds. Why the long
+  legs lose before any cost is charged, why the only positive legs sit below
+  the minimum crossing cost, why the exit (not the entry) owns the ~60bp of
+  leverage, and why #33 must not inherit the 0.15% cost convention.
 - [transcripts/warrior-trading/_INDEX.md](transcripts/warrior-trading/_INDEX.md) —
   reference corpus of a day-trading "expert" education series (fan-curated
   playlist), for scrutiny and technique reference. Transcript files are

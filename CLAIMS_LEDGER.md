@@ -1809,6 +1809,12 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   dates-with-events **24/15** ✓, **F1-evaluable B-01 events 1,519/2,000** ✗
   — the binding floor (~8 more sessions, ~2026-10-02). The gate-opener
   re-checks nightly without consuming the one-shot; no measurement has run.
+  **Priority raised 2026-09-22 by the exploratory cost screen**
+  (`analysis/cost_screen_2026-09-22.md` — NO VERDICTS): within the same frozen
+  entry set and the same 60-bar window, the *exit choice* spans ~60–70bp
+  (as-measured −0.041% → perfect-foresight +0.645% for #15) while the entry
+  contributes ≈0. The exit is the one part of these constructions not already
+  measured as a wash, which makes #20 the live campaign rather than a formality.
 - [x] **#23's §5-gated L-007 comparison — RAN 2026-09-22, one-shot consumed.**
   The shared §5 floor opened 2026-09-18 and the paper log covered all 24 window
   bar-dates (100% ≥ the §7 90% completeness floor), so the comparison was
