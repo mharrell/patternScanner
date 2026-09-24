@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+SMJF,SMJ International Holdings Inc.,1.6,29.0323,3625138,ASE
+PAAI,"Paradium.AI, Inc.",1.55,19.2308,5831980,ASE
+QNC,Quantum eMotion Corp.,2.03,15.3409,1503379,ASE
+EGHT,8x8 Inc,2.29,15.0754,4687765,NMS
+NNBR,"NN, Inc.",3.86,14.5401,9707338,NMS
+SECZ,Securitize Corp.,14.36,10.4615,9169868,NYQ
+MEI,"Methode Electronics, Inc.",14.83,9.68934,1289032,NYQ
+AIB,AIB Data Centers Inc.,1.46,7.35294,1150280,ASE
+ADCT,ADC Therapeutics SA,1.31,6.50406,1956194,NYQ
+LU,Lufax Holding Ltd,1.22,6.08696,3765476,NYQ
+KVYO,"Klaviyo, Inc. Series A",16.78,5.73409,9600181,NYQ
+ASAN,"Asana, Inc.",9.47,4.29516,8536552,NYQ
+FLNC,"Fluence Energy, Inc.",7.58,4.2641,11533514,NMS
+ASPN,"Aspen Aerogels, Inc.",5.68,3.64963,1098760,NYQ
+SSL,Sasol Ltd.,14.29,3.62582,3110388,NYQ
+FRSH,Freshworks Inc.,12.87,3.62319,6236340,NMS
+AVEX,AEVEX Corp.,16.44,3.39623,1042064,NYQ
+GPRO,"GoPro, Inc.",1.31,3.1496,16830042,NMS
+KOS,Kosmos Energy Ltd.,2.65,3.11285,16350737,NYQ
+TALO,"Talos Energy, Inc.",16.56,2.92106,1907541,NYQ
+GORO,Goldgroup Mining Inc.,3.65,2.81691,1079686,ASE
+VG,"Venture Global, Inc.",13.27,2.78854,17472469,NYQ
+CLF,Cleveland-Cliffs Inc.,12.87,2.71349,20081998,NYQ
+KLRA,"Kailera Therapeutics, Inc.",13.13,2.65833,1631550,NMS
+WTI,"W&T Offshore, Inc.",3.74,2.46575,3640046,NYQ
+INIO,INNIO N.V.,19.99,2.46027,6603095,NMS
+PD,"PagerDuty, Inc.",14.83,2.41713,1763408,NYQ
+OCTV,Octave Intelligence plc,19.82,2.32317,1951034,NMS
+OPRT,Oportun Financial Corporation,8.48,2.29191,1148935,NMS
+RES,"RPC, Inc.",5.85,2.27273,1620952,NYQ
+NOMD,Nomad Foods Limited,10.71,2.0,2085707,NYQ
+ARLO,"Arlo Technologies, Inc.",13.66,1.86428,1259967,NYQ
+RSKD,Riskified Ltd.,7.14,1.85449,5979226,NYQ
+AIV,Apartment Investment and Manage,2.2,1.85185,5178116,NYQ
+NAC,Nuveen California Quality Munic,10.68,1.71429,5207257,NYQ
+BPRE,Bluerock Private Real Estate Fund,12.37,1.64338,2167568,NYQ
+CPRI,Capri Holdings Limited,15.43,1.57999,4749987,NYQ
+SONO,"Sonos, Inc.",17.1,1.48368,2216564,NMS
+PBR.A,Petroleo Brasileiro S.A. Petrob,19.22,1.47835,7286997,NYQ
+CCC,CCC Intelligent Solutions Holdi,6.66,1.36986,13348903,NMS
+CRGY,Crescent Energy Company,13.18,1.30669,5871153,NYQ
+BEKE,KE Holdings Inc,16.59,1.28206,5231193,NYQ
+LBRT,Liberty Energy Inc.,18.27,1.27494,4450637,NYQ
+MQ,"Marqeta, Inc.",16.1,1.13066,1100800,NMS
+FUN,Six Flags Entertainment Corpora,12.43,1.05691,2029694,NYQ
+CRK,"Comstock Resources, Inc.",13.45,0.975977,2102227,NYQ
+NABL,"N-able, Inc.",4.15,0.973235,1950033,NYQ
+DNOW,DNOW Inc.,15.71,0.964008,1387548,NYQ
+GRAB,Grab Holdings Limited,3.2,0.946371,113719305,NMS
+GPK,Graphic Packaging Holding Compa,9.66,0.94044,6430992,NYQ
+CXM,"Sprinklr, Inc.",5.43,0.929363,1716598,NYQ
+TAL,TAL Education Group,11.98,0.926703,1794829,NYQ
+BATL,Battalion Oil Corporation,1.1,0.91743,3686346,ASE
+KRP,Kimbell Royalty Partners,14.41,0.839747,1298351,NYQ
+ANVS,"Annovis Bio, Inc.",1.27,0.79365,1144007,NYQ
+ESRT,"Empire State Realty Trust, Inc.",4.13,0.731712,4136871,NYQ
+GENI,Genius Sports Limited,6.12,0.657894,10161386,NYQ
+CNH,CNH Industrial N.V.,13.75,0.585223,17035531,NYQ
+TRLV,Trulieve Cannabis Corp. Subordi,12.54,0.561345,2986948,NYQ
+PRMB,Primo Brands Corporation,19.75,0.560085,3563106,NYQ
+HUN,Huntsman Corporation,9.1,0.552488,1586862,NYQ
+SG,"Sweetgreen, Inc.",7.71,0.521512,3881180,NYQ
+GTM,ZoomInfo Technologies Inc.,3.9,0.515463,3530547,NMS
+ALEC,"Alector, Inc.",2.02,0.497512,1181009,NMS
+RXO,"RXO, Inc.",19.88,0.454766,2048450,NYQ
+GLOO,"Gloo Holdings, Inc.",4.8,0.41841,1284200,NMS
+KD,"Kyndryl Holdings, Inc.",12.11,0.414587,2796161,NYQ
+PWP,Perella Weinberg Partners,13.39,0.374814,1422133,NMS
+ACHR,Archer Aviation Inc.,5.71,0.351494,19253312,NYQ
+LI,Li Auto Inc.,11.7,0.343053,1941091,NMS
+NTST,NetSTREIT Corp.,18.37,0.327697,1649573,NYQ
+PINS,"Pinterest, Inc.",18.45,0.326272,14736556,NYQ
+APLE,"Apple Hospitality REIT, Inc.",15.83,0.316858,2998065,NYQ
+GPRE,"Green Plains, Inc.",15.11,0.265428,1090229,NMS
+AADX,"Applied Aerospace & Defense, In",12.69,0.236965,1281110,NYQ
+CLM,Cornerstone Strategic Value Fd,6.37,0.157229,1303477,ASE
+XE,"X-Energy, Inc.",16.38,0.122241,6484338,NMS
+NTSK,"Netskope, Inc.",18.57,0.107819,5769366,NMS
+AI,"C3.ai, Inc.",10.86,0.0921592,3092983,NYQ
+DBRG,"DigitalBridge Group, Inc.",15.99,0.0625797,7834986,NYQ
+AMTM,"Amentum Holdings, Inc.",19.71,0.0507529,1203183,NYQ
+AEO,"American Eagle Outfitters, Inc.",15.92,0.0,5396666,NYQ
+BLMN,"Bloomin' Brands, Inc.",8.55,0.0,2021181,NMS
+BTE,Baytex Energy Corp,4.58,0.0,17596571,NYQ
+CAG,"ConAgra Brands, Inc.",14.78,0.0,12685055,NYQ
+DV,"DoubleVerify Holdings, Inc.",13.4,0.0,1385145,NYQ
+EGY,"VAALCO Energy, Inc.",5.84,0.0,1039416,NYQ
+GBTG,"Global Business Travel Group, I",9.46,0.0,2419671,NYQ
+WIT,Wipro Limited,1.69,0.0,5958425,NYQ
+AES,The AES Corporation,14.81,-0.0674715,10713464,NYQ
+INFY,Infosys Limited,10.75,-0.0929389,17177647,NYQ
+ACVA,ACV Auctions Inc.,10.43,-0.191383,13854154,NYQ
+PEB,Pebblebrook Hotel Trust,18.22,-0.219063,1590707,NYQ
+VFC,V.F. Corporation,13.52,-0.2214,7156451,NYQ
+MYGN,"Myriad Genetics, Inc.",4.01,-0.24875,1657972,NMS
+NPKI,NPK International Inc.,11.71,-0.255534,1256211,NYQ
+KT,KT Corporation,19.45,-0.256406,1060375,NYQ
+NCLH,Norwegian Cruise Line Holdings ,14.18,-0.281294,22807743,NYQ
+OLN,Olin Corporation,16.77,-0.297261,1793015,NYQ
+VTRS,Viatris Inc.,17.12,-0.34924,6868486,NMS
