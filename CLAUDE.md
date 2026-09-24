@@ -27,15 +27,19 @@ registered tasks, all `StartWhenAvailable`:
   each §5-gated campaign in full mode; an unmet floor REFUSES (exit 2) without
   consuming the one-shot, so it is safe nightly (`%TEMP%\gate_opener.log`).
 
-Status 2026-09-22: the shared §5 floor opened 2026-09-18 and six campaigns are
+Status 2026-09-23: the shared §5 floor opened 2026-09-18 and six campaigns are
 measured (#15/#19/#21/#22/#27/#32 → ledger §K.1–§K.6). **#20 is the last
-unmeasured frozen campaign** (1,519/2,000 F1-evaluable events, ~early
-October). **#23's §5-gated comparison RAN 2026-09-22 and its one-shot is
+unmeasured frozen campaign** (1,601/2,000 F1-evaluable events, ~2026-10-01).
+**#23's §5-gated comparison RAN 2026-09-22 and its one-shot is
 CONSUMED** — the modeled gap came out exactly as pre-declared (−0.000999 ≈
 −2s) and the **L-007 row is empty** because the operator-fill layer was never
 populated, so the campaign's declared finding was not captured; a
 quotes-based successor pre-registration is the path to a real backtest-live
-gap. The mover track waits on its shakedown (two blockers in pre-reg #33 §5).
+gap. The mover track's shakedown blockers are resolved in the draft tool, and
+the **cost screen** (`analysis/cost_screen_2026-09-22.md`) now shows the first
+positive recorded-bar preview on that population (+0.68% gross B-01 vs −0.04%
+on the index) — below every floor, recorded-bar only, no verdict. Its freeze
+decision on the cost model is the live one (1,601 → 2,000 events is not).
 
 **The archive is append-only and must never be regenerated or edited.**
 Each (bar-date, ticker) file is written once and immutable; every run

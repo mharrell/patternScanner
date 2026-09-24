@@ -239,3 +239,15 @@ Update the absolute paths inside the XMLs if the repo moves.
   ~early October). **#33** floors: campaign A 8/20 bar-dates and 659/2,000
   events, campaign B 8/20 bar-dates and 19,245/2,000 events — the
   20-bar-date floor opens ~2026-10-08.
+- 2026-09-23: nightlies green again (pull: 601 files, 0 failed, 93 drift notes;
+  mover pull: 9 bar-dates / 307 tickers; paper log for 2026-09-23 written;
+  push exit=0; gate-opener still refuses #20 on its event floor). **Cost screen
+  added** — `tools/cost_screen.py` → `analysis/cost_screen_2026-09-22.md`
+  (exploratory, **NO VERDICTS**): the tick floor by population, break-even
+  costs, and foresight bounds. Headlines: both long legs lose *before* cost;
+  the best index leg earns less than the minimum crossing; the **exit** (not
+  the entry) owns the ~60bp of leverage, raising #20's priority; and the
+  roster-restricted mover population shows the program's first positive
+  recorded-bar preview (**+0.68%** gross B-01 vs −0.04% on the index) — below
+  every floor, and the strongest argument for buying a spread sample on the
+  mover roster. #20's binding floor is now 1,601/2,000 events (~2026-10-01).

@@ -4051,6 +4051,13 @@ and the gate-opener re-checks nightly; the earlier "3 window bar-dates"
 note above is superseded. No measurement has run; no parameter has
 changed.*
 
+*§8 floor update (2026-09-23, gate-opener): window bar-dates **25** (need 20)
+OK, events across tickers **370** (need 100) OK, dates with events **25**
+(need 15) OK, **F1-evaluable B-01 events 1,601** (need 2,000) — still the
+binding floor, and moving at ~82 events per bar-date, which puts the window
+around **5 more sessions (~2026-10-01)**. The one-shot remains intact; no
+measurement has run and no parameter has changed.*
+
 ---
 
 # Pre-registration #21 — the two-filter pre-entry veto on 1-minute bars: MACD negative and high-volume red candle (ledger rows E-01, E-04; intraday track)
@@ -5922,6 +5929,31 @@ roster bar-dates ≈ **2026-10-15** (rosters accumulate one per session from
 roster date. **§4's "≥ 20 mover bar-dates" must therefore be read as roster
 bar-dates** — recorded here for the freeze decision; `--floors` prints both
 counts.
+
+**4b. Floors update (2026-09-23; the roster count is now 4).** Population of
+record: **4 roster bar-dates** (2026-09-18…09-23). Re-running the population
+filter on that basis gives campaign A **189 B-01 events** (up from 175 on three
+dates) and campaign B **2,589 long-direction / 3,089 short-direction events**.
+Binding floors are unchanged in kind: **campaign A's bar-date floor** needs ~16
+more sessions (≈ **2026-10-15**) and its 2,000-event floor is now the furthest
+out at ~47 events per roster date (≈ **mid-November**); **campaign B's 15
+dates-with-events** ≈ early October. These move nightly — the freeze session
+re-runs `--floors` and records the numbers it freezes against.
+
+**4c. Positive preview on this population (exploratory, 2026-09-23).** The cost
+screen's S5 section (`analysis/cost_screen_2026-09-22.md` §7) ran the same
+foresight-bound analysis on the roster-restricted mover archive and found the
+first **positive absolute recorded-bar** numbers in the intraday program:
+**+0.682%** gross for B-01 and **+0.542%** for the reversal-long events, against
+−0.041% / −0.044% for the *same detectors on the index*. Even after the
+population's own median tick floor (0.203–0.263%) both stay positive
+(+0.42% / +0.33%). It is **below every §4 floor** (4 bar-dates), it is a
+recorded-bar number on the population where the prints-vs-fills gap is largest,
+and the roster is itself a selection (the day's top gainers) — so it changes no
+verdict and may not be cited as a finding. It does mean the cost-model decision
+below is now decisive rather than theoretical, and it is the strongest single
+argument for buying a **spread sample on the mover roster** before any other
+data purchase.
 
 **5. Freeze readiness.** Of the design §6 shakedown criteria — rosters sane ✓,
 backfill verified ✓, QA clean (flags only, recorded) ✓ — the two blockers

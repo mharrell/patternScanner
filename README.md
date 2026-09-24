@@ -9,7 +9,7 @@ the live S&P 600 crossed its §5 floor on 2026-09-18 and its first six
 campaigns are measured (§K.1–§K.6): two EDGEs (the B-01 setup's
 high-of-day geometry, and the 9:30–12:00 "money window" — relative only),
 four FADEs and six NO EDGE slots, two honest INCONCLUSIVEs. **Open:** #20
-(intraday exits — floors partially met: 1,519/2,000 events, ~early
+(intraday exits — floors partially met: 1,601/2,000 events, ~early
 October), #23 (the paper loop — runs nightly on each tape day), and the
 **mover-universe track** (`data/intraday_movers/`, pre-reg #33 draft,
 awaiting its one-week shakedown → freeze). Documentation/automation audit
@@ -216,7 +216,7 @@ FADEs, six NO EDGE slots and two honest INCONCLUSIVEs — verdicts
 [§K.1–§K.6](CLAIMS_LEDGER.md); durable reports in `data/measurements/`.
 **Still open:** **#20** (the intraday exits — floors partially met on
 2026-09-22: 24/20 bar-dates, 361/100 tickers, 24/15 dates-with-events, but
-1,519/2,000 F1-evaluable events → ~2026-10-02). The frozen tools are
+1,601/2,000 F1-evaluable events → ~2026-10-01). The frozen tools are
 byte-locked (fixed-point FROZEN_SHA in each §8 block) and independently
 verified (`tools/verify_intraday.py`). **Pre-reg #23 (the paper loop, frozen
 2026-08-23)** runs the five frozen definitions on each live tape day as it
@@ -256,7 +256,7 @@ reports:
 Next candidates: the daily track is exhausted — everything left needs intraday
 data, and the **intraday track** has now fired. Measured 2026-09-18: **#15,
 #19, #21, #22, #27, #32** (§K.1–§K.6). Still open: **#20** (the intraday exits
-— floors partially met, the 2,000-event floor opens ~2026-10-02), **#23's
+— floors partially met, the 2,000-event floor opens ~2026-10-01), **#23's
 L-007 row** (the comparison ran 2026-09-22 — the modeled gap came out exactly
 as pre-declared while the observed layer was empty, so a new quotes-based
 pre-registration is the path to a real backtest-live gap), and **#33** (the
@@ -352,7 +352,7 @@ in the draft tool, and the floors are now measured on the roster population:
   ladder, I-C-04 flat-out, on the pre-reg #15 B-01 entry set), frozen
   2026-08-21, **the one frozen intraday campaign not yet measured** — floors
   partially met at 2026-09-22 (24/20 bar-dates, 361/100 tickers, 24/15
-  dates-with-events, **1,519/2,000 F1-evaluable events** → ~2026-10-02).
+  dates-with-events, **1,601/2,000 F1-evaluable events** → ~2026-10-01).
   Pre-registration #21: the two-filter pre-entry veto on 1-min bars
   (E-01/E-04 — MACD negative + high-volume red candle), frozen 2026-08-21,
   **measured 2026-09-18: NO EDGE ×4 (§K.2)**. Pre-registration #22: the

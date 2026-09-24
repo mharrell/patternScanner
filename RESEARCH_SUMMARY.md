@@ -83,10 +83,10 @@ caveats point to.
 ## What's next
 
 The intraday track fired 2026-09-18 (see below). Remaining: **#20** (the
-intraday exit rules — floors partially met on 2026-09-22: 24/20 bar-dates,
-361/100 tickers and 24/15 dates-with-events all met, but only
-**1,519/2,000 F1-evaluable B-01 events**; the binding floor opens
-~2026-10-02), **#23** (the paper loop — running nightly again since the
+intraday exit rules — floors partially met on 2026-09-23: 25/20 bar-dates,
+370/100 tickers and 25/15 dates-with-events all met, but only
+**1,601/2,000 F1-evaluable B-01 events**; the binding floor opens
+~2026-10-01), **#23** (the paper loop — running nightly again since the
 2026-09-22 frozen-input repair; its §5-gated comparison **ran 2026-09-22**:
 the modeled gap came out exactly as pre-declared at −0.000999 ≈ −2s, and the
 **L-007 row is empty** because no observed fills were ever logged — so the
@@ -138,6 +138,18 @@ worth doing next:
    formality to the live question — and it means a quotes budget would be
    wasted on the timing rules and only useful for the mover population's cost
    model.
+4. **The mover population flips the sign** (S5, exploratory): restricting
+   events to each bar-date's captured roster yields the first **positive
+   absolute recorded-bar** numbers in the intraday program — **+0.68%** gross
+   for #15's B-01 and **+0.54%** for #19's reversal-longs, against −0.04% for
+   the *same detectors on the index*, and still positive after that
+   population's own median tick floor (0.203–0.263%). It sits below every §4
+   floor (4 roster bar-dates), it is a recorded-bar number on the population
+   where the prints-vs-fills gap is largest, and the roster is itself a
+   selection (the day's top gainers) — so it changes no verdict and may not be
+   cited as a finding. It is the strongest argument for spending a data budget
+   on a **spread sample for the mover roster**, and the reason #33's freeze
+   matters.
 
 ## The intraday track (fired 2026-09-18)
 

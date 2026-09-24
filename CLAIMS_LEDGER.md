@@ -1479,9 +1479,9 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
    2026-09-18 (§K.6)** — pullback-count **NO EDGE** (the "never trade the
    third" rule is noise), second-confirmation **FADE** (waiting for the
    second candle costs 7bp). **The C-01/C-03/C-04 1-min exit forms
-   (pre-reg #20) await the §5 floor** — 24/20 bar-dates, 361/100 tickers
-   and 24/15 dates-with-events are met, but 1,519/2,000 F1-evaluable
-   B-01 events are not (~8 more sessions, ~2026-10-02).
+   (pre-reg #20) await the §5 floor** — 25/20 bar-dates, 370/100 tickers
+   and 25/15 dates-with-events are met, but 1,601/2,000 F1-evaluable
+   B-01 events are not (~5 more sessions, ~2026-10-01; status 2026-09-23).
 10. **I-D-07 + I-E-01 (high-relative-volume conditioning)** — ✅ MEASURED
     (pre-reg #8, 2026-08-14): F1-A/B **NO EDGE**, F2-B NO EDGE (contrast
     +0.30pp, p=0.302 — the claimed direction, never significant), F1-C/F2-C
@@ -1672,8 +1672,8 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   reading* written into [PREREGISTRATION.md](PREREGISTRATION.md). All four
   **fired their one-shots on 2026-09-18** when the shared §5 floor opened at
   21 bar-dates (§K.2/#21, §K.3/#22, §K.6/#19) — with #20's tool the
-  exception: its own event floor is still short (1,519/2,000 F1-evaluable
-  events at 2026-09-22).
+  exception: its own event floor is still short (1,601/2,000 F1-evaluable
+  events at 2026-09-23).
 - [x] Pre-register the paper loop (pre-reg #23) — done 2026-08-23: the
   live-execution study frozen before any paper-log results — the five frozen
   tools' exact definitions run on each live tape day as it lands, logging
@@ -1805,9 +1805,9 @@ Priority order for turning `candidate` rows into pre-registered hypotheses
   §K.1–§K.6; durable results/reports in `data/measurements/<tool>/`
   (tracked) with the `data/cache/` twins for #15.
 - [ ] **#20 (intraday exits) — the last unmeasured frozen intraday campaign.**
-  Floor status 2026-09-22: bar-dates **24/20** ✓, tickers **361/100** ✓,
-  dates-with-events **24/15** ✓, **F1-evaluable B-01 events 1,519/2,000** ✗
-  — the binding floor (~8 more sessions, ~2026-10-02). The gate-opener
+  Floor status 2026-09-23: bar-dates **25/20** ✓, tickers **370/100** ✓,
+  dates-with-events **25/15** ✓, **F1-evaluable B-01 events 1,601/2,000** ✗
+  — the binding floor (~5 more sessions, ~2026-10-01). The gate-opener
   re-checks nightly without consuming the one-shot; no measurement has run.
   **Priority raised 2026-09-22 by the exploratory cost screen**
   (`analysis/cost_screen_2026-09-22.md` — NO VERDICTS): within the same frozen
