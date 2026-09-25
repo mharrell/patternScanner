@@ -1,17 +1,17 @@
 # Intraday archive QA report
 
-- Generated: 2026-09-24T00:12:38.353775-04:00
-- Files checked: 18071 (606 tickers, 30 bar-dates)
+- Generated: 2026-09-25T00:08:17.452439-04:00
+- Files checked: 18672 (606 tickers, 31 bar-dates)
 - QA tool: `tools/qa_intraday.py` — flags only, nothing deleted or corrected
 - Daily envelope source: `data\cache\bars`
 
 ## Summary
 
-- regular-session coverage < 98%: 16847 files
-- interior gap minutes across archive: 9578140
+- regular-session coverage < 98%: 17390 files
+- interior gap minutes across archive: 9804144
 - envelope violations (high/low): 0 / 0
 - volume-sum mismatches (> 2%): 0
-- daily-bar envelope unavailable (missing/not-loaded): 130 files
+- daily-bar envelope unavailable (missing/not-loaded): 134 files
 - naive-tz / not-minute-floored / unsorted / dup-ts files: 0 / 0 / 0 / 0
 
 ## Anomalies (flagged, not fixed)
@@ -18089,6 +18089,607 @@
 | 2026-09-23/YOU.parquet | 376 | 94.4% | 345 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.4% < 98%; no daily bar for 2026-09-23 |
 | 2026-09-23/ZD.parquet | 239 | 59.7% | 433 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.7% < 98%; no daily bar for 2026-09-23 |
 | 2026-09-23/ZWS.parquet | 276 | 70.0% | 232 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.0% < 98%; no daily bar for 2026-09-23 |
+| 2026-09-24/AAMI.parquet | 178 | 45.1% | 296 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AAP.parquet | 366 | 91.8% | 181 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AAT.parquet | 148 | 37.4% | 244 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 37.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ABCB.parquet | 230 | 58.7% | 161 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ABG.parquet | 152 | 38.5% | 336 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ABM.parquet | 218 | 55.6% | 173 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ABR.parquet | 400 | 98.2% | 538 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ACA.parquet | 293 | 74.6% | 116 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ACAD.parquet | 483 | 100.0% | 477 | 0 | 0 | 0 |  | 92 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ACHC.parquet | 325 | 81.3% | 398 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ACIW.parquet | 247 | 56.4% | 427 | 0 | 0 | 0 |  | 27 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ACLS.parquet | 203 | 45.9% | 728 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ACMR.parquet | 476 | 98.5% | 457 | 0 | 0 | 0 |  | 92 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ACT.parquet | 154 | 38.2% | 447 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ADAM.parquet | 352 | 82.3% | 555 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ADEA.parquet | 294 | 70.5% | 559 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ADIG.parquet | 268 | 66.9% | 222 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 66.9% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-24/ADMA.parquet | 397 | 92.6% | 562 | 0 | 0 | 0 |  | 36 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ADNT.parquet | 321 | 80.5% | 224 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ADT.parquet | 405 | 99.5% | 415 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ADUS.parquet | 187 | 36.4% | 516 | 0 | 0 | 0 |  | 44 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AEO.parquet | 407 | 99.7% | 409 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/AESI.parquet | 409 | 99.7% | 196 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/AGNT.parquet | 348 | 86.4% | 354 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AGO.parquet | 282 | 71.8% | 222 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AGX.parquet | 349 | 87.7% | 299 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AGYS.parquet | 90 | 21.8% | 511 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AHCO.parquet | 331 | 82.6% | 373 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AIN.parquet | 153 | 36.7% | 369 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AIR.parquet | 189 | 47.4% | 301 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AKR.parquet | 319 | 81.3% | 73 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ALG.parquet | 149 | 38.0% | 242 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ALGT.parquet | 209 | 47.2% | 722 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ALHC.parquet | 432 | 100.0% | 524 | 0 | 0 | 0 |  | 41 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ALKS.parquet | 385 | 95.4% | 407 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ALRM.parquet | 149 | 36.4% | 453 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMN.parquet | 220 | 54.9% | 315 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMPH.parquet | 234 | 56.7% | 453 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMR.parquet | 303 | 74.6% | 325 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMRX.parquet | 391 | 90.8% | 505 | 0 | 0 | 0 |  | 37 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMSF.parquet | 203 | 50.3% | 488 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AMTM.parquet | 347 | 86.9% | 358 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ANDE.parquet | 161 | 39.5% | 458 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 39.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ANIP.parquet | 167 | 40.8% | 614 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AORT.parquet | 241 | 60.3% | 374 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AOSL.parquet | 244 | 58.0% | 687 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/APAM.parquet | 301 | 75.1% | 188 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/APLE.parquet | 387 | 96.9% | 254 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/APOG.parquet | 128 | 31.0% | 473 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 31.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ARCB.parquet | 102 | 24.1% | 504 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ARLO.parquet | 325 | 81.0% | 297 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AROC.parquet | 368 | 92.0% | 124 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ARR.parquet | 442 | 99.2% | 513 | 0 | 0 | 0 |  | 54 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ASO.parquet | 271 | 65.4% | 467 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ASTE.parquet | 203 | 50.3% | 398 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ASTH.parquet | 163 | 35.6% | 768 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | RTH coverage 35.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ATEN.parquet | 359 | 89.0% | 350 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ATMU.parquet | 262 | 66.4% | 245 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AUB.parquet | 366 | 93.1% | 30 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AVA.parquet | 325 | 82.0% | 165 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AWI.parquet | 227 | 58.0% | 164 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AWR.parquet | 158 | 40.3% | 233 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AX.parquet | 186 | 46.7% | 408 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 46.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AZTA.parquet | 281 | 68.5% | 601 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/AZZ.parquet | 204 | 52.0% | 187 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BANC.parquet | 386 | 95.6% | 161 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BANF.parquet | 77 | 18.2% | 524 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 18.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BANR.parquet | 142 | 34.1% | 460 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 34.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BBT.parquet | 318 | 81.0% | 74 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BCC.parquet | 226 | 56.9% | 384 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BCPC.parquet | 105 | 24.9% | 501 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BFAM.parquet | 318 | 80.0% | 204 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BFH.parquet | 319 | 79.7% | 167 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BFS.parquet | 143 | 36.1% | 249 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BGC.parquet | 339 | 84.9% | 284 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BHE.parquet | 275 | 69.5% | 169 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 69.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BJRI.parquet | 179 | 43.3% | 697 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 43.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BKE.parquet | 242 | 60.3% | 280 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BKU.parquet | 342 | 86.9% | 51 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BL.parquet | 341 | 83.3% | 348 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BLFS.parquet | 335 | 82.8% | 322 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BLKB.parquet | 223 | 55.4% | 452 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BMI.parquet | 267 | 67.7% | 221 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BNL.parquet | 372 | 94.1% | 259 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BOH.parquet | 254 | 64.4% | 142 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 64.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BOOT.parquet | 256 | 62.8% | 545 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 62.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BOX.parquet | 406 | 98.0% | 373 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | RTH coverage 98.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BRC.parquet | 166 | 42.0% | 353 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 42.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/BTU.parquet | 394 | 98.7% | 352 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/BXMT.parquet | 413 | 99.7% | 336 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CACC.parquet | 215 | 47.7% | 744 | 0 | 0 | 0 |  | 29 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CAG.parquet | 409 | 100.0% | 451 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CAKE.parquet | 355 | 84.6% | 576 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CALM.parquet | 350 | 83.6% | 414 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CALX.parquet | 310 | 78.7% | 284 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CALY.parquet | 399 | 98.7% | 358 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CARG.parquet | 336 | 84.1% | 265 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CASH.parquet | 92 | 21.5% | 523 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CATY.parquet | 277 | 67.7% | 615 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CBRL.parquet | 393 | 92.6% | 558 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CBU.parquet | 150 | 36.9% | 306 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CC.parquet | 365 | 91.5% | 251 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CCOI.parquet | 401 | 95.6% | 505 | 0 | 0 | 0 |  | 28 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CCS.parquet | 130 | 31.3% | 392 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 31.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CE.parquet | 384 | 96.7% | 209 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CENT.parquet | 66 | 15.9% | 335 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 15.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CENTA.parquet | 166 | 39.7% | 485 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 39.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CENX.parquet | 361 | 84.9% | 569 | 0 | 0 | 0 |  | 30 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CERT.parquet | 351 | 84.9% | 283 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CFFN.parquet | 229 | 57.2% | 372 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 57.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CHCO.parquet | 68 | 14.9% | 595 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 14.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CHEF.parquet | 197 | 49.2% | 404 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CLSK.parquet | 602 | 100.0% | 356 | 0 | 0 | 0 |  | 212 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CNK.parquet | 381 | 95.6% | 205 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CNMD.parquet | 178 | 44.9% | 451 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 44.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CNR.parquet | 266 | 65.4% | 384 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CNS.parquet | 147 | 36.4% | 309 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CNXC.parquet | 371 | 86.4% | 560 | 0 | 0 | 0 |  | 34 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CNXN.parquet | 95 | 22.6% | 506 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 22.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/COCO.parquet | 252 | 59.5% | 677 | 0 | 0 | 0 |  | 21 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/COHU.parquet | 328 | 74.6% | 618 | 0 | 0 | 0 |  | 37 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/COLL.parquet | 276 | 68.2% | 411 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CON.parquet | 315 | 79.7% | 217 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CORT.parquet | 295 | 69.0% | 458 | 0 | 0 | 0 |  | 26 | 0 | 0 | 0 |  |  |  |  | RTH coverage 69.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/COTY.parquet | 388 | 98.2% | 232 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CPB.parquet | 467 | 99.7% | 491 | 0 | 0 | 0 |  | 77 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CPF.parquet | 113 | 28.2% | 283 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 28.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CPK.parquet | 147 | 37.4% | 244 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 37.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CRC.parquet | 324 | 80.8% | 235 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CRGY.parquet | 412 | 99.5% | 512 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CRI.parquet | 347 | 87.4% | 316 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CRK.parquet | 395 | 98.2% | 440 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CRSR.parquet | 340 | 80.8% | 610 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CRVL.parquet | 107 | 26.2% | 494 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 26.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CSR.parquet | 190 | 47.4% | 323 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CSW.parquet | 152 | 38.7% | 239 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CTS.parquet | 140 | 35.4% | 252 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 35.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CUBI.parquet | 137 | 34.9% | 254 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 34.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CURB.parquet | 317 | 80.8% | 77 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CVBF.parquet | 305 | 76.9% | 296 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CVCO.parquet | 116 | 27.4% | 490 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CVI.parquet | 315 | 79.0% | 412 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CVSA.parquet | 184 | 45.9% | 320 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CWEN-A.parquet | 356 | 88.7% | 321 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CWEN.parquet | 356 | 88.7% | 321 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CWK.parquet | 377 | 96.4% | 14 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CWST.parquet | 188 | 45.6% | 479 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CWT.parquet | 221 | 56.4% | 170 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CXM.parquet | 371 | 92.0% | 442 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/CXW.parquet | 398 | 99.5% | 215 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/CZR.parquet | 390 | 95.1% | 359 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DAN.parquet | 354 | 90.0% | 371 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DAVE.parquet | 200 | 40.3% | 731 | 0 | 0 | 0 |  | 43 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DBD.parquet | 116 | 29.0% | 315 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 29.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DCH.parquet | 394 | 100.0% | 110 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/DCOM.parquet | 182 | 44.9% | 274 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 44.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DEA.parquet | 192 | 48.2% | 259 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 48.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DEI.parquet | 371 | 94.1% | 62 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DFH.parquet | 328 | 82.0% | 203 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DFIN.parquet | 107 | 25.6% | 417 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 25.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DGII.parquet | 200 | 49.5% | 551 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DIOD.parquet | 223 | 53.3% | 706 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 53.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DLX.parquet | 247 | 61.8% | 276 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DMC.parquet | 203 | 47.4% | 627 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DNOW.parquet | 367 | 93.8% | 24 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DORM.parquet | 102 | 24.1% | 500 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DRH.parquet | 341 | 84.6% | 316 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DV.parquet | 342 | 87.2% | 50 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DXC.parquet | 370 | 91.8% | 447 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/DXPE.parquet | 92 | 21.0% | 806 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EAT.parquet | 322 | 81.3% | 134 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EBC.parquet | 351 | 86.4% | 267 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ECG.parquet | 229 | 56.7% | 418 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ECPG.parquet | 123 | 29.0% | 611 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 29.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EFC.parquet | 379 | 93.1% | 509 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EFOR.parquet | 252 | 63.8% | 242 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EGBN.parquet | 193 | 47.7% | 408 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EIG.parquet | 161 | 40.3% | 310 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EMN.parquet | 342 | 86.7% | 149 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ENOV.parquet | 350 | 88.2% | 418 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ENPH.parquet | 577 | 100.0% | 382 | 0 | 0 | 0 |  | 187 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ENR.parquet | 312 | 78.2% | 429 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ENVA.parquet | 270 | 68.5% | 220 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EPAC.parquet | 191 | 48.5% | 201 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 48.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EPAM.parquet | 292 | 73.1% | 212 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 73.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EPC.parquet | 263 | 65.4% | 315 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EPRT.parquet | 380 | 94.4% | 227 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ESE.parquet | 270 | 68.2% | 434 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ESI.parquet | 390 | 99.7% | 1 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/ETSY.parquet | 406 | 100.0% | 408 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/EVTC.parquet | 250 | 63.3% | 221 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EXTR.parquet | 310 | 75.4% | 621 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EYE.parquet | 338 | 85.4% | 263 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/EZPW.parquet | 284 | 70.5% | 450 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FA.parquet | 372 | 93.8% | 229 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FBK.parquet | 271 | 68.5% | 314 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FBNC.parquet | 98 | 21.5% | 664 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FBP.parquet | 375 | 95.4% | 21 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FBRT.parquet | 371 | 94.1% | 45 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FCF.parquet | 318 | 81.0% | 74 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FCPT.parquet | 366 | 93.3% | 26 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FELE.parquet | 162 | 40.3% | 439 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FFBC.parquet | 347 | 85.4% | 257 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FG.parquet | 267 | 67.2% | 213 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FHB.parquet | 364 | 91.5% | 239 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FIBK.parquet | 339 | 85.1% | 262 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FIVN.parquet | 391 | 92.0% | 540 | 0 | 0 | 0 |  | 32 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FIZZ.parquet | 201 | 49.0% | 402 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FLO.parquet | 403 | 100.0% | 295 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/FMC.parquet | 417 | 99.0% | 541 | 0 | 0 | 0 |  | 30 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/FORM.parquet | 382 | 76.9% | 549 | 0 | 0 | 0 |  | 82 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FOXF.parquet | 210 | 51.8% | 665 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 51.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FRPT.parquet | 291 | 71.8% | 501 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FSS.parquet | 260 | 65.4% | 262 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FTDR.parquet | 294 | 72.3% | 385 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FTRE.parquet | 306 | 76.4% | 374 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FUL.parquet | 379 | 94.9% | 267 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FULT.parquet | 335 | 83.9% | 310 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/FUN.parquet | 377 | 94.6% | 269 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GBX.parquet | 229 | 56.7% | 266 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GEO.parquet | 374 | 94.9% | 126 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GFF.parquet | 155 | 36.4% | 576 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GIII.parquet | 265 | 65.6% | 342 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GKOS.parquet | 272 | 68.2% | 411 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GNL.parquet | 360 | 90.0% | 270 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GNW.parquet | 332 | 83.9% | 226 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GO.parquet | 340 | 83.6% | 566 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GOLF.parquet | 180 | 45.9% | 211 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GPI.parquet | 298 | 71.8% | 396 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GPOR.parquet | 209 | 53.1% | 186 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 53.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GRBK.parquet | 212 | 52.6% | 310 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GSHD.parquet | 262 | 63.3% | 391 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GT.parquet | 434 | 99.7% | 509 | 0 | 0 | 0 |  | 45 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/GTES.parquet | 350 | 89.5% | 41 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GTM.parquet | 370 | 91.8% | 561 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GTY.parquet | 286 | 70.8% | 334 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/GVA.parquet | 348 | 88.7% | 156 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HAFC.parquet | 187 | 46.4% | 414 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 46.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HASI.parquet | 371 | 91.5% | 490 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HAYW.parquet | 382 | 97.7% | 9 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HCC.parquet | 285 | 71.5% | 135 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HCI.parquet | 54 | 13.6% | 337 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 13.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HCSG.parquet | 224 | 54.4% | 698 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HE.parquet | 403 | 98.2% | 368 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/HFWA.parquet | 248 | 62.1% | 353 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 62.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HIW.parquet | 337 | 85.1% | 119 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HLIT.parquet | 318 | 76.4% | 613 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HMN.parquet | 171 | 43.1% | 417 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 43.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HNI.parquet | 311 | 76.9% | 221 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HOPE.parquet | 276 | 68.5% | 654 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HP.parquet | 334 | 84.4% | 156 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HRMY.parquet | 343 | 81.8% | 588 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HSTM.parquet | 89 | 21.0% | 512 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HTH.parquet | 163 | 40.8% | 234 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HTLD.parquet | 250 | 62.6% | 351 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 62.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HTO.parquet | 195 | 48.2% | 406 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 48.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HUBG.parquet | 298 | 73.3% | 303 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 73.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HWKN.parquet | 91 | 20.0% | 832 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 20.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/HZO.parquet | 311 | 78.7% | 125 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IART.parquet | 281 | 68.7% | 427 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IBP.parquet | 315 | 78.0% | 584 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ICHR.parquet | 335 | 75.6% | 611 | 0 | 0 | 0 |  | 40 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ICUI.parquet | 206 | 50.8% | 458 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IIPR.parquet | 219 | 54.4% | 456 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INDB.parquet | 175 | 42.0% | 488 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 42.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INDV.parquet | 269 | 65.6% | 623 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INSP.parquet | 240 | 59.7% | 599 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INSW.parquet | 325 | 83.1% | 66 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INVA.parquet | 300 | 75.1% | 494 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/INVX.parquet | 191 | 47.7% | 297 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IOSP.parquet | 126 | 27.2% | 752 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IPAR.parquet | 128 | 27.4% | 500 | 0 | 0 | 0 |  | 21 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IRDM.parquet | 300 | 62.8% | 646 | 0 | 0 | 0 |  | 55 | 0 | 0 | 0 |  |  |  |  | RTH coverage 62.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ITGR.parquet | 237 | 60.3% | 267 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ITRI.parquet | 196 | 46.4% | 744 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 46.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/IVT.parquet | 240 | 61.0% | 152 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JBGS.parquet | 359 | 90.3% | 308 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JBLU.parquet | 511 | 99.5% | 425 | 0 | 0 | 0 |  | 122 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/JBSS.parquet | 72 | 14.1% | 530 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 14.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JBTM.parquet | 189 | 47.9% | 251 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JJSF.parquet | 99 | 22.8% | 503 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 22.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JOE.parquet | 206 | 50.3% | 562 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/JXN.parquet | 334 | 83.9% | 206 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KAI.parquet | 166 | 42.0% | 252 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 42.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KALU.parquet | 176 | 41.0% | 727 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 41.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KFY.parquet | 354 | 89.5% | 178 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KGS.parquet | 376 | 95.6% | 111 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KLIC.parquet | 290 | 67.2% | 640 | 0 | 0 | 0 |  | 28 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KMPR.parquet | 263 | 66.7% | 137 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KMT.parquet | 372 | 93.8% | 160 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KMX.parquet | 386 | 97.7% | 235 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KN.parquet | 242 | 61.8% | 149 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KNTK.parquet | 324 | 81.0% | 363 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KOP.parquet | 92 | 22.8% | 396 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 22.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KRMN.parquet | 417 | 100.0% | 527 | 0 | 0 | 0 |  | 26 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/KSS.parquet | 415 | 100.0% | 469 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/KTB.parquet | 314 | 79.0% | 175 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/KWR.parquet | 111 | 27.2% | 633 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LAUR.parquet | 338 | 83.9% | 553 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LAZ.parquet | 336 | 84.6% | 168 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LBRT.parquet | 393 | 99.7% | 111 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/LCII.parquet | 220 | 55.6% | 180 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LEU.parquet | 323 | 79.5% | 523 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LFST.parquet | 387 | 95.9% | 276 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LGIH.parquet | 177 | 43.1% | 574 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 43.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LGND.parquet | 121 | 24.4% | 485 | 0 | 0 | 0 |  | 26 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LIF.parquet | 249 | 61.8% | 681 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LKFN.parquet | 106 | 25.9% | 495 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 25.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LKQ.parquet | 378 | 93.8% | 361 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LMAT.parquet | 191 | 46.4% | 709 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 46.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LNC.parquet | 360 | 91.5% | 144 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LNN.parquet | 102 | 24.4% | 646 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LPG.parquet | 296 | 75.1% | 207 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LQDA.parquet | 347 | 83.6% | 524 | 0 | 0 | 0 |  | 21 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LQDT.parquet | 136 | 33.3% | 465 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 33.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LRN.parquet | 237 | 59.5% | 295 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LTC.parquet | 284 | 66.9% | 577 | 0 | 0 | 0 |  | 22 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LTH.parquet | 395 | 100.0% | 169 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/LUMN.parquet | 465 | 99.7% | 494 | 0 | 0 | 0 |  | 75 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/LW.parquet | 346 | 87.9% | 158 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LXP.parquet | 250 | 63.6% | 254 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LYFT.parquet | 434 | 99.5% | 515 | 0 | 0 | 0 |  | 46 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/LZ.parquet | 361 | 91.0% | 240 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/LZB.parquet | 304 | 76.4% | 206 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MAC.parquet | 416 | 99.5% | 279 | 0 | 0 | 0 |  | 27 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MAN.parquet | 361 | 89.5% | 161 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MARA.parquet | 775 | 100.0% | 185 | 0 | 0 | 0 |  | 385 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MATW.parquet | 240 | 60.3% | 361 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MATX.parquet | 216 | 54.1% | 291 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MBC.parquet | 389 | 98.7% | 264 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MBGL.parquet | 395 | 99.7% | 141 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  | Y | daily bar missing — envelope check skipped |
+| 2026-09-24/MBIN.parquet | 87 | 20.0% | 516 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 20.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MC.parquet | 333 | 84.6% | 97 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MCRI.parquet | 69 | 16.2% | 530 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 16.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MCY.parquet | 209 | 52.6% | 295 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MD.parquet | 246 | 61.8% | 280 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MDU.parquet | 381 | 97.4% | 10 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MFP.parquet | 211 | 52.6% | 390 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 52.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-24/MGEE.parquet | 164 | 39.5% | 439 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 39.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MGY.parquet | 401 | 99.7% | 334 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MHK.parquet | 337 | 85.9% | 56 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MHO.parquet | 103 | 24.6% | 429 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MIR.parquet | 374 | 94.9% | 180 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MKTX.parquet | 247 | 60.8% | 359 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MLKN.parquet | 246 | 60.5% | 685 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MMI.parquet | 157 | 39.7% | 235 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 39.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MMSI.parquet | 203 | 47.9% | 415 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MPT.parquet | 406 | 100.0% | 532 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MRCY.parquet | 229 | 52.6% | 688 | 0 | 0 | 0 |  | 24 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MRP.parquet | 396 | 98.7% | 176 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MRTN.parquet | 249 | 62.1% | 352 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 62.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MSEX.parquet | 69 | 15.6% | 440 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 15.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MSGS.parquet | 203 | 49.2% | 632 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MTCH.parquet | 401 | 98.0% | 365 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 98.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MTH.parquet | 313 | 77.7% | 543 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 77.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MTRN.parquet | 151 | 38.5% | 240 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MTUS.parquet | 165 | 41.8% | 227 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 41.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MTX.parquet | 133 | 33.6% | 259 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 33.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MWA.parquet | 332 | 84.6% | 60 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/MXL.parquet | 581 | 99.5% | 378 | 0 | 0 | 0 |  | 192 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/MYRG.parquet | 198 | 48.5% | 437 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 48.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NABL.parquet | 306 | 78.0% | 86 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NATL.parquet | 249 | 63.3% | 143 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NAVI.parquet | 274 | 68.2% | 574 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NBHC.parquet | 214 | 54.4% | 178 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NBTB.parquet | 183 | 45.4% | 419 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NE.parquet | 353 | 89.0% | 111 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NEO.parquet | 391 | 91.3% | 569 | 0 | 0 | 0 |  | 34 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NEOG.parquet | 370 | 91.5% | 484 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NGVT.parquet | 141 | 35.9% | 250 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 35.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NHC.parquet | 66 | 16.4% | 326 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 16.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NHI.parquet | 243 | 59.7% | 439 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NIC.parquet | 95 | 23.1% | 334 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 23.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NMIH.parquet | 247 | 61.3% | 371 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NOG.parquet | 394 | 98.2% | 274 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/NPK.parquet | 70 | 15.4% | 507 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 15.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NPO.parquet | 200 | 51.0% | 191 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 51.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NSIT.parquet | 199 | 49.0% | 540 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NSP.parquet | 266 | 66.1% | 270 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NSSC.parquet | 151 | 35.9% | 742 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 35.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NTCT.parquet | 231 | 55.4% | 494 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NTST.parquet | 343 | 86.9% | 211 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NWBI.parquet | 281 | 70.0% | 321 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NWL.parquet | 365 | 90.5% | 253 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NWN.parquet | 165 | 41.8% | 227 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 41.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NX.parquet | 223 | 56.4% | 250 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/NXRT.parquet | 291 | 72.3% | 243 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OFG.parquet | 139 | 34.9% | 261 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 34.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OGN.parquet | 359 | 91.5% | 150 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OI.parquet | 390 | 98.2% | 179 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/OII.parquet | 267 | 67.2% | 189 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OMCL.parquet | 237 | 56.4% | 710 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OPLN.parquet | 252 | 64.1% | 355 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 64.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OSIS.parquet | 165 | 40.0% | 714 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OSW.parquet | 255 | 63.3% | 347 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OTTR.parquet | 108 | 25.6% | 493 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 25.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/OUT.parquet | 346 | 88.5% | 45 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PAHC.parquet | 100 | 23.3% | 506 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 23.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PARR.parquet | 342 | 86.4% | 298 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PATK.parquet | 239 | 59.2% | 367 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PAYC.parquet | 297 | 72.3% | 330 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PAYO.parquet | 306 | 76.9% | 295 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PBH.parquet | 268 | 66.7% | 516 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PBI.parquet | 330 | 82.8% | 189 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PCRX.parquet | 200 | 47.7% | 722 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PDFS.parquet | 225 | 54.9% | 556 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PEB.parquet | 377 | 95.1% | 127 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PECO.parquet | 337 | 83.9% | 594 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PENG.parquet | 511 | 93.6% | 447 | 0 | 0 | 0 |  | 145 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PENN.parquet | 401 | 99.5% | 515 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/PFBC.parquet | 83 | 18.7% | 521 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 18.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PFS.parquet | 309 | 78.0% | 307 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PGNY.parquet | 363 | 89.0% | 305 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PHIN.parquet | 205 | 52.0% | 283 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PI.parquet | 168 | 41.5% | 528 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 41.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PIPR.parquet | 268 | 68.5% | 123 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PJT.parquet | 195 | 49.5% | 441 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PLAB.parquet | 301 | 69.0% | 614 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | RTH coverage 69.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PLMR.parquet | 153 | 36.4% | 598 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PLUS.parquet | 102 | 24.1% | 504 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PLXS.parquet | 130 | 28.5% | 615 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | RTH coverage 28.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PMT.parquet | 365 | 90.0% | 411 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/POOL.parquet | 350 | 84.6% | 581 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/POWI.parquet | 281 | 68.7% | 650 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/POWL.parquet | 431 | 86.9% | 525 | 0 | 0 | 0 |  | 91 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PPLI.parquet | 425 | 96.4% | 278 | 0 | 0 | 0 |  | 49 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRDO.parquet | 344 | 86.4% | 307 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRG.parquet | 310 | 77.4% | 225 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 77.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRGO.parquet | 405 | 100.0% | 340 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/PRGS.parquet | 243 | 58.2% | 687 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRIM.parquet | 341 | 85.6% | 273 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRK.parquet | 87 | 21.5% | 321 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRKS.parquet | 275 | 68.7% | 260 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRLB.parquet | 213 | 52.6% | 400 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRSU.parquet | 104 | 25.4% | 405 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 25.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PRVA.parquet | 292 | 72.6% | 309 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PSMT.parquet | 129 | 29.2% | 570 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 29.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PTCT.parquet | 348 | 87.7% | 253 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PTEN.parquet | 414 | 100.0% | 522 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/PTGX.parquet | 360 | 88.2% | 391 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PTON.parquet | 439 | 96.2% | 504 | 0 | 0 | 0 |  | 64 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/PZZA.parquet | 327 | 77.2% | 458 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  |  | RTH coverage 77.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/QDEL.parquet | 324 | 79.5% | 333 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/QNST.parquet | 325 | 80.3% | 330 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/QRVO.parquet | 262 | 63.1% | 674 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/QTWO.parquet | 267 | 67.4% | 359 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RAL.parquet | 305 | 77.2% | 199 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 77.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RAMP.parquet | 303 | 76.9% | 184 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RCUS.parquet | 378 | 95.4% | 420 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RDN.parquet | 353 | 90.0% | 72 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 90.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RDNT.parquet | 295 | 73.6% | 326 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 73.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RELY.parquet | 422 | 98.5% | 519 | 0 | 0 | 0 |  | 38 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/RES.parquet | 367 | 92.8% | 137 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/REX.parquet | 180 | 45.6% | 212 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/REYN.parquet | 337 | 84.6% | 266 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/REZI.parquet | 370 | 92.3% | 208 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RHI.parquet | 359 | 88.7% | 238 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RHP.parquet | 226 | 56.1% | 309 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RITM.parquet | 428 | 99.5% | 527 | 0 | 0 | 0 |  | 39 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/RNG.parquet | 372 | 93.8% | 154 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RNST.parquet | 277 | 70.5% | 227 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ROAD.parquet | 273 | 65.4% | 682 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ROCK.parquet | 257 | 63.3% | 674 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ROG.parquet | 139 | 34.6% | 507 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 34.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RRR.parquet | 370 | 92.3% | 560 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 92.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RSI.parquet | 396 | 99.5% | 283 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/RUN.parquet | 611 | 99.5% | 349 | 0 | 0 | 0 |  | 222 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/RUSHA.parquet | 239 | 59.5% | 692 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 59.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/RXO.parquet | 315 | 79.5% | 171 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SABR.parquet | 380 | 94.1% | 561 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SAFE.parquet | 279 | 67.2% | 587 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SAFT.parquet | 111 | 26.9% | 490 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 26.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SAH.parquet | 183 | 45.6% | 321 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SBCF.parquet | 286 | 71.8% | 315 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SBH.parquet | 331 | 84.4% | 61 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SBSI.parquet | 111 | 27.7% | 430 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SCHL.parquet | 282 | 45.9% | 348 | 0 | 0 | 0 |  | 102 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SCL.parquet | 98 | 23.3% | 496 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 23.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SCSC.parquet | 104 | 24.1% | 581 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SDGR.parquet | 424 | 91.8% | 534 | 0 | 0 | 0 |  | 65 | 0 | 0 | 0 |  |  |  |  | RTH coverage 91.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SEDG.parquet | 502 | 98.7% | 455 | 0 | 0 | 0 |  | 116 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/SEI.parquet | 398 | 98.0% | 234 | 0 | 0 | 0 |  | 15 | 0 | 0 | 0 |  |  |  |  | RTH coverage 98.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SEZL.parquet | 309 | 65.1% | 621 | 0 | 0 | 0 |  | 54 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SFBS.parquet | 280 | 70.8% | 173 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 70.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SFNC.parquet | 335 | 84.1% | 266 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 84.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SHAK.parquet | 369 | 93.6% | 106 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SHEN.parquet | 283 | 71.3% | 318 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SHO.parquet | 354 | 89.5% | 102 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 89.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SHOO.parquet | 271 | 67.2% | 486 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 67.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SIG.parquet | 234 | 58.7% | 282 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SKT.parquet | 355 | 88.2% | 417 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 88.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SKY.parquet | 200 | 51.0% | 191 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 51.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SKYW.parquet | 203 | 50.3% | 536 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SLG.parquet | 326 | 81.8% | 237 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SLVM.parquet | 213 | 54.1% | 179 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 54.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SM.parquet | 411 | 100.0% | 369 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/SMP.parquet | 112 | 28.2% | 280 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 28.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SMPL.parquet | 397 | 97.2% | 533 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SNDR.parquet | 282 | 71.3% | 222 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SNEX.parquet | 269 | 66.1% | 638 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 66.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SONO.parquet | 346 | 85.1% | 403 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SPHR.parquet | 305 | 76.9% | 448 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SPNT.parquet | 270 | 68.0% | 218 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SPSC.parquet | 188 | 40.8% | 660 | 0 | 0 | 0 |  | 28 | 0 | 0 | 0 |  |  |  |  | RTH coverage 40.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SRPT.parquet | 413 | 96.2% | 547 | 0 | 0 | 0 |  | 38 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/STAA.parquet | 284 | 68.0% | 587 | 0 | 0 | 0 |  | 18 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/STBA.parquet | 156 | 38.2% | 332 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/STC.parquet | 200 | 50.8% | 290 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/STEP.parquet | 260 | 64.4% | 413 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 64.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/STRA.parquet | 160 | 38.2% | 727 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 38.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SUPN.parquet | 260 | 64.1% | 346 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 64.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SXI.parquet | 199 | 50.5% | 305 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/SXT.parquet | 204 | 48.5% | 499 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 48.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TALO.parquet | 392 | 97.7% | 193 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TBBK.parquet | 285 | 68.0% | 597 | 0 | 0 | 0 |  | 19 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TDC.parquet | 307 | 78.5% | 84 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TDS.parquet | 384 | 94.1% | 284 | 0 | 0 | 0 |  | 16 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TDW.parquet | 239 | 61.0% | 152 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TFIN.parquet | 123 | 31.0% | 269 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 31.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TFX.parquet | 297 | 74.9% | 191 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TGTX.parquet | 345 | 83.6% | 570 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/THRM.parquet | 300 | 74.1% | 621 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TILE.parquet | 184 | 45.4% | 439 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TMDX.parquet | 299 | 71.3% | 657 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 71.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TMP.parquet | 61 | 13.9% | 429 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 13.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TNC.parquet | 149 | 36.4% | 562 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TNDM.parquet | 393 | 94.1% | 567 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  |  | RTH coverage 94.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TPC.parquet | 160 | 39.5% | 482 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 39.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TR.parquet | 125 | 31.3% | 300 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 31.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TRIP.parquet | 417 | 98.7% | 533 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/TRMK.parquet | 209 | 52.0% | 279 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 52.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TRN.parquet | 243 | 61.8% | 149 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TRNO.parquet | 293 | 73.3% | 242 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 73.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TRST.parquet | 78 | 18.5% | 853 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 18.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/TRUP.parquet | 260 | 63.8% | 448 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 63.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UA.parquet | 348 | 85.6% | 608 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 85.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UAA.parquet | 427 | 100.0% | 530 | 0 | 0 | 0 |  | 36 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/UCB.parquet | 299 | 75.9% | 319 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UCTT.parquet | 335 | 78.0% | 596 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UE.parquet | 287 | 73.3% | 104 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 73.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UFCS.parquet | 74 | 17.7% | 527 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 17.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UFPT.parquet | 229 | 36.1% | 479 | 0 | 0 | 0 |  | 87 | 0 | 0 | 0 |  |  |  |  | RTH coverage 36.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UNF.parquet | 220 | 55.1% | 503 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UNFI.parquet | 226 | 56.1% | 534 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UNIT.parquet | 323 | 80.3% | 323 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UPBD.parquet | 355 | 87.9% | 450 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UPWK.parquet | 365 | 86.9% | 580 | 0 | 0 | 0 |  | 25 | 0 | 0 | 0 |  |  |  |  | RTH coverage 86.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/URBN.parquet | 279 | 68.7% | 327 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 68.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/USLM.parquet | 116 | 26.9% | 787 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 26.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/USPH.parquet | 116 | 27.2% | 707 | 0 | 0 | 0 |  | 9 | 0 | 0 | 0 |  |  |  |  | RTH coverage 27.2% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UTI.parquet | 348 | 87.4% | 279 | 0 | 0 | 0 |  | 6 | 0 | 0 | 0 |  |  |  |  | RTH coverage 87.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UTL.parquet | 96 | 24.1% | 296 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 24.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/UVV.parquet | 173 | 42.3% | 384 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 42.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VAC.parquet | 205 | 50.3% | 487 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 50.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VCEL.parquet | 204 | 49.5% | 722 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 49.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VCTR.parquet | 236 | 58.0% | 482 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 58.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VCYT.parquet | 420 | 98.2% | 472 | 0 | 0 | 0 |  | 36 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/VECO.parquet | 260 | 60.8% | 395 | 0 | 0 | 0 |  | 22 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VGNT.parquet | 298 | 75.6% | 127 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  | Y | RTH coverage 75.6% < 98%; daily bar missing — envelope check skipped |
+| 2026-09-24/VIR.parquet | 376 | 93.6% | 301 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VIRT.parquet | 329 | 83.6% | 161 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VRRM.parquet | 414 | 95.6% | 544 | 0 | 0 | 0 |  | 40 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VRTS.parquet | 138 | 34.1% | 318 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 34.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VSAT.parquet | 347 | 82.0% | 576 | 0 | 0 | 0 |  | 27 | 0 | 0 | 0 |  |  |  |  | RTH coverage 82.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VSEC.parquet | 180 | 42.8% | 557 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 42.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VSH.parquet | 398 | 95.9% | 481 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VSNT.parquet | 394 | 95.9% | 565 | 0 | 0 | 0 |  | 20 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.9% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VSTS.parquet | 408 | 98.5% | 485 | 0 | 0 | 0 |  | 23 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/VSXY.parquet | 316 | 80.8% | 75 | 0 | 0 | 0 |  | 0 | 0 | 0 | 0 |  |  |  |  | RTH coverage 80.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VTOL.parquet | 126 | 30.0% | 548 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 30.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VVX.parquet | 191 | 45.1% | 398 | 0 | 0 | 0 |  | 14 | 0 | 0 | 0 |  |  |  |  | RTH coverage 45.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/VYX.parquet | 390 | 95.4% | 333 | 0 | 0 | 0 |  | 17 | 0 | 0 | 0 |  |  |  |  | RTH coverage 95.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WABC.parquet | 81 | 19.5% | 497 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 19.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WAFD.parquet | 334 | 83.3% | 324 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 83.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WAY.parquet | 294 | 72.6% | 444 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.6% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WD.parquet | 238 | 60.0% | 547 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WDFC.parquet | 93 | 21.8% | 555 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 21.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WEN.parquet | 532 | 97.7% | 427 | 0 | 0 | 0 |  | 151 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WERN.parquet | 268 | 65.1% | 663 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 65.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WGO.parquet | 241 | 61.3% | 151 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 61.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WHD.parquet | 248 | 60.0% | 298 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 60.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WINA.parquet | 147 | 29.5% | 607 | 0 | 0 | 0 |  | 31 | 0 | 0 | 0 |  |  |  |  | RTH coverage 29.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WKC.parquet | 296 | 74.4% | 374 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 74.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WLY.parquet | 224 | 56.7% | 170 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 56.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WOR.parquet | 296 | 72.8% | 327 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 72.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WRBY.parquet | 424 | 100.0% | 509 | 0 | 0 | 0 |  | 33 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/WRLD.parquet | 50 | 11.5% | 551 | 0 | 0 | 0 |  | 4 | 0 | 0 | 0 |  |  |  |  | RTH coverage 11.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WS.parquet | 218 | 55.1% | 270 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 55.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WSBC.parquet | 306 | 76.1% | 300 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 76.1% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WSC.parquet | 388 | 96.7% | 539 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 96.7% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WSFS.parquet | 179 | 44.4% | 423 | 0 | 0 | 0 |  | 5 | 0 | 0 | 0 |  |  |  |  | RTH coverage 44.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WT.parquet | 368 | 93.3% | 67 | 0 | 0 | 0 |  | 3 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/WU.parquet | 428 | 99.7% | 404 | 0 | 0 | 0 |  | 38 | 0 | 0 | 0 |  |  |  |  | no daily bar for 2026-09-24 |
+| 2026-09-24/WWW.parquet | 315 | 78.5% | 154 | 0 | 0 | 0 |  | 8 | 0 | 0 | 0 |  |  |  |  | RTH coverage 78.5% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/XHR.parquet | 310 | 79.0% | 82 | 0 | 0 | 0 |  | 1 | 0 | 0 | 0 |  |  |  |  | RTH coverage 79.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/XNCR.parquet | 332 | 81.8% | 555 | 0 | 0 | 0 |  | 12 | 0 | 0 | 0 |  |  |  |  | RTH coverage 81.8% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/XPEL.parquet | 132 | 31.0% | 471 | 0 | 0 | 0 |  | 10 | 0 | 0 | 0 |  |  |  |  | RTH coverage 31.0% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/YELP.parquet | 378 | 93.3% | 566 | 0 | 0 | 0 |  | 13 | 0 | 0 | 0 |  |  |  |  | RTH coverage 93.3% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/YOU.parquet | 392 | 97.4% | 169 | 0 | 0 | 0 |  | 11 | 0 | 0 | 0 |  |  |  |  | RTH coverage 97.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ZD.parquet | 192 | 47.4% | 682 | 0 | 0 | 0 |  | 7 | 0 | 0 | 0 |  |  |  |  | RTH coverage 47.4% < 98%; no daily bar for 2026-09-24 |
+| 2026-09-24/ZWS.parquet | 298 | 75.6% | 189 | 0 | 0 | 0 |  | 2 | 0 | 0 | 0 |  |  |  |  | RTH coverage 75.6% < 98%; no daily bar for 2026-09-24 |
 
 ## Known expected patterns (not defects)
 
@@ -18107,4 +18708,4 @@
 - The archive starts fresh: earlier bar-dates are legitimately
   absent before enough nightly pulls have run.
 
-_(end of QA report — 18071 files checked)_
+_(end of QA report — 18672 files checked)_
