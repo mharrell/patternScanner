@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+MGLD,"The Marygold Companies, Inc.",1.93,93.0193,15497440,ASE
+APUS,"Apimeds Pharmaceuticals US, Inc",7.25,47.3577,36816323,ASE
+SRFM,Surf Air Mobility Inc.,1.11,20.3905,16815835,NYQ
+AIB,AIB Data Centers Inc.,1.69,19.0141,2278103,ASE
+SDEV,Stablecoin Development Corporat,1.49,15.5039,13548163,ASE
+AESI,Atlas Energy Solutions Inc.,12.47,13.4668,12167567,NYQ
+WNC,Wabash National Corporation,13.03,11.2724,1177214,NYQ
+GENI,Genius Sports Limited,6.44,11.0345,12689338,NYQ
+KLXE,"KLX Energy Services Holdings, I",1.61,9.52381,2435919,NMS
+LCTX,"Lineage Cell Therapeutics, Inc.",1.03,8.67272,2480528,ASE
+FIGS,"FIGS, Inc.",13.42,7.44596,4407248,NYQ
+ALHC,"Alignment Healthcare, Inc.",8.21,7.04042,10566944,NMS
+EQPT,EquipmentShare.com Inc,17.35,6.31128,4278505,NMS
+ULCC,"Frontier Group Holdings, Inc.",6.19,5.81197,2429387,NMS
+IE,Ivanhoe Electric Inc.,10.56,5.70571,2046392,ASE
+FLNC,"Fluence Energy, Inc.",7.85,5.22788,8540823,NMS
+BV,"BrightView Holdings, Inc.",10.41,5.04541,1478324,NYQ
+PRGO,Perrigo Company plc,15.42,5.04087,4274740,NYQ
+MFG,"Mizuho Financial Group, Inc. Sp",11.07,4.82954,4251208,NYQ
+PWP,Perella Weinberg Partners,14.47,4.77914,2131215,NMS
+EROC,"ERock, Inc.",12.6,4.47761,2271968,NYQ
+MBLY,Mobileye Global Inc.,8.03,4.42132,6263178,NMS
+KRSP,Rice Acquisition Corporation 3,11.0,4.2654,1916671,NYQ
+RUN,Sunrun Inc.,8.11,4.24164,7294816,NMS
+DDD,3D Systems Corporation,3.57,4.08163,2273574,NYQ
+DNA,"Ginkgo Bioworks Holdings, Inc.",10.66,4.0,2295215,NYQ
+AAL,"American Airlines Group, Inc.",13.87,3.89513,75879602,NMS
+CWH,"Camping World Holdings, Inc.",5.39,3.85356,1912403,NYQ
+LBRT,Liberty Energy Inc.,18.94,3.83772,4947719,NYQ
+KSS,Kohl's Corporation,17.9,3.82831,4156839,NYQ
+EVEX,"Eve Holding, Inc.",2.17,3.82776,2627938,NYQ
+EVGO,EVgo Inc.,1.38,3.75939,3526971,NMS
+BLND,"Blend Labs, Inc.",1.11,3.73831,1749793,NYQ
+NXDR,"Nextdoor Holdings, Inc.",2.51,3.719,2269713,NYQ
+VFC,V.F. Corporation,14.15,3.36012,8712760,NYQ
+SBSW,D/B/A Sibanye-Stillwater Limite,10.61,3.21012,7794485,NYQ
+USAS,Americas Gold and Silver Corpor,4.83,3.20513,6435931,ASE
+AEO,"American Eagle Outfitters, Inc.",16.58,3.10945,4449454,NYQ
+PHAT,"Phathom Pharmaceuticals, Inc.",7.3,3.10735,1442495,NMS
+BTG,B2Gold Corp,5.48,3.00752,19075298,ASE
+GAU,Galiano Gold Inc.,2.06,3.0,2036886,ASE
+NCLH,Norwegian Cruise Line Holdings ,14.61,2.95983,18649147,NYQ
+STLA,Stellantis N.V.,4.6,2.90828,20548076,NYQ
+BRBR,"BellRing Brands, Inc.",7.91,2.86086,5844944,NYQ
+JQC,Nuveen Credit Strategies Income,4.71,2.83843,2694536,NYQ
+ADTN,"ADTRAN Holdings, Inc.",7.13,2.81183,1602176,NMS
+HLF,Herbalife Ltd.,12.55,2.7846,2117113,NYQ
+LPL,"LG Display Co, Ltd AMERICAN DEP",2.98,2.75862,5078538,NYQ
+NCMI,"National CineMedia, Inc.",2.26,2.72727,1816798,NMS
+PTON,"Peloton Interactive, Inc.",4.92,2.71399,6700264,NMS
+BGS,"B&G Foods, Inc.",3.1,2.649,1628180,NYQ
+COLD,"Americold Realty Trust, Inc.",14.74,2.64624,3080257,NYQ
+EVH,"Evolent Health, Inc",3.61,2.55682,1777818,NYQ
+ARHS,"Arhaus, Inc.",9.71,2.53432,1671146,NMS
+PACB,Pacific Biosciences of Californ,1.62,2.53164,11030263,NMS
+EXK,Endeavour Silver Corporation,9.39,2.51092,6100881,NYQ
+WU,Western Union Company (The),6.18,2.48756,8235941,NYQ
+CERT,"Certara, Inc.",9.11,2.47468,2823261,NMS
+JMIA,Jumia Technologies AG,6.88,2.38096,1418919,NYQ
+GPRO,"GoPro, Inc.",1.29,2.38095,9339317,NMS
+VTRS,Viatris Inc.,17.83,2.35362,10150955,NMS
+QDEL,QuidelOrtho Corporation,10.94,2.33863,1145100,NMS
+NRGV,"Energy Vault Holdings, Inc.",4.4,2.32558,2535829,NYQ
+HMY,Harmony Gold Mining Company Lim,18.97,2.26415,2388953,NYQ
+BRSL,Brightstar Lottery PLC Trading ,9.96,2.25873,2705528,NYQ
+DRVN,Driven Brands Holdings Inc.,12.31,2.24253,1113481,NMS
+WSE,Wise Group plc,11.55,2.21239,1765533,NMS
+RGNX,REGENXBIO Inc.,7.4,2.20995,1276445,NMS
+JBI,"Janus International Group, Inc.",4.21,2.18447,2535139,NYQ
+HBAN,Huntington Bancshares Incorpora,15.64,2.15545,33221743,NMS
+LYG,Lloyds Banking Group Plc,5.77,2.12389,18428309,NYQ
+CX,"Cemex, S.A.B. de C.V. Sponsored",9.71,2.10305,7388144,NYQ
+CYH,"Community Health Systems, Inc.",2.94,2.08333,1205177,NYQ
+LSPD,Lightspeed Commerce Inc. Subord,9.87,2.06825,1206495,NYQ
+ATEC,"Alphatec Holdings, Inc.",10.12,2.01613,2623451,NMS
+RKT,"Rocket Companies, Inc.",12.17,2.01173,31231265,NYQ
+NNBR,"NN, Inc.",3.67,1.94445,1653346,NMS
+NWG,NatWest Group plc,18.49,1.92944,4828022,NYQ
+CC,Chemours Company (The),14.46,1.90275,1767400,NYQ
+DFH,"Dream Finders Homes, Inc.",11.3,1.8936,1073565,NYQ
+SONO,"Sonos, Inc.",18.175,1.8778,1874347,NMS
+JBS,JBS N.V.,11.57,1.84859,4832676,NYQ
+FLYW,Flywire Corporation - Voting,17.4,1.81392,1695408,NMS
+INNV,InnovAge Holding Corp.,9.0,1.80995,1544136,NMS
+EQX,Equinox Gold Corp.,11.94,1.79028,9193817,ASE
+IAG,Iamgold Corporation,19.7,1.7562,3498705,NYQ
+SLDP,"Solid Power, Inc.",2.39,1.70214,2522301,NMS
+SVC,Service Properties Trust,6.59,1.69753,1176606,NMS
+RSI,"Rush Street Interactive, Inc.",19.87,1.68884,2876358,NYQ
+MBC,"MasterBrand, Inc.",7.23,1.68776,2001218,NYQ
+XERS,"Xeris Biopharma Holdings, Inc.",9.1,1.67598,1546923,NMS
+PTY,Pimco Corporate & Income Opport,10.93,1.67442,1824760,NYQ
+FSM,Fortuna Mining Corp.,11.69,1.65217,3840762,NYQ
+PRVA,"Privia Health Group, Inc.",19.71,1.65033,1389738,NMS
+HLLY,Holley Inc.,2.47,1.64609,1043126,NYQ
+AMBP,Ardagh Metal Packaging S.A.,4.38,1.62413,1077361,NYQ
+BW,"Babcock & Wilcox Enterprises, I",6.27,1.62074,6468809,NYQ
+WTTR,"Select Water Solutions, Inc.",19.84,1.5873,4765621,NYQ
+OPEN,Opendoor Technologies Inc,2.57,1.58103,22241962,NMS
+ALEC,"Alector, Inc.",1.95,1.5625,1024463,NMS
