@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+KNRX,KNOREX LTD.,1.23,304.605,283892142,ASE
+LFCR,"Lifecore Biomedical, Inc.",6.52,55.2381,4003471,NMS
+EGG,Enigmatig Limited,4.25,51.7857,4620770,ASE
+SMJF,SMJ International Holdings Inc.,2.23,39.375,2061091,ASE
+CANG,Cango Inc.,2.29,19.8953,1564832,NYQ
+QNC,Quantum eMotion Corp.,2.2,17.0213,1550166,ASE
+MX,Magnachip Semiconductor Corpora,3.79,14.8485,6665200,NYQ
+SFIX,"Stitch Fix, Inc.",2.47,14.6172,7412701,NMS
+AMC,"AMC Entertainment Holdings, Inc",3.29,11.9048,72388813,NYQ
+ANNX,"Annexon, Inc.",4.01,10.1648,5071706,NMS
+ABCL,AbCellera Biologics Inc.,13.92,9.6063,7772249,NMS
+SJT,San Juan Basin Royalty Trust,3.72,8.77193,1199497,NYQ
+MGNX,"MacroGenics, Inc.",4.06,8.55615,1912786,NMS
+XERS,"Xeris Biopharma Holdings, Inc.",9.83,8.02197,3463233,NMS
+BUR,Burford Capital Limited,3.93,7.96703,3854316,NYQ
+SRFM,Surf Air Mobility Inc.,1.19,7.20721,9792434,NYQ
+BB,BlackBerry Limited,8.8,7.18636,30091690,NYQ
+TSHA,"Taysha Gene Therapies, Inc.",4.99,6.85224,4869918,NMS
+ENHA,Enhanced Group Inc.,1.53,6.24999,2173826,NYQ
+ALXO,ALX Oncology Holdings Inc.,1.39,6.10687,1958387,NMS
+PACB,Pacific Biosciences of Californ,1.71,5.55556,21243446,NMS
+ACRS,"Aclaris Therapeutics, Inc.",5.43,5.43689,2428656,NMS
+SDEV,Stablecoin Development Corporat,1.57,5.36913,14546398,ASE
+ANVS,"Annovis Bio, Inc.",1.38,5.34352,1189893,NYQ
+AVPT,"AvePoint, Inc.",13.67,5.15385,2682870,NMS
+EQPT,EquipmentShare.com Inc,18.21,4.95676,2227883,NMS
+ONT,"Onterris, Inc.",14.64,4.57143,1125927,NYQ
+CCCC,"C4 Therapeutics, Inc.",3.115,4.5302,2775890,NMS
+AEO,"American Eagle Outfitters, Inc.",17.31,4.40289,9041039,NYQ
+NAK,"Northern Dynasty Minerals, Ltd.",1.46,4.28572,4638376,ASE
+BZ,KANZHUN LIMITED - American Depo,14.18,4.26471,6900946,NMS
+SECZ,Securitize Corp.,16.63,4.19799,4341283,NYQ
+CAPR,"Capricor Therapeutics, Inc.",8.71,4.18661,2088145,NMS
+BEKE,KE Holdings Inc,16.95,3.7967,5918814,NYQ
+PSKY,Paramount Skydance Corporation,10.28,3.21285,24105595,NMS
+GPRO,"GoPro, Inc.",1.33,3.10078,10235811,NMS
+NAVN,"Navan, Inc.",19.98,2.91011,3946317,NMS
+HUYA,HUYA Inc.,2.36,2.60869,1013794,NYQ
+CLBT,Cellebrite DI Ltd.,11.07,2.59499,2878610,NMS
+VTRS,Viatris Inc.,18.27,2.46775,12376674,NMS
+UWMC,UWM Holdings Corporation,1.25,2.45901,11322771,NYQ
+LU,Lufax Holding Ltd,1.26,2.43902,2083450,NYQ
+TAC,TransAlta Corporation,11.81,2.42845,2010119,NYQ
+JBI,"Janus International Group, Inc.",4.31,2.37529,3097448,NYQ
+HAFN,Hafnia Limited,9.13,2.35426,2746902,NYQ
+AVAH,Aveanna Healthcare Holdings Inc,12.69,2.25624,2034905,NMS
+TGB,Trekor Metals Limited,8.8,2.20674,5058859,ASE
+BHVN,Biohaven Ltd.,13.27,2.15551,2045961,NYQ
+VG,"Venture Global, Inc.",12.89,2.13946,13295766,NYQ
+RDY,Dr. Reddy's Laboratories Ltd,12.51,2.12245,4029548,NYQ
+MGLD,"The Marygold Companies, Inc.",1.97,2.07254,2522991,ASE
+BYND,"Beyond Meat, Inc.",8.52,2.03593,1547187,NMS
+SGRY,"Surgery Partners, Inc.",14.69,2.01389,1103797,NMS
+DYN,"Dyne Therapeutics, Inc.",16.34,1.93387,2305779,NMS
+VFC,V.F. Corporation,14.42,1.90813,12661688,NYQ
+PK,Park Hotels & Resorts Inc.,15.72,1.87946,4940977,NYQ
+CHWY,"Chewy, Inc.",18.61,1.86098,10767787,NYQ
+LI,Li Auto Inc.,11.71,1.82609,3223532,NMS
+PEB,Pebblebrook Hotel Trust,18.73,1.68295,1919983,NYQ
+MYGN,"Myriad Genetics, Inc.",4.24,1.67865,1181091,NMS
+BILI,Bilibili Inc.,15.14,1.64485,4312399,NMS
+REPL,"Replimune Group, Inc.",12.56,1.61813,1956838,NMS
+NVAX,"Novavax, Inc.",10.8,1.59925,4446035,NMS
+CTKB,"Cytek Biosciences, Inc.",5.74,1.59291,1085774,NMS
+KSS,Kohl's Corporation,18.18,1.56425,4533208,NYQ
+XXI,"Twenty One Capital, Inc.",6.74,1.50602,1695962,NYQ
+FIGS,"FIGS, Inc.",13.62,1.49031,2517164,NYQ
+BHC,Bausch Health Companies Inc.,5.77,1.40597,1504460,NYQ
+SVRA,"Savara, Inc.",5.07,1.4,4370996,NMS
+NNBR,"NN, Inc.",3.72,1.3624,1613612,NMS
+SB,"Safe Bulkers, Inc",8.25,1.35135,1485940,NYQ
+HRL,Hormel Foods Corporation,19.97,1.31913,5433260,NYQ
+DNOW,DNOW Inc.,16.14,1.31826,1482888,NYQ
+CMPS,COMPASS Pathways Plc - American,13.23,1.30168,1781047,NMS
+CNH,CNH Industrial N.V.,13.26,1.2987,11045954,NYQ
+NABL,"N-able, Inc.",4.05,1.25,1962521,NYQ
+ABR,Arbor Realty Trust,4.08,1.24069,5454193,NYQ
+DRH,Diamondrock Hospitality Company,12.64,1.20097,2212713,NMS
+RLX,RLX Technology Inc.,1.7,1.19048,2441466,NYQ
+PWP,Perella Weinberg Partners,14.64,1.17484,1559768,NMS
+COTY,Coty Inc.,2.68,1.13207,4008068,NYQ
+EVH,"Evolent Health, Inc",3.65,1.10804,2143822,NYQ
+LION,Lionsgate Studios Corp,10.97,1.10599,2503305,NYQ
+FJET,"Starfighters Space, Inc.",1.84,1.0989,1385646,ASE
+TRLV,Trulieve Cannabis Corp. Subordi,12.34,1.0647,1491182,NYQ
+NTSK,"Netskope, Inc.",17.85,1.01868,4676193,NMS
+NXRT,"NexPoint Residential Trust, Inc",19.84,1.01833,1184954,NYQ
+APLE,"Apple Hospitality REIT, Inc.",16.35,0.988263,2022226,NYQ
+SHO,"Sunstone Hotel Investors, Inc. ",11.3,0.983026,1850246,NYQ
+IQ,"iQIYI, Inc.",1.03,0.980391,2925333,NMS
+BATL,Battalion Oil Corporation,1.06,0.95238,2688972,ASE
+IBRX,"ImmunityBio, Inc.",8.52,0.947878,10393546,NMS
+CGEM,"Cullinan Therapeutics, Inc.",14.95,0.945303,1109218,NMS
+ZTO,ZTO Express (Cayman) Inc.,19.67,0.923552,4197239,NYQ
+SID,Companhia Siderurgica Nacional ,1.11,0.90909,3866568,NYQ
+NAT,Nordic American Tankers Limited,7.79,0.906738,4280563,NYQ
+YMM,Full Truck Alliance Co. Ltd.,8.2,0.861005,7687906,NYQ
+ALMS,Alumis Inc.,7.16,0.84507,2244680,NMS
+ORIC,"Oric Pharmaceuticals, Inc.",13.27,0.835871,1515461,NMS
+PRVA,"Privia Health Group, Inc.",19.87,0.81178,1378191,NMS
