@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+TGE,The Generation Essentials Group,1.55,86.747,186434137,NYQ
+PACB,Pacific Biosciences of Californ,2.37,29.5082,80169235,NMS
+PMVP,"PMV Pharmaceuticals, Inc.",1.67,16.7832,3123324,NMS
+CTNM,"Contineum Therapeutics, Inc.",13.42,16.6957,1597697,NMS
+VIOT,"Viomi Technology Co., Ltd",1.7,15.6463,1467935,NMS
+CAPR,"Capricor Therapeutics, Inc.",9.47,10.5018,20479335,NMS
+FEAM,"5E Advanced Materials, Inc.",3.37,10.4918,1041629,NMS
+EPRX,Eupraxia Pharmaceuticals Inc.,9.1,9.57255,1275906,NMS
+SITC,SITE Centers Corp.,3.37,8.36013,4081540,NYQ
+DNA,"Ginkgo Bioworks Holdings, Inc.",12.83,7.27425,4629898,NYQ
+IBRX,"ImmunityBio, Inc.",9.44,6.90826,27178126,NMS
+FOSL,"Fossil Group, Inc.",6.57,6.65585,1413260,NMS
+CCCC,"C4 Therapeutics, Inc.",3.33,6.38977,2609171,NMS
+PGEN,"Precigen, Inc.",8.56,6.33541,11680767,NMS
+AI,"C3.ai, Inc.",10.99,6.28626,5310546,NYQ
+ABSI,Absci Corporation,10.77,6.21302,5414918,NMS
+COUR,"Coursera, Inc.",4.96,6.20985,14449815,NYQ
+CCOI,"Cogent Communications Holdings,",7.79,6.13079,2181951,NMS
+CHPT,"ChargePoint Holdings, Inc.",10.08,5.88235,1544517,NYQ
+LEGN,Legend Biotech Corporation,19.89,5.68544,2954975,NMS
+BMEA,"Biomea Fusion, Inc.",1.33,5.55556,1435723,NMS
+ENVX,Enovix Corporation,2.9,5.45455,9419022,NMS
+ITUB,Itau Unibanco Banco Holding SA,8.53,5.43881,54094509,NYQ
+STUB,"StubHub Holdings, Inc.",5.58,5.08475,10451997,NYQ
+CANG,Cango Inc.,2.49,5.0633,1266031,NYQ
+ASPN,"Aspen Aerogels, Inc.",5.48,4.98085,1418515,NYQ
+VIR,"Vir Biotechnology, Inc.",11.18,4.97653,1737139,NMS
+CATX,"Perspective Therapeutics, Inc.",2.75,4.96184,1666391,ASE
+DXC,DXC Technology Company,10.83,4.84027,3662123,NYQ
+BBD,Banco Bradesco Sa,3.52,4.76191,30447718,NYQ
+SLDP,"Solid Power, Inc.",2.375,4.62555,3333577,NMS
+UAA,"Under Armour, Inc.",4.46,4.44965,11379520,NYQ
+BZ,KANZHUN LIMITED - American Depo,14.8,4.44601,7065693,NMS
+GTM,ZoomInfo Technologies Inc.,3.79,4.40771,4172526,NMS
+AUTL,Autolus Therapeutics plc,1.94,4.30108,1156805,NMS
+STTK,"Shattuck Labs, Inc.",6.82,4.28135,3356719,NMS
+PATH,"UiPath, Inc.",12.84,4.22078,42316182,NYQ
+INTR,Inter & Co. Inc.,5.34,4.09357,7087919,NMS
+VOR,Vor Biopharma Inc.,19.08,4.09165,1069916,NMS
+HYLN,Hyliion Holdings Corp.,4.17,3.99002,3263053,ASE
+QNST,"QuinStreet, Inc.",15.01,3.94737,1421407,NMS
+SID,Companhia Siderurgica Nacional ,1.06,3.92157,4529281,NYQ
+KLRA,"Kailera Therapeutics, Inc.",11.42,3.91265,1368804,NMS
+AVPT,"AvePoint, Inc.",14.08,3.75829,2820217,NMS
+AHRT,"AH Realty Trust, Inc.",6.1,3.74149,7354516,NYQ
+EGHT,8x8 Inc,2.25,3.68663,1876937,NMS
+BB,BlackBerry Limited,9.04,3.66972,27696698,NYQ
+PTEN,"Patterson-UTI Energy, Inc.",10.92,3.50711,8811172,NMS
+CTKB,"Cytek Biosciences, Inc.",5.96,3.47222,1324204,NMS
+PEPG,PepGen Inc.,2.42,3.41881,2149513,NMS
+PSKY,Paramount Skydance Corporation,10.33,3.40341,30325568,NMS
+VYX,NCR Voyix Corporation,6.84,3.32327,4603048,NYQ
+ERAS,"Erasca, Inc.",14.66,3.16678,5286360,NMS
+ALHC,"Alignment Healthcare, Inc.",8.16,3.16056,8638068,NMS
+KVYO,"Klaviyo, Inc. Series A",15.73,3.14754,4980234,NYQ
+ARVN,"Arvinas, Inc.",7.735,3.13333,1061018,NMS
+SNDX,"Syndax Pharmaceuticals, Inc.",18.8,3.09843,1729347,NMS
+AESI,Atlas Energy Solutions Inc.,12.01,3.09013,4656699,NYQ
+UA,"Under Armour, Inc.",4.35,3.08057,2552203,NYQ
+CLBT,Cellebrite DI Ltd.,11.26,3.01921,3095183,NMS
+ALXO,ALX Oncology Holdings Inc.,1.39,2.96296,1343747,NMS
+TAL,TAL Education Group,12.07,2.89855,3695026,NYQ
+SB,"Safe Bulkers, Inc",8.54,2.89156,1647122,NYQ
+ACDC,ProFrac Holding Corp.,4.34,2.84361,1642633,NMS
+TU,Telus Corporation,8.39,2.81863,10494191,NYQ
+HAFN,Hafnia Limited,9.94,2.79214,3437033,NYQ
+AUR,"Aurora Innovation, Inc.",5.54,2.78293,37916535,NMS
+WLTH,Wealthfront Corporation,10.38,2.77227,2849769,NMS
+GO,Grocery Outlet Holding Corp.,11.25,2.73973,3576809,NMS
+CXM,"Sprinklr, Inc.",4.95,2.69709,3685034,NYQ
+TMC,TMC the metals company Inc.,3.84,2.67379,6019039,NMS
+RSKD,Riskified Ltd.,7.91,2.59403,4439437,NYQ
+NU,Nu Holdings Ltd.,12.66,2.51012,103479720,NYQ
+SBS,Companhia de saneamento Basico ,5.31,2.50965,5831168,NYQ
+WIT,Wipro Limited,1.65,2.48447,6395160,NYQ
+RXRX,"Recursion Pharmaceuticals, Inc.",4.13,2.48139,32650872,NMS
+TAC,TransAlta Corporation,12.08,2.45971,1127112,NYQ
+CIG,Comp En De Mn Cemig,2.1,2.43902,5218434,NYQ
+ASAN,"Asana, Inc.",8.43,2.43014,5587980,NYQ
+ANNX,"Annexon, Inc.",4.23,2.42131,4409384,NMS
+ALKT,"Alkami Technology, Inc.",13.69,2.39342,2427295,NMS
+TE,T1 Energy Inc.,3.86,2.38727,18001756,NYQ
+FPI,Farmland Partners Inc.,11.35,2.34446,1513363,NYQ
+BMBL,Bumble Inc.,2.63,2.33464,2836024,NMS
+WTTR,"Select Water Solutions, Inc.",19.79,2.32679,1331988,NYQ
+WTI,"W&T Offshore, Inc.",3.57,2.29226,3419514,NYQ
+DDD,3D Systems Corporation,3.6,2.27273,1887243,NYQ
+XPOF,"Xponential Fitness, Inc.",4.5,2.27273,1385708,NYQ
+NAD,Nuveen Quality Municipal Income,10.12,2.11907,2674124,NYQ
+NZF,Nuveen Municipal Credit Income ,10.83,2.07352,2118197,NYQ
+IVAI,,10.2,2.0,2348893,NYQ
+NEA,Nuveen AMT-Free Quality Municip,9.95,1.94672,3449623,NYQ
+ABUS,Arbutus Biopharma Corporation,4.78,1.91898,16875407,NMS
+MYGN,"Myriad Genetics, Inc.",4.31,1.89125,1503861,NMS
+PINS,"Pinterest, Inc.",18.89,1.8878,16139869,NYQ
+REPL,"Replimune Group, Inc.",13.24,1.84615,3081614,NMS
+DEI,"Douglas Emmett, Inc.",9.58,1.80659,2669198,NYQ
+SMR,NuScale Power Corporation,7.9,1.80412,29412062,NYQ
+SOC,Sable Offshore Corp.,3.46,1.7647,10128618,NYQ
+GGB,Gerdau S.A.,4.72,1.72414,12101708,NYQ
