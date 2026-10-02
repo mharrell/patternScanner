@@ -105,7 +105,7 @@ FLOORS = {"min_bar_dates": 20, "min_events": 2000,
 MIN_SLOT = 100
 
 # Freeze sha (house fixed-point convention; see measure_intraday.py).
-FROZEN_SHA = "0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c"
+FROZEN_SHA = "71aca8c2b79da1b112d057d0c6f2745c95405bb6a1041d8e93ab3e12854a8a3a"
 
 
 def sha_bytes(b: bytes) -> str:
@@ -768,9 +768,14 @@ def write_report(audit: dict, arc, floors: dict | None,
     L.append("")
     L.append("| floor | required | actual | met |")
     L.append("|---|---|---|---|")
+    _actual_of = {"min_bar_dates": "window_bar_dates",
+                  "min_events": "events_f1_valid",
+                  "min_tickers": "tickers",
+                  "min_dates_with_events": "dates_with_events"}
     for k, req in FLOORS.items():
-        L.append(f"| {k} | {req} | {floors[k]} | "
-                 f"{'✓' if floors[k] >= req else '✗'} |")
+        act = floors.get(_actual_of.get(k, ""), 0)
+        L.append(f"| {k} | {req} | {act} | "
+                 f"{'✓' if act >= req else '✗'} |")
     L.append("")
     L.append("## F1 — rule vs fixed-N (primary) / fixed-2R (secondary)")
     L.append("")

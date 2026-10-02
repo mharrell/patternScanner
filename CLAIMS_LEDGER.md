@@ -499,9 +499,9 @@ marks non-Ross claims. Statuses follow the same rubric as A–H.
 | # | Time | Claim as stated | Status |
 |---|---|---|---|
 | I-C-01 | txWaMpSzHhM [29:44–29:49]; 7UZushUSpLQ [03:48–03:55]; jfe1Zl-5EQI [24:42–25:00] | "I set my stop at the lows... what is the low of the last five minute candle and have we broken that low because if we broke the low of the last five-minute candle in an uptrend then the trend may be starting to change"; "a stop either at the low of day or simply down twenty thirty cents". | `candidate` (needs intraday) — stop at last-candle low / low of day / fixed 20–30¢. Daily adaptation: exit on break of prior-day (or N-bar) low — a candidate exit rule for the shapes if ever tested as a system comparison (cross-ref C-01/C-03/C-04, still untested). |
-| I-C-02 | jfe1Zl-5EQI [25:55–26:06], [05:01–05:20] | "If I get into the profit zone I can start adjusting my stop first to break even and then to the low of the last 5-minute candle"; "I just sold half at 2183 forty cents profit just my stop to definitely break even". | `candidate` (needs intraday) — trail-to-breakeven + scale-out-half; same family as ultimate-guide C-04 (cap losers, let winners run). |
-| I-C-03 | jfe1Zl-5EQI [05:30–05:45] | Target ladder on reversal longs: "the nine moving average here coming down at 22 dollars and 20 cents that's the first target the 9 second target will be the twenty third target would be the volume weighted average price". | `candidate` (needs intraday) — 9MA → 20MA → VWAP targets; the daily adaptation (9/20-day MA targets) is testable, cross-ref F-03 (MA support/resistance). |
-| I-C-04 | jfe1Zl-5EQI [25:34–25:51] | "If I get in I hold for a few minutes and the price stays flat I get out" (flat after entry = bear flag). | `candidate` (needs intraday) — no-move-within-N-bars exit. |
+| I-C-02 | jfe1Zl-5EQI [25:55–26:06], [05:01–05:20] | "If I get into the profit zone I can start adjusting my stop first to break even and then to the low of the last 5-minute candle"; "I just sold half at 2183 forty cents profit just my stop to definitely break even". | `tested` (pre-reg #20, 2026-10-01) — **NO EDGE** (whisper): +0.05pp vs holding (CI +0.009..+0.099), p 0.018 — misses its 0.0167 Holm gate by 0.0013; the only claimed rule in the intraday track with a nominally significant right-direction signal, unconfirmed (§K.7) |
+| I-C-03 | jfe1Zl-5EQI [05:30–05:45] | Target ladder on reversal longs: "the nine moving average here coming down at 22 dollars and 20 cents that's the first target the 9 second target will be the twenty third target would be the volume weighted average price". | `tested` (pre-reg #20, 2026-10-01) — **NO EDGE**: the ladder does not separate from holding (CI −0.040..+0.034pp, p 0.862) (§K.7) |
+| I-C-04 | jfe1Zl-5EQI [25:34–25:51] | "If I get in I hold for a few minutes and the price stays flat I get out" (flat after entry = bear flag). | `tested` (pre-reg #20, 2026-10-01) — **NO EDGE** on the rule (CI −0.004..+0.003pp, p 0.870); the flat premise itself INCONCLUSIVE (94 matched pairs < 100 floor) (§K.7) |
 
 ### I-D. Stock selection / scanner claims
 
@@ -3107,5 +3107,45 @@ corpus's intraday teaching, measured: structure is real, timing advice
 is inverted or null, and the filter stack (veto + MACD gate + window
 selection) does not separate good entries from bad on the universe a
 blind full-index archive can express.
+
+## K.7 Exit-rule verdicts — pre-registration #20 campaign (2026-10-01), intraday track closes
+
+`tools/measure_intraday_exit.py` (frozen 2026-08-21; CI-endpoint
+re-freeze 2026-08-22; **amendment 2 on 2026-10-01** — the report-writer
+floors-table defect amended in #21/#22, which this tool missed; the two
+floor-meeting attempts that night, the nightly opener and the session
+floor-check, computed and wrote nothing, and the fixed re-run completes
+the same one-shot). Floors met: 31 window bar-dates, 2,029 F1-evaluable
+B-01 entries, 401 tickers; audit **PASSED**; B=1000 seed 20260821.
+Each rule measured against the fixed-N=60 hold benchmark (primary) and
+fixed-2R (secondary) on the same entry set.
+
+| Slot | Claim | Verdict | Evidence |
+|---|---|---|---|
+| F1 breakeven-trail + sell-half (I-C-02) | trail-to-breakeven, scale out half | `tested, no edge` — **NO EDGE** (whisper) | diff vs fixed-N +0.05pp (CI +0.009..+0.099), p 0.018 — misses its 0.0167 Holm gate by 0.0013; right direction, not confirmed |
+| F1 9MA→20MA→VWAP ladder (I-C-03) | MA/VWAP target ladder beats holding | `tested, no edge` — **NO EDGE** | CI −0.040..+0.034pp, p 0.862 |
+| F1 flat-out rule (I-C-04) | exit flat-after-entry beats holding | `tested, no edge` — **NO EDGE** | CI −0.004..+0.003pp, p 0.870 |
+| F2 the flat premise | flat-after-entry events underperform matched non-flat | `tested, inconclusive` — **INCONCLUSIVE** | 94 matched pairs < 100 floor |
+
+Sensitivities: S-C05 (0.05% cost) puts the breakeven-trail at p 0.008
+in the claimed direction — exploratory, no verdict; the trail rule is
+the one exit whose sign agrees with the claim anywhere in the cycle.
+
+**Reading.** The exit doctrine joins the entry doctrine: on the index,
+none of the three exit rules separates from just holding the same
+entries for an hour — differences sit within ±0.05pp after cost. The
+honest nuance is the breakeven-trail whisper: the only slot in the
+entire intraday track where a *claimed* rule beats its benchmark with
+nominal significance (p 0.018), and it fails Holm by 0.0013. Recorded
+as the sixth directional whisper of the cycle — consistent sign, no
+confirmed magnitude. F2's INCONCLUSIVE is honest: the flat-after-entry
+premise has too few matched pairs on this universe to test.
+
+**The S&P 600 intraday track is now fully measured** — #15, #19, #20,
+#21, #22, #27, #32 (one-shot each, amendments recorded; #20 completes
+the set). Remaining on the index: #23's successor pre-registration for
+the tradeable-price gap (live fills were never logged). Everything else
+moves to the mover population (freeze pending → floors ~2026-10-15).
+
 
 

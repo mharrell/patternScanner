@@ -3996,8 +3996,24 @@ new pre-registration).
 
 ## 8. Campaign outcome (recorded after measurement — parameters unchanged)
 
-*(Awaiting the §5 floor — measurement window opens at the first meeting
-of the §5 floors.)*
+**Ran 2026-10-01** — the one-shot completed by the session re-run after
+two floor-meeting attempts crashed at the report writer (amendment 2
+below; identical recomputation under the fixed seed). Floors met: 31
+window bar-dates, 2,029 F1-evaluable B-01 entries, 401 tickers, 31
+dates-with-events. Audit **PASSED**.
+
+| Slot | Verdict |
+|---|---|
+| F1 breakeven-trail + sell-half | **NO EDGE** (whisper) — +0.05pp vs fixed-N (CI +0.009..+0.099), p 0.018, Holm gate 0.0167 missed by 0.0013 |
+| F1 9MA→20MA→VWAP ladder | **NO EDGE** — CI −0.040..+0.034pp, p 0.862 |
+| F1 flat-out rule | **NO EDGE** — CI −0.004..+0.003pp, p 0.870 |
+| F2 flat premise | **INCONCLUSIVE** — 94 matched pairs < 100 floor |
+
+S-C05 (0.05% cost): breakeven-trail p 0.008, claimed direction —
+exploratory. Ledger rows: I-C-02/I-C-03/I-C-04 → tested. Verdict
+section: CLAIMS_LEDGER §K.7. Archived:
+`data/measurements/measure_intraday_exit/`. **This closes the S&P 600
+intraday track** (#15–#22, #27, #32 all measured).
 
 *Implementation freeze (2026-08-21, before any measurement):
 `tools/measure_intraday_exit.py` FROZEN_SHA
@@ -4039,6 +4055,20 @@ index 3` (`diff_2r_lo/`diff_2r_hi` likewise), the tool was re-frozen,
 and the verification pass re-ran clean. New FROZEN_SHA
 `0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c`
 (fixed-point convention unchanged; frozen B-01 input sha unchanged).*
+
+*§8 amendment 2 (2026-10-01, on the first floor-meeting attempt — nothing
+was written by any crashing attempt): report-writer fix only. The nightly
+gate-opener's 23:45 run and the session's floor check both computed the
+full measurement in memory, then crashed in `write_report`'s §4 floors
+table (`KeyError: 'min_bar_dates'` — the identical defect amended in
+pre-regs #21/#22 on 2026-09-18; this tool missed that pass). Fix: the
+same requirement→actual key map in the floors table only. Detector,
+exit-rule math, benchmarks, seeds — all measurement code — untouched;
+the re-run recomputes identically (fixed seed) and completes the same
+one-shot. Old FROZEN_SHA `0c798159…` → new FROZEN_SHA `71aca8c2…`
+(companions: `verify_intraday.py` exit pin and `paper_loop.py`'s
+recorded LF sha `25f859ba…` → `54072391…`; no decision path changes).
+Precedent: pre-reg #25's post-verdict, pre-report `fmt` amendment.*
 
 *§8 floor status (2026-09-22, re-checked by the nightly gate-opener):
 the floors are **partially met** — window bar-dates **24** (need 20) OK,

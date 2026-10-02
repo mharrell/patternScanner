@@ -75,7 +75,10 @@ _FROZEN_INPUTS = {
     "measure_intraday_entry.py":
         "d58a889c6c0a634952bacd90bf412140709102053facebf1ee82b5df67592656",
     "measure_intraday_exit.py":
-        "25f859ba4bc22588a345cf4a01e0c81857f208cd84b3aa1c3a85d6588f8a98f1",
+        # re-recorded 2026-10-01: report-writer-only amendment shas
+        # (floors-table key map) -- see #20 §8 amendment 2; no decision
+        # path changed (the exit tool is a recorded frozen input here).
+        "5407239171f6e9a494386b7111399f97b539befa30319d7d0bb8520ce2bd71be",
     "measure_intraday_veto.py":
         "e69fd884bb29f90bc21a9fa1822b1272662224bdcf5492d39915f0c5eb1bee71",
     "measure_intraday_regime.py":

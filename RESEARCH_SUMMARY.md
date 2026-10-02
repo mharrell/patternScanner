@@ -82,16 +82,14 @@ caveats point to.
 
 ## What's next
 
-The intraday track fired 2026-09-18 (see below). Remaining: **#20** (the
-intraday exit rules — floors partially met on 2026-09-23: 25/20 bar-dates,
-370/100 tickers and 25/15 dates-with-events all met, but only
-**1,601/2,000 F1-evaluable B-01 events**; the binding floor opens
-~2026-10-01), **#23** (the paper loop — running nightly again since the
-2026-09-22 frozen-input repair; its §5-gated comparison **ran 2026-09-22**:
-the modeled gap came out exactly as pre-declared at −0.000999 ≈ −2s, and the
-**L-007 row is empty** because no observed fills were ever logged — so the
-tradeable-price gap needs a successor pre-registration with a programmatic
-quotes source), and the **mover-universe track** below.
+The S&P 600 intraday track **closed 2026-10-01**: #20 (the exit rules)
+measured — all three rules NO EDGE vs just holding the same entries
+(§K.7), the breakeven-trail whisper (p 0.018, right direction) missing
+its Holm gate by 0.0013 — completing #15–#22, #27, #32. Remaining:
+**#23's successor** (the tradeable-price gap — live fills were never
+logged, so it needs a programmatic quotes source), and the
+**mover-universe track** below (freeze pending; floors on roster
+bar-dates ≈ 2026-10-15).
 Nothing on the daily track remains: every claim from the §J scan that daily
 bars can express has been tested.
 

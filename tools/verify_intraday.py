@@ -70,7 +70,7 @@ TAIL_MULT = 3.0                      # #22 F3 tail multiple
 FROZEN = {
     "b01":   "765ff1df23c80c006104d2f28b754593e3401e256132115207a161ebf5fdc6f5",
     "entry": "cac0e7ed205c8fbea62dad2c1f3f181cbe6b2b247d00c34c9c93b0c426c4b48c",
-    "exit":  "0c798159ea3e93d966d8435c6dceb9eb80fb7c62cd3c91b983cf0ee17c6e863c",
+    "exit":  "71aca8c2b79da1b112d057d0c6f2745c95405bb6a1041d8e93ab3e12854a8a3a",
     "veto":  "6989330642d0e23951cb6b00d8343df37025428ac1349fef73b9e4da0d3e833a",
     "regime": "e4502ba5cea73841338d4a1c239808d8557ff5a10850961c9f46abee71d164fc",
 }
