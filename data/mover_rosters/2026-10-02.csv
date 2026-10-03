@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+SDEV,Stablecoin Development Corporat,7.48,104.372,145207943,ASE
+NNBR,"NN, Inc.",4.51,24.2424,14644785,NMS
+FEAM,"5E Advanced Materials, Inc.",3.88,20.1238,2210934,NMS
+CABO,"Cable One, Inc.",12.21,17.8571,1380425,NYQ
+WNC,Wabash National Corporation,14.04,12.6806,1677357,NYQ
+MYGN,"Myriad Genetics, Inc.",4.54,11.8227,2257987,NMS
+IBRX,"ImmunityBio, Inc.",10.285,10.8297,31128179,NMS
+EVGO,EVgo Inc.,1.38,9.52381,5536941,NMS
+INIO,INNIO N.V.,19.99,9.35448,5544491,NMS
+UWMC,UWM Holdings Corporation,1.26,9.09091,16277169,NYQ
+PL,Planet Labs PBC,17.5,8.42627,14900372,NYQ
+AADX,"Applied Aerospace & Defense, In",12.63,8.04107,2266985,NYQ
+AIB,AIB Data Centers Inc.,1.64,7.89474,3961499,ASE
+TGB,Trekor Metals Limited,8.95,7.70156,4814195,ASE
+HYLN,Hyliion Holdings Corp.,4.53,7.60095,1947504,ASE
+JBS,JBS N.V.,11.67,7.45857,6698937,NYQ
+GPGI,"GPGI, Inc.",12.9,7.05394,1857955,NYQ
+DDD,3D Systems Corporation,3.78,6.77966,3200729,NYQ
+CGEM,"Cullinan Therapeutics, Inc.",15.51,6.74467,1162067,NMS
+RXT,"Rackspace Technology, Inc.",4.12,6.73575,5342684,NMS
+SOC,Sable Offshore Corp.,3.51,6.68693,10458925,NYQ
+FUN,Six Flags Entertainment Corpora,11.6,6.61765,3069607,NYQ
+GENI,Genius Sports Limited,6.02,5.98592,7935149,NYQ
+EQPT,EquipmentShare.com Inc,18.5,5.83524,3386192,NMS
+CABA,"Cabaletta Bio, Inc.",2.0,5.82011,5692839,NMS
+HIMX,"Himax Technologies, Inc.",15.24,5.46713,1408693,NMS
+CSQR,"Csquare, Inc.",17.41,5.38741,1614335,NYQ
+MRVI,"Maravai LifeSciences Holdings, ",7.9,5.33333,1913525,NMS
+GCTS,"GCT Semiconductor Holding, Inc.",2.25,5.14018,1511437,NYQ
+TE,T1 Energy Inc.,3.92,5.09384,16348193,NYQ
+GMRS,GMR Solutions Inc.,9.89,4.98939,1182577,NYQ
+PLAY,"Dave & Buster's Entertainment, ",6.75,4.97667,2074207,NMS
+BFLY,"Butterfly Network, Inc.",8.95,4.9238,4476889,NYQ
+SG,"Sweetgreen, Inc.",9.1,4.83871,6456914,NYQ
+CNH,CNH Industrial N.V.,13.47,4.8249,17281265,NYQ
+CANG,Cango Inc.,2.67,4.70589,1523965,NYQ
+ADCT,ADC Therapeutics SA,1.13,4.62962,1310581,NYQ
+LBRT,Liberty Energy Inc.,19.31,4.54792,5678597,NYQ
+IE,Ivanhoe Electric Inc.,10.44,4.4,2182721,ASE
+YSS,York Space Systems Inc.,8.98,4.29733,1787915,NYQ
+HLIT,Harmonic Inc.,11.17,4.19776,1809865,NMS
+GGB,Gerdau S.A.,5.01,4.15801,19415021,NYQ
+EROC,"ERock, Inc.",12.65,4.11523,2525257,NYQ
+PGEN,"Precigen, Inc.",8.54,4.01949,6361552,NMS
+BBD,Banco Bradesco Sa,3.65,3.98861,48375403,NYQ
+EDIT,"Editas Medicine, Inc.",2.62,3.96825,2161529,NMS
+MATW,Matthews International Corporat,19.29,3.82132,1166123,NMS
+QDEL,QuidelOrtho Corporation,10.77,3.75723,2415181,NMS
+ARHS,"Arhaus, Inc.",10.24,3.74873,2786642,NMS
+ULCC,"Frontier Group Holdings, Inc.",6.19,3.6851,2728203,NMS
+RC,Ready Capital Corporation,1.13,3.66972,2013396,NYQ
+SID,Companhia Siderurgica Nacional ,1.16,3.57142,7275130,NYQ
+CLOV,"Clover Health Investments, Corp",4.38,3.5461,3855118,NMS
+NCLH,Norwegian Cruise Line Holdings ,15.14,3.4153,31162734,NYQ
+INTR,Inter & Co. Inc.,5.48,3.39622,4152010,NMS
+FWRG,"First Watch Restaurant Group, I",10.57,3.32356,1838283,NMS
+AEVA,"Aeva Technologies, Inc.",14.76,3.28902,1272494,NMS
+FIP,FTAI Infrastructure Inc.,2.685,3.26923,1202829,NMS
+GLAS,Glass House Brands Inc. Subordi,5.49,3.19548,1406075,NYQ
+RARE,Ultragenyx Pharmaceutical Inc.,15.22,3.18644,3882994,NMS
+DNOW,DNOW Inc.,15.76,3.14136,1885651,NYQ
+DCH,Dauch Corporation,5.6,3.13076,4879096,NYQ
+ABEV,Ambev S.A.,2.99,3.10345,22506044,NYQ
+FTRE,Fortrea Holdings Inc.,20.0,3.09279,1048295,NMS
+XE,"X-Energy, Inc.",14.38,3.08244,4431074,NMS
+NAT,Nordic American Tankers Limited,8.42,3.05998,4840306,NYQ
+PUMP,ProPetro Holding Corp.,9.27,3.00001,3297232,NYQ
+AESI,Atlas Energy Solutions Inc.,12.04,2.99402,2677645,NYQ
+ABSI,Absci Corporation,11.07,2.97674,3379131,NMS
+LPL,"LG Display Co, Ltd AMERICAN DEP",3.12,2.97029,1391561,NYQ
+HBNC,"Horizon Bancorp, Inc.",19.48,2.95983,1163655,NMS
+RDW,Redwire Corporation,10.88,2.93283,15296628,NYQ
+TTI,"Tetra Technologies, Inc.",6.0,2.91595,2246412,NYQ
+RBBN,Ribbon Communications Inc.,1.77,2.90697,2248797,NMS
+DNP,"DNP Select Income Fund, Inc.",9.57,2.90322,1276088,NYQ
+ARCO,Arcos Dorados Holdings Inc.,7.11,2.89436,2438372,NYQ
+TROX,Tronox Holdings plc,3.93,2.87958,1306500,NYQ
+LUMN,"Lumen Technologies, Inc.",5.75,2.86225,12124464,NYQ
+VG,"Venture Global, Inc.",13.13,2.8191,10807229,NYQ
+CCOI,"Cogent Communications Holdings,",8.46,2.79466,2479528,NMS
+HNST,"The Honest Company, Inc.",5.16,2.78884,1049418,NMS
+ITRG,Integra Resources Corp.,2.64,2.72374,2134228,ASE
+AUR,"Aurora Innovation, Inc.",5.67,2.71739,14471946,NMS
+VOD,Vodafone Group Plc,16.82,2.68621,4179512,NMS
+EQX,Equinox Gold Corp.,11.11,2.68022,9020194,ASE
+ALHC,"Alignment Healthcare, Inc.",7.94,2.58398,7791274,NMS
+GNW,Genworth Financial Inc,9.55,2.57787,4750928,NYQ
+TRX,TRX Gold Corporation,1.2,2.56411,2283329,ASE
+CHWY,"Chewy, Inc.",18.17,2.53951,7935788,NYQ
+PBR.A,Petroleo Brasileiro S.A. Petrob,19.6,2.51046,7944510,NYQ
+AVEX,AEVEX Corp.,14.48,2.477,2008229,NYQ
+RES,"RPC, Inc.",5.86,2.44756,2333238,NYQ
+PRMB,Primo Brands Corporation,19.51,2.4147,2690826,NYQ
+SUZ,Suzano S.A.,8.5,2.40964,1931315,NYQ
+LILAK,Liberty Latin America Ltd.,8.5,2.40964,1230932,NMS
+CIG,Comp En De Mn Cemig,2.15,2.38096,3784904,NYQ
+PDO,Pimco Dynamic Income Opportunities Fund,12.11,2.36686,2666742,NYQ
+TFSL,TFS Financial Corporation,16.82,2.31143,1028234,NMS
+VALE,VALE S.A.,13.76,2.30484,42923692,NYQ
+PMVP,"PMV Pharmaceuticals, Inc.",1.79,2.28571,3735753,NMS
