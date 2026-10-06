@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+APUS,"Apimeds Pharmaceuticals US, Inc",4.59,42.5466,33503941,ASE
+PICS,PicS N.V.,11.62,27.8328,1742067,NMS
+PAGS,PagSeguro Digital Ltd.,10.95,21.3969,18000625,NYQ
+DNA,"Ginkgo Bioworks Holdings, Inc.",14.98,21.2955,7638780,NYQ
+STNE,StoneCo Ltd.,11.54,20.8377,29376869,NMS
+NVAX,"Novavax, Inc.",12.56,20.0765,28495693,NMS
+INTR,Inter & Co. Inc.,6.56,19.708,27227136,NMS
+BBD,Banco Bradesco Sa,4.33,18.7517,127310554,NYQ
+BCYC,Bicycle Therapeutics plc,4.01,18.6391,1843961,NMS
+SBS,Companhia de saneamento Basico ,6.26,16.3569,28184587,NYQ
+RXRX,"Recursion Pharmaceuticals, Inc.",4.78,16.0194,66882504,NMS
+ITUB,Itau Unibanco Banco Holding SA,9.92,15.4831,113265593,NYQ
+EBS,Emergent BioSolutions Inc.,7.24,14.376,2330723,NYQ
+ARCO,Arcos Dorados Holdings Inc.,8.1,13.9241,7135393,NYQ
+NU,Nu Holdings Ltd.,15.18,13.0305,180382266,NYQ
+PACB,Pacific Biosciences of Californ,2.87,12.9921,26152463,NMS
+QDEL,QuidelOrtho Corporation,12.14,12.7205,2692910,NMS
+XERS,"Xeris Biopharma Holdings, Inc.",10.13,11.5639,4288134,NMS
+CIG,Comp En De Mn Cemig,2.38,10.6977,17634644,NYQ
+ALEC,"Alector, Inc.",1.99,9.94476,89168988,NMS
+VIV,Telefonica Brasil S.A.,12.62,9.35875,2379389,NYQ
+AFYA,Afya Limited,13.31,8.9198,1768020,NMS
+ADCT,ADC Therapeutics SA,1.23,8.84956,1750901,NYQ
+BBWI,"Bath & Body Works, Inc.",17.46,8.71731,12389493,NYQ
+PAX,Patria Investments Limited,11.1,8.71695,3102691,NMS
+ABEV,Ambev S.A.,3.25,8.69565,56465338,NYQ
+TIMB,TIM S.A.,19.3,8.24453,1368955,NYQ
+ELPC,Companhia Paranaense de Energia,13.92,8.24262,2231033,NYQ
+MRVI,"Maravai LifeSciences Holdings, ",8.52,7.84811,2628991,NMS
+CLF,Cleveland-Cliffs Inc.,12.2,7.77385,25360545,NYQ
+CERT,"Certara, Inc.",10.07,7.58547,2903067,NMS
+ZVRA,"Zevra Therapeutics, Inc.",10.7,7.10711,1976409,NMS
+NEOG,Neogen Corporation,13.01,7.07819,5147987,NMS
+ALHC,"Alignment Healthcare, Inc.",8.5,7.0529,10281443,NMS
+BSBR,Banco Santander Brasil SA,5.78,7.03704,15751848,NYQ
+EPRX,Eupraxia Pharmaceuticals Inc.,7.745,6.97514,1764317,NMS
+SID,Companhia Siderurgica Nacional ,1.24,6.89656,27753244,NYQ
+ATEC,"Alphatec Holdings, Inc.",10.72,6.87937,2062742,NMS
+CLOV,"Clover Health Investments, Corp",4.68,6.84931,4875378,NMS
+FMC,FMC Corporation,9.0,6.63508,6292419,NYQ
+RIG,Transocean Ltd (Switzerland),5.51,6.57641,35410914,NYQ
+EDIT,"Editas Medicine, Inc.",2.79,6.48855,3005765,NMS
+KVYO,"Klaviyo, Inc. Series A",16.7,6.30172,4254012,NYQ
+FOSL,"Fossil Group, Inc.",7.22,6.17646,1613179,NMS
+VNET,"VNET Group, Inc.",5.445,6.14035,6055724,NMS
+BORR,Borr Drilling Limited,4.15,6.13811,7701844,NYQ
+ASAN,"Asana, Inc.",9.14,6.03249,3492694,NYQ
+CLB,Core Laboratories Inc.,10.51,5.94758,1004803,NYQ
+WLTH,Wealthfront Corporation,10.62,5.88235,2238023,NMS
+TIGR,UP Fintech Holding Limited,4.4,5.76924,2456400,NMS
+IHRT,"iHeartMedia, Inc.",2.05,5.6701,1123593,NMS
+AESI,Atlas Energy Solutions Inc.,12.72,5.64784,4748774,NYQ
+DLO,DLocal Limited,14.52,5.63842,2450946,NMS
+VIR,"Vir Biotechnology, Inc.",11.78,5.46105,3146938,NMS
+NABL,"N-able, Inc.",4.46,5.43735,1904205,NYQ
+DKNG,DraftKings Inc.,19.6,5.43303,25716109,NMS
+TDAY,"USA TODAY Co., Inc.",7.43,5.39007,2734179,NYQ
+ENOV,Enovis Corporation,18.69,5.17727,1349354,NYQ
+MAT,"Mattel, Inc.",16.05,5.10805,14682864,NMS
+DXC,DXC Technology Company,11.66,5.04504,6614487,NYQ
+CCOI,"Cogent Communications Holdings,",8.88,4.96454,2433632,NMS
+ABUS,Arbutus Biopharma Corporation,4.67,4.94383,6179558,NMS
+TDOC,"Teladoc Health, Inc.",5.79,4.8913,4468414,NYQ
+LZ,"LegalZoom.com, Inc.",5.87,4.82143,4033563,NMS
+IART,Integra LifeSciences Holdings C,13.29,4.81072,1858987,NMS
+BFLY,"Butterfly Network, Inc.",9.38,4.80447,5224874,NYQ
+REAL,"The RealReal, Inc.",9.32,4.7191,2401942,NMS
+PYXS,"Pyxis Oncology, Inc.",2.24,4.67289,1510353,NMS
+KLAR,Klarna Group plc,13.09,4.63629,5770422,NYQ
+FUN,Six Flags Entertainment Corpora,12.13,4.56896,3154091,NYQ
+RGNX,REGENXBIO Inc.,7.76,4.44146,2348299,NMS
+EVH,"Evolent Health, Inc",3.61,4.33526,1341752,NYQ
+KLRA,"Kailera Therapeutics, Inc.",10.84,4.33109,1792619,NMS
+UGP,Ultrapar Participacoes S.A. (Ne,7.77,4.2953,8832921,NYQ
+AVPT,"AvePoint, Inc.",14.66,4.19332,2906554,NMS
+ABSI,Absci Corporation,11.53,4.15538,4279786,NMS
+RES,"RPC, Inc.",6.1,4.09556,2609365,NYQ
+NIQ,NIQ Global Intelligence plc,17.32,4.08654,3681186,NYQ
+EMBC,Embecta Corp.,5.88,4.0708,1044354,NMS
+SAN,"Banco Santander, S.A. Sponsored",13.9,4.04192,20933716,NYQ
+BRBR,"BellRing Brands, Inc.",7.73,4.03769,4999180,NYQ
+CABA,"Cabaletta Bio, Inc.",2.08,4.0,5388459,NMS
+LSPD,Lightspeed Commerce Inc. Subord,10.21,3.97149,2535902,NYQ
+CTVA,"Corteva, Inc.",12.39,3.94296,183061500,NYQ
+EC,Ecopetrol S.A.,17.25,3.91566,2063405,NYQ
+BAK,Braskem SA,1.61,3.87097,1477754,NYQ
+UPWK,Upwork Inc.,8.36,3.85092,3182035,NMS
+VTEX,VTEX,3.79,3.83561,1487246,NYQ
+KSS,Kohl's Corporation,19.53,3.82776,5133041,NYQ
+IQ,"iQIYI, Inc.",1.03,3.82018,3271316,NMS
+NOV,NOV Inc.,19.51,3.7766,4139070,NYQ
+NTSK,"Netskope, Inc.",18.42,3.77465,3192706,NMS
+CTKB,"Cytek Biosciences, Inc.",6.09,3.74788,1777514,NMS
+ACDC,ProFrac Holding Corp.,4.75,3.71179,1159819,NMS
+HUN,Huntsman Corporation,8.84,3.63424,4758766,NYQ
+BGC,"BGC Group, Inc.",12.2,3.56537,4025367,NMS
+PUMP,ProPetro Holding Corp.,9.59,3.45199,4049463,NYQ
+FRSH,Freshworks Inc.,13.22,3.44288,3526711,NMS
+HOS,"Hornbeck Offshore Services, Inc",7.85,3.42556,3807750,NYQ
+CGEM,"Cullinan Therapeutics, Inc.",16.04,3.41715,1082961,NMS
