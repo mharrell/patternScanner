@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+APUS,"Apimeds Pharmaceuticals US, Inc",7.13,55.3377,43737790,ASE
+ITG,"ITG, Inc.",8.23,17.9083,1133825,NMS
+STDN,"Standard Nuclear, Inc.",15.19,16.7563,1306315,NYQ
+HTZ,"Hertz Global Holdings, Inc",2.06,15.0838,43275761,NMS
+SRFM,Surf Air Mobility Inc.,1.01,13.4067,9672481,NYQ
+OPTT,"Ocean Power Technologies, Inc.",1.06,10.4857,3587914,ASE
+TGE,The Generation Essentials Group,1.2,10.0917,1301229,NYQ
+EROC,"ERock, Inc.",13.64,10.0888,4834883,NYQ
+MIR,"Mirion Technologies, Inc.",16.27,9.04826,5582096,NYQ
+SECZ,Securitize Corp.,12.7,8.54701,4434401,NYQ
+UEC,Uranium Energy Corp.,10.11,8.12833,16220928,ASE
+STKE,Sol Strategies Inc.,1.84,7.60234,1051137,NMS
+NOK,Nokia Corporation Sponsored,10.97,7.54902,89196650,NYQ
+GOGO,Gogo Inc.,2.3,7.47663,1877421,NMS
+PICS,PicS N.V.,12.46,7.22892,1226750,NMS
+XE,"X-Energy, Inc.",15.45,7.21721,11184510,NMS
+INTR,Inter & Co. Inc.,7.03,7.16464,11805114,NMS
+BURU,"Nuburu, Inc.",1.2,7.14286,3066459,ASE
+TIC,"TIC Solutions, Inc.",8.85,7.14286,1796379,NYQ
+NTSK,"Netskope, Inc.",19.64,6.62323,10586120,NMS
+ADTN,"ADTRAN Holdings, Inc.",7.62,6.57342,2556409,NMS
+PTLO,Portillo's Inc.,3.78,6.47887,1695879,NMS
+FRVO,Fervo Energy Company,14.33,6.46359,13023332,NMS
+EVH,"Evolent Health, Inc",3.84,6.37119,1589935,NYQ
+AMC,"AMC Entertainment Holdings, Inc",2.95,5.73477,18261658,NYQ
+URG,Ur Energy Inc,1.12,5.66038,8878246,ASE
+BB,BlackBerry Limited,9.58,5.50661,21682162,NYQ
+PENN,"PENN Entertainment, Inc.",15.91,5.36423,3552105,NMS
+TAC,TransAlta Corporation,13.12,5.21251,2187187,NYQ
+PLTK,Playtika Holding Corp.,2.29,5.04587,1191817,NMS
+FLNC,"Fluence Energy, Inc.",8.03,4.96732,6082665,NMS
+CCOI,"Cogent Communications Holdings,",9.31,4.84235,2147910,NMS
+IMSR,Terrestrial Energy Inc.,3.93,4.8,1511034,NMS
+BW,"Babcock & Wilcox Enterprises, I",5.91,4.78723,6040128,NYQ
+ESRT,"Empire State Realty Trust, Inc.",4.43,4.72813,5663609,NYQ
+CRK,"Comstock Resources, Inc.",13.65,4.5176,2472387,NYQ
+DNUT,"Krispy Kreme, Inc.",3.02,4.49827,2250640,NMS
+SMR,NuScale Power Corporation,8.02,4.42709,44400403,NYQ
+NCLH,Norwegian Cruise Line Holdings ,15.51,4.30397,25170696,NYQ
+FRMI,Fermi Inc.,4.23,4.18719,11947103,NMS
+BBD,Banco Bradesco Sa,4.51,4.15705,92145353,NYQ
+FRSH,Freshworks Inc.,13.76,4.08472,18463877,NMS
+UUUU,Energy Fuels Inc,11.26,4.06655,9131239,ASE
+CX,"Cemex, S.A.B. de C.V. Sponsored",9.92,3.98323,13021155,NYQ
+NXE,Nexgen Energy Ltd.,9.43,3.96914,6718939,NYQ
+GENI,Genius Sports Limited,6.22,3.83973,11364636,NYQ
+UAA,"Under Armour, Inc.",4.88,3.82979,9876177,NYQ
+GORO,Goldgroup Mining Inc.,3.37,3.6923,1211261,ASE
+ERII,"Energy Recovery, Inc.",7.08,3.66032,1389198,NMS
+STUB,"StubHub Holdings, Inc.",5.73,3.61663,4963739,NYQ
+QDEL,QuidelOrtho Corporation,12.57,3.542,3218409,NMS
+DCH,Dauch Corporation,5.85,3.53982,3806953,NYQ
+GAU,Galiano Gold Inc.,2.06,3.51758,3194782,ASE
+BKD,Brookdale Senior Living Inc.,10.9,3.51377,4574438,NYQ
+BSBR,Banco Santander Brasil SA,5.98,3.4602,8181104,NYQ
+FIGS,"FIGS, Inc.",14.1,3.44828,3958047,NYQ
+PHK,Pimco High Income Fund Pimco Hi,4.2,3.44827,1704777,NYQ
+JELD,"JELD-WEN Holding, Inc.",1.82,3.40909,1484184,NYQ
+UA,"Under Armour, Inc.",4.72,3.28227,3006890,NYQ
+ADCT,ADC Therapeutics SA,1.27,3.25203,1352694,NYQ
+OI,"O-I Glass, Inc.",5.75,3.23159,3604825,NYQ
+KOS,Kosmos Energy Ltd.,2.6,3.1746,16321478,NYQ
+NU,Nu Holdings Ltd.,15.66,3.16205,96290429,NYQ
+CSIQ,Canadian Solar Inc.,11.54,3.1278,1175725,NMS
+RXT,"Rackspace Technology, Inc.",4.02,3.07692,6061061,NMS
+DNN,Denison Mines Corp,2.71,3.04182,55639515,ASE
+SNAP,Snap Inc.,5.78,3.0303,37187656,NYQ
+GRND,Grindr Inc.,13.94,2.95421,1823047,NYQ
+AMTM,"Amentum Holdings, Inc.",18.77,2.90571,1893032,NYQ
+SOC,Sable Offshore Corp.,3.57,2.88184,5704429,NYQ
+BPRE,Bluerock Private Real Estate Fund,13.09,2.82797,1352522,NYQ
+BRSL,Brightstar Lottery PLC Trading ,10.21,2.81974,1660133,NYQ
+METC,"Ramaco Resources, Inc.",8.22,2.81426,1553257,NMS
+MOMO,Hello Group Inc.,4.77,2.80173,1711014,NMS
+TIGR,UP Fintech Holding Limited,4.52,2.72727,2488352,NMS
+TE,T1 Energy Inc.,3.8,2.7027,19744542,NYQ
+BBWI,"Bath & Body Works, Inc.",17.93,2.69187,9213949,NYQ
+VGZ,Vista Gold Corp,2.68,2.682,2255444,ASE
+STLA,Stellantis N.V.,4.61,2.67261,29787624,NYQ
+ACDC,ProFrac Holding Corp.,4.875,2.63158,1275143,NMS
+NOMD,Nomad Foods Limited,10.97,2.61928,1949601,NYQ
+COTY,Coty Inc.,2.79,2.57353,5083718,NYQ
+AADX,"Applied Aerospace & Defense, In",11.8,2.51955,1890946,NYQ
+FLO,"Flowers Foods, Inc.",5.74,2.5,7459361,NYQ
+ADT,ADT Inc.,6.36,2.41546,7169568,NYQ
+SBS,Companhia de saneamento Basico ,6.41,2.39616,12478750,NYQ
+TAL,TAL Education Group,12.6,2.35581,2797205,NYQ
+PTRN,Pattern Group Inc. - Series A,17.82,2.35497,1427571,NMS
+ITUB,Itau Unibanco Banco Holding SA,10.15,2.31854,52292593,NYQ
+ULCC,"Frontier Group Holdings, Inc.",6.25,2.29132,1816858,NMS
+ERIC,Ericsson,9.43,2.27766,6409739,NMS
+CSQR,"Csquare, Inc.",18.04,2.20964,1188024,NYQ
+BHC,Bausch Health Companies Inc.,6.02,2.20713,3050929,NYQ
+BXMT,"Blackstone Mortgage Trust, Inc.",11.25,2.17983,4940573,NYQ
+SLDP,"Solid Power, Inc.",2.35,2.17391,2284416,NMS
+JMKE,Jersey Mike's Subs Inc.,16.43,2.11311,3837919,NYQ
+RUN,Sunrun Inc.,7.77,2.10249,5908588,NMS
+JFR,Nuveen Floating Rate Income Fun,7.38,2.07469,1093107,NYQ
+NMZ,Nuveen Municipal High Income Op,8.94,2.05479,1435855,NYQ
+PMT,PennyMac Mortgage Investment Tr,8.03,2.03303,2996400,NYQ
