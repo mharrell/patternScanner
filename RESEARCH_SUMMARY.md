@@ -93,7 +93,7 @@ bar-dates ≈ 2026-10-15).
 Nothing on the daily track remains: every claim from the §J scan that daily
 bars can express has been tested.
 
-## The mover-universe track (pre-reg #33, DRAFT — capture live since 2026-09-18)
+## The mover-universe track (pre-reg #33, FROZEN 2026-10-07 — capture live since 2026-09-18)
 
 The cycle's structural finding was the **universe mismatch**: #31's
 volume-population claim reached 77 of 25,414 daily detections, #32 found

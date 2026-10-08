@@ -5829,11 +5829,13 @@ pre-registration. Verdict section: CLAIMS_LEDGER §K.5. Archived:
 
 # Pre-registration #33 — the mover-universe track: his timing rules on HIS population (design: analysis/mover_universe_design.md; intraday track II)
 
-**Status: DRAFT 2026-09-18 — NOT FROZEN.** Per the design document, this
-pre-reg freezes after the one-week pipeline shakedown (rosters sane,
-backfill verified, QA clean) and BEFORE any forward-return is computed
-on the mover archive. Nothing below may be treated as a hypothesis until
-the freeze line exists.
+**Status: FROZEN 2026-10-07** (Mike's freeze call; shakedown complete —
+13/13 trading days captured, nightly runner exits 0 throughout, QA
+flags only, §5 gate PASS). The freeze record is §5; the draft and
+shakedown findings above it are retained for the record. No parameter,
+detector, floor or scope may change after the freeze date; any change
+is a new hypothesis requiring a fresh pre-registration and a fresh
+evaluation window.
 
 ## 0. Why
 
@@ -5863,7 +5865,15 @@ audit/QA/repair discipline, LFS-tracked. Roster-name bars back-filled
 within Yahoo's 7-day window nightly. Overlap with the S&P 600 archive
 allowed (cross-population checks are a feature).
 
-## 3. Planned families (to be finalized at freeze)
+## 3. Families (FINAL at freeze 2026-10-07)
+
+**Scope ratified: the two entry-timing campaigns below — campaign A
+(B-01 micro pullback, #15's families) and campaign B (#19's reversal
+long/short + pullback-count + second-confirmation).** The mover
+sympathy question (#32's +40% leaders — a population that EXISTS here)
+and the #25 bands-within-movers question become their own
+pre-registrations when their tools are designed; they are deliberately
+NOT part of this campaign's one-shot.
 
 - **F1/F2/F3 of #15 and #19 re-run on the mover archive** — the frozen
   detectors imported unchanged; baselines hour-matched same-ticker and
@@ -5876,15 +5886,53 @@ allowed (cross-population checks are a feature).
 - Seeds, COST 0.15%, B=1000, Holm at α=0.05, count floors 100/slot —
   house protocol as in #15–#32.
 
-## 4. Floors (planned)
+## 4. Floors (FINAL at freeze 2026-10-07)
 
-≥ 20 mover bar-dates; ≥ 2,000 events per family; ≥ 100 tickers; ≥ 15
-bar-dates with events. One-shot rule as everywhere.
+**"Mover bar-dates" = ROSTER bar-dates** (the population of record; a
+bar-date counts iff `data/mover_rosters/<date>.csv` exists). ≥ 20
+roster bar-dates; ≥ 2,000 events per campaign; ≥ 100 tickers; ≥ 15
+bar-dates with events. Per-slot count floor 100. One-shot rule as
+everywhere. At freeze: 13/20 roster bar-dates; campaign B events
+19,540/2,000 (already met), campaign A 746/2,000 (binding — at the
+observed ~57/day it opens ≈ mid-December, recorded so it is not read
+as stalled). Expected floor date for campaign B: ≈ 2026-10-16.
 
-## 5. Freeze (pending shakedown)
+## 5. FREEZE RECORD (2026-10-07)
 
-*(to be recorded: date + tool shas, before any forward-return
-computation on this archive)*
+**Frozen 2026-10-07** — Mike's call ("freeze it"), shakedown complete.
+`tools/measure_mover_entry.py` FROZEN_SHA (fixed-point, asserted in
+`freeze_check()`): `f7d6d486ce4e7cd8279d70d9d8ecb4bd11fa76143adc6da244e97473fd0165f8`.
+Freeze record: `FROZEN = True`, `FROZEN_DATE = "2026-10-07"`,
+`SEED_B01 = SEED_ENTRY = 20261007` (seeds = freeze date, house
+convention). Frozen engines `measure_intraday.py` /
+`measure_intraday_entry.py` imported unchanged (their own FROZEN_SHAs
+assert at import; shakedown work lives entirely in this tool: the
+roster-redirect, `mover_audit()`, `restrict_to_rosters()`).
+
+**Ratified decisions (the four the shakedown left open):**
+
+1. **Floor reading:** ≥ 20 = ROSTER bar-dates (§4, final).
+2. **Bootstrap smoke-test files:** the recorded bounded exemption
+   stands — 15 files, by pull id `20260918-200323`, pre-roster dates
+   only, always printed in the gate evidence. No `--repair` (the bars
+   stay archived; they contribute no events under §3).
+3. **Scope:** campaigns A + B only (§3, final); sympathy and
+   bands-within-movers are future pre-registrations.
+4. **Cost model:** 0.15% round-trip stays the PRIMARY tier for
+   comparability with #15/#19, with the tick floor declared as a
+   MEASUREMENT ROW (per-band floors computed at measurement from each
+   event's roster price: 0.274% in $5–10, 0.609% in $2–5, 1.361% in
+   $1–2 — per the cost screen). Any EDGE verdict on this population
+   must be read against that row: the 0.15% tier flatters by 2–9× on
+   most name-days. The measured-spread cost (data purchase) is
+   recorded as the successor path for the tradeable-price question and
+   is NOT part of this campaign.
+
+**Gate state at freeze:** §5 gate PASS — 7,557/7,572 files attributable
+(7,572 S&P-600-clause errors re-adjudicated; 15 bootstrap files
+exempt), 13 roster pulls attributed, chain ok. Full-mode smoke test
+post-freeze: refuses (exit 2, floors unmet) — the frozen guard holds
+and the one-shot is intact.
 
 ### Shakedown findings (recorded 2026-09-22, after three sessions of capture)
 
@@ -6032,10 +6080,11 @@ recorded `--repair` of the 15 files — is left to the freeze session, since
 those dates are long outside Yahoo's 7-day window and a repair now deletes the
 bars permanently.
 
-**Still open for the freeze session:** the §4 floor reading (roster bar-dates
-— recommended, and what the numbers above assume); the smoke-test files' fate;
-**the cost model** (below); and the freeze record itself. `--audit` and
-`--floors` remain safe to run at any time and consume no one-shot.
+**RATIFIED at freeze (2026-10-07 — see §5):** roster bar-dates as the
+floor reading; the smoke-test files' bounded exemption stands; the cost
+model keeps 0.15% primary with the tick floor as a declared measurement
+row; the freeze record is complete. `--audit` and `--floors` remain
+safe to run at any time and consume no one-shot.
 
 **Cost model — must NOT inherit 0.15% unchanged.** The exploratory cost screen
 (`analysis/cost_screen_2026-09-22.md`, NO VERDICTS) measured the mover
@@ -6050,4 +6099,8 @@ not depend on a generous convention.) **Freeze decision:** either keep 0.15% as
 the comparability tier and add a tick-floor-aware sensitivity (free and honest,
 but flatters results by 2–9× on most of this population), or set the primary
 cost from a measured spread sample once quotes exist (needs the data purchase).
-Recorded here so the choice is made with the numbers in view.*
+Recorded here so the choice is made with the numbers in view.
+
+**RATIFIED at freeze (2026-10-07):** option (a) — 0.15% primary
+(comparability tier) + the tick-floor measurement row; option (b) is
+the recorded successor path, not part of #33.*

@@ -139,6 +139,14 @@ computed on the archive. Measurement reuses the frozen engines;
 *No capture begins before this document and the roster rule are
 committed to main.*
 
+**Status 2026-10-07: PRE-REGISTRATION #33 FROZEN** (Mike's call).
+Shakedown complete — rosters on every trading day since 2026-09-18,
+nightly runner exits 0, QA flags only, §5 gate PASS. Freeze record and
+the four ratified decisions (roster-dates floors; bootstrap exemption;
+scope = entry campaigns A+B; cost = 0.15% primary + tick-floor row):
+PREREGISTRATION #33 §4–§5. Floors on roster bar-dates: 13/20 at freeze;
+campaign B ≈ 2026-10-16, campaign A ≈ December.
+
 **Status 2026-09-22 (shakedown, three sessions in).** Steps 1–2 are live and
 the nightly task is registered: rosters captured 2026-09-18/-21/-22 (100 names
 each; weekend runs correctly no-op onto the last session date), archive at

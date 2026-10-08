@@ -82,6 +82,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -113,14 +114,23 @@ ATTRIB_MARKER = "is not a membership file (non-blind capture)"
 # would delete the bars permanently.
 BOOTSTRAP_SMOKE_PULLS = {"20260918-200323"}
 
-# ---- FREEZE RECORD (pre-reg #33 §5) — completed at freeze, before any
-# full-mode run. Seeds are the freeze date, per house convention. ----
-FROZEN = False
-FROZEN_DATE: str | None = None      # e.g. "2026-10-16"
-SEED_B01: int | None = None         # e.g. 20261016
-SEED_ENTRY: int | None = None
+# ---- FREEZE RECORD (pre-reg #33 §5) — COMPLETED 2026-10-07 (freeze date;
+# seeds are the freeze date, per house convention). Decisions ratified at
+# freeze, pre-reg #33 §5: (1) §4's "mover bar-dates" = ROSTER bar-dates
+# (the population of record); (2) the 15 bootstrap smoke-test files stand
+# as the recorded bounded exemption (BY pull id, pre-roster dates only);
+# (3) scope = the two entry-timing campaigns (B-01 + #19 families) — the
+# mover sympathy and bands-within-movers questions become their own
+# pre-registrations. Any byte change breaks FROZEN_SHA below. ----
+FROZEN = True
+FROZEN_DATE = "2026-10-07"
+SEED_B01 = 20261007
+SEED_ENTRY = 20261007
 FLOORS = {"min_bar_dates": 20, "min_events": 2000,
           "min_tickers": 100, "min_dates_with_events": 15}
+# House fixed-point freeze sha: sha256 of this file with its own
+# FROZEN_SHA hex blanked to 64 zeros; asserted in freeze_check().
+FROZEN_SHA = "f7d6d486ce4e7cd8279d70d9d8ecb4bd11fa76143adc6da244e97473fd0165f8"
 
 
 # --------------------------------------------------------------------------
@@ -313,6 +323,16 @@ def _redirect(mod, report_name: str, results_name: str) -> None:
     mod.RESULTS_PATH = MOVER_OUT / results_name
 
 
+def hash_self() -> str:
+    """sha256 of this file with its FROZEN_SHA hex blanked (fixed point)."""
+    b = Path(__file__).read_bytes()
+    pat = re.compile(rb'(FROZEN_SHA = "[0-9a-f]{64}")')
+    b2, n = pat.subn(b'FROZEN_SHA = "' + b"0" * 64 + b'"', b)
+    if n != 1:
+        raise RuntimeError("expected exactly one FROZEN_SHA hex")
+    return hashlib.sha256(b2).hexdigest()
+
+
 def freeze_check() -> None:
     if not (FROZEN and FROZEN_DATE and SEED_B01 and SEED_ENTRY):
         print("FATAL: pre-reg #33 is not frozen (DRAFT) — full-mode "
@@ -320,6 +340,11 @@ def freeze_check() -> None:
               "tools/measure_mover_entry.py after the shakedown "
               "(design §6), then re-run.", file=sys.stderr)
         sys.exit(3)
+    if hash_self() != FROZEN_SHA:
+        print(f"FATAL: measure_mover_entry.py sha mismatch — frozen "
+              f"{FROZEN_SHA[:12]}…, on disk {hash_self()[:12]}…. A frozen "
+              f"measurement tool must not change.", file=sys.stderr)
+        sys.exit(1)
 
 
 def _gate(tag: str, mod) -> dict | None:
