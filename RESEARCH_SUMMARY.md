@@ -88,8 +88,8 @@ measured — all three rules NO EDGE vs just holding the same entries
 its Holm gate by 0.0013 — completing #15–#22, #27, #32. Remaining:
 **#23's successor** (the tradeable-price gap — live fills were never
 logged, so it needs a programmatic quotes source), and the
-**mover-universe track** below (freeze pending; floors on roster
-bar-dates ≈ 2026-10-15).
+**mover-universe track** below (FROZEN 2026-10-07; campaign B floors
+≈ 2026-10-16, campaign A ≈ December).
 Nothing on the daily track remains: every claim from the §J scan that daily
 bars can express has been tested.
 
@@ -104,8 +104,9 @@ remaining open question is therefore whether his timing rules have edge
 So the nightly roster of Yahoo's day-gainers screener ($1–$20, ≥1M shares,
 listed only, top 100 by % change) has its names' 1-minute bars archived into
 `data/intraday_movers/` under the same immutable machinery as the S&P 600
-archive. Design: `analysis/mover_universe_design.md`; pre-registration #33
-is a DRAFT until its one-week shakedown completes.
+archive. Design: `analysis/mover_universe_design.md`; pre-registration
+#33 **FROZEN 2026-10-07** (record in §5) — floors on roster bar-dates:
+13/20 at freeze, campaign B ≈ 2026-10-16, campaign A ≈ December.
 
 | Track | Status at 2026-09-22 |
 |---|---|
