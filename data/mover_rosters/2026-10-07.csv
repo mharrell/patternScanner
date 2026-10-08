@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+MI,NFT Limited,1.54,25.2032,37575205,ASE
+CANG,Cango Inc.,3.58,18.543,2707865,NYQ
+ADCT,ADC Therapeutics SA,1.42,11.811,1743215,NYQ
+RC,Ready Capital Corporation,1.23,9.82143,2201199,NYQ
+SSTK,"Shutterstock, Inc.",4.47,9.55882,1011809,NYQ
+EVH,"Evolent Health, Inc",4.14,7.8125,2799081,NYQ
+DSP,Viant Technology Inc.,12.78,7.12489,1199893,NMS
+CCOI,"Cogent Communications Holdings,",9.94,6.76691,1624716,NMS
+FIP,FTAI Infrastructure Inc.,2.84,6.36704,1221210,NMS
+ALEC,"Alector, Inc.",1.92,6.07735,3952216,NMS
+BAK,Braskem SA,1.77,5.98803,3013468,NYQ
+BCRX,"BioCryst Pharmaceuticals, Inc.",8.4,5.66038,5106215,NMS
+RELL,"Richardson Electronics, Ltd.",20.0,4.98688,1397399,NMS
+SVRA,"Savara, Inc.",4.88,4.94624,2414347,NMS
+KVYO,"Klaviyo, Inc. Series A",17.41,4.87951,8759735,NYQ
+STUB,"StubHub Holdings, Inc.",6.0,4.71204,5298650,NYQ
+GO,Grocery Outlet Holding Corp.,11.94,4.64505,1476117,NMS
+CAPR,"Capricor Therapeutics, Inc.",8.1,4.51613,2841674,NMS
+CATX,"Perspective Therapeutics, Inc.",2.46,4.23729,1285469,ASE
+RBBN,Ribbon Communications Inc.,1.84,3.95481,1147065,NMS
+PRGO,Perrigo Company plc,14.55,3.92857,1906568,NYQ
+CTVA,"Corteva, Inc.",14.45,3.8821,41241255,NYQ
+DYN,"Dyne Therapeutics, Inc.",15.97,3.7013,3489826,NMS
+BGS,"B&G Foods, Inc.",2.53,3.68852,2564991,NYQ
+RSKD,Riskified Ltd.,8.05,3.33762,3776961,NYQ
+WLTH,Wealthfront Corporation,10.9,3.31753,2202177,NMS
+IRWD,"Ironwood Pharmaceuticals, Inc.",3.75,3.30578,2049979,NMS
+MQ,"Marqeta, Inc.",17.06,3.08157,1087097,NMS
+NWL,Newell Brands Inc.,5.72,3.06306,4062626,NMS
+GLUE,"Monte Rosa Therapeutics, Inc.",10.17,3.03952,2080592,NMS
+GRND,Grindr Inc.,14.34,2.86944,1999620,NYQ
+SOC,Sable Offshore Corp.,3.67,2.80112,5451145,NYQ
+TDUP,ThredUp Inc.,2.22,2.77778,1567011,NMS
+MAT,"Mattel, Inc.",16.37,2.76209,11617958,NMS
+XRX,Xerox Holdings Corporation,3.01,2.73037,2696507,NMS
+CRNC,Cerence Inc.,8.29,2.72615,1536225,NMS
+CPNG,"Coupang, Inc.",14.81,2.70458,20558698,NYQ
+PCG,Pacific Gas & Electric Co.,12.79,2.32,39387230,NYQ
+ACI,"Albertsons Companies, Inc.",11.74,2.26481,8576003,NYQ
+SFIX,"Stitch Fix, Inc.",2.73,2.24719,3317935,NMS
+SGRY,"Surgery Partners, Inc.",13.71,2.23714,1685894,NMS
+BHC,Bausch Health Companies Inc.,6.15,2.15947,1979694,NYQ
+ALHC,"Alignment Healthcare, Inc.",8.55,2.15054,6562502,NMS
+BORR,Borr Drilling Limited,4.3,2.13777,7253619,NYQ
+INTR,Inter & Co. Inc.,7.18,2.13371,16513718,NMS
+SLDP,"Solid Power, Inc.",2.4,2.12767,2389143,NMS
+MGTX,MeiraGTx Holdings plc,10.82,2.07547,2309854,NMS
+HAFN,Hafnia Limited,10.33,1.97433,3658166,NYQ
+RGNX,REGENXBIO Inc.,7.595,1.94631,1004863,NMS
+GENI,Genius Sports Limited,6.34,1.92927,10184587,NYQ
+TBLA,Taboola.com Ltd.,3.29,1.85758,2814044,NMS
+NCMI,"National CineMedia, Inc.",2.2,1.85185,1184258,NMS
+ADTN,"ADTRAN Holdings, Inc.",7.76,1.83727,2216418,NMS
+JBS,JBS N.V.,12.24,1.83028,9243047,NYQ
+DBRG.PI,"DigitalBridge Group, Inc. 7.15%",15.1,1.82064,1192146,NYQ
+STGW,Stagwell Inc.,8.65,1.7647,2161656,NMS
+FLO,"Flowers Foods, Inc.",5.84,1.74217,10702306,NYQ
+EBS,Emergent BioSolutions Inc.,7.07,1.72662,1234146,NYQ
+HLLY,Holley Inc.,2.36,1.72414,1821125,NYQ
+NIO,NIO Inc.,3.54,1.72414,25622800,NYQ
+UPBD,"Upbound Group, Inc.",15.62,1.69271,1439243,NMS
+HLN,Haleon plc,9.02,1.6911,18243581,NYQ
+DLO,DLocal Limited,14.77,1.65176,1672100,NMS
+DXC,DXC Technology Company,12.02,1.60609,4362922,NYQ
+VOD,Vodafone Group Plc,16.79,1.5729,4020412,NMS
+TAK,Takeda Pharmaceutical Company L,18.37,1.49172,2467530,NYQ
+SBH,"Sally Beauty Holdings, Inc. (Na",16.5,1.47601,1621106,NYQ
+TLK,"PT Telekomunikasi Indonesia, Tb",13.04,1.39969,1019905,NYQ
+CMBT,CMB.TECH NV,19.95,1.37195,1125179,NYQ
+NABL,"N-able, Inc.",4.48,1.35746,2120144,NYQ
+KURA,"Kura Oncology, Inc.",10.67,1.32954,1098728,NMS
+TRIP,"TripAdvisor, Inc.",8.63,1.29108,3004748,NMS
+TAL,TAL Education Group,12.76,1.26984,1505921,NYQ
+GTM,ZoomInfo Technologies Inc.,3.695,1.23287,5467287,NMS
+NAVI,Navient Corporation,9.04,1.2318,1680734,NMS
+TRLV,Trulieve Cannabis Corp. Subordi,10.78,1.22066,2011527,NYQ
+EVC,Entravision Communications Corp,6.78,1.19404,1147985,NYQ
+CMPS,COMPASS Pathways Plc - American,11.69,1.12456,1580207,NMS
+UTI,Universal Technical Institute I,19.89,1.11845,1292277,NYQ
+AUTL,Autolus Therapeutics plc,1.81,1.11732,1547829,NMS
+MIR,"Mirion Technologies, Inc.",16.45,1.10633,5763036,NYQ
+SRPT,"Sarepta Therapeutics, Inc.",17.5,1.09763,2872534,NMS
+BRBR,"BellRing Brands, Inc.",7.77,1.04031,4348720,NYQ
+BEKE,KE Holdings Inc,16.92,0.954653,2727348,NYQ
+CARS,Cars.com Inc.,9.54,0.952383,1135714,NYQ
+CRK,"Comstock Resources, Inc.",13.78,0.952382,2399500,NYQ
+LI,Li Auto Inc.,10.99,0.918268,2002427,NMS
+TSHA,"Taysha Gene Therapies, Inc.",4.43,0.911161,3764109,NMS
+ESRT,"Empire State Realty Trust, Inc.",4.47,0.902934,6810165,NYQ
+TU,Telus Corporation,7.94,0.761421,5768910,NYQ
+TME,Tencent Music Entertainment Gro,7.99,0.75662,2681529,NYQ
+PACB,Pacific Biosciences of Californ,2.72,0.74074,20291055,NMS
+AVAH,Aveanna Healthcare Holdings Inc,12.31,0.736499,4591772,NMS
+EDIT,"Editas Medicine, Inc.",2.75,0.7326,2264665,NMS
+BDN,Brandywine Realty Trust,2.77,0.727272,1547522,NYQ
+SRXH,SRX Global Inc.,1.49,0.675675,1857488,ASE
+FMC,FMC Corporation,9.09,0.664456,4507459,NYQ
+PDM,"Piedmont Realty Trust, Inc.",9.09,0.664456,1755567,NYQ
+GT,The Goodyear Tire & Rubber Comp,4.69,0.643781,6504242,NMS
+DOLE,Dole plc,12.8,0.62893,1458935,NYQ
