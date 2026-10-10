@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+SMJF,SMJ International Holdings Inc.,1.53,23.3871,8517255,ASE
+KLRA,"Kailera Therapeutics, Inc.",11.61,16.1,2181033,NMS
+NVAX,"Novavax, Inc.",12.75,15.8038,18978090,NMS
+SVC,Service Properties Trust,7.15,14.9518,16798049,NMS
+DNA,"Ginkgo Bioworks Holdings, Inc.",13.0,14.6384,4510486,NYQ
+ABSI,Absci Corporation,10.16,13.6465,4240773,NMS
+PICS,PicS N.V.,13.6,13.5225,1014182,NMS
+CCCC,"C4 Therapeutics, Inc.",3.16,10.8772,2505774,NMS
+RXRX,"Recursion Pharmaceuticals, Inc.",4.36,10.3797,35308952,NMS
+FEAM,"5E Advanced Materials, Inc.",3.64,9.96979,2078210,NMS
+SECZ,Securitize Corp.,13.82,9.16272,5671442,NYQ
+ADCT,ADC Therapeutics SA,1.73,8.80503,3104075,NYQ
+QDEL,QuidelOrtho Corporation,13.42,8.1386,3576902,NMS
+RXT,"Rackspace Technology, Inc.",3.9,7.73481,4656207,NMS
+STNE,StoneCo Ltd.,12.46,7.41379,8306900,NMS
+BRBR,"BellRing Brands, Inc.",8.55,7.00877,3948801,NYQ
+VNET,"VNET Group, Inc.",5.53,6.96325,5196898,NMS
+GORO,Goldgroup Mining Inc.,3.41,6.89655,1522246,ASE
+CCC,CCC Intelligent Solutions Holdi,7.02,6.84931,19484562,NMS
+NG,Novagold Resources Inc.,6.71,6.84713,5977575,ASE
+ACCV,Accelevation Holdings Corp.,16.72,6.76883,1572965,NMS
+TGB,Trekor Metals Limited,8.85,6.49819,3569936,ASE
+CLF,Cleveland-Cliffs Inc.,12.98,6.48072,24780945,NYQ
+SNAP,Snap Inc.,6.23,6.31399,48978222,NYQ
+RSKD,Riskified Ltd.,8.53,6.09452,2498927,NYQ
+INTR,Inter & Co. Inc.,7.68,6.07735,13269060,NMS
+IBRX,"ImmunityBio, Inc.",10.51,6.05449,18586461,NMS
+ALXO,ALX Oncology Holdings Inc.,1.25,5.93221,1223409,NMS
+LI,Li Auto Inc.,11.54,5.87156,4955883,NMS
+MNSO,MINISO Group Holding Limited,9.6,5.84345,2339051,NYQ
+CERT,"Certara, Inc.",9.13,5.67129,4443499,NMS
+TDUP,ThredUp Inc.,2.48,5.53192,1600358,NMS
+IE,Ivanhoe Electric Inc.,10.19,5.48654,1846457,ASE
+STTK,"Shattuck Labs, Inc.",5.97,5.47703,1049342,NMS
+FIGS,"FIGS, Inc.",15.78,5.34046,3757496,NYQ
+TME,Tencent Music Entertainment Gro,8.38,5.27638,9570538,NYQ
+VIR,"Vir Biotechnology, Inc.",11.7,5.21583,1965037,NMS
+ACHR,Archer Aviation Inc.,4.96,5.08475,36949340,NYQ
+NIO,NIO Inc.,3.58,4.98533,43791908,NYQ
+PONY,Pony AI Inc.,6.04,4.86111,4631127,NMS
+NU,Nu Holdings Ltd.,16.12,4.81145,75383344,NYQ
+CMPS,COMPASS Pathways Plc - American,12.0,4.62075,2281790,NMS
+CLOV,"Clover Health Investments, Corp",4.79,4.58515,10505222,NMS
+PAGS,PagSeguro Digital Ltd.,11.16,4.49438,4469321,NYQ
+TRX,TRX Gold Corporation,1.17,4.46428,1171080,ASE
+KLAR,Klarna Group plc,14.06,4.45765,7466034,NYQ
+BEKE,KE Holdings Inc,17.84,4.38853,10018609,NYQ
+ABCL,AbCellera Biologics Inc.,12.545,4.36772,4683468,NMS
+BILI,Bilibili Inc.,15.49,4.30976,2918455,NMS
+ALLO,"Allogene Therapeutics, Inc.",1.46,4.28572,10599514,NMS
+GAU,Galiano Gold Inc.,2.19,4.28572,2625772,ASE
+DNLI,Denali Therapeutics Inc.,19.45,4.17783,1340962,NMS
+TDOC,"Teladoc Health, Inc.",5.77,4.15162,4179464,NYQ
+BUR,Burford Capital Limited,3.58,4.06976,1765916,NYQ
+GGB,Gerdau S.A.,5.12,4.06504,15953294,NYQ
+PTON,"Peloton Interactive, Inc.",5.12,4.06504,7046583,NMS
+SID,Companhia Siderurgica Nacional ,1.28,4.06504,6072110,NYQ
+CTMX,"CytomX Therapeutics, Inc.",2.57,4.04858,3040255,NMS
+SFIX,"Stitch Fix, Inc.",2.84,4.0293,3247398,NMS
+VOR,Vor Biopharma Inc.,19.9,4.02509,1102365,NMS
+PRGO,Perrigo Company plc,15.06,3.86207,4356030,NYQ
+BORR,Borr Drilling Limited,4.78,3.68764,15049874,NYQ
+ERAS,"Erasca, Inc.",16.03,3.68694,7586512,NMS
+XPEV,XPeng Inc.,9.9,3.66492,11003225,NYQ
+BMEA,"Biomea Fusion, Inc.",1.42,3.64963,1169419,NMS
+PAX,Patria Investments Limited,11.67,3.64121,1254456,NMS
+PCG,Pacific Gas & Electric Co.,13.13,3.63062,51451638,NYQ
+VYX,NCR Voyix Corporation,7.15,3.62319,3531101,NYQ
+BZ,KANZHUN LIMITED - American Depo,15.73,3.62318,2470443,NMS
+AMC,"AMC Entertainment Holdings, Inc",2.98,3.47222,14161363,NYQ
+ARIS,Aris Mining Corporation,17.33,3.40095,1343098,NYQ
+ITUB,Itau Unibanco Banco Holding SA,10.16,3.35707,45486777,NYQ
+CSIQ,Canadian Solar Inc.,11.38,3.31366,1593038,NMS
+UPB,"Upstream Bio, Inc.",4.7,3.29669,1187830,NMS
+IAUX,i-80 Gold Corp.,1.59,3.24676,5814309,ASE
+BB,BlackBerry Limited,8.91,3.24449,8398756,NYQ
+VFC,V.F. Corporation,15.0,3.23469,8599889,NYQ
+MRVI,"Maravai LifeSciences Holdings, ",7.44,3.19001,2304548,NMS
+BCRX,"BioCryst Pharmaceuticals, Inc.",8.55,3.13631,2296048,NMS
+OXSQ,Oxford Square Capital Corp.,1.32,3.12501,1345264,NMS
+PWP,Perella Weinberg Partners,15.67,3.09211,1256237,NMS
+ATEC,"Alphatec Holdings, Inc.",10.67,3.09178,1564787,NMS
+PTLO,Portillo's Inc.,4.02,3.07692,1486729,NMS
+INIO,INNIO N.V.,19.79,3.07292,3664687,NMS
+HMY,Harmony Gold Mining Company Lim,16.88,3.05928,3628354,NYQ
+TIGR,UP Fintech Holding Limited,4.45,3.00925,1280084,NMS
+LFST,"LifeStance Health Group, Inc.",12.42,2.98507,1799517,NMS
+ALEC,"Alector, Inc.",2.08,2.97029,3087512,NMS
+DNN,Denison Mines Corp,2.43,2.96611,23045585,ASE
+PLX,"Protalix BioTherapeutics, Inc. ",2.78,2.96296,1196839,ASE
+TAL,TAL Education Group,12.86,2.96237,2530102,NYQ
+AVEX,AEVEX Corp.,14.63,2.95567,1306137,NYQ
+FSM,Fortuna Mining Corp.,10.92,2.92178,3457362,NYQ
+REPL,"Replimune Group, Inc.",13.42,2.91411,2016346,NMS
+TRLV,Trulieve Cannabis Corp. Subordi,10.67,2.89296,1175197,NYQ
+NABL,"N-able, Inc.",4.63,2.88889,1135807,NYQ
+DC,Dakota Gold Corp.,6.08,2.87648,1543945,ASE
+XERS,"Xeris Biopharma Holdings, Inc.",10.48,2.84593,2712290,NMS
+USAS,Americas Gold and Silver Corpor,4.36,2.8302,2662531,ASE
+PGEN,"Precigen, Inc.",7.81,2.76316,3382213,NMS
