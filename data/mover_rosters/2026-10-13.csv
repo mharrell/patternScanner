@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+BMBL,Bumble Inc.,5.95,56.5789,118161655,NMS
+PMI,"Picard Medical, Inc.",15.33,35.1852,1175890,ASE
+SMJF,SMJ International Holdings Inc.,2.08,34.1936,2074367,ASE
+SES,SES AI Corporation,1.0,25.0156,32369244,NYQ
+CANG,Cango Inc.,3.5,15.894,4405916,NYQ
+FRMI,Fermi Inc.,3.72,14.4615,87022697,NMS
+JELD,"JELD-WEN Holding, Inc.",1.38,12.1951,1891340,NYQ
+EVH,"Evolent Health, Inc",4.6,8.23529,2558672,NYQ
+GFR,Greenfire Resources Ltd.,6.78,6.94006,2415611,NYQ
+FWRG,"First Watch Restaurant Group, I",12.04,6.92717,2376286,NMS
+PTLO,Portillo's Inc.,4.56,6.79157,4071167,NMS
+GPRE,"Green Plains, Inc.",15.58,6.71233,1377567,NMS
+QDEL,QuidelOrtho Corporation,14.1,6.4151,3052539,NMS
+WIT,Wipro Limited,1.8,5.88235,12096194,NYQ
+GRNT,"Granite Ridge Resources, Inc.",5.09,5.82121,1018422,NYQ
+CRSR,"Corsair Gaming, Inc.",14.32,5.68265,1114777,NMS
+VG,"Venture Global, Inc.",13.84,5.40746,11731839,NYQ
+INFY,Infosys Limited,11.4,5.26315,25564570,NYQ
+IMSR,Terrestrial Energy Inc.,3.11,5.06756,2617960,NMS
+BAK,Braskem SA,1.87,5.05618,3610171,NYQ
+BLMN,"Bloomin' Brands, Inc.",9.21,5.0171,2592643,NMS
+XRX,Xerox Holdings Corporation,2.84,4.79704,2298059,NMS
+TDAY,"USA TODAY Co., Inc.",7.21,4.79651,3324172,NYQ
+CNH,CNH Industrial N.V.,12.17,4.46352,15622559,NYQ
+HLF,Herbalife Ltd.,14.21,4.40853,1708975,NYQ
+PLAY,"Dave & Buster's Entertainment, ",7.39,4.23131,1998723,NMS
+EQPT,EquipmentShare.com Inc,15.37,4.13279,2487412,NMS
+ENOV,Enovis Corporation,18.99,4.05479,1405754,NYQ
+CRK,"Comstock Resources, Inc.",14.19,4.03225,2244613,NYQ
+VTEX,VTEX,4.18,3.9801,2531575,NYQ
+BBAI,"BigBear.ai, Inc.",2.39,3.91305,36544681,NYQ
+KD,"Kyndryl Holdings, Inc.",12.24,3.90492,3966787,NYQ
+CERT,"Certara, Inc.",9.6,3.89611,2905629,NMS
+HTZ,"Hertz Global Holdings, Inc",1.92,3.78378,13977373,NMS
+ERIC,Ericsson,9.71,3.6286,18110189,NMS
+MBC,"MasterBrand, Inc.",6.66,3.57698,2509778,NYQ
+QXO,"QXO, Inc.",11.02,3.57143,21645941,NYQ
+GO,Grocery Outlet Holding Corp.,12.34,3.52349,2573218,NMS
+AI,"C3.ai, Inc.",12.01,3.44531,7124301,NYQ
+WOOF,Petco Health and Wellness Compa,2.41,3.43348,4493576,NMS
+BBWI,"Bath & Body Works, Inc.",18.0,3.38886,5064001,NYQ
+BCE,"BCE, Inc.",19.48,3.28737,8928000,NYQ
+DFH,"Dream Finders Homes, Inc.",9.22,3.24748,1134848,NYQ
+BTE,Baytex Energy Corp,5.02,3.08008,18205343,NYQ
+LI,Li Auto Inc.,11.75,3.07018,3921121,NMS
+STGW,Stagwell Inc.,9.13,3.04741,3152108,NMS
+CCC,CCC Intelligent Solutions Holdi,7.82,3.0303,16455198,NMS
+DRH,Diamondrock Hospitality Company,13.16,2.9734,4041943,NMS
+ARCO,Arcos Dorados Holdings Inc.,7.99,2.96391,2897615,NYQ
+BATL,Battalion Oil Corporation,1.05,2.94117,1347365,ASE
+PK,Park Hotels & Resorts Inc.,15.59,2.76862,3553985,NYQ
+VET,Vermilion Energy Inc.,12.25,2.76846,1427580,NYQ
+ESRT,"Empire State Realty Trust, Inc.",4.86,2.74842,4176577,NYQ
+RLJ,RLJ Lodging Trust,11.6,2.7458,1509339,NYQ
+CORZ,"Core Scientific, Inc.",15.43,2.72969,16315889,NMS
+PD,"PagerDuty, Inc.",16.68,2.70936,1541012,NYQ
+NXDR,"Nextdoor Holdings, Inc. Class A Common Stock",2.66,2.70271,2511925,NYQ
+ZGN,Ermenegildo Zegna N.V.,12.94,2.69841,1076161,NYQ
+TU,Telus Corporation,8.0,2.69576,6655034,NYQ
+JBI,"Janus International Group, Inc.",4.28,2.63789,1654032,NYQ
+RUN,Sunrun Inc.,7.79,2.63504,7327146,NMS
+MBLY,Mobileye Global Inc.,7.02,2.63158,6124531,NMS
+EGY,"VAALCO Energy, Inc.",6.26,2.62296,1117249,NYQ
+ALHC,"Alignment Healthcare, Inc.",8.3,2.5958,7095599,NMS
+NIO,NIO Inc.,3.56,2.59366,34684903,NYQ
+INN,"Summit Hotel Properties, Inc.",6.35,2.58481,1169409,NYQ
+ADT,ADT Inc.,6.61,2.48063,7252370,NYQ
+CYH,"Community Health Systems, Inc.",2.99,2.39726,1852976,NYQ
+GRND,Grindr Inc.,15.47,2.38253,1506014,NYQ
+NWG,NatWest Group plc,17.65,2.37819,3183982,NYQ
+WSE,Wise Group plc,12.22,2.34506,2672940,NMS
+PEB,Pebblebrook Hotel Trust,19.66,2.34253,2010340,NYQ
+KEP,Korea Electric Power Corporatio,10.84,2.26415,1031009,NYQ
+XXI,"Twenty One Capital, Inc.",6.36,2.25081,1553271,NYQ
+KOS,Kosmos Energy Ltd.,2.78,2.20588,7535344,NYQ
+SONO,"Sonos, Inc.",17.72,2.19146,2387607,NMS
+CRGY,Crescent Energy Company,13.06,2.19093,17356144,NYQ
+SGRY,"Surgery Partners, Inc.",14.55,2.17697,1137669,NMS
+WTI,"W&T Offshore, Inc.",3.83,2.13333,3278318,NYQ
+ARI,Apollo Commercial Real Estate F,6.43,2.06349,3594417,NYQ
+DCH,Dauch Corporation,5.5,2.04082,5176604,NYQ
+CCOI,"Cogent Communications Holdings,",8.57,2.02381,1226191,NMS
+AMC,"AMC Entertainment Holdings, Inc",3.06,2.0,30069480,NYQ
+TKC,Turkcell Iletisim Hizmetleri AS,5.11,1.99601,1587998,NYQ
+XHR,"Xenia Hotels & Resorts, Inc.",18.46,1.98894,1070095,NYQ
+APLE,"Apple Hospitality REIT, Inc.",16.55,1.97166,2745424,NYQ
+MNSO,MINISO Group Holding Limited,9.92,1.95273,1658211,NYQ
+GPK,Graphic Packaging Holding Compa,8.4,1.94175,6198520,NYQ
+METC,"Ramaco Resources, Inc.",8.93,1.94064,2094366,NMS
+RSI,"Rush Street Interactive, Inc.",19.07,1.92411,4146093,NYQ
+CX,"Cemex, S.A.B. de C.V. Sponsored",9.75,1.88088,3250459,NYQ
+RES,"RPC, Inc.",6.07,1.84564,2026794,NYQ
+SHO,"Sunstone Hotel Investors, Inc. ",11.65,1.83566,1563703,NYQ
+DXC,DXC Technology Company,12.77,1.83413,5794186,NYQ
+SSL,Sasol Ltd.,15.58,1.83006,1412509,NYQ
+SG,"Sweetgreen, Inc.",10.03,1.8274,3387714,NYQ
+CXM,"Sprinklr, Inc.",5.63,1.80832,1811402,NYQ
+EVGO,EVgo Inc.,1.13,1.8018,3458043,NMS
+VFC,V.F. Corporation,16.07,1.77327,14983623,NYQ
+TBLA,Taboola.com Ltd.,3.46,1.7647,1201275,NMS
