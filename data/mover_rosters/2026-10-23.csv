@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+UWMC,UWM Holdings Corporation,1.45,26.087,25395620,NYQ
+CNDT,Conduent Incorporated,1.79,20.1342,2603563,NMS
+SID,Companhia Siderurgica Nacional ,1.18,13.4615,7592630,NYQ
+LZM,Lifezone Metals Limited,3.47,13.0293,1138590,NYQ
+NXH,"Neighborhood Intelligence, Inc.",1.64,10.8108,7366454,NMS
+ENVX,Enovix Corporation,2.79,9.41177,28776790,NMS
+VG,"Venture Global, Inc.",14.0,9.28961,22566019,NYQ
+OSUR,"OraSure Technologies, Inc.",4.13,8.68421,1158220,NMS
+REI,"Ring Energy, Inc.",1.43,8.33333,6031067,ASE
+RITM,Rithm Capital Corp.,9.39,8.17972,15782449,NYQ
+HSAI,Hesai Group,13.13,8.15486,2166531,NMS
+HOS,"Hornbeck Offshore Services, Inc",7.1,8.06697,3355994,NYQ
+BORR,Borr Drilling Limited,4.4,7.84314,8951638,NYQ
+WTI,"W&T Offshore, Inc.",4.19,7.71208,4379804,NYQ
+SOC,Sable Offshore Corp.,3.26,7.23684,6490431,NYQ
+INTR,Inter & Co. Inc.,7.19,6.55009,16370318,NMS
+CLF,Cleveland-Cliffs Inc.,13.9,6.51341,27909494,NYQ
+KOS,Kosmos Energy Ltd.,2.87,6.29629,17375722,NYQ
+BAK,Braskem SA,1.7,6.25,1070809,NYQ
+DOUG,Douglas Elliman Inc.,1.59,6.0,1651461,NYQ
+PTEN,"Patterson-UTI Energy, Inc.",11.97,5.55556,5282460,NMS
+ACDC,ProFrac Holding Corp.,4.07,5.44042,1354433,NMS
+RIG,Transocean Ltd (Switzerland),6.41,5.42763,45900851,NYQ
+CLB,Core Laboratories Inc.,9.91,5.42553,1019339,NYQ
+BLND,"Blend Labs, Inc.",1.17,5.4054,1683890,NYQ
+EGY,"VAALCO Energy, Inc.",6.56,5.29695,1394931,NYQ
+HAWK,"HawkEye 360, Inc.",12.28,5.22708,1206493,NYQ
+KC,Kingsoft Cloud Holdings Limited,8.49,4.68558,1078446,NMS
+EC,Ecopetrol S.A.,17.8,4.64432,1906336,NYQ
+UMAC,"Unusual Machines, Inc.",17.02,4.60971,1995206,ASE
+ASAN,"Asana, Inc.",12.02,4.52174,4632695,NYQ
+CLNE,Clean Energy Fuels Corp.,1.46,4.28572,1275439,NMS
+NAT,Nordic American Tankers Limited,7.86,4.24403,3520781,NYQ
+TALO,"Talos Energy, Inc.",18.39,4.13363,5897897,NYQ
+NABL,"N-able, Inc.",5.12,4.06504,1062265,NYQ
+RC,Ready Capital Corporation,1.05,3.96039,1426790,NYQ
+ABCL,AbCellera Biologics Inc.,11.82,3.95778,3020945,NMS
+BB,BlackBerry Limited,8.92,3.84168,13208314,NYQ
+RES,"RPC, Inc.",6.25,3.8206,2984392,NYQ
+CRGY,Crescent Energy Company,13.83,3.75094,8284062,NYQ
+GRNT,"Granite Ridge Resources, Inc.",5.86,3.71681,1890868,NYQ
+AI,"C3.ai, Inc.",12.46,3.5744,5843049,NYQ
+MRVI,"Maravai LifeSciences Holdings, ",7.32,3.53607,1447715,NMS
+TTI,"Tetra Technologies, Inc.",5.33,3.49514,1449705,NYQ
+VET,Vermilion Energy Inc.,13.92,3.49443,2170472,NYQ
+YSS,York Space Systems Inc.,6.31,3.44262,1267216,NYQ
+REAL,"The RealReal, Inc.",10.84,3.43512,3567397,NMS
+AMPX,"Amprius Technologies, Inc.",8.18,3.41341,6154985,NYQ
+ARLO,"Arlo Technologies, Inc.",13.03,3.41269,1390347,NYQ
+BTE,Baytex Energy Corp,5.5,3.38346,19897059,NYQ
+RXRX,"Recursion Pharmaceuticals, Inc.",3.7,3.35196,19021699,NMS
+MOS,Mosaic Company (The),17.84,3.30052,16531529,NYQ
+NOK,Nokia Corporation Sponsored,8.14,3.2995,84521485,NYQ
+SSL,Sasol Ltd.,18.03,3.26461,2205856,NYQ
+ORC,"Orchid Island Capital, Inc.",5.05,3.06123,6538136,NYQ
+BBD,Banco Bradesco Sa,4.07,3.03798,62289265,NYQ
+STNE,StoneCo Ltd.,11.48,2.95964,6313501,NMS
+LFST,"LifeStance Health Group, Inc.",12.93,2.94586,2982699,NMS
+AEVA,"Aeva Technologies, Inc.",10.17,2.93522,2494310,NMS
+NU,Nu Holdings Ltd.,15.16,2.91921,87019627,NYQ
+ACHR,Archer Aviation Inc.,3.91,2.89474,19926661,NYQ
+DNA,"Ginkgo Bioworks Holdings, Inc.",9.99,2.88362,1149795,NYQ
+GOGO,Gogo Inc.,2.17,2.84361,1162947,NMS
+RDW,Redwire Corporation,8.36,2.70269,10028065,NYQ
+ERIC,Ericsson,10.66,2.69749,17432948,NMS
+AVPT,"AvePoint, Inc.",16.51,2.67413,1690712,NMS
+CLBT,Cellebrite DI Ltd.,12.1,2.62935,1393646,NMS
+SFL,SFL Corporation Ltd,12.66,2.59319,1479626,NYQ
+RSKD,Riskified Ltd.,9.15,2.57847,1180478,NYQ
+PL,Planet Labs PBC,13.41,2.52294,6041294,NYQ
+ERAS,"Erasca, Inc.",14.39,2.49288,3499872,NMS
+LUMN,"Lumen Technologies, Inc.",4.57,2.46637,12493748,NMS
+CCOI,"Cogent Communications Holdings,",7.48,2.46575,1135719,NMS
+PACB,Pacific Biosciences of Californ,2.11,2.42718,5705176,NMS
+PONY,Pony AI Inc.,5.14,2.39044,1943158,NMS
+CERT,"Certara, Inc.",10.33,2.37859,2058145,NMS
+XTND,"Xtend AI Robotics, Inc.",1.77,2.31214,1195438,NYQ
+TGB,Trekor Metals Limited,7.46,2.19178,5202966,ASE
+CTOS,"Custom Truck One Source, Inc.",9.06,2.14206,1085922,NYQ
+SBS,Companhia de saneamento Basico ,6.4,2.07337,10476113,NYQ
+UMC,United Microelectronics Corpora,18.89,1.94279,7155610,NYQ
+NTST,NetSTREIT Corp.,17.35,1.93889,2419422,NYQ
+RWT,"Redwood Trust, Inc.",3.18,1.92308,2052125,NYQ
+ARI,Apollo Commercial Real Estate F,6.42,1.90476,7120360,NYQ
+ACI,"Albertsons Companies, Inc.",13.96,1.89781,12569828,NYQ
+ITUB,Itau Unibanco Banco Holding SA,9.67,1.89674,31528431,NYQ
+QDEL,QuidelOrtho Corporation,13.73,1.8546,1407413,NMS
+DNOW,DNOW Inc.,15.69,1.817,1650589,NYQ
+VLY,Valley National Bancorp,14.06,1.81028,10222141,NMS
+COLD,"Americold Realty Trust, Inc.",14.47,1.75809,2806835,NYQ
+NEOG,Neogen Corporation,12.19,1.75292,2652349,NMS
+LCID,"Lucid Group, Inc.",3.52,1.7341,7742155,NMS
+SPCE,"Virgin Galactic Holdings, Inc.",2.46,1.65289,2877070,NYQ
+HAFN,Hafnia Limited,10.5,1.64569,1991173,NYQ
+VALE,VALE S.A.,12.4,1.63934,25497296,NYQ
+ESRT,"Empire State Realty Trust, Inc.",5.01,1.62273,3970023,NYQ
+SWIM,"Latham Group, Inc.",6.645,1.6055,1326445,NMS
+TIC,"TIC Solutions, Inc.",9.7,1.57068,1075573,NYQ
+XPEV,XPeng Inc.,9.21,1.54355,6458334,NYQ
+LCTX,"Lineage Cell Therapeutics, Inc.",1.0,1.52284,1149983,ASE

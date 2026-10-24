@@ -1,0 +1,101 @@
+ticker,company,price,pct_change,volume,exchange
+BHVN,Biohaven Ltd.,14.69,25.0213,30491335,NYQ
+AVEX,AEVEX Corp.,10.96,13.2231,6482766,NYQ
+AHT,Ashford Hospitality Trust Inc,2.78,12.5506,2430951,NYQ
+IHRT,"iHeartMedia, Inc.",1.72,12.4183,1184158,NMS
+DFH,"Dream Finders Homes, Inc.",10.12,12.1951,1717191,NYQ
+JELD,"JELD-WEN Holding, Inc.",1.42,10.9375,1414346,NYQ
+FLO,"Flowers Foods, Inc.",6.42,10.4991,7184456,NYQ
+BUR,Burford Capital Limited,3.37,10.4918,2778980,NYQ
+WOOF,Petco Health and Wellness Compa,2.53,9.52381,4834884,NMS
+BDN,Brandywine Realty Trust,2.95,9.25926,5278057,NYQ
+MBC,"MasterBrand, Inc.",7.35,8.72781,2235794,NYQ
+LZ,"LegalZoom.com, Inc.",7.12,7.87879,2996596,NMS
+SSL,Sasol Ltd.,17.46,7.84434,2845148,NYQ
+LCID,"Lucid Group, Inc.",3.46,7.78816,13587253,NMS
+GPK,Graphic Packaging Holding Compa,9.04,7.74731,11608350,NYQ
+UPBD,"Upbound Group, Inc.",17.37,7.42116,1309247,NMS
+CAG,"ConAgra Brands, Inc.",15.07,7.33618,15835080,NYQ
+UPWK,Upwork Inc.,9.39,7.31429,5314944,NMS
+ZGN,Ermenegildo Zegna N.V.,13.85,7.19814,2527464,NYQ
+QXO,"QXO, Inc.",11.02,6.88652,25092878,NYQ
+UPB,"Upstream Bio, Inc.",2.99,6.78572,1450025,NMS
+TROX,Tronox Holdings plc,3.48,6.74847,2248725,NYQ
+BYND,"Beyond Meat, Inc.",7.27,6.59824,2015247,NMS
+EYE,"National Vision Holdings, Inc.",18.87,6.48985,1169313,NMS
+BRBR,"BellRing Brands, Inc.",9.73,6.45513,3043275,NYQ
+TRTX,"TPG RE Finance Trust, Inc.",6.22,6.32478,1827913,NYQ
+SBH,"Sally Beauty Holdings, Inc. (Na",17.62,6.14458,1169047,NYQ
+OI,"O-I Glass, Inc.",6.41,6.12583,5693392,NYQ
+VLY,Valley National Bancorp,13.81,6.06759,13613682,NMS
+VYX,NCR Voyix Corporation,8.64,6.01228,2896903,NYQ
+HUN,Huntsman Corporation,8.72,5.95384,5028443,NYQ
+KD,"Kyndryl Holdings, Inc.",15.2,5.92334,4367669,NYQ
+OWL,Blue Owl Capital Inc.,9.71,5.88877,32634736,NYQ
+DEI,"Douglas Emmett, Inc.",10.09,5.87618,2452686,NYQ
+JBI,"Janus International Group, Inc.",4.52,5.8548,2123133,NYQ
+TU,Telus Corporation,8.86,5.72792,8310585,NYQ
+NXH,"Neighborhood Intelligence, Inc.",1.48,5.71429,2958811,NMS
+GO,Grocery Outlet Holding Corp.,13.9,5.70342,2221073,NMS
+RKT,"Rocket Companies, Inc.",11.74,5.67057,49833095,NYQ
+SFIX,"Stitch Fix, Inc.",2.72,5.63107,1295307,NMS
+ALKT,"Alkami Technology, Inc.",15.95,5.62914,3293802,NMS
+ESRT,"Empire State Realty Trust, Inc.",4.93,5.56745,5736315,NYQ
+ARHS,"Arhaus, Inc.",11.53,5.39305,2884125,NMS
+HAYW,"Hayward Holdings, Inc.",12.71,5.38971,4011580,NYQ
+HTZ,"Hertz Global Holdings, Inc",2.18,5.31402,49692692,NMS
+COTY,Coty Inc.,3.21,5.2459,8575150,NYQ
+ULCC,"Frontier Group Holdings, Inc.",5.3,5.15873,3967146,NMS
+CLVT,Clarivate Plc,1.85,5.11364,3855045,NYQ
+DOC,"Healthpeak Properties, Inc.",19.34,4.65368,7368487,NYQ
+XRAY,DENTSPLY SIRONA Inc.,9.5,4.62555,4892197,NMS
+WEN,Wendy's Company (The),6.57,4.61783,5181100,NMS
+ATEC,"Alphatec Holdings, Inc.",11.36,4.60405,3180368,NMS
+FIP,FTAI Infrastructure Inc.,2.52,4.56431,1420417,NMS
+UAA,"Under Armour, Inc.",4.88,4.49679,6916022,NYQ
+CWK,Cushman & Wakefield Ltd.,12.1,4.4905,3269825,NYQ
+FSK,FS KKR Capital Corp.,10.53,4.46428,1962156,NYQ
+WY,Weyerhaeuser Company,19.82,4.42571,10994711,NYQ
+DXC,DXC Technology Company,16.08,4.41559,5282561,NYQ
+KVUE,Kenvue Inc.,19.88,4.41176,15499333,NYQ
+PTLO,Portillo's Inc.,4.51,4.39815,1085084,NMS
+QS,QuantumScape Corporation,4.15,4.27136,33469307,NMS
+CAPR,"Capricor Therapeutics, Inc.",6.13,4.2517,2748488,NMS
+CXM,"Sprinklr, Inc.",6.69,4.20561,3139336,NYQ
+CPRI,Capri Holdings Limited,16.36,4.20383,2772454,NYQ
+PTON,"Peloton Interactive, Inc.",5.46,4.19848,8261574,NMS
+LBTYK,Liberty Global Ltd.,8.02,4.15585,2355912,NMS
+CWH,"Camping World Holdings, Inc.",4.53,4.13794,2789988,NYQ
+PDM,"Piedmont Realty Trust, Inc.",9.63,4.10811,1516723,NYQ
+MBGL,Mobility Global Inc.,19.28,4.10367,2593293,NYQ
+IART,Integra LifeSciences Holdings C,12.325,4.09628,1386708,NMS
+NIQ,NIQ Global Intelligence plc,19.87,4.08591,1057087,NYQ
+OLN,Olin Corporation,15.54,4.08573,5918953,NYQ
+LADR,Ladder Capital Corp,9.32,4.01785,2138843,NYQ
+HR,Healthcare Realty Trust Incorpo,17.93,4.00232,5814041,NYQ
+TIC,"TIC Solutions, Inc.",9.55,3.91731,1458751,NYQ
+ASAN,"Asana, Inc.",11.5,3.88438,5356469,NYQ
+FWRG,"First Watch Restaurant Group, I",11.56,3.86343,1301838,NMS
+PENN,"PENN Entertainment, Inc.",15.46,3.82807,2752368,NMS
+FBRT,"Franklin BSP Realty Trust, Inc.",6.25,3.8206,1073456,NYQ
+ACI,"Albertsons Companies, Inc.",13.87,3.81737,16997042,NYQ
+LYFT,"Lyft, Inc.",17.43,3.81179,10734494,NMS
+BXMT,"Blackstone Mortgage Trust, Inc.",10.58,3.72549,3066461,NYQ
+STWD,"STARWOOD PROPERTY TRUST, INC. S",12.58,3.70981,8880194,NYQ
+ARLO,"Arlo Technologies, Inc.",12.6,3.70371,3897678,NYQ
+SBRA,"Sabra Health Care REIT, Inc.",19.6,3.70371,2428532,NMS
+CLNE,Clean Energy Fuels Corp.,1.4,3.7037,2428850,NMS
+INFY,Infosys Limited,13.22,3.68628,38295840,NYQ
+RWT,"Redwood Trust, Inc.",3.12,3.65448,3323865,NYQ
+TLK,"PT Telekomunikasi Indonesia, Tb",12.21,3.65026,2152080,NYQ
+BHR,Braemar Hotels & Resorts Inc.,1.43,3.62318,1106323,NYQ
+UWMC,UWM Holdings Corporation,1.15,3.6036,13254145,NYQ
+OPEN,Opendoor Technologies Inc,2.02,3.58974,33607952,NMS
+BRSL,Brightstar Lottery PLC Trading ,9.56,3.57531,1703505,NYQ
+LBTYA,Liberty Global Ltd.,8.14,3.56234,3876675,NMS
+MNSO,MINISO Group Holding Limited,10.21,3.5497,1897454,NYQ
+DRVN,Driven Brands Holdings Inc.,11.82,3.50262,1741029,NMS
+UA,"Under Armour, Inc.",4.73,3.50109,2420232,NYQ
+HLN,Haleon plc,10.37,3.49301,14622369,NYQ
+MYGN,"Myriad Genetics, Inc.",5.76,3.41113,4437973,NMS
+OTF,Blue Owl Technology Finance Cor,9.15,3.38982,2770687,NYQ
