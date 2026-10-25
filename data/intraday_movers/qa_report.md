@@ -1,6 +1,6 @@
 # Intraday archive QA report
 
-- Generated: 2026-10-24T00:52:44.600918-04:00
+- Generated: 2026-10-25T00:49:42.672956-04:00
 - Files checked: 16590 (709 tickers, 31 bar-dates)
 - QA tool: `tools/qa_intraday.py` — flags only, nothing deleted or corrected
 - Daily envelope source: `data\cache\bars`
